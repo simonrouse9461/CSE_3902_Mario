@@ -19,7 +19,7 @@ namespace WindowsGame1
 
         // Computed sprite information
         private static int Width = (int) (EndCoordinate.X - StartCoordinate.X)/TotalFrames;
-        private static int Height = (int)(EndCoordinate.Y - StartCoordinate.Y);
+        private static int Height = (int) (EndCoordinate.Y - StartCoordinate.Y);
 
         // Static animation information
         private static int Period = 3;
@@ -93,7 +93,7 @@ namespace WindowsGame1
 
         // Static animation information
         private static int Period = 8;
-        private static Vector2 LinearDisplacement = new Vector2(0, 20);
+        private static Vector2 TotalDisplacement = new Vector2(0, 20);
         private static int NumOfDisplacement = 5;
         private static int[] DisplacementSequence = { 0, 1, 2, 3, 4, 3, 2, 1 };
 
@@ -112,7 +112,7 @@ namespace WindowsGame1
         // Animation logic
         private Vector2 GetDisplacement()
         {
-            return CurrentDisplacement*LinearDisplacement/NumOfDisplacement;
+            return CurrentDisplacement*TotalDisplacement/NumOfDisplacement;
         }
 
         // State information
@@ -173,7 +173,7 @@ namespace WindowsGame1
 
         // Static animation information
         private static int Period = 16;
-        private static Vector2 LinearDisplacement = new Vector2(40, 0);
+        private static Vector2 TotalDisplacement = new Vector2(40, 0);
         private static int NumOfDisplacement = 8;
         private static int[] FrameSequence = { 7, 6, 5, 7, 6, 5, 4, 3, 0, 1, 2, 0, 1, 2, 3, 4 };
         private static int[] DisplacementSequence = { 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, 0 };
@@ -195,7 +195,7 @@ namespace WindowsGame1
         // Animation logic
         private Vector2 GetDisplacement()
         {
-            return CurrentDisplacement * LinearDisplacement / NumOfDisplacement;
+            return CurrentDisplacement * TotalDisplacement / NumOfDisplacement;
         }
 
         // State information
