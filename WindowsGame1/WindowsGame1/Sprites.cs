@@ -87,66 +87,82 @@ namespace WindowsGame1
 
     public class DeadMovingUpAndDownMarioSprite : ISprite
     {
-        public Texture2D Texture { get; set; }
-        public Vector2 Start { get; set; }
-        public Vector2 End { get; set; }
-        public Vector2 Offset { get; set; }
-        private Vector2 unitOffset;
-        private Vector2 currentOffset;
-        public int TotalFrames { get; set; }
-        public int Interval { get; set; }
-        private int phase;
-        private int width;
-        private int height;
-        private int currentFrame;
-        private int increment;
+        // Content manager to load texture
+        private static ContentManager Content;
 
-        public DeadMovingUpAndDownMarioSprite(Texture2D texture, Vector2 start, Vector2 end, Vector2 offset, int frames, int interval)
+        // Kernal sprite information
+        private static Texture2D Texture;
+        private static Vector2 StartCoordinate = new Vector2(0, 16);
+        private static Vector2 EndCoordinate = new Vector2(14, 29);
+
+        // Computed sprite information
+        private static int Width = (int)(EndCoordinate.X - StartCoordinate.X);
+        private static int Height = (int)(EndCoordinate.Y - StartCoordinate.Y);
+
+        // Static animation information
+        private static int Period = 8;
+        private static Vector2 LinearDisplacement = new Vector2(0, 20);
+        private static int NumOfDisplacement = 5;
+        private static int[] DisplacementSequence = { 0, 1, 2, 3, 4, 3, 2, 1 };
+
+        // Dynamic animation information
+        private int _TimeInterval;
+        public int TimeInterval
         {
-            Texture = texture;
-            Start = start;
-            End = end;
-            TotalFrames = frames;
-            Interval = interval;
-            Offset = offset;
-            unitOffset = offset/frames;
-            currentFrame = 0;
-            phase = 0;
-            width = (int) (End.X - Start.X);
-            height = (int) (End.Y - Start.Y);
-            currentOffset = new Vector2(0, 0);
+            get { return _TimeInterval; }
+            set
+            {
+                _TimeInterval = value;
+                DelayPhase = 0;
+            }
+        }
+
+        // Animation logic
+        private Vector2 GetDisplacement()
+        {
+            return CurrentDisplacement*LinearDisplacement/NumOfDisplacement;
+        }
+
+        // State information
+        public int DelayPhase { get; set; }
+        public int PeriodPhase { get; set; }
+        private int CurrentDisplacement;
+
+        public DeadMovingUpAndDownMarioSprite(ContentManager content)
+        {
+            Content = content;
+            TimeInterval = 10;
+            DelayPhase = 0;
+            PeriodPhase = 0;
+            CurrentDisplacement = DisplacementSequence[PeriodPhase];
         }
 
         public void Load()
         {
-            //Texture = Content.Load<Texture2D>("mario");
+            Texture = Content.Load<Texture2D>("mario");
         }
 
         public void Update()
         {
-            phase++;
-            if (phase == Interval)
+            DelayPhase++;
+            if (DelayPhase == TimeInterval)
             {
-                phase = 0;
-                if (currentFrame == 0)
+                DelayPhase = 0;
+                PeriodPhase++;
+                if (PeriodPhase == Period)
                 {
-                    increment = 1;
+                    PeriodPhase = 0;
                 }
-                else if (currentFrame == TotalFrames)
-                {
-                    increment = -1;
-                }
-                currentFrame += increment;
-                currentOffset += increment*unitOffset;
+                CurrentDisplacement = DisplacementSequence[PeriodPhase];
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            location += currentOffset;
-            Rectangle sourceRectangle = new Rectangle((int) Start.X, (int) Start.Y,
-                width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            location += GetDisplacement();
+            Rectangle sourceRectangle = new Rectangle((int) StartCoordinate.X, (int) StartCoordinate.Y,
+                Width, Height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, Width, Height);
 
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
         }
