@@ -12,6 +12,8 @@ using Microsoft.Xna.Framework.Media;
 
 namespace WindowsGame1
 {
+    // Haden added this comment.
+    
     /// <summary>
     /// This is the main type for your game
     /// </summary>
