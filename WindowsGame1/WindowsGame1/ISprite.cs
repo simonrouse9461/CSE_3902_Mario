@@ -5,6 +5,7 @@ namespace WindowsGame1
 {
     public interface ISprite
     {
+        void Load();
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 location);
     }

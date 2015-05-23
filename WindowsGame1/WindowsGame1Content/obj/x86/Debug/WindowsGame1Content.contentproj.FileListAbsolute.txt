@@ -1,1 +1,2 @@
 \\vmware-host\shared folders\documents\visual studio 2013\Projects\WindowsGame1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Sprint_1\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
