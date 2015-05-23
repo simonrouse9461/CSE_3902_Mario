@@ -84,8 +84,9 @@ namespace WindowsGame1
             gamepadController.RegisterCommand(Buttons.B, deadCommand);
             gamepadController.RegisterCommand(Buttons.X, runningCommand);
 
-            runningInPlaceMarioSprite = new RunningInPlaceMarioSprite(Content);
-            deadMarioSprite = new DeadMovingUpAndDownMarioSprite(Content);
+            runningInPlaceMarioSprite = new RunningInPlaceMarioSprite();
+            deadMarioSprite = new DeadMovingUpAndDownMarioSprite();
+            runningMarioSprite = new RunningLeftAndRightMarioSprite();
 
             base.Initialize();
         }
@@ -107,9 +108,9 @@ namespace WindowsGame1
             //font = Content.Load<SpriteFont>("score");
             texture = Content.Load<Texture2D>("mario");
 
-            runningInPlaceMarioSprite.Load();
-            deadMarioSprite.Load();
-            runningMarioSprite = new RunningLeftAndRightMarioSprite(texture, new Vector2(83, 50), new Vector2(322, 85), new Vector2(60, 0), 8, 10);
+            runningInPlaceMarioSprite.Load(Content);
+            deadMarioSprite.Load(Content);
+            runningMarioSprite.Load(Content);
         
             base.LoadContent();
         }
