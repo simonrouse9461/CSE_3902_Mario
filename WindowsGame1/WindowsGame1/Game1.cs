@@ -26,7 +26,7 @@ namespace WindowsGame1
 
         private IController<Keys> keyboardController;
         private IController<Buttons> gamepadController;
-
+        //Is this enum necessary?
         public enum Sprite
         {
             runningInPlace,
