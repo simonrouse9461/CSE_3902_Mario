@@ -26,18 +26,32 @@ namespace WindowsGame1
 
         private IController<Keys> keyboardController;
         private IController<Buttons> gamepadController;
-        //Is this enum necessary?
+        //Colin: Is this enum necessary?
+        //Chuhan: I use this enum type to define the variable currentSprite and lastSprite, since it's more meaningful than just int.
         public enum Sprite
         {
             runningInPlace,
             dead,
             running
         };
-        internal Sprite currentSprite { get; set; }
+
+        private Sprite _currentSprite;
+        internal Sprite currentSprite
+        {
+            get { return _currentSprite; }
+            set
+            {
+                lastSprite = _currentSprite;
+                _currentSprite = value;
+            }
+        }
+        private Sprite lastSprite;
 
         private ISprite runningInPlaceMarioSprite;
         private ISprite deadMarioSprite;
         private ISprite runningMarioSprite;
+
+        private Dictionary<Sprite, ISprite> spriteMapping;
 
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;
@@ -45,11 +59,6 @@ namespace WindowsGame1
         private ICommand runningCommand;
 
         private Texture2D background;
-        //private Texture2D shuttle;
-        //private Texture2D earth;
-        //private Texture2D cow;
-        //private SpriteFont font;
-        //private int score = 0;
 
         public Game1()
         {
@@ -90,6 +99,11 @@ namespace WindowsGame1
             deadMarioSprite = new DeadMovingUpAndDownMarioSprite();
             runningMarioSprite = new RunningLeftAndRightMarioSprite();
 
+            spriteMapping = new Dictionary<Sprite, ISprite>();
+            spriteMapping.Add(Sprite.runningInPlace, runningInPlaceMarioSprite);
+            spriteMapping.Add(Sprite.dead, deadMarioSprite);
+            spriteMapping.Add(Sprite.running, runningMarioSprite);
+
             base.Initialize();
         }
 
@@ -104,10 +118,6 @@ namespace WindowsGame1
 
             // TODO: use this.Content to load your game content here
             background = Content.Load<Texture2D>("stars");
-            //shuttle = Content.Load<Texture2D>("shuttle");
-            //earth = Content.Load<Texture2D>("earth");
-            //cow = Content.Load<Texture2D>("cow");
-            //font = Content.Load<SpriteFont>("score");
             texture = Content.Load<Texture2D>("mario");
 
             runningInPlaceMarioSprite.Load(Content);
@@ -143,19 +153,10 @@ namespace WindowsGame1
             keyboardController.Update();
             gamepadController.Update();
 
-            switch (currentSprite)
+            spriteMapping[currentSprite].Update();
+            if (currentSprite != lastSprite)
             {
-                case Sprite.runningInPlace:
-                    runningInPlaceMarioSprite.Update();
-                    break;
-                case Sprite.dead:
-                    deadMarioSprite.Update();
-                    break;
-                case Sprite.running:
-                    runningMarioSprite.Update();
-                    break;
-                default:
-                    break;
+                spriteMapping[currentSprite].Reset();
             }
 
             base.Update(gameTime);
@@ -173,24 +174,8 @@ namespace WindowsGame1
             spriteBatch.Begin();
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
-            //spriteBatch.Draw(earth, new Vector2(400, 240), Color.White);
-            //spriteBatch.Draw(shuttle, new Vector2(450, 240), Color.White);
-            //spriteBatch.Draw(cow, new Rectangle(200,100, 50, 50), Color.White);
-            //spriteBatch.DrawString(font, "My Game! The score is: " + score, new Vector2(100, 200), Color.White);
-            switch (currentSprite)
-            {
-                case Sprite.runningInPlace:
-                    runningInPlaceMarioSprite.Draw(spriteBatch, new Vector2(400, 240));
-                    break;
-                case Sprite.dead:
-                    deadMarioSprite.Draw(spriteBatch, new Vector2(400, 240));
-                    break;
-                case Sprite.running:
-                    runningMarioSprite.Draw(spriteBatch, new Vector2(400, 240));
-                    break;
-                default:
-                    break;
-            }
+
+            spriteMapping[currentSprite].Draw(spriteBatch, new Vector2(400, 240));
 
             spriteBatch.End();
 
