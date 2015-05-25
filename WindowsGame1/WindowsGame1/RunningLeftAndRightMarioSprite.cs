@@ -8,25 +8,35 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-
-    public class RunningInPlaceMarioSprite : ISpriteKernal
+    public class RunningLeftAndRightMarioSprite : ISpriteKernal
     {
         public override void Initialize()
         {
             // Source parameters
-            int TotalFrames = 3;
-            Vector2 StartCoordinate = new Vector2(230, 50);
+            int TotalFrames = 8;
+            Vector2 StartCoordinate = new Vector2(83, 50);
             Vector2 EndCoordinate = new Vector2(322, 85);
-
+            
             // Animation parameters
-            int Period = 3;
+            int Period = 16;
+            int DisplacementStages = 8;
 
             Source = new SingleLineSpriteSource(StartCoordinate, EndCoordinate, TotalFrames);
             Animation = new SpriteAnimation(Period,
                 phase =>
                 {
-                    int[] FrameSequence = { 2, 1, 0 };
+                    int[] FrameSequence = { 7, 6, 5, 7, 6, 5, 4, 3, 0, 1, 2, 0, 1, 2, 3, 4 };
                     return FrameSequence[phase];
+                }, DisplacementStages,
+                phase =>
+                {
+                    int[] DisplacementSequence = { 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0, 0 };
+                    return DisplacementSequence[phase];
+                },
+                stage =>
+                {
+                    Vector2 TotalDisplacement = new Vector2(40, 0);
+                    return stage * TotalDisplacement / DisplacementStages;
                 });
         }
 

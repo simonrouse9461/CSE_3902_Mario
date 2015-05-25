@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeadMovingUpAndDownMarioSprite.cs" />
+    <Compile Include="ISpriteKernal.cs" />
     <Compile Include="RunningInPlaceMarioSprite.cs" />
     <Compile Include="Commands.cs" />
     <Compile Include="ICommand.cs" />
@@ -83,6 +84,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="RunningLeftAndRightMarioSprite.cs" />
+    <Compile Include="SingleLineSpriteSource.cs" />
+    <Compile Include="SpriteAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -22,8 +22,6 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private Texture2D texture;
-
         private IController<Keys> keyboardController;
         private IController<Buttons> gamepadController;
         //Colin: Is this enum necessary?
@@ -118,7 +116,6 @@ namespace WindowsGame1
 
             // TODO: use this.Content to load your game content here
             background = Content.Load<Texture2D>("stars");
-            texture = Content.Load<Texture2D>("mario");
 
             runningInPlaceMarioSprite.Load(Content);
             deadMarioSprite.Load(Content);
