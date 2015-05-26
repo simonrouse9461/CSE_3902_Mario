@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-
     public class DeadMovingUpAndDownMarioSprite : SpriteKernal
     {
         public override void Initialize()
@@ -25,13 +24,13 @@ namespace WindowsGame1
             Animation = new SpriteAnimation(Period, null, DisplacementStages,
                 phase =>
                 {
-                    int[] DisplacementSequence = { 0, 1, 2, 3, 4, 3, 2, 1 };
+                    int[] DisplacementSequence = {0, 1, 2, 3, 4, 3, 2, 1};
                     return DisplacementSequence[phase];
                 },
                 stage =>
                 {
                     Vector2 TotalDisplacement = new Vector2(0, 20);
-                    return stage * TotalDisplacement / DisplacementStages;
+                    return stage*TotalDisplacement/DisplacementStages;
                 });
         }
 

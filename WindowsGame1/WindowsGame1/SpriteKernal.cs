@@ -8,30 +8,30 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-
     public abstract class SpriteKernal : ISprite
     {
         // Sprite source information
         public SingleLineSpriteSource Source;
 
-        // Animation information
+        // A structure that defines how does the sprite animate
         public SpriteAnimation Animation;
-    
-        // Properties
-        private int _TimeInterval = 10;
+
+        // The time interval between two updates
+        private int _timeInterval = 10;
+
         public int TimeInterval
         {
-            get { return _TimeInterval; }
+            get { return _timeInterval; }
             set
             {
-                _TimeInterval = value;
-                DelayPhase = 0;
+                _timeInterval = value;
+                TimeIntervalCounter = 0;
             }
         }
 
-        // States
-        public int DelayPhase { get; set; }
-        public int PeriodPhase { get; set; }
+        // States variables
+        public int TimeIntervalCounter { get; set; }
+        public int Phase { get; set; }
 
         // Constructor
         public SpriteKernal()
@@ -40,36 +40,44 @@ namespace WindowsGame1
             Reset();
         }
 
+        // Initialize sprite properties.
         public abstract void Initialize();
 
+        // Reset states.
         public void Reset()
         {
-            DelayPhase = 0;
-            PeriodPhase = 0;
+            TimeIntervalCounter = 0;
+            Phase = 0;
         }
 
+        // Load image content.
         public abstract void Load(ContentManager content);
 
+        // Update state.
         public void Update()
         {
-            DelayPhase++;
-            if (DelayPhase >= TimeInterval)
+            TimeIntervalCounter++;
+            if (TimeIntervalCounter >= TimeInterval)
             {
-                DelayPhase = 0;
-                PeriodPhase++;
-                if (PeriodPhase >= Animation.Period)
+                TimeIntervalCounter = 0;
+                Phase++;
+                if (Phase >= Animation.Period)
                 {
-                    PeriodPhase = 0;
+                    Phase = 0;
                 }
             }
         }
 
+        // Draw on the canvas.
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            location += Animation.GetDisplacement(Animation.GetStage(PeriodPhase));
-            Rectangle sourceRectangle = new Rectangle((int)Source.StartCoordinate.X + Source.Width * Animation.GetFrame(PeriodPhase), (int)Source.StartCoordinate.Y,
-                Source.Width, Source.Height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, Source.Width, Source.Height);
+            location += Animation.GetDisplacement(Animation.GetStage(Phase));
+            Rectangle sourceRectangle =
+                new Rectangle((int) Source.StartCoordinate.X + Source.Width*Animation.GetFrame(Phase),
+                    (int) Source.StartCoordinate.Y,
+                    Source.Width, Source.Height);
+            Rectangle destinationRectangle = new Rectangle((int) location.X, (int) location.Y, Source.Width,
+                Source.Height);
             spriteBatch.Draw(Source.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
     }

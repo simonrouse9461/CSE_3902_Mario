@@ -15,18 +15,12 @@ namespace WindowsGame1
         // Read-only properties
         public int Width
         {
-            get
-            {
-                return (int)(EndCoordinate.X - StartCoordinate.X) / TotalFrames;
-            }
+            get { return (int) (EndCoordinate.X - StartCoordinate.X)/TotalFrames; }
         }
 
         public int Height
         {
-            get
-            {
-                return (int)(EndCoordinate.Y - StartCoordinate.Y);
-            }
+            get { return (int) (EndCoordinate.Y - StartCoordinate.Y); }
         }
 
         // Constructor
@@ -38,9 +32,10 @@ namespace WindowsGame1
             Texture = null;
         }
 
-        public void Load(ContentManager Content, string image)
+        // Load the sprite image
+        public void Load(ContentManager content, string image)
         {
-            Texture = Content.Load<Texture2D>(image);
+            Texture = content.Load<Texture2D>(image);
         }
     }
 }
