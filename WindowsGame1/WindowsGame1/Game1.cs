@@ -22,29 +22,29 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private IController<Keys> keyboardController;
-        private IController<Buttons> gamepadController;
+        private IController<Keys> _keyboardController;
+        private IController<Buttons> _gamepadController;
         //Colin: Is this enum necessary?
-        //Chuhan: I use this enum type to define the variable currentSprite and lastSprite, since it's more meaningful than just int.
+        //Chuhan: I use this enum type to define the variable _currentSprite and _lastSprite, since it's more meaningful than just int.
         public enum Sprite
         {
-            runningInPlace,
-            dead,
-            running
+            RunningInPlace,
+            Dead,
+            Running
         };
 
         private Sprite _currentSprite;
-        internal Sprite currentSprite
+        private Sprite _lastSprite;
+        internal Sprite CurrentSprite
         {
             get { return _currentSprite; }
             set
             {
-                lastSprite = _currentSprite;
+                _lastSprite = _currentSprite;
                 _currentSprite = value;
             }
         }
-        private Sprite lastSprite;
-
+        
         private ISprite runningInPlaceMarioSprite;
         private ISprite deadMarioSprite;
         private ISprite runningMarioSprite;
@@ -73,34 +73,34 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            keyboardController = new KeyboardController();
-            gamepadController = new GamepadController();
+            _keyboardController = new KeyboardController();
+            _gamepadController = new GamepadController();
 
-            currentSprite = Sprite.runningInPlace;
+            CurrentSprite = Sprite.RunningInPlace;
 
             quitCommand = new QuitCommand(this);
             runningInPlaceCommand = new RunningInPlaceCommand(this);
             deadCommand = new DeadCommand(this);
             runningCommand = new RunningCommand(this);
 
-            keyboardController.RegisterCommand(Keys.Q, quitCommand);
-            keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
-            keyboardController.RegisterCommand(Keys.E, deadCommand);
-            keyboardController.RegisterCommand(Keys.R, runningCommand);
+            _keyboardController.RegisterCommand(Keys.Q, quitCommand);
+            _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
+            _keyboardController.RegisterCommand(Keys.E, deadCommand);
+            _keyboardController.RegisterCommand(Keys.R, runningCommand);
 
-            gamepadController.RegisterCommand(Buttons.Back, quitCommand);
-            gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
-            gamepadController.RegisterCommand(Buttons.B, deadCommand);
-            gamepadController.RegisterCommand(Buttons.X, runningCommand);
+            _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
+            _gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
+            _gamepadController.RegisterCommand(Buttons.B, deadCommand);
+            _gamepadController.RegisterCommand(Buttons.X, runningCommand);
 
             runningInPlaceMarioSprite = new RunningInPlaceMarioSprite();
             deadMarioSprite = new DeadMovingUpAndDownMarioSprite();
             runningMarioSprite = new RunningLeftAndRightMarioSprite();
 
             spriteMapping = new Dictionary<Sprite, ISprite>();
-            spriteMapping.Add(Sprite.runningInPlace, runningInPlaceMarioSprite);
-            spriteMapping.Add(Sprite.dead, deadMarioSprite);
-            spriteMapping.Add(Sprite.running, runningMarioSprite);
+            spriteMapping.Add(Sprite.RunningInPlace, runningInPlaceMarioSprite);
+            spriteMapping.Add(Sprite.Dead, deadMarioSprite);
+            spriteMapping.Add(Sprite.Running, runningMarioSprite);
 
             base.Initialize();
         }
@@ -147,13 +147,13 @@ namespace WindowsGame1
                 this.Exit();
 
             // TODO: Add your update logic here
-            keyboardController.Update();
-            gamepadController.Update();
+            _keyboardController.Update();
+            _gamepadController.Update();
 
-            spriteMapping[currentSprite].Update();
-            if (currentSprite != lastSprite)
+            spriteMapping[CurrentSprite].Update();
+            if (CurrentSprite != _lastSprite)
             {
-                spriteMapping[currentSprite].Reset();
+                spriteMapping[CurrentSprite].Reset();
             }
 
             base.Update(gameTime);
@@ -172,7 +172,7 @@ namespace WindowsGame1
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
-            spriteMapping[currentSprite].Draw(spriteBatch, new Vector2(400, 240));
+            spriteMapping[CurrentSprite].Draw(spriteBatch, new Vector2(400, 240));
 
             spriteBatch.End();
 

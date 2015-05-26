@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 namespace WindowsGame1
 {
 
-    public class DeadMovingUpAndDownMarioSprite : ISpriteKernal
+    public class DeadMovingUpAndDownMarioSprite : SpriteKernal
     {
         public override void Initialize()
         {

@@ -72,20 +72,25 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeadMovingUpAndDownMarioSprite.cs" />
-    <Compile Include="ISpriteKernal.cs" />
-    <Compile Include="RunningInPlaceMarioSprite.cs" />
-    <Compile Include="Commands.cs" />
+    <Compile Include="CommandKernal.cs" />
+    <Compile Include="Commands\DeadCommand.cs" />
+    <Compile Include="Controllers\GamepadController.cs" />
+    <Compile Include="Controllers\KeyboardController.cs" />
+    <Compile Include="Sprites\DeadMovingUpAndDownMarioSprite.cs" />
+    <Compile Include="Commands\QuitCommand.cs" />
+    <Compile Include="Commands\RunningCommand.cs" />
+    <Compile Include="Commands\RunningInPlaceCommand.cs" />
+    <Compile Include="Sprites\RunningInPlaceMarioSprite.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="IConrtoller.cs" />
     <Compile Include="ISprite.cs" />
-    <Compile Include="Controllers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="RunningLeftAndRightMarioSprite.cs" />
+    <Compile Include="Sprites\RunningLeftAndRightMarioSprite.cs" />
     <Compile Include="SingleLineSpriteSource.cs" />
     <Compile Include="SpriteAnimation.cs" />
+    <Compile Include="SpriteKernal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
