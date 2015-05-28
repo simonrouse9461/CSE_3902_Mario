@@ -1,7 +1,3 @@
-Content\cow.xnb
-Content\earth.xnb
-Content\shuttle.xnb
 Content\stars.xnb
-Content\SmileyWalk.xnb
 Content\mario.xnb
 Content\score.xnb

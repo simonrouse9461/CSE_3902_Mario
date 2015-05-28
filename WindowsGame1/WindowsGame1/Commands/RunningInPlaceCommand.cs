@@ -1,6 +1,6 @@
 ﻿namespace WindowsGame1
 {
-    public class RunningInPlaceCommand : CommandKernal
+    public class RunningInPlaceCommand : CommandKernel
     {
         public RunningInPlaceCommand(Game1 game) : base(game) { }
 

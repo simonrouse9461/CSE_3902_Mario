@@ -1,10 +1,10 @@
 ﻿namespace WindowsGame1
 {
-    public abstract class CommandKernal : ICommand
+    public abstract class CommandKernel : ICommand
     {
         protected Game1 Game;
 
-        protected CommandKernal(Game1 game)
+        protected CommandKernel(Game1 game)
         {
             Game = game;
         }

@@ -2,48 +2,12 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>cow.png</Source>
-      <Name>cow</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Sprint_1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cow.xnb</Output>
-      <Time>2015-05-22T23:33:50-04:00</Time>
-    </Item>
-    <Item>
-      <Source>earth.png</Source>
-      <Name>earth</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Sprint_1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\earth.xnb</Output>
-      <Time>2015-05-22T23:33:50-04:00</Time>
-    </Item>
-    <Item>
-      <Source>shuttle.png</Source>
-      <Name>shuttle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Sprint_1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\shuttle.xnb</Output>
-      <Time>2015-05-22T23:33:50-04:00</Time>
-    </Item>
-    <Item>
       <Source>stars.jpg</Source>
       <Name>stars</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Sprint_1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\stars.xnb</Output>
-      <Time>2015-05-22T23:33:50-04:00</Time>
-    </Item>
-    <Item>
-      <Source>SmileyWalk.png</Source>
-      <Name>SmileyWalk</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Sprint_1\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SmileyWalk.xnb</Output>
       <Time>2015-05-22T23:33:50-04:00</Time>
     </Item>
     <Item>

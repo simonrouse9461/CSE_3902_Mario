@@ -26,12 +26,7 @@ namespace WindowsGame1
         private IController<Buttons> _gamepadController;
         //Colin: Is this enum necessary?
         //Chuhan: I use this enum type to define the variable _currentSprite and _lastSprite, since it's more meaningful than just int.
-        public enum Sprite
-        {
-            RunningInPlace,
-            Dead,
-            Running
-        };
+        
 
         private Sprite _currentSprite;
         private Sprite _lastSprite;
