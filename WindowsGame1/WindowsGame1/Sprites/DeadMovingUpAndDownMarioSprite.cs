@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class DeadMovingUpAndDownMarioSprite : SpriteKernel
     {
-        public override void Initialize()
+        protected override void Initialize()
         {
             // Source parameters
             Vector2 startCoordinate = new Vector2(0, 16);
@@ -20,7 +20,7 @@ namespace WindowsGame1
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "mario");
+            Source.Load(content, "Mario");
         }
     }
 }

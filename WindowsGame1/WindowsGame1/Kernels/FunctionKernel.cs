@@ -13,11 +13,8 @@ namespace WindowsGame1
         {
             Function = getValue ?? (stage => default(T));
             Stage = new Counter(period);
-            Initialize();
             Reset();
         }
-
-        protected abstract void Initialize();
 
         public void Reset(int period = -1)
         {

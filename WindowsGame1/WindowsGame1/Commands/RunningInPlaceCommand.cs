@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.CurrentSprite = Game1.Sprite.RunningInPlace;
+            Game.Mario.SwitchSprite(MarioSpriteEnum.RunningInPlace);
         }
     }
 }

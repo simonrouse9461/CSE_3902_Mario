@@ -10,7 +10,7 @@ namespace WindowsGame1
 {
     public class RunningLeftAndRightMarioSprite : SpriteKernel
     {
-        public override void Initialize()
+        protected override void Initialize()
         {
             // Source parameters
             const int totalFrames = 8;
@@ -24,15 +24,15 @@ namespace WindowsGame1
             Animation = new SpriteAnimation(
                 phase =>
                 {
-                    int[] FrameSequence = {7, 6, 5, 7, 6, 5, 4, 3, 0, 1, 2, 0, 1, 2, 3, 4};
-                    return FrameSequence[phase];
+                    int[] frameSequence = {7, 6, 5, 7, 6, 5, 4, 3, 0, 1, 2, 0, 1, 2, 3, 4};
+                    return frameSequence[phase];
                 }, 
                 period);
         }
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "mario");
+            Source.Load(content, "Mario");
         }
     }
 }

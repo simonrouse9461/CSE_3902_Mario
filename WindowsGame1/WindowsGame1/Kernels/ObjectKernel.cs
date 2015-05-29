@@ -17,24 +17,12 @@ namespace WindowsGame1
         // Sprite information
         protected Dictionary<Enum, ISprite> Sprites;
 
-        protected void SwitchSprite(Enum sprite)
-        {
-            State.ActiveSprite = sprite;
-            Sprites[sprite].Reset();
-        }
-
         // Motion information
         protected Dictionary<Enum, ObjectMotion> Motions;
 
-        protected void ToggleMotion(Enum motion, bool status)
-        {
-            State.EffectiveMotion[motion] = status;
-            if (status)
-                Motions[motion].Reset();
-        }
-
         protected ObjectKernel(Vector2 location)
         {
+            Counter = new Counter();
             Initialize();
             Reset(location);
         }
@@ -46,10 +34,11 @@ namespace WindowsGame1
             State.Location = location;
             Counter.Reset();
             SwitchSprite(State.ActiveSprite);
-            foreach (var motionStatus in State.EffectiveMotion)
+            foreach (var motion in Motions)
             {
-                ToggleMotion(motionStatus.Key, false);
+                ToggleMotion(motion.Key, false);
             }
+
         }
 
         public void Load(ContentManager content)
@@ -71,7 +60,21 @@ namespace WindowsGame1
             {
                 if (motionStatus.Value)
                     Motions[motionStatus.Key].Update();
+                State.Location += Motions[motionStatus.Key].GetValue();
             }
+        }
+
+        public void SwitchSprite(Enum sprite)
+        {
+            State.ActiveSprite = sprite;
+            Sprites[sprite].Reset();
+        }
+
+        public void ToggleMotion(Enum motion, bool status)
+        {
+            State.EffectiveMotion[motion] = status;
+            if (status)
+                Motions[motion].Reset();
         }
 
         public void Update()

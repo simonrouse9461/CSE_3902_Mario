@@ -14,7 +14,6 @@ namespace WindowsGame1
 
         protected StateKernel()
         {
-            Location = default(Vector2);
             Initialize();
         }
 

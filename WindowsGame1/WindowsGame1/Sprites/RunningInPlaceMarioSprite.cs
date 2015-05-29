@@ -11,7 +11,7 @@ namespace WindowsGame1
 
     public class RunningInPlaceMarioSprite : SpriteKernel
     {
-        public override void Initialize()
+        protected override void Initialize()
         {
             // Source parameters
             const int totalFrames = 3;
@@ -25,15 +25,15 @@ namespace WindowsGame1
             Animation = new SpriteAnimation(
                 phase =>
                 {
-                    int[] FrameSequence = { 2, 1, 0 };
-                    return FrameSequence[phase];
+                    int[] frameSequence = { 2, 1, 0 };
+                    return frameSequence[phase];
                 },
                 period);
         }
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "mario");
+            Source.Load(content, "Mario");
         }
     }
 }
