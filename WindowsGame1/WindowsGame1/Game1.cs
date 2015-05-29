@@ -24,7 +24,7 @@ namespace WindowsGame1
         private IController<Buttons> _gamepadController;
 
 
-        public IObject Mario;
+        public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
 
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;

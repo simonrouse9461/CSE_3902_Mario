@@ -80,14 +80,13 @@
     <Compile Include="Kernels\FunctionKernel.cs" />
     <Compile Include="Interfaces\IFunction.cs" />
     <Compile Include="Interfaces\IObject.cs" />
-    <Compile Include="Interfaces\IState.cs" />
+    <Compile Include="MarioMotionEnum.cs" />
     <Compile Include="MarioObject.cs" />
     <Compile Include="MarioSpriteEnum.cs" />
-    <Compile Include="MarioState.cs" />
-    <Compile Include="MotionEnum.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="ObjectMotion.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
+    <Compile Include="ObjectState.cs" />
     <Compile Include="Sprites\DeadMovingUpAndDownMarioSprite.cs" />
     <Compile Include="Commands\QuitCommand.cs" />
     <Compile Include="Commands\RunningCommand.cs" />
@@ -102,7 +101,6 @@
     <Compile Include="Sprites\RunningLeftAndRightMarioSprite.cs" />
     <Compile Include="SingleLineSpriteSource.cs" />
     <Compile Include="SpriteAnimation.cs" />
-    <Compile Include="Kernels\StateKernel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -7,18 +7,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel : IObject
+    public abstract class ObjectKernel<T, K> : IObject<T, K>
+        where T : struct, IConvertible
+        where K : struct, IConvertible
     {
-        protected IState State;
+        protected ObjectState<T, K> State;
 
         // A Counter that defines update frequency
         protected Counter Counter;
 
         // Sprite information
-        protected Dictionary<Enum, ISprite> Sprites;
+        protected Dictionary<T, ISprite> Sprites;
 
         // Motion information
-        protected Dictionary<Enum, ObjectMotion> Motions;
+        protected Dictionary<K, ObjectMotion> Motions;
 
         protected ObjectKernel(Vector2 location)
         {
@@ -64,13 +66,13 @@ namespace WindowsGame1
             }
         }
 
-        public void SwitchSprite(Enum sprite)
+        public void SwitchSprite(T sprite)
         {
             State.ActiveSprite = sprite;
             Sprites[sprite].Reset();
         }
 
-        public void ToggleMotion(Enum motion, bool status)
+        public void ToggleMotion(K motion, bool status)
         {
             State.EffectiveMotion[motion] = status;
             if (status)
