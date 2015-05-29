@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,6 +10,9 @@ namespace WindowsGame1
     public abstract class ObjectKernel : IObject
     {
         protected IState State;
+
+        // A Counter that defines update frequency
+        protected Counter Counter;
 
         // Sprite information
         protected Dictionary<Enum, ISprite> Sprites;
@@ -29,23 +33,20 @@ namespace WindowsGame1
                 Motions[motion].Reset();
         }
 
-        // A Counter that defines update frequency
-        protected Counter Counter;
-
         protected ObjectKernel(Vector2 location)
         {
             Initialize();
             Reset(location);
         }
 
-        public abstract void Initialize();
+        protected abstract void Initialize();
 
         public void Reset(Vector2 location)
         {
             State.Location = location;
             Counter.Reset();
             SwitchSprite(State.ActiveSprite);
-            foreach (KeyValuePair<Enum, bool> motionStatus in State.EffectiveMotion)
+            foreach (var motionStatus in State.EffectiveMotion)
             {
                 ToggleMotion(motionStatus.Key, false);
             }
@@ -53,7 +54,7 @@ namespace WindowsGame1
 
         public void Load(ContentManager content)
         {
-            foreach (KeyValuePair<Enum, ISprite> sprite in Sprites)
+            foreach (var sprite in Sprites)
             {
                 sprite.Value.Load(content);
             }
@@ -66,7 +67,7 @@ namespace WindowsGame1
 
         protected void UpdateLocation()
         {
-            foreach (KeyValuePair<Enum, bool> motionStatus in State.EffectiveMotion)
+            foreach (var motionStatus in State.EffectiveMotion)
             {
                 if (motionStatus.Value)
                     Motions[motionStatus.Key].Update();

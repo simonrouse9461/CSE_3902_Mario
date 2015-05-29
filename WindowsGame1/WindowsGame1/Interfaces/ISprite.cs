@@ -6,7 +6,6 @@ namespace WindowsGame1
 {
     public interface ISprite
     {
-        void Initialize();
         void Reset();
         void Load(ContentManager content);
         void Update();

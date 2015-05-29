@@ -18,6 +18,6 @@ namespace WindowsGame1
             Initialize();
         }
 
-        public abstract void Initialize();
+        protected abstract void Initialize();
     }
 }

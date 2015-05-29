@@ -17,16 +17,16 @@ namespace WindowsGame1
             Reset();
         }
 
-        public abstract void Initialize();
+        protected abstract void Initialize();
 
         public void Reset(int period = -1)
         {
             Stage.Reset(period); 
         }
 
-        public void Update(int stage = 0)
+        public void Update(int phase = 0)
         {
-            Stage.Update(stage);
+            Stage.Update(phase);
         }
 
         public T GetValue()

@@ -20,7 +20,7 @@ namespace WindowsGame1
         }
 
         // Initialize sprite properties.
-        public abstract void Initialize();
+        protected abstract void Initialize();
 
         // Reset states.
         public void Reset()
