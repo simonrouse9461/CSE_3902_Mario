@@ -14,7 +14,7 @@ namespace WindowsGame1
             // Animation parameters
             const int period = 1;
 
-            Source = new SingleLineSpriteSource(startCoordinate, endCoordinate);
+            Source = new SpriteSource(startCoordinate, endCoordinate);
             Animation = new SpriteAnimation(null, period);
         }
 
