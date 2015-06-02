@@ -139,6 +139,7 @@ namespace WindowsGame1
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
             Mario.Draw(spriteBatch);
+            QuestionBlock.Draw(spriteBatch);
 
             spriteBatch.End();
 
