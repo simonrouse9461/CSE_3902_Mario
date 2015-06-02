@@ -3,6 +3,7 @@ namespace WindowsGame1
 	public enum GoombaSpriteEnum
 	{
 		stationaryGoomba,
-		walkingGoomba	
+		walkingGoomba,
+		squashedGoomba
 	}
 }
