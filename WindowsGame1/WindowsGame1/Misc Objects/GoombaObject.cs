@@ -4,15 +4,15 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-	public class GoombaObject : ObjectKernel<GoombaSpriteEnum, EnemyMotionEnum>
+	public class GoombaObject : ObjectKernel<GoombaSpriteEnum, GoombaMotionEnum>
 	{
 		public GoombaObject(Vector2 location) : base(location) { }
 		
 		protected override void Initialize()
 		{
-			State = new ObjectState<GoombaSpriteEnum, EnemyMotionEnum>(default(Vector2));
+			State = new ObjectState<GoombaSpriteEnum, GoombaMotionEnum>(default(Vector2));
 			Sprites = new Dictionary<GoombaSpriteEnum, ISprite>();
-			Motions = new Dictionary<EnemyMotionEnum, ObjectMotion>();
+			Motions = new Dictionary<GoombaMotionEnum, ObjectMotion>();
 			
 		}
 	}
