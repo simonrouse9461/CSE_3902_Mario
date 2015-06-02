@@ -1,5 +1,5 @@
 Content\stars.xnb
 Content\mario.xnb
 Content\question block.xnb
-Content\score.xnb
 Content\single green pipe.xnb
+Content\score.xnb
