@@ -37,6 +37,15 @@
       <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\score.xnb</Output>
       <Time>2015-05-29T12:38:09.1623625-04:00</Time>
     </Item>
+    <Item>
+      <Source>single green pipe.jpg</Source>
+      <Name>single green pipe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\single green pipe.xnb</Output>
+      <Time>2015-05-31T18:28:20.400287-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{077517F8-B460-4305-B13E-9B769FC7807D}</ContentProjectGUID>

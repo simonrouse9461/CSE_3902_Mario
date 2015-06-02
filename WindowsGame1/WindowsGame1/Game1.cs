@@ -30,6 +30,7 @@ namespace WindowsGame1
         private ICommand runningInPlaceCommand;
         private ICommand deadCommand;
         private ICommand runningCommand;
+        private ICommand questionBlockCommand;
 
         private Texture2D background;
 
@@ -55,6 +56,7 @@ namespace WindowsGame1
             runningInPlaceCommand = new RunningInPlaceCommand(this);
             deadCommand = new DeadCommand(this);
             runningCommand = new RunningCommand(this);
+            questionBlockCommand = new QuestionBlockCommand(this);
 
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
             _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
