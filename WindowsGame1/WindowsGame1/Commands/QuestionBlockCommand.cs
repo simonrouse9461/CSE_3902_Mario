@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.Mario.SwitchSprite(MarioSpriteEnum.RunningInPlace);
+            Game.QuestionBlock.SwitchSprite(BlockSpriteEnum.QuestionBlock);
         }
 
     }

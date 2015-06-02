@@ -85,10 +85,13 @@
     <Compile Include="Mario\MarioObject.cs" />
     <Compile Include="Mario\Enums\MarioSpriteEnum.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
+    <Compile Include="Misc Objects\BlockObject.cs" />
+    <Compile Include="Misc Objects\Enum\BlockMotionEnum.cs" />
     <Compile Include="Misc Objects\Enum\BlockSpriteEnum.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
     <Compile Include="ObjectMotion.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="ObjectState.cs" />
@@ -98,7 +101,7 @@
     <Compile Include="Commands\RunningInPlaceCommand.cs" />
     <Compile Include="Mario\Sprites\RunningInPlaceMarioSprite.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
-    <Compile Include="Interfaces\IConrtoller.cs" />
+    <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

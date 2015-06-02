@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockSprite : SpriteKernel
+    public class UsedBlockSprite : SpriteKernel
     {
+        protected override void Initialize(){
 
-        protected override void Initialize()
-        {
-            Vector2 startCoordinate = new Vector2(0, 16);
+        
+        Vector2 startCoordinate = new Vector2(0, 16);
             Vector2 endCoordinate = new Vector2(14, 29);
             const int period = 1;
 
@@ -21,5 +21,6 @@ namespace WindowsGame1
         {
             Source.Load(content, "question block");
         }
+
     }
 }

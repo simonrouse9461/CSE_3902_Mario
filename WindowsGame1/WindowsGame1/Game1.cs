@@ -25,7 +25,7 @@ namespace WindowsGame1
 
 
         public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
-
+        public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;
         private ICommand deadCommand;
@@ -62,6 +62,7 @@ namespace WindowsGame1
             _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
             _keyboardController.RegisterCommand(Keys.E, deadCommand);
             _keyboardController.RegisterCommand(Keys.R, runningCommand);
+            _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
 
             _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
             _gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
@@ -69,6 +70,7 @@ namespace WindowsGame1
             _gamepadController.RegisterCommand(Buttons.X, runningCommand);
 
             Mario = new MarioObject(new Vector2(400, 240));
+            QuestionBlock = new BlockObject(new Vector2(300, 200));
 
             base.Initialize();
         }
@@ -86,6 +88,7 @@ namespace WindowsGame1
             background = Content.Load<Texture2D>("stars");
 
             Mario.Load(Content);
+            QuestionBlock.Load(Content);
         
             base.LoadContent();
         }
@@ -117,6 +120,7 @@ namespace WindowsGame1
             _gamepadController.Update();
 
             Mario.Update();
+            QuestionBlock.Update();
 
             base.Update(gameTime);
         }
