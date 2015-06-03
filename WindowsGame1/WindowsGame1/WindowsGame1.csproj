@@ -72,7 +72,19 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\FireflowerCommand.cs" />
+    <Compile Include="Commands\KoopaCommand.cs" />
+    <Compile Include="Commands\MushroomCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
+    <Compile Include="Enemies\EnemyObject.cs" />
+    <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
+    <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
+    <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
+    <Compile Include="Items\Enum\ItemMotionEnum.cs" />
+    <Compile Include="Items\Enum\ItemSpriteEnum.cs" />
+    <Compile Include="Items\ItemObject.cs" />
+    <Compile Include="Items\Sprites\MushroomSprite.cs" />
+    <Compile Include="Items\Sprites\FireflowerSprite.cs" />
     <Compile Include="Kernels\CommandKernal.cs" />
     <Compile Include="Commands\DeadCommand.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
