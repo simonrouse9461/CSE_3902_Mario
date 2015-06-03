@@ -6,6 +6,7 @@ namespace WindowsGame1
     public class QuestionBlockSprite : SpriteKernel
     {
         //comment here
+        //another comment
         protected override void Initialize()
         {
             const int totalFrames = 3;
