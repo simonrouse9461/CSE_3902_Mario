@@ -24,6 +24,7 @@ namespace WindowsGame1
 
         public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> UsedBlock;
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;
         private ICommand deadCommand;
@@ -49,13 +50,13 @@ namespace WindowsGame1
             runningInPlaceCommand = new RunningInPlaceCommand(this);
             deadCommand = new DeadCommand(this);
             runningCommand = new RunningCommand(this);
-            questionBlockCommand = new QuestionBlockCommand(this);
+            //questionBlockCommand = new QuestionBlockCommand(this);
 
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
             _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
             _keyboardController.RegisterCommand(Keys.E, deadCommand);
             _keyboardController.RegisterCommand(Keys.R, runningCommand);
-            _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
+            //_keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
 
             _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
             _gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
@@ -64,6 +65,7 @@ namespace WindowsGame1
 
             Mario = new MarioObject(new Vector2(400, 240));
             QuestionBlock = new BlockObject(new Vector2(300, 200));
+            UsedBlock = new BlockObject(new Vector2(200, 200));
 
             base.Initialize();
         }
@@ -79,6 +81,8 @@ namespace WindowsGame1
 
             Mario.Load(Content);
             QuestionBlock.Load(Content);
+            UsedBlock.Load(Content);
+
         
             base.LoadContent();
         }
@@ -100,7 +104,6 @@ namespace WindowsGame1
 
             Mario.Update();
             QuestionBlock.Update();
-
             base.Update(gameTime);
         }
 
@@ -115,7 +118,7 @@ namespace WindowsGame1
 
             Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);
-
+            UsedBlock.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
