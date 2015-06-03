@@ -53,3 +53,6 @@ C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\obj\x86\Deb
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Fireflower.xnb
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Koopa.xnb
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Mushroom.xnb

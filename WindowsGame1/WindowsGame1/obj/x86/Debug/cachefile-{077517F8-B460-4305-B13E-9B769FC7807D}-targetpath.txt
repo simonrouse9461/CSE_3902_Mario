@@ -2,4 +2,7 @@ Content\stars.xnb
 Content\mario.xnb
 Content\question block.xnb
 Content\single green pipe.xnb
+Content\Fireflower.xnb
+Content\Koopa.xnb
+Content\Mushroom.xnb
 Content\score.xnb

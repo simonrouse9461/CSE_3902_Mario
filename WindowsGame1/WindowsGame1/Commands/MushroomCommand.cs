@@ -2,9 +2,9 @@
 
 namespace WindowsGame1
 {
-    public class FireflowerCommand : CommandKernel
+    public class MushroomCommand : CommandKernel
     {
-        public FireflowerCommand(Game1 game) : base(game) { }
+        public MushroomCommand(Game1 game) : base(game) { }
 
         public override void Execute()
         {

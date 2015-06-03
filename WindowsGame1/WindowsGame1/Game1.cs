@@ -34,7 +34,7 @@ namespace WindowsGame1
         private ICommand questionBlockCommand;
         private ICommand fireflowerCommand;
         private ICommand mushroomCommand;
-        private ICommand KoopaCommand;
+        private ICommand koopaCommand;
 
         private Texture2D background;
 
@@ -56,13 +56,16 @@ namespace WindowsGame1
             deadCommand = new DeadCommand(this);
             runningCommand = new RunningCommand(this);
             questionBlockCommand = new QuestionBlockCommand(this);
+            mushroomCommand = new MushroomCommand(this);
+            fireflowerCommand = new FireflowerCommand(this);
+            koopaCommand = new KoopaCommand(this);
 
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
             _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
             _keyboardController.RegisterCommand(Keys.E, deadCommand);
             _keyboardController.RegisterCommand(Keys.R, runningCommand);
             _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
-            _keyboardController.RegisterCommand(Keys.K, KoopaCommand);
+            _keyboardController.RegisterCommand(Keys.K, koopaCommand);
             _keyboardController.RegisterCommand(Keys.M, mushroomCommand);
             _keyboardController.RegisterCommand(Keys.F, fireflowerCommand);
 
