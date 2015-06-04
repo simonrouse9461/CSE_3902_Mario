@@ -24,8 +24,8 @@ namespace WindowsGame1
 
         public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
         public IObject<BlockSpriteEnum, ItemMotionEnum> QuestionBlock;
-        public IObject<ItemSpriteEnum, ItemMotionEnum> Fireflower;
-        public IObject<ItemSpriteEnum, ItemMotionEnum> Mushroom;
+        public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
+        public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;

@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Mushroom : ObjectKernel<ItemSpriteEnum, ItemMotionEnum>
+    public class Mushroom : ObjectKernel<MushroomSpriteEnum, MushroomMotionEnum>
     {
         public Mushroom(Vector2 location) : base(location) { }
 
 
         protected override void Initialize()
         {
-            State = new ObjectState<ItemSpriteEnum, ItemMotionEnum>(default(Vector2));
-            Sprites = new Dictionary<ItemSpriteEnum, ISprite>();
-            Motions = new Dictionary<ItemMotionEnum, ObjectMotion>();
+            State = new ObjectState<MushroomSpriteEnum, MushroomMotionEnum>(default(Vector2));
+            Sprites = new Dictionary<MushroomSpriteEnum, ISprite>();
+            Motions = new Dictionary<MushroomMotionEnum, ObjectMotion>();
 
-            Sprites.Add(ItemSpriteEnum.Mushroom, new MushroomSprite());
-            Sprites.Add(ItemSpriteEnum.Fireflower, new FireflowerSprite());
-            Motions.Add(ItemMotionEnum.leftRight, new ObjectMotion());
+            Sprites.Add(MushroomSpriteEnum.Mushroom, new MushroomSprite());
+            //Sprites.Add(MushroomSpriteEnum.Fireflower, new FireflowerSprite());
+            Motions.Add(MushroomMotionEnum.leftRight, new ObjectMotion());
 
         }
         protected void Reset()
