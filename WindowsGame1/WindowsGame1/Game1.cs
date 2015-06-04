@@ -22,8 +22,8 @@ namespace WindowsGame1
         private IController<Buttons> _gamepadController;
 
 
-        public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
-        public IObject<BlockSpriteEnum, ItemMotionEnum> QuestionBlock;
+        //public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
         public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
@@ -53,9 +53,7 @@ namespace WindowsGame1
             _gamepadController = new GamepadController();
 
             quitCommand = new QuitCommand(this);
-            runningInPlaceCommand = new RunningInPlaceCommand(this);
             deadCommand = new DeadCommand(this);
-            runningCommand = new RunningCommand(this);
             questionBlockCommand = new QuestionBlockCommand(this);
             mushroomCommand = new MushroomCommand(this);
             fireflowerCommand = new FireflowerCommand(this);
@@ -75,7 +73,7 @@ namespace WindowsGame1
             _gamepadController.RegisterCommand(Buttons.B, deadCommand);
             _gamepadController.RegisterCommand(Buttons.X, runningCommand);
 
-            Mario = new MarioObject(new Vector2(400, 240));
+            //Mario = new MarioObject(new Vector2(400, 240));
             QuestionBlock = new BlockObject(new Vector2(300, 200));
             Fireflower = new Fireflower(new Vector2(400, 300));
             Mushroom = new Mushroom(new Vector2(500, 300));
@@ -93,7 +91,7 @@ namespace WindowsGame1
             
             background = Content.Load<Texture2D>("overworld");
 
-            Mario.Load(Content);
+            //Mario.Load(Content);
             QuestionBlock.Load(Content);
             Mushroom.Load(Content);
             Fireflower.Load(Content);
@@ -117,7 +115,7 @@ namespace WindowsGame1
             _keyboardController.Update();
             _gamepadController.Update();
 
-            Mario.Update();
+            //Mario.Update();
             QuestionBlock.Update();
             Fireflower.Update();
             Mushroom.Update();
@@ -136,7 +134,7 @@ namespace WindowsGame1
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
-            Mario.Draw(spriteBatch);
+            //Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
             Mushroom.Draw(spriteBatch);

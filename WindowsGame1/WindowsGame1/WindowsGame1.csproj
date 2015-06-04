@@ -119,8 +119,6 @@
     <Compile Include="ObjectState.cs" />
     <Compile Include="Mario\Sprites\DeadMovingUpAndDownMarioSprite.cs" />
     <Compile Include="Commands\QuitCommand.cs" />
-    <Compile Include="Commands\RunningCommand.cs" />
-    <Compile Include="Commands\RunningInPlaceCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\ISprite.cs" />

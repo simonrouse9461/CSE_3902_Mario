@@ -14,8 +14,6 @@ namespace WindowsGame1
             Sprites = new Dictionary<MarioSpriteEnum, ISprite>();
             Motions = new Dictionary<MarioMotionEnum, ObjectMotion>();
 
-            Sprites.Add(MarioSpriteEnum.RunningInPlace, new RunningInPlaceMarioSprite());
-            Sprites.Add(MarioSpriteEnum.Running, new RunningLeftAndRightMarioSprite());
             Sprites.Add(MarioSpriteEnum.Dead, new DeadMovingUpAndDownMarioSprite());
 
             Motions.Add(MarioMotionEnum.LeftRight, new ObjectMotion());
