@@ -91,6 +91,24 @@
       <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\overworld.xnb</Output>
       <Time>2015-06-03T19:06:51.4501624-04:00</Time>
     </Item>
+    <Item>
+      <Source>enemies.png</Source>
+      <Name>enemies</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemies.xnb</Output>
+      <Time>2015-06-04T14:08:01.0676342-04:00</Time>
+    </Item>
+    <Item>
+      <Source>items.png</Source>
+      <Name>items</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\items.xnb</Output>
+      <Time>2015-06-04T14:09:43.5616166-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{077517F8-B460-4305-B13E-9B769FC7807D}</ContentProjectGUID>

@@ -9,8 +9,8 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             const int totalFrames = 4;
-            Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(120, 25);
+            Vector2 startCoordinate = new Vector2(145, 0);
+            Vector2 endCoordinate = new Vector2(260, 25);
             const int period = 8;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
@@ -26,7 +26,7 @@ namespace WindowsGame1
         public override void Load(ContentManager content)
         {
 
-            Source.Load(content, "Koopa");
+            Source.Load(content, "enemies");
         }
 
     }
