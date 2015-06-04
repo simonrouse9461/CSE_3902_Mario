@@ -2,4 +2,4 @@
 *.cache
 *.suo
 *.exe
-.pdb
+*.pdb
