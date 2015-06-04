@@ -24,8 +24,8 @@ namespace WindowsGame1
 
         public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
         public IObject<BlockSpriteEnum, ItemMotionEnum> QuestionBlock;
-        public IObject<ItemSpriteEnum, ItemMotionEnum> Mushroom;
         public IObject<ItemSpriteEnum, ItemMotionEnum> Fireflower;
+        public IObject<ItemSpriteEnum, ItemMotionEnum> Mushroom;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;
@@ -116,8 +116,8 @@ namespace WindowsGame1
 
             Mario.Update();
             QuestionBlock.Update();
-            Mushroom.Update();
             Fireflower.Update();
+            Mushroom.Update();
             Koopa.Update();
 
             base.Update(gameTime);
@@ -134,8 +134,8 @@ namespace WindowsGame1
 
             Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);
-            Mushroom.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
+            Mushroom.Draw(spriteBatch);
             Koopa.Draw(spriteBatch);
 
             spriteBatch.End();
