@@ -82,6 +82,42 @@
       <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\overworld.xnb</Output>
       <Time>2015-06-03T19:06:51.4501624-04:00</Time>
     </Item>
+    <Item>
+      <Source>IndestructibleBlock.jpg</Source>
+      <Name>IndestructibleBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\IndestructibleBlock.xnb</Output>
+      <Time>2015-06-03T20:31:01.9771657-04:00</Time>
+    </Item>
+    <Item>
+      <Source>usedblock.jpg</Source>
+      <Name>usedblock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\usedblock.xnb</Output>
+      <Time>2015-06-03T20:31:01.9921821-04:00</Time>
+    </Item>
+    <Item>
+      <Source>destructibleblock.jpg</Source>
+      <Name>destructibleblock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\destructibleblock.xnb</Output>
+      <Time>2015-06-03T20:31:01.9731651-04:00</Time>
+    </Item>
+    <Item>
+      <Source>normalblock.jpg</Source>
+      <Name>normalblock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\normalblock.xnb</Output>
+      <Time>2015-06-03T20:31:01.9811696-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{077517F8-B460-4305-B13E-9B769FC7807D}</ContentProjectGUID>

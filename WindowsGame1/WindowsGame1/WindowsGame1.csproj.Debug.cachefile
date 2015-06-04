@@ -7,3 +7,7 @@ Content\Koopa.xnb
 Content\Mushroom.xnb
 Content\score.xnb
 Content\overworld.xnb
+Content\IndestructibleBlock.xnb
+Content\usedblock.xnb
+Content\destructibleblock.xnb
+Content\normalblock.xnb
