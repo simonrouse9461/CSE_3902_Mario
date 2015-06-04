@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Fireflower : ObjectKernel<ItemSpriteEnum, ItemMotionEnum>
+    public class Fireflower : ObjectKernel<FireflowerSpriteEnum, FireflowerMotionEnum>
     {
         public Fireflower(Vector2 location) : base(location) { }
 
 
         protected override void Initialize()
         {
-            State = new ObjectState<ItemSpriteEnum, ItemMotionEnum>(default(Vector2));
-            Sprites = new Dictionary<ItemSpriteEnum, ISprite>();
-            Motions = new Dictionary<ItemMotionEnum, ObjectMotion>();
+            State = new ObjectState<FireflowerSpriteEnum, FireflowerMotionEnum>(default(Vector2));
+            Sprites = new Dictionary<FireflowerSpriteEnum, ISprite>();
+            Motions = new Dictionary<FireflowerMotionEnum, ObjectMotion>();
 
-            Sprites.Add(ItemSpriteEnum.Fireflower, new FireflowerSprite());
-            Sprites.Add(ItemSpriteEnum.Mushroom, new MushroomSprite());
-            Motions.Add(ItemMotionEnum.leftRight, new ObjectMotion());
+            Sprites.Add(FireflowerSpriteEnum.Fireflower, new FireflowerSprite());
+            //Motions.Add(FireflowerMotionEnum.leftRight, new ObjectMotion());
         }
         protected void Reset()
         {

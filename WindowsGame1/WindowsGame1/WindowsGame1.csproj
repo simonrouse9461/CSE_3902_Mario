@@ -82,8 +82,12 @@
     <Compile Include="Enemies\Koopa.cs" />
     <Compile Include="Enemies\Sprites\GoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
+    <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
+    <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
     <Compile Include="Items\Enum\ItemMotionEnum.cs" />
     <Compile Include="Items\Enum\ItemSpriteEnum.cs" />
+    <Compile Include="Items\Enum\MushroomMotionEnum.cs" />
+    <Compile Include="Items\Enum\MushroomSpriteEnum.cs" />
     <Compile Include="Items\Fireflower.cs" />
     <Compile Include="Items\ItemObject.cs" />
     <Compile Include="Items\Mushroom.cs" />
