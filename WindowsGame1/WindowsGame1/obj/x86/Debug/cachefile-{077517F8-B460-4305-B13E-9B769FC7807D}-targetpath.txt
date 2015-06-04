@@ -8,3 +8,4 @@ Content\blocks.xnb
 Content\overworld.xnb
 Content\enemies.xnb
 Content\score.xnb
+Content\items.xnb
