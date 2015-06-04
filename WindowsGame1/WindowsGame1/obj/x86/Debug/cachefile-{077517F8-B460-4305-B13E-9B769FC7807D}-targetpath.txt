@@ -1,5 +1,6 @@
 Content\stars.xnb
 Content\mario.xnb
+Content\question block.xnb
 Content\single green pipe.xnb
 Content\overworld.xnb
 Content\Fireflower.xnb
@@ -10,4 +11,4 @@ Content\usedblock.xnb
 Content\destructibleblock.xnb
 Content\normalblock.xnb
 Content\score.xnb
-Content\blocks.xnb
+Content\goomba.xnb

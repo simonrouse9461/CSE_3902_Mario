@@ -78,7 +78,9 @@
     <Compile Include="Commands\QuestionBlockCommand.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
+    <Compile Include="Enemies\Goomba.cs" />
     <Compile Include="Enemies\Koopa.cs" />
+    <Compile Include="Enemies\Sprites\GoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
     <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
     <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
