@@ -26,6 +26,7 @@ namespace WindowsGame1
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
         public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
+        public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Goomba;
         private ICommand quitCommand;
@@ -77,6 +78,7 @@ namespace WindowsGame1
             QuestionBlock = new BlockObject(new Vector2(300, 200));
             Fireflower = new Fireflower(new Vector2(400, 300));
             Mushroom = new Mushroom(new Vector2(500, 300));
+            _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(300, 300));
             Goomba = new Goomba(new Vector2(340, 302));
             Goomba.SwitchSprite(EnemySpriteEnum.Goomba);
@@ -95,6 +97,7 @@ namespace WindowsGame1
             //Mario.Load(Content);
             QuestionBlock.Load(Content);
             Mushroom.Load(Content);
+            _1up.Load(Content);
             Fireflower.Load(Content);
             Koopa.Load(Content);
             Goomba.Load(Content);
@@ -120,6 +123,7 @@ namespace WindowsGame1
             QuestionBlock.Update();
             Fireflower.Update();
             Mushroom.Update();
+            _1up.Update();
             Koopa.Update();
             Goomba.Update();
 
@@ -139,6 +143,7 @@ namespace WindowsGame1
             QuestionBlock.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
             Mushroom.Draw(spriteBatch);
+            _1up.Draw(spriteBatch);
             Koopa.Draw(spriteBatch);
             Goomba.Draw(spriteBatch);
 

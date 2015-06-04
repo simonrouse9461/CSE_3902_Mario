@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
@@ -9,7 +9,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             const int totalFrames = 4;
-            Vector2 endCoordinate = new Vector2(120, 25);
+            
             Vector2 startCoordinate = new Vector2(145, 0);
             Vector2 endCoordinate = new Vector2(260, 25);
             const int period = 8;
