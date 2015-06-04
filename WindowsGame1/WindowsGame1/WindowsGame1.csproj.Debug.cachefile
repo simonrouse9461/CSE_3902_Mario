@@ -1,14 +1,12 @@
 Content\stars.xnb
 Content\mario.xnb
-Content\question block.xnb
-Content\single green pipe.xnb
-Content\overworld.xnb
 Content\Fireflower.xnb
 Content\Koopa.xnb
-Content\mushroom.xnb
-Content\IndestructibleBlock.xnb
-Content\usedblock.xnb
-Content\destructibleblock.xnb
-Content\normalblock.xnb
-Content\score.xnb
+Content\Mushroom.xnb
+Content\single green pipe.xnb
+Content\blocks.xnb
 Content\goomba.xnb
+Content\overworld.xnb
+Content\enemies.xnb
+Content\items.xnb
+Content\score.xnb

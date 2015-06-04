@@ -22,10 +22,11 @@ namespace WindowsGame1
         private IController<Buttons> _gamepadController;
 
 
-        public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
+        //public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
         public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
+        public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Goomba;
         private ICommand quitCommand;
@@ -53,9 +54,7 @@ namespace WindowsGame1
             _gamepadController = new GamepadController();
 
             quitCommand = new QuitCommand(this);
-            runningInPlaceCommand = new RunningInPlaceCommand(this);
             deadCommand = new DeadCommand(this);
-            runningCommand = new RunningCommand(this);
             questionBlockCommand = new QuestionBlockCommand(this);
             mushroomCommand = new MushroomCommand(this);
             fireflowerCommand = new FireflowerCommand(this);
@@ -75,12 +74,14 @@ namespace WindowsGame1
             _gamepadController.RegisterCommand(Buttons.B, deadCommand);
             _gamepadController.RegisterCommand(Buttons.X, runningCommand);
 
-            Mario = new MarioObject(new Vector2(400, 240));
+            //Mario = new MarioObject(new Vector2(400, 240));
             QuestionBlock = new BlockObject(new Vector2(300, 200));
             Fireflower = new Fireflower(new Vector2(400, 300));
             Mushroom = new Mushroom(new Vector2(500, 300));
+            _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(300, 300));
-            Goomba = new Goomba(new Vector2(340, 300));
+            Goomba = new Goomba(new Vector2(340, 302));
+            Goomba.SwitchSprite(EnemySpriteEnum.Goomba);
             base.Initialize();
         }
 
@@ -93,9 +94,10 @@ namespace WindowsGame1
             
             background = Content.Load<Texture2D>("overworld");
 
-            Mario.Load(Content);
+            //Mario.Load(Content);
             QuestionBlock.Load(Content);
             Mushroom.Load(Content);
+            _1up.Load(Content);
             Fireflower.Load(Content);
             Koopa.Load(Content);
             Goomba.Load(Content);
@@ -117,10 +119,11 @@ namespace WindowsGame1
             _keyboardController.Update();
             _gamepadController.Update();
 
-            Mario.Update();
+            //Mario.Update();
             QuestionBlock.Update();
             Fireflower.Update();
             Mushroom.Update();
+            _1up.Update();
             Koopa.Update();
             Goomba.Update();
 
@@ -136,10 +139,11 @@ namespace WindowsGame1
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
 
-            Mario.Draw(spriteBatch);
+            //Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
             Mushroom.Draw(spriteBatch);
+            _1up.Draw(spriteBatch);
             Koopa.Draw(spriteBatch);
             Goomba.Draw(spriteBatch);
 

@@ -87,8 +87,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="goomba.png">
-      <Name>goomba</Name>
+    <Compile Include="overworld.png">
+      <Name>overworld</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="enemies.png">
+      <Name>enemies</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="items.png">
+      <Name>items</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

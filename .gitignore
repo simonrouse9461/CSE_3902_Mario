@@ -1,0 +1,5 @@
+*.xnb
+*.cache
+*.suo
+*.exe
+.pdb

@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.Mario.SwitchSprite(MarioSpriteEnum.Dead);
+            //Game.Mario.SwitchSprite(MarioSpriteEnum.Dead);
         } 
     }
 }
