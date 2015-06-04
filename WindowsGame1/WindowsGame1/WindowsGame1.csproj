@@ -76,7 +76,6 @@
     <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Commands\MushroomCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
-    <Compile Include="Enemies\EnemyObject.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
     <Compile Include="Enemies\Koopa.cs" />
@@ -164,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

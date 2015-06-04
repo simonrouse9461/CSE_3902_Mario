@@ -4,3 +4,4 @@
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
+C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
