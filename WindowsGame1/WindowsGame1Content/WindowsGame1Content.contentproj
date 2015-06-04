@@ -87,13 +87,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="goomba.png">
-      <Name>goomba</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="overworld.png">
       <Name>overworld</Name>
       <Importer>TextureImporter</Importer>

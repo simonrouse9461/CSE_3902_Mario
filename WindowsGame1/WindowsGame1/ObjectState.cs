@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public struct ObjectState<T, K>
+    public class ObjectState<T, K>
         where T : struct, IConvertible
         where K : struct, IConvertible
     {

@@ -2,8 +2,18 @@
 {
     public enum MarioSpriteEnum
     {
-        RunningInPlace,
         Dead,
-        Running
+        JumpingLeftB,
+        JumpingLeftF,
+        JumpingLeftS,
+        JumpingRightB,
+        JumpingRightF,
+        JumpingRightS,
+        RunningLeftB,
+        RunningLeftF,
+        RunningLeftS,
+        RunningRightB,
+        RunningRightF,
+        RunningRightS,
     }
 }

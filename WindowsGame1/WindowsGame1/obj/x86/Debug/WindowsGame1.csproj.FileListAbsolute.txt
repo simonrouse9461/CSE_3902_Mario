@@ -78,5 +78,12 @@ C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Deb
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\blocks.xnb
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\goomba.xnb
 C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\overworld.xnb
-C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemies.xnb
-C:\Users\Colin\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\items.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Fireflower.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Koopa.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Mushroom.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\single green pipe.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\blocks.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\goomba.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\overworld.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemies.xnb
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\items.xnb
