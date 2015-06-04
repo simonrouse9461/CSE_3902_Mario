@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            //Game.QuestionBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
+            Game.QuestionBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
         }
 
     }

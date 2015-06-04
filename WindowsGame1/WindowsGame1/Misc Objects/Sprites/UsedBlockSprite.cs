@@ -8,18 +8,15 @@ namespace WindowsGame1
         protected override void Initialize(){
 
         
-        Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(16, 16);
-            const int period = 1;
-
-            Source = new SpriteSource(startCoordinate, endCoordinate);
-            Animation = new SpriteAnimation(null, period);
-
+        Vector2 startCoordinate = new Vector2(0, 32);
+        Vector2 endCoordinate = new Vector2(16, 48);
+        Source = new SpriteSource(startCoordinate, endCoordinate);
+        Animation = new SpriteAnimation(null, 0);
         }
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "usedblock");
+            Source.Load(content, "blocks");
         }
 
     }

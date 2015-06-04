@@ -3,29 +3,30 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockSprite : SpriteKernel
+    public class GoombaSprite : SpriteKernel
     {
-        
+
         protected override void Initialize()
         {
-            const int totalFrames = 3;
+            const int totalFrames = 9;
             Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(48, 15);
-            const int period = 3;
+            Vector2 endCoordinate = new Vector2(162, 18);
+            const int period = 4;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
             Animation = new SpriteAnimation(
-            phase => 
-            {
-                int[] frameSequence = {0, 1, 2};
-                return frameSequence[phase];
-            },
-            period);
-        }
+                phase =>
+                {
+                    int[] frameSequence = { 0, 0, 1, 1 };
+                    return frameSequence[phase];
+                },
+                period);
 
+        }
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "blocks");
+            Source.Load(content, "goomba");
         }
+
     }
 }
