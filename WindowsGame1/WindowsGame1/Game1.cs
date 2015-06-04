@@ -78,7 +78,8 @@ namespace WindowsGame1
             Fireflower = new Fireflower(new Vector2(400, 300));
             Mushroom = new Mushroom(new Vector2(500, 300));
             Koopa = new Koopa(new Vector2(300, 300));
-            Goomba = new Goomba(new Vector2(340, 300));
+            Goomba = new Goomba(new Vector2(340, 302));
+            Goomba.SwitchSprite(EnemySpriteEnum.Goomba);
             base.Initialize();
         }
 
