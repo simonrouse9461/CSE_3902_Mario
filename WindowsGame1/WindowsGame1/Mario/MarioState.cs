@@ -30,8 +30,8 @@ namespace WindowsGame1
         public OrientationEnum Orientation { get; set; }
         public StatusEnum Status { get; set; }
         public ActionEnum Action { get; set; }
-        
-        public MarioState(Vector2 location)
+
+        public MarioState()
         {
             
         }

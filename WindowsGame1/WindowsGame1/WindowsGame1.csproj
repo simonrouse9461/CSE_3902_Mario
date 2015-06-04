@@ -82,6 +82,7 @@
     <Compile Include="Enemies\Koopa.cs" />
     <Compile Include="Enemies\Sprites\GoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
+    <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\IState.cs" />
     <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
     <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
@@ -102,9 +103,8 @@
     <Compile Include="Kernels\FunctionKernel.cs" />
     <Compile Include="Interfaces\IFunction.cs" />
     <Compile Include="Interfaces\IObject.cs" />
-    <Compile Include="Mario\Enums\MarioMotionEnum.cs" />
+    <Compile Include="Kernels\ObjectKernalNew.cs" />
     <Compile Include="Mario\MarioObject.cs" />
-    <Compile Include="Mario\Enums\MarioSpriteEnum.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Mario\MarioState.cs" />
     <Compile Include="Mario\Sprites\JumpingLeftBMarioSprite.cs" />
