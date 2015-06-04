@@ -8,12 +8,19 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            Vector2 startCoordinate = new Vector2(0, 16);
-            Vector2 endCoordinate = new Vector2(14, 29);
-            const int period = 1;
+            const int totalFrames = 4;
+            Vector2 startCoordinate = new Vector2(0, 0);
+            Vector2 endCoordinate = new Vector2(120, 25);
+            const int period = 8;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate);
-            Animation = new SpriteAnimation(null, period);
+            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Animation = new SpriteAnimation(
+                phase =>
+                {
+                    int[] frameSequence = { 2, 2, 1, 1, 0, 0, 3, 3 };
+                    return frameSequence[phase];
+                },
+                period);
 
         }
         public override void Load(ContentManager content)

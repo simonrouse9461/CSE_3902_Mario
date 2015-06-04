@@ -1,5 +1,4 @@
-﻿
-namespace WindowsGame1
+﻿namespace WindowsGame1
 {
     public class KoopaCommand : CommandKernel
     {

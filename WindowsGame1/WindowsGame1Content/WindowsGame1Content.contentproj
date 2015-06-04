@@ -66,6 +66,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="overworld.png">
+      <Name>overworld</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Fireflower.png">
       <Name>Fireflower</Name>
       <Importer>TextureImporter</Importer>
@@ -80,8 +87,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mushroom.png">
-      <Name>Mushroom</Name>
+    <Compile Include="mushroom.png">
+      <Name>mushroom</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

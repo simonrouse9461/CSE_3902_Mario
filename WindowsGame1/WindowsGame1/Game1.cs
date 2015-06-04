@@ -76,9 +76,9 @@ namespace WindowsGame1
 
             Mario = new MarioObject(new Vector2(400, 240));
             QuestionBlock = new BlockObject(new Vector2(300, 200));
-            Mushroom = new ItemObject(new Vector2(400, 200));
             Fireflower = new ItemObject(new Vector2(400, 300));
-            Koopa = new EnemyObject(new Vector2(300, 200));
+            Mushroom = new ItemObject(new Vector2(500, 300));
+            Koopa = new EnemyObject(new Vector2(300, 300));
             base.Initialize();
         }
 
@@ -89,7 +89,7 @@ namespace WindowsGame1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             
-            background = Content.Load<Texture2D>("stars");
+            background = Content.Load<Texture2D>("overworld");
 
             Mario.Load(Content);
             QuestionBlock.Load(Content);

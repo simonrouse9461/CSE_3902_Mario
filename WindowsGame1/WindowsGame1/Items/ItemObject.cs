@@ -15,8 +15,8 @@ namespace WindowsGame1
             Sprites = new Dictionary<ItemSpriteEnum, ISprite>();
             Motions = new Dictionary<ItemMotionEnum, ObjectMotion>();
 
-            Sprites.Add(ItemSpriteEnum.Mushroom, new MushroomSprite());
             Sprites.Add(ItemSpriteEnum.Fireflower, new FireflowerSprite());
+            Sprites.Add(ItemSpriteEnum.Mushroom, new MushroomSprite());
             Motions.Add(ItemMotionEnum.leftRight, new ObjectMotion());
 
         }

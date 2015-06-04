@@ -1,6 +1,4 @@
-﻿
-
-namespace WindowsGame1
+﻿namespace WindowsGame1
 {
     public class MushroomCommand : CommandKernel
     {
