@@ -65,15 +65,6 @@
       <Time>2015-06-04T13:51:05-04:00</Time>
     </Item>
     <Item>
-      <Source>goomba.png</Source>
-      <Name>goomba</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\goomba.xnb</Output>
-      <Time>2015-06-04T13:51:05-04:00</Time>
-    </Item>
-    <Item>
       <Source>overworld.png</Source>
       <Name>overworld</Name>
       <Importer>TextureImporter</Importer>
