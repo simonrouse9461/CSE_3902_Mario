@@ -52,20 +52,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="question block.png">
-      <Name>question block</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="single green pipe.jpg">
-      <Name>single green pipe</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Fireflower.png">
       <Name>Fireflower</Name>
       <Importer>TextureImporter</Importer>
@@ -87,25 +73,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IndestructibleBlock.jpg">
-      <Name>IndestructibleBlock</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="usedblock.jpg">
-      <Name>usedblock</Name>
+    <Compile Include="single green pipe.jpg">
+      <Name>single green pipe</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="destructibleblock.jpg">
-      <Name>destructibleblock</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="normalblock.jpg">
-      <Name>normalblock</Name>
+    <Compile Include="blocks.png">
+      <Name>blocks</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

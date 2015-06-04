@@ -76,7 +76,6 @@
     <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Commands\MushroomCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
-    <Compile Include="Enemies\EnemyObject.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
@@ -100,7 +99,9 @@
     <Compile Include="Misc Objects\BlockObject.cs" />
     <Compile Include="Misc Objects\Enum\BlockMotionEnum.cs" />
     <Compile Include="Misc Objects\Enum\BlockSpriteEnum.cs" />
+    <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />

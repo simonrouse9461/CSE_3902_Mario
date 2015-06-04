@@ -5,13 +5,12 @@ namespace WindowsGame1
 {
     public class QuestionBlockSprite : SpriteKernel
     {
-        //comment here
-        //another comment
+        
         protected override void Initialize()
         {
             const int totalFrames = 3;
             Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(48, 48);
+            Vector2 endCoordinate = new Vector2(48, 15);
             const int period = 3;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
@@ -26,7 +25,7 @@ namespace WindowsGame1
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "question block");
+            Source.Load(content, "blocks");
         }
     }
 }

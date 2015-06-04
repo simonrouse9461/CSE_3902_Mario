@@ -21,17 +21,17 @@ namespace WindowsGame1
         private IController<Keys> _keyboardController;
         private IController<Buttons> _gamepadController;
 
-
+        public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> UsedBlock;
         public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
-        public IObject<BlockSpriteEnum, ItemMotionEnum> QuestionBlock;
         public IObject<ItemSpriteEnum, ItemMotionEnum> Mushroom;
         public IObject<ItemSpriteEnum, ItemMotionEnum> Fireflower;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
+        private ICommand questionBlockCommand;
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;
         private ICommand deadCommand;
         private ICommand runningCommand;
-        private ICommand questionBlockCommand;
         private ICommand fireflowerCommand;
         private ICommand mushroomCommand;
         private ICommand koopaCommand;
@@ -64,21 +64,21 @@ namespace WindowsGame1
             _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
             _keyboardController.RegisterCommand(Keys.E, deadCommand);
             _keyboardController.RegisterCommand(Keys.R, runningCommand);
-            _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
             _keyboardController.RegisterCommand(Keys.K, koopaCommand);
             _keyboardController.RegisterCommand(Keys.M, mushroomCommand);
             _keyboardController.RegisterCommand(Keys.F, fireflowerCommand);
-
+            _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
             _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
             _gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
             _gamepadController.RegisterCommand(Buttons.B, deadCommand);
             _gamepadController.RegisterCommand(Buttons.X, runningCommand);
 
             Mario = new MarioObject(new Vector2(400, 240));
-            QuestionBlock = new BlockObject(new Vector2(300, 200));
+            QuestionBlock = new BlockObject(new Vector2(200, 200));
+            
             Mushroom = new ItemObject(new Vector2(400, 200));
             Fireflower = new ItemObject(new Vector2(400, 300));
-            Koopa = new EnemyObject(new Vector2(300, 200));
+            //Koopa = new EnemyObject(new Vector2(300, 200));
             base.Initialize();
         }
 
@@ -93,9 +93,10 @@ namespace WindowsGame1
 
             Mario.Load(Content);
             QuestionBlock.Load(Content);
+     
             Mushroom.Load(Content);
             Fireflower.Load(Content);
-            Koopa.Load(Content);
+            //Koopa.Load(Content);
             base.LoadContent();
         }
 
@@ -116,9 +117,10 @@ namespace WindowsGame1
 
             Mario.Update();
             QuestionBlock.Update();
+           
             Mushroom.Update();
             Fireflower.Update();
-            Koopa.Update();
+            //Koopa.Update();
 
             base.Update(gameTime);
         }
@@ -134,9 +136,11 @@ namespace WindowsGame1
 
             Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);
-            Mushroom.Draw(spriteBatch);
-            Fireflower.Draw(spriteBatch);
-            Koopa.Draw(spriteBatch);
+           //UsedBlock.Draw(spriteBatch);
+            //Mushroom.Draw(spriteBatch);
+            //Fireflower.Draw(spriteBatch);
+            //Koopa.Draw(spriteBatch);
+            
 
             spriteBatch.End();
 
