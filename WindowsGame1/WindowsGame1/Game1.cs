@@ -27,6 +27,7 @@ namespace WindowsGame1
         public IObject<ItemSpriteEnum, ItemMotionEnum> Fireflower;
         public IObject<ItemSpriteEnum, ItemMotionEnum> Mushroom;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
+        public IObject<EnemySpriteEnum, EnemyMotionEnum> Goomba;
         private ICommand quitCommand;
         private ICommand runningInPlaceCommand;
         private ICommand deadCommand;
@@ -79,6 +80,7 @@ namespace WindowsGame1
             Fireflower = new Fireflower(new Vector2(400, 300));
             Mushroom = new Mushroom(new Vector2(500, 300));
             Koopa = new Koopa(new Vector2(300, 300));
+            Goomba = new Goomba(new Vector2(340, 300));
             base.Initialize();
         }
 
@@ -96,6 +98,7 @@ namespace WindowsGame1
             Mushroom.Load(Content);
             Fireflower.Load(Content);
             Koopa.Load(Content);
+            Goomba.Load(Content);
             base.LoadContent();
         }
 
@@ -119,6 +122,7 @@ namespace WindowsGame1
             Fireflower.Update();
             Mushroom.Update();
             Koopa.Update();
+            Goomba.Update();
 
             base.Update(gameTime);
         }
@@ -137,6 +141,7 @@ namespace WindowsGame1
             Fireflower.Draw(spriteBatch);
             Mushroom.Draw(spriteBatch);
             Koopa.Draw(spriteBatch);
+            Goomba.Draw(spriteBatch);
 
             spriteBatch.End();
 

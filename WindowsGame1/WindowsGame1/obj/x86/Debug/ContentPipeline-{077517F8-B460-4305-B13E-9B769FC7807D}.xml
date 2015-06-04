@@ -118,6 +118,15 @@
       <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\score.xnb</Output>
       <Time>2015-06-03T22:05:45.8707541-07:00</Time>
     </Item>
+    <Item>
+      <Source>goomba.png</Source>
+      <Name>goomba</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\goomba.xnb</Output>
+      <Time>2015-06-03T23:08:18.1483034-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{077517F8-B460-4305-B13E-9B769FC7807D}</ContentProjectGUID>
