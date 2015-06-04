@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.Mushroom.SwitchSprite(ItemSpriteEnum.Mushroom);
+            Game.Mushroom.SwitchSprite(MushroomSpriteEnum.Mushroom);
         }
 
     }
