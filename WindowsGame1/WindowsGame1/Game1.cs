@@ -23,7 +23,7 @@ namespace WindowsGame1
 
 
         public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
-        public IObject<BlockSpriteEnum, ItemMotionEnum> QuestionBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
         public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;

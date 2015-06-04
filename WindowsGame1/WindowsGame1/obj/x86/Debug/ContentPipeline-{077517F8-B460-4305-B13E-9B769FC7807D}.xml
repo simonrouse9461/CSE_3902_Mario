@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Fireflower.xnb</Output>
-      <Time>2015-06-02T23:45:01.7161629-04:00</Time>
+      <Time>2015-06-04T12:54:23.0923002-04:00</Time>
     </Item>
     <Item>
       <Source>Koopa.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Koopa.xnb</Output>
-      <Time>2015-06-02T23:45:01.7317639-04:00</Time>
+      <Time>2015-06-04T12:54:23.0923002-04:00</Time>
     </Item>
     <Item>
       <Source>Mushroom.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Mushroom.xnb</Output>
-      <Time>2015-06-02T23:45:01.8003664-04:00</Time>
+      <Time>2015-06-04T12:54:23.0923002-04:00</Time>
     </Item>
     <Item>
       <Source>score.spritefont</Source>
@@ -80,9 +80,9 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\goomba.xnb</Output>
-      <Time>2015-06-03T23:08:18.1483034-07:00</Time>
+      <Time>0001-01-01T00:00:00</Time>
     </Item>
-    <BuildSuccessful>true</BuildSuccessful>
+    <BuildSuccessful>false</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{077517F8-B460-4305-B13E-9B769FC7807D}</ContentProjectGUID>
       <TargetPlatform>Windows</TargetPlatform>

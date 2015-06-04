@@ -81,3 +81,5 @@ C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Deb
 C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
 C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
 C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\goomba.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
