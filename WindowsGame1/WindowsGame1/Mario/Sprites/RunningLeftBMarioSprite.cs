@@ -8,23 +8,23 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class RunningLeftAndRightMarioSprite : SpriteKernel
+    public class RunningLeftBMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             // Source parameters
-            const int totalFrames = 8;
-            Vector2 startCoordinate = new Vector2(83, 50);
-            Vector2 endCoordinate = new Vector2(322, 85);
+            const int totalFrames = 3;
+            Vector2 startCoordinate = new Vector2(80, 50);
+            Vector2 endCoordinate = new Vector2(170, 85);
 
             // Animation parameters
-            const int period = 16;
+            const int period = 3;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
             Animation = new SpriteAnimation(
                 phase =>
                 {
-                    int[] frameSequence = {7, 6, 5, 7, 6, 5, 4, 3, 0, 1, 2, 0, 1, 2, 3, 4};
+                    int[] frameSequence = {0,1,2};
                     return frameSequence[phase];
                 }, 
                 period);

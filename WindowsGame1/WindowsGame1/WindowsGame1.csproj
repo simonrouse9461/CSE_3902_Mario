@@ -78,10 +78,17 @@
     <Compile Include="Commands\QuestionBlockCommand.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
+    <Compile Include="Enemies\Koopa.cs" />
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
+    <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
+    <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
     <Compile Include="Items\Enum\ItemMotionEnum.cs" />
     <Compile Include="Items\Enum\ItemSpriteEnum.cs" />
+    <Compile Include="Items\Enum\MushroomMotionEnum.cs" />
+    <Compile Include="Items\Enum\MushroomSpriteEnum.cs" />
+    <Compile Include="Items\Fireflower.cs" />
     <Compile Include="Items\ItemObject.cs" />
+    <Compile Include="Items\Mushroom.cs" />
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />
     <Compile Include="Kernels\CommandKernal.cs" />
@@ -159,6 +166,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Motions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
