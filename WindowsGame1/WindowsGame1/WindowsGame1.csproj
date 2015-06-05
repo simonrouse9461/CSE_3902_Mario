@@ -75,6 +75,14 @@
     <Compile Include="Commands\FireflowerCommand.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
+    <Compile Include="Mario\Commands\MarioBigCommand.cs" />
+    <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
+    <Compile Include="Mario\Commands\MarioDownCommand.cs" />
+    <Compile Include="Mario\Commands\MarioFireCommand.cs" />
+    <Compile Include="Mario\Commands\MarioLeftCommand.cs" />
+    <Compile Include="Mario\Commands\MarioRightCommand.cs" />
+    <Compile Include="Mario\Commands\MarioSmallCommand.cs" />
+    <Compile Include="Mario\Commands\MarioUpCommand.cs" />
     <Compile Include="Commands\MushroomCommand.cs" />
     <Compile Include="Commands\NormalBlockCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
@@ -112,7 +120,6 @@
     <Compile Include="Items\Sprites\StarSprite.cs" />
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\CommandKernal.cs" />
-    <Compile Include="Commands\DeadCommand.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="Counter.cs" />
@@ -126,6 +133,12 @@
     <Compile Include="Mario\MarioObject.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
+    <Compile Include="Mario\Sprites\FacingLeftBMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingLeftFMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingLeftSMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingRightBMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingRightFMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingRightSMarioSprite .cs" />
     <Compile Include="Mario\Sprites\JumpingLeftBMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingLeftFMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingLeftSMarioSprite.cs" />

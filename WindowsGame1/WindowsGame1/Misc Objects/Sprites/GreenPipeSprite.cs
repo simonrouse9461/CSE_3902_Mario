@@ -9,7 +9,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(43, 81);
+            Vector2 endCoordinate = new Vector2(30, 61);
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate);
