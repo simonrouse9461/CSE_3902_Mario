@@ -73,13 +73,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="single green pipe.jpg">
-      <Name>single green pipe</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="blocks.png">
       <Name>blocks</Name>
       <Importer>TextureImporter</Importer>
@@ -103,6 +96,13 @@
   <ItemGroup>
     <Compile Include="items.png">
       <Name>items</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="single green pipe.jpg">
+      <Name>single green pipe</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
