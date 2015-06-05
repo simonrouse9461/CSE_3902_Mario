@@ -91,9 +91,9 @@ namespace WindowsGame1
             normalBlockCommand = new NormalBlockCommand(this);
             hiddenBlockCommand = new HiddenBlockCommand(this);
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
-            _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
-            _keyboardController.RegisterCommand(Keys.E, deadCommand);
-            _keyboardController.RegisterCommand(Keys.R, runningCommand);
+            //_keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
+            //_keyboardController.RegisterCommand(Keys.E, deadCommand);
+            //_keyboardController.RegisterCommand(Keys.R, runningCommand);
             _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
             _keyboardController.RegisterCommand(Keys.K, koopaCommand);
             _keyboardController.RegisterCommand(Keys.M, mushroomCommand);
