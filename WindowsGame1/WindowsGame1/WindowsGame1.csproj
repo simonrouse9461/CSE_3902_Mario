@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FireflowerCommand.cs" />
+    <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Commands\MushroomCommand.cs" />
+    <Compile Include="Commands\NormalBlockCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
     <Compile Include="Enemies\EnemyObject.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
@@ -87,20 +89,28 @@
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
+    <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\Enum\1upMotionEnum.cs" />
     <Compile Include="Items\Enum\1upSpriteEnum.cs" />
+    <Compile Include="Items\Enum\CoinMotionEnum.cs" />
+    <Compile Include="Items\Enum\CoinSpriteEnum.cs" />
     <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
     <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
     <Compile Include="Items\Enum\ItemMotionEnum.cs" />
     <Compile Include="Items\Enum\ItemSpriteEnum.cs" />
     <Compile Include="Items\Enum\MushroomMotionEnum.cs" />
     <Compile Include="Items\Enum\MushroomSpriteEnum.cs" />
+    <Compile Include="Items\Enum\StarMotionEnum.cs" />
+    <Compile Include="Items\Enum\StarSpriteEnum.cs" />
     <Compile Include="Items\Fireflower.cs" />
     <Compile Include="Items\ItemObject.cs" />
     <Compile Include="Items\Mushroom.cs" />
     <Compile Include="Items\Sprites\1upSprite.cs" />
+    <Compile Include="Items\Sprites\CoinSprite.cs" />
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />
+    <Compile Include="Items\Sprites\StarSprite.cs" />
+    <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\CommandKernal.cs" />
     <Compile Include="Commands\DeadCommand.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
@@ -135,6 +145,7 @@
     <Compile Include="Misc Objects\Enum\GoombaSpriteEnum.cs" />
     <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\HiddenBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
