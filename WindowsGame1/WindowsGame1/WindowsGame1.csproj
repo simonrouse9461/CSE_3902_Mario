@@ -84,6 +84,9 @@
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\IState.cs" />
+    <Compile Include="Items\Enum\StarMotionEnum.cs" />
+    <Compile Include="Items\Enum\StarSpriteEnum.cs" />
+    <Compile Include="Items\Star.cs" />
     <Compile Include="Items\Enum\CoinMotionEnum.cs" />
     <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
     <Compile Include="Items\Enum\CoinSpriteEnum.cs" />
@@ -96,6 +99,7 @@
     <Compile Include="Items\Fireflower.cs" />
     <Compile Include="Items\ItemObject.cs" />
     <Compile Include="Items\Mushroom.cs" />
+    <Compile Include="Items\Sprites\StarSprite.cs" />
     <Compile Include="Items\Sprites\CoinSprite.cs" />
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />
