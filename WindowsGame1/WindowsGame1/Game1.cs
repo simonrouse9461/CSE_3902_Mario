@@ -21,6 +21,15 @@ namespace WindowsGame1
         private IController<Keys> _keyboardController;
         private IController<Buttons> _gamepadController;
 
+        public MarioObject Mario;
+        public ICommand marioBigCommand;
+        public ICommand marioSmallCommand;
+        public ICommand marioFireCommand;
+        public ICommand marioDeadCommand;
+        public ICommand marioUpCommand;
+        public ICommand marioDownCommand;
+        public ICommand marioLeftCommand;
+        public ICommand marioRightCommand;
 
         //public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
@@ -63,8 +72,18 @@ namespace WindowsGame1
             _keyboardController = new KeyboardController();
             _gamepadController = new GamepadController();
 
+            marioBigCommand = new MarioBigCommand(this);
+            marioSmallCommand = new MarioSmallCommand(this);
+            marioFireCommand = new MarioFireCommand(this);
+            marioDeadCommand = new MarioDeadCommand(this);
+            marioUpCommand = new MarioUpCommand(this);
+            marioDownCommand = new MarioDownCommand(this);
+            marioLeftCommand = new MarioLeftCommand(this);
+            marioRightCommand = new MarioRightCommand(this);
+
+            Mario = new MarioObject(new Vector2(200, 100));
+
             quitCommand = new QuitCommand(this);
-            deadCommand = new DeadCommand(this);
             questionBlockCommand = new QuestionBlockCommand(this);
             mushroomCommand = new MushroomCommand(this);
             fireflowerCommand = new FireflowerCommand(this);
@@ -85,6 +104,15 @@ namespace WindowsGame1
             _gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
             _gamepadController.RegisterCommand(Buttons.B, deadCommand);
             _gamepadController.RegisterCommand(Buttons.X, runningCommand);
+
+            _keyboardController.RegisterCommand(Keys.Y, marioSmallCommand);
+            _keyboardController.RegisterCommand(Keys.U, marioBigCommand);
+            _keyboardController.RegisterCommand(Keys.I, marioFireCommand);
+            _keyboardController.RegisterCommand(Keys.O, marioDeadCommand);
+            _keyboardController.RegisterCommand(Keys.Up, marioUpCommand);
+            _keyboardController.RegisterCommand(Keys.Down, marioDownCommand);
+            _keyboardController.RegisterCommand(Keys.Left, marioLeftCommand);
+            _keyboardController.RegisterCommand(Keys.Right, marioRightCommand);
 
             //Mario = new MarioObject(new Vector2(400, 240));
             QuestionBlock = new BlockObject(new Vector2(300, 200));
@@ -116,9 +144,10 @@ namespace WindowsGame1
         {
             
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             
             background = Content.Load<Texture2D>("overworld");
+
+            Mario.Load(Content);
 
             //Mario.Load(Content);
             QuestionBlock.Load(Content);
@@ -153,6 +182,8 @@ namespace WindowsGame1
             _keyboardController.Update();
             _gamepadController.Update();
 
+            Mario.Update();
+
             //Mario.Update();
             QuestionBlock.Update();
             Fireflower.Update();
@@ -174,6 +205,8 @@ namespace WindowsGame1
             spriteBatch.Begin();
 
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+
+            Mario.Draw(spriteBatch);
 
             //Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);

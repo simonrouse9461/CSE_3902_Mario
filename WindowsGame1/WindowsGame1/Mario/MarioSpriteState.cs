@@ -18,14 +18,15 @@ namespace WindowsGame1
         {
             Big,
             Small,
-            Fire
+            Fire,
+            Dead
         }
 
         public enum ActionEnum
         {
             Jumping,
             Running,
-            Dead
+            Facing
         }
 
         public OrientationEnum Orientation { get; set; }
@@ -49,15 +50,21 @@ namespace WindowsGame1
                 new RunningRightBMarioSprite(),
                 new RunningRightFMarioSprite(),
                 new RunningRightSMarioSprite(),
+                new FacingLeftBMarioSprite(),
+                new FacingLeftFMarioSprite(),
+                new FacingLeftSMarioSprite(),
+                new FacingRightBMarioSprite(),
+                new FacingRightFMarioSprite(),
+                new FacingRightSMarioSprite()
             };
         }
 
         public override ISprite ActiveSprite()
         {
+            if (Status == StatusEnum.Dead)
+                return SpriteList[0];
             switch (Action)
             {
-                case ActionEnum.Dead:
-                    return SpriteList[0];
                 case ActionEnum.Jumping:
                     switch (Status)
                     {
@@ -78,6 +85,17 @@ namespace WindowsGame1
                             return Orientation == OrientationEnum.Left ? SpriteList[8] : SpriteList[11];
                         case StatusEnum.Small:
                             return Orientation == OrientationEnum.Left ? SpriteList[9] : SpriteList[12];
+                    }
+                    break;
+                case ActionEnum.Facing:
+                    switch (Status)
+                    {
+                        case StatusEnum.Big:
+                            return Orientation == OrientationEnum.Left ? SpriteList[13] : SpriteList[16];
+                        case StatusEnum.Fire:
+                            return Orientation == OrientationEnum.Left ? SpriteList[14] : SpriteList[17];
+                        case StatusEnum.Small:
+                            return Orientation == OrientationEnum.Left ? SpriteList[15] : SpriteList[18];
                     }
                     break;
             }
