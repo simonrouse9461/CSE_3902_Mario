@@ -5,11 +5,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernelNew : IObjectNew
+    public abstract class ObjectKernelNew<T, K> : IObjectNew
+        where T : ISpriteState 
+        where K : IMotionState 
     {
-        protected ISpriteState SpriteState;
+        public T SpriteState;
 
-        protected IMotionState MotionState;
+        public K MotionState;
 
         protected ObjectKernelNew(Vector2 location)
         {
