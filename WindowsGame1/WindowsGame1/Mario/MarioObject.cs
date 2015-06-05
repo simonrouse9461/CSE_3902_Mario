@@ -4,13 +4,13 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernel<MarioSpriteEnum, MarioMotionEnum>
+    public class MarioObject : ObjectKernelNew
     {
         public MarioObject(Vector2 location) : base(location) { }
 
         protected override void Initialize()
         {
-            State = new ObjectState<MarioSpriteEnum, MarioMotionEnum>(default(Vector2));
+            State = new MarioState(default(Vector2));
             Sprites = new Dictionary<MarioSpriteEnum, ISprite>();
             Motions = new Dictionary<MarioMotionEnum, ObjectMotion>();
 

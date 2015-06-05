@@ -1,24 +1,23 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class KoopaSprite : SpriteKernel
+    public class CoinSprite : SpriteKernel
     {
 
         protected override void Initialize()
         {
             const int totalFrames = 4;
-            
-            Vector2 startCoordinate = new Vector2(145, 0);
-            Vector2 endCoordinate = new Vector2(260, 25);
-            const int period = 8;
+            Vector2 startCoordinate = new Vector2(119, 91);
+            Vector2 endCoordinate = new Vector2(236, 114);
+            const int period = 4;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
             Animation = new SpriteAnimation(
                 phase =>
                 {
-                    int[] frameSequence = { 2, 2, 1, 1, 0, 0, 3, 3 };
+                    int[] frameSequence = { 0, 1, 2, 3 };
                     return frameSequence[phase];
                 },
                 period);
@@ -27,7 +26,7 @@ namespace WindowsGame1
         public override void Load(ContentManager content)
         {
 
-            Source.Load(content, "enemies");
+            Source.Load(content, "items");
         }
 
     }
