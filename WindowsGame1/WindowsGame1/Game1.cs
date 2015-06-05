@@ -24,6 +24,12 @@ namespace WindowsGame1
 
         //public IObject<MarioSpriteEnum, MarioMotionEnum> Mario;
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> UsedBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> NormalBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> HiddenBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> IndestructibleBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> DestructibleBlock;
+        public IObject<BlockSpriteEnum, BlockMotionEnum> GreenPipe;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
         public IObject<CoinSpriteEnum, CoinMotionEnum> Coin;
         public IObject<StarSpriteEnum, StarMotionEnum> Star;
@@ -36,9 +42,11 @@ namespace WindowsGame1
         private ICommand deadCommand;
         private ICommand runningCommand;
         private ICommand questionBlockCommand;
+        private ICommand normalBlockCommand;
         private ICommand fireflowerCommand;
         private ICommand mushroomCommand;
         private ICommand koopaCommand;
+        private ICommand hiddenBlockCommand;
 
         private Texture2D background;
 
@@ -61,7 +69,8 @@ namespace WindowsGame1
             mushroomCommand = new MushroomCommand(this);
             fireflowerCommand = new FireflowerCommand(this);
             koopaCommand = new KoopaCommand(this);
-
+            normalBlockCommand = new NormalBlockCommand(this);
+            hiddenBlockCommand = new HiddenBlockCommand(this);
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
             _keyboardController.RegisterCommand(Keys.W, runningInPlaceCommand);
             _keyboardController.RegisterCommand(Keys.E, deadCommand);
@@ -70,7 +79,8 @@ namespace WindowsGame1
             _keyboardController.RegisterCommand(Keys.K, koopaCommand);
             _keyboardController.RegisterCommand(Keys.M, mushroomCommand);
             _keyboardController.RegisterCommand(Keys.F, fireflowerCommand);
-
+            _keyboardController.RegisterCommand(Keys.X, normalBlockCommand);
+            _keyboardController.RegisterCommand(Keys.C, hiddenBlockCommand);
             _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
             _gamepadController.RegisterCommand(Buttons.A, runningInPlaceCommand);
             _gamepadController.RegisterCommand(Buttons.B, deadCommand);
@@ -78,6 +88,18 @@ namespace WindowsGame1
 
             //Mario = new MarioObject(new Vector2(400, 240));
             QuestionBlock = new BlockObject(new Vector2(300, 200));
+            UsedBlock = new BlockObject(new Vector2(250, 200));
+            UsedBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
+            NormalBlock = new BlockObject(new Vector2(200, 200));
+            NormalBlock.SwitchSprite(BlockSpriteEnum.NormalBlock);
+            HiddenBlock = new BlockObject(new Vector2(150, 200));
+            HiddenBlock.SwitchSprite(BlockSpriteEnum.HiddenBlock);
+            IndestructibleBlock = new BlockObject(new Vector2(150, 300));
+            IndestructibleBlock.SwitchSprite(BlockSpriteEnum.IndestructibleBlock);
+            DestructibleBlock = new BlockObject(new Vector2(350, 200));
+            DestructibleBlock.SwitchSprite(BlockSpriteEnum.DestructibleBlock);
+            GreenPipe = new BlockObject(new Vector2(300, 100));
+            GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
             Fireflower = new Fireflower(new Vector2(400, 300));
             Coin = new Coin(new Vector2(100, 100));
             Star = new Star(new Vector2(120, 100));
@@ -100,6 +122,12 @@ namespace WindowsGame1
 
             //Mario.Load(Content);
             QuestionBlock.Load(Content);
+            UsedBlock.Load(Content);
+            NormalBlock.Load(Content);
+            HiddenBlock.Load(Content);
+            IndestructibleBlock.Load(Content);
+            DestructibleBlock.Load(Content);
+            GreenPipe.Load(Content);
             Mushroom.Load(Content);
             _1up.Load(Content);
             Fireflower.Load(Content);
@@ -149,6 +177,12 @@ namespace WindowsGame1
 
             //Mario.Draw(spriteBatch);
             QuestionBlock.Draw(spriteBatch);
+            UsedBlock.Draw(spriteBatch);
+            NormalBlock.Draw(spriteBatch);
+            HiddenBlock.Draw(spriteBatch);
+            IndestructibleBlock.Draw(spriteBatch);
+            DestructibleBlock.Draw(spriteBatch);
+            GreenPipe.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
             Coin.Draw(spriteBatch);
             Star.Draw(spriteBatch);

@@ -3,13 +3,15 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class IndestructibleBlockSprite : SpriteKernel
+    public class FacingRightFMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
+            // Source parameters
+            Vector2 startCoordinate = new Vector2(203,120);
+            Vector2 endCoordinate = new Vector2(230, 155);
 
-            Vector2 startCoordinate = new Vector2(0, 16);
-            Vector2 endCoordinate = new Vector2(15, 31);
+            // Animation parameters
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate);
@@ -18,8 +20,7 @@ namespace WindowsGame1
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "blocks");
+            Source.Load(content, "Mario");
         }
-
     }
 }
