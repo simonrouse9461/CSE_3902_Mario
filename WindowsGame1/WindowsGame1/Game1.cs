@@ -94,7 +94,7 @@ namespace WindowsGame1
             NormalBlock.SwitchSprite(BlockSpriteEnum.NormalBlock);
             HiddenBlock = new BlockObject(new Vector2(150, 200));
             HiddenBlock.SwitchSprite(BlockSpriteEnum.HiddenBlock);
-            IndestructibleBlock = new BlockObject(new Vector2(150, 300));
+            IndestructibleBlock = new BlockObject(new Vector2(150, 200));
             IndestructibleBlock.SwitchSprite(BlockSpriteEnum.IndestructibleBlock);
             DestructibleBlock = new BlockObject(new Vector2(350, 200));
             DestructibleBlock.SwitchSprite(BlockSpriteEnum.DestructibleBlock);
