@@ -8,7 +8,7 @@ namespace WindowsGame1
 
         protected override void Initialize(){
 
-            Vector2 startCoordinate = new Vector2(15, 15);
+            Vector2 startCoordinate = new Vector2(16, 16);
             Vector2 endCoordinate = new Vector2(31, 31);
             const int period = 1;
 
