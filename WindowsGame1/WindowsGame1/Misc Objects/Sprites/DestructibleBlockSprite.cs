@@ -8,8 +8,8 @@ namespace WindowsGame1
         protected override void Initialize()
         {
 
-            Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(16, 16);
+            Vector2 startCoordinate = new Vector2(32, 16);
+            Vector2 endCoordinate = new Vector2(47, 31);
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate);
@@ -18,7 +18,7 @@ namespace WindowsGame1
 
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "destructibleblock");
+            Source.Load(content, "blocks");
         }
 
     }

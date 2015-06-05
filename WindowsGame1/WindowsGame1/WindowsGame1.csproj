@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\FireflowerCommand.cs" />
+    <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Commands\MushroomCommand.cs" />
+    <Compile Include="Commands\NormalBlockCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
@@ -84,6 +86,9 @@
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\IState.cs" />
+    <Compile Include="Items\1up.cs" />
+    <Compile Include="Items\Enum\1upMotionEnum.cs" />
+    <Compile Include="Items\Enum\1upSpriteEnum.cs" />
     <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
     <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
     <Compile Include="Items\Enum\ItemMotionEnum.cs" />
@@ -122,8 +127,11 @@
     <Compile Include="Misc Objects\BlockObject.cs" />
     <Compile Include="Misc Objects\Enum\BlockMotionEnum.cs" />
     <Compile Include="Misc Objects\Enum\BlockSpriteEnum.cs" />
+    <Compile Include="Misc Objects\Enum\GoombaMotionEnum.cs" />
+    <Compile Include="Misc Objects\Enum\GoombaSpriteEnum.cs" />
     <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\HiddenBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />

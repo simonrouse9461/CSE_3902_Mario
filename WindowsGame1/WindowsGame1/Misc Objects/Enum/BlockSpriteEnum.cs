@@ -5,6 +5,11 @@ namespace WindowsGame1
     public enum BlockSpriteEnum
     {
         QuestionBlock,
-        UsedBlock
+        UsedBlock,
+        NormalBlock,
+        HiddenBlock,
+        IndestructibleBlock,
+        DestructibleBlock,
+        GreenPipe
     }
 }
