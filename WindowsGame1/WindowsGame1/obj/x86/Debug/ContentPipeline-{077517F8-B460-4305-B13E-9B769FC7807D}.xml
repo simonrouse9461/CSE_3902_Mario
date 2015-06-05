@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\stars.xnb</Output>
-      <Time>2015-06-04T17:24:11.8543748-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\stars.xnb</Output>
+      <Time>2015-06-02T13:14:42-04:00</Time>
     </Item>
     <Item>
       <Source>mario.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\mario.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\mario.xnb</Output>
+      <Time>2015-06-02T13:14:42-04:00</Time>
     </Item>
     <Item>
       <Source>Fireflower.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Fireflower.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Fireflower.xnb</Output>
+      <Time>2015-06-03T21:20:21-04:00</Time>
     </Item>
     <Item>
       <Source>Koopa.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Koopa.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Koopa.xnb</Output>
+      <Time>2015-06-03T21:20:21-04:00</Time>
     </Item>
     <Item>
       <Source>Mushroom.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Mushroom.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Mushroom.xnb</Output>
+      <Time>2015-06-03T21:20:21-04:00</Time>
     </Item>
     <Item>
       <Source>single green pipe.jpg</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\single green pipe.xnb</Output>
-      <Time>2015-06-04T17:24:11.8543748-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\single green pipe.xnb</Output>
+      <Time>2015-06-04T13:51:05-04:00</Time>
     </Item>
     <Item>
       <Source>blocks.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\blocks.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\blocks.xnb</Output>
+      <Time>2015-06-04T13:51:05-04:00</Time>
     </Item>
     <Item>
       <Source>overworld.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\overworld.xnb</Output>
-      <Time>2015-06-04T17:24:11.8543748-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\overworld.xnb</Output>
+      <Time>2015-06-03T21:20:21-04:00</Time>
     </Item>
     <Item>
       <Source>enemies.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemies.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\enemies.xnb</Output>
+      <Time>2015-06-04T14:16:54-04:00</Time>
     </Item>
     <Item>
       <Source>items.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\items.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\items.xnb</Output>
+      <Time>2015-06-04T14:16:54-04:00</Time>
     </Item>
     <Item>
       <Source>score.spritefont</Source>
@@ -97,8 +97,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\score.xnb</Output>
-      <Time>2015-06-04T21:22:14.8948621-07:00</Time>
+      <Output>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\score.xnb</Output>
+      <Time>2015-06-04T19:33:29-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -107,39 +107,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T16:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-06-03T15:03:49.8320783-07:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-05-31T17:46:34.4262129-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
