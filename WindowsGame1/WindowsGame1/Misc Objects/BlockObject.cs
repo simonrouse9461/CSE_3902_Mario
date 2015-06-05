@@ -19,6 +19,11 @@ namespace WindowsGame1
 
             Sprites.Add(BlockSpriteEnum.QuestionBlock, new QuestionBlockSprite());
             Sprites.Add(BlockSpriteEnum.UsedBlock, new UsedBlockSprite());
+            Sprites.Add(BlockSpriteEnum.DestructibleBlock, new DestructibleBlockSprite());
+            Sprites.Add(BlockSpriteEnum.HiddenBlock, new HiddenBlockSprite());
+            Sprites.Add(BlockSpriteEnum.NormalBlock, new NormalBlockSprite());
+            Sprites.Add(BlockSpriteEnum.IndestructibleBlock, new IndestructibleBlockSprite());
+            Sprites.Add(BlockSpriteEnum.GreenPipe, new GreenPipeSprite());
             Motions.Add(BlockMotionEnum.upDown, new ObjectMotion());
             
         }
