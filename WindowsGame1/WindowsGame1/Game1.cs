@@ -31,6 +31,8 @@ namespace WindowsGame1
         public IObject<BlockSpriteEnum, BlockMotionEnum> DestructibleBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> GreenPipe;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
+        public IObject<CoinSpriteEnum, CoinMotionEnum> Coin;
+        public IObject<StarSpriteEnum, StarMotionEnum> Star;
         public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
         public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
@@ -99,6 +101,8 @@ namespace WindowsGame1
             GreenPipe = new BlockObject(new Vector2(300, 100));
             GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
             Fireflower = new Fireflower(new Vector2(400, 300));
+            Coin = new Coin(new Vector2(100, 100));
+            Star = new Star(new Vector2(120, 100));
             Mushroom = new Mushroom(new Vector2(500, 300));
             _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(300, 300));
@@ -127,6 +131,8 @@ namespace WindowsGame1
             Mushroom.Load(Content);
             _1up.Load(Content);
             Fireflower.Load(Content);
+            Coin.Load(Content);
+            Star.Load(Content);
             Koopa.Load(Content);
             Goomba.Load(Content);
             base.LoadContent();
@@ -150,6 +156,8 @@ namespace WindowsGame1
             //Mario.Update();
             QuestionBlock.Update();
             Fireflower.Update();
+            Coin.Update();
+            Star.Update();
             Mushroom.Update();
             _1up.Update();
             Koopa.Update();
@@ -176,6 +184,8 @@ namespace WindowsGame1
             DestructibleBlock.Draw(spriteBatch);
             GreenPipe.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
+            Coin.Draw(spriteBatch);
+            Star.Draw(spriteBatch);
             Mushroom.Draw(spriteBatch);
             _1up.Draw(spriteBatch);
             Koopa.Draw(spriteBatch);
