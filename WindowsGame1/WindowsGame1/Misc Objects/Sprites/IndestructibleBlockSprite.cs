@@ -8,8 +8,8 @@ namespace WindowsGame1
         protected override void Initialize()
         {
 
-            Vector2 startCoordinate = new Vector2(0, 16);
-            Vector2 endCoordinate = new Vector2(15, 31);
+            Vector2 startCoordinate = new Vector2(0, 17);
+            Vector2 endCoordinate = new Vector2(15, 32);
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate);

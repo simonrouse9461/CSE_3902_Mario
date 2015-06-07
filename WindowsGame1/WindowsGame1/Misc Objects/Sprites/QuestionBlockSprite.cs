@@ -10,7 +10,7 @@ namespace WindowsGame1
         {
             const int totalFrames = 3;
             Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(48, 15);
+            Vector2 endCoordinate = new Vector2(48, 16);
             const int period = 3;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
