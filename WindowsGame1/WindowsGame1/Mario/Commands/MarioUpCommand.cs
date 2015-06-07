@@ -8,11 +8,14 @@
         {
             switch (Game.World.Mario.SpriteState.Action)
             {
-                case MarioSpriteState.ActionEnum.Running:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Facing;
+                case MarioSpriteState.ActionEnum.Crouch:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Stand;
                     break;
-                case MarioSpriteState.ActionEnum.Facing:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Jumping;
+                case MarioSpriteState.ActionEnum.Stand:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Run;
+                    break;
+                case MarioSpriteState.ActionEnum.Run:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Jump;
                     break;
             }
         }

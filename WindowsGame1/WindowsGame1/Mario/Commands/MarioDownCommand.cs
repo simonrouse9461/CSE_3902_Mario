@@ -10,11 +10,14 @@ namespace WindowsGame1
         {
             switch (Game.World.Mario.SpriteState.Action)
             {
-                case MarioSpriteState.ActionEnum.Jumping:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Facing;
+                case MarioSpriteState.ActionEnum.Stand:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Crouch;
                     break;
-                case MarioSpriteState.ActionEnum.Facing:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Running;
+                case MarioSpriteState.ActionEnum.Run:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Stand;
+                    break;
+                case MarioSpriteState.ActionEnum.Jump:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Run;
                     break;
             }
         }

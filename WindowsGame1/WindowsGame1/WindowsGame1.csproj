@@ -153,6 +153,10 @@
     <Compile Include="Mario\Sprites\RunningRightBMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningRightFMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningRightSMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SitLeftBMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SitLeftFMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SitRightBMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SitRightFMarioSprite.cs" />
     <Compile Include="Misc Objects\BlockObject.cs" />
     <Compile Include="Misc Objects\Enum\BlockMotionEnum.cs" />
     <Compile Include="Misc Objects\Enum\BlockSpriteEnum.cs" />
