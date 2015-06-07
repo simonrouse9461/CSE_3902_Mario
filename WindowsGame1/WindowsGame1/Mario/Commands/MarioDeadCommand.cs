@@ -2,11 +2,11 @@
 {
     public class MarioDeadCommand : CommandKernel
     {
-        public MarioDeadCommand(Game1 game) : base(game) { }
+        public MarioDeadCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
-            Game.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Dead;
+            Game.World.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Dead;
         } 
     }
 }

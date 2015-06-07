@@ -2,7 +2,7 @@
 {
     public class QuitCommand : CommandKernel
     {
-        public QuitCommand(Game1 game) : base(game) { }
+        public QuitCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {

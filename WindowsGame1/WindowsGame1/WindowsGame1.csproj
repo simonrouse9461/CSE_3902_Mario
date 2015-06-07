@@ -72,9 +72,11 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandManager.cs" />
     <Compile Include="Commands\FireflowerCommand.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
+    <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="SpriteAnimation.cs" />
     <Compile Include="SpriteSource.cs" />
+    <Compile Include="WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
