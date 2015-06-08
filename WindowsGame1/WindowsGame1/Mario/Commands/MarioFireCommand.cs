@@ -4,11 +4,11 @@ namespace WindowsGame1
 {
     public class MarioFireCommand : CommandKernel
     {
-        public MarioFireCommand(Game1 game) : base(game) { }
+        public MarioFireCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
-            Game.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Fire;
+            Game.World.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Fire;
         }  
     }
 }

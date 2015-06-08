@@ -4,30 +4,26 @@ using Microsoft.Xna.Framework.Input;
 
 namespace WindowsGame1
 {
-    public class GamepadController : IController<Buttons>
+    public class GamepadController : ControllerKernel<Buttons>
     {
-        private Dictionary<Buttons, ICommand> controllerMappings;
-        private List<Buttons> registeredButtons;
-
-        public GamepadController()
+        public override void Update()
         {
-            controllerMappings = new Dictionary<Buttons, ICommand>();
-            registeredButtons = new List<Buttons>();
+            Respond(KeysRespondToPress, true);
+            Respond(KeysRespondToClick, false);
         }
 
-        public void RegisterCommand(Buttons button, ICommand command)
+        private void Respond(Dictionary<Buttons, ICommand> collection, bool ignoreLastState)
         {
-            controllerMappings.Add(button, command);
-            registeredButtons.Add(button);
-        }
-
-        public void Update()
-        {
-            foreach (Buttons button in registeredButtons)
+            foreach (var button in collection)
             {
-                if (GamePad.GetState(PlayerIndex.One).IsButtonDown(button))
+                if (GamePad.GetState(PlayerIndex.One).IsButtonDown(button.Key) && (!LastState[button.Key] || ignoreLastState))
                 {
-                    controllerMappings[button].Execute();
+                    collection[button.Key].Execute();
+                    LastState[button.Key] = true;
+                }
+                else
+                {
+                    LastState[button.Key] = false;
                 }
             }
         }

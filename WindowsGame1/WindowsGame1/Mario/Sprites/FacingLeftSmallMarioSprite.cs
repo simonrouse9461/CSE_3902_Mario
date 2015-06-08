@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class FacingRightBMarioSprite : SpriteKernel
+    public class FacingLeftSmallMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             // Source parameters
-            Vector2 startCoordinate = new Vector2(203,50);
-            Vector2 endCoordinate = new Vector2(230, 85);
+            Vector2 startCoordinate = new Vector2(173, 0);
+            Vector2 endCoordinate = new Vector2(203, 15);
 
             // Animation parameters
             const int period = 1;

@@ -2,13 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>stars.jpg</Source>
-      <Name>stars</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>score.spritefont</Source>
+      <Name>score</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\stars.xnb</Output>
-      <Time>2015-06-04T17:24:11.8543748-07:00</Time>
+      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\score.xnb</Output>
+      <Time>2015-06-04T23:20:43.9265859-07:00</Time>
     </Item>
     <Item>
       <Source>mario.png</Source>
@@ -20,40 +20,13 @@
       <Time>2015-06-04T17:24:11.8231198-07:00</Time>
     </Item>
     <Item>
-      <Source>Fireflower.png</Source>
-      <Name>Fireflower</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Fireflower.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Koopa.png</Source>
-      <Name>Koopa</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Koopa.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
-    </Item>
-    <Item>
-      <Source>Mushroom.png</Source>
-      <Name>Mushroom</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Mushroom.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
-    </Item>
-    <Item>
       <Source>blocks.png</Source>
       <Name>blocks</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\blocks.xnb</Output>
-      <Time>2015-06-04T17:24:11.8231198-07:00</Time>
+      <Time>2015-06-08T13:16:07.1497502-07:00</Time>
     </Item>
     <Item>
       <Source>overworld.png</Source>
@@ -90,15 +63,6 @@
       <Options>None</Options>
       <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\single green pipe.xnb</Output>
       <Time>2015-06-05T12:32:30.3795389-07:00</Time>
-    </Item>
-    <Item>
-      <Source>score.spritefont</Source>
-      <Name>score</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Haden\Source\Repos\CSE_3902_Mario\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\score.xnb</Output>
-      <Time>2015-06-04T23:20:43.9265859-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -3,25 +3,24 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class NormalBlockSprite : SpriteKernel
+    public class FacingRightBigMarioSprite : SpriteKernel
     {
+        protected override void Initialize()
+        {
+            // Source parameters
+            Vector2 startCoordinate = new Vector2(203,50);
+            Vector2 endCoordinate = new Vector2(230, 85);
 
-        protected override void Initialize(){
-
-            Vector2 startCoordinate = new Vector2(16, 16);
-            Vector2 endCoordinate = new Vector2(31, 31);
+            // Animation parameters
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate);
             Animation = new SpriteAnimation(null, period);
-
         }
 
         public override void Load(ContentManager content)
         {
-
-            Source.Load(content, "blocks");
+            Source.Load(content, "Mario");
         }
-
     }
 }

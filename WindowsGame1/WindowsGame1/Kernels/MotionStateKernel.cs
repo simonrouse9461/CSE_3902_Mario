@@ -32,12 +32,15 @@ namespace WindowsGame1
         }
         public void Update()
         {
-            foreach (var motion in MotionList)
+            if (Timer.Update())
             {
-                if (motion.Value)
+                foreach (var motion in MotionList)
                 {
-                    motion.Key.Update();
-                    Location += motion.Key.GetValue();
+                    if (motion.Value)
+                    {
+                        motion.Key.Update();
+                        Location += motion.Key.GetValue();
+                    }
                 }
             }
         }

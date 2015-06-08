@@ -3,28 +3,26 @@ using Microsoft.Xna.Framework.Input;
 
 namespace WindowsGame1
 {
-    public class KeyboardController : IController<Keys>
+    public class KeyboardController : ControllerKernel<Keys>
     {
-        private Dictionary<Keys, ICommand> controllerMappings;
-
-        public KeyboardController()
-        {
-            controllerMappings = new Dictionary<Keys, ICommand>();
-        }
-
-        public void RegisterCommand(Keys key, ICommand command)
-        {
-            controllerMappings.Add(key, command);
-        }
-
-        public void Update()
-        {
+        public override void Update()
+        { 
             Keys[] pressedKeys = Keyboard.GetState().GetPressedKeys();
 
-            foreach (Keys key in pressedKeys)
+            foreach (var key in pressedKeys)
             {
-                if (controllerMappings.ContainsKey(key))
-                    controllerMappings[key].Execute();
+                if (KeysRespondToPress.ContainsKey(key))
+                    KeysRespondToPress[key].Execute();
+                if (KeysRespondToClick.ContainsKey(key) && !LastState[key])
+                    KeysRespondToClick[key].Execute();
+            }
+            foreach (var key in RegisteredKeys)
+            {
+                LastState[key] = false;
+            }
+            foreach (var key in pressedKeys)
+            {
+                LastState[key] = true;
             }
         }
     }

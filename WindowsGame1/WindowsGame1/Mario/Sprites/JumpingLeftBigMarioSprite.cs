@@ -1,21 +1,16 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class JumpingRightBMarioSprite : SpriteKernel
+    public class JumpingLeftBigMarioSprite: SpriteKernel
     {
         protected override void Initialize()
         {
             // Source parameters
             const int totalFrames = 8;
-            Vector2 startCoordinate = new Vector2(200, 85);
-            Vector2 endCoordinate = new Vector2(405, 120);
+            Vector2 startCoordinate = new Vector2(0, 85);
+            Vector2 endCoordinate = new Vector2(200, 120);
 
             // Animation parameters
             const int period = 8;
@@ -24,7 +19,7 @@ namespace WindowsGame1
             Animation = new SpriteAnimation(
                 phase =>
                 {
-                    int[] frameSequence = {0,1,2,3,4,5,6,7};
+                    int[] frameSequence = {7,6,5,4,3,2,1,0};
                     return frameSequence[phase];
                 }, 
                 period);
