@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class DeadMovingUpAndDownMarioSprite : SpriteKernel
+    public class FacingRightSmallMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             // Source parameters
-            Vector2 startCoordinate = new Vector2(0, 15);
-            Vector2 endCoordinate = new Vector2(15, 30);
+            Vector2 startCoordinate = new Vector2(203, 0);
+            Vector2 endCoordinate = new Vector2(233, 15);
 
             // Animation parameters
             const int period = 1;

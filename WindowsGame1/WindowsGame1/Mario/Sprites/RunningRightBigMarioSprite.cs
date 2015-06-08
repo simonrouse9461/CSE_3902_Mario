@@ -1,22 +1,17 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
 
-    public class RunningRightSMarioSprite : SpriteKernel
+    public class RunningRightBigMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             // Source parameters
             const int totalFrames = 3;
-            Vector2 startCoordinate = new Vector2(230, 0);
-            Vector2 endCoordinate = new Vector2(320, 15);
+            Vector2 startCoordinate = new Vector2(230, 50);
+            Vector2 endCoordinate = new Vector2(320, 85);
 
             // Animation parameters
             const int period = 3;

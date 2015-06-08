@@ -1,8 +1,4 @@
-Content\stars.xnb
 Content\mario.xnb
-Content\Fireflower.xnb
-Content\Koopa.xnb
-Content\Mushroom.xnb
 Content\blocks.xnb
 Content\overworld.xnb
 Content\enemies.xnb

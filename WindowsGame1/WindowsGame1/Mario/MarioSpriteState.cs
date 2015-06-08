@@ -64,29 +64,29 @@ namespace WindowsGame1
         {
             SpriteList = new List<ISprite>
             {
-                new DeadMovingUpAndDownMarioSprite(), //0
-                new JumpingLeftBMarioSprite(), //1
-                new JumpingLeftFMarioSprite(), //2
-                new JumpingLeftSMarioSprite(), //3
-                new JumpingRightBMarioSprite(), //4
-                new JumpingRightFMarioSprite(), //5
-                new JumpingRightSMarioSprite(), //6
-                new RunningLeftBMarioSprite(), //7
-                new RunningLeftFMarioSprite(), //8
-                new RunningLeftSMarioSprite(), //9
-                new RunningRightBMarioSprite(), //10
-                new RunningRightFMarioSprite(), //11
-                new RunningRightSMarioSprite(), //12
-                new FacingLeftBMarioSprite(), //13
-                new FacingLeftFMarioSprite(), //14
-                new FacingLeftSMarioSprite(), //15
-                new FacingRightBMarioSprite(), //16
-                new FacingRightFMarioSprite(), //17
-                new FacingRightSMarioSprite(), //18
-                new SitLeftBMarioSprite(), //19
-                new SitLeftFMarioSprite(), //20
-                new SitRightBMarioSprite(), //21
-                new SitRightFMarioSprite() //22
+                new DeadMarioSprite(), //0
+                new JumpingLeftBigMarioSprite(), //1
+                new JumpingLeftFireMarioSprite(), //2
+                new JumpingLeftSmallMarioSprite(), //3
+                new JumpingRightBigMarioSprite(), //4
+                new JumpingRightFireMarioSprite(), //5
+                new JumpingRightSmallMarioSprite(), //6
+                new RunningLeftBigMarioSprite(), //7
+                new RunningLeftFireMarioSprite(), //8
+                new RunningLeftSmallMarioSprite(), //9
+                new RunningRightBigMarioSprite(), //10
+                new RunningRightFireMarioSprite(), //11
+                new RunningRightSmallMarioSprite(), //12
+                new FacingLeftBigMarioSprite(), //13
+                new FacingLeftFireMarioSprite(), //14
+                new FacingLeftSmallMarioSprite(), //15
+                new FacingRightBigMarioSprite(), //16
+                new FacingRightFireMarioSprite(), //17
+                new FacingRightSmallMarioSprite(), //18
+                new CrouchingLeftBigMarioSprite(), //19
+                new CrouchingLeftFireMarioSprite(), //20
+                new CrouchingRightBigMarioSprite(), //21
+                new CrouchingRightFireMarioSprite() //22
             };
         }
 
