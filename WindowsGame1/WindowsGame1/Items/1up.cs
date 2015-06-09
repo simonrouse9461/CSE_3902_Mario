@@ -4,18 +4,14 @@ using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
 
-    public class _1up : ObjectKernel<_1upSpriteEnum, MushroomMotionEnum>
+    public class _1up : ObjectKernelNew<_1upSpriteState, RightMotionState>
     {
         public _1up(Vector2 location) : base(location) { }
 
-        protected override void Initialize()
+        protected override void Initialize(Vector2 location)
         {
-            State = new ObjectState<_1upSpriteEnum, MushroomMotionEnum>(default(Vector2));
-            Sprites = new Dictionary<_1upSpriteEnum, ISprite>();
-            Motions = new Dictionary<MushroomMotionEnum, ObjectMotion>();
-
-            Sprites.Add(_1upSpriteEnum._1up, new _1upSprite());
-            Motions.Add(MushroomMotionEnum.leftRight, new ObjectMotion());
+            SpriteState = new _1upSpriteState();
+            MotionState = new RightMotionState(location);
 
         }
         protected void Reset()

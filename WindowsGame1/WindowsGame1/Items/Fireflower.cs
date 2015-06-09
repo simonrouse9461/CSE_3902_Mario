@@ -3,19 +3,16 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Fireflower : ObjectKernel<FireflowerSpriteEnum, FireflowerMotionEnum>
+    public class Fireflower : ObjectKernelNew<FireflowerSpriteState, BlankMotionState>
     {
         public Fireflower(Vector2 location) : base(location) { }
 
 
-        protected override void Initialize()
+        protected override void Initialize(Vector2 location)
         {
-            State = new ObjectState<FireflowerSpriteEnum, FireflowerMotionEnum>(default(Vector2));
-            Sprites = new Dictionary<FireflowerSpriteEnum, ISprite>();
-            Motions = new Dictionary<FireflowerMotionEnum, ObjectMotion>();
-
-            Sprites.Add(FireflowerSpriteEnum.Fireflower, new FireflowerSprite());
-            //Motions.Add(FireflowerMotionEnum.leftRight, new ObjectMotion());
+            SpriteState = new FireflowerSpriteState();
+            MotionState = new BlankMotionState(location);
+            
         }
         protected void Reset()
         {
