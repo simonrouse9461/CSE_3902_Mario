@@ -7,6 +7,9 @@ namespace WindowsGame1
     public class WorldManager
     {
         public MarioObject Mario;
+        public GoombaObject Goomba;
+        public CoinObject Coin;
+        public StarObject Star;
 
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> UsedBlock;
@@ -16,16 +19,16 @@ namespace WindowsGame1
         public IObject<BlockSpriteEnum, BlockMotionEnum> DestructibleBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> GreenPipe;
         public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
-        public IObject<CoinSpriteEnum, CoinMotionEnum> Coin;
-        public IObject<StarSpriteEnum, StarMotionEnum> Star;
         public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
         public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
         public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
-        public IObject<EnemySpriteEnum, EnemyMotionEnum> Goomba;
 
         public WorldManager()
         {
             Mario = new MarioObject(new Vector2(200, 100));
+            Goomba = new GoombaObject(new Vector2(340, 302));
+            Coin = new CoinObject(new Vector2(100, 100));
+            Star = new StarObject(new Vector2(120, 100));
 
             QuestionBlock = new BlockObject(new Vector2(300, 200));
             UsedBlock = new BlockObject(new Vector2(250, 200));
@@ -41,13 +44,9 @@ namespace WindowsGame1
             GreenPipe = new BlockObject(new Vector2(300, 100));
             GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
             Fireflower = new Fireflower(new Vector2(400, 300));
-            Coin = new Coin(new Vector2(100, 100));
-            Star = new Star(new Vector2(120, 100));
             Mushroom = new Mushroom(new Vector2(500, 300));
             _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(300, 300));
-            Goomba = new Goomba(new Vector2(340, 302));
-            Goomba.SwitchSprite(EnemySpriteEnum.Goomba);
         }
 
         public void LoadContent(ContentManager content)

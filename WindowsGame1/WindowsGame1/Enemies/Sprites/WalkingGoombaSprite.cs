@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class GoombaSprite : SpriteKernel
+    public class WalkingGoombaSprite : SpriteKernel
     {
 
         protected override void Initialize()
