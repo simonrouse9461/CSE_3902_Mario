@@ -3,39 +3,38 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class KoopaSpriteState : SpriteStateKernel
+    public class QuestionBlockSpriteState : SpriteStateKernel
     {
         public enum StatusEnum
         {
-            Walking,
-            Shell
-
+            Animated,
+            UsedBlock
         }
 
         private StatusEnum status;
 
         public StatusEnum Status
         {
+
             get { return status; }
             set { status = value; }
         }
 
         protected override void Initialize()
         {
-           SpriteList = new List<ISprite>
-           {
-               new ShellKoopaSprite(), //0
-               new WalkingKoopaSprite(), //1
-               
-           };
 
-            Status = StatusEnum.Walking;
+            SpriteList = new List<ISprite>{
+                new QuestionBlockSprite(),
+                new UsedBlockSprite(),
+            };
+            Status = StatusEnum.Animated;
         }
-
         public override ISprite ActiveSprite()
         {
-            if (Status == StatusEnum.Shell) { return SpriteList[0]; }
-            else { return SpriteList[1]; }
+            if (Status == StatusEnum.UsedBlock) { return SpriteList[1]; }
+            else{
+                return SpriteList[0];
+            }
         }
     }
 }

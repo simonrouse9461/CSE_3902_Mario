@@ -14,17 +14,13 @@ namespace WindowsGame1
         public Fireflower Fireflower;
         public _1up _1up;
         public Mushroom Mushroom;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> UsedBlock;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> NormalBlock;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> HiddenBlock;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> IndestructibleBlock;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> DestructibleBlock;
-        //public IObject<BlockSpriteEnum, BlockMotionEnum> GreenPipe;
-        //public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
-        //public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
-        //public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
-        //public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
+        public QuestionBlockObject QuestionBlock;
+        public HiddenBlockObject HiddenBlock;
+        public NormalBlockObject NormalBlock;
+        public DestructibleBlockObject DestructibleBlock;
+        public IndestructibleBlockObject IndestructibleBlock;
+        public UsedBlockObject UsedBlock;
+        public GreenPipeObject GreenPipe;
 
         public WorldManager()
         {
@@ -32,21 +28,13 @@ namespace WindowsGame1
             Goomba = new GoombaObject(new Vector2(240, 302));
             Coin = new CoinObject(new Vector2(450, 300));
             Star = new StarObject(new Vector2(500, 300));
-
-            QuestionBlock = new BlockObject(new Vector2(300, 200));
-            UsedBlock = new BlockObject(new Vector2(250, 200));
-            UsedBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
-            NormalBlock = new BlockObject(new Vector2(200, 200));
-            NormalBlock.SwitchSprite(BlockSpriteEnum.NormalBlock);
-            HiddenBlock = new BlockObject(new Vector2(150, 200));
-            HiddenBlock.SwitchSprite(BlockSpriteEnum.HiddenBlock);
-            IndestructibleBlock = new BlockObject(new Vector2(150, 200));
-            IndestructibleBlock.SwitchSprite(BlockSpriteEnum.IndestructibleBlock);
-            DestructibleBlock = new BlockObject(new Vector2(350, 200));
-            DestructibleBlock.SwitchSprite(BlockSpriteEnum.DestructibleBlock);
-            //GreenPipe = new BlockObject(new Vector2(300, 100));
-            //GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
-            
+            QuestionBlock = new QuestionBlockObject(new Vector2(300, 200));
+            HiddenBlock = new HiddenBlockObject(new Vector2(200, 200));
+            NormalBlock = new NormalBlockObject(new Vector2(100, 200));
+            DestructibleBlock = new DestructibleBlockObject(new Vector2(350, 200));
+            IndestructibleBlock = new IndestructibleBlockObject(new Vector2(150, 200));
+            GreenPipe = new GreenPipeObject(new Vector2(500, 200));
+            UsedBlock = new UsedBlockObject(new Vector2(250, 200));
             Fireflower = new Fireflower(new Vector2(400, 304));
             Mushroom = new Mushroom(new Vector2(550, 300));
             _1up = new _1up(new Vector2(600, 300));
@@ -55,16 +43,14 @@ namespace WindowsGame1
 
         public void LoadContent(ContentManager content)
         {
-
             Mario.Load(content);
-
             QuestionBlock.Load(content);
             UsedBlock.Load(content);
             NormalBlock.Load(content);
             HiddenBlock.Load(content);
             IndestructibleBlock.Load(content);
             DestructibleBlock.Load(content);
-            //GreenPipe.Load(content);
+            GreenPipe.Load(content);
             Mushroom.Load(content);
             _1up.Load(content);
             Fireflower.Load(content);
@@ -77,7 +63,6 @@ namespace WindowsGame1
         public void Update()
         {
             Mario.Update();
-
             QuestionBlock.Update();
             Fireflower.Update();
             Coin.Update();
@@ -91,14 +76,13 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             Mario.Draw(spriteBatch);
-
             QuestionBlock.Draw(spriteBatch);
             UsedBlock.Draw(spriteBatch);
             NormalBlock.Draw(spriteBatch);
             HiddenBlock.Draw(spriteBatch);
             IndestructibleBlock.Draw(spriteBatch);
             DestructibleBlock.Draw(spriteBatch);
-            //GreenPipe.Draw(spriteBatch);
+            GreenPipe.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
             Coin.Draw(spriteBatch);
             Star.Draw(spriteBatch);
