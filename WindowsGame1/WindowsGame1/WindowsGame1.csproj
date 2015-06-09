@@ -77,6 +77,7 @@
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
+    <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="SpriteAnimation.cs" />
     <Compile Include="SpriteSource.cs" />
+    <Compile Include="SpriteSourceNew.cs" />
     <Compile Include="WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

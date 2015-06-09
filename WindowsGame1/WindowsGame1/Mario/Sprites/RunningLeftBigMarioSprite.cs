@@ -1,21 +1,23 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class RunningLeftBigMarioSprite : SpriteKernel
+    public class RunningLeftBigMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
         {
-            // Source parameters
-            const int totalFrames = 3;
-            Vector2 startCoordinate = new Vector2(80, 50);
-            Vector2 endCoordinate = new Vector2(170, 85);
-
             // Animation parameters
             const int period = 3;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(90, 53, 16, 30),
+                    new Rectangle(121, 52, 14, 31),
+                    new Rectangle(150, 52, 16, 32)
+                });
             Animation = new SpriteAnimation(
                 phase =>
                 {
