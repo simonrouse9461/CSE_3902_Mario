@@ -6,3 +6,6 @@
 *.xml
 WindowsGame1/WindowsGame1/bin
 WindowsGame1/WindowsGame1/obj
+*.contentproj
+*.csproj.user
+*.sln
