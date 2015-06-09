@@ -15,7 +15,7 @@ namespace WindowsGame1
             Sprites = new Dictionary<EnemySpriteEnum, ISprite>();
             Motions = new Dictionary<EnemyMotionEnum, ObjectMotion>();
 
-            Sprites.Add(EnemySpriteEnum.Koopa, new KoopaSprite());
+            Sprites.Add(EnemySpriteEnum.Koopa, new WalkingKoopaSprite());
             Motions.Add(EnemyMotionEnum.leftRight, new ObjectMotion());
 
         }

@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.World.Koopa.SwitchSprite(EnemySpriteEnum.Koopa);
+            //Game.World.Koopa.SwitchSprite(EnemySpriteEnum.Koopa);
         }
 
     }

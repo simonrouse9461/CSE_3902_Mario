@@ -3,20 +3,15 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Mushroom : ObjectKernel<MushroomSpriteEnum, MushroomMotionEnum>
+    public class Mushroom : ObjectKernelNew<MushroomSpriteState, RightMotionState>
     {
         public Mushroom(Vector2 location) : base(location) { }
 
 
-        protected override void Initialize()
+        protected override void Initialize(Vector2 location)
         {
-            State = new ObjectState<MushroomSpriteEnum, MushroomMotionEnum>(default(Vector2));
-            Sprites = new Dictionary<MushroomSpriteEnum, ISprite>();
-            Motions = new Dictionary<MushroomMotionEnum, ObjectMotion>();
-
-            Sprites.Add(MushroomSpriteEnum.Mushroom, new MushroomSprite());
-            Motions.Add(MushroomMotionEnum.leftRight, new ObjectMotion());
-
+            SpriteState = new MushroomSpriteState();
+            MotionState = new RightMotionState(location);
         }
         protected void Reset()
         {

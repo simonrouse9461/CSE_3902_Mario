@@ -10,18 +10,21 @@ namespace WindowsGame1
         public GoombaObject Goomba;
         public CoinObject Coin;
         public StarObject Star;
-
+        public Koopa Koopa;
+        public Fireflower Fireflower;
+        public _1up _1up;
+        public Mushroom Mushroom;
         public IObject<BlockSpriteEnum, BlockMotionEnum> QuestionBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> UsedBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> NormalBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> HiddenBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> IndestructibleBlock;
         public IObject<BlockSpriteEnum, BlockMotionEnum> DestructibleBlock;
-        public IObject<BlockSpriteEnum, BlockMotionEnum> GreenPipe;
-        public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
-        public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
-        public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
-        public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
+        //public IObject<BlockSpriteEnum, BlockMotionEnum> GreenPipe;
+        //public IObject<FireflowerSpriteEnum, FireflowerMotionEnum> Fireflower;
+        //public IObject<MushroomSpriteEnum, MushroomMotionEnum> Mushroom;
+        //public IObject<_1upSpriteEnum, MushroomMotionEnum> _1up;
+        //public IObject<EnemySpriteEnum, EnemyMotionEnum> Koopa;
 
         public WorldManager()
         {
@@ -41,8 +44,9 @@ namespace WindowsGame1
             IndestructibleBlock.SwitchSprite(BlockSpriteEnum.IndestructibleBlock);
             DestructibleBlock = new BlockObject(new Vector2(350, 200));
             DestructibleBlock.SwitchSprite(BlockSpriteEnum.DestructibleBlock);
-            GreenPipe = new BlockObject(new Vector2(300, 100));
-            GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
+            //GreenPipe = new BlockObject(new Vector2(300, 100));
+            //GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
+            
             Fireflower = new Fireflower(new Vector2(400, 300));
             Mushroom = new Mushroom(new Vector2(500, 300));
             _1up = new _1up(new Vector2(600, 300));
@@ -60,7 +64,7 @@ namespace WindowsGame1
             HiddenBlock.Load(content);
             IndestructibleBlock.Load(content);
             DestructibleBlock.Load(content);
-            GreenPipe.Load(content);
+            //GreenPipe.Load(content);
             Mushroom.Load(content);
             _1up.Load(content);
             Fireflower.Load(content);
@@ -94,7 +98,7 @@ namespace WindowsGame1
             HiddenBlock.Draw(spriteBatch);
             IndestructibleBlock.Draw(spriteBatch);
             DestructibleBlock.Draw(spriteBatch);
-            GreenPipe.Draw(spriteBatch);
+            //GreenPipe.Draw(spriteBatch);
             Fireflower.Draw(spriteBatch);
             Coin.Draw(spriteBatch);
             Star.Draw(spriteBatch);

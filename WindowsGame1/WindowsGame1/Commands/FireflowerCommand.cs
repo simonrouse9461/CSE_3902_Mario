@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.World.Fireflower.SwitchSprite(FireflowerSpriteEnum.Fireflower);
+            //Game.World.Fireflower.SwitchSprite(FireflowerSpriteEnum.Fireflower);
         }
 
     }

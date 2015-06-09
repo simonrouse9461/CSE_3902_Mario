@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class KoopaSprite : SpriteKernel
+    public class WalkingKoopaSprite : SpriteKernel
     {
 
         protected override void Initialize()
