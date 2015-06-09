@@ -1,21 +1,28 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class JumpingLeftBigMarioSprite: SpriteKernel
+    public class JumpingLeftBigMarioSprite: SpriteKernelNew
     {
         protected override void Initialize()
         {
-            // Source parameters
-            const int totalFrames = 8;
-            Vector2 startCoordinate = new Vector2(0, 85);
-            Vector2 endCoordinate = new Vector2(200, 120);
-
             // Animation parameters
             const int period = 8;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(1, 88, 14, 30),
+                    new Rectangle(28, 89, 14, 27),
+                    new Rectangle(52, 88, 16, 30),
+                    new Rectangle(78, 88, 14, 30),
+                    new Rectangle(103, 88, 14, 30),
+                    new Rectangle(127, 88, 16, 29),
+                    new Rectangle(152, 88, 16, 29),
+                    new Rectangle(180, 88, 16, 29)
+                });
             Animation = new SpriteAnimation(
                 phase =>
                 {

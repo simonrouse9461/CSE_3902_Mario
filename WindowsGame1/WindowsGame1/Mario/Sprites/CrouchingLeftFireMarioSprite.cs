@@ -1,20 +1,21 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class CrouchingLeftFireMarioSprite : SpriteKernel
+    public class CrouchingLeftFireMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
         {
-            // Source parameters
-            Vector2 startCoordinate = new Vector2(0,125);
-            Vector2 endCoordinate = new Vector2(20, 150);
-
             // Animation parameters
             const int period = 1;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(0, 127, 16, 22)
+                });
             Animation = new SpriteAnimation(null, period);
         }
 

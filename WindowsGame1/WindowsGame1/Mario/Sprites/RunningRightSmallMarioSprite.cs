@@ -1,22 +1,24 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
 
-    public class RunningRightSmallMarioSprite : SpriteKernel
+    public class RunningRightSmallMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
         {
-            // Source parameters
-            const int totalFrames = 3;
-            Vector2 startCoordinate = new Vector2(230, 0);
-            Vector2 endCoordinate = new Vector2(320, 15);
-
             // Animation parameters
             const int period = 3;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(241, 0, 14, 15),
+                    new Rectangle(272, 0, 12, 16),
+                    new Rectangle(300, 0, 16, 16)
+                });
             Animation = new SpriteAnimation(
                 phase =>
                 {

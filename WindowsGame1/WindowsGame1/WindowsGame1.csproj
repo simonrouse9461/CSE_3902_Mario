@@ -76,15 +76,8 @@
     <Compile Include="Commands\FireflowerCommand.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
-    <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
-    <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
-    <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
-    <Compile Include="Items\MotionStates\BlankMotionState.cs" />
-    <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
-    <Compile Include="Items\SpriteStates\CoinSpriteState.cs" />
-    <Compile Include="Items\StarObject.cs" />
-    <Compile Include="Items\CoinObject.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
+    <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
@@ -99,9 +92,9 @@
     <Compile Include="Enemies\EnemyObject.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
-    <Compile Include="Enemies\GoombaObject.cs" />
+    <Compile Include="Enemies\Goomba.cs" />
     <Compile Include="Enemies\Koopa.cs" />
-    <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
+    <Compile Include="Enemies\Sprites\GoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
     <Compile Include="Interfaces\IObjectNew.cs" />
@@ -190,6 +183,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="SpriteAnimation.cs" />
     <Compile Include="SpriteSource.cs" />
+    <Compile Include="SpriteSourceNew.cs" />
     <Compile Include="WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

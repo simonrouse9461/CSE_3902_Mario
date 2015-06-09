@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class FacingRightFireMarioSprite : SpriteKernel
+    public class FacingRightFireMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
         {
@@ -14,7 +15,11 @@ namespace WindowsGame1
             // Animation parameters
             const int period = 1;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(209, 122, 16, 32)
+                });
             Animation = new SpriteAnimation(null, period);
         }
 

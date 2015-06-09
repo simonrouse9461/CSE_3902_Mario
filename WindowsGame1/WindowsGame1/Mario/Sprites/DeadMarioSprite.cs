@@ -1,20 +1,20 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class DeadMarioSprite : SpriteKernel
+    public class DeadMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
-        {
-            // Source parameters
-            Vector2 startCoordinate = new Vector2(0, 15);
-            Vector2 endCoordinate = new Vector2(15, 30);
-
-            // Animation parameters
+        {// Animation parameters
             const int period = 1;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(0, 16, 15, 14)
+                });
             Animation = new SpriteAnimation(null, period);
         }
 

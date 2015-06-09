@@ -1,7 +1,0 @@
-Content\score.xnb
-Content\mario.xnb
-Content\blocks.xnb
-Content\overworld.xnb
-Content\enemies.xnb
-Content\items.xnb
-Content\single green pipe.xnb

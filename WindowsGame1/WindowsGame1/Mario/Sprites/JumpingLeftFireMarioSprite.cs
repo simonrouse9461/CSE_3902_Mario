@@ -1,21 +1,28 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class JumpingLeftFireMarioSprite: SpriteKernel
+    public class JumpingLeftFireMarioSprite: SpriteKernelNew
     {
         protected override void Initialize()
         {
-            // Source parameters
-            const int totalFrames = 8;
-            Vector2 startCoordinate = new Vector2(0, 155);
-            Vector2 endCoordinate = new Vector2(200, 190);
-
             // Animation parameters
             const int period = 8;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(1, 158, 14, 30),
+                    new Rectangle(28, 159, 14, 27),
+                    new Rectangle(52, 158, 16, 30),
+                    new Rectangle(78, 158, 14, 30),
+                    new Rectangle(103, 158, 14, 30),
+                    new Rectangle(127, 158, 16, 29),
+                    new Rectangle(152, 158, 16, 29),
+                    new Rectangle(180, 158, 16, 29)
+                });
             Animation = new SpriteAnimation(
                 phase =>
                 {
