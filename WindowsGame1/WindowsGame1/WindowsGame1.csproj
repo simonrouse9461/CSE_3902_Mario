@@ -78,8 +78,11 @@
     <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Enemies\GoombaObject.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
+    <Compile Include="Enemies\SpriteStates\KoopaSpriteState.cs" />
     <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
+    <Compile Include="Enemies\Sprites\ShellKoopaSprite.cs" />
     <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
     <Compile Include="Items\CoinObject.cs" />
     <Compile Include="Items\MotionStates\BlankMotionState.cs" />
@@ -107,7 +110,7 @@
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
     <Compile Include="Enemies\Koopa.cs" />
-    <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
+    <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
@@ -247,7 +250,6 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
-    <None Include="Enemies\Sprites\KoopaSprite.cs.orig" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
     <None Include="WindowsGame1.csproj.Debug.cachefile" />
