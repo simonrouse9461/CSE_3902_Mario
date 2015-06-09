@@ -29,9 +29,9 @@ namespace WindowsGame1
         public WorldManager()
         {
             Mario = new MarioObject(new Vector2(200, 100));
-            Goomba = new GoombaObject(new Vector2(340, 302));
-            Coin = new CoinObject(new Vector2(100, 100));
-            Star = new StarObject(new Vector2(120, 100));
+            Goomba = new GoombaObject(new Vector2(240, 302));
+            Coin = new CoinObject(new Vector2(450, 300));
+            Star = new StarObject(new Vector2(500, 300));
 
             QuestionBlock = new BlockObject(new Vector2(300, 200));
             UsedBlock = new BlockObject(new Vector2(250, 200));
@@ -47,10 +47,10 @@ namespace WindowsGame1
             //GreenPipe = new BlockObject(new Vector2(300, 100));
             //GreenPipe.SwitchSprite(BlockSpriteEnum.GreenPipe);
             
-            Fireflower = new Fireflower(new Vector2(400, 300));
-            Mushroom = new Mushroom(new Vector2(500, 300));
+            Fireflower = new Fireflower(new Vector2(400, 304));
+            Mushroom = new Mushroom(new Vector2(550, 300));
             _1up = new _1up(new Vector2(600, 300));
-            Koopa = new Koopa(new Vector2(300, 300));
+            Koopa = new Koopa(new Vector2(200, 300));
         }
 
         public void LoadContent(ContentManager content)
