@@ -73,7 +73,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="single green pipe.jpg">
+    <Compile Include="single green pipe.png">
       <Name>single green pipe</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

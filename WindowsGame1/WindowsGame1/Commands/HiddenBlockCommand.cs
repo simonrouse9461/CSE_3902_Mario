@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.NormalBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
+            Game.World.HiddenBlock.SpriteState.Status = HiddenBlockSpriteState.StatusEnum.UsedBlock;
         }
 
     }
