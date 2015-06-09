@@ -2,11 +2,11 @@
 {
     public class KoopaCommand : CommandKernel
     {
-        public KoopaCommand(Game1 game) : base(game) { }
+        public KoopaCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
-            Game.Koopa.SwitchSprite(EnemySpriteEnum.Koopa);
+            //Game.World.Koopa.SwitchSprite(EnemySpriteEnum.Koopa);
         }
 
     }

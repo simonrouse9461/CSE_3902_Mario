@@ -72,9 +72,29 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandManager.cs" />
     <Compile Include="Commands\FireflowerCommand.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
+    <Compile Include="Enemies\GoombaObject.cs" />
+    <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
+    <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
+    <Compile Include="Enemies\SpriteStates\KoopaSpriteState.cs" />
+    <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
+    <Compile Include="Enemies\Sprites\ShellKoopaSprite.cs" />
+    <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
+    <Compile Include="Items\CoinObject.cs" />
+    <Compile Include="Items\MotionStates\BlankMotionState.cs" />
+    <Compile Include="Items\MotionStates\RightMotionState.cs" />
+    <Compile Include="Items\SpriteStates\1upSpriteState.cs" />
+    <Compile Include="Items\SpriteStates\CoinSpriteState.cs" />
+    <Compile Include="Items\SpriteStates\FireflowerSpriteState.cs" />
+    <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
+    <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
+    <Compile Include="Items\StarObject.cs" />
+    <Compile Include="Kernels\ControllerKernel.cs" />
+    <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
@@ -89,15 +109,12 @@
     <Compile Include="Enemies\EnemyObject.cs" />
     <Compile Include="Enemies\Enum\EnemyMotionEnum.cs" />
     <Compile Include="Enemies\Enum\EnemySpriteEnum.cs" />
-    <Compile Include="Enemies\Goomba.cs" />
     <Compile Include="Enemies\Koopa.cs" />
-    <Compile Include="Enemies\Sprites\GoombaSprite.cs" />
-    <Compile Include="Enemies\Sprites\KoopaSprite.cs" />
+    <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
-    <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\Enum\1upMotionEnum.cs" />
     <Compile Include="Items\Enum\1upSpriteEnum.cs" />
     <Compile Include="Items\Enum\CoinMotionEnum.cs" />
@@ -118,7 +135,6 @@
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />
     <Compile Include="Items\Sprites\StarSprite.cs" />
-    <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\CommandKernal.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
@@ -133,24 +149,29 @@
     <Compile Include="Mario\MarioObject.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
-    <Compile Include="Mario\Sprites\FacingLeftBMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\FacingLeftFMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\FacingLeftSMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\FacingRightBMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\FacingRightFMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\FacingRightSMarioSprite .cs" />
-    <Compile Include="Mario\Sprites\JumpingLeftBMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\JumpingLeftFMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\JumpingLeftSMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\JumpingRightBMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\JumpingRightFMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\JumpingRightSMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\RunningLeftBMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\RunningLeftFMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\RunningLeftSMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\RunningRightBMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\RunningRightFMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\RunningRightSMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\CrouchingLeftBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\CrouchingLeftFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\CrouchingRightBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\CrouchingRightFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\DeadMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingLeftBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingLeftFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingLeftSmallMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingRightBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingRightFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\FacingRightSmallMarioSprite .cs" />
+    <Compile Include="Mario\Sprites\JumpingLeftBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\JumpingLeftFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\JumpingLeftSmallMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\JumpingRightBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\JumpingRightFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\JumpingRightSmallMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\RunningLeftBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\RunningLeftFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\RunningLeftSmallMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\RunningRightBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\RunningRightFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\RunningRightSmallMarioSprite.cs" />
     <Compile Include="Misc Objects\BlockObject.cs" />
     <Compile Include="Misc Objects\Enum\BlockMotionEnum.cs" />
     <Compile Include="Misc Objects\Enum\BlockSpriteEnum.cs" />
@@ -166,7 +187,6 @@
     <Compile Include="ObjectMotion.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="ObjectState.cs" />
-    <Compile Include="Mario\Sprites\DeadMovingUpAndDownMarioSprite.cs" />
     <Compile Include="Commands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
@@ -176,6 +196,8 @@
     <Compile Include="Game1.cs" />
     <Compile Include="SpriteAnimation.cs" />
     <Compile Include="SpriteSource.cs" />
+    <Compile Include="SpriteSourceNew.cs" />
+    <Compile Include="WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
@@ -223,11 +245,11 @@
     <Folder Include="bin\x86\Release\" />
     <Folder Include="Motions\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
+    <Folder Include="Utility Classes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
-    <None Include="Enemies\Sprites\KoopaSprite.cs.orig" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
     <None Include="WindowsGame1.csproj.Debug.cachefile" />

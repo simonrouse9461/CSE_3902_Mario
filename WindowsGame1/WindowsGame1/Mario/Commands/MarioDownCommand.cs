@@ -4,17 +4,20 @@ namespace WindowsGame1
 {
     public class MarioDownCommand : CommandKernel
     {
-        public MarioDownCommand(Game1 game) : base(game) { }
+        public MarioDownCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
-            switch (Game.Mario.SpriteState.Action)
+            switch (Game.World.Mario.SpriteState.Action)
             {
-                case MarioSpriteState.ActionEnum.Jumping:
-                    Game.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Facing;
+                case MarioSpriteState.ActionEnum.Stand:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Crouch;
                     break;
-                case MarioSpriteState.ActionEnum.Facing:
-                    Game.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Running;
+                case MarioSpriteState.ActionEnum.Run:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Stand;
+                    break;
+                case MarioSpriteState.ActionEnum.Jump:
+                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Run;
                     break;
             }
         }

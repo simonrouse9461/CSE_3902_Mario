@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public interface IController<T>
     {
-        void RegisterCommand(T key, ICommand command);
+        void RegisterCommand(T key, ICommand command, bool onlyWhenClick = false);
         void Update();
     }
 }

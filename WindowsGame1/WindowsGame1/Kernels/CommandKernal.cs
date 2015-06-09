@@ -2,9 +2,9 @@
 {
     public abstract class CommandKernel : ICommand
     {
-        protected Game1 Game;
+        protected MarioGame Game;
 
-        protected CommandKernel(Game1 game)
+        protected CommandKernel(MarioGame game)
         {
             Game = game;
         }

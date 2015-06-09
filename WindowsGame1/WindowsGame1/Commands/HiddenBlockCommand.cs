@@ -3,11 +3,11 @@ namespace WindowsGame1
 {
     public class HiddenBlockCommand : CommandKernel
     {
-        public HiddenBlockCommand(Game1 game) : base(game) { }
+        public HiddenBlockCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
-            Game.NormalBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
+            Game.World.NormalBlock.SwitchSprite(BlockSpriteEnum.UsedBlock);
         }
 
     }

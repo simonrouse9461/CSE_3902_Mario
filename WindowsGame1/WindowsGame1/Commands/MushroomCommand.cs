@@ -2,11 +2,11 @@
 {
     public class MushroomCommand : CommandKernel
     {
-        public MushroomCommand(Game1 game) : base(game) { }
+        public MushroomCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
-            Game.Mushroom.SwitchSprite(MushroomSpriteEnum.Mushroom);
+            //Game.World.Mushroom.SwitchSprite(MushroomSpriteEnum.Mushroom);
         }
 
     }

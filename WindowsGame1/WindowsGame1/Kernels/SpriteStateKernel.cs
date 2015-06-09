@@ -33,8 +33,10 @@ namespace WindowsGame1
 
         public void Update()
         {
-            ActiveSprite().Update();
+            if (Timer.Update())
+            {
+                ActiveSprite().Update(); 
+            }
         }
-
     }
 }
