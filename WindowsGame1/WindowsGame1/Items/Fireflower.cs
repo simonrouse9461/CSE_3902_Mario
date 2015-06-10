@@ -14,9 +14,10 @@ namespace WindowsGame1
             MotionState = new BlankMotionState(location);
             
         }
-        protected void Reset()
+        protected void Reset(Vector2 location)
         {
-
+            SpriteState = new FireflowerSpriteState();
+            MotionState = new BlankMotionState(location);
         }
     }
 }
