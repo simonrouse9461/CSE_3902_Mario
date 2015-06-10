@@ -1,0 +1,27 @@
+﻿Author: Andrew Miller
+Date: 6/9/15
+Sprint #: 2
+File: ObjectKernelNew.cs
+Author of File: Chuhan Feng
+Comments:
+
+	ObjectKernelNew is a replacement class for the previous 
+	implementation of ObjectKernel. The new class aims to 
+	streamline the decisionmaking for switching between 
+	sprites, since the previous implementation did not account
+	for more than one type of sprite on the screen at the same 
+	time. Cohesion is very high since all of the methods in the
+	class are related; the entire class is made of methods to 
+	choose the appropriate sprites for certain actions or 
+	game states. It also contains a reset method in case a sprite 
+	needs to be reset at any time. This class is what is used to 
+	create the individual objects that then can be placed all over
+	the game space.
+
+Future changes:
+	It is hard to think of anything that could be done to improve
+	the class; this class makes it possible to draw and choose
+	the sprites also based on the motion being conducted on the
+	sprite. Possibly overriding an unload method in order to 
+	be able to changes levels in case there is a problem with
+	using the main game file for the unloading.
