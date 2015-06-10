@@ -46,6 +46,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>false</XnaCompressContent>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -113,20 +114,7 @@
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
-    <Compile Include="Items\Enum\1upMotionEnum.cs" />
-    <Compile Include="Items\Enum\1upSpriteEnum.cs" />
-    <Compile Include="Items\Enum\CoinMotionEnum.cs" />
-    <Compile Include="Items\Enum\CoinSpriteEnum.cs" />
-    <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
-    <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
-    <Compile Include="Items\Enum\ItemMotionEnum.cs" />
-    <Compile Include="Items\Enum\ItemSpriteEnum.cs" />
-    <Compile Include="Items\Enum\MushroomMotionEnum.cs" />
-    <Compile Include="Items\Enum\MushroomSpriteEnum.cs" />
-    <Compile Include="Items\Enum\StarMotionEnum.cs" />
-    <Compile Include="Items\Enum\StarSpriteEnum.cs" />
     <Compile Include="Items\Fireflower.cs" />
-    <Compile Include="Items\ItemObject.cs" />
     <Compile Include="Items\Mushroom.cs" />
     <Compile Include="Items\Sprites\1upSprite.cs" />
     <Compile Include="Items\Sprites\CoinSprite.cs" />
@@ -145,7 +133,6 @@
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
-    <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
     <Compile Include="Mario\Sprites\CrouchingLeftBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\CrouchingLeftFireMarioSprite.cs" />
@@ -219,6 +206,7 @@
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="Code Reviews\ChuhanCodeReview.txt" />
     <Content Include="Code Reviews\ColinCodeReview.txt" />
+    <Content Include="Code Reviews\ColinReadabilityReview.txt" />
     <Content Include="Code Reviews\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
@@ -230,6 +218,7 @@
     <Content Include="obj\x86\Debug\WindowsGame1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\WindowsGame1.exe" />
     <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
+    <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WindowsGame1Content\WindowsGame1Content.contentproj">

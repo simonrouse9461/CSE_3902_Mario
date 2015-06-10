@@ -10,7 +10,7 @@ namespace WindowsGame1
         public Texture2D Texture;
         public Vector2 StartCoordinate;
         public Vector2 EndCoordinate;
-        public int TotalFrames;
+        private int TotalFrames;
 
         // Read-only properties
         public int Width

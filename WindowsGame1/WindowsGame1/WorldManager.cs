@@ -7,20 +7,23 @@ namespace WindowsGame1
     public class WorldManager
     {
         public MarioObject Mario;
-        public GoombaObject Goomba;
-        public CoinObject Coin;
-        public StarObject Star;
-        public Koopa Koopa;
-        public Fireflower Fireflower;
-        public _1up _1up;
-        public Mushroom Mushroom;
+
         public QuestionBlockObject QuestionBlock;
         public HiddenBlockObject HiddenBlock;
         public NormalBlockObject NormalBlock;
         public DestructibleBlockObject DestructibleBlock;
         public IndestructibleBlockObject IndestructibleBlock;
         public UsedBlockObject UsedBlock;
-        public GreenPipeObject GreenPipe;
+
+        private Koopa Koopa;
+        private GoombaObject Goomba;
+
+        private CoinObject Coin;
+        private StarObject Star;
+        private Fireflower Fireflower;
+        private _1up _1up;
+        private Mushroom Mushroom;
+        private GreenPipeObject GreenPipe;
 
         public WorldManager()
         {

@@ -11,10 +11,5 @@ namespace WindowsGame1
             SpriteState = new CoinSpriteState();
             MotionState = new BlankMotionState(location);
         }
-
-        protected void Reset()
-        {
-
-        }
     }
 }

@@ -14,9 +14,5 @@ namespace WindowsGame1
             SpriteState = new QuestionBlockSpriteState();
             MotionState = new QuestionBlockMotionState(location);
         }
-        protected void Reset()
-        {
-
-        }
     }
 }

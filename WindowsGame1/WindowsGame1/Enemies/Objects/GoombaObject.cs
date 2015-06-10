@@ -11,10 +11,5 @@ namespace WindowsGame1
             SpriteState = new GoombaSpriteState();
             MotionState = new GoombaMotionState(location);
         }
-
-        protected void Reset()
-        {
-
-        }
     }
 }

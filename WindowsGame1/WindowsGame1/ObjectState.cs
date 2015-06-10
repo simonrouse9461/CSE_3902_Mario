@@ -9,11 +9,11 @@ namespace WindowsGame1
         where T : struct, IConvertible
         where K : struct, IConvertible
     {
-        public Vector2 Location;
+        private Vector2 Location;
 
-        public T ActiveSprite;
+        private T ActiveSprite;
 
-        public Dictionary<K, bool> EffectiveMotion;
+        private Dictionary<K, bool> EffectiveMotion;
 
         public ObjectState(Vector2 location)
         {

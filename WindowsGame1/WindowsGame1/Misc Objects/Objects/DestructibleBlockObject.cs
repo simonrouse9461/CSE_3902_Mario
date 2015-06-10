@@ -13,11 +13,5 @@ namespace WindowsGame1
             SpriteState = new DestructibleBlockSpriteState();
             MotionState = new DestructibleBlockMotionState(location);
         }
-
-        protected void Reset()
-        {
-
-        }
     }
-
 }

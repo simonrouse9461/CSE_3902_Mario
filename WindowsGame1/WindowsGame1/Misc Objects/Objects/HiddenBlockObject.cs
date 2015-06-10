@@ -13,11 +13,6 @@ namespace WindowsGame1
             SpriteState = new HiddenBlockSpriteState();
             MotionState = new HiddenBlockMotionState(location);
         }
-
-        protected void Reset()
-        {
-
-        }
     }
 
 }
