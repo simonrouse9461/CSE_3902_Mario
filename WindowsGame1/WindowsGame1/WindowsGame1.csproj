@@ -207,10 +207,12 @@
     <Content Include="Code Reviews\BowenCodeReview.txt" />
     <Content Include="Code Reviews\BowenReadabilityReview.txt" />
     <Content Include="Code Reviews\ChuhanCodeReview.txt" />
-    <Content Include="Code Reviews\ChuhanReadabilityReview.txt" />
     <Content Include="Code Reviews\ColinCodeReview.txt" />
     <Content Include="Code Reviews\ColinReadabilityReview.txt" />
     <Content Include="Code Reviews\HadenCodeReview.txt" />
+    <Content Include="Code Reviews\HadeReadabilityReview.txt" />
+    <Content Include="Code Reviews\AndrewCodeReview.txt" />
+    <Content Include="Code Reviews\AndrewReadabilityReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

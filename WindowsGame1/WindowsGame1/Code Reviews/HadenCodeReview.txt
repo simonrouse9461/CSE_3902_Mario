@@ -3,7 +3,7 @@
 Sprint 2
 
 File: MarioSpriteState.cs
-File Author: Chuhan Feng
+File Author: Bowen Dai & Chuhan Feng
 
 COMMENTS:
 	Coupling is moderate. Only one object depends on MarioSpriteState, but MarioSpriteState depends on many ISprite objects.
