@@ -24,8 +24,9 @@ namespace WindowsGame1
         {
            SpriteList = new List<ISprite>
            {
+               new ShellKoopaSprite(), //0
                new WalkingKoopaSprite(), //1
-               new ShellKoopaSprite(),   //0
+               
            };
 
             Status = StatusEnum.Walking;
