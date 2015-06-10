@@ -46,6 +46,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <PlatformTarget>x86</PlatformTarget>
     <XnaCompressContent>false</XnaCompressContent>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -113,20 +114,7 @@
     <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
-    <Compile Include="Items\Enum\1upMotionEnum.cs" />
-    <Compile Include="Items\Enum\1upSpriteEnum.cs" />
-    <Compile Include="Items\Enum\CoinMotionEnum.cs" />
-    <Compile Include="Items\Enum\CoinSpriteEnum.cs" />
-    <Compile Include="Items\Enum\FireflowerMotionEnum.cs" />
-    <Compile Include="Items\Enum\FireflowerSpriteEnum.cs" />
-    <Compile Include="Items\Enum\ItemMotionEnum.cs" />
-    <Compile Include="Items\Enum\ItemSpriteEnum.cs" />
-    <Compile Include="Items\Enum\MushroomMotionEnum.cs" />
-    <Compile Include="Items\Enum\MushroomSpriteEnum.cs" />
-    <Compile Include="Items\Enum\StarMotionEnum.cs" />
-    <Compile Include="Items\Enum\StarSpriteEnum.cs" />
     <Compile Include="Items\Fireflower.cs" />
-    <Compile Include="Items\ItemObject.cs" />
     <Compile Include="Items\Mushroom.cs" />
     <Compile Include="Items\Sprites\1upSprite.cs" />
     <Compile Include="Items\Sprites\CoinSprite.cs" />

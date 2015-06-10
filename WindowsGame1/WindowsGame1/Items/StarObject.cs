@@ -11,10 +11,5 @@ namespace WindowsGame1
             SpriteState = new StarSpriteState();
             MotionState = new BlankMotionState(location);
         }
-
-        protected void Reset()
-        {
-
-        }
     }
 }
