@@ -6,9 +6,9 @@ namespace WindowsGame1
 {
     public abstract class MotionStateKernel : IMotionState
     {
-        protected Vector2 Location;
+        private Vector2 Location;
 
-        protected Counter Timer;
+        private Counter Timer;
 
         protected Dictionary<ObjectMotion, bool> MotionList; 
 

@@ -133,7 +133,6 @@
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
-    <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
     <Compile Include="Mario\Sprites\CrouchingLeftBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\CrouchingLeftFireMarioSprite.cs" />

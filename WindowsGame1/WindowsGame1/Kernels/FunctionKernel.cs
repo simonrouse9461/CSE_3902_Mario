@@ -5,9 +5,9 @@ namespace WindowsGame1
 {
     public abstract class FunctionKernel<T> : IFunction<T>
     {
-        protected Counter Stage;
+        private Counter Stage;
 
-        protected Func<int, T> Function;
+        private Func<int, T> Function;
 
         protected FunctionKernel(Func<int, T> getValue = null, int period = 0)
         {

@@ -9,7 +9,7 @@ namespace WindowsGame1
         protected Dictionary<T, bool> LastState;
         protected List<T> RegisteredKeys;
 
-        public ControllerKernel()
+        protected ControllerKernel()
         {
             KeysRespondToPress = new Dictionary<T, ICommand>();
             KeysRespondToClick = new Dictionary<T, ICommand>();
@@ -17,7 +17,7 @@ namespace WindowsGame1
             RegisteredKeys = new List<T>();
         }
 
-        public void RegisterCommand(T key, ICommand command, bool respondToClick = false)
+        public void RegisterCommand(T key, ICommand command, bool respondToClick)
         {
             if (respondToClick)
             {

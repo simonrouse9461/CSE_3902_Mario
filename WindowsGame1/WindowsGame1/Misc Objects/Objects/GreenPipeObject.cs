@@ -13,11 +13,6 @@ namespace WindowsGame1
             SpriteState = new GreenPipeSpriteState();
             MotionState = new GreenPipeMotionState(location);
         }
-
-        protected void Reset()
-        {
-
-        }
     }
 
 }
