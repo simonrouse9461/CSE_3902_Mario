@@ -1,0 +1,8 @@
+﻿Chuhan Feng
+6/9/2015
+Sprint 2
+
+File: GreenPipeSpriteState.cs
+File Author: Andrew
+
+The cohesion of the code is very high. All the Enums, Properties, and methods are about how does the green pipe appear on the game canvas. No other unrelated information, such as location and movement, is included.

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -39,6 +38,11 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentLocation());
+        }
+
+        public Vector2 GetLocation()
+        {
+            return MotionState.CurrentLocation();
         }
     }
 }

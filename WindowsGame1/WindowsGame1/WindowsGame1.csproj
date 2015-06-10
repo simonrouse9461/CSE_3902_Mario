@@ -101,6 +101,7 @@
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
     <Compile Include="Mario\Commands\MarioFireCommand.cs" />
     <Compile Include="Mario\Commands\MarioLeftCommand.cs" />
+    <Compile Include="Mario\Commands\MarioResetCommand.cs" />
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioSmallCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
@@ -217,6 +218,8 @@
   <ItemGroup>
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
+    <Content Include="Code Reviews\ChuhanCodeReview.txt" />
+    <Content Include="Code Reviews\ColinCodeReview.txt" />
     <Content Include="Code Reviews\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
