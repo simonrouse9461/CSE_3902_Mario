@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class GoombaObject : ObjectKernelNew<GoombaSpriteState, GoombaMotionState>
+    public  class GoombaObject : ObjectKernel<GoombaSpriteState, GoombaMotionState>
     {
         public  GoombaObject(Vector2 location) : base(location) { }
 

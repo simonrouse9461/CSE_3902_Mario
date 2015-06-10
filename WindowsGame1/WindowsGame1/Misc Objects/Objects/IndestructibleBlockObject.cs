@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class IndestructibleBlockObject : ObjectKernelNew<IndestructibleBlockSpriteState, IndestructibleBlockMotionState>
+    public class IndestructibleBlockObject : ObjectKernel<IndestructibleBlockSpriteState, IndestructibleBlockMotionState>
     {
 
         public IndestructibleBlockObject(Vector2 location) : base(location) { }

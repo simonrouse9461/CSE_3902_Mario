@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public  class Koopa : ObjectKernelNew<KoopaSpriteState, KoopaMotionState>
+    public  class Koopa : ObjectKernel<KoopaSpriteState, KoopaMotionState>
     {
         public  Koopa(Vector2 location) : base(location) { }
 
@@ -15,7 +15,7 @@ namespace WindowsGame1
 
         }
 
-        protected void Reset(Vector2 location)
+        public override void Reset(Vector2 location)
         {
             SpriteState = new KoopaSpriteState();
             MotionState = new KoopaMotionState(location);

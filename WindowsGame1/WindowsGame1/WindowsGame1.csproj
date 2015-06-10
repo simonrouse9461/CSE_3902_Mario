@@ -111,7 +111,7 @@
     <Compile Include="Enemies\Objects\KoopaObject.cs" />
     <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
-    <Compile Include="Interfaces\IObjectNew.cs" />
+    <Compile Include="Interfaces\IObject.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
     <Compile Include="Items\Fireflower.cs" />
@@ -127,9 +127,8 @@
     <Compile Include="Counter.cs" />
     <Compile Include="Kernels\FunctionKernel.cs" />
     <Compile Include="Interfaces\IFunction.cs" />
-    <Compile Include="Interfaces\IObject.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
-    <Compile Include="Kernels\ObjectKernelNew.cs" />
+    <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />

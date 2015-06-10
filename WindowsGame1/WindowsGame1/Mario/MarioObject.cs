@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>
+    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>
     {
         public MarioObject(Vector2 location) : base(location) { }
 
