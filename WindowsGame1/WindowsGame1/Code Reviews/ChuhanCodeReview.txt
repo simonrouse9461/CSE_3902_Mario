@@ -2,10 +2,15 @@
 Date: 6/9/2015
 Sprint #: 2
 File Name: GreenPipeSpriteState.cs
-File Author: Andrew
+File Author: Andrew Miller
+
 Comment:
-The cohesion of the code is very high. All the Enums, Properties, and methods
+	The cohesion of the code is very high. All the Enums, Properties, and methods
 are about how does the green pipe appear on the game canvas. No other unrelated
 information, such as location and movement, is included.
-The coupling of the code is low, since the sprite sheet is implemeted in another
-class. Each implementation can be changed without changing both of them.
+	The coupling of the code is not low enough, since local properties, namely the
+state of the pipe, can only be changed by the directly access from another class.
+
+Possible change:
+	Methods that change the state of the pipe can be added and local properties
+can be made private, in order to decrease coupling.
