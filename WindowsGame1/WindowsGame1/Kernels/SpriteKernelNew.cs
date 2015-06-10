@@ -13,7 +13,7 @@ namespace WindowsGame1
         protected SpriteAnimation Animation;
 
         // Constructor
-        public SpriteKernelNew()
+        protected SpriteKernelNew()
         {
             Initialize();
             Reset();

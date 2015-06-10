@@ -12,9 +12,5 @@ namespace WindowsGame1
             SpriteState = new UsedBlockSpriteState();
             MotionState = new UsedBlockMotionState(location);
         }
-        protected void Reset()
-        {
-
-        }
     }
 }

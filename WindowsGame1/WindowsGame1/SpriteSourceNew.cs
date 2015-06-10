@@ -10,7 +10,7 @@ namespace WindowsGame1
         // Kernal properties
         public Texture2D Texture;
         public List<Rectangle> Coodinates; 
-        public int TotalFrames;
+        private int TotalFrames;
 
         // Constructor
         public SpriteSourceNew(List<Rectangle> coodinates)
