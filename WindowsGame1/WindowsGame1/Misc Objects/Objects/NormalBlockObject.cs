@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class NormalBlockObject : ObjectKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
+    public class NormalBlockObject : ObjectKernel<NormalBlockSpriteState, NormalBlockMotionState>
     {
         public NormalBlockObject(Vector2 location) : base(location) { }
 

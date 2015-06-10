@@ -8,6 +8,6 @@ Time: 4 minutes
 
 COMMENTS:
 	Readability is sacrificed with the use of a list to hold sprites. For example, the BigLeftFacingMario sprite is
-		SpriteList[7]. SpriteList[7] as a "indentifier" isn't clear.
+		SpriteList[7]. SpriteList[7] as awe "indentifier" isn't clear.
 	Also, the 4 switch cases withing a switch case is a bit complex and this hurts readability.
 	Other than that, readability is good. Good variables names and concise code.
