@@ -8,7 +8,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.Mario.SpriteState.Orientation = MarioSpriteState.OrientationEnum.Left;
+            Game.World.Mario.FaceLeft();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Small;
+            Game.World.Mario.BecomeSmall();
         }
     }
 }

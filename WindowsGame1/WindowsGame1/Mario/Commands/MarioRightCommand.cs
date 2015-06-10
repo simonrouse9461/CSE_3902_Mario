@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.World.Mario.SpriteState.Orientation = MarioSpriteState.OrientationEnum.Right;
+            Game.World.Mario.FaceRight();
         }
     }
 }

@@ -6,18 +6,7 @@
 
         public override void Execute()
         {
-            switch (Game.World.Mario.SpriteState.Action)
-            {
-                case MarioSpriteState.ActionEnum.Stand:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Crouch;
-                    break;
-                case MarioSpriteState.ActionEnum.Run:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Stand;
-                    break;
-                case MarioSpriteState.ActionEnum.Jump:
-                    Game.World.Mario.SpriteState.Action = MarioSpriteState.ActionEnum.Run;
-                    break;
-            }
+            Game.World.Mario.GoDown();
         }
     }
 }

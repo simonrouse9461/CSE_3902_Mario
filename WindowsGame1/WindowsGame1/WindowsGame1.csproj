@@ -94,6 +94,7 @@
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
+    <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
+    <Compile Include="Mario\MarioNew.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
     <Compile Include="Mario\Sprites\CrouchingLeftBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\CrouchingLeftFireMarioSprite.cs" />

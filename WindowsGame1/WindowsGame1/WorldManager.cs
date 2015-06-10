@@ -6,7 +6,8 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public MarioObject Mario;
+        // public MarioObject Mario;
+        public MarioNew Mario;
 
         public QuestionBlockObject QuestionBlock;
         public HiddenBlockObject HiddenBlock;
@@ -27,7 +28,7 @@ namespace WindowsGame1
 
         public WorldManager()
         {
-            Mario = new MarioObject(new Vector2(200, 100));
+            Mario = new MarioNew(new Vector2(200, 100));
             Goomba = new Goomba(new Vector2(240, 302));
             Coin = new Coin(new Vector2(450, 300));
             Star = new Star(new Vector2(500, 300));

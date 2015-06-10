@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.World.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Dead;
+            Game.World.Mario.BecomeDead();
         } 
     }
 }
