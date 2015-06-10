@@ -13,9 +13,10 @@ namespace WindowsGame1
             SpriteState = new MushroomSpriteState();
             MotionState = new RightMotionState(location);
         }
-        protected void Reset()
+        protected void Reset(Vector2 location)
         {
-
+            SpriteState = new MushroomSpriteState();
+            MotionState = new RightMotionState(location);
         }
     }
 }
