@@ -1,0 +1,8 @@
+﻿Haden Kersting
+6/9/2015
+Sprint 2
+
+File: MarioSpriteState.cs
+File Author: Chuhan Feng
+
+Coupling is low/loose. Only one object depends on MarioSpriteState and MarioSpriteState depends on only the sprite objects which display Marios.
