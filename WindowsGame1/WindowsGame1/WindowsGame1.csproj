@@ -259,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
+    <Folder Include="Code Reviews\" />
     <Folder Include="Motions\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
     <Folder Include="Utility Classes\" />
