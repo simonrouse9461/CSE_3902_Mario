@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public abstract class SpriteStateKernel : ISpriteState
     {
-        protected Counter Timer;
+        private Counter Timer;
         protected List<ISprite> SpriteList;
 
         protected SpriteStateKernel(int frequency = 10)
