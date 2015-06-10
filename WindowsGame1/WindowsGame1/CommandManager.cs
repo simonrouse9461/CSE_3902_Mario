@@ -9,7 +9,7 @@ namespace WindowsGame1
 
         // Program quit command
         private ICommand quitCommand;
-
+        private ICommand resetCommand;
         // Mario Commands
         private ICommand marioBigCommand;
         private ICommand marioSmallCommand;
@@ -19,7 +19,7 @@ namespace WindowsGame1
         private ICommand marioDownCommand;
         private ICommand marioLeftCommand;
         private ICommand marioRightCommand;
-
+        
         // Other Commands
         private ICommand questionBlockCommand;
         private ICommand normalBlockCommand;
@@ -42,7 +42,7 @@ namespace WindowsGame1
             marioDownCommand = new MarioDownCommand(game);
             marioLeftCommand = new MarioLeftCommand(game);
             marioRightCommand = new MarioRightCommand(game);
-
+            resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
             questionBlockCommand = new QuestionBlockCommand(game);
             mushroomCommand = new MushroomCommand(game);
@@ -57,6 +57,7 @@ namespace WindowsGame1
             _keyboardController.RegisterCommand(Keys.F, fireflowerCommand);
             _keyboardController.RegisterCommand(Keys.X, normalBlockCommand);
             _keyboardController.RegisterCommand(Keys.C, hiddenBlockCommand);
+            _keyboardController.RegisterCommand(Keys.R, resetCommand);
             _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
 
             _keyboardController.RegisterCommand(Keys.Y, marioSmallCommand);

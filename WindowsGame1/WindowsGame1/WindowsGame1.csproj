@@ -76,6 +76,7 @@
     <Compile Include="Commands\FireflowerCommand.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\KoopaCommand.cs" />
+    <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\Objects\GoombaObject.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
