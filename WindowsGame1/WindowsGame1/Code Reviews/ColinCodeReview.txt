@@ -1,0 +1,16 @@
+﻿Author: Colin Dolan
+Date: 6/9/15
+Sprint #: 2
+File: SpriteSource.cs
+Author of File: Chuhan Feng
+Comments:
+	Code is very readable, variable names are informative, 
+	Methods are easy to implement for all types of objects 
+	making it very reusible. Exhibits a high cohesion and low 
+	coupling style. Exhibits no common code smells.
+Possible change:
+	We have discussed tracking object/sprite position by using
+	the midpoint of the sides of their rectangles. This would 
+	allow removal of the width and height properties and involve
+	slightly different parameters for the SpriteSource method.
+	Overall the maintanability is high for this struct.

@@ -15,9 +15,10 @@ namespace WindowsGame1
 
         }
 
-        protected void Reset()
+        protected void Reset(Vector2 location)
         {
-
+            SpriteState = new KoopaSpriteState();
+            MotionState = new KoopaMotionState(location);
         }
     }
 }

@@ -218,6 +218,8 @@
   <ItemGroup>
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
+    <Content Include="Code Reviews\ColinCodeReview.txt" />
+    <Content Include="Code Reviews\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
