@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class CoinObject : ObjectKernel<CoinSpriteState, BlankMotionState>
+    public  class Coin : ObjectKernel<CoinSpriteState, BlankMotionState>
     {
-        public  CoinObject(Vector2 location) : base(location) { }
+        public  Coin(Vector2 location) : base(location) { }
 
         protected override void Initialize(Vector2 location)
         {

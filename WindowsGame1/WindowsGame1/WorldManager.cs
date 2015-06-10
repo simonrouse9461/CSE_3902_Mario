@@ -16,10 +16,10 @@ namespace WindowsGame1
         public UsedBlockObject UsedBlock;
 
         private Koopa Koopa;
-        private GoombaObject Goomba;
+        private Goomba Goomba;
 
-        private CoinObject Coin;
-        private StarObject Star;
+        private Coin Coin;
+        private Star Star;
         private Fireflower Fireflower;
         private _1up _1up;
         private Mushroom Mushroom;
@@ -28,9 +28,9 @@ namespace WindowsGame1
         public WorldManager()
         {
             Mario = new MarioObject(new Vector2(200, 100));
-            Goomba = new GoombaObject(new Vector2(240, 302));
-            Coin = new CoinObject(new Vector2(450, 300));
-            Star = new StarObject(new Vector2(500, 300));
+            Goomba = new Goomba(new Vector2(240, 302));
+            Coin = new Coin(new Vector2(450, 300));
+            Star = new Star(new Vector2(500, 300));
             QuestionBlock = new QuestionBlockObject(new Vector2(300, 200));
             HiddenBlock = new HiddenBlockObject(new Vector2(200, 200));
             NormalBlock = new NormalBlockObject(new Vector2(100, 200));
