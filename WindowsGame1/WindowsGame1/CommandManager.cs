@@ -23,6 +23,9 @@ namespace WindowsGame1
         // Other Commands
         private ICommand questionBlockCommand;
         private ICommand normalBlockCommand;
+        private ICommand fireflowerCommand;
+        private ICommand mushroomCommand;
+        private ICommand koopaCommand;
         private ICommand hiddenBlockCommand;
 
         public CommandManager(MarioGame game)
@@ -42,10 +45,16 @@ namespace WindowsGame1
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
             questionBlockCommand = new QuestionBlockCommand(game);
+            mushroomCommand = new MushroomCommand(game);
+            fireflowerCommand = new FireflowerCommand(game);
+            koopaCommand = new KoopaCommand(game);
             normalBlockCommand = new NormalBlockCommand(game);
             hiddenBlockCommand = new HiddenBlockCommand(game);
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
             _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
+            _keyboardController.RegisterCommand(Keys.K, koopaCommand);
+            _keyboardController.RegisterCommand(Keys.M, mushroomCommand);
+            _keyboardController.RegisterCommand(Keys.F, fireflowerCommand);
             _keyboardController.RegisterCommand(Keys.X, normalBlockCommand);
             _keyboardController.RegisterCommand(Keys.C, hiddenBlockCommand);
             _keyboardController.RegisterCommand(Keys.R, resetCommand);

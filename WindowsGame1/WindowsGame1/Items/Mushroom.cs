@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Mushroom : ObjectKernel<MushroomSpriteState, RightMotionState>
+    public class Mushroom : ObjectKernelNew<MushroomSpriteState, RightMotionState>
     {
         public Mushroom(Vector2 location) : base(location) { }
 
@@ -13,7 +13,7 @@ namespace WindowsGame1
             SpriteState = new MushroomSpriteState();
             MotionState = new RightMotionState(location);
         }
-        public override void Reset(Vector2 location)
+        protected void Reset(Vector2 location)
         {
             SpriteState = new MushroomSpriteState();
             MotionState = new RightMotionState(location);

@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Star : ObjectKernel<StarSpriteState, BlankMotionState>
+    public  class StarObject : ObjectKernelNew<StarSpriteState, BlankMotionState>
     {
-        public  Star(Vector2 location) : base(location) { }
+        public  StarObject(Vector2 location) : base(location) { }
 
         protected override void Initialize(Vector2 location)
         {

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel<T, K> : IObject
+    public abstract class ObjectKernelNew<T, K> : IObjectNew
         where T : ISpriteState 
         where K : IMotionState 
     {
@@ -12,14 +12,14 @@ namespace WindowsGame1
 
         public K MotionState;
 
-        protected ObjectKernel(Vector2 location)
+        protected ObjectKernelNew(Vector2 location)
         {
             Reset(location);
         }
 
         protected abstract void Initialize(Vector2 location);
 
-        public virtual void Reset(Vector2 location)
+        public void Reset(Vector2 location)
         {
             Initialize(location);
         }

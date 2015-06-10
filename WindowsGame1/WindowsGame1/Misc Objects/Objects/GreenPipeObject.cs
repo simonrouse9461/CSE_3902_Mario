@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeObject : ObjectKernel<GreenPipeSpriteState, GreenPipeMotionState>
+    public class GreenPipeObject : ObjectKernelNew<GreenPipeSpriteState, GreenPipeMotionState>
     {
 
         public GreenPipeObject(Vector2 location) : base(location) { }

@@ -74,9 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandManager.cs" />
+    <Compile Include="Commands\FireflowerCommand.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
+    <Compile Include="Commands\KoopaCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
-    <Compile Include="Enemies\Objects\Goomba.cs" />
+    <Compile Include="Enemies\Objects\GoombaObject.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
@@ -84,7 +86,7 @@
     <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\ShellKoopaSprite.cs" />
     <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
-    <Compile Include="Items\Coin.cs" />
+    <Compile Include="Items\CoinObject.cs" />
     <Compile Include="Items\MotionStates\BlankMotionState.cs" />
     <Compile Include="Items\MotionStates\RightMotionState.cs" />
     <Compile Include="Items\SpriteStates\1upSpriteState.cs" />
@@ -92,7 +94,7 @@
     <Compile Include="Items\SpriteStates\FireflowerSpriteState.cs" />
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
-    <Compile Include="Items\Star.cs" />
+    <Compile Include="Items\StarObject.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
@@ -103,12 +105,13 @@
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioSmallCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
+    <Compile Include="Commands\MushroomCommand.cs" />
     <Compile Include="Commands\NormalBlockCommand.cs" />
     <Compile Include="Commands\QuestionBlockCommand.cs" />
-    <Compile Include="Enemies\Objects\Koopa.cs" />
+    <Compile Include="Enemies\Objects\KoopaObject.cs" />
     <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
-    <Compile Include="Interfaces\IObject.cs" />
+    <Compile Include="Interfaces\IObjectNew.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
     <Compile Include="Items\Fireflower.cs" />
@@ -124,8 +127,9 @@
     <Compile Include="Counter.cs" />
     <Compile Include="Kernels\FunctionKernel.cs" />
     <Compile Include="Interfaces\IFunction.cs" />
+    <Compile Include="Interfaces\IObject.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
-    <Compile Include="Kernels\ObjectKernel.cs" />
+    <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
