@@ -5,4 +5,17 @@ Sprint 2
 File: MarioSpriteState.cs
 File Author: Chuhan Feng
 
-Coupling is low/loose. Only one object depends on MarioSpriteState and MarioSpriteState depends on only the sprite objects which display Marios.
+COMMENTS:
+	Coupling is moderate. Only one object depends on MarioSpriteState, but MarioSpriteState depends on many ISprite objects.
+	Cohesion is fairly high. The enums and methods all serve to handle various states and display the appropriate Mario sprite
+based on those states.
+	Readability is sacrificed with the use of a list to hold sprites. For example, the BigLeftFacingMario sprite is
+SpriteList[7]. SpriteList[7] as a "indentifier" isn't clear.
+	Code length is a little long. This might be helped by making separate objects for each state (little, big, fire). On the
+other hand, one might find it more readable to see the logic all in one place.
+
+HYPOTHETICAL CHANGE:
+	Suppose there was a new Mario state called SteelMario. One would have to add a Steel value to the Status enum, add the app-
+ropriate sprites to the ISprite list, and then add a different case under each switch case in the ActiveSprite() method. I would
+argue that this is moderately maintainable. There are some advantages to the fact that all this logic is in one place. However,
+it might be better to separate the various Mario states into separate objects.

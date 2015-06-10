@@ -217,7 +217,7 @@
   <ItemGroup>
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
+    <Content Include="Code Reviews\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
@@ -259,7 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
-    <Folder Include="Code Reviews\" />
     <Folder Include="Motions\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
     <Folder Include="Utility Classes\" />
