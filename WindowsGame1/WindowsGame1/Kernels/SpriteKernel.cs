@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
+
+    //This kernal in use for Sprint 2, implementation will switch to SpriteKernalNew after submission
+
     public abstract class SpriteKernel : ISprite
     {
         // Sprite source information
