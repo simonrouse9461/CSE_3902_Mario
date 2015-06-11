@@ -1,21 +1,27 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 
 namespace WindowsGame1
 {
-    public class ShellKoopaSprite : SpriteKernel
+    public class ShellKoopaSprite : SpriteKernelNew
     {
 
         protected override void Initialize()
         {
-            const int totalFrames = 1;
+            //const int totalFrames = 1;
 
-            Vector2 startCoordinate = new Vector2(355, 0);
-            Vector2 endCoordinate = new Vector2(380, 18);
+            //Vector2 startCoordinate = new Vector2(355, 0);
+            //Vector2 endCoordinate = new Vector2(380, 18);
             const int period = 1;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(360, 4, 18, 15)
+                });
+            //Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
             Animation = new SpriteAnimation(
                 phase =>
                 {
