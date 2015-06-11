@@ -263,7 +263,6 @@
   <ItemGroup>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
-    <None Include="WindowsGame1.csproj.Debug.cachefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

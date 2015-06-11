@@ -14,5 +14,13 @@ namespace WindowsGame1
             SpriteState = new QuestionBlockSpriteState();
             MotionState = new QuestionBlockMotionState(location);
         }
+
+        public void QuestionBlockAnimate(){
+            SpriteState.Status = QuestionBlockSpriteState.StatusEnum.Animated;
+        }
+        public void QuestionToUsedBlock()
+        {
+            SpriteState.Status = QuestionBlockSpriteState.StatusEnum.UsedBlock;
+        }
     }
 }

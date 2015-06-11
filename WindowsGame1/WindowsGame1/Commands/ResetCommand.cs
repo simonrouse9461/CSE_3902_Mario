@@ -7,12 +7,12 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.QuestionBlock.SpriteState.Status = QuestionBlockSpriteState.StatusEnum.Animated;
+            Game.World.QuestionBlock.QuestionBlockAnimate();
             Game.World.Mario.FaceLeft();
             Game.World.Mario.BecomeBig();
             Game.World.Mario.StandStill();
-            Game.World.NormalBlock.SpriteState.Status = NormalBlockSpriteState.StatusEnum.Normal;
-            Game.World.HiddenBlock.SpriteState.Status = HiddenBlockSpriteState.StatusEnum.Hidden;
+            Game.World.NormalBlock.NormalBlockReset();
+            Game.World.HiddenBlock.HiddenBlockReset();
         }
 
     }

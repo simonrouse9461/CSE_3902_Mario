@@ -7,7 +7,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public List<IObject> ObjectList;
+        public List<IObject> ObjectList = new List<IObject>();
  
         public MarioObject Mario;
 

@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.NormalBlock.SpriteState.Status = NormalBlockSpriteState.StatusEnum.Destroyed;
+            Game.World.NormalBlock.NormalBlockDestroyed();
         }
 
     }
