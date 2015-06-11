@@ -13,6 +13,16 @@ namespace WindowsGame1
             SpriteState = new HiddenBlockSpriteState();
             MotionState = new HiddenBlockMotionState(location);
         }
+
+        public void HiddenBlocktoUsed()
+        {
+            SpriteState.Status = HiddenBlockSpriteState.StatusEnum.UsedBlock;
+        }
+
+        public void HiddenBlockReset()
+        {
+            SpriteState.Status = HiddenBlockSpriteState.StatusEnum.Hidden;
+        }
     }
 
 }

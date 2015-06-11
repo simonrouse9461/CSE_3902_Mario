@@ -12,5 +12,20 @@ namespace WindowsGame1
             SpriteState = new NormalBlockSpriteState();
             MotionState = new NormalBlockMotionState(location);
         }
+
+        public void NormalBlockDestroyed()
+        {
+            SpriteState.Status = NormalBlockSpriteState.StatusEnum.Destroyed;
+        }
+
+        public void NormalBlockUsed()
+        {
+            SpriteState.Status = NormalBlockSpriteState.StatusEnum.UsedBlock;
+        }
+
+        public void NormalBlockReset()
+        {
+            SpriteState.Status = NormalBlockSpriteState.StatusEnum.Normal;
+        }
     }
 }
