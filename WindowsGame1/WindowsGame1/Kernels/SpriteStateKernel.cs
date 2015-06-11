@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
@@ -35,7 +36,7 @@ namespace WindowsGame1
         {
             if (Timer.Update())
             {
-                ActiveSprite().Update(); 
+                ActiveSprite().Update();
             }
         }
     }

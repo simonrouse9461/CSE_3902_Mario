@@ -10,7 +10,7 @@ namespace WindowsGame1
 
         private Counter Timer;
 
-        protected Dictionary<ObjectMotion, bool> MotionList; 
+        protected Dictionary<MotionKernel, bool> MotionList; 
 
         protected MotionStateKernel(Vector2 location, int frequency = 10)
         {

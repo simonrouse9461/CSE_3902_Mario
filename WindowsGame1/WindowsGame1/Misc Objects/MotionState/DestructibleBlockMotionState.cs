@@ -9,8 +9,8 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            MotionList = new Dictionary<ObjectMotion, bool>(){
-                {new ObjectMotion(), false }
+            MotionList = new Dictionary<MotionKernel, bool>(){
+                {new NullMotion(), false }
             };
         }
     }

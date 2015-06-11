@@ -47,9 +47,14 @@ namespace WindowsGame1
                 new Rectangle((int) Source.StartCoordinate.X + Source.Width*Animation.GetValue(),
                     (int) Source.StartCoordinate.Y,
                     Source.Width, Source.Height);
-            Rectangle destinationRectangle = new Rectangle((int) location.X, (int) location.Y, Source.Width,
-                Source.Height);
+            Rectangle destinationRectangle = GetDestination(location);
             spriteBatch.Draw(Source.Texture, destinationRectangle, sourceRectangle, Color.White);
+        }
+
+        public Rectangle GetDestination(Vector2 location)
+        {
+            return new Rectangle((int) location.X, (int) location.Y, Source.Width,
+                Source.Height);
         }
     }
 }

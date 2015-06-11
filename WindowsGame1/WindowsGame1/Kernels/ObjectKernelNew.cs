@@ -24,6 +24,6 @@ namespace WindowsGame1
 
         public abstract void Draw(SpriteBatch spriteBatch);
 
-        public abstract Vector2 GetLocation();
+        public abstract Rectangle GetPosition();
     }
 }
