@@ -1,20 +1,22 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class DestroyedBlockSprite : SpriteKernel
+    public class DestroyedBlockSprite : SpriteKernelNew
     {
 
 
         protected override void Initialize()
         {
-
-            Vector2 startCoordinate = new Vector2(16, 32);
-            Vector2 endCoordinate = new Vector2(31, 47);
             const int period = 1;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(16, 32, 16, 16)
+                });
             Animation = new SpriteAnimation(null, period);
         }
 

@@ -1,16 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-
+using System.Collections.Generic;
 namespace WindowsGame1
 {
-    public class UsedBlockSprite : SpriteKernel
+    public class UsedBlockSprite : SpriteKernelNew
     {
         protected override void Initialize(){
-
-        
-        Vector2 startCoordinate = new Vector2(0, 32);
-        Vector2 endCoordinate = new Vector2(16, 48);
-        Source = new SpriteSource(startCoordinate, endCoordinate);
+        Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(0, 32, 16, 16)
+                });
         Animation = new SpriteAnimation(null, 0);
         }
 
