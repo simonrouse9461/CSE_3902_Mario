@@ -35,9 +35,9 @@ namespace WindowsGame1
             SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentLocation());
         }
 
-        public override Vector2 GetLocation()
+        public override Rectangle GetPosition()
         {
-            return MotionState.CurrentLocation();
+            return SpriteState.ActiveSprite().GetDestination(MotionState.CurrentLocation());
         }
 
 

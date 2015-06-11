@@ -14,7 +14,7 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private CommandManager Controller;
+        public CommandManager Controller;
         public WorldManager World;
         private Texture2D Background;
 

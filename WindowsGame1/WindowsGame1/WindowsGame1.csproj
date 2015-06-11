@@ -84,6 +84,9 @@
     <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\ShellKoopaSprite.cs" />
     <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
+    <Compile Include="CollisionSide.cs" />
+    <Compile Include="Interfaces\ICollision.cs" />
+    <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\MotionStates\BlankMotionState.cs" />
     <Compile Include="Items\MotionStates\RightMotionState.cs" />
@@ -94,7 +97,10 @@
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
+    <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
+    <Compile Include="Motions\NullMotion.cs" />
+    <Compile Include="ObjectCollision.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
@@ -184,9 +190,7 @@
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
     <Compile Include="Misc Objects\Objects\UsedBlockObject.cs" />
-    <Compile Include="ObjectMotion.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
-    <Compile Include="ObjectState.cs" />
     <Compile Include="Commands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
@@ -253,13 +257,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
-    <Folder Include="Motions\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
     <Folder Include="Utility Classes\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
     <None Include="WindowsGame1.csproj.Debug.cachefile" />

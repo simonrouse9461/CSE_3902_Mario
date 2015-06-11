@@ -4,13 +4,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel<T, K> : IObject
-        where T : ISpriteState 
-        where K : IMotionState 
+    public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
+        where TSpriteState : ISpriteState 
+        where TMotionState : IMotionState 
     {
-        public T SpriteState;
+        protected TSpriteState SpriteState;
 
-        public K MotionState;
+        protected TMotionState MotionState;
 
         protected ObjectKernel(Vector2 location)
         {
@@ -40,9 +40,9 @@ namespace WindowsGame1
             SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentLocation());
         }
 
-        public Vector2 GetLocation()
+        public Rectangle GetPosition()
         {
-            return MotionState.CurrentLocation();
+            return SpriteState.ActiveSprite().GetDestination(MotionState.CurrentLocation());
         }
     }
 }

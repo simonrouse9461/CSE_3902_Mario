@@ -44,6 +44,7 @@ namespace WindowsGame1
             questionBlockCommand = new QuestionBlockCommand(game);
             normalBlockCommand = new NormalBlockCommand(game);
             hiddenBlockCommand = new HiddenBlockCommand(game);
+
             _keyboardController.RegisterCommand(Keys.Q, quitCommand);
             _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
             _keyboardController.RegisterCommand(Keys.X, normalBlockCommand);

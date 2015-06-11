@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -6,6 +7,8 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
+        public List<IObject> ObjectList;
+ 
         // public MarioObject Mario;
         public MarioNew Mario;
 
@@ -16,15 +19,15 @@ namespace WindowsGame1
         public IndestructibleBlockObject IndestructibleBlock;
         public UsedBlockObject UsedBlock;
 
-        private Koopa Koopa;
-        private Goomba Goomba;
+        public Koopa Koopa;
+        public Goomba Goomba;
 
-        private Coin Coin;
-        private Star Star;
-        private Fireflower Fireflower;
-        private _1up _1up;
-        private Mushroom Mushroom;
-        private GreenPipeObject GreenPipe;
+        public Coin Coin;
+        public Star Star;
+        public Fireflower Fireflower;
+        public _1up _1up;
+        public Mushroom Mushroom;
+        public GreenPipeObject GreenPipe;
 
         public WorldManager()
         {
@@ -43,57 +46,46 @@ namespace WindowsGame1
             Mushroom = new Mushroom(new Vector2(550, 300));
             _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(200, 300));
+
+            ObjectList.Add(Mario);
+            ObjectList.Add(Goomba);
+            ObjectList.Add(Coin);
+            ObjectList.Add(Star);
+            ObjectList.Add(QuestionBlock);
+            ObjectList.Add(HiddenBlock);
+            ObjectList.Add(NormalBlock);
+            ObjectList.Add(DestructibleBlock);
+            ObjectList.Add(IndestructibleBlock);
+            ObjectList.Add(GreenPipe);
+            ObjectList.Add(UsedBlock);
+            ObjectList.Add(Fireflower);
+            ObjectList.Add(Mushroom);
+            ObjectList.Add(_1up);
+            ObjectList.Add(Koopa);
         }
 
         public void LoadContent(ContentManager content)
         {
-            Mario.Load(content);
-            QuestionBlock.Load(content);
-            UsedBlock.Load(content);
-            NormalBlock.Load(content);
-            HiddenBlock.Load(content);
-            IndestructibleBlock.Load(content);
-            DestructibleBlock.Load(content);
-            GreenPipe.Load(content);
-            Mushroom.Load(content);
-            _1up.Load(content);
-            Fireflower.Load(content);
-            Coin.Load(content);
-            Star.Load(content);
-            Koopa.Load(content);
-            Goomba.Load(content);
+            foreach (var obj in ObjectList)
+            {
+                obj.Load(content);
+            }
         }
 
         public void Update()
         {
-            Mario.Update();
-            QuestionBlock.Update();
-            Fireflower.Update();
-            Coin.Update();
-            Star.Update();
-            Mushroom.Update();
-            _1up.Update();
-            Koopa.Update();
-            Goomba.Update();
+            foreach (var obj in ObjectList)
+            {
+                obj.Update();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Mario.Draw(spriteBatch);
-            QuestionBlock.Draw(spriteBatch);
-            UsedBlock.Draw(spriteBatch);
-            NormalBlock.Draw(spriteBatch);
-            HiddenBlock.Draw(spriteBatch);
-            IndestructibleBlock.Draw(spriteBatch);
-            DestructibleBlock.Draw(spriteBatch);
-            GreenPipe.Draw(spriteBatch);
-            Fireflower.Draw(spriteBatch);
-            Coin.Draw(spriteBatch);
-            Star.Draw(spriteBatch);
-            Mushroom.Draw(spriteBatch);
-            _1up.Draw(spriteBatch);
-            Koopa.Draw(spriteBatch);
-            Goomba.Draw(spriteBatch);
+            foreach (var obj in ObjectList)
+            {
+                obj.Draw(spriteBatch);
+            }
         }
     }
 }
