@@ -1,0 +1,1 @@
+\\vmware-host\Shared Folders\Documents\CSE 3902 Project\CSE_3902_Mario\WindowsGame1\WindowsGame1Content\obj\x86\Debug\WindowsGame1Content.contentprojResolveAssemblyReference.cache
