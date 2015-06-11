@@ -9,8 +9,7 @@ namespace WindowsGame1
     {
         public List<IObject> ObjectList = new List<IObject>();
  
-        // public MarioObject Mario;
-        public MarioNew Mario;
+        public MarioObject Mario;
 
         public QuestionBlockObject QuestionBlock;
         public HiddenBlockObject HiddenBlock;
