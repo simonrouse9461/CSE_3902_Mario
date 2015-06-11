@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public class ObjectCollision<T> where T : IObject
+    public class ObjectCollisionDetector<T> : ICollisionDetector where T : IObject
     {
         public enum Collision
         {
@@ -17,7 +17,7 @@ namespace WindowsGame1
 
         protected IObject Object;
         
-        protected ObjectCollision(IObject obj)
+        protected ObjectCollisionDetector(IObject obj)
         {
             Object = obj;
         }
