@@ -16,7 +16,7 @@ namespace WindowsGame1
                 {
                     new Rectangle(209, 52, 16, 32)
                 });
-            Animation = new PeriodicFunction(null, period);
+            Animation = new PeriodicFunction<int>(null, period);
         }
 
         public override void Load(ContentManager content)
