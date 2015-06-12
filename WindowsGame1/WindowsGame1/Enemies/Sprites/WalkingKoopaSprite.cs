@@ -1,21 +1,27 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class WalkingKoopaSprite : SpriteKernel
+    public class WalkingKoopaSprite : SpriteKernelNew
     {
 
         protected override void Initialize()
         {
-            const int totalFrames = 4;
-            
-            Vector2 startCoordinate = new Vector2(145, 0);
-            Vector2 endCoordinate = new Vector2(260, 25);
+            base.Initialize();
+
             const int period = 8;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
-            Animation = new SpriteAnimation(
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(149, 1, 18, 23),
+                    new Rectangle(179, 1, 18, 23),
+                    new Rectangle(209, 1, 18, 23),
+                    new Rectangle(239,1, 18,23)
+                });
+            Animation = new PeriodicFunction<int>(
                 phase =>
                 {
                     int[] frameSequence = { 2, 2, 1, 1, 0, 0, 3, 3 };

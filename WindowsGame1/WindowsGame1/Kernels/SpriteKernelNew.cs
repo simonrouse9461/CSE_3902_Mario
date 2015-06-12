@@ -10,7 +10,7 @@ namespace WindowsGame1
         protected SpriteSourceNew Source;
 
         // A structure that defines how does the sprite animate
-        protected SpriteAnimation Animation;
+        protected PeriodicFunction<int> Animation;
 
         // Constructor
         protected SpriteKernelNew()
@@ -20,7 +20,11 @@ namespace WindowsGame1
         }
 
         // Initialize sprite properties.
-        protected abstract void Initialize();
+        protected virtual void Initialize()
+        {
+            Source = new SpriteSourceNew();
+            Animation = new PeriodicFunction<int>();
+        }
 
         // Reset states.
         public void Reset()

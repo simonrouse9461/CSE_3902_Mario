@@ -10,7 +10,7 @@ namespace WindowsGame1
             Game.World.QuestionBlock.QuestionBlockAnimate();
             Game.World.Mario.FaceLeft();
             Game.World.Mario.BecomeBig();
-            Game.World.Mario.StandStill();
+            Game.World.Mario.Stand();
             Game.World.NormalBlock.NormalBlockReset();
             Game.World.HiddenBlock.HiddenBlockReset();
         }

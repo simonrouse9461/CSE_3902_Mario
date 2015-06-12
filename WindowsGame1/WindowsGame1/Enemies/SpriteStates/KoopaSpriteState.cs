@@ -22,12 +22,14 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-           SpriteList = new List<ISprite>
-           {
-               new ShellKoopaSprite(), //0
-               new WalkingKoopaSprite(), //1
+            base.Initialize();
+
+            SpriteList = new List<ISprite>
+            {
+                new ShellKoopaSprite(), //0
+                new WalkingKoopaSprite(), //1
                
-           };
+            };
 
             Status = StatusEnum.Walking;
         }

@@ -14,10 +14,5 @@ namespace WindowsGame1
             MotionState = new RightMotionState(location);
 
         }
-        public override void Reset(Vector2 location)
-        {
-            SpriteState = new _1upSpriteState();
-            MotionState = new RightMotionState(location);
-        }
    }
 }

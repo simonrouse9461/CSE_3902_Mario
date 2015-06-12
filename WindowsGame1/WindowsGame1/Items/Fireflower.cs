@@ -14,10 +14,5 @@ namespace WindowsGame1
             MotionState = new BlankMotionState(location);
             
         }
-        public override void Reset(Vector2 location)
-        {
-            SpriteState = new FireflowerSpriteState();
-            MotionState = new BlankMotionState(location);
-        }
     }
 }

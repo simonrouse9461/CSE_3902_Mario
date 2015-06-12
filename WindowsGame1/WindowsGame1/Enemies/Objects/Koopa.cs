@@ -14,11 +14,5 @@ namespace WindowsGame1
             MotionState = new KoopaMotionState(location);
 
         }
-
-        public override void Reset(Vector2 location)
-        {
-            SpriteState = new KoopaSpriteState();
-            MotionState = new KoopaMotionState(location);
-        }
     }
 }

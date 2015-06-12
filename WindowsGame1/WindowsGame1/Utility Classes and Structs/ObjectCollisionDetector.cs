@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public class ObjectCollision<T> where T : IObject
+    public class ObjectCollisionDetector<T> : ICollisionDetector where T : IObject
     {
         public enum Collision
         {
@@ -17,7 +17,7 @@ namespace WindowsGame1
 
         protected IObject Object;
         
-        protected ObjectCollision(IObject obj)
+        public ObjectCollisionDetector(IObject obj)
         {
             Object = obj;
         }
@@ -29,16 +29,16 @@ namespace WindowsGame1
 
         protected Collision DetectCollision(T foreignObject)
         {
-            var intersection = Rectangle.Intersect(Object.GetPosition(), foreignObject.GetPosition());
+            var intersection = Rectangle.Intersect(Object.GetPositionRectangle(), foreignObject.GetPositionRectangle());
             if (intersection != default(Rectangle))
             {
                 if (intersection.Height > intersection.Width)
                 {
-                    if (foreignObject.GetPosition().Left > Object.GetPosition().Left)
+                    if (foreignObject.GetPositionRectangle().Left > Object.GetPositionRectangle().Left)
                         return Collision.Right;
                     return Collision.Left;
                 }
-                if (foreignObject.GetPosition().Top > Object.GetPosition().Top)
+                if (foreignObject.GetPositionRectangle().Top > Object.GetPositionRectangle().Top)
                     return Collision.Bottom;
                 return Collision.Top;
             }

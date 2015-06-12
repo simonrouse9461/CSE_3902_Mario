@@ -7,15 +7,15 @@ namespace WindowsGame1
     public class DeadMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
-        {// Animation parameters
-            const int period = 1;
+        {
+            base.Initialize();
 
             Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {
                     new Rectangle(0, 16, 15, 14)
                 });
-            Animation = new SpriteAnimation(null, period);
+            Animation = new PeriodicFunction<int>();
         }
 
         public override void Load(ContentManager content)

@@ -30,7 +30,7 @@ namespace WindowsGame1
 
         public WorldManager()
         {
-            Mario = new MarioNew(new Vector2(200, 100));
+            Mario = new MarioObject(new Vector2(200, 100));
             Goomba = new Goomba(new Vector2(240, 302));
             Coin = new Coin(new Vector2(450, 300));
             Star = new Star(new Vector2(500, 300));

@@ -1,6 +1,6 @@
 ﻿namespace WindowsGame1
 {
-    public interface ICollision
+    public interface ICollisionDetector
     {
         CollisionSide Detect();
     }
