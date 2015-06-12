@@ -17,7 +17,7 @@ namespace WindowsGame1
             RegisteredKeys = new List<T>();
         }
 
-        public void RegisterCommand(T key, ICommand command, bool respondToClick)
+        public void RegisterCommand(T key, ICommand command, bool respondToClick = false)
         {
             if (respondToClick)
             {
