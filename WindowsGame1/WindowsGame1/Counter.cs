@@ -1,4 +1,5 @@
-﻿using System.Resources;
+﻿using System;
+using System.Resources;
 
 namespace WindowsGame1
 {
@@ -24,7 +25,7 @@ namespace WindowsGame1
             set
             {
                 _phase = value;
-                if (_phase == Cycle)
+                if (_phase == Cycle || _phase == Int64.MaxValue)
                     _phase = 0;
             }
         }
