@@ -15,7 +15,7 @@ namespace WindowsGame1
         // Constructor
         protected SpriteKernelNew()
         {
-            Initialize();
+            Initialize(); 
             Reset();
         }
 
