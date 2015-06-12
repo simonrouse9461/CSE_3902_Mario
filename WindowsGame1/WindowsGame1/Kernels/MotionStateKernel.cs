@@ -21,8 +21,8 @@ namespace WindowsGame1
         protected virtual void Initialize(Vector2 location)
         {
             Position = location;
-            Timer = new Counter();
-            MotionList = new Dictionary<MotionKernel, bool>();
+            Timer = Timer ?? new Counter();
+            MotionList = MotionList ?? new Dictionary<MotionKernel, bool>();
         }
 
         public void Reset()
