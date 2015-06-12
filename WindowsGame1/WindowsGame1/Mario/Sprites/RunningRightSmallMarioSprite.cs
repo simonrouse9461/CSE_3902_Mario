@@ -19,7 +19,7 @@ namespace WindowsGame1
                     new Rectangle(272, 0, 12, 16),
                     new Rectangle(300, 0, 16, 16)
                 });
-            Animation = new SpriteAnimation(
+            Animation = new PeriodicFunction(
                 phase =>
                 {
                     int[] frameSequence = { 2, 1, 0 };

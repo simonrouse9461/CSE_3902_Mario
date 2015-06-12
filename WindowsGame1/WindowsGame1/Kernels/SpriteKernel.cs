@@ -13,7 +13,7 @@ namespace WindowsGame1
         protected SpriteSource Source;
 
         // A structure that defines how does the sprite animate
-        protected SpriteAnimation Animation;
+        protected PeriodicFunction<int> Animation;
 
         // Constructor
         protected SpriteKernel()

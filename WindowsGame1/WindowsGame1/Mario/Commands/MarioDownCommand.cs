@@ -6,7 +6,12 @@
 
         public override void Execute()
         {
-            Game.World.Mario.GoDown();
+            if (Game.World.Mario.IsJump())
+                Game.World.Mario.Run();
+            if (Game.World.Mario.IsRun())
+                Game.World.Mario.Stand();
+            if (Game.World.Mario.IsStand())
+                Game.World.Mario.Crouch();
         }
     }
 }

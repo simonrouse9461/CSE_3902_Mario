@@ -11,7 +11,7 @@ namespace WindowsGame1
                 {
                     new Rectangle(0, 32, 16, 16)
                 });
-        Animation = new SpriteAnimation(null, 0);
+        Animation = new PeriodicFunction(null, 0);
         }
 
         public override void Load(ContentManager content)

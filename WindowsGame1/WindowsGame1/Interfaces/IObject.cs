@@ -6,10 +6,11 @@ namespace WindowsGame1
 {
     public interface IObject
     {
-        void Reset(Vector2 location);
+        void Reset();
         void Load(ContentManager content);
         void Update();
         void Draw(SpriteBatch spriteBatch);
-        Rectangle GetPosition();
+        Rectangle GetPositionRectangle();
+        Vector2 GetPositionPoint();
     }
 }

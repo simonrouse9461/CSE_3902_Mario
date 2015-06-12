@@ -24,7 +24,7 @@ namespace WindowsGame1
                     new Rectangle(239,1, 18,23)
                 });
             //Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
-            Animation = new SpriteAnimation(
+            Animation = new PeriodicFunction(
                 phase =>
                 {
                     int[] frameSequence = { 2, 2, 1, 1, 0, 0, 3, 3 };

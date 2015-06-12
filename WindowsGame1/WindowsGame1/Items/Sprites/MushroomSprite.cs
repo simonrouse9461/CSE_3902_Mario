@@ -14,7 +14,7 @@ namespace WindowsGame1
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
-            Animation = new SpriteAnimation(
+            Animation = new PeriodicFunction(
                 phase =>
                 {
                     int[] frameSequence = { 0 };

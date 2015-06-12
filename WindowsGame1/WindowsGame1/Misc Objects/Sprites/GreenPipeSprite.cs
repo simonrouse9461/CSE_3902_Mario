@@ -13,7 +13,7 @@ namespace WindowsGame1
             const int period = 1;
 
             Source = new SpriteSource(startCoordinate, endCoordinate);
-            Animation = new SpriteAnimation(null, period);
+            Animation = new PeriodicFunction(null, period);
 
         }
         public override void Load(ContentManager content)
