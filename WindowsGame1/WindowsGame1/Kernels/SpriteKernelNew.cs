@@ -15,15 +15,14 @@ namespace WindowsGame1
         // Constructor
         protected SpriteKernelNew()
         {
-            Initialize();
+            Initialize(); 
             Reset();
         }
 
         // Initialize sprite properties.
         protected virtual void Initialize()
         {
-            Source = new SpriteSourceNew();
-            Animation = new PeriodicFunction<int>();
+            Animation = Animation ?? new PeriodicFunction<int>();
         }
 
         // Reset states.
