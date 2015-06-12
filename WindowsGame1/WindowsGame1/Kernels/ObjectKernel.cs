@@ -12,16 +12,20 @@ namespace WindowsGame1
 
         protected TMotionState MotionState;
 
+        protected ICollisionHandler CollisionHandler;
+
         protected ObjectKernel(Vector2 location)
         {
-            Reset(location);
+            Initialize(location);
+            Reset();
         }
 
         protected abstract void Initialize(Vector2 location);
 
-        public virtual void Reset(Vector2 location)
+        public virtual void Reset()
         {
-            Initialize(location);
+            SpriteState.Reset();
+            MotionState.Reset();
         }
 
         public void Load(ContentManager content)
@@ -37,12 +41,17 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentLocation());
+            SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentPosition());
         }
 
-        public Rectangle GetPosition()
+        public Rectangle GetPositionRectangle()
         {
-            return SpriteState.ActiveSprite().GetDestination(MotionState.CurrentLocation());
+            return SpriteState.ActiveSprite().GetDestination(MotionState.CurrentPosition());
+        }
+
+        public Vector2 GetPositionPoint()
+        {
+            return MotionState.CurrentPosition();
         }
     }
 }

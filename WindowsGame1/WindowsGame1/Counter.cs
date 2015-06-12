@@ -29,7 +29,7 @@ namespace WindowsGame1
             }
         }
 
-        public Counter(int cycle = 10)
+        public Counter(int cycle = 1)
         {
             Reset(cycle);
         }

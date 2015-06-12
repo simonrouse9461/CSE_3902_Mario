@@ -29,16 +29,16 @@ namespace WindowsGame1
 
         protected Collision DetectCollision(T foreignObject)
         {
-            var intersection = Rectangle.Intersect(Object.GetPosition(), foreignObject.GetPosition());
+            var intersection = Rectangle.Intersect(Object.GetPositionRectangle(), foreignObject.GetPositionRectangle());
             if (intersection != default(Rectangle))
             {
                 if (intersection.Height > intersection.Width)
                 {
-                    if (foreignObject.GetPosition().Left > Object.GetPosition().Left)
+                    if (foreignObject.GetPositionRectangle().Left > Object.GetPositionRectangle().Left)
                         return Collision.Right;
                     return Collision.Left;
                 }
-                if (foreignObject.GetPosition().Top > Object.GetPosition().Top)
+                if (foreignObject.GetPositionRectangle().Top > Object.GetPositionRectangle().Top)
                     return Collision.Bottom;
                 return Collision.Top;
             }

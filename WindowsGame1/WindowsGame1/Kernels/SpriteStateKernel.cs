@@ -6,15 +6,21 @@ namespace WindowsGame1
 {
     public abstract class SpriteStateKernel : ISpriteState
     {
-        private Counter Timer;
+        protected Counter Timer;
+
         protected List<ISprite> SpriteList;
 
-        protected SpriteStateKernel(int frequency = 10)
+        protected SpriteStateKernel()
         {
-            Reset(frequency);
+            Initialize();
+            Reset();
         }
 
-        protected abstract void Initialize();
+        protected virtual void Initialize()
+        {
+            Timer = new Counter();
+            SpriteList = new List<ISprite>();
+        }
 
         public abstract ISprite ActiveSprite();
 
@@ -28,8 +34,11 @@ namespace WindowsGame1
 
         public void Reset(int frequency = 10)
         {
-            Timer = new Counter(frequency);
-            Initialize();
+            Timer.Reset(frequency);
+            foreach (var sprite in SpriteList)
+            {
+                sprite.Reset();
+            }
         }
 
         public void Update()

@@ -6,30 +6,44 @@ namespace WindowsGame1
 {
     public abstract class MotionStateKernel : IMotionState
     {
-        private Vector2 Location;
+        protected Vector2 Position;
 
-        private Counter Timer;
+        protected Counter Timer;
 
         protected Dictionary<MotionKernel, bool> MotionList; 
 
-        protected MotionStateKernel(Vector2 location, int frequency = 10)
+        protected MotionStateKernel(Vector2 location)
         {
-            Reset(location, frequency);
+            Initialize(location);
+            Reset();
         }
 
-        protected abstract void Initialize();
-
-        public Vector2 CurrentLocation()
+        protected virtual void Initialize(Vector2 location)
         {
-            return Location;
+            Position = location;
+            Timer = new Counter();
+            MotionList = new Dictionary<MotionKernel, bool>();
         }
 
-        public void Reset(Vector2 location, int frequency = 10)
+        public void Reset()
         {
-            Timer = new Counter(frequency);
-            Location = location;
-            Initialize();
+            Timer.Reset();
+            foreach (var motion in MotionList)
+            {
+                motion.Key.Reset();
+            }
         }
+
+        public Vector2 CurrentPosition()
+        {
+            return Position;
+        }
+
+        public void SetPosition(Vector2 position)
+        {
+            Position = position;
+        }
+
         public void Update()
         {
             if (Timer.Update())
@@ -39,7 +53,7 @@ namespace WindowsGame1
                     if (motion.Value)
                     {
                         motion.Key.Update();
-                        Location += motion.Key.GetValue();
+                        Position += motion.Key.GetValue();
                     }
                 }
             }
