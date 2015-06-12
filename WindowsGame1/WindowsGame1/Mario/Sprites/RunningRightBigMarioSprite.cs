@@ -9,8 +9,6 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-            base.Initialize();
-
             const int period = 3;
 
             Source = new SpriteSourceNew(

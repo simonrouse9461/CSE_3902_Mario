@@ -25,7 +25,7 @@ namespace WindowsGame1
             set
             {
                 _phase = value;
-                if (_phase == Cycle || _phase == Int64.MaxValue)
+                if (_phase == Cycle || _phase >= Int32.MaxValue)
                     _phase = 0;
             }
         }

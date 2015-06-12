@@ -14,16 +14,16 @@ namespace WindowsGame1
 
         protected MotionStateKernel(Vector2 location)
         {
-            Initialize(location);
-            Reset();
-        }
+            Initialize();
 
-        protected virtual void Initialize(Vector2 location)
-        {
             Position = location;
             Timer = Timer ?? new Counter();
             MotionList = MotionList ?? new Dictionary<MotionKernel, bool>();
+
+            Reset();
         }
+
+        protected abstract void Initialize();
 
         public void Reset()
         {

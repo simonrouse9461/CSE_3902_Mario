@@ -7,14 +7,11 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-            base.Initialize();
-
             Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {
                     new Rectangle(0, 32, 16, 16)
                 });
-            Animation = new PeriodicFunction<int>();
         }
 
         public override void Load(ContentManager content)
