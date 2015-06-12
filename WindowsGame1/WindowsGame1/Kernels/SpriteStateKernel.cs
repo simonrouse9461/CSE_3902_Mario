@@ -18,8 +18,8 @@ namespace WindowsGame1
 
         protected virtual void Initialize()
         {
-            Timer = new Counter();
-            SpriteList = new List<ISprite>();
+            Timer = Timer ?? new Counter();
+            SpriteList = SpriteList ?? new List<ISprite>();
         }
 
         public abstract ISprite ActiveSprite();

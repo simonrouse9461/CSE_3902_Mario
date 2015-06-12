@@ -22,8 +22,7 @@ namespace WindowsGame1
         // Initialize sprite properties.
         protected virtual void Initialize()
         {
-            Source = new SpriteSourceNew();
-            Animation = new PeriodicFunction<int>();
+            Animation = Animation ?? new PeriodicFunction<int>();
         }
 
         // Reset states.
