@@ -97,7 +97,6 @@
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
-    <Compile Include="Mario\IMario.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />

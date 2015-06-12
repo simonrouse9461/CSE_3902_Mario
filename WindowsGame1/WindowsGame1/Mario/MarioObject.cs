@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>, IMario
+    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>
     {
         public MarioObject(Vector2 location) : base(location) { }
 
