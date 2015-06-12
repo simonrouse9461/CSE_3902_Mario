@@ -5,13 +5,16 @@ namespace WindowsGame1
 {
     public class UsedBlockSprite : SpriteKernelNew
     {
-        protected override void Initialize(){
-        Source = new SpriteSourceNew(
+        protected override void Initialize()
+        {
+            base.Initialize();
+
+            Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {
                     new Rectangle(0, 32, 16, 16)
                 });
-        Animation = new PeriodicFunction(null, 0);
+            Animation = new PeriodicFunction<int>();
         }
 
         public override void Load(ContentManager content)

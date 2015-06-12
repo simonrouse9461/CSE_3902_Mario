@@ -7,16 +7,16 @@ namespace WindowsGame1
     public class NormalBlockSprite : SpriteKernelNew
     {
 
-        protected override void Initialize(){
-
-            const int period = 1;
+        protected override void Initialize()
+        {
+            base.Initialize();
 
             Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {
                     new Rectangle(16, 16, 16, 16)
                 });
-            Animation = new PeriodicFunction(null, period);
+            Animation = new PeriodicFunction<int>();
 
         }
 

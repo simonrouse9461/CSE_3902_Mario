@@ -17,7 +17,7 @@ namespace WindowsGame1
 
         protected IObject Object;
         
-        protected ObjectCollisionDetector(IObject obj)
+        public ObjectCollisionDetector(IObject obj)
         {
             Object = obj;
         }

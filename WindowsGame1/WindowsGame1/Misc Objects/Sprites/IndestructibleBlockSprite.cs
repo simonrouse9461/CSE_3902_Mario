@@ -7,17 +7,14 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-
-            Vector2 startCoordinate = new Vector2(0, 17);
-            Vector2 endCoordinate = new Vector2(15, 32);
-            const int period = 1;
+            base.Initialize();
 
             Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {
                     new Rectangle(0 ,17, 16, 16)
                 });
-            Animation = new PeriodicFunction(null, period);
+            Animation = new PeriodicFunction<int>();
         }
 
         public override void Load(ContentManager content)

@@ -8,7 +8,8 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-            // Animation parameters
+            base.Initialize();
+
             const int period = 3;
 
             Source = new SpriteSourceNew(
@@ -18,10 +19,10 @@ namespace WindowsGame1
                     new Rectangle(121, 52, 14, 31),
                     new Rectangle(150, 52, 16, 32)
                 });
-            Animation = new PeriodicFunction(
+            Animation = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = {0,1,2};
+                    int[] frameSequence = {0, 1, 2};
                     return frameSequence[phase];
                 }, 
                 period);

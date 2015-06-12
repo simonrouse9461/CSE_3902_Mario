@@ -20,6 +20,8 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
+            base.Initialize();
+
             SpriteList = new List<ISprite>{
                 new IndestructibleBlockSprite()
             };

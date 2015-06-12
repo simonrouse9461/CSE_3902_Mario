@@ -8,9 +8,9 @@
         {
             if (Game.World.Mario.IsJump())
                 Game.World.Mario.Run();
-            if (Game.World.Mario.IsRun())
+            else if (Game.World.Mario.IsRun())
                 Game.World.Mario.Stand();
-            if (Game.World.Mario.IsStand())
+            else if (Game.World.Mario.IsStand())
                 Game.World.Mario.Crouch();
         }
     }

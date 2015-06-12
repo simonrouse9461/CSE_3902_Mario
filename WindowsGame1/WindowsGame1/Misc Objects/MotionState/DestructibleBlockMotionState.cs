@@ -7,9 +7,11 @@ namespace WindowsGame1
     {
         public DestructibleBlockMotionState(Vector2 location) : base(location) { }
 
-        protected override void Initialize()
+        protected override void Initialize(Vector2 location)
         {
-            MotionList = new Dictionary<MotionKernel, bool>(){
+            base.Initialize(location);
+            MotionList = new Dictionary<MotionKernel, bool>
+            {
                 {new NullMotion(), false }
             };
         }
