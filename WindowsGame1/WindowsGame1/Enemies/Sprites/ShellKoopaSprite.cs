@@ -10,6 +10,8 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
+            base.Initialize();
+
             Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {

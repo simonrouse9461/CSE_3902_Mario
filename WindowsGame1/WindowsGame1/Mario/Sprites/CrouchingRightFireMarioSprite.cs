@@ -7,7 +7,9 @@ namespace WindowsGame1
     public class CrouchingRightFireMarioSprite : SpriteKernelNew
     {
         protected override void Initialize()
-        {// Animation parameters
+        {
+            base.Initialize();
+
             const int period = 1;
 
             Source = new SpriteSourceNew(

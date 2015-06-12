@@ -7,7 +7,10 @@ namespace WindowsGame1
     public class _1upSprite : SpriteKernelNew
     {
         protected override void Initialize()
-        {Source = new SpriteSourceNew(
+        {
+            base.Initialize();
+
+            Source = new SpriteSourceNew(
                 new List<Rectangle>
                 {
                     new Rectangle(260, 114, 18, 18)

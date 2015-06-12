@@ -8,7 +8,8 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-            // Animation parameters
+            base.Initialize();
+
             const int period = 1;
 
             Source = new SpriteSourceNew(

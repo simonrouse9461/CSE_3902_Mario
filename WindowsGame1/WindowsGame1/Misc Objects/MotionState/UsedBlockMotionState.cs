@@ -10,7 +10,8 @@ namespace WindowsGame1
         protected override void Initialize(Vector2 location)
         {
             base.Initialize(location);
-            MotionList = new Dictionary<MotionKernel, bool>(){
+            MotionList = new Dictionary<MotionKernel, bool>
+            {
                 {new NullMotion(), false }
             };
         }
