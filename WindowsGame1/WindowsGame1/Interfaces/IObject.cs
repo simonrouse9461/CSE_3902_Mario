@@ -13,6 +13,8 @@ namespace WindowsGame1
         void Update();
         
         void Draw(SpriteBatch spriteBatch);
+
+        void PassCommand(ICommand command);
         
         Rectangle GetPositionRectangle();
         

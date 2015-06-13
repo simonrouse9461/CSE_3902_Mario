@@ -44,6 +44,11 @@ namespace WindowsGame1
             SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentPosition());
         }
 
+        public void PassCommand(ICommand command)
+        {
+            
+        }
+
         public Rectangle GetPositionRectangle()
         {
             return SpriteState.ActiveSprite().GetDestination(MotionState.CurrentPosition());
