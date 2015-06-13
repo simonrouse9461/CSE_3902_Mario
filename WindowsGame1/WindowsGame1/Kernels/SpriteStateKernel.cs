@@ -13,14 +13,14 @@ namespace WindowsGame1
         protected SpriteStateKernel()
         {
             Initialize();
+
+            Timer = Timer ?? new Counter();
+            SpriteList = SpriteList ?? new List<ISprite>();
+
             Reset();
         }
 
-        protected virtual void Initialize()
-        {
-            Timer = Timer ?? new Counter();
-            SpriteList = SpriteList ?? new List<ISprite>();
-        }
+        protected abstract void Initialize();
 
         public abstract ISprite ActiveSprite();
 

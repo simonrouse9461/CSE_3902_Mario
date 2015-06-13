@@ -97,6 +97,7 @@
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
+    <Compile Include="Mario\IMario.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
@@ -191,10 +192,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Utility Classes and Structs\CollisionDetector.cs" />
     <Compile Include="Utility Classes and Structs\CollisionSide.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
     <Compile Include="Utility Classes and Structs\Counter.cs" />
-    <Compile Include="Utility Classes and Structs\ObjectCollisionDetector.cs" />
     <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSource.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSourceNew.cs" />

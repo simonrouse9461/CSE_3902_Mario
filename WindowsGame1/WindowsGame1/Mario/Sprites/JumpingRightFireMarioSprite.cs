@@ -8,8 +8,6 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-            base.Initialize();
-
             const int period = 8;
 
             Source = new SpriteSourceNew(
