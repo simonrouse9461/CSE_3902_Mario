@@ -86,7 +86,7 @@
     <Compile Include="Interfaces\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
-    <Compile Include="Interfaces\IPeriodicFunction.cs" />
+    <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\MotionStates\BlankMotionState.cs" />
     <Compile Include="Items\MotionStates\RightMotionState.cs" />
@@ -103,6 +103,7 @@
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
+    <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />

@@ -23,7 +23,11 @@ namespace WindowsGame1
                 {typeof(MarioSmallCommand), () => _spriteState.BecomeSmall()},
                 {typeof(MarioFireCommand), () => _spriteState.BecomeFire()},
                 {typeof(MarioLeftCommand), () => _spriteState.FaceLeft()},
-                {typeof(MarioRightCommand), () => _spriteState.FaceRight()},
+                {typeof(MarioRightCommand), () =>
+                {
+                    _spriteState.FaceRight();
+                    _motionState.MoveRight();
+                }},
                 {typeof(MarioUpCommand), () =>
                 {
                     if (_spriteState.IsCrouch())

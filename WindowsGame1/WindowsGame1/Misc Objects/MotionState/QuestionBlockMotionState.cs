@@ -9,10 +9,12 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            MotionList = new Dictionary<MotionKernel, bool>
-            {
-                {new NullMotion(), false }
-            };
+
+        }
+
+        protected override void RefreshState()
+        {
+            
         }
     }
 }

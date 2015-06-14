@@ -42,9 +42,9 @@ namespace WindowsGame1
             Phase = 0;
         }
 
-        public bool Update(int phase = 0)
+        public bool Update(int phase = -1)
         {
-            if (phase == 0)
+            if (phase == -1)
                 Phase++;
             else
                 Phase = phase;
