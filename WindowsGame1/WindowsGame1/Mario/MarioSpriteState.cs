@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class MarioSpriteState : SpriteStateKernel
     {
-        public enum ActionEnum
+        private enum ActionEnum
         {
             Jump,
             Run,
@@ -13,13 +13,13 @@ namespace WindowsGame1
             Crouch
         }
 
-        public enum OrientationEnum
+        private enum OrientationEnum
         {
             Left,
             Right
         }
 
-        public enum StatusEnum
+        private enum StatusEnum
         {
             Big,
             Small,
@@ -27,43 +27,12 @@ namespace WindowsGame1
             Dead
         }
 
-        private StatusEnum _status;
-        private ActionEnum _action;
-        public OrientationEnum Orientation { get; set; }
-
-        public StatusEnum Status
-        {
-            get { return _status; }
-            set
-            {
-                if (value == StatusEnum.Small && Action == ActionEnum.Crouch)
-                {
-                    Action = ActionEnum.Stand;
-                }
-                _status = value;
-            }
-        }
-
-        public ActionEnum Action
-        {
-            get { return _action; }
-            set
-            {
-                if (value == ActionEnum.Crouch && Status == StatusEnum.Small)
-                {
-                    _action = ActionEnum.Stand;
-                }
-                else
-                {
-                    _action = value;
-                }
-            }
-        }
+        private StatusEnum Status;
+        private ActionEnum Action;
+        private OrientationEnum Orientation;
 
         protected override void Initialize()
         {
-            base.Initialize();
-
             SpriteList = new List<ISprite>
             {
                 new DeadMarioSprite(), //0
@@ -142,6 +111,110 @@ namespace WindowsGame1
                     break;
             }
             return SpriteList[0];
+        }
+
+        public void FaceLeft()
+        {
+            Orientation = OrientationEnum.Left;
+        }
+
+        public bool IsLeft()
+        {
+            return Orientation == OrientationEnum.Left;
+        }
+
+        public void FaceRight()
+        {
+            Orientation = OrientationEnum.Right;
+        }
+
+        public bool IsRight()
+        {
+            return Orientation == OrientationEnum.Right;
+        }
+
+        public void BecomeBig()
+        {
+            Status = StatusEnum.Big;
+        }
+
+        public bool IsBig()
+        {
+            return Status == StatusEnum.Big;
+        }
+
+        public void BecomeSmall()
+        {
+            Status = StatusEnum.Small;
+            if (Action == ActionEnum.Crouch)
+            {
+                Action = ActionEnum.Stand;
+            }
+        }
+
+        public bool IsSmall()
+        {
+            return Status == StatusEnum.Small;
+        }
+
+        public void BecomeDead()
+        {
+            Status = StatusEnum.Dead;
+        }
+
+        public bool IsDead()
+        {
+            return Status == StatusEnum.Dead;
+        }
+
+        public void BecomeFire()
+        {
+            Status = StatusEnum.Fire;
+        }
+
+        public bool IsFire()
+        {
+            return Status == StatusEnum.Fire;
+        }
+
+        public void Run()
+        {
+            Action = ActionEnum.Run;
+        }
+
+        public bool IsRun()
+        {
+            return Action == ActionEnum.Run;
+        }
+
+        public void Jump()
+        {
+            Action = ActionEnum.Jump;
+        }
+
+        public bool IsJump()
+        {
+            return Action == ActionEnum.Jump;
+        }
+
+        public void Crouch()
+        {
+            Action = Status == StatusEnum.Small ? ActionEnum.Stand : ActionEnum.Crouch;
+        }
+
+        public bool IsCrouch()
+        {
+            return Action == ActionEnum.Crouch;
+        }
+
+        public void Stand()
+        {
+            Action = ActionEnum.Stand;
+        }
+
+        public bool IsStand()
+        {
+            return Action == ActionEnum.Stand;
         }
     }
 }

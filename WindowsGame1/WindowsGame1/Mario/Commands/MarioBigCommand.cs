@@ -6,8 +6,7 @@
 
         public override void Execute()
         {
-            //Game.World.Mario.SpriteState.Status = MarioSpriteState.StatusEnum.Big;
-            Game.World.Mario.BecomeBig();
+            Game.World.Mario.PassCommand(this);
         }
     }
 }

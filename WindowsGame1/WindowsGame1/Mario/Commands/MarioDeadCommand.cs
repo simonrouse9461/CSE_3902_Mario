@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.World.Mario.BecomeDead();
+            Game.World.Mario.PassCommand(this);
         } 
     }
 }

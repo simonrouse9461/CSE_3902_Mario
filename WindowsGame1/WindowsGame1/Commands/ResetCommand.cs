@@ -8,9 +8,7 @@ namespace WindowsGame1
         public override void Execute()
         {
             Game.World.QuestionBlock.QuestionBlockAnimate();
-            Game.World.Mario.FaceLeft();
-            Game.World.Mario.BecomeBig();
-            Game.World.Mario.Stand();
+            Game.World.Mario.Reset();
             Game.World.NormalBlock.NormalBlockReset();
             Game.World.HiddenBlock.HiddenBlockReset();
         }

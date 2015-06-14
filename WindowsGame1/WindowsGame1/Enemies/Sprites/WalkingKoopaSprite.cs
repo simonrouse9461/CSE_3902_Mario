@@ -9,8 +9,6 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            base.Initialize();
-
             const int period = 8;
 
             Source = new SpriteSourceNew(
@@ -28,7 +26,6 @@ namespace WindowsGame1
                     return frameSequence[phase];
                 },
                 period);
-
         }
         public override void Load(ContentManager content)
         {

@@ -6,7 +6,7 @@
 
         public override void Execute()
         {
-            Game.World.Mario.FaceRight();
+            Game.World.Mario.PassCommand(this);
         }
     }
 }
