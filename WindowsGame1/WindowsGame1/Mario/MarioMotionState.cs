@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -27,9 +26,10 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            MotionList = new Dictionary<IMotion, bool>()
+            MotionList = new List<MotionSwitch>
             {
-                {new AccelerateRightMotion(1, 60), false}
+                new MotionSwitch(new AccelerateRightMotion(0.1f, 5)),
+                new MotionSwitch(new AccelerateLeftMotion(0.1f, 5))
             };
             HorizontalStatus = HorizontalEnum.None;
             VertialStatus = VerticalEnum.None;
@@ -37,16 +37,51 @@ namespace WindowsGame1
 
         protected override void RefreshState()
         {
-            if (HorizontalStatus == HorizontalEnum.AccRight)
+            foreach (var motion in MotionList)
             {
-                MotionList[MotionList.Keys.OfType<AccelerateRightMotion>().First()] = true;
+                motion.Toggle(false);
             }
+            switch (HorizontalStatus)
+            {
+                case HorizontalEnum.AccRight:
+                    MotionList[0].Toggle(true);
+                    break;
+                case HorizontalEnum.AccLeft:
+                    MotionList[1].Toggle(true);
+                    break;
+            }
+        }
 
+        protected override void ResetState()
+        {
+            if (HorizontalStatus == HorizontalEnum.None)
+            {
+                MotionList[0].Reset(Velocity);
+                MotionList[1].Reset(Velocity);
+            }
+            else
+            {
+                HorizontalStatus = HorizontalEnum.None;
+            }
         }
 
         public void MoveRight()
         {
-            HorizontalStatus = HorizontalEnum.AccRight;
+            HorizontalStatus = IsLeft() ? HorizontalEnum.None : HorizontalEnum.AccRight;
+        }
+
+        public bool IsRight()
+        {
+            return HorizontalStatus == HorizontalEnum.AccRight;
+        }
+
+        public void MoveLeft()
+        {
+            HorizontalStatus = IsRight() ? HorizontalEnum.None : HorizontalEnum.AccLeft;
+        }
+        public bool IsLeft()
+        {
+            return HorizontalStatus == HorizontalEnum.AccLeft;
         }
     }
 }

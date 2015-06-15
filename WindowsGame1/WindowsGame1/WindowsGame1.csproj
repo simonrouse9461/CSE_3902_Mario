@@ -103,6 +103,7 @@
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
+    <Compile Include="Motions\AccelerateLeftMotion.cs" />
     <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />

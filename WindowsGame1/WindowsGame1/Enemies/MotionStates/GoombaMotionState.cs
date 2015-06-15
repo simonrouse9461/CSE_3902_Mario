@@ -16,5 +16,10 @@ namespace WindowsGame1
         {
 
         }
+
+        protected override void ResetState()
+        {
+            
+        }
     }
 }
