@@ -3,7 +3,7 @@
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioObject>
     {
         private MarioSpriteState SpriteState;
-        private MarioMotionState Motionstate;
+        private MarioMotionState MotionState;
 
         private CollisionDetector<GreenPipeObject> MarioPipeCollision;
 
@@ -12,7 +12,7 @@
         protected override void Initialize()
         {
             SpriteState = (MarioSpriteState)Object.SpriteState;
-            Motionstate = (MarioMotionState)Object.MotionState;
+            MotionState = (MarioMotionState)Object.MotionState;
 
             MarioPipeCollision = new CollisionDetector<GreenPipeObject>(Object);
         }
