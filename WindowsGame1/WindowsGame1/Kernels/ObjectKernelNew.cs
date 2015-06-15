@@ -6,16 +6,19 @@ namespace WindowsGame1
 {
     public abstract class ObjectKernelNew : IObject
     {
-        protected ISpriteState SpriteState;
+        public WorldManager World { get; private set; }
 
-        protected IMotionState MotionState;
+        public ISpriteState SpriteState;
+
+        public IMotionState MotionState;
 
         protected ICommandHandler CommandHandler;
 
         protected ICollisionHandler CollisionHandler;
 
-        protected ObjectKernelNew(Vector2 location)
+        protected ObjectKernelNew(Vector2 location, WorldManager world)
         {
+            World = world;
             Initialize(location);
             Reset();
         }

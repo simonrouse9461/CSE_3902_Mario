@@ -8,6 +8,8 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState 
         where TMotionState : IMotionState 
     {
+        public WorldManager World { get; set; }
+
         protected TSpriteState SpriteState;
 
         protected TMotionState MotionState;

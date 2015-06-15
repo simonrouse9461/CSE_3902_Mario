@@ -13,18 +13,11 @@ namespace WindowsGame1
             Right
         }
 
-        protected static WorldManager World;
-
         protected IObject Object;
         
         public CollisionDetector(IObject obj)
         {
             Object = obj;
-        }
-
-        public static void Initialize(WorldManager world)
-        {
-            World = world;
         }
 
         protected Collision DetectCollision(T foreignObject)
@@ -48,7 +41,7 @@ namespace WindowsGame1
         public CollisionSide Detect()
         {
             var side = new CollisionSide();
-            foreach (var obj in World.ObjectList)
+            foreach (var obj in Object.World.ObjectList)
             {
                 if (obj is T)
                 {
