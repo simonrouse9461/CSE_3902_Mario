@@ -1,19 +1,24 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class StarSprite : SpriteKernel
+    public class StarSprite : SpriteKernelNew
     {
 
         protected override void Initialize()
         {
-            const int totalFrames = 4;
-            Vector2 startCoordinate = new Vector2(0, 91);
-            Vector2 endCoordinate = new Vector2(121, 114);
             const int period = 4;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSourceNew(
+                new List<Rectangle>
+                {
+                    new Rectangle(5, 94, 14, 16),
+                    new Rectangle(34, 94, 14, 16),
+                    new Rectangle(65, 94, 14, 16),
+                    new Rectangle(95, 94, 14, 16)
+                });
             Animation = new PeriodicFunction<int>(
                 phase =>
                 {
@@ -21,7 +26,6 @@ namespace WindowsGame1
                     return frameSequence[phase];
                 },
                 period);
-
         }
         public override void Load(ContentManager content)
         {
