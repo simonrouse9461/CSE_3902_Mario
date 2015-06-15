@@ -29,18 +29,15 @@ namespace WindowsGame1
             MotionList = new List<MotionSwitch>
             {
                 new MotionSwitch(new AccelerateRightMotion(0.1f, 5)),
-                new MotionSwitch(new AccelerateLeftMotion(0.1f, 5))
+                new MotionSwitch(new AccelerateLeftMotion(0.1f, 5)),
+                new MotionSwitch(new SuddenStopMotion(0.3f))
             };
             HorizontalStatus = HorizontalEnum.None;
             VertialStatus = VerticalEnum.None;
         }
 
-        protected override void RefreshState()
+        protected override void RefreshMotionList()
         {
-            foreach (var motion in MotionList)
-            {
-                motion.Toggle(false);
-            }
             switch (HorizontalStatus)
             {
                 case HorizontalEnum.AccRight:
@@ -54,34 +51,36 @@ namespace WindowsGame1
 
         protected override void ResetState()
         {
-            if (HorizontalStatus == HorizontalEnum.None)
-            {
-                MotionList[0].Reset(Velocity);
-                MotionList[1].Reset(Velocity);
-            }
-            else
-            {
-                HorizontalStatus = HorizontalEnum.None;
-            }
+            HorizontalStatus = HorizontalEnum.None;
         }
 
         public void MoveRight()
         {
-            HorizontalStatus = IsLeft() ? HorizontalEnum.None : HorizontalEnum.AccRight;
+            HorizontalStatus = IsAccLeft() ? HorizontalEnum.None : HorizontalEnum.AccRight;
         }
 
-        public bool IsRight()
+        public bool IsAccRight()
         {
             return HorizontalStatus == HorizontalEnum.AccRight;
         }
 
+        public bool IsVelRight()
+        {
+            return Velocity.X > 0;
+        }
+
         public void MoveLeft()
         {
-            HorizontalStatus = IsRight() ? HorizontalEnum.None : HorizontalEnum.AccLeft;
+            HorizontalStatus = IsAccRight() ? HorizontalEnum.None : HorizontalEnum.AccLeft;
         }
-        public bool IsLeft()
+        public bool IsAccLeft()
         {
             return HorizontalStatus == HorizontalEnum.AccLeft;
+        }
+
+        public bool IsVelLeft()
+        {
+            return Velocity.X < 0;
         }
     }
 }

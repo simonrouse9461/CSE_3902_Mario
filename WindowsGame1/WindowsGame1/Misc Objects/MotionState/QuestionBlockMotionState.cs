@@ -12,7 +12,7 @@ namespace WindowsGame1
 
         }
 
-        protected override void RefreshState()
+        protected override void RefreshMotionList()
         {
             
         }

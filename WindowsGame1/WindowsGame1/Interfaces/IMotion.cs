@@ -8,6 +8,8 @@ namespace WindowsGame1
 
         void Update(int phase = -1);
 
+        bool End();
+
         Vector2 GetVelocity(); 
     }
 }

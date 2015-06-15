@@ -14,6 +14,11 @@ namespace WindowsGame1
             MaxVelocity = new Vector2(-max, 0);
         }
 
+        public override bool End()
+        {
+            return false;
+        }
+
         public override Vector2 GetVelocity()
         {
             var velocity = Circulator.Phase * Acceleration + InitialVelocity;

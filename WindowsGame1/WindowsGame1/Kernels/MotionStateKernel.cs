@@ -62,7 +62,7 @@ namespace WindowsGame1
 
         protected abstract void Initialize();
 
-        protected abstract void RefreshState();
+        protected abstract void RefreshMotionList();
 
         protected abstract void ResetState();
 
@@ -79,17 +79,29 @@ namespace WindowsGame1
         {
             if (Timer.Update())
             {
-                RefreshState();
+                foreach (var motion in MotionList)
+                {
+                    motion.Toggle(false);
+                }
+
+                RefreshMotionList();
+
+                Velocity = default(Vector2);
 
                 foreach (var motion in MotionList)
                 {
                     if (motion.Status)
                     {
                         motion.Motion.Update();
-                        Velocity = motion.Motion.GetVelocity();
-                        Position += Velocity;
+                        Velocity += motion.Motion.GetVelocity();
+                    }
+                    else
+                    {
+                        motion.Reset(Velocity);
                     }
                 }
+
+                Position += Velocity;
 
                 ResetState();
             }

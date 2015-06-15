@@ -25,6 +25,8 @@ namespace WindowsGame1
             Circulator.Update(phase);
         }
 
+        public abstract bool End();
+
         public abstract Vector2 GetVelocity();
     }
 }
