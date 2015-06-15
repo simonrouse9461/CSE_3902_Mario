@@ -17,9 +17,9 @@ namespace WindowsGame1
                 new List<Rectangle>
                 {
                     new Rectangle(127, 94, 12, 16),
-                    new Rectangle(158, 94, 12, 16),
-                    new Rectangle(179, 91, 12, 16),
-                    new Rectangle(219, 91, 12, 16)
+                    new Rectangle(155, 94, 12, 16),
+                    new Rectangle(187, 94, 12, 16),
+                    new Rectangle(218, 94, 12, 16)
                 });
             Animation = new PeriodicFunction<int>(
                 phase =>
