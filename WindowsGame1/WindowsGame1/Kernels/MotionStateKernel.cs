@@ -8,9 +8,11 @@ namespace WindowsGame1
     {
         protected Vector2 Position;
 
+        protected Vector2 Velocity;
+
         protected Counter Timer;
 
-        protected Dictionary<MotionKernel, bool> MotionList; 
+        protected Dictionary<IMotion, bool> MotionList; 
 
         protected MotionStateKernel(Vector2 location)
         {
@@ -18,7 +20,7 @@ namespace WindowsGame1
 
             Position = location;
             Timer = Timer ?? new Counter();
-            MotionList = MotionList ?? new Dictionary<MotionKernel, bool>();
+            MotionList = MotionList ?? new Dictionary<IMotion, bool>();
 
             Reset();
         }
@@ -46,6 +48,8 @@ namespace WindowsGame1
 
         public void Update()
         {
+            RefreshState();
+
             if (Timer.Update())
             {
                 foreach (var motion in MotionList)
@@ -53,10 +57,13 @@ namespace WindowsGame1
                     if (motion.Value)
                     {
                         motion.Key.Update();
-                        Position += motion.Key.GetValue();
+                        Velocity = motion.Key.GetVelocity();
+                        Position += Velocity;
                     }
                 }
             }
         }
+
+        protected abstract void RefreshState();
     }
 }

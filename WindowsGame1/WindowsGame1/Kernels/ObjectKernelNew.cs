@@ -4,17 +4,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
-        where TSpriteState : ISpriteState 
-        where TMotionState : IMotionState 
+    public abstract class ObjectKernelNew : IObject
     {
-        protected TSpriteState SpriteState;
+        protected ISpriteState SpriteState;
 
-        protected TMotionState MotionState;
+        protected IMotionState MotionState;
+
+        protected ICommandHandler CommandHandler;
 
         protected ICollisionHandler CollisionHandler;
 
-        protected ObjectKernel(Vector2 location)
+        protected ObjectKernelNew(Vector2 location)
         {
             Initialize(location);
             Reset();
@@ -35,6 +35,8 @@ namespace WindowsGame1
 
         public void Update()
         {
+            CommandHandler.Handle();
+            CollisionHandler.Handle();
             SpriteState.Update();
             MotionState.Update();
         }
@@ -46,7 +48,7 @@ namespace WindowsGame1
 
         public void PassCommand(ICommand command)
         {
-            
+            CommandHandler.ReadCommand(command);
         }
 
         public Rectangle GetPositionRectangle()

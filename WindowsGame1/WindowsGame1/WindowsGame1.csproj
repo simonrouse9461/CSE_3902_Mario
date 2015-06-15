@@ -85,7 +85,8 @@
     <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
     <Compile Include="Interfaces\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
-    <Compile Include="Interfaces\IPeriodicFunction.cs" />
+    <Compile Include="Interfaces\ICommandHandler.cs" />
+    <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\MotionStates\BlankMotionState.cs" />
     <Compile Include="Items\MotionStates\RightMotionState.cs" />
@@ -95,9 +96,14 @@
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
+    <Compile Include="Kernels\CollisionHandlerKernel.cs" />
+    <Compile Include="Kernels\CommandHandlerKernel.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
-    <Compile Include="Mario\IMario.cs" />
+    <Compile Include="Kernels\ObjectKernelNew.cs" />
+    <Compile Include="Mario\MarioCollisionHandler.cs" />
+    <Compile Include="Mario\MarioCommandHandler.cs" />
+    <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
