@@ -1,15 +1,12 @@
 ﻿namespace WindowsGame1
 {
-    public class GoombaCollisionHandler : CollisionHandlerKernel
+    public class GoombaCollisionHandler : CollisionHandlerKernel<Goomba>
     {
         private readonly GoombaSpriteState _spriteState;
         private readonly GoombaMotionState _motionState;
         
-        public GoombaCollisionHandler(GoombaSpriteState spriteState, GoombaMotionState motionState)
-        {
-            _spriteState = spriteState;
-            _motionState = motionState;
-        }
+        
+        public GoombaCollisionHandler(Goomba goomba) : base(goomba) { }
 
         protected override void Initialize()
         {
