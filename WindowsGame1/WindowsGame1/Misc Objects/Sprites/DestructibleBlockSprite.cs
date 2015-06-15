@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 namespace WindowsGame1
 {
-    public class DestructibleBlockSprite : SpriteKernelNew
+    public class DestructibleBlockSprite : SpriteKernel
     {
         protected override void Initialize()
         {

@@ -101,12 +101,12 @@
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
+    <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
     <Compile Include="Motions\AccelerateLeftMotion.cs" />
     <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
-    <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Mario\Commands\MarioBigCommand.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
@@ -191,7 +191,6 @@
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
     <Compile Include="Misc Objects\Objects\UsedBlockObject.cs" />
-    <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="Commands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />

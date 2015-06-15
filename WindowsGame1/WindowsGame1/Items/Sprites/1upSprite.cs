@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class _1upSprite : SpriteKernelNew
+    public class _1upSprite : SpriteKernel
     {
         protected override void Initialize()
         {

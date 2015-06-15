@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class NormalBlockSprite : SpriteKernelNew
+    public class NormalBlockSprite : SpriteKernel
     {
 
         protected override void Initialize()

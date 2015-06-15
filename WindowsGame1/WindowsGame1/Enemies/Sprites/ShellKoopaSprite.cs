@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class ShellKoopaSprite : SpriteKernelNew
+    public class ShellKoopaSprite : SpriteKernel
     {
 
         protected override void Initialize()

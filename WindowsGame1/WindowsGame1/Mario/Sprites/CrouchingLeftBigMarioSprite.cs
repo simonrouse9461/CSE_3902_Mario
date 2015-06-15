@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class CrouchingLeftBigMarioSprite : SpriteKernelNew
+    public class CrouchingLeftBigMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
