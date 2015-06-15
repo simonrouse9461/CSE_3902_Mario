@@ -14,7 +14,7 @@ namespace WindowsGame1
         {
             Initialize();
 
-            Timer = Timer ?? new Counter();
+            Timer = Timer ?? new Counter(5);
             SpriteList = SpriteList ?? new List<ISprite>();
 
             Reset();
@@ -32,9 +32,14 @@ namespace WindowsGame1
             }
         }
 
-        public void Reset(int frequency = 10)
+        public void UpdateFrequency(int frequency)
         {
             Timer.Reset(frequency);
+        }
+         
+        public void Reset()
+        {
+            Timer.Reset();
             foreach (var sprite in SpriteList)
             {
                 sprite.Reset();

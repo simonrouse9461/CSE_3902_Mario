@@ -10,9 +10,7 @@ namespace WindowsGame1
 
         public SuddenStopMotion(float acceleration)
         {
-            var absoluteValue = Math.Abs(acceleration);
-            Sign = (int)(acceleration/absoluteValue);
-            Acceleration = new Vector2(absoluteValue, 0);
+            Acceleration = new Vector2(acceleration, 0);
         }
 
         public override bool End()
@@ -22,6 +20,7 @@ namespace WindowsGame1
 
         public override Vector2 GetVelocity()
         {
+            Sign = Math.Sign(InitialVelocity.X);
             var velocity = InitialVelocity - Circulator.Phase*Acceleration*Sign;
             return velocity.X*Sign <= 0 ? default(Vector2) : velocity;
         }

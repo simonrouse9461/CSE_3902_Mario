@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -28,9 +29,9 @@ namespace WindowsGame1
         {
             MotionList = new List<MotionSwitch>
             {
-                new MotionSwitch(new AccelerateRightMotion(0.1f, 5)),
-                new MotionSwitch(new AccelerateLeftMotion(0.1f, 5)),
-                new MotionSwitch(new SuddenStopMotion(0.3f))
+                new MotionSwitch(new AccelerateRightMotion(0.1f, 3)),
+                new MotionSwitch(new AccelerateLeftMotion(0.1f, 3)),
+                new MotionSwitch(new SuddenStopMotion(0.15f))
             };
             HorizontalStatus = HorizontalEnum.None;
             VertialStatus = VerticalEnum.None;
@@ -41,10 +42,30 @@ namespace WindowsGame1
             switch (HorizontalStatus)
             {
                 case HorizontalEnum.AccRight:
+                    if (IsVelLeft())
+                    {
+                        MotionList[2].Toggle(true);
+                    }
+                    else
+                    {
                     MotionList[0].Toggle(true);
+                    }
                     break;
                 case HorizontalEnum.AccLeft:
-                    MotionList[1].Toggle(true);
+                    if (IsVelRight())
+                    {
+                        MotionList[2].Toggle(true);
+                    }
+                    else
+                    {
+                        MotionList[1].Toggle(true);
+                    }
+                    break;
+                case HorizontalEnum.None:
+                    if (IsVelLeft() || IsVelRight())
+                    {
+                        MotionList[2].Toggle(true);
+                    }
                     break;
             }
         }
