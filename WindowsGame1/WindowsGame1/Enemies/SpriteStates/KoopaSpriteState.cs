@@ -36,7 +36,7 @@ namespace WindowsGame1
             else { return SpriteList[1]; }
         }
 
-        public void MarioSmash()
+        public override void MarioSmash()
         {
             Status = StatusEnum.Shell;
         }

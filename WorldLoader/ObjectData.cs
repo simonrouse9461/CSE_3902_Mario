@@ -16,6 +16,4 @@ namespace WorldLoader
         public string ObjectName;
         public Vector2 Location;
     }
-
-    protected 
 }

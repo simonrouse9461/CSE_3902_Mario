@@ -238,10 +238,6 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WorldLoader\WorldLoader.csproj">
-      <Project>{2b761b42-f0c0-4346-b84a-32f9923db5c3}</Project>
-      <Name>WorldLoader</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WindowsGame1Content\WindowsGame1Content.contentproj">
       <Name>WindowsGame1Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
@@ -271,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
+    <Folder Include="Items\CollisionHandler\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
