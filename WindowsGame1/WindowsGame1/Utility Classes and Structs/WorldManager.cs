@@ -33,7 +33,9 @@ namespace WindowsGame1
             ObjectList = new List<IObject>();
 
             Mario = new MarioObject(new Vector2(200, 170), this);
-            Goomba = new Goomba(new Vector2(240, 170), this);
+            Goomba = new Goomba(new Vector2(230, 300), this); 
+            Koopa = new Koopa(new Vector2(200, 300), this);
+
             Coin = new Coin(new Vector2(450, 300));
             Star = new Star(new Vector2(500, 300));
             QuestionBlock = new QuestionBlockObject(new Vector2(300, 200));
@@ -46,7 +48,7 @@ namespace WindowsGame1
             Fireflower = new Fireflower(new Vector2(400, 304));
             Mushroom = new Mushroom(new Vector2(550, 300));
             _1up = new _1up(new Vector2(600, 300));
-            Koopa = new Koopa(new Vector2(200, 300));
+            
 
             //ObjectList.Add(Goomba);
             ObjectList.Add(Coin);
@@ -62,6 +64,7 @@ namespace WindowsGame1
             ObjectList.Add(Mushroom);
             ObjectList.Add(_1up);
             ObjectList.Add(Koopa);
+            ObjectList.Add(Goomba);
             ObjectList.Add(Mario);
         }
 

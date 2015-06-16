@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class GoombaSpriteState : SpriteStateKernel
+    public class GoombaSpriteState : EnemySpriteState
     {
         public enum StatusEnum
         {
@@ -11,7 +11,13 @@ namespace WindowsGame1
             Walking
         }
 
-        private StatusEnum Status;
+        private StatusEnum status;
+
+        public StatusEnum Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
 
         protected override void Initialize()
         {
@@ -30,7 +36,7 @@ namespace WindowsGame1
             else { return SpriteList[1]; }
         }
 
-        public void BecomeDead()
+        public override void MarioSmash()
         {
             Status = StatusEnum.Dead;
         }
