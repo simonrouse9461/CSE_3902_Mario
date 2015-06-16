@@ -8,15 +8,19 @@ namespace WindowsGame1
         where TMotionState : IMotionState
     {
         protected IObject Object;
+        protected TSpriteState SpriteState;
+        protected TMotionState MotionState;
 
-        protected CollisionHandlerKernel(IObject obj)
+        protected CollisionHandlerKernel(TSpriteState spriteState, TMotionState motionState, IObject obj)
         {
+            SpriteState = spriteState;
+            MotionState = motionState;
             Object = obj;
             Initialize();
         }
 
         protected abstract void Initialize();
 
-        public abstract List<Action<TSpriteState, TMotionState>> GetAction();
+        public abstract void Handle();
     }
 }

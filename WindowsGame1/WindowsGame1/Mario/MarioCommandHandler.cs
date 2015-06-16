@@ -5,25 +5,28 @@ namespace WindowsGame1
 {
     public class MarioCommandHandler : CommandHandlerKernel<MarioSpriteState, MarioMotionState>
     {
+        public MarioCommandHandler(MarioSpriteState spriteState, MarioMotionState motionState) : base(spriteState, motionState) { }
+
         protected override void Initialize()
         {
-            CommandAction = new Dictionary<Type, Action<MarioSpriteState, MarioMotionState>>
+            CommandAction = new Dictionary<Type, Action>
             {
-                {typeof(MarioDeadCommand), (SpriteState, MotionState) => SpriteState.BecomeDead()},
-                {typeof(MarioBigCommand), (SpriteState, MotionState) => SpriteState.BecomeBig()},
-                {typeof(MarioSmallCommand), (SpriteState, MotionState) => SpriteState.BecomeSmall()},
-                {typeof(MarioFireCommand), (SpriteState, MotionState) => SpriteState.BecomeFire()},
-                {typeof(MarioLeftCommand), (SpriteState, MotionState) =>
+                {typeof(MarioDeadCommand), () => SpriteState.BecomeDead()},
+                {typeof(MarioBigCommand), () => SpriteState.BecomeBig()},
+                {typeof(MarioSmallCommand), () => SpriteState.BecomeSmall()},
+                {typeof(MarioFireCommand), () => SpriteState.BecomeFire()},
+                {typeof(MarioLeftCommand), () =>
                 {
+
                     SpriteState.FaceLeft();
                     MotionState.MoveLeft();
                 }},
-                {typeof(MarioRightCommand), (SpriteState, MotionState) =>
+                {typeof(MarioRightCommand), () =>
                 {
                     SpriteState.FaceRight();
                     MotionState.MoveRight();
                 }},
-                {typeof(MarioUpCommand), (SpriteState, MotionState) =>
+                {typeof(MarioUpCommand), () =>
                 {
                     if (SpriteState.IsCrouch())
                         SpriteState.Stand();
@@ -32,7 +35,7 @@ namespace WindowsGame1
                     else if (SpriteState.IsRun())
                         SpriteState.Jump();
                 }},
-                {typeof(MarioDownCommand), (SpriteState, MotionState) =>
+                {typeof(MarioDownCommand), () =>
                 {
                     if (SpriteState.IsJump())
                         SpriteState.Run();
