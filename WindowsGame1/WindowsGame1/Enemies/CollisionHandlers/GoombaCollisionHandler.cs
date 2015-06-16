@@ -1,22 +1,23 @@
-﻿namespace WindowsGame1
+﻿using System.Collections.Generic;
+namespace WindowsGame1
 {
-    public class GoombaCollisionHandler : CollisionHandlerKernel
+    public class GoombaCollisionHandler : ICollisionHandler 
     {
-        private readonly GoombaSpriteState _spriteState;
-        private readonly GoombaMotionState _motionState;
+        private IObject Goomba;
+        private CollisionDetectorNew CollisionDetector;
         
-        public GoombaCollisionHandler(GoombaSpriteState spriteState, GoombaMotionState motionState)
+        public GoombaCollisionHandler(IObject goomba, List<IObject> objList)
         {
-            _spriteState = spriteState;
-            _motionState = motionState;
+            Goomba = goomba;
+            CollisionDetector = new CollisionDetectorNew(this.Goomba, objList);
         }
 
-        protected override void Initialize()
+        protected void Initialize()
         {
             
         }
 
-        public override void Handle()
+        public void Handle()
         {
             
         }

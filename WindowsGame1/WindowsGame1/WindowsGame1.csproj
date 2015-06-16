@@ -200,6 +200,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Utility Classes and Structs\CollisionSideNew.cs" />
+    <Compile Include="Utility Classes and Structs\CollisionDetectorNew.cs" />
     <Compile Include="Utility Classes and Structs\CollisionDetector.cs" />
     <Compile Include="Utility Classes and Structs\CollisionSide.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
