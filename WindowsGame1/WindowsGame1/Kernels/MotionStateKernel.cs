@@ -62,8 +62,10 @@ namespace WindowsGame1
 
         protected abstract void Initialize();
 
+        // This method is used to turn on motion switches base on current status.
         protected abstract void RefreshMotionList();
 
+        // This method is used to restore all status to its default value.
         protected abstract void ResetState();
 
         public void Reset()
