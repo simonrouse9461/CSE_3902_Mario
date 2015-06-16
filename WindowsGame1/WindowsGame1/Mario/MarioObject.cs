@@ -20,9 +20,12 @@ namespace WindowsGame1
             {
                 SpriteState.Stand();
             }
-            else
-            {
-                SpriteState.Run();
+            else 
+            {   
+                if (MotionState.IsVelRight() == SpriteState.IsRight())
+                    SpriteState.Run();
+                else
+                    SpriteState.Break();
             }
         }
     }

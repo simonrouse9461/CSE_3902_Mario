@@ -10,7 +10,8 @@ namespace WindowsGame1
             Jump,
             Run,
             Stand,
-            Crouch
+            Crouch,
+            Break
         }
 
         private enum OrientationEnum
@@ -57,7 +58,9 @@ namespace WindowsGame1
                 new CrouchingLeftBigMarioSprite(), //19
                 new CrouchingLeftFireMarioSprite(), //20
                 new CrouchingRightBigMarioSprite(), //21
-                new CrouchingRightFireMarioSprite() //22
+                new CrouchingRightFireMarioSprite(), //22
+                new BreakingLeftBigMarioSprite(), //23
+                new BreakingRightBigMarioSprite() //24
             };
         }
 
@@ -107,6 +110,17 @@ namespace WindowsGame1
                             return Orientation == OrientationEnum.Left ? SpriteList[19] : SpriteList[21];
                         case StatusEnum.Fire:
                             return Orientation == OrientationEnum.Left ? SpriteList[20] : SpriteList[22];
+                    }
+                    break;
+                case ActionEnum.Break:
+                    switch (Status)
+                    {
+                        case StatusEnum.Big:
+                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
+                        case StatusEnum.Fire:
+                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
+                        case StatusEnum.Small:
+                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
                     }
                     break;
             }
@@ -215,6 +229,16 @@ namespace WindowsGame1
         public bool IsStand()
         {
             return Action == ActionEnum.Stand;
+        }
+
+        public void Break()
+        {
+            Action = ActionEnum.Break;
+        }
+
+        public bool IsBreak()
+        {
+            return Action == ActionEnum.Break;
         }
     }
 }
