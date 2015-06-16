@@ -3,13 +3,16 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public abstract class CommandHandlerKernel : ICommandHandler
+    public abstract class CommandHandlerKernel<TObject> : ICommandHandler where TObject: IObject
     {
+        protected readonly TObject Object;
+
         protected Dictionary<Type, bool> CommandStatus;
         protected Dictionary<Type, Action> CommandAction; 
 
-        protected CommandHandlerKernel()
+        protected CommandHandlerKernel(TObject obj)
         {
+            Object = obj;
             Initialize();
             CommandAction = CommandAction ?? new Dictionary<Type, Action>();
             CommandStatus = new Dictionary<Type, bool>();
