@@ -8,9 +8,17 @@ namespace WindowsGame1
     {
         public WorldManager World { get; private set; }
 
-        public ISpriteState SpriteState;
+        private ISpriteState _spriteState;
+        public ISpriteState SpriteState
+        {
+            get { return _spriteState; }
+        }
 
-        public IMotionState MotionState;
+        private IMotionState _motionState;
+        public IMotionState MotionState
+        {
+            get { return _motionState; }
+        }
 
         protected ICommandHandler CommandHandler;
 
