@@ -10,7 +10,7 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(360, 4, 18, 15)

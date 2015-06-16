@@ -17,10 +17,12 @@ namespace WindowsGame1
         public override List<Action<MarioSpriteState, MarioMotionState>> GetAction()
         {
             var list = new List<Action<MarioSpriteState, MarioMotionState>>();
+
             if (MarioPipeCollision.Detect().Side())
             {
                 list.Add((spriteState, motionState) => spriteState.BecomeDead());
             }
+
             return list;
         }
     }

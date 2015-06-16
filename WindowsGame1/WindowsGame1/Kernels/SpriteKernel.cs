@@ -7,7 +7,7 @@ namespace WindowsGame1
     public abstract class SpriteKernel : ISprite
     {
         // Sprite source information
-        protected SpriteSourceNew Source;
+        protected SpriteSource Source;
 
         // A structure that defines how does the sprite animate
         protected PeriodicFunction<int> Animation;

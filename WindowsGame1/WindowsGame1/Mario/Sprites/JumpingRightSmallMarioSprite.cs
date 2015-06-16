@@ -10,7 +10,7 @@ namespace WindowsGame1
         {
             const int period = 6;
 
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(210, 30, 15, 15),

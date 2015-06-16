@@ -208,7 +208,6 @@
     <Compile Include="Utility Classes and Structs\Counter.cs" />
     <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSource.cs" />
-    <Compile Include="Utility Classes and Structs\SpriteSourceNew.cs" />
     <Compile Include="Utility Classes and Structs\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
