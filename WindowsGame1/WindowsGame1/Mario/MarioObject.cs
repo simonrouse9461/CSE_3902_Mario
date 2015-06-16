@@ -13,5 +13,17 @@ namespace WindowsGame1
             CommandHandler = new MarioCommandHandler(SpriteState, MotionState);
             CollisionHandler = new MarioCollisionHandler(SpriteState, MotionState, this);
         }
+
+        protected override void SyncState()
+        {
+            if (MotionState.IsStatic())
+            {
+                SpriteState.Stand();
+            }
+            else
+            {
+                SpriteState.Run();
+            }
+        }
     }
 }

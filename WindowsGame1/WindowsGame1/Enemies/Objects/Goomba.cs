@@ -10,7 +10,12 @@ namespace WindowsGame1
         {
             SpriteState = new GoombaSpriteState();
             MotionState = new GoombaMotionState(location);
-            CollisionHandler = new GoombaCollisionHandler(this);
+            CollisionHandler = new GoombaCollisionHandler(SpriteState, MotionState, this);
+        }
+
+        protected override void SyncState()
+        {
+            
         }
     }
 }

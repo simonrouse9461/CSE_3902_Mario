@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -40,10 +40,13 @@ namespace WindowsGame1
             SpriteState.Load(content);
         }
 
+        protected abstract void SyncState();
+
         public void Update()
         {
             CommandHandler.Handle();
             CollisionHandler.Handle();
+            SyncState();
             SpriteState.Update();
             MotionState.Update();
         }

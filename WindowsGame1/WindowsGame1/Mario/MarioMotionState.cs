@@ -16,12 +16,13 @@ namespace WindowsGame1
         private enum VerticalEnum
         {
             None,
-            elevate,
-            fall
+            Elevate,
+            Fall,
+            Dead
         }
 
         private HorizontalEnum HorizontalStatus;
-        private VerticalEnum VertialStatus;
+        private VerticalEnum VerticalStatus;
 
         public MarioMotionState(Vector2 location) : base(location) { }
 
@@ -31,10 +32,11 @@ namespace WindowsGame1
             {
                 new MotionSwitch(new AccelerateRightMotion(0.1f, 3)),
                 new MotionSwitch(new AccelerateLeftMotion(0.1f, 3)),
-                new MotionSwitch(new SuddenStopMotion(0.15f))
+                new MotionSwitch(new SuddenStopMotion(0.15f)),
+                new MotionSwitch(new DeadMotion())
             };
             HorizontalStatus = HorizontalEnum.None;
-            VertialStatus = VerticalEnum.None;
+            VerticalStatus = VerticalEnum.None;
         }
 
         protected override void RefreshMotionList()
@@ -68,11 +70,29 @@ namespace WindowsGame1
                     }
                     break;
             }
+
+            switch (VerticalStatus)
+            {
+                case VerticalEnum.Dead:
+                    foreach (var motion in MotionList)
+                    {
+                        motion.Toggle(false);
+                    }
+                    MotionList[3].Toggle(true);
+                    break;
+            }
         }
 
         protected override void ResetState()
         {
             HorizontalStatus = HorizontalEnum.None;
+            if (VerticalStatus == VerticalEnum.Elevate)
+                VerticalStatus = VerticalEnum.None;
+        }
+
+        public bool IsStatic()
+        {
+            return Velocity == default(Vector2);
         }
 
         public void MoveRight()
@@ -94,6 +114,7 @@ namespace WindowsGame1
         {
             HorizontalStatus = IsAccRight() ? HorizontalEnum.None : HorizontalEnum.AccLeft;
         }
+
         public bool IsAccLeft()
         {
             return HorizontalStatus == HorizontalEnum.AccLeft;
@@ -102,6 +123,17 @@ namespace WindowsGame1
         public bool IsVelLeft()
         {
             return Velocity.X < 0;
+        }
+
+        public void Dead()
+        {
+            HorizontalStatus = HorizontalEnum.None;
+            VerticalStatus = VerticalEnum.Dead;
+        }
+
+        public bool IsDead()
+        {
+            return VerticalStatus == VerticalEnum.Dead;
         }
     }
 }

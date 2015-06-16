@@ -7,21 +7,19 @@ namespace WindowsGame1
     {
         private CollisionDetector<MarioObject> GoombaMarioCollision;
 
-        public GoombaCollisionHandler(IObject obj) : base(obj) { }
+        public GoombaCollisionHandler(GoombaSpriteState spriteState, GoombaMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
         protected override void Initialize()
         {
             GoombaMarioCollision = new CollisionDetector<MarioObject>(Object);
         }
 
-        public override List<Action<GoombaSpriteState, GoombaMotionState>> GetAction()
+        public override void Handle()
         {
-            var list = new List<Action<GoombaSpriteState, GoombaMotionState>>();
             if (GoombaMarioCollision.Detect().Top)
             {
-                list.Add((spriteState, motionState) => spriteState.BecomeDead());
+                SpriteState.BecomeDead();
             }
-            return list;
         }
     }
 }

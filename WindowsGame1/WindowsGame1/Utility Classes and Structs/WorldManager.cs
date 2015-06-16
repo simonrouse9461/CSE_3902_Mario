@@ -48,7 +48,7 @@ namespace WindowsGame1
             _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(200, 300));
 
-            ObjectList.Add(Goomba);
+            //ObjectList.Add(Goomba);
             ObjectList.Add(Coin);
             ObjectList.Add(Star);
             ObjectList.Add(QuestionBlock);

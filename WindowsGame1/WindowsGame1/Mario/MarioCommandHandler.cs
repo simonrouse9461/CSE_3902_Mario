@@ -17,6 +17,7 @@ namespace WindowsGame1
                 {typeof(MarioFireCommand), () => SpriteState.BecomeFire()},
                 {typeof(MarioLeftCommand), () =>
                 {
+
                     SpriteState.FaceLeft();
                     MotionState.MoveLeft();
                 }},

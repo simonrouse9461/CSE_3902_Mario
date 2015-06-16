@@ -19,6 +19,7 @@ namespace WindowsGame1
             if (MarioPipeCollision.Detect().Side())
             {
                 SpriteState.BecomeDead();
+                MotionState.Dead();
             }
         }
     }
