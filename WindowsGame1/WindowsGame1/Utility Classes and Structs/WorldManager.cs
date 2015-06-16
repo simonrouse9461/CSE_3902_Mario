@@ -7,7 +7,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public List<IObject> ObjectList = new List<IObject>();
+        public List<IObject> ObjectList;
  
         public MarioObject Mario;
 
@@ -30,7 +30,9 @@ namespace WindowsGame1
 
         public WorldManager()
         {
-            Mario = new MarioObject(new Vector2(200, 100));
+            ObjectList = new List<IObject>();
+
+            Mario = new MarioObject(new Vector2(200, 170), this);
             Goomba = new Goomba(new Vector2(240, 302));
             Coin = new Coin(new Vector2(450, 300));
             Star = new Star(new Vector2(500, 300));
@@ -46,7 +48,6 @@ namespace WindowsGame1
             _1up = new _1up(new Vector2(600, 300));
             Koopa = new Koopa(new Vector2(200, 300));
 
-            ObjectList.Add(Mario);
             ObjectList.Add(Goomba);
             ObjectList.Add(Coin);
             ObjectList.Add(Star);
@@ -61,6 +62,7 @@ namespace WindowsGame1
             ObjectList.Add(Mushroom);
             ObjectList.Add(_1up);
             ObjectList.Add(Koopa);
+            ObjectList.Add(Mario);
         }
 
         public void LoadContent(ContentManager content)
