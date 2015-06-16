@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class NormalBlockSprite : SpriteKernelNew
+    public class NormalBlockSprite : SpriteKernel
     {
 
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(16, 16, 16, 16)

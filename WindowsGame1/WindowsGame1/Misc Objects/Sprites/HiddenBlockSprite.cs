@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
 namespace WindowsGame1
 {
-    public class HiddenBlockSprite : SpriteKernelNew
+    public class HiddenBlockSprite : SpriteKernel
     {
 
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(16, 32, 16, 16)

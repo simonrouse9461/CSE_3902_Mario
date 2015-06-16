@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
 
 namespace WindowsGame1
 {
@@ -8,12 +9,14 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            const int totalFrames = 2;
-            Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(58, 21);
             const int period = 4;
 
-            Source = new SpriteSource(startCoordinate, endCoordinate, totalFrames);
+            Source = new SpriteSource(
+                new List<Rectangle>
+                {
+                    new Rectangle(0, 4, 15, 16),
+                    new Rectangle(30, 4, 15, 16)
+                });
             Animation = new PeriodicFunction<int>(
                 phase =>
                 {
@@ -21,7 +24,6 @@ namespace WindowsGame1
                     return frameSequence[phase];
                 },
                 period);
-
         }
         public override void Load(ContentManager content)
         {

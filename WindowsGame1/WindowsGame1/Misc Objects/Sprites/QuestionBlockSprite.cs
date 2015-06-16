@@ -3,14 +3,14 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
 namespace WindowsGame1
 {
-    public class QuestionBlockSprite : SpriteKernelNew
+    public class QuestionBlockSprite : SpriteKernel
     {
         
         protected override void Initialize()
         {
             const int period = 3;
 
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(0, 0, 16, 16),

@@ -4,13 +4,13 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class JumpingLeftSmallMarioSprite : SpriteKernelNew
+    public class JumpingLeftSmallMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             const int period = 6;
 
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(30, 30, 14, 16),

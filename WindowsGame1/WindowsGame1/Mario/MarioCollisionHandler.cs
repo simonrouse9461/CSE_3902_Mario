@@ -1,24 +1,26 @@
-﻿namespace WindowsGame1
+﻿using System;
+using System.Collections.Generic;
+
+namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernel
+    public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        private readonly MarioSpriteState _spriteState;
-        private readonly MarioMotionState _motionState;
-        
-        public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState)
-        {
-            _spriteState = spriteState;
-            _motionState = motionState;
-        }
+        private CollisionDetector<GreenPipeObject> MarioPipeCollision;
+
+        public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
         protected override void Initialize()
         {
-            
+            MarioPipeCollision = new CollisionDetector<GreenPipeObject>(Object);
         }
 
         public override void Handle()
         {
-            
+            if (MarioPipeCollision.Detect().Side())
+            {
+                SpriteState.BecomeDead();
+                MotionState.Dead();
+            }
         }
     }
 }

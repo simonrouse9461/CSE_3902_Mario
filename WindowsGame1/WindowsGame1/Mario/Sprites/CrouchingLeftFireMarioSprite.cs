@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class CrouchingLeftFireMarioSprite : SpriteKernelNew
+    public class CrouchingLeftFireMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(0, 127, 16, 22)

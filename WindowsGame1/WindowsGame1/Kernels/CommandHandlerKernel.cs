@@ -3,13 +3,20 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public abstract class CommandHandlerKernel : ICommandHandler
+    public abstract class CommandHandlerKernel<TSpriteState, TMotionState> : ICommandHandler<TSpriteState, TMotionState>
+        where TSpriteState : ISpriteState
+        where TMotionState : IMotionState
     {
+        protected TSpriteState SpriteState;
+        protected TMotionState MotionState;
+
         protected Dictionary<Type, bool> CommandStatus;
         protected Dictionary<Type, Action> CommandAction; 
 
-        protected CommandHandlerKernel()
+        protected CommandHandlerKernel(TSpriteState spriteState, TMotionState motionState)
         {
+            SpriteState = spriteState;
+            MotionState = motionState;
             Initialize();
             CommandAction = CommandAction ?? new Dictionary<Type, Action>();
             CommandStatus = new Dictionary<Type, bool>();

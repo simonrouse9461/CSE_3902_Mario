@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class FacingRightBigMarioSprite : SpriteKernelNew
+    public class FacingRightBigMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(209, 52, 16, 32)

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -8,27 +9,14 @@ namespace WindowsGame1
     {
         // Kernal properties
         public Texture2D Texture;
-        public Vector2 StartCoordinate;
-        public Vector2 EndCoordinate;
+        public List<Rectangle> Coodinates; 
         private int TotalFrames;
 
-        // Read-only properties
-        public int Width
-        {
-            get { return (int) (EndCoordinate.X - StartCoordinate.X)/TotalFrames; }
-        }
-
-        public int Height
-        {
-            get { return (int) (EndCoordinate.Y - StartCoordinate.Y); }
-        }
-
         // Constructor
-        public SpriteSource(Vector2 start, Vector2 end, int frames = 1)
+        public SpriteSource(List<Rectangle> coodinates)
         {
-            StartCoordinate = start;
-            EndCoordinate = end;
-            TotalFrames = frames;
+            Coodinates = coodinates;
+            TotalFrames = coodinates.Count;
             Texture = null;
         }
 

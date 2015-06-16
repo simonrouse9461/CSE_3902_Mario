@@ -5,13 +5,13 @@ using Microsoft.Xna.Framework.Content;
 namespace WindowsGame1
 {
 
-    public class RunningRightSmallMarioSprite : SpriteKernelNew
+    public class RunningRightSmallMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             const int period = 3;
 
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(241, 0, 14, 15),

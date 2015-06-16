@@ -6,11 +6,48 @@ namespace WindowsGame1
 {
     public abstract class MotionStateKernel : IMotionState
     {
-        protected Vector2 Position;
+        protected class MotionSwitch
+        {
+            private readonly IMotion _motion;
+
+            public IMotion Motion
+            {
+                get { return _motion; }
+            }
+
+            private bool _status;
+
+            public bool Status
+            {
+                get { return _status; }
+                private set { _status = value; }
+            }
+
+            public MotionSwitch(IMotion motion)
+            {
+                _motion = motion;
+                _status = false;
+            }
+
+            public void Toggle(bool status)
+            {
+                Status = status;
+            }
+
+            public void Reset(Vector2 initial = default(Vector2))
+            {
+                Motion.Reset(initial);
+                Status = false;
+            }
+        }
+
+        public Vector2 Position { get; set; }
+
+        protected Vector2 Velocity;
 
         protected Counter Timer;
 
-        protected Dictionary<MotionKernel, bool> MotionList; 
+        protected List<MotionSwitch> MotionList;
 
         protected MotionStateKernel(Vector2 location)
         {
@@ -18,30 +55,26 @@ namespace WindowsGame1
 
             Position = location;
             Timer = Timer ?? new Counter();
-            MotionList = MotionList ?? new Dictionary<MotionKernel, bool>();
+            MotionList = MotionList ?? new List<MotionSwitch>();
 
             Reset();
         }
 
         protected abstract void Initialize();
 
+        // This method is used to turn on motion switches base on current status.
+        protected abstract void RefreshMotionList();
+
+        // This method is used to restore all status to its default value.
+        protected abstract void ResetState();
+
         public void Reset()
         {
             Timer.Reset();
             foreach (var motion in MotionList)
             {
-                motion.Key.Reset();
+                motion.Reset();
             }
-        }
-
-        public Vector2 CurrentPosition()
-        {
-            return Position;
-        }
-
-        public void SetPosition(Vector2 position)
-        {
-            Position = position;
         }
 
         public void Update()
@@ -50,12 +83,29 @@ namespace WindowsGame1
             {
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Value)
+                    motion.Toggle(false);
+                }
+
+                RefreshMotionList();
+
+                Velocity = default(Vector2);
+
+                foreach (var motion in MotionList)
+                {
+                    if (motion.Status && !motion.Motion.End())
                     {
-                        motion.Key.Update();
-                        Position += motion.Key.GetValue();
+                        motion.Motion.Update();
+                        Velocity += motion.Motion.GetVelocity();
+                    }
+                    else
+                    {
+                        motion.Reset(Velocity);
                     }
                 }
+
+                Position += Velocity;
+
+                ResetState();
             }
         }
     }

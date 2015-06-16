@@ -1,16 +1,32 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public abstract class MotionKernel : PeriodicFunction<Vector2>
+    public abstract class MotionKernel : IMotion
     {
-        public MotionKernel(int period = 0)
+        protected Vector2 InitialVelocity;
+
+        protected Counter Circulator;
+        
+        protected MotionKernel(int period = 0)
         {
-            Initialize();
+            Circulator = new Counter(period);
+            Reset();
         }
 
-        protected abstract void Initialize();
+        public virtual void Reset(Vector2 initial = default(Vector2))
+        {
+            InitialVelocity = initial;
+            Circulator.Reset(); 
+        }
 
+        public void Update(int phase = -1)
+        {
+            Circulator.Update(phase);
+        }
+
+        public abstract bool End();
+
+        public abstract Vector2 GetVelocity();
     }
 }

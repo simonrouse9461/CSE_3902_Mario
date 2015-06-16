@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
@@ -8,11 +9,10 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            Vector2 startCoordinate = new Vector2(0, 0);
-            Vector2 endCoordinate = new Vector2(30, 61);
-
-            Source = new SpriteSource(startCoordinate, endCoordinate);
-            Animation = new PeriodicFunction<int>();
+            Source = new SpriteSource(new List<Rectangle>
+            {
+                new Rectangle(0, 0, 30, 61)
+            });
         }
         public override void Load(ContentManager content)
         {

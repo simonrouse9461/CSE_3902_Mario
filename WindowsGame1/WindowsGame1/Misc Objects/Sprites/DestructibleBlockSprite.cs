@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 namespace WindowsGame1
 {
-    public class DestructibleBlockSprite : SpriteKernelNew
+    public class DestructibleBlockSprite : SpriteKernel
     {
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(32, 16, 16, 16)

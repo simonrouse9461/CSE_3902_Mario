@@ -6,6 +6,8 @@ namespace WindowsGame1
 {
     public interface IObject
     {
+        WorldManager World { get; }
+
         void Reset();
 
         void Load(ContentManager content);
