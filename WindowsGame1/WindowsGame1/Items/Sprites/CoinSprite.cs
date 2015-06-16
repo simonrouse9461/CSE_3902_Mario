@@ -13,7 +13,7 @@ namespace WindowsGame1
             Vector2 endCoordinate = new Vector2(242, 114);
             int period = 4;
 
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(127, 94, 12, 16),

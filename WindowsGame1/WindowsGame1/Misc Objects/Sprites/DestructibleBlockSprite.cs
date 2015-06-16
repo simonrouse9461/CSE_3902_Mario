@@ -7,7 +7,7 @@ namespace WindowsGame1
     {
         protected override void Initialize()
         {
-            Source = new SpriteSourceNew(
+            Source = new SpriteSource(
                 new List<Rectangle>
                 {
                     new Rectangle(32, 16, 16, 16)
