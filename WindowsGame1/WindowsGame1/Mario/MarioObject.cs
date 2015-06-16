@@ -10,8 +10,8 @@ namespace WindowsGame1
         {
             SpriteState = new MarioSpriteState();
             MotionState = new MarioMotionState(location);
-            CommandHandler = new MarioCommandHandler();
-            CollisionHandler = new MarioCollisionHandler(this);
+            CommandHandler = new MarioCommandHandler(SpriteState, MotionState);
+            CollisionHandler = new MarioCollisionHandler(SpriteState, MotionState, this);
         }
     }
 }

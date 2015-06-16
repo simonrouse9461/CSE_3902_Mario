@@ -5,15 +5,20 @@ namespace WindowsGame1
 {
     public abstract class CommandHandlerKernel<TSpriteState, TMotionState> : ICommandHandler<TSpriteState, TMotionState>
         where TSpriteState : ISpriteState
-        where TMotionState : IMotionState 
+        where TMotionState : IMotionState
     {
-        protected Dictionary<Type, bool> CommandStatus;
-        protected Dictionary<Type, Action<TSpriteState, TMotionState>> CommandAction; 
+        protected TSpriteState SpriteState;
+        protected TMotionState MotionState;
 
-        protected CommandHandlerKernel()
+        protected Dictionary<Type, bool> CommandStatus;
+        protected Dictionary<Type, Action> CommandAction; 
+
+        protected CommandHandlerKernel(TSpriteState spriteState, TMotionState motionState)
         {
+            SpriteState = spriteState;
+            MotionState = motionState;
             Initialize();
-            CommandAction = CommandAction ?? new Dictionary<Type, Action<TSpriteState, TMotionState>>();
+            CommandAction = CommandAction ?? new Dictionary<Type, Action>();
             CommandStatus = new Dictionary<Type, bool>();
             foreach (var command in CommandAction)
             {
@@ -37,18 +42,15 @@ namespace WindowsGame1
             CommandStatus[command.GetType()] = true;
         }
 
-        public List<Action<TSpriteState, TMotionState>> GetAction()
+        public void Handle()
         {
-            var list = new List<Action<TSpriteState, TMotionState>>();
             foreach (var status in CommandStatus)
             {
                 if (status.Value)
-                    list.Add(CommandAction[status.Key]);
+                    CommandAction[status.Key]();
             }
 
             Reset();
-
-            return list;
         }
     }
 }

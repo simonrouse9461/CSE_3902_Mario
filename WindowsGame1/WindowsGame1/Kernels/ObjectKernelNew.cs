@@ -12,9 +12,9 @@ namespace WindowsGame1
     {
         public WorldManager World { get; private set; }
 
-        protected ISpriteState SpriteState;
+        protected TSpriteState SpriteState;
 
-        protected IMotionState MotionState;
+        protected TMotionState MotionState;
 
         protected ICommandHandler<TSpriteState, TMotionState> CommandHandler;
 
@@ -42,8 +42,8 @@ namespace WindowsGame1
 
         public void Update()
         {
-            ExecuteAction(CommandHandler.GetAction());
-            ExecuteAction(CollisionHandler.GetAction());
+            CommandHandler.Handle();
+            CollisionHandler.Handle();
             SpriteState.Update();
             MotionState.Update();
         }
@@ -56,14 +56,6 @@ namespace WindowsGame1
         public void PassCommand(ICommand command)
         {
             CommandHandler.ReadCommand(command);
-        }
-
-        protected void ExecuteAction(List<Action<TSpriteState, TMotionState>> actionList)
-        {
-            foreach (var action in actionList)
-            {
-                action((TSpriteState)SpriteState, (TMotionState)MotionState);
-            }
         }
 
         public Rectangle GetPositionRectangle()

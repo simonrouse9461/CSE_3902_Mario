@@ -18,9 +18,8 @@ namespace WindowsGame1
             
         }
 
-        public List<Action<GoombaSpriteState, GoombaMotionState>> GetAction()
+        public void Handle()
         {
-            return new List<Action<GoombaSpriteState, GoombaMotionState>>();
         }
     }
 }

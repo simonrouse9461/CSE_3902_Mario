@@ -9,6 +9,6 @@ namespace WindowsGame1
     {
         void Reset();
         void ReadCommand(ICommand command);
-        List<Action<TSpriteState, TMotionState>> GetAction();
+        void Handle();
     }
 }

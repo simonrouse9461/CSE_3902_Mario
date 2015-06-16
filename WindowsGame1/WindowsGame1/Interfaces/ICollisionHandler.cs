@@ -7,6 +7,6 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
-        List<Action<TSpriteState, TMotionState>> GetAction();
+        void Handle();
     }
 }
