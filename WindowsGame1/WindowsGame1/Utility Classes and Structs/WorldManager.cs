@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using WorldLoader;
 
 namespace WindowsGame1
 {
@@ -28,8 +29,10 @@ namespace WindowsGame1
         public Mushroom Mushroom;
         public GreenPipeObject GreenPipe;
 
+        
         public WorldManager()
         {
+            
             Mario = new MarioObject(new Vector2(200, 100));
             Goomba = new Goomba(new Vector2(240, 302));
             Coin = new Coin(new Vector2(450, 300));

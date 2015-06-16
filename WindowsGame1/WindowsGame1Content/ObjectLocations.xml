@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <!-- TODO: replace this Asset with your own XML asset data. -->
+  <Asset Type="WorldLoader.ObjectData]">
+    <Item>
+      <ObjectName>Mario</ObjectName>
+      <Location>200, 100</Location>
+    </Item>
+    <Item>
+      <ObjectName>Goomba</ObjectName>
+      <Location>240, 302</Location>
+    </Item>
+    <Item>
+      <ObjectName>Coin</ObjectName>
+      <Location>450, 300</Location>
+    </Item>
+    <Item>
+      <ObjectName>Star</ObjectName>
+      <Location>500, 300</Location>
+    </Item>
+    <Item>
+      <ObjectName>QuestionBlockObject</ObjectName>
+      <Location>300, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>HiddenBlockObject</ObjectName>
+      <Location>200, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>NormalBlockObject</ObjectName>
+      <Location>100, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>DestructibleBlockObject</ObjectName>
+      <Location>350, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>IndestructibleBlockObject</ObjectName>
+      <Location>150, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>GreenPipeObject</ObjectName>
+      <Location>500, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>UsedBlockObject</ObjectName>
+      <Location>250, 200</Location>
+    </Item>
+    <Item>
+      <ObjectName>Fireflower</ObjectName>
+      <Location>400, 304</Location>
+    </Item>
+    <Item>
+      <ObjectName>Mushroom</ObjectName>
+      <Location>550, 300</Location>
+    </Item>
+    <Item>
+      <ObjectName>_1up</ObjectName>
+      <Location>600, 300</Location>
+    </Item>
+    <Item>
+      <ObjectName>Koopa</ObjectName>
+      <Location>200, 300</Location>
+    </Item>
+  </Asset>
+</XnaContent>
