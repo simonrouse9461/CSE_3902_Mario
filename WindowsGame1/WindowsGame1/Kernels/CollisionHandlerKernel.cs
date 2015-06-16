@@ -1,10 +1,15 @@
-﻿namespace WindowsGame1
-{
-    public abstract class CollisionHandlerKernel<TObject> : ICollisionHandler where TObject : IObject
-    {
-        protected readonly TObject Object;
+﻿using System;
+using System.Collections.Generic;
 
-        protected CollisionHandlerKernel(TObject obj)
+namespace WindowsGame1
+{
+    public abstract class CollisionHandlerKernel<TSpriteState, TMotionState> : ICollisionHandler<TSpriteState, TMotionState> 
+        where TSpriteState : ISpriteState
+        where TMotionState : IMotionState
+    {
+        protected IObject Object;
+
+        protected CollisionHandlerKernel(IObject obj)
         {
             Object = obj;
             Initialize();
@@ -12,6 +17,6 @@
 
         protected abstract void Initialize();
 
-        public abstract void Handle();
+        public abstract List<Action<TSpriteState, TMotionState>> GetAction();
     }
 }

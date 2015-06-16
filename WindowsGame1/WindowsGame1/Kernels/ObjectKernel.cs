@@ -14,7 +14,7 @@ namespace WindowsGame1
 
         protected TMotionState MotionState;
 
-        protected ICollisionHandler CollisionHandler;
+        protected ICollisionHandler<TSpriteState, TMotionState> CollisionHandler;
 
         protected ObjectKernel(Vector2 location)
         {

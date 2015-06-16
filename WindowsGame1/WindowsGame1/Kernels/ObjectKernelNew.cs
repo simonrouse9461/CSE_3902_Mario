@@ -1,28 +1,24 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernelNew : IObject
+    public abstract class ObjectKernelNew<TSpriteState, TMotionState> : IObject
+        where TSpriteState : ISpriteState
+        where TMotionState : IMotionState
     {
         public WorldManager World { get; private set; }
 
-        private ISpriteState _spriteState;
-        public ISpriteState SpriteState
-        {
-            get { return _spriteState; }
-        }
+        protected ISpriteState SpriteState;
 
-        private IMotionState _motionState;
-        public IMotionState MotionState
-        {
-            get { return _motionState; }
-        }
+        protected IMotionState MotionState;
 
-        protected ICommandHandler CommandHandler;
+        protected ICommandHandler<TSpriteState, TMotionState> CommandHandler;
 
-        protected ICollisionHandler CollisionHandler;
+        protected ICollisionHandler<TSpriteState, TMotionState> CollisionHandler;
 
         protected ObjectKernelNew(Vector2 location, WorldManager world)
         {
@@ -46,8 +42,8 @@ namespace WindowsGame1
 
         public void Update()
         {
-            CommandHandler.Handle();
-            CollisionHandler.Handle();
+            ExecuteAction(CommandHandler.GetAction());
+            ExecuteAction(CollisionHandler.GetAction());
             SpriteState.Update();
             MotionState.Update();
         }
@@ -60,6 +56,14 @@ namespace WindowsGame1
         public void PassCommand(ICommand command)
         {
             CommandHandler.ReadCommand(command);
+        }
+
+        protected void ExecuteAction(List<Action<TSpriteState, TMotionState>> actionList)
+        {
+            foreach (var action in actionList)
+            {
+                action((TSpriteState)SpriteState, (TMotionState)MotionState);
+            }
         }
 
         public Rectangle GetPositionRectangle()

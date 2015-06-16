@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernelNew
+    public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>
     {
         public MarioObject(Vector2 location, WorldManager world) : base(location, world) { }
 
@@ -10,7 +10,7 @@ namespace WindowsGame1
         {
             SpriteState = new MarioSpriteState();
             MotionState = new MarioMotionState(location);
-            CommandHandler = new MarioCommandHandler(this);
+            CommandHandler = new MarioCommandHandler();
             CollisionHandler = new MarioCollisionHandler(this);
         }
     }

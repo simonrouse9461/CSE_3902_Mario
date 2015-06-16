@@ -3,35 +3,27 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class MarioCommandHandler : CommandHandlerKernel<MarioObject>
+    public class MarioCommandHandler : CommandHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        private MarioSpriteState SpriteState;
-        private MarioMotionState MotionState;
-
-        public MarioCommandHandler(MarioObject obj) : base(obj) { }
-
         protected override void Initialize()
         {
-            SpriteState = (MarioSpriteState)Object.SpriteState;
-            MotionState = (MarioMotionState)Object.MotionState;
-
-            CommandAction = new Dictionary<Type, Action>
+            CommandAction = new Dictionary<Type, Action<MarioSpriteState, MarioMotionState>>
             {
-                {typeof(MarioDeadCommand), () => SpriteState.BecomeDead()},
-                {typeof(MarioBigCommand), () => SpriteState.BecomeBig()},
-                {typeof(MarioSmallCommand), () => SpriteState.BecomeSmall()},
-                {typeof(MarioFireCommand), () => SpriteState.BecomeFire()},
-                {typeof(MarioLeftCommand), () =>
+                {typeof(MarioDeadCommand), (SpriteState, MotionState) => SpriteState.BecomeDead()},
+                {typeof(MarioBigCommand), (SpriteState, MotionState) => SpriteState.BecomeBig()},
+                {typeof(MarioSmallCommand), (SpriteState, MotionState) => SpriteState.BecomeSmall()},
+                {typeof(MarioFireCommand), (SpriteState, MotionState) => SpriteState.BecomeFire()},
+                {typeof(MarioLeftCommand), (SpriteState, MotionState) =>
                 {
                     SpriteState.FaceLeft();
                     MotionState.MoveLeft();
                 }},
-                {typeof(MarioRightCommand), () =>
+                {typeof(MarioRightCommand), (SpriteState, MotionState) =>
                 {
                     SpriteState.FaceRight();
                     MotionState.MoveRight();
                 }},
-                {typeof(MarioUpCommand), () =>
+                {typeof(MarioUpCommand), (SpriteState, MotionState) =>
                 {
                     if (SpriteState.IsCrouch())
                         SpriteState.Stand();
@@ -40,7 +32,7 @@ namespace WindowsGame1
                     else if (SpriteState.IsRun())
                         SpriteState.Jump();
                 }},
-                {typeof(MarioDownCommand), () =>
+                {typeof(MarioDownCommand), (SpriteState, MotionState) =>
                 {
                     if (SpriteState.IsJump())
                         SpriteState.Run();

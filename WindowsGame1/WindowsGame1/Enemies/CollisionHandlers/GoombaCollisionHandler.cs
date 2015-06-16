@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 namespace WindowsGame1
 {
-    public class GoombaCollisionHandler : ICollisionHandler 
+    public class GoombaCollisionHandler : ICollisionHandler<GoombaSpriteState, GoombaMotionState>
     {
         private IObject Goomba;
         private CollisionDetectorNew CollisionDetector;
@@ -17,9 +18,9 @@ namespace WindowsGame1
             
         }
 
-        public void Handle()
+        public List<Action<GoombaSpriteState, GoombaMotionState>> GetAction()
         {
-            
+            return new List<Action<GoombaSpriteState, GoombaMotionState>>();
         }
     }
 }
