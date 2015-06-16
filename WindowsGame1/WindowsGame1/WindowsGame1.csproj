@@ -75,11 +75,11 @@
   <ItemGroup>
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
-    <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
+    <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
-    <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
-    <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
+    <Compile Include="Enemies\SpriteStates\EnemySpriteState.cs" />
     <Compile Include="Enemies\SpriteStates\KoopaSpriteState.cs" />
     <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\ShellKoopaSprite.cs" />

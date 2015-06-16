@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class GoombaCollisionHandler : CollisionHandlerKernel<GoombaSpriteState, GoombaMotionState>
+    public class EnemyCollisionHandler : CollisionHandlerKernel<EnemySpriteState, EnemyMotionState>
     {
         private CollisionDetector<MarioObject> GoombaMarioCollision;
 
-        public GoombaCollisionHandler(GoombaSpriteState spriteState, GoombaMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
+        public EnemyCollisionHandler(EnemySpriteState spriteState, EnemyMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
         protected override void Initialize()
         {
@@ -18,7 +18,7 @@ namespace WindowsGame1
         {
             if (GoombaMarioCollision.Detect().Top)
             {
-                SpriteState.BecomeDead();
+                SpriteState.MarioSmash();
             }
         }
     }
