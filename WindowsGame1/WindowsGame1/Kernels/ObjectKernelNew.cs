@@ -42,7 +42,10 @@ namespace WindowsGame1
 
         public void Update()
         {
-            ExecuteAction(CommandHandler.GetAction());
+            if (CommandHandler != null)
+            {
+                ExecuteAction(CommandHandler.GetAction());
+            }
             ExecuteAction(CollisionHandler.GetAction());
             SpriteState.Update();
             MotionState.Update();
