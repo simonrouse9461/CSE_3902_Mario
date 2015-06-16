@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
+    <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
