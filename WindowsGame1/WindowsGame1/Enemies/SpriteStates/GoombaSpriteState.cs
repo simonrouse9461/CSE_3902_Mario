@@ -11,13 +11,7 @@ namespace WindowsGame1
             Walking
         }
 
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        private StatusEnum Status;
 
         protected override void Initialize()
         {
@@ -34,6 +28,11 @@ namespace WindowsGame1
         {
             if (Status == StatusEnum.Dead) { return SpriteList[0]; }
             else { return SpriteList[1]; }
+        }
+
+        public void BecomeDead()
+        {
+            Status = StatusEnum.Dead;
         }
     }
 }

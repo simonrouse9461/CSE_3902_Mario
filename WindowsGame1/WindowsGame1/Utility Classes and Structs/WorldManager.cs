@@ -33,7 +33,7 @@ namespace WindowsGame1
             ObjectList = new List<IObject>();
 
             Mario = new MarioObject(new Vector2(200, 170), this);
-            Goomba = new Goomba(new Vector2(240, 302));
+            Goomba = new Goomba(new Vector2(240, 170), this);
             Coin = new Coin(new Vector2(450, 300));
             Star = new Star(new Vector2(500, 300));
             QuestionBlock = new QuestionBlockObject(new Vector2(300, 200));
