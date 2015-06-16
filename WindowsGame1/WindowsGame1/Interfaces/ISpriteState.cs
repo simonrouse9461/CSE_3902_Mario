@@ -8,7 +8,8 @@ namespace WindowsGame1
     {
         ISprite ActiveSprite();
         void Load(ContentManager content);
-        void Reset(int frequency = 10);
+        void UpdateFrequency(int frequency);
+        void Reset();
         void Update();
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class WalkingGoombaSprite : SpriteKernelNew
+    public class WalkingGoombaSprite : SpriteKernel
     {
 
         protected override void Initialize()

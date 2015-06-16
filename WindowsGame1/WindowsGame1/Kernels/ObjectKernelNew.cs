@@ -43,7 +43,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.CurrentPosition());
+            SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.Position);
         }
 
         public void PassCommand(ICommand command)
@@ -53,12 +53,12 @@ namespace WindowsGame1
 
         public Rectangle GetPositionRectangle()
         {
-            return SpriteState.ActiveSprite().GetDestination(MotionState.CurrentPosition());
+            return SpriteState.ActiveSprite().GetDestination(MotionState.Position);
         }
 
         public Vector2 GetPositionPoint()
         {
-            return MotionState.CurrentPosition();
+            return MotionState.Position;
         }
     }
 }

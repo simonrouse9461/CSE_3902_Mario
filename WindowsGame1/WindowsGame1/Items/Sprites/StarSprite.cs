@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class StarSprite : SpriteKernelNew
+    public class StarSprite : SpriteKernel
     {
 
         protected override void Initialize()

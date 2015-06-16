@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class DestroyedBlockSprite : SpriteKernelNew
+    public class DestroyedBlockSprite : SpriteKernel
     {
 
 

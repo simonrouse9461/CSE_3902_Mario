@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -27,26 +27,81 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            MotionList = new Dictionary<IMotion, bool>()
+            MotionList = new List<MotionSwitch>
             {
-                {new AccelerateRightMotion(1, 60), false}
+                new MotionSwitch(new AccelerateRightMotion(0.1f, 3)),
+                new MotionSwitch(new AccelerateLeftMotion(0.1f, 3)),
+                new MotionSwitch(new SuddenStopMotion(0.15f))
             };
             HorizontalStatus = HorizontalEnum.None;
             VertialStatus = VerticalEnum.None;
         }
 
-        protected override void RefreshState()
+        protected override void RefreshMotionList()
         {
-            if (HorizontalStatus == HorizontalEnum.AccRight)
+            switch (HorizontalStatus)
             {
-                MotionList[MotionList.Keys.OfType<AccelerateRightMotion>().First()] = true;
+                case HorizontalEnum.AccRight:
+                    if (IsVelLeft())
+                    {
+                        MotionList[2].Toggle(true);
+                    }
+                    else
+                    {
+                    MotionList[0].Toggle(true);
+                    }
+                    break;
+                case HorizontalEnum.AccLeft:
+                    if (IsVelRight())
+                    {
+                        MotionList[2].Toggle(true);
+                    }
+                    else
+                    {
+                        MotionList[1].Toggle(true);
+                    }
+                    break;
+                case HorizontalEnum.None:
+                    if (IsVelLeft() || IsVelRight())
+                    {
+                        MotionList[2].Toggle(true);
+                    }
+                    break;
             }
+        }
 
+        protected override void ResetState()
+        {
+            HorizontalStatus = HorizontalEnum.None;
         }
 
         public void MoveRight()
         {
-            HorizontalStatus = HorizontalEnum.AccRight;
+            HorizontalStatus = IsAccLeft() ? HorizontalEnum.None : HorizontalEnum.AccRight;
+        }
+
+        public bool IsAccRight()
+        {
+            return HorizontalStatus == HorizontalEnum.AccRight;
+        }
+
+        public bool IsVelRight()
+        {
+            return Velocity.X > 0;
+        }
+
+        public void MoveLeft()
+        {
+            HorizontalStatus = IsAccRight() ? HorizontalEnum.None : HorizontalEnum.AccLeft;
+        }
+        public bool IsAccLeft()
+        {
+            return HorizontalStatus == HorizontalEnum.AccLeft;
+        }
+
+        public bool IsVelLeft()
+        {
+            return Velocity.X < 0;
         }
     }
 }

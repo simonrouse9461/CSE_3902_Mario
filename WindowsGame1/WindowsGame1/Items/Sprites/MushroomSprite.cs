@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class MushroomSprite : SpriteKernelNew
+    public class MushroomSprite : SpriteKernel
     {
 
         protected override void Initialize()

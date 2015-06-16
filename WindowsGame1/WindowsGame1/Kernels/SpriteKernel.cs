@@ -4,13 +4,10 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-
-    //This kernal in use for Sprint 2, implementation will switch to SpriteKernalNew after submission
-
     public abstract class SpriteKernel : ISprite
     {
         // Sprite source information
-        protected SpriteSource Source;
+        protected SpriteSourceNew Source;
 
         // A structure that defines how does the sprite animate
         protected PeriodicFunction<int> Animation;
@@ -18,7 +15,10 @@ namespace WindowsGame1
         // Constructor
         protected SpriteKernel()
         {
-            Initialize();
+            Initialize(); 
+
+            Animation = Animation ?? new PeriodicFunction<int>();
+
             Reset();
         }
 
@@ -43,18 +43,19 @@ namespace WindowsGame1
         // Draw on the canvas.
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
-            Rectangle sourceRectangle =
-                new Rectangle((int) Source.StartCoordinate.X + Source.Width*Animation.GetValue(),
-                    (int) Source.StartCoordinate.Y,
-                    Source.Width, Source.Height);
+            Rectangle sourceRectangle = Source.Coodinates[Animation.GetValue()];
             Rectangle destinationRectangle = GetDestination(location);
             spriteBatch.Draw(Source.Texture, destinationRectangle, sourceRectangle, Color.White);
         }
 
         public Rectangle GetDestination(Vector2 location)
         {
-            return new Rectangle((int) location.X, (int) location.Y, Source.Width,
-                Source.Height);
+            return new Rectangle(
+                (int)location.X - Source.Coodinates[Animation.GetValue()].Width/2,
+                (int)location.Y - Source.Coodinates[Animation.GetValue()].Height,
+                Source.Coodinates[Animation.GetValue()].Width,
+                Source.Coodinates[Animation.GetValue()].Height
+                );
         }
     }
 }
