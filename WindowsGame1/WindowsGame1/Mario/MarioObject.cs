@@ -16,7 +16,7 @@ namespace WindowsGame1
 
         protected override void SyncState()
         {
-            if (MotionState.IsStatic())
+            if (MotionState.IsHorizontalStatic())
             {
                 SpriteState.Stand();
             }

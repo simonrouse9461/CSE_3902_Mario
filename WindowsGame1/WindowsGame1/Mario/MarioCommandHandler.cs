@@ -28,21 +28,11 @@ namespace WindowsGame1
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
-                    if (SpriteState.IsCrouch())
-                        SpriteState.Stand();
-                    else if (SpriteState.IsStand())
-                        SpriteState.Run();
-                    else if (SpriteState.IsRun())
-                        SpriteState.Jump();
+                    MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () =>
                 {
-                    if (SpriteState.IsJump())
-                        SpriteState.Run();
-                    else if (SpriteState.IsRun())
-                        SpriteState.Stand();
-                    else if (SpriteState.IsStand())
-                        SpriteState.Crouch();
+                    MotionState.Fall();
                 }},
             };
         }

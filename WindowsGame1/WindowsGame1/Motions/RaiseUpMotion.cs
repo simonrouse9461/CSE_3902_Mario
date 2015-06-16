@@ -2,9 +2,9 @@
 
 namespace WindowsGame1
 {
-    public class FallDownMotion : MotionKernel
+    public class RaiseUpMotion : MotionKernel
     {
-        private static Vector2 StartVelocity = new Vector2(0, 3);
+        private static Vector2 StartVelocity = new Vector2(0, -3);
 
         public override Vector2 GetVelocity()
         {
