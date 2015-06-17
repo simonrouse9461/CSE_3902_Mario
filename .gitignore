@@ -1,9 +1,7 @@
 *.xnb
 *.cache
-*.suo
 *.exe
 *.pdb
-*.xml
 WindowsGame1/WindowsGame1/bin
 WindowsGame1/WindowsGame1/obj
 .DS_Store
