@@ -21,7 +21,8 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             SpriteList = new List<ISprite>{
-                new DestructibleBlockSprite()
+                new DestructibleBlockSprite(),
+                new DestroyedBlockSprite()
             };
             Status = StatusEnum.Destructible;
         }
