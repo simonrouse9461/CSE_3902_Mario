@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using LevelLoader;
 
 namespace WindowsGame1
 {
@@ -32,11 +33,11 @@ namespace WindowsGame1
         public Hill Hill;
         public Bush Bush;
         public Cloud Cloud;
-
+        ObjectData[] Locations;
         public WorldManager()
         {
             ObjectList = new Collection<IObject>();
-
+            
             Mario = new MarioObject(new Vector2(200, 170), this);
             Goomba = new Goomba(new Vector2(230, 300), this); 
             Koopa = new Koopa(new Vector2(200, 300), this);
@@ -80,6 +81,7 @@ namespace WindowsGame1
 
         public void LoadContent(ContentManager content)
         {
+            Locations = content.Load<ObjectData[]>("Locations");
             foreach (var obj in ObjectList)
             {
                 obj.Load(content);
