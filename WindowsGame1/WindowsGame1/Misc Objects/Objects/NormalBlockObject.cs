@@ -3,14 +3,15 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class NormalBlockObject : ObjectKernel<NormalBlockSpriteState, NormalBlockMotionState>
+    public class NormalBlockObject : ObjectKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
     {
-        public NormalBlockObject(Vector2 location) : base(location) { }
+        public NormalBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
 
         protected override void Initialize(Vector2 location)
         {
             SpriteState = new NormalBlockSpriteState();
             MotionState = new NormalBlockMotionState(location);
+            CollisionHandler = new NormalBlockCollisionHandler(SpriteState, MotionState, this);
         }
 
         public void NormalBlockDestroyed()
@@ -26,6 +27,11 @@ namespace WindowsGame1
         public void NormalBlockReset()
         {
             SpriteState.Status = NormalBlockSpriteState.StatusEnum.Normal;
+        }
+
+        protected override void SyncState()
+        {
+
         }
     }
 }
