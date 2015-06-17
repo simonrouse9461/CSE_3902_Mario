@@ -29,6 +29,9 @@ namespace WindowsGame1
                 else
                     SpriteState.Break();
             }
+
+            if (SpriteState.IsDead())
+                MotionState.Dead();
         }
     }
 }

@@ -11,5 +11,10 @@ namespace WindowsGame1
         {
             return Left || Right;
         }
+
+        public bool Any()
+        {
+            return Left || Right || Top || Bottom;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -22,16 +23,18 @@ namespace WindowsGame1
 
         protected Collision DetectCollision(T foreignObject)
         {
-            var intersection = Rectangle.Intersect(Object.GetPositionRectangle(), foreignObject.GetPositionRectangle());
-            if (intersection != default(Rectangle))
+            var thisPosition = Object.GetPositionRectangle();
+            var foreignPosition = foreignObject.GetPositionRectangle();
+            var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
+            if (thisPosition.Intersects(foreignPosition))
             {
                 if (intersection.Height > intersection.Width)
                 {
-                    if (foreignObject.GetPositionRectangle().Left > Object.GetPositionRectangle().Left)
+                    if (foreignPosition.Left > thisPosition.Left)
                         return Collision.Right;
                     return Collision.Left;
                 }
-                if (foreignObject.GetPositionRectangle().Top > Object.GetPositionRectangle().Top)
+                if (foreignPosition.Top > thisPosition.Top)
                     return Collision.Bottom;
                 return Collision.Top;
             }
@@ -43,7 +46,7 @@ namespace WindowsGame1
             var side = new CollisionSide();
             foreach (var obj in Object.World.ObjectList)
             {
-                if (obj is T)
+                if (obj is T && obj != Object)
                 {
                     switch (DetectCollision((T) obj))
                     {

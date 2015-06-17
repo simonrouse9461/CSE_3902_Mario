@@ -1,3 +1,6 @@
+using System;
+using Microsoft.Xna.Framework;
+
 namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
@@ -6,6 +9,7 @@ namespace WindowsGame1
         private CollisionDetector<Fireflower> MarioFireflowerCollision;
         private CollisionDetector<Mushroom> MarioMushroomCollision;
         private CollisionDetector<Goomba> MarioGoombaCollision;
+        private CollisionDetector<IObject> MarioObjectCollision;
 
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
@@ -15,6 +19,7 @@ namespace WindowsGame1
             MarioFireflowerCollision = new CollisionDetector<Fireflower>(Object);
             MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
             MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
+            MarioObjectCollision = new CollisionDetector<IObject>(Object);
 
         }
 
@@ -26,7 +31,6 @@ namespace WindowsGame1
             if (MarioPipeCollision.Detect().Side())
             {
                 SpriteState.BecomeDead();
-                MotionState.Dead();
             }
             if (MarioFireflowerCollision.Detect().Side())
             {
@@ -44,13 +48,34 @@ namespace WindowsGame1
                 if (SpriteState.IsSmall())
                 {
                     SpriteState.BecomeDead();
-                    MotionState.Dead();
+                    return;
                 }
-                else if (SpriteState.IsBig() || SpriteState.IsFire())
+                if (SpriteState.IsBig() || SpriteState.IsFire())
                 {
                     SpriteState.BecomeSmall();
                 }
             }
+
+            if (MarioObjectCollision.Detect().Any())
+            {
+                while (MarioObjectCollision.Detect().Bottom)
+                {
+                    MotionState.Up1();
+                }
+                while (MarioObjectCollision.Detect().Top)
+                {
+                    MotionState.Down1();
+                }
+                while (MarioObjectCollision.Detect().Left)
+                {
+                    MotionState.Right1();
+                }
+                while (MarioObjectCollision.Detect().Right)
+                {
+                    MotionState.Left1();
+                }
+            }
+
         }
     }
 }
