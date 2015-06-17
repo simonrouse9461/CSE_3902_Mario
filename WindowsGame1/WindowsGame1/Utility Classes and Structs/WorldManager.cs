@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using LevelLoader;
 
 namespace WindowsGame1
 {
@@ -10,6 +11,7 @@ namespace WindowsGame1
     {
         public Collection<IObject> ObjectList { get; private set; }
 
+        ObjectData[] Locations;
         public MarioObject Mario { get; private set; }
 
         public QuestionBlockObject QuestionBlock { get; private set; }
@@ -41,8 +43,8 @@ namespace WindowsGame1
             Goomba = new Goomba(this); 
             Koopa = new Koopa(this);
 
-            Coin = new Coin();
-            Star = new Star();
+            Coin = new Coin(this);
+            Star = new Star(this);
             QuestionBlock = new QuestionBlockObject(this);
             HiddenBlock = new HiddenBlockObject(this);
             NormalBlock = new NormalBlockObject(this);
@@ -50,9 +52,9 @@ namespace WindowsGame1
             IndestructibleBlock = new IndestructibleBlockObject();
             GreenPipe = new GreenPipeObject();
             UsedBlock = new UsedBlockObject();
-            Fireflower = new Fireflower();
-            Mushroom = new Mushroom();
-            _1up = new _1up();
+            Fireflower = new Fireflower(this);
+            Mushroom = new Mushroom(this);
+            _1up = new _1up(this);
             Hill = new Hill(this);
             Bush = new Bush(this);
             Cloud = new Cloud(this);
@@ -84,6 +86,7 @@ namespace WindowsGame1
 //            {
 //                obj.Load(content);
 //            }
+            //Locations = content.Load<ObjectData[]>("Locations");
             Mario.Load(content, new Vector2(200, 170));
             Goomba.Load(content, new Vector2(230, 300));
             Koopa.Load(content, new Vector2(200, 300));
