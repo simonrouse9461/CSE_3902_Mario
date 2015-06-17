@@ -3,16 +3,17 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockObject : ObjectKernel<QuestionBlockSpriteState, QuestionBlockMotionState>
+    public class QuestionBlockObject : ObjectKernelNew<QuestionBlockSpriteState, QuestionBlockMotionState>
     {
 
-        public QuestionBlockObject(Vector2 location) : base(location) { }
+        public QuestionBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
 
 
         protected override void Initialize(Vector2 location)
         {
             SpriteState = new QuestionBlockSpriteState();
             MotionState = new QuestionBlockMotionState(location);
+            CollisionHandler = new QuestionBlockCollisionHandler(SpriteState, MotionState, this);
         }
 
         public void QuestionBlockAnimate(){
@@ -21,6 +22,11 @@ namespace WindowsGame1
         public void QuestionToUsedBlock()
         {
             SpriteState.Status = QuestionBlockSpriteState.StatusEnum.UsedBlock;
+        }
+
+        protected override void SyncState()
+        {
+
         }
     }
 }
