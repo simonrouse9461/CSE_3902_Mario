@@ -7,11 +7,11 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
-        protected TSpriteState SpriteState;
-        protected TMotionState MotionState;
+        protected TSpriteState SpriteState { get; set; }
+        protected TMotionState MotionState { get; set; }
 
-        protected Dictionary<Type, bool> CommandStatus;
-        protected Dictionary<Type, Action> CommandAction; 
+        protected Dictionary<Type, bool> CommandStatus { get; set; }
+        protected Dictionary<Type, Action> CommandAction { get; set; }
 
         protected CommandHandlerKernel(TSpriteState spriteState, TMotionState motionState)
         {

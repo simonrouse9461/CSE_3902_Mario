@@ -101,7 +101,7 @@ namespace WindowsGame1
         public void StopHorizontal()
         {
             Velocity.X = 0;
-            HorizontalStatus = HorizontalEnum.None;
+//            HorizontalStatus = HorizontalEnum.None;
         }
 
         public bool IsHorizontalStatic()
@@ -112,7 +112,7 @@ namespace WindowsGame1
         public void StopVertical()
         {
             Velocity.Y = 0;
-            VerticalStatus = VerticalEnum.None;
+//            VerticalStatus = VerticalEnum.None;
         }
 
         public bool IsVerticalStatic()

@@ -49,7 +49,7 @@ namespace WindowsGame1
             SyncState();
             SpriteState.Update();
             MotionState.Update();
-            CollisionHandler.Validate();
+            CollisionHandler.Adjust();
         }
 
         public void Draw(SpriteBatch spriteBatch)

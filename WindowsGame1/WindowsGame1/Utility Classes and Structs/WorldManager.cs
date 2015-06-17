@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,30 +8,30 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public List<IObject> ObjectList;
- 
-        public MarioObject Mario;
+        public Collection<IObject> ObjectList { get; private set; }
 
-        public QuestionBlockObject QuestionBlock;
-        public HiddenBlockObject HiddenBlock;
-        public NormalBlockObject NormalBlock;
-        public DestructibleBlockObject DestructibleBlock;
-        public IndestructibleBlockObject IndestructibleBlock;
-        public UsedBlockObject UsedBlock;
+        public MarioObject Mario { get; private set; }
 
-        public Koopa Koopa;
-        public Goomba Goomba;
+        public QuestionBlockObject QuestionBlock { get; private set; }
+        public HiddenBlockObject HiddenBlock { get; private set; }
+        public NormalBlockObject NormalBlock { get; private set; }
+        public DestructibleBlockObject DestructibleBlock { get; private set; }
+        public IndestructibleBlockObject IndestructibleBlock { get; private set; }
+        public UsedBlockObject UsedBlock { get; private set; }
 
-        public Coin Coin;
-        public Star Star;
-        public Fireflower Fireflower;
-        public _1up _1up;
-        public Mushroom Mushroom;
-        public GreenPipeObject GreenPipe;
+        public Koopa Koopa { get; private set; }
+        public Goomba Goomba { get; private set; }
+
+        public Coin Coin { get; private set; }
+        public Star Star { get; private set; }
+        public Fireflower Fireflower { get; private set; }
+        public _1up _1up { get; private set; }
+        public Mushroom Mushroom { get; private set; }
+        public GreenPipeObject GreenPipe { get; private set; }
 
         public WorldManager()
         {
-            ObjectList = new List<IObject>();
+            ObjectList = new Collection<IObject>();
 
             Mario = new MarioObject(new Vector2(200, 170), this);
             Goomba = new Goomba(new Vector2(230, 300), this); 
