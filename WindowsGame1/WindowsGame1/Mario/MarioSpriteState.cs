@@ -60,7 +60,9 @@ namespace WindowsGame1
                 new CrouchingRightBigMarioSprite(), //21
                 new CrouchingRightFireMarioSprite(), //22
                 new BreakingLeftBigMarioSprite(), //23
-                new BreakingRightBigMarioSprite() //24
+                new BreakingLeftFireMarioSprite(), //24
+                new BreakingRightBigMarioSprite(), //25
+                new BreakingRightFireMarioSprite(), //26
             };
         }
 
@@ -116,9 +118,9 @@ namespace WindowsGame1
                     switch (Status)
                     {
                         case StatusEnum.Big:
-                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
+                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[25];
                         case StatusEnum.Fire:
-                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
+                            return Orientation == OrientationEnum.Left ? SpriteList[24] : SpriteList[26];
                         case StatusEnum.Small:
                             return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
                     }

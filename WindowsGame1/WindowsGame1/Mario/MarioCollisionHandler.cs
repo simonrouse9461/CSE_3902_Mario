@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
@@ -9,7 +6,6 @@ namespace WindowsGame1
         private CollisionDetector<Fireflower> MarioFireflowerCollision;
         private CollisionDetector<Mushroom> MarioMushroomCollision;
         private CollisionDetector<Goomba> MarioGoombaCollision;
-
 
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
@@ -24,6 +20,9 @@ namespace WindowsGame1
 
         public override void Handle()
         {
+            if (SpriteState.IsDead())
+                return;
+
             if (MarioPipeCollision.Detect().Side())
             {
                 SpriteState.BecomeDead();
