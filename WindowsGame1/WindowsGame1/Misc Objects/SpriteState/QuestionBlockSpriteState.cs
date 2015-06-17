@@ -35,5 +35,14 @@ namespace WindowsGame1
                 return SpriteList[0];
             }
         }
+        public void UsedBlock()
+        {
+            Status = StatusEnum.UsedBlock;
+        }
+
+        public void Animated()
+        {
+            Status = StatusEnum.Animated;
+        }
     }
 }

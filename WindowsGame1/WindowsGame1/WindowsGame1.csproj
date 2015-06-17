@@ -73,13 +73,14 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\HiddenBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\DestructibleBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
-    <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
+    <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
-    <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
-    <Compile Include="Enemies\SpriteStates\EnemySpriteState.cs" />
     <Compile Include="Enemies\SpriteStates\KoopaSpriteState.cs" />
     <Compile Include="Enemies\Sprites\DeadGoombaSprite.cs" />
     <Compile Include="Enemies\Sprites\ShellKoopaSprite.cs" />
@@ -106,9 +107,15 @@
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
     <Compile Include="Mario\Sprites\BreakingLeftBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\BreakingLeftFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\BreakingRightBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\BreakingRightFireMarioSprite .cs" />
+    <Compile Include="Misc Objects\Collision\DestructibleBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\HiddenBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\QuestionBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Commands\DestructibleBlockCommandHandler.cs" />
+    <Compile Include="Misc Objects\Commands\HiddenBlockCommandHandler.cs" />
+    <Compile Include="Misc Objects\Commands\NormalBlockCommandHandler.cs" />
+    <Compile Include="Misc Objects\Commands\QuestionBlockCommandHandler.cs" />
     <Compile Include="Motions\AccelerateLeftMotion.cs" />
     <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\DeadMotion.cs" />
@@ -122,8 +129,8 @@
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioSmallCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
-    <Compile Include="Commands\NormalBlockCommand.cs" />
-    <Compile Include="Commands\QuestionBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\NormalBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\QuestionBlockCommand.cs" />
     <Compile Include="Enemies\Objects\Koopa.cs" />
     <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
@@ -202,7 +209,6 @@
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
-    <Compile Include="Motions\RaiseUpMotion.cs" />
     <Compile Include="Motions\SuddenStopMotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
@@ -241,6 +247,10 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\WorldLoader\WorldLoader.csproj">
+      <Project>{2b761b42-f0c0-4346-b84a-32f9923db5c3}</Project>
+      <Name>WorldLoader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WindowsGame1Content\WindowsGame1Content.contentproj">
       <Name>WindowsGame1Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
@@ -270,13 +280,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
-    <Folder Include="Items\CollisionHandler\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
-    <None Include="WindowsGame1.csproj.Debug.cachefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
