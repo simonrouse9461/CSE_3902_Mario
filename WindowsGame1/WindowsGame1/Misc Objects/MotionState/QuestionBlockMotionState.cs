@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class QuestionBlockMotionState : MotionStateKernel
     {
-        public QuestionBlockMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
 

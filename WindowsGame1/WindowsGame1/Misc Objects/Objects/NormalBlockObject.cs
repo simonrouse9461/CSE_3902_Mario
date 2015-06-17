@@ -5,12 +5,12 @@ namespace WindowsGame1
 {
     public class NormalBlockObject : ObjectKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
     {
-        public NormalBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
+        public NormalBlockObject(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new NormalBlockSpriteState();
-            MotionState = new NormalBlockMotionState(location);
+            MotionState = new NormalBlockMotionState();
             CollisionHandler = new NormalBlockCollisionHandler(SpriteState, MotionState, this);
         }
 

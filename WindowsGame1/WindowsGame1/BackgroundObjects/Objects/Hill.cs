@@ -5,12 +5,12 @@ namespace WindowsGame1
 {
     public class Hill : ObjectKernelNew<HillSpriteState, BackgroundMotionState>
     {
-        public Hill(Vector2 location, WorldManager world) : base(location, world) { }
+        public Hill(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new HillSpriteState();
-            MotionState = new BackgroundMotionState(location);
+            MotionState = new BackgroundMotionState();
 
         }
         protected override void SyncState()

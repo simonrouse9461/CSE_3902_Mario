@@ -5,12 +5,10 @@ namespace WindowsGame1
 {
     public class UsedBlockObject : ObjectKernel<UsedBlockSpriteState, UsedBlockMotionState>
     {
-        public UsedBlockObject(Vector2 location) : base(location) { }
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new UsedBlockSpriteState();
-            MotionState = new UsedBlockMotionState(location);
+            MotionState = new UsedBlockMotionState();
         }
     }
 }

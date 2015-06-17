@@ -6,12 +6,12 @@ namespace WindowsGame1
     public class DestructibleBlockObject : ObjectKernelNew<DestructibleBlockSpriteState, DestructibleBlockMotionState>
     {
 
-        public DestructibleBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
+        public DestructibleBlockObject(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new DestructibleBlockSpriteState();
-            MotionState = new DestructibleBlockMotionState(location);
+            MotionState = new DestructibleBlockMotionState();
             CollisionHandler = new DestructibleBlockCollisionHandler(SpriteState, MotionState, this);
         }
 

@@ -6,12 +6,10 @@ namespace WindowsGame1
 
     public class _1up : ObjectKernel<_1upSpriteState, RightMotionState>
     {
-        public _1up(Vector2 location) : base(location) { }
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new _1upSpriteState();
-            MotionState = new RightMotionState(location);
+            MotionState = new RightMotionState();
 
         }
    }

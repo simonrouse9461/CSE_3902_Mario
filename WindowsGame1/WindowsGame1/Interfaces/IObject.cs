@@ -10,7 +10,7 @@ namespace WindowsGame1
 
         void Reset();
 
-        void Load(ContentManager content);
+        void Load(ContentManager content, Vector2 location);
 
         void Update();
         

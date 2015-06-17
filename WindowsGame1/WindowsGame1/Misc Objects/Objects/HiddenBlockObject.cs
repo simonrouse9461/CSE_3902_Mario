@@ -6,12 +6,12 @@ namespace WindowsGame1
     public class HiddenBlockObject : ObjectKernelNew<HiddenBlockSpriteState, HiddenBlockMotionState>
     {
 
-        public HiddenBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
+        public HiddenBlockObject(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new HiddenBlockSpriteState();
-            MotionState = new HiddenBlockMotionState(location);
+            MotionState = new HiddenBlockMotionState();
             CollisionHandler = new HiddenBlockCollisionHandler(SpriteState, MotionState, this);
         }
 

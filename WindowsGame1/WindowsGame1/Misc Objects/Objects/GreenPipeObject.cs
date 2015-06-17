@@ -5,13 +5,10 @@ namespace WindowsGame1
 {
     public class GreenPipeObject : ObjectKernel<GreenPipeSpriteState, GreenPipeMotionState>
     {
-
-        public GreenPipeObject(Vector2 location) : base(location) { }
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new GreenPipeSpriteState();
-            MotionState = new GreenPipeMotionState(location);
+            MotionState = new GreenPipeMotionState();
         }
     }
 

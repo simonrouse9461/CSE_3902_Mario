@@ -6,12 +6,10 @@ namespace WindowsGame1
     public class IndestructibleBlockObject : ObjectKernel<IndestructibleBlockSpriteState, IndestructibleBlockMotionState>
     {
 
-        public IndestructibleBlockObject(Vector2 location) : base(location) { }
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new IndestructibleBlockSpriteState();
-            MotionState = new IndestructibleBlockMotionState(location);
+            MotionState = new IndestructibleBlockMotionState();
         }
     }
 

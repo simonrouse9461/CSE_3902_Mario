@@ -37,25 +37,25 @@ namespace WindowsGame1
         {
             ObjectList = new Collection<IObject>();
 
-            Mario = new MarioObject(new Vector2(200, 170), this);
-            Goomba = new Goomba(new Vector2(230, 300), this); 
-            Koopa = new Koopa(new Vector2(200, 300), this);
+            Mario = new MarioObject(this);
+            Goomba = new Goomba(this); 
+            Koopa = new Koopa(this);
 
-            Coin = new Coin(new Vector2(450, 300));
-            Star = new Star(new Vector2(500, 300));
-            QuestionBlock = new QuestionBlockObject(new Vector2(300, 200),this);
-            HiddenBlock = new HiddenBlockObject(new Vector2(200, 200),this);
-            NormalBlock = new NormalBlockObject(new Vector2(100, 200),this);
-            DestructibleBlock = new DestructibleBlockObject(new Vector2(350, 200),this);
-            IndestructibleBlock = new IndestructibleBlockObject(new Vector2(150, 200));
-            GreenPipe = new GreenPipeObject(new Vector2(500, 200));
-            UsedBlock = new UsedBlockObject(new Vector2(250, 200));
-            Fireflower = new Fireflower(new Vector2(400, 304));
-            Mushroom = new Mushroom(new Vector2(550, 300));
-            _1up = new _1up(new Vector2(600, 300));
-            Hill = new Hill(new Vector2(700, 300), this);
-            Bush = new Bush(new Vector2(700, 500), this);
-            Cloud = new Cloud(new Vector2(200, 300), this);
+            Coin = new Coin();
+            Star = new Star();
+            QuestionBlock = new QuestionBlockObject(this);
+            HiddenBlock = new HiddenBlockObject(this);
+            NormalBlock = new NormalBlockObject(this);
+            DestructibleBlock = new DestructibleBlockObject(this);
+            IndestructibleBlock = new IndestructibleBlockObject();
+            GreenPipe = new GreenPipeObject();
+            UsedBlock = new UsedBlockObject();
+            Fireflower = new Fireflower();
+            Mushroom = new Mushroom();
+            _1up = new _1up();
+            Hill = new Hill(this);
+            Bush = new Bush(this);
+            Cloud = new Cloud(this);
             
 
             ObjectList.Add(Coin);
@@ -80,10 +80,29 @@ namespace WindowsGame1
 
         public void LoadContent(ContentManager content)
         {
-            foreach (var obj in ObjectList)
-            {
-                obj.Load(content);
-            }
+//            foreach (var obj in ObjectList)
+//            {
+//                obj.Load(content);
+//            }
+            Mario.Load(content, new Vector2(200, 170));
+            Goomba.Load(content, new Vector2(230, 300));
+            Koopa.Load(content, new Vector2(200, 300));
+
+            Coin.Load(content, new Vector2(450, 300));
+            Star.Load(content, new Vector2(500, 300));
+            QuestionBlock.Load(content, new Vector2(300, 200));
+            HiddenBlock.Load(content, new Vector2(200, 200));
+            NormalBlock.Load(content, new Vector2(100, 200));
+            DestructibleBlock.Load(content, new Vector2(350, 200));
+            IndestructibleBlock.Load(content, new Vector2(150, 200));
+            GreenPipe.Load(content, new Vector2(500, 200));
+            UsedBlock.Load(content, new Vector2(250, 200));
+            Fireflower.Load(content, new Vector2(400, 304));
+            Mushroom.Load(content, new Vector2(550, 300));
+            _1up.Load(content, new Vector2(600, 300));
+            Hill.Load(content, new Vector2(700, 300));
+            Bush.Load(content, new Vector2(700, 500));
+            Cloud.Load(content, new Vector2(200, 300));
         }
 
         public void Update()

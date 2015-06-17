@@ -5,12 +5,12 @@ namespace WindowsGame1
 {
     public class Cloud : ObjectKernelNew<CloudSpriteState, BackgroundMotionState>
     {
-        public Cloud(Vector2 location, WorldManager world) : base(location, world) { }
+        public Cloud(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new CloudSpriteState();
-            MotionState = new BackgroundMotionState(location);
+            MotionState = new BackgroundMotionState();
 
         }
         protected override void SyncState()

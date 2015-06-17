@@ -6,13 +6,13 @@ namespace WindowsGame1
     public class QuestionBlockObject : ObjectKernelNew<QuestionBlockSpriteState, QuestionBlockMotionState>
     {
 
-        public QuestionBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
+        public QuestionBlockObject(WorldManager world) : base(world) { }
 
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new QuestionBlockSpriteState();
-            MotionState = new QuestionBlockMotionState(location);
+            MotionState = new QuestionBlockMotionState();
             CollisionHandler = new QuestionBlockCollisionHandler(SpriteState, MotionState, this);
         }
 
