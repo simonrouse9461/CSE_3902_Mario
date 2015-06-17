@@ -12,8 +12,6 @@ namespace WindowsGame1
 
         void Load(ContentManager content, Vector2 location);
 
-        void Unload();
-
         void Update();
         
         void Draw(SpriteBatch spriteBatch);
