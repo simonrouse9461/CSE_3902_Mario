@@ -22,5 +22,10 @@ namespace WindowsGame1
         protected abstract void Initialize();
 
         public abstract void Handle();
+
+        public virtual void Validate()
+        {
+            
+        }
     }
 }

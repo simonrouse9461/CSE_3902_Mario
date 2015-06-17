@@ -21,9 +21,13 @@ namespace WindowsGame1
             Object = obj;
         }
 
-        protected Collision DetectCollision(T foreignObject)
+        protected Collision DetectCollision(T foreignObject, int offset)
         {
             var thisPosition = Object.GetPositionRectangle();
+            thisPosition.X -= offset;
+            thisPosition.Y -= offset;
+            thisPosition.Width += 2*offset;
+            thisPosition.Height += 2*offset;
             var foreignPosition = foreignObject.GetPositionRectangle();
             var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
             if (thisPosition.Intersects(foreignPosition))
@@ -41,14 +45,14 @@ namespace WindowsGame1
             return Collision.None;
         }
 
-        public CollisionSide Detect()
+        public CollisionSide Detect(int offset = 1)
         {
             var side = new CollisionSide();
             foreach (var obj in Object.World.ObjectList)
             {
                 if (obj is T && obj != Object)
                 {
-                    switch (DetectCollision((T) obj))
+                    switch (DetectCollision((T) obj, offset))
                     {
                         case Collision.Top:
                             side.Top = true;

@@ -28,10 +28,6 @@ namespace WindowsGame1
             if (SpriteState.IsDead())
                 return;
 
-            if (MarioPipeCollision.Detect().Side())
-            {
-                SpriteState.BecomeDead();
-            }
             if (MarioFireflowerCollision.Detect().Side())
             {
                 SpriteState.BecomeFire();
@@ -55,27 +51,29 @@ namespace WindowsGame1
                     SpriteState.BecomeSmall();
                 }
             }
+        }
 
+        public override void Validate()
+        {
             if (MarioObjectCollision.Detect().Any())
             {
-                while (MarioObjectCollision.Detect().Bottom)
+                while (MarioObjectCollision.Detect(0).Bottom)
                 {
                     MotionState.Up1();
                 }
-                while (MarioObjectCollision.Detect().Top)
+                while (MarioObjectCollision.Detect(0).Top)
                 {
                     MotionState.Down1();
                 }
-                while (MarioObjectCollision.Detect().Left)
+                while (MarioObjectCollision.Detect(0).Left)
                 {
                     MotionState.Right1();
                 }
-                while (MarioObjectCollision.Detect().Right)
+                while (MarioObjectCollision.Detect(0).Right)
                 {
                     MotionState.Left1();
                 }
             }
-
         }
     }
 }
