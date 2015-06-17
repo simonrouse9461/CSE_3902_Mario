@@ -12,13 +12,13 @@ namespace WindowsGame1
             Source = new SpriteSource(
                 new List<Rectangle>
                 {
-                    new Rectangle(0, 13, 48, 19)
+                    new Rectangle(86, 5, 80, 35)
                 });
            
         }
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "Hill");
+            Source.Load(content, "misc");
         }
 
     }

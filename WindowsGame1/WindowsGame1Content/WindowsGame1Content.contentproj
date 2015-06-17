@@ -74,22 +74,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="single green pipe.png">
-      <Name>single green pipe</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="scenery.png">
       <Name>scenery</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Hill.png">
-      <Name>Hill</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
