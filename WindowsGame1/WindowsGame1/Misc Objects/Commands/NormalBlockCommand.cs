@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.NormalBlock.NormalBlockDestroyed();
+            Game.World.NormalBlock.PassCommand(this);
         }
 
     }

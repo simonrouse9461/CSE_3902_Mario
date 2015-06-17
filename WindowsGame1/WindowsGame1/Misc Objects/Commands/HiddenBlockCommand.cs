@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.HiddenBlock.HiddenBlocktoUsed();
+            Game.World.HiddenBlock.PassCommand(this);
         }
 
     }

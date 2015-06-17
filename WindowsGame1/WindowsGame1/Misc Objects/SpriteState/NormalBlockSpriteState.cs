@@ -45,5 +45,17 @@ namespace WindowsGame1
                 return SpriteList[2];
             }
         }
+        public void NormalBlock()
+        {
+            Status = StatusEnum.Normal;
+        }
+        public void DestroyedBlock()
+        {
+            Status = StatusEnum.Destroyed;
+        }
+        public void NormalUsedBlock()
+        {
+            Status = StatusEnum.UsedBlock;
+        }
     }
 }
