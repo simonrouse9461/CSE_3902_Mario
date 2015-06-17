@@ -25,11 +25,11 @@ namespace WindowsGame1
             if (SpriteState.IsDead())
                 return;
 
-            if (MarioFireflowerCollision.Detect().Side())
+            if (MarioFireflowerCollision.Detect().Any())
             {
                 SpriteState.BecomeFire();
             }
-            if (MarioMushroomCollision.Detect().Side())
+            if (MarioMushroomCollision.Detect().Any())
             {
                 if (SpriteState.IsSmall())
                 {
