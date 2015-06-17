@@ -2,7 +2,7 @@
 {
     public abstract class CommandKernel : ICommand
     {
-        protected MarioGame Game;
+        protected MarioGame Game { get; set; }
 
         protected CommandKernel(MarioGame game)
         {

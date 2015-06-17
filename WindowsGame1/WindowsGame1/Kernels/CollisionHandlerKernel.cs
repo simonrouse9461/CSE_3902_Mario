@@ -7,9 +7,9 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
-        protected IObject Object;
-        protected TSpriteState SpriteState;
-        protected TMotionState MotionState;
+        protected IObject Object { get; set; }
+        protected TSpriteState SpriteState { get; set; }
+        protected TMotionState MotionState { get; set; }
 
         protected CollisionHandlerKernel(TSpriteState spriteState, TMotionState motionState, IObject obj)
         {
@@ -23,7 +23,7 @@ namespace WindowsGame1
 
         public abstract void Handle();
 
-        public virtual void Validate()
+        public virtual void Adjust()
         {
             
         }

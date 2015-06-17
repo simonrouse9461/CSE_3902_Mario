@@ -42,5 +42,14 @@ namespace WindowsGame1
             }
         }
 
+        public void HiddenToUsedBlock()
+        {
+            Status = StatusEnum.UsedBlock;
+        }
+
+        public void HiddenBlock()
+        {
+            Status = StatusEnum.Hidden;
+        }
     }
 }

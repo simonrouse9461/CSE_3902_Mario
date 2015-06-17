@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class CollisionDetector<T> : ICollisionDetector where T : IObject
     {
-        public enum Collision
+        private enum Collision
         {
             None,
             Top,
@@ -14,14 +14,14 @@ namespace WindowsGame1
             Right
         }
 
-        protected IObject Object;
+        private IObject Object;
         
         public CollisionDetector(IObject obj)
         {
             Object = obj;
         }
 
-        protected Collision DetectCollision(T foreignObject, int offset)
+        private Collision DetectCollision(T foreignObject, int offset)
         {
             var thisPosition = Object.GetPositionRectangle();
             thisPosition.X -= offset;

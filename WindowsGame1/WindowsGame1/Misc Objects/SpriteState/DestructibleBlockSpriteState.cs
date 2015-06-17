@@ -7,7 +7,8 @@ namespace WindowsGame1
     {
 
         public enum StatusEnum{
-            Destructible
+            Destructible,
+            Destroyed
         }
 
         private StatusEnum status;
@@ -28,6 +29,15 @@ namespace WindowsGame1
         public override ISprite ActiveSprite()
         {
             return SpriteList[0];
+        }
+
+        public void DestructibleDestroyed()
+        {
+            Status = StatusEnum.Destroyed;
+        }
+        public void DestructibleBlock()
+        {
+            Status = StatusEnum.Destructible;
         }
     }
 }

@@ -6,9 +6,9 @@ namespace WindowsGame1
 {
     public abstract class SpriteStateKernel : ISpriteState
     {
-        protected Counter Timer;
+        protected Counter Timer { get; set; }
 
-        protected List<ISprite> SpriteList;
+        protected List<ISprite> SpriteList { get; set; }
 
         protected SpriteStateKernel()
         {

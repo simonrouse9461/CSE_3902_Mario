@@ -7,7 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.QuestionBlock.QuestionToUsedBlock();
+            Game.World.QuestionBlock.PassCommand(this);
         }
 
     }
