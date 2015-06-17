@@ -36,11 +36,6 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload()
-        {
-            World.ObjectList.Remove(this);
-        }
-
         public void Update()
         {
             SpriteState.Update();
