@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace WindowsGame1
+﻿namespace WindowsGame1
 {
     public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>
     {
