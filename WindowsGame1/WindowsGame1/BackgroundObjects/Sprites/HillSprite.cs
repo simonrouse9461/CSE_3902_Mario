@@ -9,24 +9,16 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            const int period = 1;
-
             Source = new SpriteSource(
                 new List<Rectangle>
                 {
-                    new Rectangle(128, 161, 48, 33)
+                    new Rectangle(0, 13, 48, 19)
                 });
-            Animation = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = { 0 };
-                    return frameSequence[phase];
-                },
-                period);
+           
         }
         public override void Load(ContentManager content)
         {
-            Source.Load(content, "scenery");
+            Source.Load(content, "Hill");
         }
 
     }

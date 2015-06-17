@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="LevelLoader.ObjectData[]">
+    <Item>
+      <Name>Mario</Name>
+      <Location>200, 170</Location>
+    </Item>
+    <Item>
+      <Name>Goomba</Name>
+      <Location>230, 300</Location>
+    </Item>
+    <Item>
+      <Name>Koopa</Name>
+      <Location>200, 300</Location>
+    </Item>
+    <Item>
+      <Name>Coin</Name>
+      <Location>450, 300</Location>
+    </Item>
+    <Item>
+      <Name>Star</Name>
+      <Location>500, 300</Location>
+    </Item>
+    <Item>
+      <Name>QuestionBlock</Name>
+      <Location>300, 200</Location>
+    </Item>
+    <Item>
+      <Name>HiddenBlock</Name>
+      <Location>200, 200</Location>
+    </Item>
+    <Item>
+      <Name>NormalBlock</Name>
+      <Location>100, 200</Location>
+    </Item>
+    <Item>
+      <Name>DestructibleBlock</Name>
+      <Location>350, 200</Location>
+    </Item>
+    <Item>
+      <Name>IndestructibleBlock</Name>
+      <Location>150, 200</Location>
+    </Item>
+    <Item>
+      <Name>GreenPipe</Name>
+      <Location>500, 200</Location>
+    </Item>
+    <Item>
+      <Name>UsedBlock</Name>
+      <Location>250, 200</Location>
+    </Item>
+    <Item>
+      <Name>Fireflower</Name>
+      <Location>400, 304</Location>
+    </Item>
+    <Item>
+      <Name>Mushroom</Name>
+      <Location>550, 300</Location>
+    </Item>
+    <Item>
+      <Name>_1up</Name>
+      <Location>600, 300</Location>
+    </Item>
+    <Item>
+      <Name>Hill</Name>
+      <Location>700, 300</Location>
+    </Item>
+    <Item>
+      <Name>Bush</Name>
+      <Location>700, 500</Location>
+    </Item>
+    <Item>
+      <Name>Cloud</Name>
+      <Location>200, 300</Location>
+    </Item>
+  </Asset>
+</XnaContent>

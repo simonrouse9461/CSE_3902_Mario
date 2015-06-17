@@ -28,7 +28,14 @@ namespace WindowsGame1
 
         public override ISprite ActiveSprite()
         {
-            return SpriteList[0];
+            if (Status == StatusEnum.Destructible)
+            {
+                return SpriteList[0];
+            }
+            else
+            {
+                return SpriteList[1];
+            }
         }
 
         public void DestructibleDestroyed()
