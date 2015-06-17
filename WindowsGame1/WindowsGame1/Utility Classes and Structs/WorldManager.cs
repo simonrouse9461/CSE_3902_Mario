@@ -48,9 +48,9 @@ namespace WindowsGame1
             HiddenBlock = new HiddenBlockObject(new Vector2(200, 200),this);
             NormalBlock = new NormalBlockObject(new Vector2(100, 200),this);
             DestructibleBlock = new DestructibleBlockObject(new Vector2(350, 200),this);
-            IndestructibleBlock = new IndestructibleBlockObject(new Vector2(150, 200));
-            GreenPipe = new GreenPipeObject(new Vector2(500, 200));
-            UsedBlock = new UsedBlockObject(new Vector2(250, 200));
+            IndestructibleBlock = new IndestructibleBlockObject(new Vector2(150, 200),this);
+            GreenPipe = new GreenPipeObject(new Vector2(500, 200),this);
+            UsedBlock = new UsedBlockObject(new Vector2(250, 200),this);
             Fireflower = new Fireflower(new Vector2(400, 304));
             Mushroom = new Mushroom(new Vector2(550, 300));
             _1up = new _1up(new Vector2(600, 300));
