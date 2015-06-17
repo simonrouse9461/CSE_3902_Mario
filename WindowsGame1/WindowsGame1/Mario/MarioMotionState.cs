@@ -16,7 +16,7 @@ namespace WindowsGame1
         private enum VerticalEnum
         {
             None,
-            Elevate,
+            Raise,
             Fall,
             Dead
         }
@@ -30,10 +30,12 @@ namespace WindowsGame1
         {
             MotionList = new List<MotionSwitch>
             {
-                new MotionSwitch(new AccelerateRightMotion(0.1f, 3)),
-                new MotionSwitch(new AccelerateLeftMotion(0.1f, 3)),
-                new MotionSwitch(new SuddenStopMotion(0.15f)),
-                new MotionSwitch(new DeadMotion())
+                new MotionSwitch(new AccelerateRightMotion(0.1f, 3)), //0
+                new MotionSwitch(new AccelerateLeftMotion(0.1f, 3)), //1
+                new MotionSwitch(new SuddenStopMotion(0.15f)), //2
+                new MotionSwitch(new DeadMotion()), //3
+                new MotionSwitch(new RaiseUpMotion()), //4
+                new MotionSwitch(new FallDownMotion()) //5
             };
             HorizontalStatus = HorizontalEnum.None;
             VerticalStatus = VerticalEnum.None;
@@ -80,19 +82,42 @@ namespace WindowsGame1
                     }
                     MotionList[3].Toggle(true);
                     break;
+                case VerticalEnum.Raise:
+                    MotionList[4].Toggle(true);
+                    break;
+                case VerticalEnum.Fall:
+                    MotionList[5].Toggle(true);
+                    break;
             }
         }
 
         protected override void ResetState()
         {
             HorizontalStatus = HorizontalEnum.None;
-            if (VerticalStatus == VerticalEnum.Elevate)
+            if (VerticalStatus != VerticalEnum.Dead)
                 VerticalStatus = VerticalEnum.None;
         }
 
-        public bool IsStatic()
+        public void StopHorizontal()
         {
-            return Velocity == default(Vector2);
+            Velocity.X = 0;
+            HorizontalStatus = HorizontalEnum.None;
+        }
+
+        public bool IsHorizontalStatic()
+        {
+            return Math.Abs(Velocity.X) < 0.001;
+        }
+
+        public void StopVertical()
+        {
+            Velocity.Y = 0;
+            VerticalStatus = VerticalEnum.None;
+        }
+
+        public bool IsVerticalStatic()
+        {
+            return Math.Abs(Velocity.Y) < 0.001;
         }
 
         public void MoveRight()
@@ -134,6 +159,26 @@ namespace WindowsGame1
         public bool IsDead()
         {
             return VerticalStatus == VerticalEnum.Dead;
+        }
+
+        public void Raise()
+        {
+            VerticalStatus = VerticalEnum.Raise;
+        }
+
+        public bool IsRaise()
+        {
+            return VerticalStatus == VerticalEnum.Raise;
+        }
+
+        public void Fall()
+        {
+            VerticalStatus = VerticalEnum.Fall;
+        }
+
+        public bool IsFall()
+        {
+            return VerticalStatus == VerticalEnum.Fall;
         }
     }
 }

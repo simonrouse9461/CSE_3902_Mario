@@ -6,7 +6,7 @@ namespace WindowsGame1
     {
         public override bool End()
         {
-            return false;
+            return true;
         }
 
         public override Vector2 GetVelocity()

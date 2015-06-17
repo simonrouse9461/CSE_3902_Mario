@@ -12,11 +12,13 @@ namespace WindowsGame1
             MotionState = new MarioMotionState(location);
             CommandHandler = new MarioCommandHandler(SpriteState, MotionState);
             CollisionHandler = new MarioCollisionHandler(SpriteState, MotionState, this);
+
+            SpriteState.BecomeSmall();
         }
 
         protected override void SyncState()
         {
-            if (MotionState.IsStatic())
+            if (MotionState.IsHorizontalStatic())
             {
                 SpriteState.Stand();
             }
@@ -27,6 +29,9 @@ namespace WindowsGame1
                 else
                     SpriteState.Break();
             }
+
+            if (SpriteState.IsDead())
+                MotionState.Dead();
         }
     }
 }

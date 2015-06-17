@@ -56,8 +56,8 @@ namespace WindowsGame1
             _keyboardController.RegisterCommand(Keys.U, marioBigCommand);
             _keyboardController.RegisterCommand(Keys.I, marioFireCommand);
             _keyboardController.RegisterCommand(Keys.O, marioDeadCommand);
-            _keyboardController.RegisterCommand(Keys.Up, marioUpCommand, true);
-            _keyboardController.RegisterCommand(Keys.Down, marioDownCommand, true);
+            _keyboardController.RegisterCommand(Keys.Up, marioUpCommand);
+            _keyboardController.RegisterCommand(Keys.Down, marioDownCommand);
             _keyboardController.RegisterCommand(Keys.Left, marioLeftCommand);
             _keyboardController.RegisterCommand(Keys.Right, marioRightCommand);
 

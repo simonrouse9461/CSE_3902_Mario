@@ -1,7 +1,9 @@
-﻿namespace WindowsGame1
+﻿using Microsoft.Xna.Framework;
+
+namespace WindowsGame1
 {
     public interface ICollisionDetector
     {
-        CollisionSide Detect();
+        CollisionSide Detect(int offset = 1);
     }
 }
