@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -8,5 +9,6 @@ namespace WindowsGame1
         where TMotionState : IMotionState
     {
         void Handle();
+        void Validate();
     }
 }

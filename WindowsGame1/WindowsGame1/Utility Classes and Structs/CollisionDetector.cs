@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -20,32 +21,38 @@ namespace WindowsGame1
             Object = obj;
         }
 
-        protected Collision DetectCollision(T foreignObject)
+        protected Collision DetectCollision(T foreignObject, int offset)
         {
-            var intersection = Rectangle.Intersect(Object.GetPositionRectangle(), foreignObject.GetPositionRectangle());
-            if (intersection != default(Rectangle))
+            var thisPosition = Object.GetPositionRectangle();
+            thisPosition.X -= offset;
+            thisPosition.Y -= offset;
+            thisPosition.Width += 2*offset;
+            thisPosition.Height += 2*offset;
+            var foreignPosition = foreignObject.GetPositionRectangle();
+            var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
+            if (thisPosition.Intersects(foreignPosition))
             {
                 if (intersection.Height > intersection.Width)
                 {
-                    if (foreignObject.GetPositionRectangle().Left > Object.GetPositionRectangle().Left)
+                    if (foreignPosition.Left > thisPosition.Left)
                         return Collision.Right;
                     return Collision.Left;
                 }
-                if (foreignObject.GetPositionRectangle().Top > Object.GetPositionRectangle().Top)
+                if (foreignPosition.Top > thisPosition.Top)
                     return Collision.Bottom;
                 return Collision.Top;
             }
             return Collision.None;
         }
 
-        public CollisionSide Detect()
+        public CollisionSide Detect(int offset = 1)
         {
             var side = new CollisionSide();
             foreach (var obj in Object.World.ObjectList)
             {
-                if (obj is T)
+                if (obj is T && obj != Object)
                 {
-                    switch (DetectCollision((T) obj))
+                    switch (DetectCollision((T) obj, offset))
                     {
                         case Collision.Top:
                             side.Top = true;

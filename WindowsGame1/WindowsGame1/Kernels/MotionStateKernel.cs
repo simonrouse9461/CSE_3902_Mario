@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -42,6 +41,26 @@ namespace WindowsGame1
         }
 
         public Vector2 Position { get; set; }
+
+        public void Up1()
+        {
+            Position -= new Vector2(0, 1);
+        }
+
+        public void Down1()
+        {
+            Position += new Vector2(0, 1);
+        }
+
+        public void Left1()
+        {
+            Position -= new Vector2(1, 0);
+        }
+
+        public void Right1()
+        {
+            Position += new Vector2(1, 0);
+        }
 
         protected Vector2 Velocity;
 

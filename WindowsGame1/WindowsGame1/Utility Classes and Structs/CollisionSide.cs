@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+namespace WindowsGame1
 {
     public struct CollisionSide
     {
@@ -10,6 +10,11 @@
         public bool Side()
         {
             return Left || Right;
+        }
+
+        public bool Any()
+        {
+            return Left || Right || Top || Bottom;
         }
     }
 }

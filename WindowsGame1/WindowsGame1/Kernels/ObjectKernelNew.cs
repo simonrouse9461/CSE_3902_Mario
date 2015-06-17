@@ -44,11 +44,12 @@ namespace WindowsGame1
 
         public void Update()
         {
-            CommandHandler.Handle();
+            if (CommandHandler != null) CommandHandler.Handle();
             CollisionHandler.Handle();
             SyncState();
             SpriteState.Update();
             MotionState.Update();
+            CollisionHandler.Validate();
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -3,10 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class KoopaMotionState : MotionStateKernel
+    public class EnemyMotionState : MotionStateKernel
     {
-
-        public KoopaMotionState(Vector2 location) : base(location) { }
+        public EnemyMotionState(Vector2 location) : base(location) { }
 
         protected override void Initialize()
         {
@@ -20,7 +19,7 @@ namespace WindowsGame1
 
         protected override void ResetState()
         {
-
+            
         }
     }
 }

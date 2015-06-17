@@ -1,25 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
         private CollisionDetector<GreenPipeObject> MarioPipeCollision;
+        private CollisionDetector<Fireflower> MarioFireflowerCollision;
+        private CollisionDetector<Mushroom> MarioMushroomCollision;
+        private CollisionDetector<Goomba> MarioGoombaCollision;
+        private CollisionDetector<IObject> MarioObjectCollision;
 
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
         protected override void Initialize()
         {
             MarioPipeCollision = new CollisionDetector<GreenPipeObject>(Object);
+            MarioFireflowerCollision = new CollisionDetector<Fireflower>(Object);
+            MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
+            MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
+            MarioObjectCollision = new CollisionDetector<IObject>(Object);
+
         }
 
         public override void Handle()
         {
-            if (MarioPipeCollision.Detect().Side())
+            if (SpriteState.IsDead())
+                return;
+
+            if (MarioFireflowerCollision.Detect().Side())
             {
-                SpriteState.BecomeDead();
-                MotionState.Dead();
+                SpriteState.BecomeFire();
+            }
+            if (MarioMushroomCollision.Detect().Side())
+            {
+                if (SpriteState.IsSmall())
+                {
+                    SpriteState.BecomeBig();
+                }
+            }
+            if (MarioGoombaCollision.Detect().Side())
+            {
+                if (SpriteState.IsSmall())
+                {
+                    SpriteState.BecomeDead();
+                    return;
+                }
+                if (SpriteState.IsBig() || SpriteState.IsFire())
+                {
+                    SpriteState.BecomeSmall();
+                }
+            }
+        }
+
+        public override void Validate()
+        {
+            if (MarioObjectCollision.Detect().Any())
+            {
+                while (MarioObjectCollision.Detect(0).Bottom)
+                {
+                    MotionState.Up1();
+                }
+                while (MarioObjectCollision.Detect(0).Top)
+                {
+                    MotionState.Down1();
+                }
+                while (MarioObjectCollision.Detect(0).Left)
+                {
+                    MotionState.Right1();
+                }
+                while (MarioObjectCollision.Detect(0).Right)
+                {
+                    MotionState.Left1();
+                }
             }
         }
     }
