@@ -260,10 +260,6 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LevelLoader\LevelLoader.csproj">
-      <Project>{8233d253-6392-4ad0-8b2a-a746f8c5f1fa}</Project>
-      <Name>LevelLoader</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WindowsGame1Content\WindowsGame1Content.contentproj">
       <Name>WindowsGame1Content</Name>
       <XnaReferenceType>Content</XnaReferenceType>
