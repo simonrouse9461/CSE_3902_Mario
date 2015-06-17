@@ -43,7 +43,7 @@ namespace WindowsGame1
 
             Coin = new Coin(new Vector2(450, 300));
             Star = new Star(new Vector2(500, 300));
-            QuestionBlock = new QuestionBlockObject(new Vector2(300, 200));
+            QuestionBlock = new QuestionBlockObject(new Vector2(300, 200), this);
             HiddenBlock = new HiddenBlockObject(new Vector2(200, 200));
             NormalBlock = new NormalBlockObject(new Vector2(100, 200));
             DestructibleBlock = new DestructibleBlockObject(new Vector2(350, 200));

@@ -83,7 +83,6 @@
     <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
-    <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
@@ -119,6 +118,18 @@
     <Compile Include="Mario\Sprites\BreakingLeftFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\BreakingRightBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\BreakingRightFireMarioSprite .cs" />
+    <Compile Include="Misc Objects\Collision\DestructibleBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\HiddenBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\QuestionBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Commands\DestructibleBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\DestructibleBlockCommandHandler.cs" />
+    <Compile Include="Misc Objects\Commands\HiddenBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\HiddenBlockCommandHandler.cs" />
+    <Compile Include="Misc Objects\Commands\NormalBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\NormalBlockCommandHandler.cs" />
+    <Compile Include="Misc Objects\Commands\QuestionBlockCommand.cs" />
+    <Compile Include="Misc Objects\Commands\QuestionBlockCommandHandler.cs" />
     <Compile Include="Motions\AccelerateLeftMotion.cs" />
     <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\DeadMotion.cs" />
@@ -132,8 +143,6 @@
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioSmallCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
-    <Compile Include="Commands\NormalBlockCommand.cs" />
-    <Compile Include="Commands\QuestionBlockCommand.cs" />
     <Compile Include="Enemies\Objects\Koopa.cs" />
     <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
