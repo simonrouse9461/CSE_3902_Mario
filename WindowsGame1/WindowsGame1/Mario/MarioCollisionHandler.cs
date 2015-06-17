@@ -5,7 +5,6 @@ namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        private CollisionDetector<GreenPipeObject> MarioPipeCollision;
         private CollisionDetector<Fireflower> MarioFireflowerCollision;
         private CollisionDetector<Mushroom> MarioMushroomCollision;
         private CollisionDetector<Goomba> MarioGoombaCollision;
@@ -15,12 +14,10 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            MarioPipeCollision = new CollisionDetector<GreenPipeObject>(Object);
             MarioFireflowerCollision = new CollisionDetector<Fireflower>(Object);
             MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
             MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
             MarioObjectCollision = new CollisionDetector<IObject>(Object);
-
         }
 
         public override void Handle()
@@ -53,7 +50,7 @@ namespace WindowsGame1
             }
         }
 
-        public override void Validate()
+        public override void Adjust()
         {
             if (MarioObjectCollision.Detect().Any())
             {

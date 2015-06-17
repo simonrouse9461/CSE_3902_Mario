@@ -81,8 +81,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Scenery.png">
-      <Name>Scenery</Name>
+    <Compile Include="scenery.png">
+      <Name>scenery</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

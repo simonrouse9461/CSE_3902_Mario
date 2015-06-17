@@ -14,8 +14,8 @@ namespace WindowsGame1
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public CommandManager Controller;
-        public WorldManager World;
+        private CommandManager Controller;
+        public WorldManager World { get; private set; }
         private Texture2D Background;
 
         public MarioGame()
