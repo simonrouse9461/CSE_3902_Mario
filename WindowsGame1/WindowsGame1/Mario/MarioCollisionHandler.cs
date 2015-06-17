@@ -8,6 +8,8 @@ namespace WindowsGame1
         private CollisionDetector<GreenPipeObject> MarioPipeCollision;
         private CollisionDetector<Fireflower> MarioFireflowerCollision;
         private CollisionDetector<Mushroom> MarioMushroomCollision;
+        private CollisionDetector<Goomba> MarioGoombaCollision;
+
 
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
@@ -16,6 +18,8 @@ namespace WindowsGame1
             MarioPipeCollision = new CollisionDetector<GreenPipeObject>(Object);
             MarioFireflowerCollision = new CollisionDetector<Fireflower>(Object);
             MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
+            MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
+
         }
 
         public override void Handle()
@@ -34,6 +38,18 @@ namespace WindowsGame1
                 if (SpriteState.IsSmall())
                 {
                     SpriteState.BecomeBig();
+                }
+            }
+            if (MarioGoombaCollision.Detect().Side())
+            {
+                if (SpriteState.IsSmall())
+                {
+                    SpriteState.BecomeDead();
+                    MotionState.Dead();
+                }
+                else if (SpriteState.IsBig() || SpriteState.IsFire())
+                {
+                    SpriteState.BecomeSmall();
                 }
             }
         }
