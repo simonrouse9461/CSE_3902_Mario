@@ -28,6 +28,10 @@ namespace WindowsGame1
         public Mushroom Mushroom;
         public GreenPipeObject GreenPipe;
 
+        public Hill Hill;
+        public Bush Bush;
+        public Cloud Cloud;
+
         public WorldManager()
         {
             ObjectList = new List<IObject>();
@@ -48,6 +52,9 @@ namespace WindowsGame1
             Fireflower = new Fireflower(new Vector2(400, 304));
             Mushroom = new Mushroom(new Vector2(550, 300));
             _1up = new _1up(new Vector2(600, 300));
+            Hill = new Hill(new Vector2(700, 300), this);
+            Bush = new Bush(new Vector2(700, 500), this);
+            Cloud = new Cloud(new Vector2(200, 300), this);
             
 
             ObjectList.Add(Coin);
@@ -65,6 +72,9 @@ namespace WindowsGame1
             ObjectList.Add(Koopa);
             ObjectList.Add(Goomba);
             ObjectList.Add(Mario);
+            ObjectList.Add(Bush);
+            ObjectList.Add(Hill);
+            ObjectList.Add(Cloud);
         }
 
         public void LoadContent(ContentManager content)

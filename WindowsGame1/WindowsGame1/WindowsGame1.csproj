@@ -73,6 +73,16 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundObjects\MotionStates\BackgroundMotionState.cs" />
+    <Compile Include="BackgroundObjects\Objects\Bush.cs" />
+    <Compile Include="BackgroundObjects\Objects\Cloud.cs" />
+    <Compile Include="BackgroundObjects\Objects\Hill.cs" />
+    <Compile Include="BackgroundObjects\SpriteStates\BushSpriteState.cs" />
+    <Compile Include="BackgroundObjects\SpriteStates\CloudSpriteState.cs" />
+    <Compile Include="BackgroundObjects\SpriteStates\HillSpriteState.cs" />
+    <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
     <Compile Include="Commands\HiddenBlockCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
