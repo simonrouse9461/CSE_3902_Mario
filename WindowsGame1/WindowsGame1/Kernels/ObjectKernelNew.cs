@@ -41,6 +41,11 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
+        public void Unload()
+        {
+            World.ObjectList.Remove(this);
+        }
+
         protected abstract void SyncState();
 
         public void Update()
