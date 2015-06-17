@@ -16,13 +16,13 @@ namespace WindowsGame1
 
         protected ICollisionHandler<TSpriteState, TMotionState> CollisionHandler;
 
-        protected ObjectKernel(Vector2 location)
+        protected ObjectKernel()
         {
-            Initialize(location);
+            Initialize();
             Reset();
         }
 
-        protected abstract void Initialize(Vector2 location);
+        protected abstract void Initialize();
 
         public virtual void Reset()
         {
@@ -30,9 +30,15 @@ namespace WindowsGame1
             MotionState.Reset();
         }
 
-        public void Load(ContentManager content)
+        public void Load(ContentManager content, Vector2 location)
         {
             SpriteState.Load(content);
+            MotionState.Position = location;
+        }
+
+        public void Unload()
+        {
+            World.ObjectList.Remove(this);
         }
 
         public void Update()

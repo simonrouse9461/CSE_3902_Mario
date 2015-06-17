@@ -4,12 +4,12 @@ namespace WindowsGame1
 {
     public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>
     {
-        public MarioObject(Vector2 location, WorldManager world) : base(location, world) { }
+        public MarioObject(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new MarioSpriteState();
-            MotionState = new MarioMotionState(location);
+            MotionState = new MarioMotionState();
             CommandHandler = new MarioCommandHandler(SpriteState, MotionState);
             CollisionHandler = new MarioCollisionHandler(SpriteState, MotionState, this);
 

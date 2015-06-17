@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class BlankMotionState : MotionStateKernel
     {
-        public BlankMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
 

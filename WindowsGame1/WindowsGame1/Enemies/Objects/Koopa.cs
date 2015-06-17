@@ -5,13 +5,12 @@ namespace WindowsGame1
 {
     public  class Koopa : ObjectKernelNew<EnemySpriteState, EnemyMotionState>
     {
-        public Koopa(Vector2 location, WorldManager world) : base(location, world) { }
+        public Koopa(WorldManager world) : base(world) { }
 
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new KoopaSpriteState();
-            MotionState = new EnemyMotionState(location);
+            MotionState = new EnemyMotionState();
             CollisionHandler = new EnemyCollisionHandler(SpriteState, MotionState, this);
         }
 

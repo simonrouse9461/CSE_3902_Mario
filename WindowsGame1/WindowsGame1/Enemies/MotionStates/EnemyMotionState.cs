@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class EnemyMotionState : MotionStateKernel
     {
-        public EnemyMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
 

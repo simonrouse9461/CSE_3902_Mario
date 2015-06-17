@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class DestructibleBlockMotionState : MotionStateKernel
     {
-        public DestructibleBlockMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
 

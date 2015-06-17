@@ -5,12 +5,12 @@ namespace WindowsGame1
 {
     public class Bush : ObjectKernelNew<BushSpriteState, BackgroundMotionState>
     {
-        public Bush(Vector2 location, WorldManager world) : base(location, world) { }
+        public Bush(WorldManager world) : base(world) { }
 
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new BushSpriteState();
-            MotionState = new BackgroundMotionState(location);
+            MotionState = new BackgroundMotionState();
 
         }
 

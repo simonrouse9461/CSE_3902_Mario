@@ -74,15 +74,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="single green pipe.png">
-      <Name>single green pipe</Name>
+    <Compile Include="scenery.png">
+      <Name>scenery</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="scenery.png">
-      <Name>scenery</Name>
+    <Content Include="Locations.xml">
+      <Name>Locations</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Content>
+    <Compile Include="misc.png">
+      <Name>misc</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="misc_sprites.png">
+      <Name>misc_sprites</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -22,6 +22,11 @@ namespace WindowsGame1
             return obj is CollisionSide && this == (CollisionSide)obj;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public bool Side()
         {
             return Left || Right;

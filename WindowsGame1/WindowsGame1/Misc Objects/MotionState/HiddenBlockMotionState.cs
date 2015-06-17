@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class HiddenBlockMotionState : MotionStateKernel
     {
-        public HiddenBlockMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
 

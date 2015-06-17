@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class RightMotionState : MotionStateKernel
     {
-        public RightMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
 

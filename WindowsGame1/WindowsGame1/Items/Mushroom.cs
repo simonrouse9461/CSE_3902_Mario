@@ -5,15 +5,10 @@ namespace WindowsGame1
 {
     public class Mushroom : ObjectKernel<MushroomSpriteState, RightMotionState>
     {
-        public Mushroom(Vector2 location) : base(location)
-        {
-        }
-
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new MushroomSpriteState();
-            MotionState = new RightMotionState(location);
+            MotionState = new RightMotionState();
         }
     }
 }

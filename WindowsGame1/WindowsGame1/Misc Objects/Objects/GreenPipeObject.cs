@@ -3,15 +3,12 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeObject : ObjectKernelNew<GreenPipeSpriteState, GreenPipeMotionState>
+    public class GreenPipeObject : ObjectKernel<GreenPipeSpriteState, GreenPipeMotionState>
     {
-
-        public GreenPipeObject(Vector2 location, WorldManager world) : base(location, world) { }
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new GreenPipeSpriteState();
-            MotionState = new GreenPipeMotionState(location);
+            MotionState = new GreenPipeMotionState();
         }
         protected override void SyncState()
         {
