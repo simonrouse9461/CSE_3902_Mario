@@ -11,13 +11,13 @@ namespace WindowsGame1
         {
             Source = new SpriteSource(new List<Rectangle>
             {
-                new Rectangle(0, 0, 30, 61)
+                new Rectangle(230, 385, 32, 64)
             });
         }
         public override void Load(ContentManager content)
         {
 
-            Source.Load(content, "single green pipe");
+            Source.Load(content, "misc");
         }
 
     }

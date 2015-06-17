@@ -3,14 +3,16 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class UsedBlockObject : ObjectKernelNew<UsedBlockSpriteState, UsedBlockMotionState>
+    public class UsedBlockObject : ObjectKernel<UsedBlockSpriteState, UsedBlockMotionState>
     {
-        public UsedBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
-
-        protected override void Initialize(Vector2 location)
+        protected override void Initialize()
         {
             SpriteState = new UsedBlockSpriteState();
-            MotionState = new UsedBlockMotionState(location);
+            MotionState = new UsedBlockMotionState();
+        }
+        protected override void SyncState()
+        {
+
         }
     }
 }

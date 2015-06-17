@@ -5,6 +5,7 @@ namespace WindowsGame1
 {
     public class NormalBlockObject : ObjectKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
     {
+
         public NormalBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
 
         protected override void Initialize(Vector2 location)
@@ -17,6 +18,7 @@ namespace WindowsGame1
         public void NormalBlockDestroyed()
         {
             SpriteState.Status = NormalBlockSpriteState.StatusEnum.Destroyed;
+
         }
 
         public void NormalBlockUsed()
@@ -31,7 +33,7 @@ namespace WindowsGame1
 
         protected override void SyncState()
         {
-
+           
         }
     }
 }

@@ -68,11 +68,10 @@ namespace WindowsGame1
 
         protected List<MotionSwitch> MotionList;
 
-        protected MotionStateKernel(Vector2 location)
+        protected MotionStateKernel()
         {
             Initialize();
 
-            Position = location;
             Timer = Timer ?? new Counter();
             MotionList = MotionList ?? new List<MotionSwitch>();
 

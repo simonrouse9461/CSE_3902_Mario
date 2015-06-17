@@ -24,8 +24,6 @@ namespace WindowsGame1
         private HorizontalEnum HorizontalStatus;
         private VerticalEnum VerticalStatus;
 
-        public MarioMotionState(Vector2 location) : base(location) { }
-
         protected override void Initialize()
         {
             MotionList = new List<MotionSwitch>
