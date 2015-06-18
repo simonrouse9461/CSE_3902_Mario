@@ -43,7 +43,11 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            World.ObjectList.Remove(this);
+            if (World.ObjectList.Contains(this))
+            {
+                World.ObjectList.Remove(this);
+            }
+            
         }
 
         protected abstract void SyncState();
