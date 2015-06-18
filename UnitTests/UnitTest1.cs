@@ -18,6 +18,8 @@ namespace UnitTests
         public void TestMethod1()
         {
             TestWorld = new WorldManager();
+            TestMario = new MarioObject(TestWorld);
+            TestMario.Load(Content, new Vector2(200, 170));
 
         }
     }

@@ -94,24 +94,24 @@ namespace WindowsGame1
 //            }
             Locations = content.Load<ObjectData[]>("Locations");
             Mario.Load(content, new Vector2(200, 170));
-            Goomba.Load(content, new Vector2(230, 300));
-            Koopa.Load(content, new Vector2(200, 300));
-
-            Coin.Load(content, new Vector2(450, 300));
-            Star.Load(content, new Vector2(500, 300));
-            QuestionBlock.Load(content, new Vector2(300, 200));
-            HiddenBlock.Load(content, new Vector2(200, 200));
-            NormalBlock.Load(content, new Vector2(100, 200));
-            DestructibleBlock.Load(content, new Vector2(350, 200));
-            IndestructibleBlock.Load(content, new Vector2(150, 200));
-            GreenPipe.Load(content, new Vector2(500, 200));
-            UsedBlock.Load(content, new Vector2(250, 200));
-            Fireflower.Load(content, new Vector2(400, 304));
-            Mushroom.Load(content, new Vector2(550, 300));
-            _1up.Load(content, new Vector2(600, 300));
-            Hill.Load(content, new Vector2(700, 405));
-            Bush.Load(content, new Vector2(450, 405));
-            Cloud.Load(content, new Vector2(400, 100));
+            
+            Goomba.Load(content, Locations[1].Location);
+            Koopa.Load(content, Locations[2].Location);
+            Coin.Load(content, Locations[3].Location);
+            Star.Load(content, Locations[4].Location);
+            QuestionBlock.Load(content, Locations[5].Location);
+            HiddenBlock.Load(content, Locations[6].Location);
+            NormalBlock.Load(content, Locations[7].Location);
+            DestructibleBlock.Load(content, Locations[8].Location);
+            IndestructibleBlock.Load(content, Locations[9].Location);
+            GreenPipe.Load(content, Locations[10].Location);
+            UsedBlock.Load(content, Locations[11].Location);
+            Fireflower.Load(content, Locations[12].Location);
+            Mushroom.Load(content, Locations[13].Location);
+            _1up.Load(content, Locations[14].Location);
+            Hill.Load(content, Locations[15].Location);
+            Bush.Load(content, Locations[16].Location);
+            Cloud.Load(content, Locations[17].Location);
         }
 
         public void Update()
