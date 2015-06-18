@@ -1,2 +1,3 @@
-﻿using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Content; using Microsoft.Xna.Framework.Graphics;  namespace WindowsGame1 {    public interface IObject    {        WorldManager World { get; }        bool Solid { get; }        bool Active { get; }        Rectangle PositionRectangle { get; }
+﻿using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Content; using Microsoft.Xna.Framework.Graphics;  namespace WindowsGame1 {    public interface IObject    {        WorldManager World { get; }        bool Solid { get; }
+        bool Active { get; set; }        Rectangle PositionRectangle { get; }
         Vector2 PositionPoint { get; }        void Reset();        void Load(ContentManager content, Vector2 location);        void Unload();        void Update();        void Draw(SpriteBatch spriteBatch);        void PassCommand(ICommand command);    } }

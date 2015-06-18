@@ -18,7 +18,7 @@ namespace WindowsGame1
 
         public bool Solid { get; protected set; }
 
-        public bool Active { get; protected set; }
+        public bool Active { get; set; }
 
         public Rectangle PositionRectangle
         {

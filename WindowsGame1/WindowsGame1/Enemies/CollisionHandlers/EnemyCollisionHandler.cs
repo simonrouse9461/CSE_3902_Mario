@@ -19,6 +19,7 @@ namespace WindowsGame1
             if (GoombaMarioCollision.Detect().Top)
             {
                 SpriteState.MarioSmash();
+                Object.Active = false;
             }
         }
     }
