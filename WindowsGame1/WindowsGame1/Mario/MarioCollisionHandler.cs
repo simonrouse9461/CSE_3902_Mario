@@ -36,7 +36,7 @@ namespace WindowsGame1
                     SpriteState.BecomeBig();
                 }
             }
-            if (MarioGoombaCollision.Detect().Side())
+            if (MarioGoombaCollision.Detect(true, true).Side())
             {
                 if (SpriteState.IsSmall())
                 {
@@ -48,7 +48,7 @@ namespace WindowsGame1
                     SpriteState.BecomeSmall();
                 }
             }
-            if (MarioKoopaCollision.Detect().Side())
+            if (MarioKoopaCollision.Detect(true, true).Side())
             {
                 if (SpriteState.IsSmall())
                 {

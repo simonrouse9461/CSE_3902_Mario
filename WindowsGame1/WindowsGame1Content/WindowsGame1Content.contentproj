@@ -39,8 +39,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mario.png">
-      <Name>mario</Name>
+    <Compile Include="Mario.png">
+      <Name>Mario</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

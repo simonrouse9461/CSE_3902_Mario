@@ -4,6 +4,6 @@ namespace WindowsGame1
 {
     public interface ICollisionDetector
     {
-        CollisionSide Detect(int offset = 1, bool onlySolid = false);
+        CollisionSide Detect(bool onlySolid = false, bool onlyActive = false, int offset = 1);
     }
 }
