@@ -86,7 +86,7 @@ namespace WindowsGame1
 //            {
 //                obj.Load(content);
 //            }
-            //Locations = content.Load<ObjectData[]>("Locations");
+            Locations = content.Load<ObjectData[]>("Locations");
             Mario.Load(content, new Vector2(200, 170));
             Goomba.Load(content, new Vector2(230, 300));
             Koopa.Load(content, new Vector2(200, 300));
@@ -103,9 +103,9 @@ namespace WindowsGame1
             Fireflower.Load(content, new Vector2(400, 304));
             Mushroom.Load(content, new Vector2(550, 300));
             _1up.Load(content, new Vector2(600, 300));
-            Hill.Load(content, new Vector2(700, 300));
-            Bush.Load(content, new Vector2(700, 500));
-            Cloud.Load(content, new Vector2(200, 300));
+            Hill.Load(content, new Vector2(700, 405));
+            Bush.Load(content, new Vector2(450, 405));
+            Cloud.Load(content, new Vector2(400, 100));
         }
 
         public void Update()
