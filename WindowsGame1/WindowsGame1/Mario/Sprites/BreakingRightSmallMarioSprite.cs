@@ -1,26 +1,23 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class BushSprite : SpriteKernel
+    public class BreakingRightSmallMarioSprite : SpriteKernel
     {
-
         protected override void Initialize()
         {
-           
             Source = new SpriteSource(
                 new List<Rectangle>
                 {
-                    new Rectangle(183, 144, 34, 16)
+                    new Rectangle(331, 0, 13, 15)
                 });
-           
-        }
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "scenery");
         }
 
+        public override void Load(ContentManager content)
+        {
+            Source.Load(content, "Mario");
+        } 
     }
 }

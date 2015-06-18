@@ -41,6 +41,11 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
+        public void Unload()
+        {
+            World.ObjectList.Remove(this);
+        }
+
         protected abstract void SyncState();
 
         public void Update()
@@ -50,7 +55,7 @@ namespace WindowsGame1
             SyncState();
             SpriteState.Update();
             MotionState.Update();
-            if (CollisionHandler != null) CollisionHandler.Adjust();
+            if (CollisionHandler != null) CollisionHandler.DetectBarrier();
         }
 
         public void Draw(SpriteBatch spriteBatch)
