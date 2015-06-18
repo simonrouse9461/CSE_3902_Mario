@@ -13,7 +13,7 @@ namespace WindowsGame1
             Source = new SpriteSource(
                 new List<Rectangle>
                 {
-                    new Rectangle(144, 183, 34, 16)
+                    new Rectangle(183, 144, 34, 16)
                 });
            
         }
