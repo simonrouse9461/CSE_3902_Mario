@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernelNew<TSpriteState, TMotionState> : IObject
+    public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
@@ -20,7 +20,7 @@ namespace WindowsGame1
 
         protected ICollisionHandler<TSpriteState, TMotionState> CollisionHandler;
 
-        protected ObjectKernelNew(WorldManager world)
+        protected ObjectKernel(WorldManager world)
         {
             World = world;
             Initialize();

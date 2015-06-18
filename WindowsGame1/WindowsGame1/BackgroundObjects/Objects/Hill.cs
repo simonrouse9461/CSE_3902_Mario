@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Hill : ObjectKernelNew<HillSpriteState, BackgroundMotionState>
+    public class Hill : ObjectKernel<HillSpriteState, BackgroundMotionState>
     {
         public Hill(WorldManager world) : base(world) { }
 
