@@ -28,11 +28,13 @@ namespace WindowsGame1
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
+                    SpriteState.Crouch();
                     MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () =>
                 {
                     MotionState.Fall();
+                    SpriteState.Crouch();
                 }},
             };
         }

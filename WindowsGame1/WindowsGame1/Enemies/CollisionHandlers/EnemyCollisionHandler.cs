@@ -19,7 +19,7 @@ namespace WindowsGame1
             if (EnemyMarioCollision.Detect().Top)
             {
                 SpriteState.MarioSmash();
-                Object.Active = false;
+                Active = false;
                 if (Object is Goomba)
                 {
                     Object.Unload(150);

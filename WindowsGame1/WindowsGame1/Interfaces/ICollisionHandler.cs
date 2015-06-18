@@ -6,6 +6,8 @@ namespace WindowsGame1
 {
     public interface ICollisionHandler
     {
+        bool Solid { get; set; }
+        bool Active { get; set; }
         void Handle();
         void AddBarrier<T>() where T : IObject;
         void RemoveBarrier<T>() where T : IObject;

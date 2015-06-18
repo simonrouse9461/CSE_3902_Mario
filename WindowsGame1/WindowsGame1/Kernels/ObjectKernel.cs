@@ -19,9 +19,17 @@ namespace WindowsGame1
 
         public WorldManager World { get; private set; }
 
-        public bool Solid { get; protected set; }
+        public bool Solid
+        {
+            get { return CollisionHandler.Solid; }
+            protected set { CollisionHandler.Solid = value; }
+        }
 
-        public bool Active { get; set; }
+        public bool Active
+        {
+            get { return CollisionHandler.Active; }
+            protected set { CollisionHandler.Active = value; }
+        }
 
         public Rectangle PositionRectangle
         {
@@ -36,6 +44,7 @@ namespace WindowsGame1
         protected ObjectKernel(WorldManager world)
         {
             World = world;
+            CollisionHandler = new NullCollisionHandler(SpriteState, MotionState, this);
             Solid = true;
             Active = true;
             Initialize();
@@ -76,7 +85,7 @@ namespace WindowsGame1
                 }
             }
             if (CommandHandler != null) CommandHandler.Handle();
-            if (CollisionHandler != null) CollisionHandler.Handle();
+            CollisionHandler.Handle();
             SyncState();
             SpriteState.Update();
             MotionState.Update();

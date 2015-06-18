@@ -32,7 +32,7 @@ namespace WindowsGame1
             Animation.Update();
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location)//, Color? color)
         {
             Rectangle sourceRectangle = Source.Coodinates[Animation.GetValue()];
             Rectangle destinationRectangle = GetDestination(location);
