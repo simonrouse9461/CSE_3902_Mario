@@ -14,7 +14,6 @@ namespace WindowsGame1
             ItemMarioCollision = new CollisionDetector<MarioObject>(Object);
         }
 
-
         public override void Handle()
         {
             if (ItemMarioCollision.Detect().Any())

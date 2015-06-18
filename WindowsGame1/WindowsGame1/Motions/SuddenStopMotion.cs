@@ -13,7 +13,7 @@ namespace WindowsGame1
             Acceleration = new Vector2(acceleration, 0);
         }
 
-        public override bool Finish
+        public override bool End
         {
             get { return (int) Velocity.X == 0; }
         }

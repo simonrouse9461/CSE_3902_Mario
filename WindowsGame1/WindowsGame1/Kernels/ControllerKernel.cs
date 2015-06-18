@@ -5,10 +5,10 @@ namespace WindowsGame1
 {
     public abstract class ControllerKernel<T> : IController<T>
     {
-        protected Dictionary<T, ICommand> KeysRespondToPress { get; private set; }
-        protected Dictionary<T, ICommand> KeysRespondToClick { get; private set; }
-        protected Dictionary<T, bool> LastState { get; private set; }
-        protected Collection<T> RegisteredKeys { get; private set; }
+        protected Dictionary<T, ICommand> KeysRespondToPress { get; set; }
+        protected Dictionary<T, ICommand> KeysRespondToClick { get; set; }
+        protected Dictionary<T, bool> LastState { get; set; }
+        protected Collection<T> RegisteredKeys { get; set; }
 
         protected ControllerKernel()
         {

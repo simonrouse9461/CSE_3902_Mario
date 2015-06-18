@@ -96,9 +96,21 @@ namespace WindowsGame1
                 VerticalStatus = VerticalEnum.None;
         }
 
+        public void StopHorizontal()
+        {
+            Velocity.X = 0;
+//            HorizontalStatus = HorizontalEnum.None;
+        }
+
         public bool IsHorizontalStatic()
         {
             return Math.Abs(Velocity.X) < 0.001;
+        }
+
+        public void StopVertical()
+        {
+            Velocity.Y = 0;
+//            VerticalStatus = VerticalEnum.None;
         }
 
         public bool IsVerticalStatic()

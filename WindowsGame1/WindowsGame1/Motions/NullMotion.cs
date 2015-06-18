@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public class NullMotion : MotionKernel
     {
-        public override bool Finish
+        public override bool End
         {
             get { return true; }
         }

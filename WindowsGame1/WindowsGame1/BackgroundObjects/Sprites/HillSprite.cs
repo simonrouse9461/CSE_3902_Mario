@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
@@ -11,7 +10,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Source = new SpriteSource(
-                new Collection<Rectangle>
+                new List<Rectangle>
                 {
                     new Rectangle(86, 5, 80, 35)
                 });

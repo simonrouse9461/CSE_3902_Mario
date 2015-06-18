@@ -7,7 +7,7 @@ namespace WindowsGame1
         protected Vector2 InitialVelocity { get; set; }
         protected Counter Circulator { get; set; }
 
-        public virtual bool Finish
+        public virtual bool End
         {
             get { return false; }
         }
