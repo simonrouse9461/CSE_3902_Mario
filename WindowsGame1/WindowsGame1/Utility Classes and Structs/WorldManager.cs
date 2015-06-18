@@ -49,9 +49,9 @@ namespace WindowsGame1
             HiddenBlock = new HiddenBlockObject(this);
             NormalBlock = new NormalBlockObject(this);
             DestructibleBlock = new DestructibleBlockObject(this);
-            IndestructibleBlock = new IndestructibleBlockObject();
-            GreenPipe = new GreenPipeObject();
-            UsedBlock = new UsedBlockObject();
+            IndestructibleBlock = new IndestructibleBlockObject(this);
+            GreenPipe = new GreenPipeObject(this);
+            UsedBlock = new UsedBlockObject(this);
             Fireflower = new Fireflower(this);
             Mushroom = new Mushroom(this);
             _1up = new _1up(this);
@@ -86,7 +86,7 @@ namespace WindowsGame1
 //            {
 //                obj.Load(content);
 //            }
-            //Locations = content.Load<ObjectData[]>("Locations");
+            Locations = content.Load<ObjectData[]>("Locations");
             Mario.Load(content, new Vector2(200, 170));
             Goomba.Load(content, new Vector2(230, 300));
             Koopa.Load(content, new Vector2(200, 300));
