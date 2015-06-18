@@ -45,8 +45,6 @@ namespace WindowsGame1
         {
             World = world;
             CollisionHandler = new NullCollisionHandler(SpriteState, MotionState, this);
-            Solid = true;
-            Active = true;
             Initialize();
             Reset();
         }
