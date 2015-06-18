@@ -9,18 +9,18 @@ namespace UnitTests
     [TestClass]
     public class UnitTest1
     {
-        private WorldManager TestWorld;
-        private MarioObject TestMario;
-        private ContentManager Content;
-        private CommandManager Controller;
+        //private WorldManager TestWorld;
+        //private MarioObject TestMario;
+        //private ContentManager Content;
+        //private CommandManager Controller;
 
         [TestMethod]
         public void TestMethod1()
         {
-            TestWorld = new WorldManager();
-            TestMario = new MarioObject(TestWorld);
-            TestMario.Load(Content, new Vector2(200, 170));
-
+            //TestWorld = new WorldManager();
+            //TestMario = new MarioObject(TestWorld);
+            //TestMario.Load(Content, new Vector2(200, 170));
+            Assert.IsTrue(false);
         }
     }
 }

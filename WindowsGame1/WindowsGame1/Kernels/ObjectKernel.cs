@@ -8,7 +8,10 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
-        private bool ReadyToUnload;
+        private bool PrepareToUnload;
+        private int UnloadCounter;
+        private int TotalIterationsUntilUnload;
+
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
         protected ICommandHandler CommandHandler { get; set; }
@@ -18,7 +21,7 @@ namespace WindowsGame1
 
         public bool Solid { get; protected set; }
 
-        public bool Active { get; protected set; }
+        public bool Active { get; set; }
 
         public Rectangle PositionRectangle
         {
@@ -55,16 +58,22 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload()
+        public void Unload(int unloadTimer)
         {
-            ReadyToUnload = true;
+            this.PrepareToUnload = true;
+            this.TotalIterationsUntilUnload = unloadTimer;
+            this.UnloadCounter = 0;
         }
 
         public void Update()
         {
-            if (World.ObjectList.Contains(this) && ReadyToUnload)
+            if (World.ObjectList.Contains(this) && PrepareToUnload)
             {
-                World.ObjectList.Remove(this);
+                UnloadCounter++;
+                if (UnloadCounter >= TotalIterationsUntilUnload)
+                {
+                    World.ObjectList.Remove(this);
+                }
             }
             if (CommandHandler != null) CommandHandler.Handle();
             if (CollisionHandler != null) CollisionHandler.Handle();
