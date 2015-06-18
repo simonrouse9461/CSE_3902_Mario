@@ -1,0 +1,6 @@
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\LeveLoader\bin\x86\Debug\LeveLoader.dll
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\LeveLoader\bin\x86\Debug\LeveLoader.pdb
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\LeveLoader.dll
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\LeveLoader.pdb
+C:\Users\Colin\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\LevelLoader.csprojResolveAssemblyReference.cache
