@@ -16,16 +16,26 @@
 
         protected override void SyncState()
         {
-            if (MotionState.IsHorizontalStatic())
+            if (MotionState.IsVerticalStatic())
             {
-                SpriteState.Stand();
-            }
-            else 
-            {   
-                if (MotionState.IsVelRight() == SpriteState.IsRight())
-                    SpriteState.Run();
+                if (MotionState.IsHorizontalStatic())
+                {
+                    SpriteState.Stand();
+                }
                 else
-                    SpriteState.Break();
+                {
+                    if (MotionState.IsVelRight() == SpriteState.IsRight())
+                        SpriteState.Run();
+                    else
+                        SpriteState.Break();
+                }
+            }
+            else
+            {
+                if (MotionState.IsRaise())
+                    SpriteState.Jump();
+                else if (MotionState.IsFall())
+                    SpriteState.Crouch();
             }
 
             if (SpriteState.IsDead())

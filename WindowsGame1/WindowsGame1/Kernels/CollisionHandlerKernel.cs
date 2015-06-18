@@ -11,6 +11,9 @@ namespace WindowsGame1
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
 
+        public bool Solid { get; set; }
+        public bool Active { get; set; }
+
         private readonly Collection<ICollisionDetector> BarrierList;
 
         protected CollisionHandlerKernel(TSpriteState spriteState, TMotionState motionState, IObject obj)
