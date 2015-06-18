@@ -12,7 +12,10 @@ namespace WindowsGame1
             SpriteState = new HillSpriteState();
             MotionState = new BackgroundMotionState();
 
+            // make it not solid so that anything can pass through it
+            Solid = false;
         }
+
         protected override void SyncState()
         {
 

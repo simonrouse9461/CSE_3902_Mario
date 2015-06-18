@@ -10,6 +10,9 @@ namespace WindowsGame1
             SpriteState = new CoinSpriteState();
             MotionState = new ItemMotionState();
             CollisionHandler = new ItemCollisionHandler(SpriteState, MotionState, this);
+
+            // make it not solid so that anything can pass through it
+            Solid = false;
         }
         protected override void SyncState()
         {

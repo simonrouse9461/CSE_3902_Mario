@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
@@ -12,7 +13,7 @@ namespace WindowsGame1
             int period = 4;
 
             Source = new SpriteSource(
-                new List<Rectangle>
+                new Collection<Rectangle>
                 {
                     new Rectangle(127, 94, 12, 16),
                     new Rectangle(155, 94, 12, 16),

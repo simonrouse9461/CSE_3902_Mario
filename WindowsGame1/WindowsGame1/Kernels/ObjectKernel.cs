@@ -8,6 +8,7 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
+        private bool ReadyToUnload;
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
         protected ICommandHandler CommandHandler { get; set; }
@@ -15,9 +16,9 @@ namespace WindowsGame1
 
         public WorldManager World { get; private set; }
 
-        public bool Solid { get; private set; }
+        public bool Solid { get; protected set; }
 
-        public bool Effective { get; private set; }
+        public bool Active { get; protected set; }
 
         public Rectangle PositionRectangle
         {
@@ -33,7 +34,7 @@ namespace WindowsGame1
         {
             World = world;
             Solid = true;
-            Effective = true;
+            Active = true;
             Initialize();
             Reset();
         }
@@ -56,15 +57,15 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            if (World.ObjectList.Contains(this))
-            {
-                World.ObjectList.Remove(this);
-            }
-            
+            ReadyToUnload = true;
         }
 
         public void Update()
         {
+            if (World.ObjectList.Contains(this) && ReadyToUnload)
+            {
+                World.ObjectList.Remove(this);
+            }
             if (CommandHandler != null) CommandHandler.Handle();
             if (CollisionHandler != null) CollisionHandler.Handle();
             SyncState();

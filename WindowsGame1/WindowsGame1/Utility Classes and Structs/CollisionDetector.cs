@@ -45,12 +45,12 @@ namespace WindowsGame1
             return Collision.None;
         }
 
-        public CollisionSide Detect(int offset = 1)
+        public CollisionSide Detect(int offset = 1, bool onlySolid = false)
         {
             var side = new CollisionSide();
             foreach (var obj in Object.World.ObjectList)
             {
-                if (obj is T && obj != Object)
+                if (obj is T && obj != Object && (obj.Solid || !onlySolid))
                 {
                     switch (DetectCollision((T) obj, offset))
                     {
