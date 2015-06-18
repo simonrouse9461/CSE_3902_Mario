@@ -235,6 +235,7 @@
     <Compile Include="Utility Classes and Structs\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\x86\Debug\LeveLoader.dll" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="Code Reviews\BowenCodeReview.txt" />
