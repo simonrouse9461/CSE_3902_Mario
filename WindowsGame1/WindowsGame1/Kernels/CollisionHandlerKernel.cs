@@ -22,6 +22,8 @@ namespace WindowsGame1
             MotionState = motionState;
             Object = obj;
             BarrierList = new Collection<ICollisionDetector>();
+            Solid = true;
+            Active = true;
             Initialize();
         }
 
