@@ -1,12 +1,9 @@
-﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public abstract class CollisionHandlerKernel<TSpriteState, TMotionState> : ICollisionHandler<TSpriteState, TMotionState> 
+    public abstract class CollisionHandlerKernel<TSpriteState, TMotionState> : ICollisionHandler
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
@@ -14,7 +11,7 @@ namespace WindowsGame1
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
 
-        private Collection<ICollisionDetector> BarrierList;
+        private readonly Collection<ICollisionDetector> BarrierList;
 
         protected CollisionHandlerKernel(TSpriteState spriteState, TMotionState motionState, IObject obj)
         {
@@ -56,19 +53,19 @@ namespace WindowsGame1
                 {
                     while (barrier.Detect(0).Bottom)
                     {
-                        MotionState.Up1();
+                        MotionState.Adjust(new Vector2(0, -1));
                     }
                     while (barrier.Detect(0).Top)
                     {
-                        MotionState.Down1();
+                        MotionState.Adjust(new Vector2(0, 1));
                     }
                     while (barrier.Detect(0).Left)
                     {
-                        MotionState.Right1();
+                        MotionState.Adjust(new Vector2(1, 0));
                     }
                     while (barrier.Detect(0).Right)
                     {
-                        MotionState.Left1();
+                        MotionState.Adjust(new Vector2(-1, 0));
                     }
                 }
             }

@@ -9,8 +9,6 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            Vector2 startCoordinate = new Vector2(119, 91);
-            Vector2 endCoordinate = new Vector2(242, 114);
             int period = 4;
 
             Source = new SpriteSource(
@@ -32,7 +30,6 @@ namespace WindowsGame1
 
         public override void Load(ContentManager content)
         {
-
             Source.Load(content, "items");
         }
 

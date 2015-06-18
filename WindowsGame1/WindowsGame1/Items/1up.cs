@@ -10,7 +10,7 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            SpriteState = new _1upSpriteState();
+            SpriteState = new _1UpSpriteState();
             MotionState = new ItemMotionState();
             CollisionHandler = new ItemCollisionHandler(SpriteState, MotionState, this);
         }

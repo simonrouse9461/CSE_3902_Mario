@@ -23,12 +23,12 @@ namespace WindowsGame1
 
         private Collision DetectCollision(T foreignObject, int offset)
         {
-            var thisPosition = Object.GetPositionRectangle();
+            var thisPosition = Object.PositionRectangle;
             thisPosition.X -= offset;
             thisPosition.Y -= offset;
             thisPosition.Width += 2*offset;
             thisPosition.Height += 2*offset;
-            var foreignPosition = foreignObject.GetPositionRectangle();
+            var foreignPosition = foreignObject.PositionRectangle;
             var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
             if (thisPosition.Intersects(foreignPosition))
             {

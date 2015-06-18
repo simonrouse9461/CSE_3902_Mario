@@ -42,24 +42,9 @@ namespace WindowsGame1
 
         public Vector2 Position { get; set; }
 
-        public void Up1()
+        public void Adjust(Vector2 offset)
         {
-            Position -= new Vector2(0, 1);
-        }
-
-        public void Down1()
-        {
-            Position += new Vector2(0, 1);
-        }
-
-        public void Left1()
-        {
-            Position -= new Vector2(1, 0);
-        }
-
-        public void Right1()
-        {
-            Position += new Vector2(1, 0);
+            Position += offset;
         }
 
         protected Vector2 Velocity;
@@ -110,10 +95,10 @@ namespace WindowsGame1
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Motion.End())
+                    if (motion.Status && !motion.Motion.End)
                     {
                         motion.Motion.Update();
-                        Velocity += motion.Motion.GetVelocity();
+                        Velocity += motion.Motion.Velocity;
                     }
                     else
                     {

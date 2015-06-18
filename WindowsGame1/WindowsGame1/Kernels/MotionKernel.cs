@@ -4,19 +4,25 @@ namespace WindowsGame1
 {
     public abstract class MotionKernel : IMotion
     {
-        protected Vector2 InitialVelocity;
+        protected Vector2 InitialVelocity { get; set; }
+        protected Counter Circulator { get; set; }
 
-        protected Counter Circulator;
-        
+        public virtual bool End
+        {
+            get { return false; }
+        }
+
+        public abstract Vector2 Velocity { get; }
+
         protected MotionKernel(int period = 0)
         {
             Circulator = new Counter(period);
             Reset();
         }
 
-        public virtual void Reset(Vector2 initial = default(Vector2))
+        public virtual void Reset(Vector2 initialVelocity = default(Vector2))
         {
-            InitialVelocity = initial;
+            InitialVelocity = initialVelocity;
             Circulator.Reset(); 
         }
 
@@ -24,12 +30,5 @@ namespace WindowsGame1
         {
             Circulator.Update(phase);
         }
-
-        public virtual bool End()
-        {
-            return false;
-        }
-
-        public abstract Vector2 GetVelocity();
     }
 }

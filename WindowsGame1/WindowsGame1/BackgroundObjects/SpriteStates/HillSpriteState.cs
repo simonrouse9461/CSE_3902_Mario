@@ -5,32 +5,17 @@ namespace WindowsGame1
 {
     public class HillSpriteState : SpriteStateKernel
     {
-        public enum StatusEnum
-        {
-            Still
-        }
-
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
-
         protected override void Initialize()
         {
             SpriteList = new List<ISprite>
             {
                 new HillSprite()
             };
-
-            Status = StatusEnum.Still;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            return SpriteList[0];
+            get { return SpriteList[0]; }
         }
     }
 }

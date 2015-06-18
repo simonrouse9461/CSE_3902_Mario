@@ -6,10 +6,13 @@ namespace WindowsGame1
     {
         private static Vector2 StartVelocity = new Vector2(0, -3);
 
-        public override Vector2 GetVelocity()
+        public override Vector2 Velocity
         {
-            var velocity = StartVelocity;
-            return velocity;
+            get
+            {
+                var velocity = StartVelocity;
+                return velocity;
+            }
         }
     }
 }

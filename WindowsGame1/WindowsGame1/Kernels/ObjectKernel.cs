@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,24 +8,39 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
+        protected TSpriteState SpriteState { get; set; }
+        protected TMotionState MotionState { get; set; }
+        protected ICommandHandler CommandHandler { get; set; }
+        protected ICollisionHandler CollisionHandler { get; set; }
+
         public WorldManager World { get; private set; }
 
-        protected TSpriteState SpriteState;
+        public bool Solid { get; private set; }
 
-        protected TMotionState MotionState;
+        public bool Effective { get; private set; }
 
-        protected ICommandHandler<TSpriteState, TMotionState> CommandHandler;
+        public Rectangle PositionRectangle
+        {
+            get { return SpriteState.Sprite.GetDestination(MotionState.Position); }
+        }
 
-        protected ICollisionHandler<TSpriteState, TMotionState> CollisionHandler;
+        public Vector2 PositionPoint
+        {
+            get { return MotionState.Position; }
+        }
 
         protected ObjectKernel(WorldManager world)
         {
             World = world;
+            Solid = true;
+            Effective = true;
             Initialize();
             Reset();
         }
 
         protected abstract void Initialize();
+
+        protected abstract void SyncState();
 
         public virtual void Reset()
         {
@@ -50,8 +63,6 @@ namespace WindowsGame1
             
         }
 
-        protected abstract void SyncState();
-
         public void Update()
         {
             if (CommandHandler != null) CommandHandler.Handle();
@@ -64,22 +75,12 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.Position);
+            SpriteState.Sprite.Draw(spriteBatch, MotionState.Position);
         }
 
         public void PassCommand(ICommand command)
         {
             CommandHandler.ReadCommand(command);
-        }
-
-        public Rectangle GetPositionRectangle()
-        {
-            return SpriteState.ActiveSprite().GetDestination(MotionState.Position);
-        }
-
-        public Vector2 GetPositionPoint()
-        {
-            return MotionState.Position;
         }
     }
 }

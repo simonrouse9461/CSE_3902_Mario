@@ -5,18 +5,12 @@ namespace WindowsGame1
 {
     public class DestructibleBlockSpriteState : SpriteStateKernel
     {
-
         public enum StatusEnum{
             Destructible,
             Destroyed
         }
 
-        private StatusEnum status;
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
@@ -24,25 +18,20 @@ namespace WindowsGame1
                 new DestructibleBlockSprite(),
                 new DestroyedBlockSprite()
             };
+
             Status = StatusEnum.Destructible;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            if (Status == StatusEnum.Destructible)
-            {
-                return SpriteList[0];
-            }
-            else
-            {
-                return SpriteList[1];
-            }
+            get { return Status == StatusEnum.Destructible ? SpriteList[0] : SpriteList[1]; }
         }
 
         public void DestructibleDestroyed()
         {
             Status = StatusEnum.Destroyed;
         }
+
         public void DestructibleBlock()
         {
             Status = StatusEnum.Destructible;

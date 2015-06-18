@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace WindowsGame1
 {
@@ -10,13 +9,7 @@ namespace WindowsGame1
             Still
         }
 
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
@@ -28,9 +21,9 @@ namespace WindowsGame1
             Status = StatusEnum.Still;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            return SpriteList[0];
+            get { return SpriteList[0]; }
         }
     }
 }
