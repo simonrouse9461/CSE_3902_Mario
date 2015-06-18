@@ -21,3 +21,4 @@ C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\Microso
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\LeveLoader.dll
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LeveLoader\obj\x86\Debug\LeveLoader.pdb
 C:\Users\涵哥\Desktop\Repo\LeveLoader\obj\x86\Debug\LevelLoader.csprojResolveAssemblyReference.cache
+C:\Users\Haden\Source\Repos\CSE_3902_Mario3\LeveLoader\obj\x86\Debug\LevelLoader.csprojResolveAssemblyReference.cache
