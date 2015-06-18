@@ -10,20 +10,20 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            const int period = 4;
+            const int period = 8;
 
             Source = new SpriteSource(
                 new Collection<Rectangle>
                 {
                     new Rectangle(5, 94, 14, 16),
-                    new Rectangle(34, 94, 14, 16),
+                    new Rectangle(35, 94, 14, 16),
                     new Rectangle(65, 94, 14, 16),
                     new Rectangle(95, 94, 14, 16)
                 });
             Animation = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = { 0, 1, 2, 3 };
+                    int[] frameSequence = { 0, 0, 1, 1, 2, 2, 3, 3 };
                     return frameSequence[phase];
                 },
                 period);
