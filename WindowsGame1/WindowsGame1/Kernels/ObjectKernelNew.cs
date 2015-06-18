@@ -55,7 +55,7 @@ namespace WindowsGame1
             SyncState();
             SpriteState.Update();
             MotionState.Update();
-            if (CollisionHandler != null) CollisionHandler.Adjust();
+            if (CollisionHandler != null) CollisionHandler.DetectBarrier();
         }
 
         public void Draw(SpriteBatch spriteBatch)

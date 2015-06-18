@@ -1,5 +1,8 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace WindowsGame1
 {
@@ -11,11 +14,14 @@ namespace WindowsGame1
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
 
+        private Collection<ICollisionDetector> BarrierList;
+
         protected CollisionHandlerKernel(TSpriteState spriteState, TMotionState motionState, IObject obj)
         {
             SpriteState = spriteState;
             MotionState = motionState;
             Object = obj;
+            BarrierList = new Collection<ICollisionDetector>();
             Initialize();
         }
 
@@ -23,9 +29,49 @@ namespace WindowsGame1
 
         public abstract void Handle();
 
-        public virtual void Adjust()
+        public void AddBarrier<T>() where T : IObject
         {
-            
+            BarrierList.Add(new CollisionDetector<T>(Object));
+        }
+
+        public void RemoveBarrier<T>() where T : IObject
+        {
+            ICollisionDetector temp = null;
+            foreach (var barrier in BarrierList)
+            {
+                if (barrier is CollisionDetector<T>)
+                {
+                    temp = barrier;
+                }
+            }
+            if (temp != null)
+                BarrierList.Remove(temp);
+        }
+
+        public void DetectBarrier()
+        {
+            foreach (var barrier in BarrierList)
+            {
+                if (barrier.Detect().Any())
+                {
+                    while (barrier.Detect(0).Bottom)
+                    {
+                        MotionState.Up1();
+                    }
+                    while (barrier.Detect(0).Top)
+                    {
+                        MotionState.Down1();
+                    }
+                    while (barrier.Detect(0).Left)
+                    {
+                        MotionState.Right1();
+                    }
+                    while (barrier.Detect(0).Right)
+                    {
+                        MotionState.Left1();
+                    }
+                }
+            }
         }
     }
 }
