@@ -9,7 +9,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public Collection<IObject> ObjectList { get; private set; }
+        public List<IObject> ObjectList { get; private set; }
 
         ObjectData[] Locations;
         public MarioObject Mario { get; private set; }
@@ -37,7 +37,7 @@ namespace WindowsGame1
 
         public WorldManager()
         {
-            ObjectList = new Collection<IObject>();
+            ObjectList = new List<IObject>();
 
             Mario = new MarioObject(this);
             Goomba = new Goomba(this); 
@@ -86,7 +86,7 @@ namespace WindowsGame1
 //            {
 //                obj.Load(content);
 //            }
-            //Locations = content.Load<ObjectData[]>("Locations");
+            Locations = content.Load<ObjectData[]>("Locations");
             Mario.Load(content, new Vector2(200, 170));
             Goomba.Load(content, new Vector2(230, 300));
             Koopa.Load(content, new Vector2(200, 300));
@@ -110,9 +110,10 @@ namespace WindowsGame1
 
         public void Update()
         {
-            foreach (var obj in ObjectList)
+
+            for (int i = 0; i < ObjectList.Count; i++)
             {
-                obj.Update();
+                ObjectList[i].Update();
             }
         }
 

@@ -81,11 +81,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Locations.xml">
+    <Compile Include="Locations.xml">
       <Name>Locations</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-    </Content>
+    </Compile>
     <Compile Include="misc.png">
       <Name>misc</Name>
       <Importer>TextureImporter</Importer>
