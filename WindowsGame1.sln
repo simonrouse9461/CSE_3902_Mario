@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsGame1", "WindowsGame1\WindowsGame1\WindowsGame1.csproj", "{855EE19E-D53F-4504-9D67-1727126CA26A}"
 EndProject
@@ -54,6 +54,7 @@ Global
 		{C13810A6-C461-41F5-93AB-C39316F41C10}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{C13810A6-C461-41F5-93AB-C39316F41C10}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{C13810A6-C461-41F5-93AB-C39316F41C10}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C13810A6-C461-41F5-93AB-C39316F41C10}.Debug|x86.Build.0 = Debug|Any CPU
 		{C13810A6-C461-41F5-93AB-C39316F41C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C13810A6-C461-41F5-93AB-C39316F41C10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C13810A6-C461-41F5-93AB-C39316F41C10}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
