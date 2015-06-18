@@ -4,12 +4,15 @@ namespace WindowsGame1
 {
     public class FallDownMotion : MotionKernel
     {
-        private static Vector2 StartVelocity = new Vector2(0, 3);
+        private static readonly Vector2 StartVelocity = new Vector2(0, 3);
 
-        public override Vector2 GetVelocity()
+        public override Vector2 Velocity
         {
-            var velocity = StartVelocity;
-            return velocity;
+            get
+            {
+                var velocity = StartVelocity;
+                return velocity;
+            }
         }
     }
 }

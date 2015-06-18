@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace WindowsGame1
 {
     public class HiddenBlockSprite : SpriteKernel
@@ -9,7 +11,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Source = new SpriteSource(
-                new List<Rectangle>
+                new Collection<Rectangle>
                 {
                     new Rectangle(16, 32, 16, 16)
                 });

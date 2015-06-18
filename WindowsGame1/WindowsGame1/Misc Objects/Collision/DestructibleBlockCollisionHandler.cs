@@ -18,7 +18,6 @@ namespace WindowsGame1
         {
             if (MarioDestructibleBlockCollision.Detect().Bottom)
             {
-                SpriteState.DestructibleDestroyed();
                 Object.Unload();
             }
         }

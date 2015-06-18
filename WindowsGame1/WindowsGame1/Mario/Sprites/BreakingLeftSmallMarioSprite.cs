@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class BreakingLeftBigMarioSprite : SpriteKernel
+    public class BreakingLeftSmallMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
             Source = new SpriteSource(
-                new List<Rectangle>
+                new Collection<Rectangle>
                 {
-                    new Rectangle(329, 52, 16, 32)
+                    new Rectangle(60, 0, 14, 16)
                 });
         }
 

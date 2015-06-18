@@ -11,24 +11,20 @@ namespace WindowsGame1
             Indestructible
         }
 
-        private StatusEnum status;
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
             SpriteList = new List<ISprite>{
                 new IndestructibleBlockSprite()
             };
+
             Status = StatusEnum.Indestructible;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            return SpriteList[0];
+            get { return SpriteList[0]; }
         }
     }
 }

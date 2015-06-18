@@ -11,13 +11,7 @@ namespace WindowsGame1
             Walking
         }
 
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
@@ -30,10 +24,9 @@ namespace WindowsGame1
             Status = StatusEnum.Walking;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            if (Status == StatusEnum.Dead) { return SpriteList[0]; }
-            else { return SpriteList[1]; }
+            get { return Status == StatusEnum.Dead ? SpriteList[0] : SpriteList[1]; }
         }
 
         public override void MarioSmash()

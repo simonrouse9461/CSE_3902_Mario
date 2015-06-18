@@ -4,12 +4,9 @@ namespace WindowsGame1
 {
     public interface IMotion
     {
-        void Reset(Vector2 initial = default(Vector2));
-
+        Vector2 Velocity { get; }
+        bool Finish { get; }
+        void Reset(Vector2 initialVelocity = default(Vector2));
         void Update(int phase = -1);
-
-        bool End();
-
-        Vector2 GetVelocity(); 
     }
 }

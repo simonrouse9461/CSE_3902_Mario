@@ -4,11 +4,11 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public interface ICollisionHandler<TSpriteState, TMotionState>
-        where TSpriteState : ISpriteState
-        where TMotionState : IMotionState
+    public interface ICollisionHandler
     {
         void Handle();
+        void AddBarrier<T>() where T : IObject;
+        void RemoveBarrier<T>() where T : IObject;
         void DetectBarrier();
     }
 }

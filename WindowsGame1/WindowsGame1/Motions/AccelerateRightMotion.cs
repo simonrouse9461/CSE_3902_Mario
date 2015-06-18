@@ -4,9 +4,9 @@ namespace WindowsGame1
 {
     public class AccelerateRightMotion : MotionKernel
     {
-        private Vector2 Acceleration;
+        private readonly Vector2 Acceleration;
 
-        private Vector2 MaxVelocity;
+        private readonly Vector2 MaxVelocity;
 
         public AccelerateRightMotion(float acceleration, float max)
         {
@@ -14,10 +14,13 @@ namespace WindowsGame1
             MaxVelocity = new Vector2(max, 0);
         }
 
-        public override Vector2 GetVelocity()
+        public override Vector2 Velocity
         {
-            var velocity = Circulator.Phase*Acceleration + InitialVelocity;
-            return velocity.X >= MaxVelocity.X ? MaxVelocity : velocity;
+            get
+            {
+                var velocity = Circulator.Phase*Acceleration + InitialVelocity;
+                return velocity.X >= MaxVelocity.X ? MaxVelocity : velocity;
+            }
         }
     }
 }

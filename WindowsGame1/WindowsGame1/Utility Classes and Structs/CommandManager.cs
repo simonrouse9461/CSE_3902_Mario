@@ -20,10 +20,6 @@ namespace WindowsGame1
         private ICommand marioLeftCommand;
         private ICommand marioRightCommand;
         
-        // Other Commands
-        private ICommand questionBlockCommand;
-        private ICommand normalBlockCommand;
-        private ICommand hiddenBlockCommand;
 
         public CommandManager(MarioGame game)
         {
@@ -41,25 +37,18 @@ namespace WindowsGame1
             marioRightCommand = new MarioRightCommand(game);
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
-            questionBlockCommand = new QuestionBlockCommand(game);
-            normalBlockCommand = new NormalBlockCommand(game);
-            hiddenBlockCommand = new HiddenBlockCommand(game);
 
-            _keyboardController.RegisterCommand(Keys.Q, quitCommand);
-            _keyboardController.RegisterCommand(Keys.Z, questionBlockCommand);
-            _keyboardController.RegisterCommand(Keys.X, normalBlockCommand);
-            _keyboardController.RegisterCommand(Keys.C, hiddenBlockCommand);
-            _keyboardController.RegisterCommand(Keys.R, resetCommand);
-            _gamepadController.RegisterCommand(Buttons.Back, quitCommand);
-
-            _keyboardController.RegisterCommand(Keys.Y, marioSmallCommand);
-            _keyboardController.RegisterCommand(Keys.U, marioBigCommand);
-            _keyboardController.RegisterCommand(Keys.I, marioFireCommand);
-            _keyboardController.RegisterCommand(Keys.O, marioDeadCommand);
-            _keyboardController.RegisterCommand(Keys.Up, marioUpCommand);
-            _keyboardController.RegisterCommand(Keys.Down, marioDownCommand);
-            _keyboardController.RegisterCommand(Keys.Left, marioLeftCommand);
-            _keyboardController.RegisterCommand(Keys.Right, marioRightCommand);
+            _keyboardController.RegisterCommand(Keys.Q, quitCommand, false);
+            _keyboardController.RegisterCommand(Keys.R, resetCommand, false);
+            _gamepadController.RegisterCommand(Buttons.Back, quitCommand, false);
+            _keyboardController.RegisterCommand(Keys.Y, marioSmallCommand, false);
+            _keyboardController.RegisterCommand(Keys.U, marioBigCommand, false);
+            _keyboardController.RegisterCommand(Keys.I, marioFireCommand, false);
+            _keyboardController.RegisterCommand(Keys.O, marioDeadCommand, false);
+            _keyboardController.RegisterCommand(Keys.Up, marioUpCommand, false);
+            _keyboardController.RegisterCommand(Keys.Down, marioDownCommand, false);
+            _keyboardController.RegisterCommand(Keys.Left, marioLeftCommand, false);
+            _keyboardController.RegisterCommand(Keys.Right, marioRightCommand, false);
 
         }
 

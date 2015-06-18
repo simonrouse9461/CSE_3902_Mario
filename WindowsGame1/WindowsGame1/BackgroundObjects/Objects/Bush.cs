@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Bush : ObjectKernelNew<BushSpriteState, BackgroundMotionState>
+    public class Bush : ObjectKernel<BushSpriteState, BackgroundMotionState>
     {
         public Bush(WorldManager world) : base(world) { }
 
@@ -12,6 +12,8 @@ namespace WindowsGame1
             SpriteState = new BushSpriteState();
             MotionState = new BackgroundMotionState();
 
+            // make it not solid so that anything can pass through it
+            Solid = false;
         }
 
         protected override void SyncState()

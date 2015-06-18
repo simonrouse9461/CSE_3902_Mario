@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Hill : ObjectKernelNew<HillSpriteState, BackgroundMotionState>
+    public class Hill : ObjectKernel<HillSpriteState, BackgroundMotionState>
     {
         public Hill(WorldManager world) : base(world) { }
 
@@ -12,7 +12,10 @@ namespace WindowsGame1
             SpriteState = new HillSpriteState();
             MotionState = new BackgroundMotionState();
 
+            // make it not solid so that anything can pass through it
+            Solid = false;
         }
+
         protected override void SyncState()
         {
 

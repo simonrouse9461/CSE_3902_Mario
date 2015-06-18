@@ -61,72 +61,77 @@ namespace WindowsGame1
                 new CrouchingRightFireMarioSprite(), //22
                 new BreakingLeftBigMarioSprite(), //23
                 new BreakingLeftFireMarioSprite(), //24
-                new BreakingRightBigMarioSprite(), //25
-                new BreakingRightFireMarioSprite(), //26
+                new BreakingLeftSmallMarioSprite(), //25
+                new BreakingRightBigMarioSprite(), //26
+                new BreakingRightFireMarioSprite(), //27
+                new BreakingRightSmallMarioSprite(), //28
             };
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            if (Status == StatusEnum.Dead)
-                return SpriteList[0];
-            switch (Action)
+            get
             {
-                case ActionEnum.Jump:
-                    switch (Status)
-                    {
-                        case StatusEnum.Big:
-                            return Orientation == OrientationEnum.Left ? SpriteList[1] : SpriteList[4];
-                        case StatusEnum.Fire:
-                            return Orientation == OrientationEnum.Left ? SpriteList[2] : SpriteList[5];
-                        case StatusEnum.Small:
-                            return Orientation == OrientationEnum.Left ? SpriteList[3] : SpriteList[6];
-                    }
-                    break;
-                case ActionEnum.Run:
-                    switch (Status)
-                    {
-                        case StatusEnum.Big:
-                            return Orientation == OrientationEnum.Left ? SpriteList[7] : SpriteList[10];
-                        case StatusEnum.Fire:
-                            return Orientation == OrientationEnum.Left ? SpriteList[8] : SpriteList[11];
-                        case StatusEnum.Small:
-                            return Orientation == OrientationEnum.Left ? SpriteList[9] : SpriteList[12];
-                    }
-                    break;
-                case ActionEnum.Stand:
-                    switch (Status)
-                    {
-                        case StatusEnum.Big:
-                            return Orientation == OrientationEnum.Left ? SpriteList[13] : SpriteList[16];
-                        case StatusEnum.Fire:
-                            return Orientation == OrientationEnum.Left ? SpriteList[14] : SpriteList[17];
-                        case StatusEnum.Small:
-                            return Orientation == OrientationEnum.Left ? SpriteList[15] : SpriteList[18];
-                    }
-                    break;
-                case ActionEnum.Crouch:
-                    switch (Status)
-                    {
-                        case StatusEnum.Big:
-                            return Orientation == OrientationEnum.Left ? SpriteList[19] : SpriteList[21];
-                        case StatusEnum.Fire:
-                            return Orientation == OrientationEnum.Left ? SpriteList[20] : SpriteList[22];
-                    }
-                    break;
-                case ActionEnum.Break:
-                    switch (Status)
-                    {
-                        case StatusEnum.Big:
-                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[25];
-                        case StatusEnum.Fire:
-                            return Orientation == OrientationEnum.Left ? SpriteList[24] : SpriteList[26];
-                        case StatusEnum.Small:
-                            return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[24];
-                    }
-                    break;
+                if (Status == StatusEnum.Dead)
+                    return SpriteList[0];
+                switch (Action)
+                {
+                    case ActionEnum.Jump:
+                        switch (Status)
+                        {
+                            case StatusEnum.Big:
+                                return Orientation == OrientationEnum.Left ? SpriteList[1] : SpriteList[4];
+                            case StatusEnum.Fire:
+                                return Orientation == OrientationEnum.Left ? SpriteList[2] : SpriteList[5];
+                            case StatusEnum.Small:
+                                return Orientation == OrientationEnum.Left ? SpriteList[3] : SpriteList[6];
+                        }
+                        break;
+                    case ActionEnum.Run:
+                        switch (Status)
+                        {
+                            case StatusEnum.Big:
+                                return Orientation == OrientationEnum.Left ? SpriteList[7] : SpriteList[10];
+                            case StatusEnum.Fire:
+                                return Orientation == OrientationEnum.Left ? SpriteList[8] : SpriteList[11];
+                            case StatusEnum.Small:
+                                return Orientation == OrientationEnum.Left ? SpriteList[9] : SpriteList[12];
+                        }
+                        break;
+                    case ActionEnum.Stand:
+                        switch (Status)
+                        {
+                            case StatusEnum.Big:
+                                return Orientation == OrientationEnum.Left ? SpriteList[13] : SpriteList[16];
+                            case StatusEnum.Fire:
+                                return Orientation == OrientationEnum.Left ? SpriteList[14] : SpriteList[17];
+                            case StatusEnum.Small:
+                                return Orientation == OrientationEnum.Left ? SpriteList[15] : SpriteList[18];
+                        }
+                        break;
+                    case ActionEnum.Crouch:
+                        switch (Status)
+                        {
+                            case StatusEnum.Big:
+                                return Orientation == OrientationEnum.Left ? SpriteList[19] : SpriteList[21];
+                            case StatusEnum.Fire:
+                                return Orientation == OrientationEnum.Left ? SpriteList[20] : SpriteList[22];
+                        }
+                        break;
+                    case ActionEnum.Break:
+                        switch (Status)
+                        {
+                            case StatusEnum.Big:
+                                return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[26];
+                            case StatusEnum.Fire:
+                                return Orientation == OrientationEnum.Left ? SpriteList[24] : SpriteList[27];
+                            case StatusEnum.Small:
+                                return Orientation == OrientationEnum.Left ? SpriteList[25] : SpriteList[28];
+                        }
+                        break;
+                }
+                return SpriteList[0];
             }
-            return SpriteList[0];
         }
 
         public void FaceLeft()

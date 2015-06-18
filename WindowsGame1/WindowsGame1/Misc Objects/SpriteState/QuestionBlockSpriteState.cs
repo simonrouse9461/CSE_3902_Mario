@@ -11,14 +11,7 @@ namespace WindowsGame1
             UsedBlock
         }
 
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
@@ -28,13 +21,11 @@ namespace WindowsGame1
             };
             Status = StatusEnum.Animated;
         }
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            if (Status == StatusEnum.UsedBlock) { return SpriteList[1]; }
-            else{
-                return SpriteList[0];
-            }
+            get { return Status == StatusEnum.UsedBlock ? SpriteList[1] : SpriteList[0]; }
         }
+
         public void UsedBlock()
         {
             Status = StatusEnum.UsedBlock;

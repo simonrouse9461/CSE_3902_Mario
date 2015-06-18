@@ -12,47 +12,45 @@ namespace WindowsGame1
             UsedBlock
         }
 
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new List<ISprite> {
                 new NormalBlockSprite(),
                 new UsedBlockSprite(),
                 new DestroyedBlockSprite()
             };
+
             Status = StatusEnum.Normal;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            if (Status == StatusEnum.Normal)
+            get
             {
-                return SpriteList[0];
-            }
-            else if (Status == StatusEnum.UsedBlock)
-            {
-                return SpriteList[1];
-            }
-            else
-            {
-                return SpriteList[2];
+                switch (Status)
+                {
+                    case StatusEnum.Normal:
+                        return SpriteList[0];
+                    case StatusEnum.UsedBlock:
+                        return SpriteList[1];
+                    default:
+                        return SpriteList[2];
+                }
             }
         }
+
         public void NormalBlock()
         {
             Status = StatusEnum.Normal;
         }
+
         public void DestroyedBlock()
         {
             Status = StatusEnum.Destroyed;
         }
+
         public void NormalUsedBlock()
         {
             Status = StatusEnum.UsedBlock;

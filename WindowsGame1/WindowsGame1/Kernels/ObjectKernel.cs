@@ -5,24 +5,43 @@ using Microsoft.Xna.Framework.Graphics;
 namespace WindowsGame1
 {
     public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
-        where TSpriteState : ISpriteState 
-        where TMotionState : IMotionState 
+        where TSpriteState : ISpriteState
+        where TMotionState : IMotionState
     {
-        public WorldManager World { get; set; }
+        private bool ReadyToUnload;
+        protected TSpriteState SpriteState { get; set; }
+        protected TMotionState MotionState { get; set; }
+        protected ICommandHandler CommandHandler { get; set; }
+        protected ICollisionHandler CollisionHandler { get; set; }
 
-        protected TSpriteState SpriteState;
+        public WorldManager World { get; private set; }
 
-        protected TMotionState MotionState;
+        public bool Solid { get; protected set; }
 
-        protected ICollisionHandler<TSpriteState, TMotionState> CollisionHandler;
+        public bool Active { get; protected set; }
 
-        protected ObjectKernel()
+        public Rectangle PositionRectangle
         {
+            get { return SpriteState.Sprite.GetDestination(MotionState.Position); }
+        }
+
+        public Vector2 PositionPoint
+        {
+            get { return MotionState.Position; }
+        }
+
+        protected ObjectKernel(WorldManager world)
+        {
+            World = world;
+            Solid = true;
+            Active = true;
             Initialize();
             Reset();
         }
 
         protected abstract void Initialize();
+
+        protected abstract void SyncState();
 
         public virtual void Reset()
         {
@@ -38,33 +57,31 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            World.ObjectList.Remove(this);
+            ReadyToUnload = true;
         }
 
         public void Update()
         {
+            if (World.ObjectList.Contains(this) && ReadyToUnload)
+            {
+                World.ObjectList.Remove(this);
+            }
+            if (CommandHandler != null) CommandHandler.Handle();
+            if (CollisionHandler != null) CollisionHandler.Handle();
+            SyncState();
             SpriteState.Update();
             MotionState.Update();
+            if (CollisionHandler != null) CollisionHandler.DetectBarrier();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteState.ActiveSprite().Draw(spriteBatch, MotionState.Position);
+            SpriteState.Sprite.Draw(spriteBatch, MotionState.Position);
         }
 
         public void PassCommand(ICommand command)
         {
-            
-        }
-
-        public Rectangle GetPositionRectangle()
-        {
-            return SpriteState.ActiveSprite().GetDestination(MotionState.Position);
-        }
-
-        public Vector2 GetPositionPoint()
-        {
-            return MotionState.Position;
+            CommandHandler.ReadCommand(command);
         }
     }
 }

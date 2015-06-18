@@ -7,8 +7,9 @@ namespace WindowsGame1
     public abstract class SpriteStateKernel : ISpriteState
     {
         protected Counter Timer { get; set; }
-
         protected List<ISprite> SpriteList { get; set; }
+
+        public abstract ISprite Sprite { get; }
 
         protected SpriteStateKernel()
         {
@@ -21,8 +22,6 @@ namespace WindowsGame1
         }
 
         protected abstract void Initialize();
-
-        public abstract ISprite ActiveSprite();
 
         public void Load(ContentManager content)
         {
@@ -50,7 +49,7 @@ namespace WindowsGame1
         {
             if (Timer.Update())
             {
-                ActiveSprite().Update();
+                Sprite.Update();
             }
         }
     }

@@ -5,7 +5,6 @@ namespace WindowsGame1
 {
     public class FireflowerSpriteState : ItemSpriteState
     {
-
         protected override void Initialize()
         {
             SpriteList = new List<ISprite>
@@ -14,9 +13,9 @@ namespace WindowsGame1
             };
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            return SpriteList[0];
+            get { return SpriteList[0]; }
         }
     }
 }
