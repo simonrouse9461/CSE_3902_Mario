@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,10 +10,10 @@ namespace WindowsGame1
     {
         // Kernal properties
         public Texture2D Texture { get; set; }
-        public List<Rectangle> Coodinates { get; set; }
+        public Collection<Rectangle> Coodinates { get; set; }
 
         // Constructor
-        public SpriteSource(List<Rectangle> coodinates)
+        public SpriteSource(Collection<Rectangle> coodinates)
         {
             Coodinates = coodinates;
         }
