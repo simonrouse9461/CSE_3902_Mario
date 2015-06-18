@@ -17,6 +17,7 @@ namespace WindowsGame1
         public void NormalBlockDestroyed()
         {
             SpriteState.Status = NormalBlockSpriteState.StatusEnum.Destroyed;
+            
         }
 
         public void NormalBlockUsed()
