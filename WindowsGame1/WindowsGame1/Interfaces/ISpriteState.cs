@@ -6,7 +6,7 @@ namespace WindowsGame1
 {
     public interface ISpriteState
     {
-        ISprite ActiveSprite();
+        ISprite Sprite { get; }
         void Load(ContentManager content);
         void UpdateFrequency(int frequency);
         void Reset();

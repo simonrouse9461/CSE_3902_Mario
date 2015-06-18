@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace WindowsGame1
 {
@@ -13,13 +10,7 @@ namespace WindowsGame1
             UsedBlock
         }
 
-        private StatusEnum status;
-
-        public StatusEnum Status
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusEnum Status { get; set; }
 
         protected override void Initialize()
         {
@@ -30,16 +21,9 @@ namespace WindowsGame1
             Status = StatusEnum.Hidden;
         }
 
-        public override ISprite ActiveSprite()
+        public override ISprite Sprite
         {
-            if (Status == StatusEnum.Hidden)
-            {
-                return SpriteList[0];
-            }
-            else
-            {
-                return SpriteList[1];
-            }
+            get { return Status == StatusEnum.Hidden ? SpriteList[0] : SpriteList[1]; }
         }
 
         public void HiddenToUsedBlock()

@@ -23,12 +23,12 @@ namespace WindowsGame1
 
         private Collision DetectCollision(T foreignObject, int offset)
         {
-            var thisPosition = Object.GetPositionRectangle();
+            var thisPosition = Object.PositionRectangle;
             thisPosition.X -= offset;
             thisPosition.Y -= offset;
             thisPosition.Width += 2*offset;
             thisPosition.Height += 2*offset;
-            var foreignPosition = foreignObject.GetPositionRectangle();
+            var foreignPosition = foreignObject.PositionRectangle;
             var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
             if (thisPosition.Intersects(foreignPosition))
             {
@@ -45,12 +45,12 @@ namespace WindowsGame1
             return Collision.None;
         }
 
-        public CollisionSide Detect(int offset = 1)
+        public CollisionSide Detect(int offset = 1, bool onlySolid = false)
         {
             var side = new CollisionSide();
             foreach (var obj in Object.World.ObjectList)
             {
-                if (obj is T && obj != Object)
+                if (obj is T && obj != Object && (obj.Solid || !onlySolid))
                 {
                     switch (DetectCollision((T) obj, offset))
                     {

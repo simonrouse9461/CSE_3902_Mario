@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
@@ -9,12 +10,10 @@ namespace WindowsGame1
 
         protected override void Initialize()
         {
-            Vector2 startCoordinate = new Vector2(119, 91);
-            Vector2 endCoordinate = new Vector2(242, 114);
             int period = 4;
 
             Source = new SpriteSource(
-                new List<Rectangle>
+                new Collection<Rectangle>
                 {
                     new Rectangle(127, 94, 12, 16),
                     new Rectangle(155, 94, 12, 16),
@@ -32,7 +31,6 @@ namespace WindowsGame1
 
         public override void Load(ContentManager content)
         {
-
             Source.Load(content, "items");
         }
 

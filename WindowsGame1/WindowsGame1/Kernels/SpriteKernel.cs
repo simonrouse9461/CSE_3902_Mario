@@ -6,13 +6,9 @@ namespace WindowsGame1
 {
     public abstract class SpriteKernel : ISprite
     {
-        // Sprite source information
-        protected SpriteSource Source;
+        protected SpriteSource Source { get; set; }
+        protected PeriodicFunction<int> Animation { get; set; }
 
-        // A structure that defines how does the sprite animate
-        protected PeriodicFunction<int> Animation;
-
-        // Constructor
         protected SpriteKernel()
         {
             Initialize(); 
@@ -22,25 +18,20 @@ namespace WindowsGame1
             Reset();
         }
 
-        // Initialize sprite properties.
         protected abstract void Initialize();
 
-        // Reset states.
         public void Reset()
         {
             Animation.Reset();
         }
 
-        // Load image content.
         public abstract void Load(ContentManager content);
 
-        // Update state.
         public void Update()
         {
             Animation.Update();
         }
 
-        // Draw on the canvas.
         public void Draw(SpriteBatch spriteBatch, Vector2 location)
         {
             Rectangle sourceRectangle = Source.Coodinates[Animation.GetValue()];

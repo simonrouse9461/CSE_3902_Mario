@@ -111,14 +111,16 @@
     <Compile Include="Kernels\CommandHandlerKernel.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
-    <Compile Include="Kernels\ObjectKernelNew.cs" />
+    <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
     <Compile Include="Mario\Sprites\BreakingLeftBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\BreakingLeftFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\BreakingLeftSmallMarioSprite.cs" />
     <Compile Include="Mario\Sprites\BreakingRightBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\BreakingRightFireMarioSprite .cs" />
+    <Compile Include="Mario\Sprites\BreakingRightSmallMarioSprite.cs" />
     <Compile Include="Misc Objects\Collision\DestructibleBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\Collision\HiddenBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
