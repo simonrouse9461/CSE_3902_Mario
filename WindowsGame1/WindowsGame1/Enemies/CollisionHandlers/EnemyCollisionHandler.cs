@@ -22,7 +22,7 @@ namespace WindowsGame1
                 Object.Active = false;
                 if (Object is Goomba)
                 {
-                    Object.Unload(200);
+                    Object.Unload(150);
                 }
             }
         }
