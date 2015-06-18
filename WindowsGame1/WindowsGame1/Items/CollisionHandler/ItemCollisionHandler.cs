@@ -19,7 +19,7 @@ namespace WindowsGame1
         {
             if (ItemMarioCollision.Detect().Any())
             {
-                Object.Unload();
+                Object.Unload(0);
             }
         }
     }

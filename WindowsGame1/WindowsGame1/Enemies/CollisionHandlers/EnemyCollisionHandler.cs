@@ -5,21 +5,25 @@ namespace WindowsGame1
 {
     public class EnemyCollisionHandler : CollisionHandlerKernel<EnemySpriteState, EnemyMotionState>
     {
-        private CollisionDetector<MarioObject> GoombaMarioCollision;
+        private CollisionDetector<MarioObject> EnemyMarioCollision;
 
         public EnemyCollisionHandler(EnemySpriteState spriteState, EnemyMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
         protected override void Initialize()
         {
-            GoombaMarioCollision = new CollisionDetector<MarioObject>(Object);
+            EnemyMarioCollision = new CollisionDetector<MarioObject>(Object);
         }
 
         public override void Handle()
         {
-            if (GoombaMarioCollision.Detect().Top)
+            if (EnemyMarioCollision.Detect().Top)
             {
                 SpriteState.MarioSmash();
                 Object.Active = false;
+                if (Object is Goomba)
+                {
+                    Object.Unload(200);
+                }
             }
         }
     }
