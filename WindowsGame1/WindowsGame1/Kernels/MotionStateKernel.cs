@@ -110,7 +110,7 @@ namespace WindowsGame1
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Motion.End())
+                    if (motion.Status && !motion.Motion.Terminate())
                     {
                         motion.Motion.Update();
                         Velocity += motion.Motion.GetVelocity();

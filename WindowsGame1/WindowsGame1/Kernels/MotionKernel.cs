@@ -25,7 +25,7 @@ namespace WindowsGame1
             Circulator.Update(phase);
         }
 
-        public virtual bool End()
+        public virtual bool Terminate()
         {
             return false;
         }
