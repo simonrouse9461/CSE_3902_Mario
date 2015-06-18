@@ -10,5 +10,9 @@ namespace WindowsGame1
             SpriteState = new UsedBlockSpriteState();
             MotionState = new UsedBlockMotionState();
         }
+        protected override void SyncState()
+        {
+
+        }
     }
 }

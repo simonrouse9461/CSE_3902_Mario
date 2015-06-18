@@ -5,18 +5,20 @@ namespace WindowsGame1
 {
     public class NormalBlockObject : ObjectKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
     {
-        public NormalBlockObject(WorldManager world) : base(world) { }
 
-        protected override void Initialize()
+        public NormalBlockObject(Vector2 location, WorldManager world) : base(location, world) { }
+
+        protected override void Initialize(Vector2 location)
         {
             SpriteState = new NormalBlockSpriteState();
-            MotionState = new NormalBlockMotionState();
+            MotionState = new NormalBlockMotionState(location);
             CollisionHandler = new NormalBlockCollisionHandler(SpriteState, MotionState, this);
         }
 
         public void NormalBlockDestroyed()
         {
             SpriteState.Status = NormalBlockSpriteState.StatusEnum.Destroyed;
+
         }
 
         public void NormalBlockUsed()
@@ -31,7 +33,7 @@ namespace WindowsGame1
 
         protected override void SyncState()
         {
-
+           
         }
     }
 }
