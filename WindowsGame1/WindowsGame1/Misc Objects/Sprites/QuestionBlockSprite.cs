@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
 namespace WindowsGame1
 {
     public class QuestionBlockSprite : SpriteKernel
@@ -13,7 +11,7 @@ namespace WindowsGame1
             const int period = 3;
 
             Source = new SpriteSource(
-                new Collection<Rectangle>
+                new List<Rectangle>
                 {
                     new Rectangle(0, 0, 16, 16),
                     new Rectangle(16, 0, 16, 16),

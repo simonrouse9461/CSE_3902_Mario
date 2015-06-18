@@ -4,14 +4,14 @@ namespace WindowsGame1
 {
     public class NullMotion : MotionKernel
     {
-        public override bool Terminate()
+        public override bool End
         {
-            return true;
+            get { return true; }
         }
 
-        public override Vector2 GetVelocity()
+        public override Vector2 Velocity
         {
-            return default(Vector2);
+            get { return default(Vector2); }
         }
     }
 }

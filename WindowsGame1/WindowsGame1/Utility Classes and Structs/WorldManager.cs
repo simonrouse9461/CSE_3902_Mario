@@ -9,7 +9,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public Collection<IObject> ObjectList { get; private set; }
+        public List<IObject> ObjectList { get; private set; }
 
         ObjectData[] Locations;
         public MarioObject Mario { get; private set; }
@@ -31,13 +31,13 @@ namespace WindowsGame1
         public Mushroom Mushroom { get; private set; }
         public GreenPipeObject GreenPipe { get; private set; }
 
-        public Hill Hill { get; private set; }
-        public Bush Bush { get; private set; }
-        public Cloud Cloud { get; private set; }
+        public Hill Hill;
+        public Bush Bush;
+        public Cloud Cloud;
 
         public WorldManager()
         {
-            ObjectList = new Collection<IObject>();
+            ObjectList = new List<IObject>();
 
             Mario = new MarioObject(this);
             Goomba = new Goomba(this); 
@@ -59,12 +59,7 @@ namespace WindowsGame1
             Bush = new Bush(this);
             Cloud = new Cloud(this);
             
-            // background things should be drawn first
-            ObjectList.Add(Bush);
-            ObjectList.Add(Hill);
-            ObjectList.Add(Cloud);
 
-            // then items
             ObjectList.Add(Coin);
             ObjectList.Add(Star);
             ObjectList.Add(QuestionBlock);
@@ -77,13 +72,12 @@ namespace WindowsGame1
             ObjectList.Add(Fireflower);
             ObjectList.Add(Mushroom);
             ObjectList.Add(_1up);
-
-            // then enemies
             ObjectList.Add(Koopa);
             ObjectList.Add(Goomba);
-
-            // Mario should be drawn in the end
             ObjectList.Add(Mario);
+            ObjectList.Add(Bush);
+            ObjectList.Add(Hill);
+            ObjectList.Add(Cloud);
         }
 
         public void LoadContent(ContentManager content)
@@ -116,6 +110,7 @@ namespace WindowsGame1
 
         public void Update()
         {
+
             for (int i = 0; i < ObjectList.Count; i++)
             {
                 ObjectList[i].Update();

@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class SuddenStopMotion : MotionKernel
     {
-        private Vector2 Acceleration;
+        private readonly Vector2 Acceleration;
         private int Sign;
 
         public SuddenStopMotion(float acceleration)
@@ -13,16 +13,19 @@ namespace WindowsGame1
             Acceleration = new Vector2(acceleration, 0);
         }
 
-        public override bool Terminate()
+        public override bool End
         {
-            return (int)GetVelocity().X == 0;
+            get { return (int) Velocity.X == 0; }
         }
 
-        public override Vector2 GetVelocity()
+        public override Vector2 Velocity
         {
-            Sign = Math.Sign(InitialVelocity.X);
-            var velocity = InitialVelocity - Circulator.Phase*Acceleration*Sign;
-            return velocity.X*Sign <= 0 ? default(Vector2) : velocity;
+            get
+            {
+                Sign = Math.Sign(InitialVelocity.X);
+                var velocity = InitialVelocity - Circulator.Phase*Acceleration*Sign;
+                return velocity.X*Sign <= 0 ? default(Vector2) : velocity;
+            }
         }
     }
 }

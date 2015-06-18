@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
 namespace WindowsGame1
 {
     public class IndestructibleBlockSprite : SpriteKernel
@@ -10,7 +8,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Source = new SpriteSource(
-                new Collection<Rectangle>
+                new List<Rectangle>
                 {
                     new Rectangle(0 ,17, 16, 16)
                 });
