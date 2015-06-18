@@ -10,10 +10,6 @@ namespace WindowsGame1
             SpriteState = new GreenPipeSpriteState();
             MotionState = new GreenPipeMotionState();
         }
-        protected override void SyncState()
-        {
-
-        }
     }
 
 }
