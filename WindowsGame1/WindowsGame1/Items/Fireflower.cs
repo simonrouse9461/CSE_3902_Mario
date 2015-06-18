@@ -3,13 +3,17 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Fireflower : ObjectKernel<FireflowerSpriteState, BlankMotionState>
+    public class Fireflower : ObjectKernelNew<FireflowerSpriteState, BlankMotionState>
     {
-        protected override void Initialize()
+        public Fireflower(WorldManager world) : base(world) { }
+        protected override void Initialize() 
         {
             SpriteState = new FireflowerSpriteState();
-            MotionState = new BlankMotionState();
-            
+            MotionState = new BlankMotionState();            
+        }
+        protected override void SyncState()
+        {
+
         }
     }
 }

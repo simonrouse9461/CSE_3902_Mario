@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Xna.Framework;
-
 namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
@@ -8,7 +5,8 @@ namespace WindowsGame1
         private CollisionDetector<Fireflower> MarioFireflowerCollision;
         private CollisionDetector<Mushroom> MarioMushroomCollision;
         private CollisionDetector<Goomba> MarioGoombaCollision;
-        private CollisionDetector<IObject> MarioObjectCollision;
+        private CollisionDetector<Koopa> MarioKoopaCollision;
+
 
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
@@ -17,7 +15,9 @@ namespace WindowsGame1
             MarioFireflowerCollision = new CollisionDetector<Fireflower>(Object);
             MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
             MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
-            MarioObjectCollision = new CollisionDetector<IObject>(Object);
+            MarioKoopaCollision = new CollisionDetector<Koopa>(Object);
+
+            AddBarrier<IObject>();
         }
 
         public override void Handle()
@@ -48,27 +48,16 @@ namespace WindowsGame1
                     SpriteState.BecomeSmall();
                 }
             }
-        }
-
-        public override void Adjust()
-        {
-            if (MarioObjectCollision.Detect().Any())
+            if (MarioKoopaCollision.Detect().Side())
             {
-                while (MarioObjectCollision.Detect(0).Bottom)
+                if (SpriteState.IsSmall())
                 {
-                    MotionState.Up1();
+                    SpriteState.BecomeDead();
+                    return;
                 }
-                while (MarioObjectCollision.Detect(0).Top)
+                if (SpriteState.IsBig() || SpriteState.IsFire())
                 {
-                    MotionState.Down1();
-                }
-                while (MarioObjectCollision.Detect(0).Left)
-                {
-                    MotionState.Right1();
-                }
-                while (MarioObjectCollision.Detect(0).Right)
-                {
-                    MotionState.Left1();
+                    SpriteState.BecomeSmall();
                 }
             }
         }

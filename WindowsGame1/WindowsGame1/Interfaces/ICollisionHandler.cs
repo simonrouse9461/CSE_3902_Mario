@@ -9,6 +9,6 @@ namespace WindowsGame1
         where TMotionState : IMotionState
     {
         void Handle();
-        void Adjust();
+        void DetectBarrier();
     }
 }
