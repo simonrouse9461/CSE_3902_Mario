@@ -47,11 +47,9 @@ namespace WindowsGame1
             Position += offset;
         }
 
-        protected Vector2 Velocity;
-
-        protected Counter Timer;
-
-        protected List<MotionSwitch> MotionList;
+        protected Vector2 Velocity { get; set; }
+        protected Counter Timer { get; set; }
+        protected List<MotionSwitch> MotionList { get; set; }
 
         protected MotionStateKernel()
         {
@@ -95,7 +93,7 @@ namespace WindowsGame1
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Motion.End)
+                    if (motion.Status && !motion.Motion.Finish)
                     {
                         motion.Motion.Update();
                         Velocity += motion.Motion.Velocity;

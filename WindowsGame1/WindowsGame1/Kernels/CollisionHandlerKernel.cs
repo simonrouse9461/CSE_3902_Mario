@@ -51,19 +51,19 @@ namespace WindowsGame1
             {
                 if (barrier.Detect().Any())
                 {
-                    while (barrier.Detect(0).Bottom)
+                    while (barrier.Detect(0, true).Bottom)
                     {
                         MotionState.Adjust(new Vector2(0, -1));
                     }
-                    while (barrier.Detect(0).Top)
+                    while (barrier.Detect(0, true).Top)
                     {
                         MotionState.Adjust(new Vector2(0, 1));
                     }
-                    while (barrier.Detect(0).Left)
+                    while (barrier.Detect(0, true).Left)
                     {
                         MotionState.Adjust(new Vector2(1, 0));
                     }
-                    while (barrier.Detect(0).Right)
+                    while (barrier.Detect(0, true).Right)
                     {
                         MotionState.Adjust(new Vector2(-1, 0));
                     }
