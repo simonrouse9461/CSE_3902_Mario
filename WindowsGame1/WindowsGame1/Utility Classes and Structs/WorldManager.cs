@@ -86,7 +86,7 @@ namespace WindowsGame1
 //            {
 //                obj.Load(content);
 //            }
-            //Locations = content.Load<ObjectData[]>("Locations");
+            Locations = content.Load<ObjectData[]>("Locations");
             Mario.Load(content, new Vector2(200, 170));
             Goomba.Load(content, new Vector2(230, 300));
             Koopa.Load(content, new Vector2(200, 300));

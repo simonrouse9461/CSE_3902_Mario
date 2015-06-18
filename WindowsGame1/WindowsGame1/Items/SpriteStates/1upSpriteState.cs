@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class _1upSpriteState : SpriteStateKernel
+    public class _1upSpriteState : ItemSpriteState
     {
 
         protected override void Initialize()

@@ -98,10 +98,11 @@
     <Compile Include="Interfaces\ICommandHandler.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
-    <Compile Include="Items\MotionStates\BlankMotionState.cs" />
-    <Compile Include="Items\MotionStates\RightMotionState.cs" />
+    <Compile Include="Items\CollisionHandler\ItemCollisionHandler.cs" />
+    <Compile Include="Items\MotionStates\ItemMotionState.cs" />
     <Compile Include="Items\SpriteStates\1upSpriteState.cs" />
     <Compile Include="Items\SpriteStates\CoinSpriteState.cs" />
+    <Compile Include="Items\SpriteStates\ItemSpriteState.cs" />
     <Compile Include="Items\SpriteStates\FireflowerSpriteState.cs" />
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
@@ -285,7 +286,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
-    <Folder Include="Items\CollisionHandler\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

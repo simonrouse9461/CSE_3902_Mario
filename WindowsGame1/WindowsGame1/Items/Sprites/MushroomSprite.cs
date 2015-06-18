@@ -6,7 +6,6 @@ namespace WindowsGame1
 {
     public class MushroomSprite : SpriteKernel
     {
-
         protected override void Initialize()
         {
             Source = new SpriteSource(
@@ -17,7 +16,6 @@ namespace WindowsGame1
         }
         public override void Load(ContentManager content)
         {
-
             Source.Load(content, "items");
         }
 
