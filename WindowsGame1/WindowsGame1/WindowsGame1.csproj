@@ -242,6 +242,7 @@
     <Content Include="READABILITY_REVIEWS\BowenReadabilityReview.txt" />
     <Content Include="READABILITY_REVIEWS\ChuhanReadabilityReview.txt" />
     <Content Include="READABILITY_REVIEWS\ColinReadabilityReview.txt" />
+    <Content Include="READABILITY_REVIEWS\ColinReadabilityReviewSprint3.txt" />
     <Content Include="READABILITY_REVIEWS\HadenReadabilityReview.txt" />
     <Content Include="READABILITY_REVIEWS\AndrewReadabilityReview.txt" />
     <Content Include="Game.ico" />
@@ -293,6 +294,9 @@
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Locations.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
     <None Include="WindowsGame1.csproj.Debug.cachefile" />

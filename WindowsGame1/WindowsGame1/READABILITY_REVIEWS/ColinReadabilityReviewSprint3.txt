@@ -1,0 +1,11 @@
+﻿Author: Colin Dolan
+Date: 6/18/15
+Sprint #: 3
+File: EnemyCollisionHandler.cs
+Author of File: Haden Kersting
+Comments: Naming is very descriptive, makes the purpose of the class
+very clear. Enemy states are only changed when the enemy detects a 
+collision with Mario from the top. Goomba object is unloaded so that
+disappears, possibly only issue to be refactored is the magic number 
+passed to the unload method, not totally clear what this does/means.
+Overall the class is very readable. 
