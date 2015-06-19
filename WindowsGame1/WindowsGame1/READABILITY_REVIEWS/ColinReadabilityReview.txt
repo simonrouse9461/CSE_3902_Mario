@@ -1,9 +1,0 @@
-﻿Author: Colin Dolan
-Date: 6/9/15
-Sprint #: 2
-File: SpriteSource.cs
-Author of File: Bowen Dai
-Comments:
-	Different enums are clearly labelled and make sense for their purposes. Action and status exception
-	handling could be labelled differently or commented to make it clear what they are doing. An enum 
-	for the SpriteList might also make it easier to understand what the switch cases are doing.
