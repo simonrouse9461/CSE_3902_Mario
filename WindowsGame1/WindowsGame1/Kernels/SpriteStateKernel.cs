@@ -8,8 +8,14 @@ namespace WindowsGame1
     {
         protected Counter Timer { get; set; }
         protected List<ISprite> SpriteList { get; set; }
+        protected List<ColorAnimator> ColorAnimatorList { get; set; }
 
         public abstract ISprite Sprite { get; }
+
+        public virtual Color Color
+        {
+            get { return Color.White; }
+        }
 
         protected SpriteStateKernel()
         {
@@ -17,6 +23,7 @@ namespace WindowsGame1
 
             Timer = Timer ?? new Counter(5);
             SpriteList = SpriteList ?? new List<ISprite>();
+            ColorAnimatorList = ColorAnimatorList ?? new List<ColorAnimator>();
 
             Reset();
         }
@@ -43,6 +50,10 @@ namespace WindowsGame1
             {
                 sprite.Reset();
             }
+            foreach (var colorAnimator in ColorAnimatorList)
+            {
+                colorAnimator.Reset();
+            }
         }
 
         public void Update()
@@ -50,6 +61,10 @@ namespace WindowsGame1
             if (Timer.Update())
             {
                 Sprite.Update();
+            }
+            foreach (var colorAnimator in ColorAnimatorList)
+            {
+                colorAnimator.Update();
             }
         }
     }

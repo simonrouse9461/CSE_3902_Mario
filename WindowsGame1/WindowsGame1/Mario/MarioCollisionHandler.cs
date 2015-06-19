@@ -6,6 +6,7 @@ namespace WindowsGame1
         private CollisionDetector<Mushroom> MarioMushroomCollision;
         private CollisionDetector<Goomba> MarioGoombaCollision;
         private CollisionDetector<Koopa> MarioKoopaCollision;
+        private CollisionDetector<Star> MarioStarCollision;
 
 
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
@@ -16,6 +17,7 @@ namespace WindowsGame1
             MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
             MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
             MarioKoopaCollision = new CollisionDetector<Koopa>(Object);
+            MarioStarCollision = new CollisionDetector<Star>(Object);
 
             AddBarrier<IObject>();
         }
@@ -35,6 +37,10 @@ namespace WindowsGame1
                 {
                     SpriteState.BecomeBig();
                 }
+            }
+            if (MarioStarCollision.Detect().Any())
+            {
+                SpriteState.SetStarPower(true);
             }
             if (MarioGoombaCollision.Detect(true, true).Side())
             {
