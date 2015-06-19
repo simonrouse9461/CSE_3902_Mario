@@ -234,9 +234,7 @@
     <Content Include="bin\x86\Debug\LeveLoader.dll" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="READABILITY_REVIEWS\BowenReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\ChuhanReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\ColinReadabilityReview.txt" />
+    <Content Include="READABILITY_REVIEWS\BowenReadabilityReviewS3.txt" />
     <Content Include="READABILITY_REVIEWS\ColinReadabilityReviewSprint3.txt" />
     <Content Include="READABILITY_REVIEWS\HadenReadabilityReview.txt" />
     <Content Include="Game.ico" />
