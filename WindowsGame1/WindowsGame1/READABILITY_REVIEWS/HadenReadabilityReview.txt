@@ -2,9 +2,29 @@
 6/18/2015
 Sprint 3
 
-File: 
-File Author: 
-Time: 
+File: Counter.cs
+File Author: Chuhan Feng
+Time: 10 minutes
 
 COMMENTS:
+	I find this fairly difficult to read. I might be misunderstanding how the class works.
+	
+	I think it would be useful to either rename "Phase" or "phase". I think these names are too similar. 
+	
+	I do not think "Phase" and "Cycle" are very descriptive names. I might recommend "currentCount" and 
+	"countsInCycle".
+
+	If I understand correctly, every time the Update method is called, the currentCount is incremented
+	and the methods returns whether or not the currentCount has reached the countsInCycle. I think it
+	might be best to separate this into two methods:
+		1. void Increment()
+		2. bool CycleComplete()
+	I see how this might cause problems (with user having to call both of the methods). But I think 
+	separating them would be better. 
+
+	It also seems that currently Update has another use which should be separated into a different method.
+	I am referring to the ability to change the currentCount via an argument (for example: "Update(8)"). I think this
+	should be separated into another method such as:
+		3. void ChangeCurrentCounterValue(int newCountValue)
+
 	

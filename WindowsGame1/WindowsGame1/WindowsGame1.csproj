@@ -176,12 +176,6 @@
     <Compile Include="Mario\Sprites\FacingRightBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\FacingRightFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\FacingRightSmallMarioSprite .cs" />
-    <Compile Include="Mario\Sprites\SwimmingLeftBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingLeftFireMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingLeftSmallMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingRightBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingRightFireMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingRightSmallMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningLeftBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningLeftFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningLeftSmallMarioSprite.cs" />
