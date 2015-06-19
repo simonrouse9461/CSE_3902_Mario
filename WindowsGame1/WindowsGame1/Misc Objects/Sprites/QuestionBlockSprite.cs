@@ -10,7 +10,7 @@ namespace WindowsGame1
         
         protected override void Initialize()
         {
-            const int period = 3;
+            const int period = 6;
 
             Source = new SpriteSource(
                 new Collection<Rectangle>
@@ -22,7 +22,7 @@ namespace WindowsGame1
             Animation = new PeriodicFunction<int>(
             phase => 
             {
-                int[] frameSequence = {0, 1, 2};
+                int[] frameSequence = {0, 0, 1, 1, 2, 2};
                 return frameSequence[phase];
             },
             period);
