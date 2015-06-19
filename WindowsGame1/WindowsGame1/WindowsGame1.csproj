@@ -222,6 +222,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="Utility Classes and Structs\CollisionDetector.cs" />
     <Compile Include="Utility Classes and Structs\CollisionSide.cs" />
+    <Compile Include="Utility Classes and Structs\ColorAnimator.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
     <Compile Include="Utility Classes and Structs\Counter.cs" />
     <Compile Include="Utility Classes and Structs\NullCollisionHandler.cs" />

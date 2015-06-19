@@ -67,9 +67,9 @@ namespace WindowsGame1
 
         public void Unload(int unloadTimer)
         {
-            this.PrepareToUnload = true;
-            this.TotalIterationsUntilUnload = unloadTimer;
-            this.UnloadCounter = 0;
+            PrepareToUnload = true;
+            TotalIterationsUntilUnload = unloadTimer;
+            UnloadCounter = 0;
         }
 
         public void Update()
@@ -92,7 +92,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteState.Sprite.Draw(spriteBatch, MotionState.Position);
+            SpriteState.Sprite.Draw(spriteBatch, MotionState.Position, SpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

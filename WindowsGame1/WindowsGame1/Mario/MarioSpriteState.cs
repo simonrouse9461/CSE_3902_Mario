@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -31,6 +32,7 @@ namespace WindowsGame1
         private StatusEnum Status;
         private ActionEnum Action;
         private OrientationEnum Orientation;
+        private bool StarPower;
 
         protected override void Initialize()
         {
@@ -66,6 +68,21 @@ namespace WindowsGame1
                 new BreakingRightFireMarioSprite(), //27
                 new BreakingRightSmallMarioSprite(), //28
             };
+
+            ColorAnimatorList = new List<ColorAnimator>
+            {
+                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 5)
+            };
+        }
+
+        public override Color Color
+        {
+            get
+            {
+                if (StarPower)
+                    return ColorAnimatorList[0].Color;
+                return Color.White;
+            }
         }
 
         public override ISprite Sprite
@@ -196,6 +213,16 @@ namespace WindowsGame1
         public bool IsFire()
         {
             return Status == StatusEnum.Fire;
+        }
+
+        public void SetStarPower(bool value)
+        {
+            StarPower = value;
+        }
+
+        public bool IsStarPower()
+        {
+            return StarPower;
         }
 
         public void Run()
