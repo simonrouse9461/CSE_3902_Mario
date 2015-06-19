@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class CollisionDetector<T> : ICollisionDetector where T : IObject
+    public class CollisionDetectorNew : ICollisionDetectorNew
     {
         private enum Collision
         {
@@ -15,19 +15,19 @@ namespace WindowsGame1
         }
 
         private IObject Object;
-        
-        public CollisionDetector(IObject obj)
+
+        public CollisionDetectorNew(IObject obj)
         {
             Object = obj;
         }
 
-        private Collision DetectCollision(T foreignObject, int offset)
+        private Collision DetectCollision(IObject foreignObject, int offset)
         {
             var thisPosition = Object.PositionRectangle;
             thisPosition.X -= offset;
             thisPosition.Y -= offset;
-            thisPosition.Width += 2*offset;
-            thisPosition.Height += 2*offset;
+            thisPosition.Width += 2 * offset;
+            thisPosition.Height += 2 * offset;
             var foreignPosition = foreignObject.PositionRectangle;
             var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
             if (thisPosition.Intersects(foreignPosition))
@@ -45,14 +45,43 @@ namespace WindowsGame1
             return Collision.None;
         }
 
-        public CollisionSide Detect(bool onlySolid = false, bool onlyActive = false, int offset = 1)
+        public CollisionSide Detect(Type type, Func<IObject, bool> condition = null, int offset = 1)
         {
+            condition = condition ?? (obj => true);
             var side = new CollisionSide();
             foreach (var obj in Object.World.ObjectList)
             {
-                if (obj is T && obj != Object && (obj.Solid || !onlySolid) && (obj.Solid || !onlyActive))
+                if (type.IsInstanceOfType(obj) && obj != Object && condition(obj))
                 {
-                    switch (DetectCollision((T) obj, offset))
+                    switch (DetectCollision(obj, offset))
+                    {
+                        case Collision.Top:
+                            side.Top = true;
+                            break;
+                        case Collision.Bottom:
+                            side.Bottom = true;
+                            break;
+                        case Collision.Left:
+                            side.Left = true;
+                            break;
+                        case Collision.Right:
+                            side.Right = true;
+                            break;
+                    }
+                }
+            }
+            return side;
+        }
+
+        public CollisionSide Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject
+        {
+            condition = condition ?? (obj => true);
+            var side = new CollisionSide();
+            foreach (var obj in Object.World.ObjectList)
+            {
+                if (obj is T && obj != Object && condition((T)obj))
+                {
+                    switch (DetectCollision((T)obj, offset))
                     {
                         case Collision.Top:
                             side.Top = true;

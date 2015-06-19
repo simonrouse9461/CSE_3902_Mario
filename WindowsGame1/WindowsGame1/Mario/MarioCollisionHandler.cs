@@ -1,24 +1,11 @@
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
+    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioSpriteState, MarioMotionState>
     {
-        private CollisionDetector<Fireflower> MarioFireflowerCollision;
-        private CollisionDetector<Mushroom> MarioMushroomCollision;
-        private CollisionDetector<Goomba> MarioGoombaCollision;
-        private CollisionDetector<Koopa> MarioKoopaCollision;
-        private CollisionDetector<Star> MarioStarCollision;
-
-
         public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
         protected override void Initialize()
         {
-            MarioFireflowerCollision = new CollisionDetector<Fireflower>(Object);
-            MarioMushroomCollision = new CollisionDetector<Mushroom>(Object);
-            MarioGoombaCollision = new CollisionDetector<Goomba>(Object);
-            MarioKoopaCollision = new CollisionDetector<Koopa>(Object);
-            MarioStarCollision = new CollisionDetector<Star>(Object);
-
             AddBarrier<IObject>();
         }
 
@@ -27,22 +14,22 @@ namespace WindowsGame1
             if (SpriteState.IsDead())
                 return;
 
-            if (MarioFireflowerCollision.Detect().Any())
+            if (CollisionDetector.Detect<Fireflower>().Any())
             {
                 SpriteState.BecomeFire();
             }
-            if (MarioMushroomCollision.Detect().Any())
+            if (CollisionDetector.Detect<Mushroom>().Any())
             {
                 if (SpriteState.IsSmall())
                 {
                     SpriteState.BecomeBig();
                 }
             }
-            if (MarioStarCollision.Detect().Any())
+            if (CollisionDetector.Detect<Star>().Any())
             {
                 SpriteState.SetStarPower(true);
             }
-            if (MarioGoombaCollision.Detect(true, true).Side())
+            if (CollisionDetector.Detect<Goomba>(goomba => goomba.Solid && goomba.Solid).Side())
             {
                 if (SpriteState.IsSmall())
                 {
@@ -54,7 +41,7 @@ namespace WindowsGame1
                     SpriteState.BecomeSmall();
                 }
             }
-            if (MarioKoopaCollision.Detect(true, true).Side())
+            if (CollisionDetector.Detect<Koopa>(koopa => koopa.Solid && koopa.Solid).Side())
             {
                 if (SpriteState.IsSmall())
                 {

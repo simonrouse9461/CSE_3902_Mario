@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,7 +11,6 @@ namespace WindowsGame1
     {
         private bool PrepareToUnload;
         private int UnloadCounter;
-        private int TotalIterationsUntilUnload;
 
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
@@ -23,12 +23,6 @@ namespace WindowsGame1
         {
             get { return CollisionHandler.Solid; }
             protected set { CollisionHandler.Solid = value; }
-        }
-
-        public bool Active
-        {
-            get { return CollisionHandler.Active; }
-            protected set { CollisionHandler.Active = value; }
         }
 
         public Rectangle PositionRectangle
@@ -47,6 +41,7 @@ namespace WindowsGame1
             CollisionHandler = new NullCollisionHandler(SpriteState, MotionState, this);
             Initialize();
             Reset();
+            Console.WriteLine(this.GetType());
         }
 
         protected abstract void Initialize();
@@ -65,22 +60,18 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload(int unloadTimer = 0)
+        public void Unload(int counter = 0)
         {
             PrepareToUnload = true;
-            TotalIterationsUntilUnload = unloadTimer;
-            UnloadCounter = 0;
+            UnloadCounter = counter;
         }
 
         public void Update()
         {
             if (World.ObjectList.Contains(this) && PrepareToUnload)
             {
-                UnloadCounter++;
-                if (UnloadCounter >= TotalIterationsUntilUnload)
-                {
-                    World.ObjectList.Remove(this);
-                }
+                UnloadCounter--;
+                if (UnloadCounter == 0) World.ObjectList.Remove(this);
             }
             if (CommandHandler != null) CommandHandler.Handle();
             CollisionHandler.Handle();
