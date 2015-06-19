@@ -5,31 +5,15 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class JumpingLeftBigMarioSprite: SpriteKernel
+    public class JumpingLeftBigMarioSprite : SpriteKernel
     {
         protected override void Initialize()
         {
-            const int period = 8;
-
             Source = new SpriteSource(
                 new Collection<Rectangle>
                 {
-                    new Rectangle(1, 88, 14, 30),
-                    new Rectangle(28, 89, 14, 27),
-                    new Rectangle(52, 88, 16, 30),
-                    new Rectangle(78, 88, 14, 30),
-                    new Rectangle(103, 88, 14, 30),
-                    new Rectangle(127, 88, 16, 29),
-                    new Rectangle(152, 88, 16, 29),
-                    new Rectangle(180, 88, 16, 29)
+                    new Rectangle(30, 52, 16, 32)
                 });
-            Animation = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = {7, 6, 5, 4, 3, 2, 1, 0};
-                    return frameSequence[phase];
-                }, 
-                period);
         }
 
         public override void Load(ContentManager content)
