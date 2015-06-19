@@ -40,10 +40,10 @@ namespace WindowsGame1
             {
                 new DeadMarioSprite(), //0
                 new JumpingLeftBigMarioSprite(), //1
-                new JumpingLeftFireMarioSprite(), //2
+                new DeadMarioSprite(), //2
                 new JumpingLeftSmallMarioSprite(), //3
                 new JumpingRightBigMarioSprite(), //4
-                new JumpingRightFireMarioSprite(), //5
+                new DeadMarioSprite(), //5
                 new JumpingRightSmallMarioSprite(), //6
                 new RunningLeftBigMarioSprite(), //7
                 new RunningLeftFireMarioSprite(), //8
@@ -67,6 +67,8 @@ namespace WindowsGame1
                 new BreakingRightBigMarioSprite(), //26
                 new BreakingRightFireMarioSprite(), //27
                 new BreakingRightSmallMarioSprite(), //28
+                new JumpingLeftFireMarioSprite(),
+                new JumpingRightFireMarioSprite()
             };
 
             ColorAnimatorList = new List<ColorAnimator>
@@ -99,7 +101,7 @@ namespace WindowsGame1
                             case StatusEnum.Big:
                                 return Orientation == OrientationEnum.Left ? SpriteList[1] : SpriteList[4];
                             case StatusEnum.Fire:
-                                return Orientation == OrientationEnum.Left ? SpriteList[2] : SpriteList[5];
+                                return Orientation == OrientationEnum.Left ? SpriteList[29] : SpriteList[30];
                             case StatusEnum.Small:
                                 return Orientation == OrientationEnum.Left ? SpriteList[3] : SpriteList[6];
                         }

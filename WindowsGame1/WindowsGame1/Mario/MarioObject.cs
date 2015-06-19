@@ -37,7 +37,6 @@
                 else if (MotionState.IsFall())
                     SpriteState.Crouch();
             }
-
             if (SpriteState.IsDead())
                 MotionState.Dead();
         }
