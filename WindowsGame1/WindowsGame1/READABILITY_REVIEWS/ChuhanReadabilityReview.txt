@@ -1,0 +1,34 @@
+﻿Author: Chuhan Feng
+Date: 6/9/2015
+Sprint #: 2
+File Name: HiddenBlockSpriteState.cs
+File Author: Andrew Miller
+
+Comment:
+	File name is clear enough to show what it does. The Enum is
+clearly defined to show different state of the block. The purpose
+of all fields, properties, functions can be clearly identified
+by their names. The overall readability is high.
+
+Author: Chuhan Feng
+Date: 6/18/2015
+Sprint #: 3
+File Name: HiddenBlockCollisionHandler.cs
+File Author: Andrew Miller
+
+Comment:
+	File name explains itself. This class is used to handle the collision
+	for hidden block. For the private field inside the class, the purpose
+	is very obvious to see from its name. For the field which named
+	MarioHiddenBlockCollision, I understand it is a collision detector for
+	the collision between mario and hidden block, but what makes me a little
+	confused is that the name sounds like mario is detecting hidden block
+	rather than hidden block is detecting mario. So the problem it causes
+	appears in Handle() method, when it says:
+	"if (MarioHiddenBlockCollision.Detect().Bottom)"
+	What I immediately come up with is that hidden block is at the bottom
+	of Mario, but actually it just means the reverse. Consequently, this
+	not only makes the reader confused, but also confuses the author about
+	his logic. So if I were him, I'll name it HiddenBlockMarioCollision,
+	which makes hidden block sounds like the subject of the detect action.
+	Other than that, everything is easy to understand.

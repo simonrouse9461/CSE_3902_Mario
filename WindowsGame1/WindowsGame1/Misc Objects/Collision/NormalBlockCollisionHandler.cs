@@ -15,7 +15,7 @@ namespace WindowsGame1
 
         public override void Handle(){
             if(MarioNormalBlockCollision.Detect().Bottom){
-                Object.Unload(0);
+                Object.Unload();
             }
         }
     }

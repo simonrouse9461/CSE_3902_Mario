@@ -81,9 +81,7 @@ namespace WindowsGame1
         {
             get
             {
-                if (StarPower)
-                    return ColorAnimatorList[0].Color;
-                return Color.White;
+                return StarPower ? ColorAnimatorList[0].Color : Color.White;
             }
         }
 

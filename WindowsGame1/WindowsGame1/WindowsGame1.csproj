@@ -224,9 +224,9 @@
     <Compile Include="Utility Classes and Structs\CollisionSide.cs" />
     <Compile Include="Utility Classes and Structs\ColorAnimator.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
-    <Compile Include="Utility Classes and Structs\Counter.cs" />
+    <Compile Include="Infrastructure\Counter.cs" />
     <Compile Include="Utility Classes and Structs\NullCollisionHandler.cs" />
-    <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
+    <Compile Include="Infrastructure\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSource.cs" />
     <Compile Include="Utility Classes and Structs\WorldManager.cs" />
   </ItemGroup>
