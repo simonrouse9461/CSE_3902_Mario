@@ -239,7 +239,6 @@
     <Content Include="READABILITY_REVIEWS\ColinReadabilityReview.txt" />
     <Content Include="READABILITY_REVIEWS\ColinReadabilityReviewSprint3.txt" />
     <Content Include="READABILITY_REVIEWS\HadenReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\AndrewReadabilityReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
@@ -250,6 +249,7 @@
     <Content Include="obj\x86\Debug\WindowsGame1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\WindowsGame1.exe" />
     <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
+    <Content Include="READABILITY_REVIEWS\AndreReadabilityReview.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
