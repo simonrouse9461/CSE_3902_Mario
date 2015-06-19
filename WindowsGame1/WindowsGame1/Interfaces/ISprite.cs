@@ -9,7 +9,7 @@ namespace WindowsGame1
         void Reset();
         void Load(ContentManager content);
         void Update();
-        void Draw(SpriteBatch spriteBatch, Vector2 location);
+        void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color = null);
         Rectangle GetDestination(Vector2 location);
     }
 }
