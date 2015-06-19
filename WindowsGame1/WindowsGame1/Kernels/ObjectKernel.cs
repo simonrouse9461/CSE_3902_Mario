@@ -65,7 +65,7 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload(int unloadTimer)
+        public void Unload(int unloadTimer = 0)
         {
             PrepareToUnload = true;
             TotalIterationsUntilUnload = unloadTimer;

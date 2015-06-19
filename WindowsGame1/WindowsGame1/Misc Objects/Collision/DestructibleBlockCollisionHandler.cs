@@ -18,7 +18,7 @@ namespace WindowsGame1
         {
             if (MarioDestructibleBlockCollision.Detect().Bottom)
             {
-                Object.Unload(0);
+                Object.Unload();
             }
         }
     }
