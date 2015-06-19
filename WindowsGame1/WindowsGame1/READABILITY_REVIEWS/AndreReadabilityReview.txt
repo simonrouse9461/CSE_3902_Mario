@@ -1,0 +1,29 @@
+﻿Andrew Miller
+6/18/2015
+Sprint 3
+
+File: MarioSpriteState.cs
+File Author: Chuhan Feng
+Time: 15 minutes
+
+Comments:
+
+The enums are set to private which is good; nothing outside of the class can change any of the enums,
+making it so that the client does not get too much information about the class. The switch case for the changes
+of sprites and actions is fairly long, but they are well designed so there isn't too many cases. This way it's
+much easier to read and the names are descriptive enough that the results of the case statements are instantly
+clear. However, the default case for the switch statement returns the dead mario sprite, so as we found during
+testing, if the switch statement does not return anything it will draw a dead mario - sometimes not what we 
+want.
+
+The rest of the methods are where the enums are changed so that the sprites themselves can be changed. They are 
+public, so it is easy to call to these methods and change the enums from outside the class. Each void method has
+a corresponding bool method, so that the MarioObject class can easily decide which enum to switch to during a 
+certain change of state for Mario. Keeping the methods this way allows for easy changes to be made from outside
+the SpriteState class without potentially causing a lot of damage to the program.
+
+Possible Improvements:
+
+Find a way to make the methods in the SpriteState class private since it could be possible for the client to 
+change the SpriteState; however this could cause problems as they need to be called from other classes with how
+the current implementation is set up.
