@@ -7,25 +7,25 @@ namespace WindowsGame1
     {
         protected class MotionSwitch
         {
-            private readonly IMotion _motion;
+            private readonly IMotion motion;
 
             public IMotion Motion
             {
-                get { return _motion; }
+                get { return motion; }
             }
 
-            private bool _status;
+            private bool status;
 
             public bool Status
             {
-                get { return _status; }
-                private set { _status = value; }
+                get { return status; }
+                private set { status = value; }
             }
 
-            public MotionSwitch(IMotion motion)
+            public MotionSwitch(IMotion motionSwitch)
             {
-                _motion = motion;
-                _status = false;
+                motion = motionSwitch;
+                status = false;
             }
 
             public void Toggle(bool status)
