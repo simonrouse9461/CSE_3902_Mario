@@ -54,15 +54,15 @@ namespace WindowsGame1
         {
             foreach (var barrier in BarrierList)
             {
-                if (CollisionDetector.Detect(barrier).Any())
+                if (CollisionDetector.Detect(barrier).Any.Contact)
                 {
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Bottom)
+                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Bottom.Contact)
                         MotionState.Adjust(new Vector2(0, -1));
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Top)
+                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Top.Contact)
                         MotionState.Adjust(new Vector2(0, 1));
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Left)
+                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Left.Contact)
                         MotionState.Adjust(new Vector2(1, 0));
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Right)
+                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Right.Contact)
                         MotionState.Adjust(new Vector2(-1, 0));
                 }
             }
