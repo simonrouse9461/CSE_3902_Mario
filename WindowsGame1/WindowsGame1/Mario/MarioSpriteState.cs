@@ -156,9 +156,9 @@ namespace WindowsGame1
             Orientation = OrientationEnum.Left;
         }
 
-        public bool IsLeft()
+        public bool Left
         {
-            return Orientation == OrientationEnum.Left;
+            get { return Orientation == OrientationEnum.Left; }
         }
 
         public void FaceRight()
@@ -166,9 +166,9 @@ namespace WindowsGame1
             Orientation = OrientationEnum.Right;
         }
 
-        public bool IsRight()
+        public bool Right
         {
-            return Orientation == OrientationEnum.Right;
+            get { return Orientation == OrientationEnum.Right; }
         }
 
         public void BecomeBig()
@@ -176,9 +176,9 @@ namespace WindowsGame1
             Status = StatusEnum.Big;
         }
 
-        public bool IsBig()
+        public bool Big
         {
-            return Status == StatusEnum.Big;
+            get { return Status == StatusEnum.Big; }
         }
 
         public void BecomeSmall()
@@ -190,9 +190,9 @@ namespace WindowsGame1
             }
         }
 
-        public bool IsSmall()
+        public bool Small
         {
-            return Status == StatusEnum.Small;
+            get { return Status == StatusEnum.Small; }
         }
 
         public void BecomeDead()
@@ -200,29 +200,34 @@ namespace WindowsGame1
             Status = StatusEnum.Dead;
         }
 
-        public bool IsDead()
+        public bool Dead
         {
-            return Status == StatusEnum.Dead;
+            get { return Status == StatusEnum.Dead; }
         }
 
-        public void BecomeFire()
+        public void GetFire()
         {
             Status = StatusEnum.Fire;
         }
 
-        public bool IsFire()
+        public bool HaveFire
         {
-            return Status == StatusEnum.Fire;
+            get { return Status == StatusEnum.Fire; }
         }
 
-        public void SetStarPower(bool value)
+        public void GetStarPower()
         {
-            StarPower = value;
+            StarPower = true;
         }
 
-        public bool IsStarPower()
+        public void LoseStarPower()
         {
-            return StarPower;
+            StarPower = false;
+        }
+
+        public bool HaveStarPower
+        {
+            get { return StarPower; }
         }
 
         public void Run()
@@ -230,9 +235,9 @@ namespace WindowsGame1
             Action = ActionEnum.Run;
         }
 
-        public bool IsRun()
+        public bool Running
         {
-            return Action == ActionEnum.Run;
+            get { return Action == ActionEnum.Run; }
         }
 
         public void Jump()
@@ -240,9 +245,9 @@ namespace WindowsGame1
             Action = ActionEnum.Jump;
         }
 
-        public bool IsJump()
+        public bool Jumping
         {
-            return Action == ActionEnum.Jump;
+            get { return Action == ActionEnum.Jump; }
         }
 
         public void Crouch()
@@ -250,9 +255,9 @@ namespace WindowsGame1
             Action = Status == StatusEnum.Small ? ActionEnum.Stand : ActionEnum.Crouch;
         }
 
-        public bool IsCrouch()
+        public bool Crouching
         {
-            return Action == ActionEnum.Crouch;
+            get { return Action == ActionEnum.Crouch; }
         }
 
         public void Stand()
@@ -260,19 +265,19 @@ namespace WindowsGame1
             Action = ActionEnum.Stand;
         }
 
-        public bool IsStand()
+        public bool Standing
         {
-            return Action == ActionEnum.Stand;
+            get { return Action == ActionEnum.Stand; }
         }
 
-        public void Break()
+        public void Turn()
         {
             Action = ActionEnum.Break;
         }
 
-        public bool IsBreak()
+        public bool Turning
         {
-            return Action == ActionEnum.Break;
+            get { return Action == ActionEnum.Break; }
         }
     }
 }

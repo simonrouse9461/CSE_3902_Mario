@@ -14,7 +14,7 @@ namespace WindowsGame1
                 {typeof(MarioDeadCommand), () => SpriteState.BecomeDead()},
                 {typeof(MarioBigCommand), () => SpriteState.BecomeBig()},
                 {typeof(MarioSmallCommand), () => SpriteState.BecomeSmall()},
-                {typeof(MarioFireCommand), () => SpriteState.BecomeFire()},
+                {typeof(MarioFireCommand), () => SpriteState.GetFire()},
                 {typeof(MarioLeftCommand), () =>
                 {
 

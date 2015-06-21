@@ -11,7 +11,7 @@ namespace WindowsGame1
         protected IObject Object { get; set; }
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
-        protected CollisionDetectorNew CollisionDetector { get; private set; }
+        protected CollisionDetectorNew Detector { get; private set; }
         public bool Solid { get; set; }
 
         private readonly Collection<Type> BarrierList;
@@ -22,7 +22,7 @@ namespace WindowsGame1
             MotionState = motionState;
             Object = obj;
             Solid = true;
-            CollisionDetector = new CollisionDetectorNew(Object);
+            Detector = new CollisionDetectorNew(Object);
             BarrierList = new Collection<Type>();
             Initialize();
         }
@@ -51,15 +51,15 @@ namespace WindowsGame1
         {
             foreach (var barrier in BarrierList)
             {
-                if (CollisionDetector.Detect(barrier).AnyEdge.Contact)
+                if (Detector.Detect(barrier).AnyEdge.Contact)
                 {
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Bottom.Contact)
+                    while (Detector.Detect(barrier, obj => obj.Solid, 0).Bottom.Contact)
                         MotionState.Adjust(new Vector2(0, -1));
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Top.Contact)
+                    while (Detector.Detect(barrier, obj => obj.Solid, 0).Top.Contact)
                         MotionState.Adjust(new Vector2(0, 1));
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Left.Contact)
+                    while (Detector.Detect(barrier, obj => obj.Solid, 0).Left.Contact)
                         MotionState.Adjust(new Vector2(1, 0));
-                    while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Right.Contact)
+                    while (Detector.Detect(barrier, obj => obj.Solid, 0).Right.Contact)
                         MotionState.Adjust(new Vector2(-1, 0));
                 }
             }

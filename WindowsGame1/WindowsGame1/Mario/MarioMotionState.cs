@@ -44,7 +44,7 @@ namespace WindowsGame1
             switch (HorizontalStatus)
             {
                 case HorizontalEnum.AccRight:
-                    if (IsVelLeft())
+                    if (MovingLeft)
                     {
                         MotionList[2].Toggle(true);
                     }
@@ -54,7 +54,7 @@ namespace WindowsGame1
                     }
                     break;
                 case HorizontalEnum.AccLeft:
-                    if (IsVelRight())
+                    if (MovingRight)
                     {
                         MotionList[2].Toggle(true);
                     }
@@ -64,7 +64,7 @@ namespace WindowsGame1
                     }
                     break;
                 case HorizontalEnum.None:
-                    if (IsVelLeft() || IsVelRight())
+                    if (MovingLeft || MovingRight)
                     {
                         MotionList[2].Toggle(true);
                     }
@@ -96,55 +96,55 @@ namespace WindowsGame1
                 VerticalStatus = VerticalEnum.None;
         }
 
-        public bool IsHorizontalStatic()
+        public bool HorizontalStatic
         {
-            return Math.Abs(Velocity.X) < 0.001;
+            get { return Math.Abs(Velocity.X) < 0.001; }
         }
 
-        public bool IsVerticalStatic()
+        public bool VerticalStatic
         {
-            return Math.Abs(Velocity.Y) < 0.001;
+            get { return Math.Abs(Velocity.Y) < 0.001; }
         }
 
         public void MoveRight()
         {
-            HorizontalStatus = IsAccLeft() ? HorizontalEnum.None : HorizontalEnum.AccRight;
+            HorizontalStatus = AcceleratingLeft ? HorizontalEnum.None : HorizontalEnum.AccRight;
         }
 
-        public bool IsAccRight()
+        public bool AcceleratingRight
         {
-            return HorizontalStatus == HorizontalEnum.AccRight;
+            get { return HorizontalStatus == HorizontalEnum.AccRight; }
         }
 
-        public bool IsVelRight()
+        public bool MovingRight
         {
-            return Velocity.X > 0;
+            get { return Velocity.X > 0; }
         }
 
         public void MoveLeft()
         {
-            HorizontalStatus = IsAccRight() ? HorizontalEnum.None : HorizontalEnum.AccLeft;
+            HorizontalStatus = AcceleratingRight ? HorizontalEnum.None : HorizontalEnum.AccLeft;
         }
 
-        public bool IsAccLeft()
+        public bool AcceleratingLeft
         {
-            return HorizontalStatus == HorizontalEnum.AccLeft;
+            get { return HorizontalStatus == HorizontalEnum.AccLeft; }
         }
 
-        public bool IsVelLeft()
+        public bool MovingLeft
         {
-            return Velocity.X < 0;
+            get { return Velocity.X < 0; }
         }
 
-        public void Dead()
+        public void DeadFall()
         {
             HorizontalStatus = HorizontalEnum.None;
             VerticalStatus = VerticalEnum.Dead;
         }
 
-        public bool IsDead()
+        public bool Dead
         {
-            return VerticalStatus == VerticalEnum.Dead;
+            get { return VerticalStatus == VerticalEnum.Dead; }
         }
 
         public void Raise()
@@ -152,9 +152,9 @@ namespace WindowsGame1
             VerticalStatus = VerticalEnum.Raise;
         }
 
-        public bool IsRaise()
+        public bool Raising
         {
-            return VerticalStatus == VerticalEnum.Raise;
+            get { return VerticalStatus == VerticalEnum.Raise; }
         }
 
         public void Fall()
@@ -162,9 +162,9 @@ namespace WindowsGame1
             VerticalStatus = VerticalEnum.Fall;
         }
 
-        public bool IsFall()
+        public bool Falling
         {
-            return VerticalStatus == VerticalEnum.Fall;
+            get { return VerticalStatus == VerticalEnum.Fall; }
         }
     }
 }

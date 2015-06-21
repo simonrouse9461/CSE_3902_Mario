@@ -115,6 +115,7 @@
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
+    <Compile Include="Mario\IMario.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
     <Compile Include="Mario\Sprites\BreakingLeftBigMarioSprite.cs" />

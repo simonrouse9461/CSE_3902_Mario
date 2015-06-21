@@ -11,44 +11,44 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (SpriteState.IsDead())
+            if (SpriteState.Dead)
                 return;
 
-            if (CollisionDetector.Detect<Fireflower>().AnyEdge.Contact)
+            if (Detector.Detect<Fireflower>().AnyEdge.Contact)
             {
-                SpriteState.BecomeFire();
+                SpriteState.GetFire();
             }
-            if (CollisionDetector.Detect<Mushroom>().AnyEdge.Contact)
+            if (Detector.Detect<Mushroom>().AnyEdge.Contact)
             {
-                if (SpriteState.IsSmall())
+                if (SpriteState.Small)
                 {
                     SpriteState.BecomeBig();
                 }
             }
-            if (CollisionDetector.Detect<Star>().AnyEdge.Contact)
+            if (Detector.Detect<Star>().AnyEdge.Contact)
             {
-                SpriteState.SetStarPower(true);
+                SpriteState.GetStarPower();
             }
-            if (CollisionDetector.Detect<Goomba>(goomba => goomba.Solid /*&& goomba.Alive*/).AnySide.Contact)
+            if (Detector.Detect<Goomba>(goomba => goomba.Solid /*&& goomba.Alive*/).AnySide.Contact)
             {
-                if (SpriteState.IsSmall())
+                if (SpriteState.Small)
                 {
                     SpriteState.BecomeDead();
                     return;
                 }
-                if (SpriteState.IsBig() || SpriteState.IsFire())
+                if (SpriteState.Big || SpriteState.HaveFire)
                 {
                     SpriteState.BecomeSmall();
                 }
             }
-            if (CollisionDetector.Detect<Koopa>(koopa => koopa.Solid /*&& koopa.Alive*/).AnySide.Contact)
+            if (Detector.Detect<Koopa>(koopa => koopa.Solid /*&& koopa.Alive*/).AnySide.Contact)
             {
-                if (SpriteState.IsSmall())
+                if (SpriteState.Small)
                 {
                     SpriteState.BecomeDead();
                     return;
                 }
-                if (SpriteState.IsBig() || SpriteState.IsFire())
+                if (SpriteState.Big || SpriteState.HaveFire)
                 {
                     SpriteState.BecomeSmall();
                 }

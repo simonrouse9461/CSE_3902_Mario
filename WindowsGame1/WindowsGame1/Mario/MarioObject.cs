@@ -16,29 +16,44 @@
 
         protected override void SyncState()
         {
-            if (MotionState.IsVerticalStatic())
+            if (MotionState.VerticalStatic)
             {
-                if (MotionState.IsHorizontalStatic())
+                if (MotionState.HorizontalStatic)
                 {
                     SpriteState.Stand();
                 }
                 else
                 {
-                    if (MotionState.IsVelRight() == SpriteState.IsRight())
+                    if (MotionState.MovingRight == SpriteState.Right)
                         SpriteState.Run();
                     else
-                        SpriteState.Break();
+                        SpriteState.Turn();
                 }
             }
             else
             {
-                if (MotionState.IsRaise())
+                if (MotionState.Raising)
                     SpriteState.Jump();
-                else if (MotionState.IsFall())
+                else if (MotionState.Falling)
                     SpriteState.Crouch();
             }
-            if (SpriteState.IsDead())
-                MotionState.Dead();
+            if (SpriteState.Dead)
+                MotionState.DeadFall();
+        }
+
+        public bool Alive
+        {
+            get { return !SpriteState.Dead; }
+        }
+
+        public bool StarPower
+        {
+            get { return SpriteState.HaveStarPower; }
+        }
+
+        public bool Destructive
+        {
+            get { return !SpriteState.Small; }
         }
     }
 }
