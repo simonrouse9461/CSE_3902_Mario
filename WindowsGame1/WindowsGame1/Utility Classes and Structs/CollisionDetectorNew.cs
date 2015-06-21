@@ -26,121 +26,6 @@ namespace WindowsGame1
             LowerRight
         }
 
-        private struct RectangleSpec
-        {
-            private Rectangle _rectangle;
-
-            public Vector2 Origin
-            {
-                get { return new Vector2(_rectangle.X, _rectangle.Y); }
-            }
-
-            public int Width
-            {
-                get { return _rectangle.Width; }
-            }
-
-            public int Height
-            {
-                get { return _rectangle.Height; }
-            }
-
-            public int Top
-            {
-                get { return _rectangle.Y; }
-            }
-
-            public int Bottom
-            {
-                get { return _rectangle.Y + Height; }
-            }
-
-            public int Left
-            {
-                get { return _rectangle.X; }
-            }
-
-            public int Right
-            {
-                get { return _rectangle.X + Width; }
-            }
-
-            public int HotizontalMidline
-            {
-                get { return _rectangle.Y + Height/2; }
-            }
-
-            public int VerticalMidline
-            {
-                get { return _rectangle.X + Width/2; }
-            }
-
-            public Vector2 UpperLeft
-            {
-                get { return Origin; }
-            }
-
-            public Vector2 UpperRight
-            {
-                get { return new Vector2(Right, Top); }
-            }
-
-            public Vector2 LowerLeft
-            {
-                get { return new Vector2(Left, Bottom); }
-            }
-
-            public Vector2 LowerRight
-            {
-                get { return new Vector2(Right, Bottom); }
-            }
-
-            public Vector2 MidLeft
-            {
-                get { return new Vector2(Left, HotizontalMidline); }
-            }
-
-            public Vector2 MidRight
-            {
-                get { return new Vector2(Left, HotizontalMidline); }
-            }
-
-            public Vector2 MidTop
-            {
-                get { return new Vector2(VerticalMidline, Top); }
-            }
-
-            public Vector2 MidBottom
-            {
-                get { return new Vector2(VerticalMidline, Bottom); }
-            }
-
-            public Vector2 Center
-            {
-                get { return new Vector2(VerticalMidline, HotizontalMidline); }
-            }
-
-            public RectangleSpec(Rectangle rectangle)
-            {
-                _rectangle = rectangle;
-            }
-
-            public bool HavePoint(Vector2 point)
-            {
-                return _rectangle.Contains((int) point.X, (int) point.Y);
-            }
-
-            public static bool operator ==(RectangleSpec a, RectangleSpec b)
-            {
-                return a._rectangle == b._rectangle;
-            }
-
-            public static bool operator !=(RectangleSpec a, RectangleSpec b)
-            {
-                return !(a == b);
-            }
-        }
-
         private readonly IObject _object;
 
         public CollisionDetectorNew(IObject obj)
@@ -217,11 +102,9 @@ namespace WindowsGame1
                 switch (ComparePosition(subjectRectangle, objectRectangle))
                 {
                     case RelativePosition.Inside:
+                        return new Collision {AllEdge = touched};
                     case RelativePosition.Around:
-                        return new Collision
-                        {
-                            AllEdge = covered
-                        };
+                        return new Collision {AllEdge = covered};
                     case RelativePosition.VerticalThrough:
                         if (Object.Left <= Subject.VerticalMidline)
                             returnValue.Left = covered;
@@ -341,126 +224,181 @@ namespace WindowsGame1
                     case RelativePosition.UpperLeft:
                         if (Intersection.Width >= Intersection.Height)
                         {
-                            if (Intersection.Right > Subject.VerticalMidline)
+                            switch (Math.Sign(Intersection.Right.CompareTo(Subject.VerticalMidline)))
                             {
-                                returnValue.TopRight = touched;
-                                returnValue.TopLeft = covered;
+                                case 1:
+                                    returnValue.TopRight = touched;
+                                    returnValue.TopLeft = covered;
+                                    break;
+                                case 0:
+                                    returnValue.TopLeft = covered;
+                                    break;
+                                case -1:
+                                    returnValue.TopLeft = touched;
+                                    break;
                             }
-                            else if (Intersection.Right == Subject.VerticalMidline)
-                                returnValue.TopLeft = covered;
-                            else
-                                returnValue.TopLeft = touched;
                         }
                         else
                         {
-                            if (Intersection.Bottom > Subject.HotizontalMidline)
+                            switch (Math.Sign(Intersection.Bottom.CompareTo(Subject.HotizontalMidline)))
                             {
-                                
+                                case 1:
+                                    returnValue.LeftBottom = touched;
+                                    returnValue.LeftTop = covered;
+                                    break;
+                                case 0:
+                                    returnValue.LeftTop = covered;
+                                    break;
+                                case -1:
+                                    returnValue.LeftTop = touched;
+                                    break;
                             }
-                            return new Collision {LeftTop = covered};
-                            return new Collision {LeftTop = touched};
                         }
+                        return returnValue;
                     case RelativePosition.UpperRight:
                         if (Intersection.Width >= Intersection.Height)
                         {
-                            if (Intersection.Left == Subject.VerticalMidline)
-                                return new Collision {TopRight = covered};
-                            return new Collision {TopRight = touched};
+                            switch (Math.Sign(Intersection.Left.CompareTo(Subject.VerticalMidline)))
+                            {
+                                case -1:
+                                    returnValue.TopLeft = touched;
+                                    returnValue.TopRight = covered;
+                                    break;
+                                case 0:
+                                    returnValue.TopRight = covered;
+                                    break;
+                                case 1:
+                                    returnValue.TopRight = touched;
+                                    break;
+                            }
                         }
-                        if (Intersection.Bottom == Subject.HotizontalMidline)
-                            return new Collision {RightTop = covered};
-                        return new Collision {RightTop = touched};
+                        else
+                        {
+                            switch (Math.Sign(Intersection.Bottom.CompareTo(Subject.HotizontalMidline)))
+                            {
+                                case 1:
+                                    returnValue.RightBottom = touched;
+                                    returnValue.RightTop = covered;
+                                    break;
+                                case 0:
+                                    returnValue.RightTop = covered;
+                                    break;
+                                case -1:
+                                    returnValue.RightTop = touched;
+                                    break;
+                            }
+                        }
+                        return returnValue;
                     case RelativePosition.LowerLeft:
                         if (Intersection.Width >= Intersection.Height)
                         {
-                            if (Intersection.Right == Subject.VerticalMidline)
-                                return new Collision {BottomLeft = covered};
-                            return new Collision {BottomLeft = touched};
+                            switch (Math.Sign(Intersection.Right.CompareTo(Subject.VerticalMidline)))
+                            {
+                                case 1:
+                                    returnValue.BottomRight = touched;
+                                    returnValue.BottomLeft = covered;
+                                    break;
+                                case 0:
+                                    returnValue.BottomLeft = covered;
+                                    break;
+                                case -1:
+                                    returnValue.BottomLeft = touched;
+                                    break;
+                            }
                         }
-                        if (Intersection.Top == Subject.HotizontalMidline)
-                            return new Collision {LeftTop = covered};
-                        return new Collision {LeftTop = touched};
+                        else
+                        {
+                            switch (Math.Sign(Intersection.Top.CompareTo(Subject.HotizontalMidline)))
+                            {
+                                case -1:
+                                    returnValue.LeftTop = touched;
+                                    returnValue.LeftBottom = covered;
+                                    break;
+                                case 0:
+                                    returnValue.LeftBottom = covered;
+                                    break;
+                                case 1:
+                                    returnValue.LeftBottom = touched;
+                                    break;
+                            }
+                        }
+                        return returnValue;
                     case RelativePosition.LowerRight:
-                        break;
+                        if (Intersection.Width >= Intersection.Height)
+                        {
+                            switch (Math.Sign(Intersection.Left.CompareTo(Subject.VerticalMidline)))
+                            {
+                                case -1:
+                                    returnValue.BottomLeft = touched;
+                                    returnValue.BottomRight = covered;
+                                    break;
+                                case 0:
+                                    returnValue.BottomRight = covered;
+                                    break;
+                                case 1:
+                                    returnValue.BottomRight = touched;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (Math.Sign(Intersection.Top.CompareTo(Subject.HotizontalMidline)))
+                            {
+                                case -1:
+                                    returnValue.RightTop = touched;
+                                    returnValue.RightBottom = covered;
+                                    break;
+                                case 0:
+                                    returnValue.RightBottom = covered;
+                                    break;
+                                case 1:
+                                    returnValue.RightBottom = touched;
+                                    break;
+                            }
+                        }
+                        return returnValue;
                 }
             }
+            return returnValue;
+        }
 
-//            var thisPosition = _object.PositionRectangle;
-//            thisPosition.X -= offset;
-//            thisPosition.Y -= offset;
-//            thisPosition.Width += 2 * offset;
-//            thisPosition.Height += 2 * offset;
-//            var foreignPosition = foreignObject.PositionRectangle;
-//            var intersection = Rectangle.Intersect(thisPosition, foreignPosition);
-//            if (thisPosition.Intersects(foreignPosition))
-//            {
-//                if (intersection.Height > intersection.Width)
-//                {
-//                    if (foreignPosition.Left > thisPosition.Left)
-//                        return Collision.Right;
-//                    return Collision.Left;
-//                }
-//                if (foreignPosition.Top > thisPosition.Top)
-//                    return Collision.Bottom;
-//                return Collision.Top;
-//            }
-//            return Collision.None;
+        private static Rectangle SetOffset(Rectangle rectangle, int offset)
+        {
+            rectangle.X -= offset;
+            rectangle.Y -= offset;
+            rectangle.Width += 2 * offset;
+            rectangle.Height += 2 * offset;
+            return rectangle;
         }
 
         public Collision Detect(Type type, Func<IObject, bool> condition = null, int offset = 1)
         {
             condition = condition ?? (obj => true);
-            var side = new Collision();
+            var collision = new Collision();
+            var objectRectangle = SetOffset(_object.PositionRectangle, offset);
             foreach (var obj in _object.World.ObjectList)
             {
                 if (type.IsInstanceOfType(obj) && obj != _object && condition(obj))
                 {
-                    switch (DetectCollision(obj, offset))
-                    {
-                        case Collision.Top:
-                            side.Top = true;
-                            break;
-                        case Collision.Bottom:
-                            side.Bottom = true;
-                            break;
-                        case Collision.Left:
-                            side.Left = true;
-                            break;
-                        case Collision.Right:
-                            side.Right = true;
-                            break;
-                    }
+                    collision += DetectCollision(objectRectangle, obj.PositionRectangle);
                 }
             }
-            return side;
+            return collision;
         }
 
         public Collision Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject
         {
             condition = condition ?? (obj => true);
-            var side = new Collision();
+            var collision = new Collision();
+            var objectRectangle = SetOffset(_object.PositionRectangle, offset);
             foreach (var obj in _object.World.ObjectList)
             {
                 if (obj is T && obj != _object && condition((T)obj))
                 {
-                    switch (DetectCollision((T)obj, offset))
-                    {
-                        case Collision.Top:
-                            side.Top = true;
-                            break;
-                        case Collision.Bottom:
-                            side.Bottom = true;
-                            break;
-                        case Collision.Left:
-                            side.Left = true;
-                            break;
-                        case Collision.Right:
-                            side.Right = true;
-                            break;
-                    }
+                    collision += DetectCollision(objectRectangle, obj.PositionRectangle);
                 }
             }
-            return side;
+            return collision;
         }
     }
 }

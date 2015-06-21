@@ -38,23 +38,20 @@ namespace WindowsGame1
 
         public void RemoveBarrier<T>() where T : IObject
         {
-            Type temp = null;
             foreach (var type in BarrierList)
             {
-                if (Activator.CreateInstance(type) is T)
+                if (type.IsAssignableFrom(typeof(T)))
                 {
-                    temp = type;
+                    BarrierList.Remove(type);
                 }
             }
-            if (temp != null)
-                BarrierList.Remove(temp);
         }
 
         public void DetectBarrier()
         {
             foreach (var barrier in BarrierList)
             {
-                if (CollisionDetector.Detect(barrier).Any.Contact)
+                if (CollisionDetector.Detect(barrier).AnyEdge.Contact)
                 {
                     while (CollisionDetector.Detect(barrier, obj => obj.Solid, 0).Bottom.Contact)
                         MotionState.Adjust(new Vector2(0, -1));
