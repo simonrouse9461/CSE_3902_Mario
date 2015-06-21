@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public interface ICollisionDetectorNew
     {
-        CollisionSide Detect(Type type, Func<IObject, bool> condition = null, int offset = 1);
-        CollisionSide Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject; 
+        CollisionSideNew Detect(Type type, Func<IObject, bool> condition = null, int offset = 1);
+        CollisionSideNew Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject; 
     }
 }

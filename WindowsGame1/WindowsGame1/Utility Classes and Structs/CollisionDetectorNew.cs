@@ -45,10 +45,10 @@ namespace WindowsGame1
             return Collision.None;
         }
 
-        public CollisionSide Detect(Type type, Func<IObject, bool> condition = null, int offset = 1)
+        public CollisionSideNew Detect(Type type, Func<IObject, bool> condition = null, int offset = 1)
         {
             condition = condition ?? (obj => true);
-            var side = new CollisionSide();
+            var side = new CollisionSideNew();
             foreach (var obj in Object.World.ObjectList)
             {
                 if (type.IsInstanceOfType(obj) && obj != Object && condition(obj))
@@ -73,10 +73,10 @@ namespace WindowsGame1
             return side;
         }
 
-        public CollisionSide Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject
+        public CollisionSideNew Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject
         {
             condition = condition ?? (obj => true);
-            var side = new CollisionSide();
+            var side = new CollisionSideNew();
             foreach (var obj in Object.World.ObjectList)
             {
                 if (obj is T && obj != Object && condition((T)obj))
