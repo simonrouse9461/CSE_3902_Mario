@@ -4,30 +4,21 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public abstract class CollisionHandlerKernelNew<TSpriteState, TMotionState> : ICollisionHandler
+    public abstract class CollisionHandlerKernelNew<TSpriteState, TMotionState> : ICollisionHandlerNew
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
-        protected IObject Object { get; set; }
-        protected TSpriteState SpriteState { get; set; }
-        protected TMotionState MotionState { get; set; }
-        protected CollisionDetectorNew Detector { get; private set; }
-        public bool Solid { get; set; }
+        public State<TSpriteState, TMotionState> State { get; set; }
+        public CollisionDetectorNew Detector { get; set; }
 
         private readonly Collection<Type> BarrierList;
 
-        protected CollisionHandlerKernelNew(TSpriteState spriteState, TMotionState motionState, IObject obj)
+        protected CollisionHandlerKernelNew(State<TSpriteState,TMotionState> state)
         {
-            SpriteState = spriteState;
-            MotionState = motionState;
-            Object = obj;
-            Solid = true;
-            Detector = new CollisionDetectorNew(Object);
+            State = state;
+            Detector = new CollisionDetectorNew(State.Object);
             BarrierList = new Collection<Type>();
-            Initialize();
         }
-
-        protected abstract void Initialize();
 
         public abstract void Handle();
 
@@ -54,13 +45,13 @@ namespace WindowsGame1
                 if (Detector.Detect(barrier).AnyEdge.Contact)
                 {
                     while (Detector.Detect(barrier, obj => obj.Solid, 0).Bottom.Contact)
-                        MotionState.Adjust(new Vector2(0, -1));
+                        State.MotionState.Adjust(new Vector2(0, -1));
                     while (Detector.Detect(barrier, obj => obj.Solid, 0).Top.Contact)
-                        MotionState.Adjust(new Vector2(0, 1));
+                        State.MotionState.Adjust(new Vector2(0, 1));
                     while (Detector.Detect(barrier, obj => obj.Solid, 0).Left.Contact)
-                        MotionState.Adjust(new Vector2(1, 0));
+                        State.MotionState.Adjust(new Vector2(1, 0));
                     while (Detector.Detect(barrier, obj => obj.Solid, 0).Right.Contact)
-                        MotionState.Adjust(new Vector2(-1, 0));
+                        State.MotionState.Adjust(new Vector2(-1, 0));
                 }
             }
         }

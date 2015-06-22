@@ -1,17 +1,18 @@
 ﻿namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>, IMario
+    public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>, IMario
     {
-        public MarioObject(WorldManager world) : base(world) { }
-
-        protected override void Initialize()
+        public MarioObject(WorldManager world) : base(world)
         {
             SpriteState = new MarioSpriteState();
             MotionState = new MarioMotionState();
-            CommandHandler = new MarioCommandHandler(SpriteState, MotionState);
-            CollisionHandler = new MarioCollisionHandler(SpriteState, MotionState, this);
+            CommandHandler = new MarioCommandHandler(State);
+            CollisionHandler = new MarioCollisionHandler(State);
 
             SpriteState.BecomeSmall();
+
+            // call initialize method ata the end of constructor
+            Initialize();
         }
 
         protected override void SyncState()

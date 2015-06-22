@@ -5,24 +5,24 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
+    public abstract class ObjectKernelNew<TSpriteState, TMotionState> : IObject
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
         private bool PrepareToUnload;
         private int UnloadCounter;
 
+        protected State<TSpriteState, TMotionState> State { get; set; }
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
         protected ICommandHandler CommandHandler { get; set; }
-        protected ICollisionHandler CollisionHandler { get; set; }
+        protected ICollisionHandlerNew CollisionHandler { get; set; }
 
         public WorldManager World { get; private set; }
 
-        public bool Solid
+        public virtual bool Solid
         {
-            get { return CollisionHandler.Solid; }
-            protected set { CollisionHandler.Solid = value; }
+            get { return true; }
         }
 
         public Rectangle PositionRectangle
@@ -35,18 +35,22 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        protected ObjectKernel(WorldManager world)
+        protected ObjectKernelNew(WorldManager world)
         {
             World = world;
-            CollisionHandler = new NullCollisionHandler(SpriteState, MotionState, this);
-            Initialize();
-            Reset();
-            Console.WriteLine(this.GetType());
         }
 
-        protected abstract void Initialize();
-
         protected abstract void SyncState();
+
+        protected void Initialize()
+        {
+            State = new State<TSpriteState, TMotionState>
+            {
+                Object = this,
+                SpriteState = SpriteState,
+                MotionState = MotionState
+            };
+        }
 
         public virtual void Reset()
         {

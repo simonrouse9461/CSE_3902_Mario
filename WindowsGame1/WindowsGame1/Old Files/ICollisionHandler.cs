@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public interface ICollisionHandler
+    public interface ICollisionHandler : ICollisionHandlerNew
     {
         bool Solid { get; set; }
         void Handle();

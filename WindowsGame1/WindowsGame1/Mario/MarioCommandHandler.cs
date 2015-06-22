@@ -5,38 +5,38 @@ namespace WindowsGame1
 {
     public class MarioCommandHandler : CommandHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioCommandHandler(MarioSpriteState spriteState, MarioMotionState motionState) : base(spriteState, motionState) { }
-
-        protected override void Initialize()
+        public MarioCommandHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
         {
             CommandAction = new Dictionary<Type, Action>
             {
-                {typeof(MarioDeadCommand), () => SpriteState.BecomeDead()},
-                {typeof(MarioBigCommand), () => SpriteState.BecomeBig()},
-                {typeof(MarioSmallCommand), () => SpriteState.BecomeSmall()},
-                {typeof(MarioFireCommand), () => SpriteState.GetFire()},
+                {typeof(MarioDeadCommand), () => State.SpriteState.BecomeDead()},
+                {typeof(MarioBigCommand), () => State.SpriteState.BecomeBig()},
+                {typeof(MarioSmallCommand), () => State.SpriteState.BecomeSmall()},
+                {typeof(MarioFireCommand), () => State.SpriteState.GetFire()},
                 {typeof(MarioLeftCommand), () =>
                 {
 
-                    SpriteState.FaceLeft();
-                    MotionState.MoveLeft();
+                    State.SpriteState.FaceLeft();
+                    State.MotionState.MoveLeft();
                 }},
                 {typeof(MarioRightCommand), () =>
                 {
-                    SpriteState.FaceRight();
-                    MotionState.MoveRight();
+                    State.SpriteState.FaceRight();
+                    State.MotionState.MoveRight();
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
-                    SpriteState.Crouch();
-                    MotionState.Raise();
+                    State.SpriteState.Crouch();
+                    State.MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () =>
                 {
-                    MotionState.Fall();
-                    SpriteState.Crouch();
-                }},
+                    State.MotionState.Fall();
+                    State.SpriteState.Crouch();
+                }}
             };
+
+            Initialize();
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioMotionState : MotionStateKernel
+    public class MarioMotionState : MotionStateKernelNew
     {
         private enum HorizontalEnum
         {

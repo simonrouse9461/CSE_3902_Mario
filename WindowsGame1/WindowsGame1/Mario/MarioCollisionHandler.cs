@@ -2,55 +2,53 @@ namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioSpriteState, MarioMotionState>
     {
-        public MarioCollisionHandler(MarioSpriteState spriteState, MarioMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
-
-        protected override void Initialize()
+        public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
         {
             AddBarrier<IObject>();
         }
 
         public override void Handle()
         {
-            if (SpriteState.Dead)
+            if (State.SpriteState.Dead)
                 return;
 
             if (Detector.Detect<Fireflower>().AnyEdge.Contact)
             {
-                SpriteState.GetFire();
+                State.SpriteState.GetFire();
             }
             if (Detector.Detect<Mushroom>().AnyEdge.Contact)
             {
-                if (SpriteState.Small)
+                if (State.SpriteState.Small)
                 {
-                    SpriteState.BecomeBig();
+                    State.SpriteState.BecomeBig();
                 }
             }
             if (Detector.Detect<Star>().AnyEdge.Contact)
             {
-                SpriteState.GetStarPower();
+                State.SpriteState.GetStarPower();
             }
             if (Detector.Detect<Goomba>(goomba => goomba.Solid /*&& goomba.Alive*/).AnySide.Contact)
             {
-                if (SpriteState.Small)
+                if (State.SpriteState.Small)
                 {
-                    SpriteState.BecomeDead();
+                    State.SpriteState.BecomeDead();
                     return;
                 }
-                if (SpriteState.Big || SpriteState.HaveFire)
+                if (State.SpriteState.Big || State.SpriteState.HaveFire)
                 {
-                    SpriteState.BecomeSmall();
+                    State.SpriteState.BecomeSmall();
                 }
             }
             if (Detector.Detect<Koopa>(koopa => koopa.Solid /*&& koopa.Alive*/).AnySide.Contact)
             {
-                if (SpriteState.Small)
+                if (State.SpriteState.Small)
                 {
-                    SpriteState.BecomeDead();
+                    State.SpriteState.BecomeDead();
                     return;
                 }
-                if (SpriteState.Big || SpriteState.HaveFire)
+                if (State.SpriteState.Big || State.SpriteState.HaveFire)
                 {
-                    SpriteState.BecomeSmall();
+                    State.SpriteState.BecomeSmall();
                 }
             }
         }
