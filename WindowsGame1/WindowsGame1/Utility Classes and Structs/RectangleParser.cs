@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public struct RectangleSpec
+    public struct RectangleParser
     {
         private Rectangle _rectangle;
 
@@ -96,7 +96,7 @@ namespace WindowsGame1
             get { return new Vector2(VerticalMidline, HotizontalMidline); }
         }
 
-        public RectangleSpec(Rectangle rectangle)
+        public RectangleParser(Rectangle rectangle)
         {
             _rectangle = rectangle;
         }
@@ -106,12 +106,12 @@ namespace WindowsGame1
             return _rectangle.Contains((int)point.X, (int)point.Y);
         }
 
-        public static bool operator ==(RectangleSpec a, RectangleSpec b)
+        public static bool operator ==(RectangleParser a, RectangleParser b)
         {
             return a._rectangle == b._rectangle;
         }
 
-        public static bool operator !=(RectangleSpec a, RectangleSpec b)
+        public static bool operator !=(RectangleParser a, RectangleParser b)
         {
             return !(a == b);
         }

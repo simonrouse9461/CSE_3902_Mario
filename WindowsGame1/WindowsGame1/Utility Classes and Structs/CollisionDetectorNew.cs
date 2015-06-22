@@ -36,9 +36,9 @@ namespace WindowsGame1
         private static RelativePosition ComparePosition(Rectangle subjectRectangle, Rectangle objectRectangle)
         {
             var intersectionRectangle = Rectangle.Intersect(subjectRectangle, objectRectangle);
-            var Subject = new RectangleSpec(subjectRectangle);
-            var Object = new RectangleSpec(objectRectangle);
-            var Intersection = new RectangleSpec(intersectionRectangle);
+            var Subject = new RectangleParser(subjectRectangle);
+            var Object = new RectangleParser(objectRectangle);
+            var Intersection = new RectangleParser(intersectionRectangle);
 
             if (Object == Intersection)
                 return RelativePosition.Inside;
@@ -90,9 +90,9 @@ namespace WindowsGame1
         private static Collision DetectCollision(Rectangle subjectRectangle, Rectangle objectRectangle)
         {
             var intersectionRectangle = Rectangle.Intersect(subjectRectangle, objectRectangle);
-            var Subject = new RectangleSpec(subjectRectangle);
-            var Object = new RectangleSpec(objectRectangle);
-            var Intersection = new RectangleSpec(intersectionRectangle);
+            var Subject = new RectangleParser(subjectRectangle);
+            var Object = new RectangleParser(objectRectangle);
+            var Intersection = new RectangleParser(intersectionRectangle);
             var covered = default(Collision.CollisionType).SetToCover();
             var touched = default(Collision.CollisionType).SetToContact();
             var returnValue = new Collision();
