@@ -28,9 +28,9 @@ namespace MarioKoopaCollisions
             TestMario.PassCommand(TestCommand);
 
             //Check if Mario is dead
-            Assert.AreEqual(false, TestMario.Alive);
+            //Assert.AreEqual(true, TestMario.SpriteState.IsDead());
             //Check if Koopa is Shell
-            //Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Assert.AreEqual(WalkingKoopaSprite, TestGoomba.SpriteState);
         }
 
         public void MarioKoopaLeftCollision()
@@ -44,9 +44,9 @@ namespace MarioKoopaCollisions
             TestMario.PassCommand(TestCommand);
 
             //Check if Mario is dead
-            Assert.AreEqual(false, TestMario.Alive);
+            //Assert.AreEqual(true, TestMario.SpriteState.IsDead());
             //Check if Koopa is Shell
-            //Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Assert.AreEqual(WalkingKoopaSprite, TestGoomba.SpriteState);
         }
 
         public void MarioKoopaTopCollision()
@@ -59,10 +59,10 @@ namespace MarioKoopaCollisions
             TestCommand = new MarioDownCommand(TestGame);
             TestMario.PassCommand(TestCommand);
 
-            //Check if Mario is alive
-            Assert.AreEqual(false, TestMario.Alive);
+            //Check if Mario is dead
+            //Assert.AreEqual(true, TestMario.SpriteState.IsDead());
             //Check if Koopa is Shell
-            //Assert.AreEqual("ShellKoopaSprite", TestKoopa.SpriteState);
+            //Assert.AreEqual(ShellKoopaSprite, TestGoomba.SpriteState);
         }
         public void MarioKoopaBottomCollision()
         {
@@ -75,9 +75,9 @@ namespace MarioKoopaCollisions
             TestMario.PassCommand(TestCommand);
 
             //Check if Mario is dead
-            Assert.AreEqual(true, TestMario.Alive);
+            //Assert.AreEqual(true, TestMario.SpriteState.IsDead());
             //Check if Koopa is Shell
-            //Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Assert.AreEqual(WalkingKoopaSprite, TestGoomba.SpriteState);
         }
     }
 }

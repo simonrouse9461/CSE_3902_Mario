@@ -61,6 +61,8 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -73,6 +75,12 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collision Tests\MarioBreakableBlockCollisions.cs" />
+    <Compile Include="Collision Tests\MarioFireflowerCollisions.cs" />
+    <Compile Include="Collision Tests\MarioMushroomCollisions.cs" />
+    <Compile Include="Collision Tests\MarioNormalBlockCollisions.cs" />
+    <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs" />
+    <Compile Include="Collision Tests\MarioKoopaCollisions.cs" />
     <Compile Include="BackgroundObjects\MotionStates\BackgroundMotionState.cs" />
     <Compile Include="BackgroundObjects\Objects\Bush.cs" />
     <Compile Include="BackgroundObjects\Objects\Cloud.cs" />
@@ -83,6 +91,7 @@
     <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
+    <Compile Include="Collision Tests\MarioGoombaCollisions.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />

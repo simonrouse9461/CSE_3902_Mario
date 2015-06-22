@@ -4,80 +4,70 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using WindowsGame1;
 
-namespace MarioKoopaCollisions
+namespace MarioNormalBlockCollisions
 {
     [TestClass]
-    public class MarioKoopaCollisions
+    public class MarioNormalBlockCollisions
     {
         private WorldManager TestWorld;
         private MarioGame TestGame;
         private MarioObject TestMario;
-        private Koopa TestKoopa;
+        private NormalBlockObject TestBlock;
         private ContentManager Content;
         private ICommand TestCommand;
-
         [TestMethod]
-        public void MarioKoopaRightCollision()
+        public void MarioNormalBlockRightCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestBlock = new NormalBlockObject(TestWorld);
             TestCommand = new MarioRightCommand(TestGame);
             TestMario.PassCommand(TestCommand);
-
-            //Check if Mario is dead
-            Assert.AreEqual(false, TestMario.Alive);
-            //Check if Koopa is Shell
-            //Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Check that block has not been broken
+            Assert.AreEqual("NormalBlockSpriteState", TestBlock.SpriteState);
         }
-
-        public void MarioKoopaLeftCollision()
+        public void MarioNormalBlockLeftCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestBlock = new NormalBlockObject(TestWorld);
             TestCommand = new MarioLeftCommand(TestGame);
             TestMario.PassCommand(TestCommand);
 
-            //Check if Mario is dead
-            Assert.AreEqual(false, TestMario.Alive);
-            //Check if Koopa is Shell
-            //Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Check that block has not been broken
+            Assert.AreEqual("NormalBlockSpriteState", TestBlock.SpriteState);
         }
 
-        public void MarioKoopaTopCollision()
+        public void MarioNormalBlockTopCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestBlock = new NormalBlockObject(TestWorld);
             TestCommand = new MarioDownCommand(TestGame);
             TestMario.PassCommand(TestCommand);
 
-            //Check if Mario is alive
-            Assert.AreEqual(false, TestMario.Alive);
-            //Check if Koopa is Shell
-            //Assert.AreEqual("ShellKoopaSprite", TestKoopa.SpriteState);
+            //Check that block has not been broken
+            Assert.AreEqual("NormalBlockSpriteState", TestBlock.SpriteState);
         }
-        public void MarioKoopaBottomCollision()
+        public void MarioNormalBlockBottomCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestBlock = new NormalBlockObject(TestWorld);
             TestCommand = new MarioUpCommand(TestGame);
             TestMario.PassCommand(TestCommand);
 
-            //Check if Mario is dead
-            Assert.AreEqual(true, TestMario.Alive);
-            //Check if Koopa is Shell
-            //Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Check that block has disappeared
+            Assert.AreEqual(null, TestBlock.SpriteState);
         }
     }
 }
+
