@@ -4,80 +4,76 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using WindowsGame1;
 
-namespace MarioKoopaCollisions
+namespace MarioGoombaCollisions
 {
     [TestClass]
-    public class MarioKoopaCollisions
+    public class MarioGoombaCollisions
     {
         private WorldManager TestWorld;
         private MarioGame TestGame;
         private MarioObject TestMario;
-        private Koopa TestKoopa;
+        private Goomba TestGoomba;
         private ContentManager Content;
         private ICommand TestCommand;
-
         [TestMethod]
-        public void MarioKoopaRightCollision()
+        public void MarioGoombaRightCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestGoomba = TestGame.World.Goomba;
             TestCommand = new MarioRightCommand(TestGame);
             TestMario.PassCommand(TestCommand);
-
             //Check if Mario is dead
             Assert.AreEqual(true, TestMario.SpriteState.IsDead());
-            //Check if Koopa is Shell
-            Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Check if Goomba is dead
+            Assert.AreEqual("WalkingGoombaSprite", TestGoomba.SpriteState);
         }
 
-        public void MarioKoopaLeftCollision()
+        public void MarioGoombaLeftCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestGoomba = TestGame.World.Goomba;
             TestCommand = new MarioLeftCommand(TestGame);
             TestMario.PassCommand(TestCommand);
-
             //Check if Mario is dead
             Assert.AreEqual(true, TestMario.SpriteState.IsDead());
-            //Check if Koopa is Shell
-            Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Check if Goomba is dead
+            Assert.AreEqual("WalkingGoombaSprite", TestGoomba.SpriteState);
         }
 
-        public void MarioKoopaTopCollision()
+        public void MarioGoombaTopCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestGoomba = TestGame.World.Goomba;
             TestCommand = new MarioDownCommand(TestGame);
             TestMario.PassCommand(TestCommand);
-
-            //Check if Mario is alive
+            //Check if Mario is dead
             Assert.AreEqual(false, TestMario.SpriteState.IsDead());
-            //Check if Koopa is Shell
-            Assert.AreEqual("ShellKoopaSprite", TestKoopa.SpriteState);
+            //Check if Goomba is dead
+            Assert.AreEqual("DeadGoombaSprite", TestGoomba.SpriteState);
         }
-        public void MarioKoopaBottomCollision()
+        public void MarioGoombaBottomCollision()
         {
             TestGame = new MarioGame();
             TestWorld = TestGame.World;
             Content = TestGame.Content;
             TestMario = TestGame.World.Mario;
-            TestKoopa = TestGame.World.Koopa;
+            TestGoomba = TestGame.World.Goomba;
             TestCommand = new MarioUpCommand(TestGame);
             TestMario.PassCommand(TestCommand);
-
             //Check if Mario is dead
             Assert.AreEqual(true, TestMario.SpriteState.IsDead());
-            //Check if Koopa is Shell
-            Assert.AreEqual("WalkingKoopaSprite", TestKoopa.SpriteState);
+            //Check if Goomba is dead
+            Assert.AreEqual("WalkingGoombaSprite", TestGoomba.SpriteState);
         }
     }
 }
+
