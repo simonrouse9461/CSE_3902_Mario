@@ -1,6 +1,6 @@
 ﻿namespace WindowsGame1
 {
-    public struct CollisionType : ICollisionType
+    public struct CollisionType
     {
         private bool _contact;
         private bool _cover;

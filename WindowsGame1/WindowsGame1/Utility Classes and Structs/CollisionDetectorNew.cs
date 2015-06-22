@@ -93,8 +93,8 @@ namespace WindowsGame1
             var Subject = new RectangleParser(subjectRectangle);
             var Object = new RectangleParser(objectRectangle);
             var Intersection = new RectangleParser(intersectionRectangle);
-            var covered = default(Collision.CollisionType).SetToCover();
-            var touched = default(Collision.CollisionType).SetToContact();
+            var covered = default(CollisionType).SetToCover();
+            var touched = default(CollisionType).SetToContact();
             var returnValue = new Collision();
 
             if (subjectRectangle.Intersects(objectRectangle))
@@ -362,6 +362,20 @@ namespace WindowsGame1
             return returnValue;
         }
 
+        private static Collision SearchCollision<T>(IObject Object, Func<IObject, bool> typeFilter, Func<T, bool> PropertyFilter, int offset) where T : IObject
+        {
+            var collision = new Collision();
+            var objectRectangle = SetOffset(Object.PositionRectangle, offset);
+            foreach (var obj in Object.World.ObjectList)
+            {
+                if (!ReferenceEquals(obj, Object) && typeFilter(obj) && PropertyFilter((T)obj))
+                {
+                    collision += DetectCollision(objectRectangle, obj.PositionRectangle);
+                }
+            }
+            return collision;
+        }
+
         private static Rectangle SetOffset(Rectangle rectangle, int offset)
         {
             rectangle.X -= offset;
@@ -371,34 +385,20 @@ namespace WindowsGame1
             return rectangle;
         }
 
-        public Collision Detect(Type type, Func<IObject, bool> condition = null, int offset = 1)
+        public Collision Detect(Type type, Func<IObject, bool> filter = null, int offset = 1)
         {
-            condition = condition ?? (obj => true);
-            var collision = new Collision();
-            var objectRectangle = SetOffset(_object.PositionRectangle, offset);
-            foreach (var obj in _object.World.ObjectList)
-            {
-                if (type.IsInstanceOfType(obj) && obj != _object && condition(obj))
-                {
-                    collision += DetectCollision(objectRectangle, obj.PositionRectangle);
-                }
-            }
-            return collision;
+            var propertyFilter = filter ?? (obj => true);
+            Func<IObject, bool> typeFilter = obj => type.IsInstanceOfType(obj);
+            
+            return SearchCollision(_object, typeFilter, propertyFilter, offset);
         }
 
-        public Collision Detect<T>(Func<T, bool> condition = null, int offset = 1) where T : IObject
+        public Collision Detect<T>(Func<T, bool> filter = null, int offset = 1) where T : IObject
         {
-            condition = condition ?? (obj => true);
-            var collision = new Collision();
-            var objectRectangle = SetOffset(_object.PositionRectangle, offset);
-            foreach (var obj in _object.World.ObjectList)
-            {
-                if (obj is T && obj != _object && condition((T)obj))
-                {
-                    collision += DetectCollision(objectRectangle, obj.PositionRectangle);
-                }
-            }
-            return collision;
+            var propertyFilter = filter ?? (obj => true);
+            Func<IObject, bool> typeFilter = obj => obj is T;
+
+            return SearchCollision(_object, typeFilter, propertyFilter, offset);
         }
     }
 }

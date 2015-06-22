@@ -97,7 +97,6 @@
     <Compile Include="Interfaces\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICollisionDetectorNew.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
-    <Compile Include="Interfaces\ICollisionType.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
