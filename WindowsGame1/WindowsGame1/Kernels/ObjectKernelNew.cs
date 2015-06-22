@@ -11,10 +11,31 @@ namespace WindowsGame1
     {
         private bool PrepareToUnload;
         private int UnloadCounter;
+        private TSpriteState spriteState;
+        private TMotionState motionState;
 
-        protected State<TSpriteState, TMotionState> State { get; set; }
-        protected TSpriteState SpriteState { get; set; }
-        protected TMotionState MotionState { get; set; }
+        protected State<TSpriteState, TMotionState> State { get; private set; }
+
+        protected TSpriteState SpriteState
+        {
+            get { return spriteState; }
+            set
+            {
+                spriteState = value;
+                State.SpriteState = value;
+            }
+        }
+
+        protected TMotionState MotionState
+        {
+            get { return motionState; }
+            set
+            {
+                motionState = value;
+                State.MotionState = value;
+            }
+        }
+
         protected ICommandHandler CommandHandler { get; set; }
         protected ICollisionHandlerNew CollisionHandler { get; set; }
 
@@ -38,19 +59,10 @@ namespace WindowsGame1
         protected ObjectKernelNew(WorldManager world)
         {
             World = world;
+            State = new State<TSpriteState, TMotionState> { Object = this };
         }
 
         protected abstract void SyncState();
-
-        protected void Initialize()
-        {
-            State = new State<TSpriteState, TMotionState>
-            {
-                Object = this,
-                SpriteState = SpriteState,
-                MotionState = MotionState
-            };
-        }
 
         public virtual void Reset()
         {

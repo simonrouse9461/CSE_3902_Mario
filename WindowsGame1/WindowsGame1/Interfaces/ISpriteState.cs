@@ -9,7 +9,7 @@ namespace WindowsGame1
         ISprite Sprite { get; }
         Color Color { get; }
         void Load(ContentManager content);
-        void UpdateFrequency(int frequency);
+        void ChangeFrequency(int frequency);
         void Reset();
         void Update();
     }

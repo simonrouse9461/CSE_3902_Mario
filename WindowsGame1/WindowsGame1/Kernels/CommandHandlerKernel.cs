@@ -7,22 +7,28 @@ namespace WindowsGame1
         where TSpriteState : ISpriteState
         where TMotionState : IMotionState
     {
+        private Dictionary<Type, Action> commandAction;
+
         public State<TSpriteState, TMotionState> State { get; set; }
         protected Dictionary<Type, bool> CommandStatus { get; set; }
-        protected Dictionary<Type, Action> CommandAction { get; set; }
+
+        protected Dictionary<Type, Action> CommandAction
+        {
+            get { return commandAction; }
+            set
+            {
+                commandAction = value;
+                CommandStatus = new Dictionary<Type, bool>();
+                foreach (var command in CommandAction)
+                {
+                    CommandStatus.Add(command.Key, false);
+                }
+            }
+        }
 
         protected CommandHandlerKernel(State<TSpriteState, TMotionState> state)
         {
             State = state;
-        }
-
-        protected void Initialize()
-        {
-            CommandStatus = new Dictionary<Type, bool>();
-            foreach (var command in CommandAction)
-            {
-                CommandStatus.Add(command.Key, false);
-            }
         }
 
         public void Reset()

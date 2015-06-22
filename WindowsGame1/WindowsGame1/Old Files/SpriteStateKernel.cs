@@ -38,7 +38,7 @@ namespace WindowsGame1
             }
         }
 
-        public void UpdateFrequency(int frequency)
+        public void ChangeFrequency(int frequency)
         {
             Timer.Reset(frequency);
         }

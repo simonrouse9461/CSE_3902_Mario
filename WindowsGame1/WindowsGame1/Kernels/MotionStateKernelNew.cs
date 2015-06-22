@@ -48,20 +48,14 @@ namespace WindowsGame1
         }
 
         protected Vector2 Velocity { get; set; }
-        protected Counter Timer { get; set; }
+        protected Counter UpdateTimer { get; set; }
         protected List<MotionSwitch> MotionList { get; set; }
 
         protected MotionStateKernelNew()
         {
-            Initialize();
-
-            Timer = Timer ?? new Counter();
-            MotionList = MotionList ?? new List<MotionSwitch>();
-
-            Reset();
+            UpdateTimer =  new Counter();
+            Velocity = default(Vector2);
         }
-
-        protected abstract void Initialize();
 
         // This method is used to turn on motion switches base on current status.
         protected abstract void RefreshMotionList();
@@ -71,7 +65,7 @@ namespace WindowsGame1
 
         public void Reset()
         {
-            Timer.Reset();
+            UpdateTimer.Reset();
             foreach (var motion in MotionList)
             {
                 motion.Reset();
@@ -80,7 +74,8 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (Timer.Update())
+            if (MotionList == null) return;
+            if (UpdateTimer.Update())
             {
                 foreach (var motion in MotionList)
                 {

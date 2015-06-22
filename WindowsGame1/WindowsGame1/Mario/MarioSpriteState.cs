@@ -34,7 +34,7 @@ namespace WindowsGame1
         private OrientationEnum Orientation;
         private bool StarPower;
 
-        protected override void Initialize()
+        public MarioSpriteState()
         {
             SpriteList = new List<ISprite>
             {
@@ -71,17 +71,19 @@ namespace WindowsGame1
                 new JumpingRightFireMarioSprite()
             };
 
-            ColorAnimatorList = new List<ColorAnimator>
+            ColorSchemeList = new List<ColorAnimator>
             {
-                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 5)
+                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 8)
             };
+
+            ChangeFrequency(5);
         }
 
         public override Color Color
         {
             get
             {
-                return StarPower ? ColorAnimatorList[0].Color : Color.White;
+                return StarPower ? ColorSchemeList[0].Color : Color.White;
             }
         }
 

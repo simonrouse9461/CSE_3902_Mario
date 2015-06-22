@@ -35,8 +35,6 @@ namespace WindowsGame1
                     State.SpriteState.Crouch();
                 }}
             };
-
-            Initialize();
         }
     }
 }

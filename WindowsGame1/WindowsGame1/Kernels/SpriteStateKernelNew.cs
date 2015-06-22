@@ -6,9 +6,9 @@ namespace WindowsGame1
 {
     public abstract class SpriteStateKernelNew : ISpriteState
     {
-        protected Counter Timer { get; set; }
+        protected Counter UpdateTimer { get; set; }
         protected List<ISprite> SpriteList { get; set; }
-        protected List<ColorAnimator> ColorAnimatorList { get; set; }
+        protected List<ColorAnimator> ColorSchemeList { get; set; }
 
         public abstract ISprite Sprite { get; }
 
@@ -19,16 +19,8 @@ namespace WindowsGame1
 
         protected SpriteStateKernelNew()
         {
-            Initialize();
-
-            Timer = Timer ?? new Counter(5);
-            SpriteList = SpriteList ?? new List<ISprite>();
-            ColorAnimatorList = ColorAnimatorList ?? new List<ColorAnimator>();
-
-            Reset();
+            UpdateTimer = new Counter();
         }
-
-        protected abstract void Initialize();
 
         public void Load(ContentManager content)
         {
@@ -38,19 +30,19 @@ namespace WindowsGame1
             }
         }
 
-        public void UpdateFrequency(int frequency)
+        public void ChangeFrequency(int frequency)
         {
-            Timer.Reset(frequency);
+            UpdateTimer.Reset(frequency);
         }
          
         public void Reset()
         {
-            Timer.Reset();
+            UpdateTimer.Reset();
             foreach (var sprite in SpriteList)
             {
                 sprite.Reset();
             }
-            foreach (var colorAnimator in ColorAnimatorList)
+            foreach (var colorAnimator in ColorSchemeList)
             {
                 colorAnimator.Reset();
             }
@@ -58,11 +50,11 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (Timer.Update())
+            if (UpdateTimer.Update())
             {
                 Sprite.Update();
             }
-            foreach (var colorAnimator in ColorAnimatorList)
+            foreach (var colorAnimator in ColorSchemeList)
             {
                 colorAnimator.Update();
             }

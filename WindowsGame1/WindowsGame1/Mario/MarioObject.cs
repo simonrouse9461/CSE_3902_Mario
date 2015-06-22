@@ -10,9 +10,6 @@
             CollisionHandler = new MarioCollisionHandler(State);
 
             SpriteState.BecomeSmall();
-
-            // call initialize method ata the end of constructor
-            Initialize();
         }
 
         protected override void SyncState()

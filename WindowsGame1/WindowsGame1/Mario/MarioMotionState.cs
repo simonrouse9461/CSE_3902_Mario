@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -24,7 +23,7 @@ namespace WindowsGame1
         private HorizontalEnum HorizontalStatus;
         private VerticalEnum VerticalStatus;
 
-        protected override void Initialize()
+        public MarioMotionState()
         {
             MotionList = new List<MotionSwitch>
             {
@@ -35,6 +34,7 @@ namespace WindowsGame1
                 new MotionSwitch(new RaiseUpMotion()), //4
                 new MotionSwitch(new FallDownMotion()) //5
             };
+
             HorizontalStatus = HorizontalEnum.None;
             VerticalStatus = VerticalEnum.None;
         }
