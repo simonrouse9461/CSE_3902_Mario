@@ -4,8 +4,8 @@ using System.Collections.Generic;
 namespace WindowsGame1
 {
     public abstract class CommandHandlerKernel<TSpriteState, TMotionState> : ICommandHandler
-        where TSpriteState : ISpriteState
-        where TMotionState : IMotionState
+        where TSpriteState : SpriteStateKernelNew
+        where TMotionState : MotionStateKernelNew
     {
         private Dictionary<Type, Action> commandAction;
 

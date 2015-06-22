@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
     public abstract class CollisionHandlerKernelNew<TSpriteState, TMotionState> : ICollisionHandlerNew
-        where TSpriteState : ISpriteState
-        where TMotionState : IMotionState
+        where TSpriteState : SpriteStateKernelNew
+        where TMotionState : MotionStateKernelNew
     {
         public State<TSpriteState, TMotionState> State { get; set; }
         public CollisionDetectorNew Detector { get; set; }

@@ -6,8 +6,8 @@ using Microsoft.Xna.Framework.Graphics;
 namespace WindowsGame1
 {
     public abstract class ObjectKernelNew<TSpriteState, TMotionState> : IObject
-        where TSpriteState : ISpriteState
-        where TMotionState : IMotionState
+        where TSpriteState : SpriteStateKernelNew
+        where TMotionState : MotionStateKernelNew
     {
         private bool PrepareToUnload;
         private int UnloadCounter;
