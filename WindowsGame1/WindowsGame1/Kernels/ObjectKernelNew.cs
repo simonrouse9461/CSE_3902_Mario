@@ -15,6 +15,12 @@ namespace WindowsGame1
 
         protected State<TSpriteState, TMotionState> State { get; private set; }
 
+        // temporarily made for test cases
+        public State<TSpriteState, TMotionState> StateGetter
+        {
+            get { return State; }
+        }
+
         protected TSpriteState SpriteState
         {
             get { return spriteState; }
