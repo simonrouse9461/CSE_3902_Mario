@@ -146,15 +146,7 @@ namespace WindowsGame1
 
         public override Color Color
         {
-            get
-            {
-                return StarPower ? ColorSchemeList[0].Color : Color.White;
-            }
-        }
-
-        public void ToLeft()
-        {
-            Orientation = OrientationEnum.Left;
+            get { return StarPower ? ColorSchemeList[0].Color : Color.White; }
         }
 
         public override bool Left
@@ -162,14 +154,19 @@ namespace WindowsGame1
             get { return Orientation == OrientationEnum.Left; }
         }
 
-        public void ToRight()
-        {
-            Orientation = OrientationEnum.Right;
-        }
-
         public override bool Right
         {
             get { return Orientation == OrientationEnum.Right; }
+        }
+
+        public void ToLeft()
+        {
+            Orientation = OrientationEnum.Left;
+        }
+
+        public void ToRight()
+        {
+            Orientation = OrientationEnum.Right;
         }
 
         public void ToDefault()
