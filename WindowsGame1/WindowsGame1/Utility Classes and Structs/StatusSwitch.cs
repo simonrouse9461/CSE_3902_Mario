@@ -23,9 +23,9 @@ namespace WindowsGame1
             Status = status;
         }
 
-        public void Reset(Action<T> reset)
+        public void Reset(Action<T> reset = null)
         {
-            reset(Content);
+            if (reset != null) reset(Content);
             Status = false;
         }
     }

@@ -63,12 +63,6 @@ namespace WindowsGame1
 
         protected abstract void Initialize();
 
-        // This method is used to turn on motion switches base on current status.
-        protected abstract void RefreshMotionList();
-
-        // This method is used to restore all status to its default value.
-        protected abstract void ResetState();
-
         public void Reset()
         {
             Timer.Reset();
@@ -78,18 +72,28 @@ namespace WindowsGame1
             }
         }
 
+        // This method is used to turn on motion switches base on current status.
+        protected abstract void RefreshMotionList();
+
+        // This method is used to restore all status to its default value.
+        protected abstract void ResetState();
+
+        private void ResetStatus()
+        {
+            foreach (var motion in MotionList)
+            {
+                motion.Toggle(false);
+            }
+            Velocity = default(Vector2);
+        }
+
         public void Update()
         {
             if (Timer.Update())
             {
-                foreach (var motion in MotionList)
-                {
-                    motion.Toggle(false);
-                }
+                ResetStatus();
 
                 RefreshMotionList();
-
-                Velocity = default(Vector2);
 
                 foreach (var motion in MotionList)
                 {

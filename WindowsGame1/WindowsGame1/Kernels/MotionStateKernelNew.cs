@@ -22,6 +22,15 @@ namespace WindowsGame1
             Velocity = default(Vector2);
         }
 
+        protected StatusSwitch<IMotion> FindMotion<T>() where T : IMotion
+        {
+            foreach (var motion in MotionList)
+            {
+                if (motion.Content is T) return motion;
+            }
+            return null;
+        }
+
         // This method is used to turn on motion switches base on current status.
         protected abstract void RefreshMotionList();
 

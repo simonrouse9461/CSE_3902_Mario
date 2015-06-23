@@ -27,12 +27,12 @@ namespace WindowsGame1
         {
             MotionList = new List<StatusSwitch<IMotion>>
             {
-                new StatusSwitch<IMotion>(new AccelerateRightMotion(0.1f, 3)), //0
-                new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)), //1
-                new StatusSwitch<IMotion>(new SuddenStopMotion(0.15f)), //2
-                new StatusSwitch<IMotion>(new DeadMotion()), //3
-                new StatusSwitch<IMotion>(new RaiseUpMotion()), //4
-                new StatusSwitch<IMotion>(new FallDownMotion()) //5
+                new StatusSwitch<IMotion>(new AccelerateRightMotion(0.1f, 3)),
+                new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)),
+                new StatusSwitch<IMotion>(new SuddenStopMotion(0.15f)),
+                new StatusSwitch<IMotion>(new DeadMotion()),
+                new StatusSwitch<IMotion>(new RaiseUpMotion()),
+                new StatusSwitch<IMotion>(new FallDownMotion())
             };
 
             HorizontalStatus = HorizontalEnum.None;
@@ -46,27 +46,27 @@ namespace WindowsGame1
                 case HorizontalEnum.AccRight:
                     if (MovingLeft)
                     {
-                        MotionList[2].Toggle(true);
+                        FindMotion<SuddenStopMotion>().Toggle(true);
                     }
                     else
                     {
-                    MotionList[0].Toggle(true);
+                        FindMotion<AccelerateRightMotion>().Toggle(true);
                     }
                     break;
                 case HorizontalEnum.AccLeft:
                     if (MovingRight)
                     {
-                        MotionList[2].Toggle(true);
+                        FindMotion<SuddenStopMotion>().Toggle(true);
                     }
                     else
                     {
-                        MotionList[1].Toggle(true);
+                        FindMotion<AccelerateLeftMotion>().Toggle(true);
                     }
                     break;
                 case HorizontalEnum.None:
                     if (MovingLeft || MovingRight)
                     {
-                        MotionList[2].Toggle(true);
+                        FindMotion<SuddenStopMotion>().Toggle(true);
                     }
                     break;
             }
@@ -78,13 +78,13 @@ namespace WindowsGame1
                     {
                         motion.Toggle(false);
                     }
-                    MotionList[3].Toggle(true);
+                    FindMotion<DeadMotion>().Toggle(true);
                     break;
                 case VerticalEnum.Raise:
-                    MotionList[4].Toggle(true);
+                    FindMotion<RaiseUpMotion>().Toggle(true);
                     break;
                 case VerticalEnum.Fall:
-                    MotionList[5].Toggle(true);
+                    FindMotion<FallDownMotion>().Toggle(true);
                     break;
             }
         }
