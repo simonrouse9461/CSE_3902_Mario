@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -99,7 +98,12 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            SpriteState.Sprite.Draw(spriteBatch, MotionState.Position, SpriteState.Color);
+            if (SpriteState.Left)
+                SpriteState.Sprite.DrawLeft(spriteBatch, MotionState.Position, SpriteState.Color);
+            else if (SpriteState.Right)
+                SpriteState.Sprite.DrawRight(spriteBatch, MotionState.Position, SpriteState.Color);
+            else
+                SpriteState.Sprite.DrawDefault(spriteBatch, MotionState.Position, SpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -36,42 +35,26 @@ namespace WindowsGame1
 
         public MarioSpriteState()
         {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
-                new DeadMarioSprite(), //0
-                new JumpingLeftBigMarioSprite(), //1
-                new DeadMarioSprite(), //2
-                new JumpingLeftSmallMarioSprite(), //3
-                new JumpingRightBigMarioSprite(), //4
-                new DeadMarioSprite(), //5
-                new JumpingRightSmallMarioSprite(), //6
-                new RunningLeftBigMarioSprite(), //7
-                new RunningLeftFireMarioSprite(), //8
-                new RunningLeftSmallMarioSprite(), //9
-                new RunningRightBigMarioSprite(), //10
-                new RunningRightFireMarioSprite(), //11
-                new RunningRightSmallMarioSprite(), //12
-                new FacingLeftBigMarioSprite(), //13
-                new FacingLeftFireMarioSprite(), //14
-                new FacingLeftSmallMarioSprite(), //15
-                new FacingRightBigMarioSprite(), //16
-                new FacingRightFireMarioSprite(), //17
-                new FacingRightSmallMarioSprite(), //18
-                new CrouchingLeftBigMarioSprite(), //19
-                new CrouchingLeftFireMarioSprite(), //20
-                new CrouchingRightBigMarioSprite(), //21
-                new CrouchingRightFireMarioSprite(), //22
-                new BreakingLeftBigMarioSprite(), //23
-                new BreakingLeftFireMarioSprite(), //24
-                new BreakingLeftSmallMarioSprite(), //25
-                new BreakingRightBigMarioSprite(), //26
-                new BreakingRightFireMarioSprite(), //27
-                new BreakingRightSmallMarioSprite(), //28
-                new JumpingLeftFireMarioSprite(),
-                new JumpingRightFireMarioSprite()
+                new DeadMarioSprite(),
+                new JumpingBigMarioSprite(),
+                new JumpingFireMarioSprite(),
+                new JumpingSmallMarioSprite(),
+                new RunningBigMarioSprite(),
+                new RunningFireMarioSprite(),
+                new RunningSmallMarioSprite(),
+                new StandingBigMarioSprite(),
+                new StandingFireMarioSprite(),
+                new StandingSmallMarioSprite(),
+                new CrouchingBigMarioSprite(),
+                new CrouchingFireMarioSprite(),
+                new BreakingBigMarioSprite(),
+                new BreakingFireMarioSprite(),
+                new BreakingSmallMarioSprite(),
             };
 
-            ColorSchemeList = new List<ColorAnimator>
+            ColorSchemeList = new Collection<ColorAnimator>
             {
                 new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 8)
             };
@@ -79,27 +62,19 @@ namespace WindowsGame1
             ChangeFrequency(5);
         }
 
-        public override Color Color
-        {
-            get
-            {
-                return StarPower ? ColorSchemeList[0].Color : Color.White;
-            }
-        }
-
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
             get
             {
                 if (Status == StatusEnum.Dead)
-                    return SpriteList[0];
+                    return FindSprite<DeadMarioSprite>();
                 switch (Action)
                 {
                     case ActionEnum.Jump:
                         switch (Status)
                         {
                             case StatusEnum.Big:
-                                return Orientation == OrientationEnum.Left ? SpriteList[1] : SpriteList[4];
+                                return FindSprite<JumpingBigMarioSprite>();
                             case StatusEnum.Fire:
                                 return Orientation == OrientationEnum.Left ? SpriteList[29] : SpriteList[30];
                             case StatusEnum.Small:
@@ -153,12 +128,20 @@ namespace WindowsGame1
             }
         }
 
+        public override Color Color
+        {
+            get
+            {
+                return StarPower ? ColorSchemeList[0].Color : Color.White;
+            }
+        }
+
         public void FaceLeft()
         {
             Orientation = OrientationEnum.Left;
         }
 
-        public bool Left
+        public override bool Left
         {
             get { return Orientation == OrientationEnum.Left; }
         }
@@ -168,7 +151,7 @@ namespace WindowsGame1
             Orientation = OrientationEnum.Right;
         }
 
-        public bool Right
+        public override bool Right
         {
             get { return Orientation == OrientationEnum.Right; }
         }

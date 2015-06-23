@@ -1,21 +1,33 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public abstract class SpriteStateKernelNew : ISpriteState
+    public abstract class SpriteStateKernelNew : ISpriteStateNew
     {
         protected Counter UpdateTimer { get; set; }
-        protected List<ISprite> SpriteList { get; set; }
-        protected List<ColorAnimator> ColorSchemeList { get; set; }
+        protected Collection<ISpriteNew> SpriteList { get; set; }
+        protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
-        public abstract ISprite Sprite { get; }
-
-        public virtual Color Color
+        protected ISpriteNew FindSprite<T>() where T : ISpriteNew
         {
-            get { return Color.White; }
+            foreach (var sprite in SpriteList)
+            {
+                if (sprite is T) return sprite;
+            }
+            return null;
         }
+
+        public abstract ISpriteNew Sprite { get; }
+
+        public virtual Color Color { get { return Color.White; } }
+
+        public virtual bool Left { get { return false; } }
+
+        public virtual bool Right { get { return false; } }
+
 
         protected SpriteStateKernelNew()
         {

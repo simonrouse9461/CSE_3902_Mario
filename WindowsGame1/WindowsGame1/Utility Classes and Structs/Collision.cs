@@ -112,5 +112,22 @@ namespace WindowsGame1
             value.RightBottom = a.RightBottom | b.RightBottom;
             return value;
         }
+
+        public Collision Add(Collision collision)
+        {
+            return this + collision;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Collision)
+                return this == (Collision)obj;
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

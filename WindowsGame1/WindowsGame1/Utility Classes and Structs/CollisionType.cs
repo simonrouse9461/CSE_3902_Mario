@@ -78,5 +78,17 @@
                 return default(CollisionType).SetToContact();
             return default(CollisionType);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is CollisionType)
+                return this == (CollisionType)obj;
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

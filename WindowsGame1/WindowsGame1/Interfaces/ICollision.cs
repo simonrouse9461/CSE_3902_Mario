@@ -25,5 +25,8 @@
         // most general
         CollisionType AnyEdge { get; }
         CollisionType AllEdge { get; set; }
+
+        // operation
+        Collision Add(Collision collision); // alternate of operator +
     }
 }

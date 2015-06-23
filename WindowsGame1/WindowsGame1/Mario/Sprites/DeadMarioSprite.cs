@@ -5,20 +5,18 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class DeadMarioSprite : SpriteKernel
+    public class DeadMarioSprite : SpriteKernelNew
     {
-        protected override void Initialize()
+        public DeadMarioSprite()
         {
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "Mario";
+            Source.Default = new SpriteSourceNew
+            {
+                Coodinates = new Collection<Rectangle>
                 {
                     new Rectangle(0, 16, 15, 14)
-                });
-        }
-
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "Mario");
+                }
+            };
         }
     }
 }

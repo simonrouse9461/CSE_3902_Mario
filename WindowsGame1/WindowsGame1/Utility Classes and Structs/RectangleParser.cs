@@ -115,6 +115,17 @@ namespace WindowsGame1
         {
             return !(a == b);
         }
-    }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is RectangleParser)
+                return this == (RectangleParser)obj;
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
 }

@@ -17,7 +17,6 @@ namespace WindowsGame1
         protected MotionKernel(int period = 0)
         {
             Circulator = new Counter(period);
-            Reset();
         }
 
         public virtual void Reset(Vector2 initialVelocity = default(Vector2))

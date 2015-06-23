@@ -8,17 +8,14 @@ namespace WindowsGame1
 {
     public class SpriteSource
     {
-        // Kernal properties
-        public Texture2D Texture { get; set; }
-        public Collection<Rectangle> Coodinates { get; set; }
+        public Texture2D Texture { get; private set; }
+        public Collection<Rectangle> Coodinates { get; private set; }
 
-        // Constructor
         public SpriteSource(Collection<Rectangle> coodinates)
         {
             Coodinates = coodinates;
         }
 
-        // Load the sprite image
         public void Load(ContentManager content, string image)
         {
             Texture = content.Load<Texture2D>(image);

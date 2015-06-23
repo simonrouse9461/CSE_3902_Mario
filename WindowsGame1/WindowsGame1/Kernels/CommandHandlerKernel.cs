@@ -10,7 +10,7 @@ namespace WindowsGame1
         private Dictionary<Type, Action> commandAction;
 
         public State<TSpriteState, TMotionState> State { get; set; }
-        protected Dictionary<Type, bool> CommandStatus { get; set; }
+        protected Dictionary<Type, bool> CommandStatus { get; private set; }
 
         protected Dictionary<Type, Action> CommandAction
         {
