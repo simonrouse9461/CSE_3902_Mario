@@ -1,20 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
     public class CoinSpriteState : ItemSpriteState
     {
-        protected override void Initialize()
+        public CoinSpriteState()
         {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
-                new CoinSprite(), //0
+                new CoinSprite(),
             };
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get
+            {
+                return FindSprite<CoinSprite>();
+            }
         }
     }
 }

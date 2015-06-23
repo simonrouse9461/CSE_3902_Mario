@@ -5,31 +5,28 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class WalkingGoombaSprite : SpriteKernel
+    public class WalkingGoombaSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public WalkingGoombaSprite()
         {
-            const int period = 4;
+            const int period = 20;
 
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "enemies";
+            Source.Default = new SpriteSourceNew
+            {
+                Coodinates = new Collection<Rectangle>
                 {
                     new Rectangle(0, 4, 15, 16),
                     new Rectangle(30, 4, 15, 16)
-                });
-            Animation = new PeriodicFunction<int>(
+                }
+            };
+            Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = { 0, 0, 1, 1 };
+                    int[] frameSequence = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
                     return frameSequence[phase];
                 },
                 period);
         }
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "enemies");
-        }
-
     }
 }

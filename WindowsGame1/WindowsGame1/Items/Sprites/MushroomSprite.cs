@@ -5,20 +5,18 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class MushroomSprite : SpriteKernel
+    public class MushroomSprite : SpriteKernelNew
     {
-        protected override void Initialize()
+        public MushroomSprite()
         {
-            Source = new SpriteSource(
-            new Collection<Rectangle>
+            ImageFile.Default = "items";
+            Source.Default = new SpriteSourceNew
             {
-                new Rectangle(183, 33, 18, 18)
-            });
+                Coodinates = new Collection<Rectangle>
+                {
+                    new Rectangle(183, 33, 18, 18)
+                }
+            };
         }
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "items");
-        }
-
     }
 }

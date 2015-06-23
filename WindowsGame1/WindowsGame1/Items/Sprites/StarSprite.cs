@@ -5,22 +5,24 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class StarSprite : SpriteKernel
+    public class StarSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public StarSprite()
         {
             const int period = 8;
 
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "items";
+            Source.Default = new SpriteSourceNew
+            {
+                Coodinates = new Collection<Rectangle>
                 {
                     new Rectangle(5, 94, 14, 16),
                     new Rectangle(35, 94, 14, 16),
                     new Rectangle(65, 94, 14, 16),
                     new Rectangle(95, 94, 14, 16)
-                });
-            Animation = new PeriodicFunction<int>(
+                }
+            };
+            Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
                     int[] frameSequence = { 0, 0, 1, 1, 2, 2, 3, 3 };
@@ -28,11 +30,5 @@ namespace WindowsGame1
                 },
                 period);
         }
-        public override void Load(ContentManager content)
-        {
-
-            Source.Load(content, "items");
-        }
-
     }
 }

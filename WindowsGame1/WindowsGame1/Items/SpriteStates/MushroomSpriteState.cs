@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
     public class MushroomSpriteState : ItemSpriteState
     {
-        protected override void Initialize()
+        public MushroomSpriteState()
         {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
                 new MushroomSprite(),
             };
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get
+            {
+                return FindSprite<MushroomSprite>();
+            }
         }
     }
 

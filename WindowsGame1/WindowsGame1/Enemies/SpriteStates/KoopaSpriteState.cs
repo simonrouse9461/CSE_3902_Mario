@@ -1,34 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
     public class KoopaSpriteState : EnemySpriteState
     {
-        public enum StatusEnum
+        private enum StatusEnum
         {
-            Walking,
-            Shell
+            Shell,
+            Walking
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public KoopaSpriteState()
         {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
-                new ShellKoopaSprite(), //0
-                new WalkingKoopaSprite(), //1 
+                new ShellKoopaSprite(),
+                new WalkingKoopaSprite()
             };
 
             Status = StatusEnum.Walking;
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
             get
             {
-                return Status == StatusEnum.Shell ? SpriteList[0] : SpriteList[1];
+                if (Status == StatusEnum.Shell)
+                {
+                    return FindSprite<ShellKoopaSprite>();
+                }
+                else
+                {
+                    return FindSprite<WalkingKoopaSprite>();
+                }
             }
         }
 

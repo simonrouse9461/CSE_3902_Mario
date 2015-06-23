@@ -29,8 +29,9 @@ namespace WindowsGame1
 
         public void Load(ContentManager content)
         {
-            Source.Left.Load(content, ImageFile.Left);
-            Source.Right.Load(content, ImageFile.Right);
+            if (Source.Default != null) { Source.Default.Load(content, ImageFile.Default); }
+            if (Source.Default != null) { Source.Left.Load(content, ImageFile.Left); }
+            if (Source.Default != null) { Source.Right.Load(content, ImageFile.Right); }
         }
 
         public void Update()
