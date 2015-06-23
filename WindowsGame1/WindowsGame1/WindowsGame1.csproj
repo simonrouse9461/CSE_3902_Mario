@@ -134,9 +134,9 @@
     <Compile Include="Mario\IMario.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
-    <Compile Include="Mario\Sprites\BreakingBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\BreakingFireMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\BreakingSmallMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\TurningBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\TurningFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\TurningSmallMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingSmallMarioSprite.cs" />

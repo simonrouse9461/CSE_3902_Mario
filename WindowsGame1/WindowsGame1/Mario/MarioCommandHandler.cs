@@ -16,12 +16,12 @@ namespace WindowsGame1
                 {typeof(MarioLeftCommand), () =>
                 {
 
-                    State.SpriteState.FaceLeft();
+                    State.SpriteState.ToLeft();
                     State.MotionState.MoveLeft();
                 }},
                 {typeof(MarioRightCommand), () =>
                 {
-                    State.SpriteState.FaceRight();
+                    State.SpriteState.ToRight();
                     State.MotionState.MoveRight();
                 }},
                 {typeof(MarioUpCommand), () =>

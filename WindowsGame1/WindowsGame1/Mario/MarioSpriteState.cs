@@ -11,13 +11,14 @@ namespace WindowsGame1
             Run,
             Stand,
             Crouch,
-            Break
+            Turn
         }
 
         private enum OrientationEnum
         {
             Left,
-            Right
+            Right,
+            Default
         }
 
         private enum StatusEnum
@@ -49,9 +50,9 @@ namespace WindowsGame1
                 new StandingSmallMarioSprite(),
                 new CrouchingBigMarioSprite(),
                 new CrouchingFireMarioSprite(),
-                new BreakingBigMarioSprite(),
-                new BreakingFireMarioSprite(),
-                new BreakingSmallMarioSprite(),
+                new TurningBigMarioSprite(),
+                new TurningFireMarioSprite(),
+                new TurningSmallMarioSprite(),
             };
 
             ColorSchemeList = new Collection<ColorAnimator>
@@ -76,51 +77,51 @@ namespace WindowsGame1
                             case StatusEnum.Big:
                                 return FindSprite<JumpingBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return Orientation == OrientationEnum.Left ? SpriteList[29] : SpriteList[30];
+                                return FindSprite<JumpingFireMarioSprite>();
                             case StatusEnum.Small:
-                                return Orientation == OrientationEnum.Left ? SpriteList[3] : SpriteList[6];
+                                return FindSprite<JumpingSmallMarioSprite>();
                         }
                         break;
                     case ActionEnum.Run:
                         switch (Status)
                         {
                             case StatusEnum.Big:
-                                return Orientation == OrientationEnum.Left ? SpriteList[7] : SpriteList[10];
+                                return FindSprite<RunningBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return Orientation == OrientationEnum.Left ? SpriteList[8] : SpriteList[11];
+                                return FindSprite<RunningFireMarioSprite>();
                             case StatusEnum.Small:
-                                return Orientation == OrientationEnum.Left ? SpriteList[9] : SpriteList[12];
+                                return FindSprite<RunningSmallMarioSprite>();
                         }
                         break;
                     case ActionEnum.Stand:
                         switch (Status)
                         {
                             case StatusEnum.Big:
-                                return Orientation == OrientationEnum.Left ? SpriteList[13] : SpriteList[16];
+                                return FindSprite<StandingBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return Orientation == OrientationEnum.Left ? SpriteList[14] : SpriteList[17];
+                                return FindSprite<StandingFireMarioSprite>();
                             case StatusEnum.Small:
-                                return Orientation == OrientationEnum.Left ? SpriteList[15] : SpriteList[18];
+                                return FindSprite<StandingSmallMarioSprite>();
                         }
                         break;
                     case ActionEnum.Crouch:
                         switch (Status)
                         {
                             case StatusEnum.Big:
-                                return Orientation == OrientationEnum.Left ? SpriteList[19] : SpriteList[21];
+                                return FindSprite<CrouchingBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return Orientation == OrientationEnum.Left ? SpriteList[20] : SpriteList[22];
+                                return FindSprite<CrouchingFireMarioSprite>();
                         }
                         break;
-                    case ActionEnum.Break:
+                    case ActionEnum.Turn:
                         switch (Status)
                         {
                             case StatusEnum.Big:
-                                return Orientation == OrientationEnum.Left ? SpriteList[23] : SpriteList[26];
+                                return FindSprite<TurningBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return Orientation == OrientationEnum.Left ? SpriteList[24] : SpriteList[27];
+                                return FindSprite<TurningFireMarioSprite>();
                             case StatusEnum.Small:
-                                return Orientation == OrientationEnum.Left ? SpriteList[25] : SpriteList[28];
+                                return FindSprite<TurningSmallMarioSprite>();
                         }
                         break;
                 }
@@ -136,7 +137,7 @@ namespace WindowsGame1
             }
         }
 
-        public void FaceLeft()
+        public void ToLeft()
         {
             Orientation = OrientationEnum.Left;
         }
@@ -146,7 +147,7 @@ namespace WindowsGame1
             get { return Orientation == OrientationEnum.Left; }
         }
 
-        public void FaceRight()
+        public void ToRight()
         {
             Orientation = OrientationEnum.Right;
         }
@@ -154,6 +155,11 @@ namespace WindowsGame1
         public override bool Right
         {
             get { return Orientation == OrientationEnum.Right; }
+        }
+
+        public void ToDefault()
+        {
+            Orientation = OrientationEnum.Default;
         }
 
         public void BecomeBig()
@@ -257,12 +263,12 @@ namespace WindowsGame1
 
         public void Turn()
         {
-            Action = ActionEnum.Break;
+            Action = ActionEnum.Turn;
         }
 
         public bool Turning
         {
-            get { return Action == ActionEnum.Break; }
+            get { return Action == ActionEnum.Turn; }
         }
     }
 }

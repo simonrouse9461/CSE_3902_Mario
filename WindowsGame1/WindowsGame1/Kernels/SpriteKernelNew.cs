@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using System;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
@@ -12,10 +13,12 @@ namespace WindowsGame1
 
         protected SpriteKernelNew()
         {
+            Source = new SymmetricPair<SpriteSourceNew>();
             Animation = new SymmetricPair<PeriodicFunction<int>>
             {
                 Default = new PeriodicFunction<int>()
             };
+            ImageFile = new SymmetricPair<string>();
         }
 
         public void Reset()

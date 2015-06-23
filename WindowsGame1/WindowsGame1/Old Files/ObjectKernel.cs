@@ -12,7 +12,6 @@ namespace WindowsGame1
         private bool PrepareToUnload;
         private int UnloadCounter;
 
-        protected State<TSpriteState, TMotionState> State { get; set; }
         protected TSpriteState SpriteState { get; set; }
         protected TMotionState MotionState { get; set; }
         protected ICommandHandler CommandHandler { get; set; }
@@ -39,12 +38,6 @@ namespace WindowsGame1
         {
             World = world;
             CollisionHandler = new NullCollisionHandler(SpriteState, MotionState, this);
-            State = new State<TSpriteState, TMotionState>
-            {
-                Object = this,
-                SpriteState = SpriteState,
-                MotionState = MotionState
-            };
             Initialize();
             Reset();
         }

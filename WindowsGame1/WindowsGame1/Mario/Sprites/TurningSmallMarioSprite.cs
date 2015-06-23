@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class BreakingSmallMarioSprite : SpriteKernelNew
+    public class TurningSmallMarioSprite : SpriteKernelNew
     {
-        public BreakingSmallMarioSprite()
+        public TurningSmallMarioSprite()
         {
             ImageFile.Default = "Mario";
             Source.Left = new SpriteSourceNew
