@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -24,58 +25,55 @@ namespace WindowsGame1
 
         protected StatusSwitch<IMotion> FindMotion<T>() where T : IMotion
         {
-            foreach (var motion in MotionList)
-            {
-                if (motion.Content is T) return motion;
-            }
-            return null;
+            return MotionList.First(motion => motion.Content is T);
         }
-
-        // This method is used to turn on motion switches base on current status.
-        protected abstract void RefreshMotionList();
-
-        // This method is used to restore all status to its default value.
-        protected abstract void ResetState();
 
         public void Reset()
         {
             Timer.Reset();
+            MotionList.ForEach(motion => motion.Reset(m => m.Reset()));
+        }
+
+        private void RestoreMotionStatus()
+        {
+            MotionList.ForEach(motion => motion.Toggle(false));
+        }
+
+        private void UpdateMotion()
+        {
+            Velocity = default(Vector2);
+
             foreach (var motion in MotionList)
             {
-                motion.Reset(m => m.Reset());
+                if (motion.Status && !motion.Content.Finish)
+                {
+                    motion.Content.Update();
+                    Velocity += motion.Content.Velocity;
+                }
+                else
+                {
+                    motion.Reset(m => m.Reset(Velocity));
+                }
             }
+
+            Position += Velocity;
         }
+
+        // This method is used to turn on motion switches base on current state.
+        protected abstract void RefreshMotionStatus();
+
+        // This method is used to automatically restore states to their default value after update.
+        protected abstract void SetToDefaultState();
 
         public void Update()
         {
             if (MotionList == null) return;
             if (Timer.Update())
             {
-                foreach (var motion in MotionList)
-                {
-                    motion.Toggle(false);
-                }
-
-                Velocity = default(Vector2);
-
-                RefreshMotionList();
-
-                foreach (var motion in MotionList)
-                {
-                    if (motion.Status && !motion.Content.Finish)
-                    {
-                        motion.Content.Update();
-                        Velocity += motion.Content.Velocity;
-                    }
-                    else
-                    {
-                        motion.Reset(m => m.Reset(Velocity));
-                    }
-                }
-
-                Position += Velocity;
-
-                ResetState();
+                RestoreMotionStatus();
+                RefreshMotionStatus();
+                UpdateMotion();
+                SetToDefaultState();
             }
         }
     }

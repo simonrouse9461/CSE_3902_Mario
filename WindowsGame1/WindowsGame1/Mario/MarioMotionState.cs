@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -39,7 +40,7 @@ namespace WindowsGame1
             VerticalStatus = VerticalEnum.None;
         }
 
-        protected override void RefreshMotionList()
+        protected override void RefreshMotionStatus()
         {
             switch (HorizontalStatus)
             {
@@ -89,7 +90,7 @@ namespace WindowsGame1
             }
         }
 
-        protected override void ResetState()
+        protected override void SetToDefaultState()
         {
             HorizontalStatus = HorizontalEnum.None;
             if (VerticalStatus != VerticalEnum.Dead)

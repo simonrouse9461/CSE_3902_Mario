@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
@@ -13,11 +14,7 @@ namespace WindowsGame1
 
         protected ISpriteNew FindSprite<T>() where T : ISpriteNew
         {
-            foreach (var sprite in SpriteList)
-            {
-                if (sprite is T) return sprite;
-            }
-            return null;
+            return SpriteList.First(sprite => sprite is T);
         }
 
         public abstract ISpriteNew Sprite { get; }

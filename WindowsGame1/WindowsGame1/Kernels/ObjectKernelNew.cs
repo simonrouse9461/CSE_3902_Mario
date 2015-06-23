@@ -89,7 +89,7 @@ namespace WindowsGame1
                 if (UnloadCounter == 0) World.ObjectList.Remove(this);
             }
             if (CommandHandler != null) CommandHandler.Handle();
-            CollisionHandler.Handle();
+            if (CollisionHandler != null) CollisionHandler.Handle();
             SyncState();
             SpriteState.Update();
             MotionState.Update();
