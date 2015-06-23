@@ -11,7 +11,8 @@ namespace WindowsGame1
             Run,
             Stand,
             Crouch,
-            Turn
+            Turn,
+            Swim
         }
 
         private enum OrientationEnum
@@ -53,6 +54,9 @@ namespace WindowsGame1
                 new TurningBigMarioSprite(),
                 new TurningFireMarioSprite(),
                 new TurningSmallMarioSprite(),
+                new SwimmingBigMarioSprite(),
+                new SwimmingFireMarioSprite(),
+                new SwimmingSmallMarioSprite()
             };
 
             ColorSchemeList = new Collection<ColorAnimator>
@@ -122,6 +126,17 @@ namespace WindowsGame1
                                 return FindSprite<TurningFireMarioSprite>();
                             case StatusEnum.Small:
                                 return FindSprite<TurningSmallMarioSprite>();
+                        }
+                        break;
+                    case ActionEnum.Swim:
+                        switch (Status)
+                        {
+                            case StatusEnum.Big:
+                                return FindSprite<SwimmingBigMarioSprite>();
+                            case StatusEnum.Fire:
+                                return FindSprite<SwimmingFireMarioSprite>();
+                            case StatusEnum.Small:
+                                return FindSprite<SwimmingSmallMarioSprite>();
                         }
                         break;
                 }
@@ -269,6 +284,15 @@ namespace WindowsGame1
         public bool Turning
         {
             get { return Action == ActionEnum.Turn; }
+        }
+        public void Swim()
+        {
+            Action = ActionEnum.Swim;
+        }
+
+        public bool Swimming
+        {
+            get { return Action == ActionEnum.Swim; }
         }
     }
 }

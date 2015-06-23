@@ -103,12 +103,9 @@
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Kernels\SpriteStateKernelNew.cs" />
-    <Compile Include="Mario\Sprites\SwimmingLeftBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingLeftFireMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingLeftSmallMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingRightBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingRightFireMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingRightSmallMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SwimmingBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SwimmingFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SwimmingSmallMarioSprite.cs" />
     <Compile Include="Old Files\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICollisionDetectorNew.cs" />
     <Compile Include="Old Files\ICollisionHandler.cs" />
@@ -232,13 +229,14 @@
     <Compile Include="Utility Classes and Structs\CollisionType.cs" />
     <Compile Include="Utility Classes and Structs\ColorAnimator.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
-    <Compile Include="Infrastructure\Counter.cs" />
+    <Compile Include="Utility Classes and Structs\Counter.cs" />
     <Compile Include="Old Files\NullCollisionHandler.cs" />
-    <Compile Include="Infrastructure\PeriodicFunction.cs" />
+    <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\RectangleParser.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSourceNew.cs" />
     <Compile Include="Old Files\SpriteSource.cs" />
     <Compile Include="Utility Classes and Structs\State.cs" />
+    <Compile Include="Utility Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Utility Classes and Structs\SymmetricPair.cs" />
     <Compile Include="Utility Classes and Structs\WorldManager.cs" />
   </ItemGroup>

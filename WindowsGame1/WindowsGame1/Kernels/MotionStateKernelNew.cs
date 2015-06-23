@@ -5,55 +5,20 @@ namespace WindowsGame1
 {
     public abstract class MotionStateKernelNew : IMotionState
     {
-        protected class MotionSwitch
-        {
-            private readonly IMotion motion;
-
-            public IMotion Motion
-            {
-                get { return motion; }
-            }
-
-            private bool status;
-
-            public bool Status
-            {
-                get { return status; }
-                private set { status = value; }
-            }
-
-            public MotionSwitch(IMotion motionSwitch)
-            {
-                motion = motionSwitch;
-                status = false;
-            }
-
-            public void Toggle(bool status)
-            {
-                Status = status;
-            }
-
-            public void Reset(Vector2 initial = default(Vector2))
-            {
-                Motion.Reset(initial);
-                Status = false;
-            }
-        }
-
         public Vector2 Position { get; set; }
+        public Vector2 Velocity { get; set; }
 
         public void Adjust(Vector2 offset)
         {
             Position += offset;
         }
 
-        protected Vector2 Velocity { get; set; }
-        protected Counter UpdateTimer { get; set; }
-        protected List<MotionSwitch> MotionList { get; set; }
+        protected Counter Timer { get; set; }
+        protected List<StatusSwitch<IMotion>> MotionList { get; set; }
 
         protected MotionStateKernelNew()
         {
-            UpdateTimer =  new Counter();
+            Timer =  new Counter();
             Velocity = default(Vector2);
         }
 
@@ -65,37 +30,37 @@ namespace WindowsGame1
 
         public void Reset()
         {
-            UpdateTimer.Reset();
+            Timer.Reset();
             foreach (var motion in MotionList)
             {
-                motion.Reset();
+                motion.Reset(m => m.Reset());
             }
         }
 
         public void Update()
         {
             if (MotionList == null) return;
-            if (UpdateTimer.Update())
+            if (Timer.Update())
             {
                 foreach (var motion in MotionList)
                 {
                     motion.Toggle(false);
                 }
 
-                RefreshMotionList();
-
                 Velocity = default(Vector2);
+
+                RefreshMotionList();
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Motion.Finish)
+                    if (motion.Status && !motion.Content.Finish)
                     {
-                        motion.Motion.Update();
-                        Velocity += motion.Motion.Velocity;
+                        motion.Content.Update();
+                        Velocity += motion.Content.Velocity;
                     }
                     else
                     {
-                        motion.Reset(Velocity);
+                        motion.Reset(m => m.Reset(Velocity));
                     }
                 }
 

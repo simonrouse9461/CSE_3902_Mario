@@ -53,5 +53,10 @@
         {
             get { return !SpriteState.Small; }
         }
+
+        public bool GoingUp
+        {
+            get { return MotionState.Velocity.X < 0; }
+        }
     }
 }

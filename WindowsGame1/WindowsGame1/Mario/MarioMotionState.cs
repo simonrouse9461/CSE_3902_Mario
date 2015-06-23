@@ -25,14 +25,14 @@ namespace WindowsGame1
 
         public MarioMotionState()
         {
-            MotionList = new List<MotionSwitch>
+            MotionList = new List<StatusSwitch<IMotion>>
             {
-                new MotionSwitch(new AccelerateRightMotion(0.1f, 3)), //0
-                new MotionSwitch(new AccelerateLeftMotion(0.1f, 3)), //1
-                new MotionSwitch(new SuddenStopMotion(0.15f)), //2
-                new MotionSwitch(new DeadMotion()), //3
-                new MotionSwitch(new RaiseUpMotion()), //4
-                new MotionSwitch(new FallDownMotion()) //5
+                new StatusSwitch<IMotion>(new AccelerateRightMotion(0.1f, 3)), //0
+                new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)), //1
+                new StatusSwitch<IMotion>(new SuddenStopMotion(0.15f)), //2
+                new StatusSwitch<IMotion>(new DeadMotion()), //3
+                new StatusSwitch<IMotion>(new RaiseUpMotion()), //4
+                new StatusSwitch<IMotion>(new FallDownMotion()) //5
             };
 
             HorizontalStatus = HorizontalEnum.None;

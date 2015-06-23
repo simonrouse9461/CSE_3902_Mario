@@ -7,7 +7,7 @@ namespace WindowsGame1
 {
     public abstract class SpriteStateKernelNew : ISpriteStateNew
     {
-        protected Counter UpdateTimer { get; set; }
+        protected Counter Timer { get; set; }
         protected Collection<ISpriteNew> SpriteList { get; set; }
         protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
@@ -31,7 +31,7 @@ namespace WindowsGame1
 
         protected SpriteStateKernelNew()
         {
-            UpdateTimer = new Counter();
+            Timer = new Counter();
         }
 
         public void Load(ContentManager content)
@@ -44,12 +44,12 @@ namespace WindowsGame1
 
         public void ChangeFrequency(int frequency)
         {
-            UpdateTimer.Reset(frequency);
+            Timer.Reset(frequency);
         }
          
         public void Reset()
         {
-            UpdateTimer.Reset();
+            Timer.Reset();
             foreach (var sprite in SpriteList)
             {
                 sprite.Reset();
@@ -62,7 +62,7 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (UpdateTimer.Update())
+            if (Timer.Update())
             {
                 Sprite.Update();
             }
