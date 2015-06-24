@@ -3,21 +3,19 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class UsedBlockMotionState : MotionStateKernel
+    public class UsedBlockMotionState : MotionStateKernelNew
     {
-        protected override void Initialize()
+
+
+        protected override void RefreshMotionStatus()
         {
 
         }
 
-        protected override void RefreshMotionList()
+
+        protected override void SetToDefaultState()
         {
 
-        }
-
-        protected override void ResetState()
-        {
-
-        }
+        } 
     }
 }

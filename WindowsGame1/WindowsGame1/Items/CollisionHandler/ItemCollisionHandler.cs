@@ -16,7 +16,7 @@ namespace WindowsGame1
         {
             if (Detector.Detect<MarioObject>().AnySide.Contact)
             {
-                Obj.Unload();
+                State.Object.Unload();
             }
         }
     }

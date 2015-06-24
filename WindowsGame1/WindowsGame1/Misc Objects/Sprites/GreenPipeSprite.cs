@@ -5,22 +5,18 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class GreenPipeSprite : SpriteKernel
+    public class GreenPipeSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public GreenPipeSprite()
         {
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "misc";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(230, 385, 32, 64)
-                });
+                }
+            };
         }
-        public override void Load(ContentManager content)
-        {
-
-            Source.Load(content, "misc");
-        }
-
     }
 }

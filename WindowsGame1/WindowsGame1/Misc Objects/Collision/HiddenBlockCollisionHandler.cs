@@ -3,22 +3,20 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class HiddenBlockCollisionHandler : CollisionHandlerKernel<HiddenBlockSpriteState, HiddenBlockMotionState>
+    public class HiddenBlockCollisionHandler : CollisionHandlerKernelNew<HiddenBlockSpriteState, HiddenBlockMotionState>
     {
-        private CollisionDetector<MarioObject> MarioHiddenBlockCollision;
 
-        public HiddenBlockCollisionHandler(HiddenBlockSpriteState spriteState, HiddenBlockMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
-        protected override void Initialize()
-        {
-            MarioHiddenBlockCollision = new CollisionDetector<MarioObject>(Object);
+        public HiddenBlockCollisionHandler(State<HiddenBlockSpriteState, HiddenBlockMotionState> state) : base(state) {
+
+            AddBarrier<IObject>();
         }
 
         public override void Handle()
         {
-            if (MarioHiddenBlockCollision.Detect().Bottom)
+            if (Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Contact)
             {
-                SpriteState.HiddenToUsedBlock();
+                State.SpriteState.HiddenToUsedBlock();
             }
         }
     }

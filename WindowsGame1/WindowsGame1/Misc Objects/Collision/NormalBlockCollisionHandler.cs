@@ -3,19 +3,17 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class NormalBlockCollisionHandler : CollisionHandlerKernel<NormalBlockSpriteState, NormalBlockMotionState>
+    public class NormalBlockCollisionHandler : CollisionHandlerKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
     {
-        private CollisionDetector<MarioObject> MarioNormalBlockCollision;
-
-        public NormalBlockCollisionHandler(NormalBlockSpriteState spriteState, NormalBlockMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
-
-        protected override void Initialize() {
-            MarioNormalBlockCollision = new CollisionDetector<MarioObject>(Object);
+        
+        public NormalBlockCollisionHandler(State<NormalBlockSpriteState, NormalBlockMotionState> state) : base(state) {
+            AddBarrier<IObject>();
         }
 
         public override void Handle(){
-            if(MarioNormalBlockCollision.Detect().Bottom){
-                Object.Unload();
+            if (Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Contact)
+            {
+                State.Object.Unload();
             }
         }
     }
