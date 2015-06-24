@@ -56,7 +56,7 @@
 
         public bool GoingUp
         {
-            get { return MotionState.Velocity.X < 0; }
+            get { return MotionState.Velocity.Y < 0; }
         }
     }
 }
