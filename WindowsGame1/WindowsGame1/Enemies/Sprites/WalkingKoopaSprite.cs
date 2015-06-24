@@ -9,14 +9,13 @@ namespace WindowsGame1
     {
         public WalkingKoopaSprite()
         {
-            const int period = 8;
+            const int period = 12;
 
             ImageFile.Default = "enemies";
             Source.Default = new SpriteSourceNew
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(0, 4, 15, 16),
                     new Rectangle(149, 1, 18, 23),
                     new Rectangle(179, 1, 18, 23),
                     new Rectangle(209, 1, 18, 23),
@@ -26,7 +25,7 @@ namespace WindowsGame1
             Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = { 2, 2, 1, 1, 0, 0, 3, 3 };
+                    int[] frameSequence = { 1,1,0,0,1,1,2,2,3,3,2,2 };
                     return frameSequence[phase];
                 },
                 period);

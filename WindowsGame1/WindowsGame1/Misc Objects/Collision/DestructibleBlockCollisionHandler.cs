@@ -16,7 +16,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>().Bottom.Contact)
+            if (Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Contact)
             {
                 State.Object.Unload();
             }

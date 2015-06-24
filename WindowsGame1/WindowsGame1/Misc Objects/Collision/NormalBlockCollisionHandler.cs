@@ -11,7 +11,8 @@ namespace WindowsGame1
         }
 
         public override void Handle(){
-            if(Detector.Detect<MarioObject>().Bottom.Contact){
+            if (Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Contact)
+            {
                 State.Object.Unload();
             }
         }
