@@ -1,0 +1,17 @@
+﻿Haden Kersting
+6/23/2015
+Sprint 3
+
+File: CollisionDetectorNew.cs
+File Author: Chuhan Feng
+Time: 10 minutes
+
+COMMENTS:
+		CollisionDetectorNew is incredibly complex. It takes far too much effort to read and understand. (I am sure a grader will not want
+	to take that much time either.) While I have not taken the time to understand the details of it, here are some comments:
+	
+		- Inlay and Cover do not seem to be good names because I don't know what they mean.
+		- It might help to make private static methods to use in the inner nesting to make it more readable.
+
+HYPOTHETICAL CHANGE:
+		I do think it is pretty durable to change - it takes lots of different kinds of collision into account.

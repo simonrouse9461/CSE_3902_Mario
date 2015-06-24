@@ -46,7 +46,7 @@ namespace WindowsGame1
             Status = StatusEnum.Dead;
         }
         
-        public bool Dead
+        public override bool Dead
         {
             get { return Status == StatusEnum.Dead; }
         }
