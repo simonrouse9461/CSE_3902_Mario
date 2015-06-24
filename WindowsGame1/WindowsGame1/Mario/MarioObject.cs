@@ -39,6 +39,11 @@ namespace WindowsGame1
                 MotionState.DeadFall();
         }
 
+        public override bool Solid
+        {
+            get { return Alive; }
+        }
+
         public bool Alive
         {
             get { return !SpriteState.Dead; }
