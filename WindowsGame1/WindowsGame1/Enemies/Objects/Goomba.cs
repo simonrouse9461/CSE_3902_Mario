@@ -16,9 +16,5 @@ namespace WindowsGame1
 
         }
         
-        public bool Alive
-        {
-            get { return !SpriteState.Dead; }
-        }
     }
 }
