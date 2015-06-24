@@ -32,3 +32,21 @@ Comment:
 	his logic. So if I were him, I'll name it HiddenBlockMarioCollision,
 	which makes hidden block sounds like the subject of the detect action.
 	Other than that, everything is easy to understand.
+	
+Author: Chuhang Feng
+Date: 6/23/15
+Sprint #: 3
+File: HiddenBlockSpriteState.cs
+File Author: Andrew Miller
+Time: 2 minutes
+
+Comment:
+	Declare all status of a hidden block and method to modify
+	it. So these code are in high cohesion which makes the maintainess
+	of hidden block easier. The coupling is not low but is not avoidable,
+	which is not neccesary to change the code to make it lower.
+
+Future possible changes:
+	The apper status is included in the UsedBlock status. It
+	might need to be split from the UsedBlock enum in the future.
+	
