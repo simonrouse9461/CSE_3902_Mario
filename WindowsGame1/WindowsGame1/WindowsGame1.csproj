@@ -237,7 +237,7 @@
     <Content Include="bin\x86\Debug\LeveLoader.dll" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="CODE_REVIEWS\BowenReadabilityReviewS3.txt" />
+    <Content Include="CODE_REVIEWS\BowenMaintainabilityReviewS3.txt" />
     <Content Include="CODE_REVIEWS\ChuhanReadabilityReview.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint3.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
