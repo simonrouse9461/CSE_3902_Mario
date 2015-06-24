@@ -81,7 +81,7 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload(int counter = 0)
+        public void Unload(int counter = 1)
         {
             PrepareToUnload = true;
             UnloadCounter = counter;
@@ -92,7 +92,7 @@ namespace WindowsGame1
             if (World.ObjectList.Contains(this) && PrepareToUnload)
             {
                 UnloadCounter--;
-                if (UnloadCounter == 0) World.ObjectList.Remove(this);
+                if (UnloadCounter <= 0) World.ObjectList.Remove(this);
             }
             if (CommandHandler != null) CommandHandler.Handle();
             if (CollisionHandler != null) CollisionHandler.Handle();
