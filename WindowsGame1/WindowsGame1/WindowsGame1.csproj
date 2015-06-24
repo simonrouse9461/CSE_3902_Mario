@@ -241,6 +241,7 @@
     <Content Include="CODE_REVIEWS\ChuhanCodeReview.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint3.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
+    <Content Include="CODE_REVIEWS\ColinCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
