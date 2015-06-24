@@ -10,5 +10,6 @@ namespace WindowsGame1
         public abstract void MarioSmash();
 
         public bool Dead { get; set; }
+        public bool Alive { get; set; }
     }
 }

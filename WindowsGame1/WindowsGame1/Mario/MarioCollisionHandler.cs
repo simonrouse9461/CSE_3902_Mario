@@ -27,7 +27,7 @@ namespace WindowsGame1
             {
                 State.SpriteState.GetStarPower();
             }
-            if (Detector.Detect<Goomba>(goomba => goomba.Solid /*&& goomba.Alive*/).AnySide.Contact)
+            if (Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive).AnySide.Contact)
             {
                 if (State.SpriteState.Small)
                 {
@@ -39,7 +39,7 @@ namespace WindowsGame1
                     State.SpriteState.BecomeSmall();
                 }
             }
-            if (Detector.Detect<Koopa>(koopa => koopa.Solid /*&& koopa.Alive*/).AnySide.Contact)
+            if (Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive).AnySide.Contact)
             {
                 if (State.SpriteState.Small)
                 {
