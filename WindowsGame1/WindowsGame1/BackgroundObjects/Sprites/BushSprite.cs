@@ -5,23 +5,18 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class BushSprite : SpriteKernel
+    public class BushSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public BushSprite()
         {
-           
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "scenery";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(183, 144, 34, 16)
-                });
-           
+                }
+            };
         }
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "scenery");
-        }
-
     }
 }
