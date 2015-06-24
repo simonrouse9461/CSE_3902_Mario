@@ -5,16 +5,14 @@ namespace WindowsGame1
 {
     public class ItemCollisionHandler : CollisionHandlerKernelNew<ItemSpriteState, ItemMotionState>
     {
-        IObject Obj;
-        public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state, IObject obj) : base(state)
+        public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state) : base(state)
         {
             AddBarrier<IObject>();
-            this.Obj = obj;
         }
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>().AnySide.Contact)
+            if (Detector.Detect<MarioObject>().AnyEdge.Contact)
             {
                 State.Object.Unload();
             }
