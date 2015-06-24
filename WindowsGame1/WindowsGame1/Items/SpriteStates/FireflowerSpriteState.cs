@@ -12,6 +12,7 @@ namespace WindowsGame1
             {
                 new FireflowerSprite(),
             };
+            ChangeFrequency(10);
         }
 
         public override ISpriteNew Sprite

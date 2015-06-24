@@ -11,6 +11,7 @@ namespace WindowsGame1
             {
                 new CoinSprite(),
             };
+            ChangeFrequency(10);
         }
 
         public override ISpriteNew Sprite

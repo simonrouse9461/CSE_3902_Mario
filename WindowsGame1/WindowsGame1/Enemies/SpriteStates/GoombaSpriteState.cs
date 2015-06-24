@@ -23,6 +23,7 @@ namespace WindowsGame1
             };
 
             Status = StatusEnum.Walking;
+            ChangeFrequency(6);
         }
 
         public override ISpriteNew Sprite

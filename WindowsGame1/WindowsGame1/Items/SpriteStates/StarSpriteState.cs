@@ -12,6 +12,7 @@ namespace WindowsGame1
             {
                 new StarSprite(),
             };
+            ChangeFrequency(10);
         }
 
         public override ISpriteNew Sprite
