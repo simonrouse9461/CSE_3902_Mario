@@ -13,7 +13,6 @@ namespace WindowsGame1
         { 
             Function = getValue ?? (stage => default(T));
             Circulator = new Counter(period);
-            Reset();
         }
 
         public virtual void Reset()
@@ -26,9 +25,9 @@ namespace WindowsGame1
             Circulator.Update(phase);
         }
 
-        public T GetValue()
+        public T Value
         {
-            return Function(Circulator.Phase);
+            get { return Function(Circulator.Phase); }
         }
     }
 }

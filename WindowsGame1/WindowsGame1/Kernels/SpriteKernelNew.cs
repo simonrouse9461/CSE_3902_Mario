@@ -43,7 +43,7 @@ namespace WindowsGame1
         private void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color, SpriteSourceNew source, PeriodicFunction<int> animation)
         {
             if (color == null) color = Color.White;
-            Rectangle sourceRectangle = source.Coordinates[animation.GetValue()];
+            Rectangle sourceRectangle = source.Coordinates[animation.Value];
             Rectangle destinationRectangle = GetDestination(location);
             spriteBatch.Draw(source.Texture, destinationRectangle, sourceRectangle, color.Value);
         }
@@ -66,10 +66,10 @@ namespace WindowsGame1
         public Rectangle GetDestination(Vector2 location)
         {
             return new Rectangle(
-                (int)location.X - Source.Default.Coordinates[Animation.Default.GetValue()].Width/2,
-                (int)location.Y - Source.Default.Coordinates[Animation.Default.GetValue()].Height,
-                Source.Default.Coordinates[Animation.Default.GetValue()].Width,
-                Source.Default.Coordinates[Animation.Default.GetValue()].Height
+                (int)location.X - Source.Default.Coordinates[Animation.Default.Value].Width/2,
+                (int)location.Y - Source.Default.Coordinates[Animation.Default.Value].Height,
+                Source.Default.Coordinates[Animation.Default.Value].Width,
+                Source.Default.Coordinates[Animation.Default.Value].Height
                 );
         }
     }

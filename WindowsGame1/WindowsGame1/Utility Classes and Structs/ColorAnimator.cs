@@ -34,7 +34,7 @@ namespace WindowsGame1
 
         public Color Color
         {
-            get { return ColorList.GetValue(); }
+            get { return ColorList.Value; }
         }
     }
 }

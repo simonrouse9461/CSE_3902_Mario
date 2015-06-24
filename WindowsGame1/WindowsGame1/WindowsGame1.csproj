@@ -85,13 +85,6 @@
     <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
-    <Compile Include="Collision Tests\MarioBreakableBlockCollisions.cs" />
-    <Compile Include="Collision Tests\MarioFireflowerCollisions.cs" />
-    <Compile Include="Collision Tests\MarioGoombaCollisions.cs" />
-    <Compile Include="Collision Tests\MarioKoopaCollisions.cs" />
-    <Compile Include="Collision Tests\MarioMushroomCollisions.cs" />
-    <Compile Include="Collision Tests\MarioNormalBlockCollisions.cs" />
-    <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />

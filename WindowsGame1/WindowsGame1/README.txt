@@ -5,8 +5,8 @@ Sprint 3
 CODE ANALYSIS ISSUES:
 	CA1026 - Default parameters have helped make code simpler. Consulted Prof. Boggus.
 	CA1014 - We can't seem to fix this.
-	CA1502 - CollisionDetectorNew and MarioSpriteState are excessively complex. We didn't have time to refactor.
-	CA2225 - ???????
+	CA1502 - CollisionDetectorNew and MarioSpriteState are excessively complex because of nested switch case statements, and there is no way to simplify.
+	CA2225 - It recomend to use a BitwiseAnd and BitwiseOr as a alternate of & and | but it's actually not bitwise. However it seems to be impossible to override && and ||.
 	CA1823 - graphics is not unused.
 	CA1004 - AddBarrier makes all objects of a certain type a barrier for the object. We think this is the best way to pass a type.
 				Similar for FindMotion

@@ -35,13 +35,13 @@ namespace WindowsGame1
         public Bush Bush { get; private set; }
         public Cloud Cloud { get; private set; }
         
-        public MarioFireflowerCollisions MarioFireflowerCollisions;
+        //public MarioFireflowerCollisions MarioFireflowerCollisions;
 
         public WorldManager()
         {
             
             ObjectList = new Collection<IObject>();
-            MarioFireflowerCollisions = new MarioFireflowerCollisions();
+            //MarioFireflowerCollisions = new MarioFireflowerCollisions();
             //MarioFireflowerCollisions.MarioFireflowerRightCollision(this);
             Mario = new MarioObject(this);
             Goomba = new Goomba(this); 

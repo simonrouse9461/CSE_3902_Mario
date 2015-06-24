@@ -22,18 +22,20 @@ namespace WindowsGame1
 
         public abstract void Handle();
 
-        public void AddBarrier<T>() where T : IObject
+        public void AddBarrier<T>(Type type = null) where T : IObject
         {
-            BarrierList.Add(typeof(T));
+            type = type ?? typeof(T);
+            BarrierList.Add(type);
         }
 
-        public void RemoveBarrier<T>() where T : IObject
+        public void RemoveBarrier<T>(Type type = null) where T : IObject
         {
-            foreach (var type in BarrierList)
+            type = type ?? typeof (T);
+            for (var i = 0; i < BarrierList.Count; i++)
             {
-                if (type.IsAssignableFrom(typeof(T)))
+                if (BarrierList[i].IsAssignableFrom(type))
                 {
-                    BarrierList.Remove(type);
+                    BarrierList.Remove(BarrierList[i]);
                 }
             }
         }
