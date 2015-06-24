@@ -20,7 +20,7 @@ namespace WindowsGame1
             Animation.Default = new PeriodicFunction<int>(
             phase =>
             {
-                int[] frameSequence = { 0, 0, 1, 1, 2, 2 };
+                int[] frameSequence = { 0, 1, 2 };
                 return frameSequence[phase];
             },
             period);

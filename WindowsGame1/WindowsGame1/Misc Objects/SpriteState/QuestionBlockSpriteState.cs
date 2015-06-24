@@ -21,6 +21,7 @@ namespace WindowsGame1
                 new UsedBlockSprite(),
             };
             Status = StatusEnum.Animated;
+            ChangeFrequency(10);
         }
         public override ISpriteNew Sprite
         {
