@@ -251,7 +251,7 @@
     <Content Include="obj\x86\Debug\WindowsGame1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\WindowsGame1.exe" />
     <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="CODE_REVIEWS\AndreReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\AndrewCodeReview.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
