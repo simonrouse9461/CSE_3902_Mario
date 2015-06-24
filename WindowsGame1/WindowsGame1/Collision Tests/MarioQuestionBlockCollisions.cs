@@ -1,69 +1,120 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using WindowsGame1;
 
-namespace MarioQuestionBlockCollision
+namespace WindowsGame1
 {
     public class MarioQuestionBlockCollisions
     {
-        private WorldManager TestWorld;
         private MarioGame TestGame;
-        private MarioObject TestMario;
-        private QuestionBlockObject TestBlock;
-        private ContentManager Content;
+        private MarioObject TestMario { get; set; }
+        private MarioObject CompareMario { get; set; }
+        private QuestionBlockObject TestQuestionBlock { get; set; }
+
         private ICommand TestCommand;
-        public void MarioQuestionBlockRightCollision()
+        private ICommand CompareCommand;
+        public void MarioQuestionBlockRightCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new QuestionBlockObject(TestWorld);
+            TestMario = new MarioObject(world);
+            CompareMario = new MarioObject(world);
+            TestQuestionBlock = new QuestionBlockObject(world);
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
+            CompareCommand = new MarioRightCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            //Check that question block is not changed
-            //Assert.AreEqual("QuestionBlockSpriteState", TestBlock.SpriteState);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
+            //Check that block is not used
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioQuestionBlockRightCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioQuestionBlockRightCollision has Failed\r\n");
+            }
         }
-        public void MarioQuestionBlockLeftCollision()
+        public void MarioQuestionBlockLeftCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new QuestionBlockObject(TestWorld);
-            TestCommand = new MarioLeftCommand(TestGame);
+            TestMario = new MarioObject(world);
+            CompareMario = new MarioObject(world);
+            TestQuestionBlock = new QuestionBlockObject(world);
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
+            TestCommand = new MarioRightCommand(TestGame);
+            CompareCommand = new MarioRightCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
 
-            //Check that question block is not changed
-            //Assert.AreEqual("QuestionBlockSpriteState", TestBlock.SpriteState);
+            //Check that block is not used
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioQuestionBlockLeftCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioQuestionBlockLeftCollision has Failed\r\n");
+            }
         }
 
-        public void MarioQuestionBlockTopCollision()
+        public void MarioQuestionBlockTopCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new QuestionBlockObject(TestWorld);
+            TestMario = new MarioObject(world);
+            CompareMario = new MarioObject(world);
+            TestQuestionBlock = new QuestionBlockObject(world);
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
+            CompareCommand = new MarioDownCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
 
-            //Check that question block is not changed
-            //Assert.AreEqual("QuestionBlockSpriteState", TestBlock.SpriteState);
+            //Check that block is not used
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioQuestionBlockRightCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioQuestionBlockRightCollision has Failed\r\n");
+            }
         }
-        public void MarioQuestionBlockBottomCollision()
+        public void MarioQuestionBlockBottomCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new QuestionBlockObject(TestWorld);
+            TestMario = new MarioObject(world);
+            CompareMario = new MarioObject(world);
+            TestQuestionBlock = new QuestionBlockObject(world);
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
+            CompareCommand = new MarioUpCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
 
-            //Check that question block is now used block
-            //Assert.AreEqual("UsedBlockSpriteState", TestBlock.SpriteState);
+            //Check that block is used
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioQuestionBlockBottomCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioQuestionBlockBottomCollision has Failed\r\n");
+            }
         }
     }
 }

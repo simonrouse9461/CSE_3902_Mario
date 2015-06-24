@@ -11,9 +11,10 @@ namespace WindowsGame1
     {
         public Collection<IObject> ObjectList { get; private set; }
 
+        
         ObjectData[] Locations;
         public MarioObject Mario { get; private set; }
-
+        public MarioGame Game1;
         public QuestionBlockObject QuestionBlock { get; private set; }
         public HiddenBlockObject HiddenBlock { get; private set; }
         public NormalBlockObject NormalBlock { get; private set; }
@@ -35,14 +36,14 @@ namespace WindowsGame1
         public Bush Bush { get; private set; }
         public Cloud Cloud { get; private set; }
         
-        //public MarioFireflowerCollisions MarioFireflowerCollisions;
+        public MarioFireflowerCollisions MarioFireflowerCollisions;
 
         public WorldManager()
         {
             
             ObjectList = new Collection<IObject>();
-            //MarioFireflowerCollisions = new MarioFireflowerCollisions();
-            //MarioFireflowerCollisions.MarioFireflowerRightCollision(this);
+            Game1 = new MarioGame();
+            Game1.RunTests();
             Mario = new MarioObject(this);
             Goomba = new Goomba(this); 
             Koopa = new Koopa(this);
