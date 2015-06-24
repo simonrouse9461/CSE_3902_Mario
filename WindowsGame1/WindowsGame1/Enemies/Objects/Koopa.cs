@@ -12,7 +12,7 @@ namespace WindowsGame1
         }
         public bool Alive
         {
-            get { return !SpriteState.Dead; }
+            get { return SpriteState.Alive; }
         }
 
         protected override void SyncState()
