@@ -12,14 +12,14 @@ namespace WindowsGame1
             ImageFile.Default = "Mario";
             Source.Left = new SpriteSourceNew
             {
-                Coodinates = new Collection<Rectangle>
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(336, 122, 16, 32)
                 }
             };
             Source.Right = new SpriteSourceNew
             {
-                Coodinates = new Collection<Rectangle>
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(51, 122, 16, 32)
                 }

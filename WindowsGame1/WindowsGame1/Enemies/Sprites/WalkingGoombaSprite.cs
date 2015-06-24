@@ -14,7 +14,7 @@ namespace WindowsGame1
             ImageFile.Default = "enemies";
             Source.Default = new SpriteSourceNew
             {
-                Coodinates = new Collection<Rectangle>
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(0, 4, 15, 16),
                     new Rectangle(30, 4, 15, 16)

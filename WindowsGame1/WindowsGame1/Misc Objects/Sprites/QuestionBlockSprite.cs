@@ -5,32 +5,28 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockSprite : SpriteKernel
+    public class QuestionBlockSprite : SpriteKernelNew
     {
-        
-        protected override void Initialize()
-        {
-            const int period = 6;
-
-            Source = new SpriteSource(
-                new Collection<Rectangle>
-                {
-                    new Rectangle(0, 0, 16, 16),
-                    new Rectangle(16, 0, 16, 16),
-                    new Rectangle(32, 0, 16, 16)
-                });
-            Animation = new PeriodicFunction<int>(
-            phase => 
+        public QuestionBlockSprite(){
+            const int period = 3;
+            ImageFile.Default = "blocks";
+            Source.Default = new SpriteSourceNew{
+                Coordinates = new Collection<Rectangle>{
+                    new Rectangle(0,0,16,16),
+                    new Rectangle(16,0,16,16),
+                    new Rectangle(32,0,16,16)
+                }
+            };
+            Animation.Default = new PeriodicFunction<int>(
+            phase =>
             {
-                int[] frameSequence = {0, 0, 1, 1, 2, 2};
+                int[] frameSequence = { 0, 0, 1, 1, 2, 2 };
                 return frameSequence[phase];
             },
             period);
         }
+        
 
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "blocks");
-        }
+            
     }
 }

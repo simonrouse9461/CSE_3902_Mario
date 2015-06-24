@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class HiddenBlockSpriteState : SpriteStateKernel
+    public class HiddenBlockSpriteState : SpriteStateKernelNew
     {
         public enum StatusEnum
         {
@@ -10,20 +12,30 @@ namespace WindowsGame1
             UsedBlock
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public HiddenBlockSpriteState()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new Collection<ISpriteNew>{
                 new HiddenBlockSprite(),
                 new UsedBlockSprite(),
             };
             Status = StatusEnum.Hidden;
         }
 
-        public override ISprite Sprite
+
+        public override ISpriteNew Sprite
         {
-            get { return Status == StatusEnum.Hidden ? SpriteList[0] : SpriteList[1]; }
+            get {
+                if (Status == StatusEnum.UsedBlock)
+                {
+                    return FindSprite<UsedBlockSprite>();
+                }
+                else
+                {
+                    return FindSprite<HiddenBlockSprite>();
+                }
+            }
         }
 
         public void HiddenToUsedBlock()

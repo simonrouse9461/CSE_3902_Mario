@@ -1,29 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockSpriteState : SpriteStateKernel
+    public class QuestionBlockSpriteState : SpriteStateKernelNew
     {
-        public enum StatusEnum
+        private enum StatusEnum
         {
             Animated,
             UsedBlock
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public QuestionBlockSpriteState()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new Collection<ISpriteNew>{
                 new QuestionBlockSprite(),
                 new UsedBlockSprite(),
             };
             Status = StatusEnum.Animated;
         }
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return Status == StatusEnum.UsedBlock ? SpriteList[1] : SpriteList[0]; }
+            get {
+                if (Status == StatusEnum.UsedBlock)
+                {
+                    return FindSprite<UsedBlockSprite>();
+                }
+                else
+                {
+                    return FindSprite<QuestionBlockSprite>();
+                }
+            }
         }
 
         public void UsedBlock()
@@ -31,9 +41,9 @@ namespace WindowsGame1
             Status = StatusEnum.UsedBlock;
         }
 
-        public void Animated()
-        {
-            Status = StatusEnum.Animated;
-        }
+        //public override void Animated()
+        //{
+        //    Status = StatusEnum.Animated;
+        //}
     }
 }
