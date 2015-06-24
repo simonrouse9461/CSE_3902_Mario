@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
@@ -14,6 +14,11 @@ namespace WindowsGame1
         protected override void SyncState()
         {
 
+        }
+        
+        public bool Alive
+        {
+            get { return !SpriteState.Dead; }
         }
     }
 }
