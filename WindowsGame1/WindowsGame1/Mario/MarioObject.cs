@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+namespace WindowsGame1
 {
     public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>, IMario
     {
@@ -29,7 +29,7 @@
                 }
             }
             else
-            {
+            { 
                 if (MotionState.Raising)
                     SpriteState.Jump();
                 else if (MotionState.Falling)

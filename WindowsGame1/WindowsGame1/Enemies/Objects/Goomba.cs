@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
@@ -15,5 +15,6 @@ namespace WindowsGame1
         {
 
         }
+        
     }
 }
