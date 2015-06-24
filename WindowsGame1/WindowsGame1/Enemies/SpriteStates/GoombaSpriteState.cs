@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -44,6 +44,11 @@ namespace WindowsGame1
         public override void MarioSmash()
         {
             Status = StatusEnum.Dead;
+        }
+        
+        public override bool Dead
+        {
+            get { return Status == StatusEnum.Dead; }
         }
     }
 }

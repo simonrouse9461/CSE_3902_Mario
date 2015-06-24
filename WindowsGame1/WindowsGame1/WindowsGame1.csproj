@@ -237,12 +237,10 @@
     <Content Include="bin\x86\Debug\LeveLoader.dll" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="READABILITY_REVIEWS\BowenReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\BowenReadabilityReviewS3.txt" />
-    <Content Include="READABILITY_REVIEWS\ChuhanReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\ColinReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\ColinReadabilityReviewSprint3.txt" />
-    <Content Include="READABILITY_REVIEWS\HadenReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\BowenReadabilityReviewS3.txt" />
+    <Content Include="CODE_REVIEWS\ChuhanReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint3.txt" />
+    <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
@@ -253,7 +251,7 @@
     <Content Include="obj\x86\Debug\WindowsGame1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\WindowsGame1.exe" />
     <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="READABILITY_REVIEWS\AndreReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\AndreReadabilityReview.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>

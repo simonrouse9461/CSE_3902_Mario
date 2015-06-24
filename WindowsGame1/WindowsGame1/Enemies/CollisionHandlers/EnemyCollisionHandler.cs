@@ -12,7 +12,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>().Top.Contact)
+            if (Detector.Detect<MarioObject>(mario => mario.Solid && mario.Alive).Top.Contact)
             {
                 State.SpriteState.MarioSmash();
             }

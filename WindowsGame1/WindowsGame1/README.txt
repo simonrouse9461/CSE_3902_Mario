@@ -1,6 +1,11 @@
-﻿CODE ANALYSIS ISSUES:
-	By the time we ran Code Analysis we did not have time to refactor our
-	project to address many of the issues.
+﻿BACH
+Sprint 3
+6/23/2015
 
-	Some of the issues we felt were justified regardless:
-		- Blocks and Mario were kept public so that commands could change them.
+CODE ANALYSIS ISSUES:
+	CA1026 - Default parameters have helped make code simpler. Consulted Prof. Boggus.
+	CA1014 - We can't seem to fix this.
+	CA1502 - CollisionDetectorNew is excessively complex. We didn't have time to refactor.
+	CA2225 - ???????
+	CA1823 - graphics is not unused.
+	CA1004 - AddBarrier makes all objects of a certain type a barrier for the object. 

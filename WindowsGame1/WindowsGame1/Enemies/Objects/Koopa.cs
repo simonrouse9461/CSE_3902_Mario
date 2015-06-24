@@ -10,6 +10,10 @@ namespace WindowsGame1
             MotionState = new EnemyMotionState();
             CollisionHandler = new EnemyCollisionHandler(State);
         }
+        public bool Alive
+        {
+            get { return !State.SpriteState.Dead; }
+        }
 
         protected override void SyncState()
         {

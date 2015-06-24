@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+namespace WindowsGame1
 {
     public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>, IMario
     {
@@ -29,7 +29,7 @@
                 }
             }
             else
-            {
+            { 
                 if (MotionState.Raising)
                     SpriteState.Jump();
                 else if (MotionState.Falling)
@@ -37,6 +37,11 @@
             }
             if (SpriteState.Dead)
                 MotionState.DeadFall();
+        }
+
+        public override bool Solid
+        {
+            get { return Alive; }
         }
 
         public bool Alive
