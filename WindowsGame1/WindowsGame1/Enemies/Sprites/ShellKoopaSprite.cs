@@ -6,22 +6,18 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class ShellKoopaSprite : SpriteKernel
+    public class ShellKoopaSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public ShellKoopaSprite()
         {
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "enemies";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(360, 4, 18, 15)
-                });
-            Animation = new PeriodicFunction<int>();
-        }
-
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "enemies");
+                }
+            };
         }
     }
 }

@@ -12,7 +12,7 @@ namespace WindowsGame1
             ImageFile.Default = "Mario";
             Source.Left = new SpriteSourceNew
             {
-                Coodinates = new Collection<Rectangle>
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(30, 30, 14, 16),
                     new Rectangle(61, 30, 13 ,15),
@@ -31,7 +31,7 @@ namespace WindowsGame1
                 period);
             Source.Right = new SpriteSourceNew
             {
-                Coodinates = new Collection<Rectangle>
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(210, 30, 15, 15),
                     new Rectangle(240, 30, 14, 15),

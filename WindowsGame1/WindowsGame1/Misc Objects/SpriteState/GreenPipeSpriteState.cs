@@ -1,29 +1,31 @@
-﻿using System.Collections.Generic;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 namespace WindowsGame1
 {
-    public class GreenPipeSpriteState : SpriteStateKernel
+    public class GreenPipeSpriteState : SpriteStateKernelNew
     {
-        public enum StatusEnum
+        private enum StatusEnum
         {
             Short,
             Medium,
             Tall
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public GreenPipeSpriteState()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new Collection<ISpriteNew>{
                 new GreenPipeSprite()
             };
             Status = StatusEnum.Tall;
         }
 
-        public override ISprite Sprite
+       
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get { return FindSprite<GreenPipeSprite>(); }
         }
     }
 }

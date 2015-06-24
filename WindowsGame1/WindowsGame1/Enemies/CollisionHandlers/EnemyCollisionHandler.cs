@@ -3,27 +3,18 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class EnemyCollisionHandler : CollisionHandlerKernel<EnemySpriteState, EnemyMotionState>
+    public class EnemyCollisionHandler : CollisionHandlerKernelNew<EnemySpriteState, EnemyMotionState>
     {
-        private CollisionDetector<MarioObject> EnemyMarioCollision;
-
-        public EnemyCollisionHandler(EnemySpriteState spriteState, EnemyMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
-
-        protected override void Initialize()
+        public EnemyCollisionHandler(State<EnemySpriteState, EnemyMotionState> state) : base(state)
         {
-            EnemyMarioCollision = new CollisionDetector<MarioObject>(Object);
+            AddBarrier<IObject>();
         }
 
         public override void Handle()
         {
-            if (EnemyMarioCollision.Detect().Top)
+            if (Detector.Detect<MarioObject>().Top.Contact)
             {
-                SpriteState.MarioSmash();
-                Active = false;
-                if (Object is Goomba)
-                {
-                    Object.Unload(150);
-                }
+                State.SpriteState.MarioSmash();
             }
         }
     }

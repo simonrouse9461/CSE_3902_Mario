@@ -1,30 +1,33 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockSpriteState : SpriteStateKernel
+    public class DestructibleBlockSpriteState : SpriteStateKernelNew
     {
         public enum StatusEnum{
             Destructible,
             Destroyed
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public DestructibleBlockSpriteState()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new Collection<ISpriteNew>{
                 new DestructibleBlockSprite(),
-                new DestroyedBlockSprite()
+                //new DestroyedBlockSprite()
             };
-
             Status = StatusEnum.Destructible;
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return Status == StatusEnum.Destructible ? SpriteList[0] : SpriteList[1]; }
+            get
+            {
+                return FindSprite<DestructibleBlockSprite>();
+            }
         }
 
         public void DestructibleDestroyed()

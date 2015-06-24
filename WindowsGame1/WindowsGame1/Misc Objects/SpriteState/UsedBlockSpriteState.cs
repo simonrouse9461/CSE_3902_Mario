@@ -1,28 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class UsedBlockSpriteState : SpriteStateKernel
+    public class UsedBlockSpriteState : SpriteStateKernelNew
     {
         public enum StatusEnum
         {
             Used
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public UsedBlockSpriteState()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new Collection<ISpriteNew>{
                 new UsedBlockSprite()
             };
-
             Status = StatusEnum.Used;
         }
 
-        public override ISprite Sprite
+
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get { 
+                return FindSprite<UsedBlockSprite>(); }
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class NormalBlockSpriteState : SpriteStateKernel
+    public class NormalBlockSpriteState : SpriteStateKernelNew
     {
         public enum StatusEnum
         {
@@ -12,31 +13,30 @@ namespace WindowsGame1
             UsedBlock
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public NormalBlockSpriteState()
         {
-            SpriteList = new List<ISprite> {
+            SpriteList = new Collection<ISpriteNew> {
                 new NormalBlockSprite(),
                 new UsedBlockSprite(),
-                new DestroyedBlockSprite()
+                //new DestroyedBlockSprite()
             };
-
             Status = StatusEnum.Normal;
+
         }
 
-        public override ISprite Sprite
+
+        public override ISpriteNew Sprite
         {
             get
             {
                 switch (Status)
                 {
-                    case StatusEnum.Normal:
-                        return SpriteList[0];
                     case StatusEnum.UsedBlock:
-                        return SpriteList[1];
+                        return FindSprite<UsedBlockSprite>();
                     default:
-                        return SpriteList[2];
+                        return FindSprite<NormalBlockSprite>();
                 }
             }
         }

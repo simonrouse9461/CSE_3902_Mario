@@ -3,19 +3,15 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class EnemyMotionState : MotionStateKernel
+    public class EnemyMotionState : MotionStateKernelNew
     {
-        protected override void Initialize()
-        {
 
+        protected override void RefreshMotionStatus()
+        {
+             
         }
 
-        protected override void RefreshMotionList()
-        {
-
-        }
-
-        protected override void ResetState()
+        protected override void SetToDefaultState()
         {
             
         }

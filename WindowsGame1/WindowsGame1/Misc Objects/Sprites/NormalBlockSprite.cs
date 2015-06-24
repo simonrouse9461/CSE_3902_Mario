@@ -5,23 +5,18 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class NormalBlockSprite : SpriteKernel
+    public class NormalBlockSprite : SpriteKernelNew
     {
 
-        protected override void Initialize()
+        public NormalBlockSprite()
         {
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "blocks";
+            Source.Default = new SpriteSourceNew{
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(16, 16, 16, 16)
-                });
+                }
+            };
         }
-
-        public override void Load(ContentManager content)
-        {
-
-            Source.Load(content, "blocks");
-        }
-
     }
 }

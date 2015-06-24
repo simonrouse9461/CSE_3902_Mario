@@ -5,22 +5,24 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class FireflowerSprite : SpriteKernel
+    public class FireflowerSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public FireflowerSprite()
         {
             const int period = 4;
 
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "items";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(3, 64, 17, 18),
                     new Rectangle(33, 64, 17, 18),
                     new Rectangle(63, 64, 17, 18),
                     new Rectangle(93, 64, 17, 18)
-                });
-            Animation = new PeriodicFunction<int>(
+                }
+            };
+            Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
                     int[] frameSequence = { 0, 1, 2, 3 };
@@ -28,11 +30,5 @@ namespace WindowsGame1
                 },
                 period);
         }
-        public override void Load(ContentManager content)
-        {
-
-            Source.Load(content, "items");
-        }
-
     }
 }
