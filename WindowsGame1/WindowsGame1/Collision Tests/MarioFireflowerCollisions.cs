@@ -3,16 +3,17 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
+
 namespace WindowsGame1
 {
     public class MarioFireflowerCollisions
     {
-        private WorldManager TestWorld;
+        //private WorldManager TestWorld;
         private MarioGame TestGame;
         private MarioObject TestMario { get;  set; }
         private MarioObject CompareMario { get; set; }
         private Fireflower TestFireflower { get;  set; }
-        private ContentManager Content;
+        
         private MarioSpriteState TestMarioSprite;
         private MarioMotionState TestMarioMotion;
         private MarioSpriteState CompareMarioSprite;
@@ -21,15 +22,14 @@ namespace WindowsGame1
         private ICommand CompareCommand;
 
        
-        public void MarioFireflowerRightCollision()
+        public void MarioFireflowerRightCollision(WorldManager world)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
+            //TestWorld = new WorldManager();
             TestGame.Run();
-            TestMario = new MarioObject(TestWorld);
-            CompareMario = new MarioObject(TestWorld);
-            TestFireflower = new Fireflower(TestWorld);
+            TestMario = new MarioObject(world);
+            CompareMario = new MarioObject(world);
+            TestFireflower = new Fireflower(world);
             CompareCommand = new MarioFireCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
@@ -52,13 +52,11 @@ namespace WindowsGame1
             
         }
 
-        public void MarioFireflowerLeftCollision()
+        public void MarioFireflowerLeftCollision(WorldManager world)
         {
-            TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            TestGame = new MarioGame();           
+            TestMario = world.Mario;
+            TestFireflower = world.Fireflower;
             TestCommand = new MarioLeftCommand(TestGame);
             TestMario.PassCommand(TestCommand);
             
@@ -66,26 +64,22 @@ namespace WindowsGame1
             //Assert.AreEqual(true, TestMario.SpriteState.IsFire());
         }
 
-        public void MarioFireflowerTopCollision()
+        public void MarioFireflowerTopCollision(WorldManager world)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            TestMario = world.Mario;
+            TestFireflower = world.Fireflower;
             TestCommand = new MarioDownCommand(TestGame);
             TestMario.PassCommand(TestCommand);
             
             //Check that Mario is now Fire Mario
             //Assert.AreEqual(true, TestMario.SpriteState.IsFire());
         }
-        public void MarioFireflowerBottomCollision()
+        public void MarioFireflowerBottomCollision(WorldManager world)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            TestMario = world.Mario;
+            TestFireflower = world.Fireflower;
             TestCommand = new MarioUpCommand(TestGame);
             TestMario.PassCommand(TestCommand);
             

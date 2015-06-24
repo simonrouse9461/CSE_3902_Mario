@@ -42,7 +42,7 @@ namespace WindowsGame1
             
             ObjectList = new Collection<IObject>();
             MarioFireflowerCollisions = new MarioFireflowerCollisions();
-            MarioFireflowerCollisions.MarioFireflowerRightCollision();
+            //MarioFireflowerCollisions.MarioFireflowerRightCollision(this);
             Mario = new MarioObject(this);
             Goomba = new Goomba(this); 
             Koopa = new Koopa(this);
