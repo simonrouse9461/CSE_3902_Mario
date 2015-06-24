@@ -1,12 +1,10 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using WindowsGame1;
 
 namespace MarioKoopaCollisions
 {
-    [TestClass]
     public class MarioKoopaCollisions
     {
         private WorldManager TestWorld;
@@ -16,7 +14,7 @@ namespace MarioKoopaCollisions
         private ContentManager Content;
         private ICommand TestCommand;
 
-        [TestMethod]
+        
         public void MarioKoopaRightCollision()
         {
             TestGame = new MarioGame();

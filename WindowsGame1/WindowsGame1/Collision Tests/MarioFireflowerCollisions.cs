@@ -1,75 +1,90 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using WindowsGame1;
 
-namespace MarioFireflowerCollisions
+
+namespace WindowsGame1
 {
-    [TestClass]
     public class MarioFireflowerCollisions
     {
-        private WorldManager TestWorld;
+        //private WorldManager TestWorld;
         private MarioGame TestGame;
-        private MarioObject TestMario;
-        private Fireflower TestFireflower;
-        private ContentManager Content;
+        private MarioObject TestMario { get;  set; }
+        private MarioObject CompareMario { get; set; }
+        private Fireflower TestFireflower { get;  set; }
+        
+        private MarioSpriteState TestMarioSprite;
+        private MarioMotionState TestMarioMotion;
+        private MarioSpriteState CompareMarioSprite;
+        private MarioMotionState CompareMarioMotion;
         private ICommand TestCommand;
+        private ICommand CompareCommand;
 
-        [TestMethod]
-        public void MarioFireflowerRightCollision()
+       
+        public void MarioFireflowerRightCollision(WorldManager world)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            //TestWorld = new WorldManager();
+            TestGame.Run();
+            TestMario = new MarioObject(world);
+            CompareMario = new MarioObject(world);
+            TestFireflower = new Fireflower(world);
+            CompareCommand = new MarioFireCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
+            CompareCommand = new MarioRightCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
             //Check that Mario is now Fire Mario
-            Assert.AreEqual(true, TestMario.SpriteState.IsFire());
+            if(TestState == CompareState)
+            {
+                Console.Write("MarioFireflowerRightCollision has Passed");
+            }
+            else
+            {
+                Console.Write("MarioFireflowerRightCollision has Failed");
+            }
+            
+            
         }
 
-        public void MarioFireflowerLeftCollision()
+        public void MarioFireflowerLeftCollision(WorldManager world)
         {
-            TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            TestGame = new MarioGame();           
+            TestMario = world.Mario;
+            TestFireflower = world.Fireflower;
             TestCommand = new MarioLeftCommand(TestGame);
             TestMario.PassCommand(TestCommand);
             
             //Check that Mario is now Fire Mario
-            Assert.AreEqual(true, TestMario.SpriteState.IsFire());
+            //Assert.AreEqual(true, TestMario.SpriteState.IsFire());
         }
 
-        public void MarioFireflowerTopCollision()
+        public void MarioFireflowerTopCollision(WorldManager world)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            TestMario = world.Mario;
+            TestFireflower = world.Fireflower;
             TestCommand = new MarioDownCommand(TestGame);
             TestMario.PassCommand(TestCommand);
             
             //Check that Mario is now Fire Mario
-            Assert.AreEqual(true, TestMario.SpriteState.IsFire());
+            //Assert.AreEqual(true, TestMario.SpriteState.IsFire());
         }
-        public void MarioFireflowerBottomCollision()
+        public void MarioFireflowerBottomCollision(WorldManager world)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestFireflower = TestGame.World.Fireflower;
+            TestMario = world.Mario;
+            TestFireflower = world.Fireflower;
             TestCommand = new MarioUpCommand(TestGame);
             TestMario.PassCommand(TestCommand);
             
             //Check that Mario is now Fire Mario
-            Assert.AreEqual(true, TestMario.SpriteState.IsFire());
+            //Assert.AreEqual(true, TestMario.SpriteState.IsFire());
         }
     }
 }

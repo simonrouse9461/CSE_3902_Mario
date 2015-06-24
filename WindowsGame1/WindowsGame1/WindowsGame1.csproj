@@ -85,6 +85,13 @@
     <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
+    <Compile Include="Collision Tests\MarioBreakableBlockCollisions.cs" />
+    <Compile Include="Collision Tests\MarioFireflowerCollisions.cs" />
+    <Compile Include="Collision Tests\MarioGoombaCollisions.cs" />
+    <Compile Include="Collision Tests\MarioKoopaCollisions.cs" />
+    <Compile Include="Collision Tests\MarioMushroomCollisions.cs" />
+    <Compile Include="Collision Tests\MarioNormalBlockCollisions.cs" />
+    <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
@@ -106,9 +113,7 @@
     <Compile Include="Mario\Sprites\SwimmingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\SwimmingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\SwimmingSmallMarioSprite.cs" />
-    <Compile Include="Old Files\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICollisionDetectorNew.cs" />
-    <Compile Include="Old Files\ICollisionHandler.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
@@ -121,13 +126,10 @@
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
-    <Compile Include="Old Files\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Kernels\CommandHandlerKernel.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
-    <Compile Include="Old Files\ObjectKernel.cs" />
-    <Compile Include="Old Files\SpriteKernel.cs" />
     <Compile Include="Mario\IMario.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioCommandHandler.cs" />
@@ -158,7 +160,6 @@
     <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
     <Compile Include="Interfaces\IObject.cs" />
-    <Compile Include="Old Files\ISpriteState.cs" />
     <Compile Include="Items\1up.cs" />
     <Compile Include="Items\Fireflower.cs" />
     <Compile Include="Items\Mushroom.cs" />
@@ -170,8 +171,6 @@
     <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
-    <Compile Include="Old Files\MotionStateKernel.cs" />
-    <Compile Include="Old Files\SpriteStateKernel.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
@@ -204,7 +203,6 @@
     <Compile Include="Misc Objects\SpriteState\NormalBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\QuestionBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
-    <Compile Include="Misc Objects\Sprites\DestroyedBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\HiddenBlockSprite.cs" />
@@ -216,25 +214,20 @@
     <Compile Include="Commands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
-    <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Motions\RaiseUpMotion.cs" />
     <Compile Include="Motions\SuddenStopMotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Old Files\CollisionDetector.cs" />
     <Compile Include="Utility Classes and Structs\CollisionDetectorNew.cs" />
-    <Compile Include="Old Files\CollisionSideOld.cs" />
     <Compile Include="Utility Classes and Structs\Collision.cs" />
     <Compile Include="Utility Classes and Structs\CollisionType.cs" />
     <Compile Include="Utility Classes and Structs\ColorAnimator.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
     <Compile Include="Utility Classes and Structs\Counter.cs" />
-    <Compile Include="Old Files\NullCollisionHandler.cs" />
     <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\RectangleParser.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSourceNew.cs" />
-    <Compile Include="Old Files\SpriteSource.cs" />
     <Compile Include="Utility Classes and Structs\State.cs" />
     <Compile Include="Utility Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Utility Classes and Structs\SymmetricPair.cs" />
@@ -244,12 +237,10 @@
     <Content Include="bin\x86\Debug\LeveLoader.dll" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="READABILITY_REVIEWS\BowenReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\BowenReadabilityReviewS3.txt" />
-    <Content Include="READABILITY_REVIEWS\ChuhanReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\ColinReadabilityReview.txt" />
-    <Content Include="READABILITY_REVIEWS\ColinReadabilityReviewSprint3.txt" />
-    <Content Include="READABILITY_REVIEWS\HadenReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\BowenReadabilityReviewS3.txt" />
+    <Content Include="CODE_REVIEWS\ChuhanReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint3.txt" />
+    <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
@@ -260,7 +251,7 @@
     <Content Include="obj\x86\Debug\WindowsGame1.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\WindowsGame1.exe" />
     <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
-    <Content Include="READABILITY_REVIEWS\AndreReadabilityReview.txt" />
+    <Content Include="CODE_REVIEWS\AndreReadabilityReview.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>

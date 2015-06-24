@@ -8,5 +8,7 @@ namespace WindowsGame1
     public abstract class EnemySpriteState : SpriteStateKernelNew
     {
         public abstract void MarioSmash();
+
+        public bool Dead { get; set; }
     }
 }

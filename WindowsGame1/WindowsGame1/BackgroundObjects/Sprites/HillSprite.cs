@@ -5,22 +5,18 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class HillSprite : SpriteKernel
+    public class HillSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public HillSprite()
         {
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "misc";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(86, 5, 80, 35)
-                });
-           
+                }
+            };
         }
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "misc");
-        }
-
     }
 }

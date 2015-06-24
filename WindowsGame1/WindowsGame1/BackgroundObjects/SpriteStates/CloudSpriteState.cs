@@ -1,29 +1,24 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CloudSpriteState : SpriteStateKernel
+    public class CloudSpriteState : SpriteStateKernelNew
     {
-        public enum StatusEnum
+        public CloudSpriteState()
         {
-            Still
-        }
-
-        public StatusEnum Status { get; set; }
-
-        protected override void Initialize()
-        {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
                 new CloudSprite()
             };
-
-            Status = StatusEnum.Still;
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get
+            {
+                return FindSprite<CloudSprite>();
+            }
         }
     }
 }

@@ -1,30 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class BushSpriteState :SpriteStateKernel
+    public class BushSpriteState :SpriteStateKernelNew
     {
-        public enum StatusEnum
+        public BushSpriteState()
         {
-            Still
-        }
-
-        public StatusEnum Status { get; set; }
-
-        protected override void Initialize()
-        {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
                 new BushSprite()
             };
-
-            Status = StatusEnum.Still;
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get
+            {
+                return FindSprite<BushSprite>();
+            }
         }
     }
 }
