@@ -8,7 +8,7 @@ namespace WindowsGame1
         {
             SpriteState = new CoinSpriteState();
             MotionState = new ItemMotionState();
-            CollisionHandler = new ItemCollisionHandler(State, this);
+            CollisionHandler = new ItemCollisionHandler(State);
         }
 
         // make it not solid so that anything can pass through it
