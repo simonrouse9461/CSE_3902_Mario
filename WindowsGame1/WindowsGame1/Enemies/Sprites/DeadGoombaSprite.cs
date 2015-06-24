@@ -5,30 +5,18 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class DeadGoombaSprite : SpriteKernel
+    public class DeadGoombaSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public DeadGoombaSprite()
         {
-            const int period = 1;
-
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "enemies";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(60, 7, 16, 10)
-                });
-            Animation = new PeriodicFunction<int>(
-                phase =>
-                { 
-                    int[] frameSequence = { 0 };
-                    return frameSequence[phase];
-                },
-                period);
+                }
+            };
         }
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "enemies");
-        }
-
     }
 }

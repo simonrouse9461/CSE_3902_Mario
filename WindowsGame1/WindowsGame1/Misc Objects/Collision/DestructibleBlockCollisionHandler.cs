@@ -3,22 +3,22 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockCollisionHandler : CollisionHandlerKernel<DestructibleBlockSpriteState, DestructibleBlockMotionState>
+    public class DestructibleBlockCollisionHandler : CollisionHandlerKernelNew<DestructibleBlockSpriteState, DestructibleBlockMotionState>
     {
-        private CollisionDetector<MarioObject> MarioDestructibleBlockCollision;
 
-        public DestructibleBlockCollisionHandler(DestructibleBlockSpriteState spriteState, DestructibleBlockMotionState motionState, IObject obj) : base(spriteState, motionState, obj) { }
 
-        protected override void Initialize()
+        public DestructibleBlockCollisionHandler(State<DestructibleBlockSpriteState, DestructibleBlockMotionState> state)
+            : base(state)
         {
-            MarioDestructibleBlockCollision = new CollisionDetector<MarioObject>(Object);
+            AddBarrier<IObject>();
         }
+
 
         public override void Handle()
         {
-            if (MarioDestructibleBlockCollision.Detect().Bottom)
+            if (Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Contact)
             {
-                Object.Unload();
+                State.Object.Unload();
             }
         }
     }

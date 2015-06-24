@@ -63,9 +63,12 @@ namespace WindowsGame1
             {
                 Sprite.Update();
             }
-            foreach (var colorAnimator in ColorSchemeList)
+            if (ColorSchemeList != null)
             {
-                colorAnimator.Update();
+                foreach (var colorAnimator in ColorSchemeList)
+                {
+                    colorAnimator.Update();
+                }
             }
         }
     }

@@ -3,21 +3,18 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeMotionState : MotionStateKernel
+    public class GreenPipeMotionState : MotionStateKernelNew
     {
-        protected override void Initialize()
+        protected override void SetToDefaultState()
         {
 
         }
 
-        protected override void RefreshMotionList()
+        protected override void RefreshMotionStatus()
         {
 
         }
 
-        protected override void ResetState()
-        {
-
-        }
+       
     }
 }

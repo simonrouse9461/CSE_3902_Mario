@@ -3,15 +3,12 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public  class Koopa : ObjectKernel<EnemySpriteState, EnemyMotionState>
+    public  class Koopa : ObjectKernelNew<EnemySpriteState, EnemyMotionState>
     {
-        public Koopa(WorldManager world) : base(world) { }
-
-        protected override void Initialize()
-        {
+        public Koopa(WorldManager world) : base(world) {
             SpriteState = new KoopaSpriteState();
             MotionState = new EnemyMotionState();
-            CollisionHandler = new EnemyCollisionHandler(SpriteState, MotionState, this);
+            CollisionHandler = new EnemyCollisionHandler(State);
         }
 
         protected override void SyncState()

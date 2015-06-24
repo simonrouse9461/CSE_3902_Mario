@@ -5,22 +5,24 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CoinSprite : SpriteKernel
+    public class CoinSprite : SpriteKernelNew
     {
-
-        protected override void Initialize()
+        public CoinSprite()
         {
-            int period = 8;
+            const int period = 8;
 
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "items";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(127, 94, 12, 16),
                     new Rectangle(157, 94, 12, 16),
                     new Rectangle(187, 94, 12, 16),
                     new Rectangle(218, 94, 12, 16)
-                });
-            Animation = new PeriodicFunction<int>(
+                }
+            };
+            Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
                     int[] frameSequence = { 0, 0, 1, 1, 2, 2, 3, 3 };
@@ -28,11 +30,5 @@ namespace WindowsGame1
                 },
                 period);
         }
-
-        public override void Load(ContentManager content)
-        {
-            Source.Load(content, "items");
-        }
-
     }
 }

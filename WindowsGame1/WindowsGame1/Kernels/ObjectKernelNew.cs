@@ -15,6 +15,12 @@ namespace WindowsGame1
 
         protected State<TSpriteState, TMotionState> State { get; private set; }
 
+        // temporarily made for test cases
+        public State<TSpriteState, TMotionState> StateGetter
+        {
+            get { return State; }
+        }
+
         protected TSpriteState SpriteState
         {
             get { return spriteState; }
@@ -75,7 +81,7 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload(int counter = 0)
+        public void Unload(int counter = 1)
         {
             PrepareToUnload = true;
             UnloadCounter = counter;
@@ -86,7 +92,7 @@ namespace WindowsGame1
             if (World.ObjectList.Contains(this) && PrepareToUnload)
             {
                 UnloadCounter--;
-                if (UnloadCounter == 0) World.ObjectList.Remove(this);
+                if (UnloadCounter <= 0) World.ObjectList.Remove(this);
             }
             if (CommandHandler != null) CommandHandler.Handle();
             if (CollisionHandler != null) CollisionHandler.Handle();

@@ -1,30 +1,30 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class IndestructibleBlockSpriteState : SpriteStateKernel
+    public class IndestructibleBlockSpriteState : SpriteStateKernelNew
     {
 
-        public enum StatusEnum
+        private enum StatusEnum
         {
             Indestructible
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public IndestructibleBlockSpriteState()
         {
-            SpriteList = new List<ISprite>{
+            SpriteList = new Collection<ISpriteNew>{
                 new IndestructibleBlockSprite()
             };
-
             Status = StatusEnum.Indestructible;
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get { return FindSprite<IndestructibleBlockSprite>(); }
         }
     }
 }

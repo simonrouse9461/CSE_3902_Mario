@@ -5,22 +5,18 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class _1UpSprite : SpriteKernel
+    public class _1UpSprite : SpriteKernelNew
     {
-        protected override void Initialize()
+        public _1UpSprite()
         {
-            Source = new SpriteSource(
-                new Collection<Rectangle>
+            ImageFile.Default = "items";
+            Source.Default = new SpriteSourceNew
+            {
+                Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(260, 114, 18, 18)
-                });
-
+                }
+            };
         }
-        public override void Load(ContentManager content)
-        {
-
-            Source.Load(content, "items");
-        }
-
     }
 }

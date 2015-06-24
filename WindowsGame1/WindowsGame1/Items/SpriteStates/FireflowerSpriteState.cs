@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
     public class FireflowerSpriteState : ItemSpriteState
     {
-        protected override void Initialize()
+        public FireflowerSpriteState()
         {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
-                new FireflowerSprite()
+                new FireflowerSprite(),
             };
+            ChangeFrequency(10);
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return SpriteList[0]; }
+            get
+            {
+                return FindSprite<FireflowerSprite>();
+            }
         }
     }
 }

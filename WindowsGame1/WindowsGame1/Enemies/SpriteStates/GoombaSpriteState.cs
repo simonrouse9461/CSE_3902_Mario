@@ -1,32 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
     public class GoombaSpriteState : EnemySpriteState
     {
-        public enum StatusEnum
+        private enum StatusEnum
         {
             Dead,
             Walking
         }
 
-        public StatusEnum Status { get; set; }
+        private StatusEnum Status;
 
-        protected override void Initialize()
+        public GoombaSpriteState()
         {
-            SpriteList = new List<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
-                new DeadGoombaSprite(), //0
-                new WalkingGoombaSprite(), //1
+                new DeadGoombaSprite(),
+                new WalkingGoombaSprite()
             };
 
             Status = StatusEnum.Walking;
+            ChangeFrequency(6);
         }
 
-        public override ISprite Sprite
+        public override ISpriteNew Sprite
         {
-            get { return Status == StatusEnum.Dead ? SpriteList[0] : SpriteList[1]; }
+            get
+            {
+                if (Status == StatusEnum.Dead)
+                {
+                    return FindSprite<DeadGoombaSprite>();
+                }
+                else
+                {
+                    return FindSprite<WalkingGoombaSprite>();
+                }
+            }
         }
 
         public override void MarioSmash()
