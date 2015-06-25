@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class Bush : ObjectKernelNew<BushSpriteState, BackgroundMotionState>
     {
-        public Bush(WorldManager world) : base(world)
+        public Bush()
         {
             SpriteState = new BushSpriteState();
             MotionState = new BackgroundMotionState();

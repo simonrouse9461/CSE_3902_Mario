@@ -44,8 +44,6 @@ namespace WindowsGame1
         protected ICommandHandler CommandHandler { get; set; }
         protected ICollisionHandlerNew CollisionHandler { get; set; }
 
-        public WorldManager World { get; private set; }
-
         public virtual bool Solid
         {
             get { return true; }
@@ -61,9 +59,8 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        protected ObjectKernelNew(WorldManager world)
+        protected ObjectKernelNew()
         {
-            World = world;
             State = new State<TSpriteState, TMotionState> { Object = this };
         }
 
@@ -89,10 +86,10 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (World.ObjectList.Contains(this) && PrepareToUnload)
+            if (WorldManager.Instance.ObjectList.Contains(this) && PrepareToUnload)
             {
                 UnloadCounter--;
-                if (UnloadCounter <= 0) World.ObjectList.Remove(this);
+                if (UnloadCounter <= 0) WorldManager.Instance.ObjectList.Remove(this);
             }
             if (CommandHandler != null) CommandHandler.Handle();
             if (CollisionHandler != null) CollisionHandler.Handle();

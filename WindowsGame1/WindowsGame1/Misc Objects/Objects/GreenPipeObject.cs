@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class GreenPipeObject : ObjectKernelNew<GreenPipeSpriteState, GreenPipeMotionState>
     {
-        public GreenPipeObject(WorldManager world) : base(world) {
+        public GreenPipeObject() {
 
             SpriteState = new GreenPipeSpriteState();
             MotionState = new GreenPipeMotionState();

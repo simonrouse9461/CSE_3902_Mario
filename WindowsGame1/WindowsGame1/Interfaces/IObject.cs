@@ -6,7 +6,6 @@
  {
     public interface IObject
     {
-        WorldManager World { get; }
         Rectangle PositionRectangle { get; }
         Vector2 PositionPoint { get; }
         bool Solid { get; }

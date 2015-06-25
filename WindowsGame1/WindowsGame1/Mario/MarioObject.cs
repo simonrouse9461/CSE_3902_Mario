@@ -2,7 +2,7 @@ namespace WindowsGame1
 {
     public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>, IMario
     {
-        public MarioObject(WorldManager world) : base(world)
+        public MarioObject()
         {
             SpriteState = new MarioSpriteState();
             MotionState = new MarioMotionState();

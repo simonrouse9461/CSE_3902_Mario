@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public  class Star : ObjectKernelNew<ItemSpriteState, ItemMotionState>
     {
-        public Star(WorldManager world) : base(world)
+        public Star()
         {
             SpriteState = new StarSpriteState();
             MotionState = new ItemMotionState();

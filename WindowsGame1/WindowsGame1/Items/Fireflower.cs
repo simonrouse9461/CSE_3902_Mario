@@ -5,8 +5,7 @@ namespace WindowsGame1
 {
     public class Fireflower : ObjectKernelNew<ItemSpriteState, ItemMotionState>
     {
-        public Fireflower(WorldManager world)
-            : base(world)
+        public Fireflower()
         {
             SpriteState = new FireflowerSpriteState();
             MotionState = new ItemMotionState();

@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public  class Coin : ObjectKernelNew<ItemSpriteState, ItemMotionState>
     {
-        public Coin(WorldManager world) : base(world)
+        public Coin()
         {
             SpriteState = new CoinSpriteState();
             MotionState = new ItemMotionState();

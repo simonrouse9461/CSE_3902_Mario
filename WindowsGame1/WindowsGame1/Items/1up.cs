@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class _1up : ObjectKernelNew<ItemSpriteState, ItemMotionState>
     {
-        public _1up(WorldManager world) : base(world)
+        public _1up()
         {
             SpriteState = new _1UpSpriteState();
             MotionState = new ItemMotionState();

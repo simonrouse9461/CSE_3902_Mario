@@ -28,7 +28,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Controller = new CommandManager(this);
-            World = new WorldManager();
+            World = WorldManager.Instance;
             base.Initialize();
         }
 

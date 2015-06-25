@@ -5,8 +5,7 @@ namespace WindowsGame1
 {
     public class UsedBlockObject : ObjectKernelNew<UsedBlockSpriteState, UsedBlockMotionState>
     {
-        public UsedBlockObject(WorldManager world) : base(world) {
-
+        public UsedBlockObject() {
             SpriteState = new UsedBlockSpriteState();
             MotionState = new UsedBlockMotionState();
         }

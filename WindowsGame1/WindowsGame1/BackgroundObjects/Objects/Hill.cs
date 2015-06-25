@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class Hill : ObjectKernelNew<HillSpriteState, BackgroundMotionState>
     {
-        public Hill(WorldManager world) : base(world)
+        public Hill()
         {
             SpriteState = new HillSpriteState();
             MotionState = new BackgroundMotionState();

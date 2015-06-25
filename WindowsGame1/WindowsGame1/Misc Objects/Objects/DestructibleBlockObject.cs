@@ -6,7 +6,7 @@ namespace WindowsGame1
     public class DestructibleBlockObject : ObjectKernelNew<DestructibleBlockSpriteState, DestructibleBlockMotionState>
     {
 
-        public DestructibleBlockObject(WorldManager world) : base(world) {
+        public DestructibleBlockObject() {
 
             SpriteState = new DestructibleBlockSpriteState();
             MotionState = new DestructibleBlockMotionState();

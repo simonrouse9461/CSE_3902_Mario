@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class IndestructibleBlockObject : ObjectKernelNew<IndestructibleBlockSpriteState, IndestructibleBlockMotionState>
     {
-        public IndestructibleBlockObject(WorldManager world) : base(world) {
+        public IndestructibleBlockObject() {
 
             SpriteState = new IndestructibleBlockSpriteState();
             MotionState = new IndestructibleBlockMotionState();

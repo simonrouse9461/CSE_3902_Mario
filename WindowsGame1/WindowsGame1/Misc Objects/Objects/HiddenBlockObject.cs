@@ -6,7 +6,7 @@ namespace WindowsGame1
     public class HiddenBlockObject : ObjectKernelNew<HiddenBlockSpriteState, HiddenBlockMotionState>
     {
 
-        public HiddenBlockObject(WorldManager world) : base(world) { 
+        public HiddenBlockObject() { 
         
             SpriteState = new HiddenBlockSpriteState();
             MotionState = new HiddenBlockMotionState();

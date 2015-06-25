@@ -7,10 +7,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            //Game.World.QuestionBlock.QuestionBlockAnimate();
-            Game.World.Mario.Reset();
-            //Game.World.NormalBlock.NormalBlockReset();
-            //Game.World.HiddenBlock.HiddenBlockReset();
+            WorldManager.FindObject<MarioObject>().Reset();
         }
 
     }

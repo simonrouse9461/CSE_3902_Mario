@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class NormalBlockObject : ObjectKernelNew<NormalBlockSpriteState, NormalBlockMotionState>
     {
-        public NormalBlockObject(WorldManager world) : base(world) {
+        public NormalBlockObject() {
             SpriteState = new NormalBlockSpriteState();
             MotionState = new NormalBlockMotionState();
             CollisionHandler = new NormalBlockCollisionHandler(State);

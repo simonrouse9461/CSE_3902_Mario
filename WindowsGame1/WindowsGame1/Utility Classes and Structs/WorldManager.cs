@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,82 +13,59 @@ namespace WindowsGame1
         public Collection<IObject> ObjectList { get; private set; }
 
         ObjectData[] Locations;
-        public MarioObject Mario { get; private set; }
-
-        public QuestionBlockObject QuestionBlock { get; private set; }
-        public HiddenBlockObject HiddenBlock { get; private set; }
-        public NormalBlockObject NormalBlock { get; private set; }
-        public DestructibleBlockObject DestructibleBlock { get; private set; }
-        public IndestructibleBlockObject IndestructibleBlock { get; private set; }
-        public UsedBlockObject UsedBlock { get; private set; }
-
-        public Koopa Koopa { get; private set; }
-        public Goomba Goomba { get; private set; }
-
-        public Coin Coin { get; private set; }
-        public Star Star { get; private set; }
-        public Fireflower Fireflower { get; private set; }
-        public _1up _1up { get; private set; }
-        public Mushroom Mushroom { get; private set; }
-        public GreenPipeObject GreenPipe { get; private set; }
-
-        public Hill Hill { get; private set; }
-        public Bush Bush { get; private set; }
-        public Cloud Cloud { get; private set; }
         
         //public MarioFireflowerCollisions MarioFireflowerCollisions;
 
-        public WorldManager()
+        private static WorldManager _instance;
+        public static WorldManager Instance
         {
-            
-            ObjectList = new Collection<IObject>();
-            //MarioFireflowerCollisions = new MarioFireflowerCollisions();
-            //MarioFireflowerCollisions.MarioFireflowerRightCollision(this);
-            Mario = new MarioObject(this);
-            Goomba = new Goomba(this); 
-            Koopa = new Koopa(this);
+            get
+            {
+                _instance = _instance ?? new WorldManager();
+                return _instance;
+            }
+        }
 
-            Coin = new Coin(this);
-            Star = new Star(this);
-            QuestionBlock = new QuestionBlockObject(this);
-            HiddenBlock = new HiddenBlockObject(this);
-            NormalBlock = new NormalBlockObject(this);
-            DestructibleBlock = new DestructibleBlockObject(this);
-            IndestructibleBlock = new IndestructibleBlockObject(this);
-            GreenPipe = new GreenPipeObject(this);
-            UsedBlock = new UsedBlockObject(this);
-            Fireflower = new Fireflower(this);
-            Mushroom = new Mushroom(this);
-            _1up = new _1up(this);
-            Hill = new Hill(this);
-            Bush = new Bush(this);
-            Cloud = new Cloud(this);
-            
-            // background things should be drawn first
-            ObjectList.Add(Bush);
-            ObjectList.Add(Hill);
-            ObjectList.Add(Cloud);
+        public static List<T> FindObjectList<T>() where T : IObject
+        {
+            return Instance.ObjectList.OfType<T>().ToList();
+        }
 
-            // then items
-            ObjectList.Add(Coin);
-            ObjectList.Add(Star);
-            ObjectList.Add(QuestionBlock);
-            ObjectList.Add(HiddenBlock);
-            ObjectList.Add(NormalBlock);
-            ObjectList.Add(DestructibleBlock);
-            ObjectList.Add(IndestructibleBlock);
-            ObjectList.Add(GreenPipe);
-            ObjectList.Add(UsedBlock);
-            ObjectList.Add(Fireflower);
-            ObjectList.Add(Mushroom);
-            ObjectList.Add(_1up);
+        public static T FindObject<T>(int index = 0) where T : IObject
+        {
+            return Instance.ObjectList.OfType<T>().ToList()[index];
+        }
 
-            // then enemies
-            ObjectList.Add(Koopa);
-            ObjectList.Add(Goomba);
+        private WorldManager()
+        {
+            ObjectList = new Collection<IObject>
+            {
+                // background objects should be drawn first
+                new Hill(),
+                new Bush(),
+                new Cloud(),
 
-            // Mario should be drawn in the end
-            ObjectList.Add(Mario);
+                // then items
+                new Coin(),
+                new Star(),
+                new QuestionBlockObject(),
+                new HiddenBlockObject(),
+                new NormalBlockObject(),
+                new DestructibleBlockObject(),
+                new IndestructibleBlockObject(),
+                new GreenPipeObject(),
+                new UsedBlockObject(),
+                new Fireflower(),
+                new Mushroom(),
+                new _1up(),
+
+                // then enemies
+                new Goomba(),
+                new Koopa(),
+
+                // Mario should be drawn in the end
+                new MarioObject()
+            };
         }
 
         public void LoadContent(ContentManager content)
@@ -97,25 +75,25 @@ namespace WindowsGame1
 //                obj.Load(content);
 //            }
             Locations = content.Load<ObjectData[]>("Locations");
-            Mario.Load(content, new Vector2(200, 170));
+            FindObject<MarioObject>().Load(content, new Vector2(200, 170));
             
-            Goomba.Load(content, Locations[1].Location);
-            Koopa.Load(content, Locations[2].Location);
-            Coin.Load(content, Locations[3].Location);
-            Star.Load(content, Locations[4].Location);
-            QuestionBlock.Load(content, Locations[5].Location);
-            HiddenBlock.Load(content, Locations[6].Location);
-            NormalBlock.Load(content, Locations[7].Location);
-            DestructibleBlock.Load(content, Locations[8].Location);
-            IndestructibleBlock.Load(content, Locations[9].Location);
-            GreenPipe.Load(content, Locations[10].Location);
-            UsedBlock.Load(content, Locations[11].Location);
-            Fireflower.Load(content, Locations[12].Location);
-            Mushroom.Load(content, Locations[13].Location);
-            _1up.Load(content, Locations[14].Location);
-            Hill.Load(content, Locations[15].Location);
-            Bush.Load(content, Locations[16].Location);
-            Cloud.Load(content, Locations[17].Location);
+            FindObject<Goomba>().Load(content, Locations[1].Location);
+            FindObject<Koopa>().Load(content, Locations[2].Location);
+            FindObject<Coin>().Load(content, Locations[3].Location);
+            FindObject<Star>().Load(content, Locations[4].Location);
+            FindObject<QuestionBlockObject>().Load(content, Locations[5].Location);
+            FindObject<HiddenBlockObject>().Load(content, Locations[6].Location);
+            FindObject<NormalBlockObject>().Load(content, Locations[7].Location);
+            FindObject<DestructibleBlockObject>().Load(content, Locations[8].Location);
+            FindObject<IndestructibleBlockObject>().Load(content, Locations[9].Location);
+            FindObject<GreenPipeObject>().Load(content, Locations[10].Location);
+            FindObject<UsedBlockObject>().Load(content, Locations[11].Location);
+            FindObject<Fireflower>().Load(content, Locations[12].Location);
+            FindObject<Mushroom>().Load(content, Locations[13].Location);
+            FindObject<_1up>().Load(content, Locations[14].Location);
+            FindObject<Hill>().Load(content, Locations[15].Location);
+            FindObject<Bush>().Load(content, Locations[16].Location);
+            FindObject<Cloud>().Load(content, Locations[17].Location);
         }
 
         public void Update()
