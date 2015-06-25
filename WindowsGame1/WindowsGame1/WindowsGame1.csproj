@@ -85,6 +85,27 @@
     <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
+    <Compile Include="Collision Tests\MarioBreakableBlockCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collision Tests\MarioFireflowerCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collision Tests\MarioGoombaCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collision Tests\MarioKoopaCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collision Tests\MarioMushroomCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collision Tests\MarioNormalBlockCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
@@ -234,6 +255,7 @@
     <Content Include="CODE_REVIEWS\ChuhanCodeReview.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint3.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
+    <Content Include="CODE_REVIEWS\ColinCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
