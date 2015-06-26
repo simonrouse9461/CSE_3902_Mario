@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public interface ICollisionHandlerNew
+    public interface ICollisionHandler
     {
         void Handle();
         void AddBarrier<T>(Type type = null) where T : IObject;

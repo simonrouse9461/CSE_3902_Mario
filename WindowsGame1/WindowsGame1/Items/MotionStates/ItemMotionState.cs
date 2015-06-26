@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class ItemMotionState : MotionStateKernelNew
+    public class ItemMotionState : MotionStateKernel
     {
 
         protected override void RefreshMotionStatus()

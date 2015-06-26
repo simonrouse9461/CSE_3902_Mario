@@ -5,14 +5,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class FireflowerSprite : SpriteKernelNew
+    public class FireflowerSprite : SpriteKernel
     {
         public FireflowerSprite()
         {
             const int period = 4;
 
             ImageFile.Default = "items";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

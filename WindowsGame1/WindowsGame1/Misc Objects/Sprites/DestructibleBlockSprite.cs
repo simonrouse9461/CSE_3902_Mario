@@ -5,13 +5,13 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockSprite : SpriteKernelNew
+    public class DestructibleBlockSprite : SpriteKernel
     {
 
         public DestructibleBlockSprite()
         {
             ImageFile.Default = "blocks";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

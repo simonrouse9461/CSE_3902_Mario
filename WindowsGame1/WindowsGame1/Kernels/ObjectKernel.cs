@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernelNew<TSpriteState, TMotionState> : IObject
-        where TSpriteState : SpriteStateKernelNew
-        where TMotionState : MotionStateKernelNew
+    public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
+        where TSpriteState : SpriteStateKernel
+        where TMotionState : MotionStateKernel
     {
         private bool PrepareToUnload;
         private int UnloadCounter;
@@ -42,11 +42,16 @@ namespace WindowsGame1
         }
 
         protected ICommandHandler CommandHandler { get; set; }
-        protected ICollisionHandlerNew CollisionHandler { get; set; }
+        protected ICollisionHandler CollisionHandler { get; set; }
 
         public virtual bool Solid
         {
             get { return true; }
+        }
+
+        public virtual bool Stealth
+        {
+            get { return false; }
         }
 
         public Rectangle PositionRectangle
@@ -59,7 +64,7 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        protected ObjectKernelNew()
+        protected ObjectKernel()
         {
             State = new State<TSpriteState, TMotionState> { Object = this };
         }

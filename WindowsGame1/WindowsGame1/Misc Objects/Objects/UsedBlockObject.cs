@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class UsedBlockObject : ObjectKernelNew<UsedBlockSpriteState, UsedBlockMotionState>
+    public class UsedBlockObject : ObjectKernel<UsedBlockSpriteState, UsedBlockMotionState>
     {
         public UsedBlockObject() {
             SpriteState = new UsedBlockSpriteState();

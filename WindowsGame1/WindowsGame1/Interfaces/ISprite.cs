@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public interface ISpriteNew
+    public interface ISprite
     {
         void Reset();
         void Load(ContentManager content);

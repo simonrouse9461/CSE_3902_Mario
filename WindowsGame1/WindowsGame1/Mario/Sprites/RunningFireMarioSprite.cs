@@ -3,14 +3,14 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class RunningFireMarioSprite : SpriteKernelNew
+    public class RunningFireMarioSprite : SpriteKernel
     {
         public RunningFireMarioSprite()
         {
             const int period = 3;
 
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
@@ -26,7 +26,7 @@ namespace WindowsGame1
                     return frameSequence[phase];
                 }, 
                 period);
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

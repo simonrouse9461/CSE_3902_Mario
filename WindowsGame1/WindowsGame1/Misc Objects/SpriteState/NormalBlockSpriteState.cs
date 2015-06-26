@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class NormalBlockSpriteState : SpriteStateKernelNew
+    public class NormalBlockSpriteState : SpriteStateKernel
     {
         public enum StatusEnum
         {
@@ -17,7 +17,7 @@ namespace WindowsGame1
 
         public NormalBlockSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew> {
+            SpriteList = new Collection<ISprite> {
                 new NormalBlockSprite(),
                 new UsedBlockSprite(),
                 //new DestroyedBlockSprite()
@@ -27,7 +27,7 @@ namespace WindowsGame1
         }
 
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class ItemCollisionHandler : CollisionHandlerKernelNew<ItemSpriteState, ItemMotionState>
+    public class ItemCollisionHandler : CollisionHandlerKernel<ItemSpriteState, ItemMotionState>
     {
         public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state) : base(state)
         {

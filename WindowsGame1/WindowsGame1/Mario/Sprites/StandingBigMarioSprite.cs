@@ -5,19 +5,19 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class StandingBigMarioSprite : SpriteKernelNew
+    public class StandingBigMarioSprite : SpriteKernel
     {
         public StandingBigMarioSprite()
         {
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(180, 52, 16, 32)
                 }
             };
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

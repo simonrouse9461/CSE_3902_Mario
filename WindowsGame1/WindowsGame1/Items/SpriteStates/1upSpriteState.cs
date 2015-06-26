@@ -8,13 +8,13 @@ namespace WindowsGame1
     {
         public _1UpSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new _1UpSprite()
             };
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

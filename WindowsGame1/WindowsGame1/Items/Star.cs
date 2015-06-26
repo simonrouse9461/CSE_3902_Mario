@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Star : ObjectKernelNew<ItemSpriteState, ItemMotionState>
+    public  class Star : ObjectKernel<ItemSpriteState, ItemMotionState>
     {
         public Star()
         {

@@ -13,10 +13,10 @@ namespace WindowsGame1
         private MarioObject CompareMario { get; set; }
         private Fireflower TestFireflower { get; set; }
 
-        private MarioSpriteState TestMarioSprite;
-        private MarioMotionState TestMarioMotion;
-        private MarioSpriteState CompareMarioSprite;
-        private MarioMotionState CompareMarioMotion;
+//        private MarioSpriteState TestMarioSprite;
+//        private MarioMotionState TestMarioMotion;
+//        private MarioSpriteState CompareMarioSprite;
+//        private MarioMotionState CompareMarioMotion;
         private ICommand TestCommand;
         private ICommand CompareCommand;
 

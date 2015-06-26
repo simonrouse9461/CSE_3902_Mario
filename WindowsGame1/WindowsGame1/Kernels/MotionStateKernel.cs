@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public abstract class MotionStateKernelNew : IMotionState
+    public abstract class MotionStateKernel : IMotionState
     {
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
@@ -17,7 +17,7 @@ namespace WindowsGame1
         protected Counter Timer { get; set; }
         protected List<StatusSwitch<IMotion>> MotionList { get; set; }
 
-        protected MotionStateKernelNew()
+        protected MotionStateKernel()
         {
             Timer =  new Counter();
             Velocity = default(Vector2);

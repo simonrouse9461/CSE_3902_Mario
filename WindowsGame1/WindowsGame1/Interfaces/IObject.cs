@@ -9,6 +9,7 @@
         Rectangle PositionRectangle { get; }
         Vector2 PositionPoint { get; }
         bool Solid { get; }
+        bool Stealth { get; }
 
         void Reset();
         void Load(ContentManager content, Vector2 location);

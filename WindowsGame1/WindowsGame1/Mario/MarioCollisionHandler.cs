@@ -1,10 +1,13 @@
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioSpriteState, MarioMotionState>
+    public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
         public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
         {
             AddBarrier<IObject>();
+            RemoveBarrier<GreenPipeObject>();
+            RemoveBarrier<Koopa>();
+            RemoveBarrier<Goomba>();
         }
 
         public override void Handle()
@@ -27,8 +30,9 @@ namespace WindowsGame1
             {
                 State.SpriteState.GetStarPower();
             }
-            if (Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive).AnySide.Contact)
+            if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive)+ Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Contact)
             {
+                if (State.SpriteState.Blinking) return;
                 if (State.SpriteState.Small)
                 {
                     State.SpriteState.BecomeDead();
@@ -37,18 +41,8 @@ namespace WindowsGame1
                 if (State.SpriteState.Big || State.SpriteState.HaveFire)
                 {
                     State.SpriteState.BecomeSmall();
-                }
-            }
-            if (Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive).AnySide.Contact)
-            {
-                if (State.SpriteState.Small)
-                {
-                    State.SpriteState.BecomeDead();
-                    return;
-                }
-                if (State.SpriteState.Big || State.SpriteState.HaveFire)
-                {
-                    State.SpriteState.BecomeSmall();
+                    State.SpriteState.BecomeBlink();
+                    State.SpriteState.ChangeColorFrequency(2);
                 }
             }
         }

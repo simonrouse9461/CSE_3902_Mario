@@ -4,14 +4,15 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public interface ISpriteStateNew
+    public interface ISpriteState
     {
-        ISpriteNew Sprite { get; }
+        ISprite Sprite { get; }
         Color Color { get; }
         bool Left { get; }
         bool Right { get; }
         void Load(ContentManager content);
-        void ChangeFrequency(int frequency);
+        void ChangeSpriteFrequency(int frequency);
+        void ChangeColorFrequency(int frequency);
         void Reset();
         void Update();
     }

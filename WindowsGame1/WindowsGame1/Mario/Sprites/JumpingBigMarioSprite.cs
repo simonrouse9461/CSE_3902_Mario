@@ -4,19 +4,19 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class JumpingBigMarioSprite : SpriteKernelNew
+    public class JumpingBigMarioSprite : SpriteKernel
     {
         public JumpingBigMarioSprite()
         {
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(30, 52, 16, 32)
                 }
             };
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

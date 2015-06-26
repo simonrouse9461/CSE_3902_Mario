@@ -1,6 +1,6 @@
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>, IMario
+    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>, IMario
     {
         public MarioObject()
         {
@@ -41,7 +41,7 @@ namespace WindowsGame1
 
         public override bool Solid
         {
-            get { return Alive; }
+            get { return Alive && !SpriteState.Blinking; }
         }
 
         public bool Alive

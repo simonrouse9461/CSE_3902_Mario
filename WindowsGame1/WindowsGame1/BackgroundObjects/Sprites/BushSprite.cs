@@ -5,12 +5,12 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class BushSprite : SpriteKernelNew
+    public class BushSprite : SpriteKernel
     {
         public BushSprite()
         {
             ImageFile.Default = "scenery";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

@@ -4,16 +4,16 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockSpriteState : SpriteStateKernelNew
+    public class DestructibleBlockSpriteState : SpriteStateKernel
     {
         public DestructibleBlockSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>{
+            SpriteList = new Collection<ISprite>{
                 new DestructibleBlockSprite(),
             };
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

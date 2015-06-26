@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioSpriteState : SpriteStateKernelNew
+    public class MarioSpriteState : SpriteStateKernel
     {
         private enum ActionEnum
         {
@@ -34,10 +34,11 @@ namespace WindowsGame1
         private ActionEnum Action;
         private OrientationEnum Orientation;
         private bool StarPower;
+        private bool Blink;
 
         public MarioSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new DeadMarioSprite(),
                 new JumpingBigMarioSprite(),
@@ -61,13 +62,15 @@ namespace WindowsGame1
 
             ColorSchemeList = new Collection<ColorAnimator>
             {
-                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 8)
+                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}),
+                new ColorAnimator(new[] {Color.White, Color.Transparent})
             };
 
-            ChangeFrequency(5);
+            ChangeSpriteFrequency(5);
+            ChangeColorFrequency(10);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {
@@ -144,9 +147,16 @@ namespace WindowsGame1
             }
         }
 
-        public override Color Color
+        protected override ColorAnimator ColorScheme 
         {
-            get { return StarPower ? ColorSchemeList[0].Color : Color.White; }
+            get
+            {
+                if (StarPower)
+                    return ColorSchemeList[0];
+                if (Blink)
+                    return ColorSchemeList[1];
+                return null;
+            }
         }
 
         public override bool Left
@@ -231,6 +241,21 @@ namespace WindowsGame1
         public bool HaveStarPower
         {
             get { return StarPower; }
+        }
+
+        public void BecomeBlink()
+        {
+            Blink = true;
+        }
+
+        public void StopBlink()
+        {
+            Blink = false;
+        }
+
+        public bool Blinking
+        {
+            get { return Blink; }
         }
 
         public void Run()
