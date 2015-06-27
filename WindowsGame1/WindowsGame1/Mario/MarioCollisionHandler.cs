@@ -5,9 +5,6 @@ namespace WindowsGame1
         public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
         {
             AddBarrier<IObject>();
-            RemoveBarrier<GreenPipeObject>();
-            RemoveBarrier<Koopa>();
-            RemoveBarrier<Goomba>();
         }
 
         public override void Handle()
@@ -29,6 +26,7 @@ namespace WindowsGame1
             if (Detector.Detect<Star>().AnyEdge.Contact)
             {
                 State.SpriteState.GetStarPower();
+                State.SpriteState.ChangeColorFrequency(15);
             }
             if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive)+ Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Contact)
             {
@@ -43,6 +41,8 @@ namespace WindowsGame1
                     State.SpriteState.BecomeSmall();
                     State.SpriteState.BecomeBlink();
                     State.SpriteState.ChangeColorFrequency(2);
+                    RemoveBarrier<Koopa>();
+                    RemoveBarrier<Goomba>();
                 }
             }
         }

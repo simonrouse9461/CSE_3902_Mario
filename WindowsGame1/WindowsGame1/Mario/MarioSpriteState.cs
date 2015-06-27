@@ -30,11 +30,18 @@ namespace WindowsGame1
             Dead
         }
 
+        private enum ColorEnum
+        {
+            None,
+            StarPower,
+            Blink
+        }
+
         private StatusEnum Status;
         private ActionEnum Action;
         private OrientationEnum Orientation;
-        private bool StarPower;
-        private bool Blink;
+        private ColorEnum ColorMode;
+        
 
         public MarioSpriteState()
         {
@@ -67,7 +74,6 @@ namespace WindowsGame1
             };
 
             ChangeSpriteFrequency(5);
-            ChangeColorFrequency(10);
         }
 
         public override ISprite Sprite
@@ -151,11 +157,15 @@ namespace WindowsGame1
         {
             get
             {
-                if (StarPower)
-                    return ColorSchemeList[0];
-                if (Blink)
-                    return ColorSchemeList[1];
-                return null;
+                switch (ColorMode)
+                {
+                    case ColorEnum.StarPower:
+                        return ColorSchemeList[0];
+                    case ColorEnum.Blink:
+                        return ColorSchemeList[1];
+                    default:
+                        return null;
+                }
             }
         }
 
@@ -230,32 +240,27 @@ namespace WindowsGame1
 
         public void GetStarPower()
         {
-            StarPower = true;
-        }
-
-        public void LoseStarPower()
-        {
-            StarPower = false;
+            ColorMode = ColorEnum.StarPower;
         }
 
         public bool HaveStarPower
         {
-            get { return StarPower; }
+            get { return ColorMode == ColorEnum.StarPower; }
         }
 
         public void BecomeBlink()
         {
-            Blink = true;
-        }
-
-        public void StopBlink()
-        {
-            Blink = false;
+            ColorMode = ColorEnum.Blink;
         }
 
         public bool Blinking
         {
-            get { return Blink; }
+            get { return ColorMode == ColorEnum.Blink; }
+        }
+
+        public void SetDefaultColor()
+        {
+            ColorMode = ColorEnum.None;
         }
 
         public void Run()

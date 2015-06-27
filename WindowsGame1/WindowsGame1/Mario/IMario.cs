@@ -6,5 +6,6 @@
         bool StarPower { get; }
         bool Destructive { get; }
         bool GoingUp { get; }
+        bool GoingDown { get; }
     }
 }

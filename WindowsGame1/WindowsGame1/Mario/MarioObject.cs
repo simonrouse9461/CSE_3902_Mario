@@ -63,5 +63,10 @@ namespace WindowsGame1
         {
             get { return MotionState.Velocity.Y < 0; }
         }
+
+        public bool GoingDown
+        {
+            get { return MotionState.Velocity.Y > 0; }
+        }
     }
 }
