@@ -28,7 +28,9 @@ namespace WindowsGame1
             if (Detector.Detect<Star>().AnyEdge.Contact)
             {
                 State.SpriteState.GetStarPower();
-                State.SpriteState.ChangeColorFrequency(15);
+                State.SpriteState.ChangeColorFrequency(8);
+                State.DelayCommand(state => state.SpriteState.ChangeColorFrequency(16), 200);
+                State.DelayCommand(state => state.SpriteState.SetDefaultColor(), 300);
             }
             if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive)+ Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Contact)
             {
