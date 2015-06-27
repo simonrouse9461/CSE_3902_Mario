@@ -97,6 +97,7 @@ namespace WindowsGame1
         {
             State.Update();
             if (CommandHandler != null) CommandHandler.Handle();
+            SyncState();
             if (CollisionHandler != null) CollisionHandler.Handle();
             SyncState();
             SpriteState.Update();

@@ -15,7 +15,6 @@ namespace WindowsGame1
                 {typeof(MarioFireCommand), () => State.SpriteState.GetFire()},
                 {typeof(MarioLeftCommand), () =>
                 {
-
                     State.SpriteState.ToLeft();
                     State.MotionState.MoveLeft();
                 }},
@@ -26,13 +25,11 @@ namespace WindowsGame1
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
-                    State.SpriteState.Crouch();
                     State.MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () =>
                 {
                     State.MotionState.Fall();
-                    State.SpriteState.Crouch();
                 }}
             };
         }

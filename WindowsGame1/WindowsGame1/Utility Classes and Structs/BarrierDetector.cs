@@ -36,19 +36,29 @@ namespace WindowsGame1
             }
             return found;
         }
+        
+        private static void AddType(Collection<Type> typeList, Type type)
+        {
+            foreach (var currentType in typeList)
+            {
+                if (currentType.IsAssignableFrom(type))
+                    return;
+            }
+            typeList.Add(type);
+        }
 
         public void AddBarrier<T>(Type type = null) where T : IObject
         {
             type = type ?? typeof(T);
             if (!RemoveType(BarrierExceptionList, type))
-                BarrierList.Add(type);
+                AddType(BarrierList, type);
         }
 
         public void RemoveBarrier<T>(Type type = null) where T : IObject
         {
             type = type ?? typeof(T);
             if (!RemoveType(BarrierList, type))
-                BarrierExceptionList.Add(type);
+               AddType(BarrierExceptionList, type);
         }
 
         public void Detect()

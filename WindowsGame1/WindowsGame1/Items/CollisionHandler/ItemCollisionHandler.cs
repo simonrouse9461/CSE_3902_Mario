@@ -8,11 +8,12 @@ namespace WindowsGame1
         public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state) : base(state)
         {
             State.BarrierDetector.AddBarrier<IObject>();
+            State.BarrierDetector.RemoveBarrier<IMario>();
         }
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>().AnyEdge.Contact)
+            if (Detector.Detect<IMario>().AnyEdge.Contact)
             {
                 State.Object.Unload();
             }

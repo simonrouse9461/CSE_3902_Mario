@@ -42,14 +42,19 @@ namespace WindowsGame1
                 }
                 if (State.SpriteState.Big || State.SpriteState.HaveFire)
                 {
+                    var totalImmortalTime = 200;
+
+                    // Enemy damage action
                     State.SpriteState.BecomeSmall();
                     State.SpriteState.BecomeBlink();
                     State.SpriteState.ChangeColorFrequency(2);
                     State.BarrierDetector.RemoveBarrier<Koopa>();
                     State.BarrierDetector.RemoveBarrier<Goomba>();
-                    State.DelayCommand(state => state.SpriteState.SetDefaultColor(), 150);
-                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Koopa>(), 150);
-                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Goomba>(), 150);
+
+                    // Time up action
+                    State.DelayCommand(state => state.SpriteState.SetDefaultColor(), totalImmortalTime);
+                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Koopa>(), totalImmortalTime);
+                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Goomba>(), totalImmortalTime);
                 }
             }
         }
