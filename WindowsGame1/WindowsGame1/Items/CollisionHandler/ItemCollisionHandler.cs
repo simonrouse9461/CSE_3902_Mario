@@ -7,7 +7,7 @@ namespace WindowsGame1
     {
         public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state) : base(state)
         {
-            AddBarrier<IObject>();
+            State.BarrierDetector.AddBarrier<IObject>();
         }
 
         public override void Handle()

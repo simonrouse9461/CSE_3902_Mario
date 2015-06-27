@@ -8,10 +8,9 @@ namespace WindowsGame1
         where TSpriteState : SpriteStateKernel
         where TMotionState : MotionStateKernel
     {
-        private bool PrepareToUnload;
-        private int UnloadCounter;
         private TSpriteState spriteState;
         private TMotionState motionState;
+        private BarrierDetector barrierDetector;
 
         protected State<TSpriteState, TMotionState> State { get; private set; }
 
@@ -38,6 +37,7 @@ namespace WindowsGame1
             {
                 motionState = value;
                 State.MotionState = value;
+                barrierDetector.MotionState = value;
             }
         }
 
@@ -66,7 +66,12 @@ namespace WindowsGame1
 
         protected ObjectKernel()
         {
-            State = new State<TSpriteState, TMotionState> { Object = this };
+            barrierDetector = new BarrierDetector(this, MotionState);
+            State = new State<TSpriteState, TMotionState>
+            {
+                Object = this,
+                BarrierDetector = barrierDetector
+            };
         }
 
         protected abstract void SyncState();
@@ -83,25 +88,20 @@ namespace WindowsGame1
             MotionState.Position = location;
         }
 
-        public void Unload(int counter = 1)
+        public void Unload()
         {
-            PrepareToUnload = true;
-            UnloadCounter = counter;
+            State.DelayCommand(state => WorldManager.Instance.ObjectList.Remove(this));
         }
 
         public void Update()
         {
-            if (WorldManager.Instance.ObjectList.Contains(this) && PrepareToUnload)
-            {
-                UnloadCounter--;
-                if (UnloadCounter <= 0) WorldManager.Instance.ObjectList.Remove(this);
-            }
+            State.Update();
             if (CommandHandler != null) CommandHandler.Handle();
             if (CollisionHandler != null) CollisionHandler.Handle();
             SyncState();
             SpriteState.Update();
             MotionState.Update();
-            if (CollisionHandler != null) CollisionHandler.DetectBarrier();
+            barrierDetector.Detect();
         }
 
         public void Draw(SpriteBatch spriteBatch)

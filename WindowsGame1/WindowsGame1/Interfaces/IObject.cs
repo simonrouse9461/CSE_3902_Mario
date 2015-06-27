@@ -13,7 +13,7 @@
 
         void Reset();
         void Load(ContentManager content, Vector2 location);
-        void Unload(int unloadTimer = 0);
+        void Unload();
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void PassCommand(ICommand command);

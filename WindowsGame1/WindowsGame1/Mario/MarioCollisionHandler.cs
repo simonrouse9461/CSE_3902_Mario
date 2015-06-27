@@ -1,10 +1,12 @@
+using System;
+
 namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
         public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
         {
-            AddBarrier<IObject>();
+            State.BarrierDetector.AddBarrier<IObject>();
         }
 
         public override void Handle()
@@ -41,8 +43,11 @@ namespace WindowsGame1
                     State.SpriteState.BecomeSmall();
                     State.SpriteState.BecomeBlink();
                     State.SpriteState.ChangeColorFrequency(2);
-                    RemoveBarrier<Koopa>();
-                    RemoveBarrier<Goomba>();
+                    State.BarrierDetector.RemoveBarrier<Koopa>();
+                    State.BarrierDetector.RemoveBarrier<Goomba>();
+                    State.DelayCommand(state => state.SpriteState.SetDefaultColor(), 150);
+                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Koopa>(), 150);
+                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Goomba>(), 150);
                 }
             }
         }
