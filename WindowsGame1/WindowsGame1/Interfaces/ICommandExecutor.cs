@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public interface ICommandHandler
+    public interface ICommandExecutor
     {
         void Reset();
         void ReadCommand(ICommand command);
-        void Handle();
+        void Execute();
     }
 }

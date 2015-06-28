@@ -52,7 +52,7 @@ namespace WindowsGame1
             }
         }
 
-        protected ICommandHandler CommandHandler { get; set; }
+        protected ICommandExecutor CommandExecutor { get; set; }
         protected ICollisionHandler CollisionHandler { get; set; }
 
         public virtual bool Solid
@@ -128,7 +128,7 @@ namespace WindowsGame1
         public void Update()
         {
             State.Update();
-            if (CommandHandler != null) CommandHandler.Handle();
+            if (CommandExecutor != null) CommandExecutor.Execute();
             SyncState();
             if (CollisionHandler != null) CollisionHandler.Handle();
             SyncState();
@@ -149,7 +149,7 @@ namespace WindowsGame1
 
         public void PassCommand(ICommand command)
         {
-            CommandHandler.ReadCommand(command);
+            CommandExecutor.ReadCommand(command);
         }
     }
 }

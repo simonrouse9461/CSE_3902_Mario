@@ -6,7 +6,7 @@ namespace WindowsGame1
         {
             SpriteState = new MarioSpriteState();
             MotionState = new MarioMotionState();
-            CommandHandler = new MarioCommandHandler(State);
+            CommandExecutor = new MarioCommandExecutor(State);
             CollisionHandler = new MarioCollisionHandler(State);
             BarrierDetector = new MarioBarrierDetector(this);
 

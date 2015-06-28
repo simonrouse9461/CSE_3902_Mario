@@ -134,7 +134,7 @@
     <Compile Include="Mario\Sprites\SwimmingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\SwimmingSmallMarioSprite.cs" />
     <Compile Include="Interfaces\ICollisionDetector.cs" />
-    <Compile Include="Interfaces\ICommandHandler.cs" />
+    <Compile Include="Interfaces\ICommandExecutor.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\CollisionHandler\ItemCollisionHandler.cs" />
@@ -147,12 +147,12 @@
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\CollisionHandlerKernel.cs" />
-    <Compile Include="Kernels\CommandHandlerKernel.cs" />
+    <Compile Include="Kernels\CommandExecutorKernel.cs" />
     <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Mario\IMario.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
-    <Compile Include="Mario\MarioCommandHandler.cs" />
+    <Compile Include="Mario\MarioCommandExecutor.cs" />
     <Compile Include="Mario\Sprites\TurningBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\TurningFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\TurningSmallMarioSprite.cs" />

@@ -7,6 +7,7 @@ namespace WindowsGame1
 {
     public abstract class SpriteKernel : ISprite
     {
+        private const double SCALE = 1.7;
         protected SymmetricPair<SpriteSource> Source { get; set; }
         protected SymmetricPair<PeriodicFunction<int>> Animation { get; set; }
         protected SymmetricPair<string> ImageFile { get; set; }
@@ -68,8 +69,8 @@ namespace WindowsGame1
             return new Rectangle(
                 (int)location.X - Source.Default.Coordinates[Animation.Default.Value].Width/2,
                 (int)location.Y - Source.Default.Coordinates[Animation.Default.Value].Height,
-                Source.Default.Coordinates[Animation.Default.Value].Width,
-                Source.Default.Coordinates[Animation.Default.Value].Height
+                (int)(Source.Default.Coordinates[Animation.Default.Value].Width * SCALE),
+                (int)(Source.Default.Coordinates[Animation.Default.Value].Height * SCALE)
                 );
         }
     }
