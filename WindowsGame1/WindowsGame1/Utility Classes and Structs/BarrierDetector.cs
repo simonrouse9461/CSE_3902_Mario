@@ -74,15 +74,15 @@ namespace WindowsGame1
 
         public virtual void Detect()
         {
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Contact && MotionState != null)
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && MotionState != null)
             {
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Contact)
+                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Touch)
                     MotionState.Adjust(new Vector2(0, -1));
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Contact)
+                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
                     MotionState.Adjust(new Vector2(0, 1));
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Contact)
+                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
                     MotionState.Adjust(new Vector2(1, 0));
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Contact)
+                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
                     MotionState.Adjust(new Vector2(-1, 0));
             }
         }

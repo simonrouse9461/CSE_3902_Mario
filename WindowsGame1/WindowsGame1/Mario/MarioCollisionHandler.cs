@@ -11,18 +11,18 @@ namespace WindowsGame1
             if (State.SpriteState.Dead)
                 return;
 
-            if (Detector.Detect<Fireflower>().AnyEdge.Contact)
+            if (Detector.Detect<Fireflower>().AnyEdge.Touch)
             {
                 State.SpriteState.GetFire();
             }
-            if (Detector.Detect<Mushroom>().AnyEdge.Contact)
+            if (Detector.Detect<Mushroom>().AnyEdge.Touch)
             {
                 if (State.SpriteState.Small)
                 {
                     State.SpriteState.BecomeBig();
                 }
             }
-            if (Detector.Detect<Star>().AnyEdge.Contact)
+            if (Detector.Detect<Star>().AnyEdge.Touch)
             {
                 State.SpriteState.GetStarPower();
                 State.SpriteState.ChangeColorFrequency(8);
@@ -30,7 +30,7 @@ namespace WindowsGame1
                 State.DelayCommand(state => state.SpriteState.ChangeColorFrequency(16), state => state.SpriteState.HaveStarPower, 200);
                 State.DelayCommand(state => state.SpriteState.SetDefaultColor(), state => state.SpriteState.HaveStarPower, 300);
             }
-            if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive) + Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Contact)
+            if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive) + Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Touch)
             {
                 if (State.SpriteState.Blinking) return;
                 if (State.SpriteState.Small)

@@ -13,7 +13,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (Detector.Detect<IMario>().AnyEdge.Contact)
+            if (Detector.Detect<IMario>().AnyEdge.Touch)
             {
                 State.Object.Unload();
             }

@@ -10,23 +10,23 @@ namespace WindowsGame1
         public override void Detect()
         {
             Func<Collision> collision = () => Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0);
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Contact)
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch)
             {
-                while (collision().Bottom.Contact)
+                while (collision().Bottom.Touch)
                     MotionState.Adjust(new Vector2(0, -1));
-                while ((collision().TopLeft & collision().TopRight).Contact)
+                while ((collision().TopLeft & collision().TopRight).Touch)
                     MotionState.Adjust(new Vector2(0, 1));
-                while ((collision().LeftTop & collision().LeftBottom).Contact || collision().Left.Contact && Object.GoingLeft)
+                while ((collision().LeftTop & collision().LeftBottom).Touch || collision().Left.Touch && Object.GoingLeft)
                     MotionState.Adjust(new Vector2(1, 0));
-                while ((collision().RightTop & collision().RightBottom).Contact || collision().Right.Contact && Object.GoingRight)
+                while ((collision().RightTop & collision().RightBottom).Touch || collision().Right.Touch && Object.GoingRight)
                     MotionState.Adjust(new Vector2(-1, 0));
-                if (collision().TopRight.Contact && collision().TopLeft.None)
+                if (collision().TopRight.Touch && collision().TopLeft.None)
                     MotionState.Adjust(new Vector2(-1, 0));
-                if (collision().RightTop.Contact && collision().RightBottom.None)
+                if (collision().RightTop.Touch && collision().RightBottom.None)
                     MotionState.Adjust(new Vector2(-1, 0));
-                if (collision().TopLeft.Contact && collision().TopRight.None)
+                if (collision().TopLeft.Touch && collision().TopRight.None)
                     MotionState.Adjust(new Vector2(1, 0));
-                if (collision().LeftTop.Contact && collision().LeftBottom.None)
+                if (collision().LeftTop.Touch && collision().LeftBottom.None)
                     MotionState.Adjust(new Vector2(1, 0));
             }
         }

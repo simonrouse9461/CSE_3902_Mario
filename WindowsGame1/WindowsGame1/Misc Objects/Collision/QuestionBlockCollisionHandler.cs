@@ -8,7 +8,7 @@ namespace WindowsGame1
         public QuestionBlockCollisionHandler(State<QuestionBlockSpriteState,QuestionBlockMotionState> state) : base(state) { }
 
         public override void Handle(){
-            if(Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Contact){
+            if(Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch){
                 State.SpriteState.UsedBlock();
             }
         }

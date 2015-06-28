@@ -8,7 +8,7 @@ namespace WindowsGame1
         public NormalBlockCollisionHandler(State<NormalBlockSpriteState, NormalBlockMotionState> state) : base(state) { }
 
         public override void Handle(){
-            if (Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Contact)
+            if (Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
             {
                 State.Object.Unload();
             }
