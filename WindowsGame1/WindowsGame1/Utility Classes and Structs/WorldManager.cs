@@ -42,6 +42,16 @@ namespace WindowsGame1
             return FindObjectCollection<T>()[index];
         }
 
+        private static Collection<T> Populator<T>(int amount = 1) where T :  IObject, new()
+        {
+            var collection = new Collection<T>();
+            for (int i = 0; i < amount; i++)
+            {
+                collection.Add(new T());
+            }
+            return collection;
+        }
+
         public void RemoveObject(IObject obj)
         {
             foreach (var collection in ObjectList)
@@ -55,30 +65,30 @@ namespace WindowsGame1
             ObjectList = new Collection<IList>
             {
                 // background objects should be drawn first
-                new Collection<Hill>{new Hill()},
-                new Collection<Bush>{new Bush()},
-                new Collection<Cloud>{new Cloud()},
+                Populator<Hill>(),
+                Populator<Bush>(),
+                Populator<Cloud>(),
 
                 // then items
-                new Collection<Coin>{new Coin()},
-                new Collection<Star>{new Star()},
-                new Collection<QuestionBlockObject>{new QuestionBlockObject()},
-                new Collection<HiddenBlockObject>{new HiddenBlockObject()},
-                new Collection<NormalBlockObject>{new NormalBlockObject()},
-                new Collection<DestructibleBlockObject>{new DestructibleBlockObject()},
-                new Collection<IndestructibleBlockObject>{new IndestructibleBlockObject()},
-                new Collection<GreenPipeObject>{new GreenPipeObject()},
-                new Collection<UsedBlockObject>{new UsedBlockObject()},
-                new Collection<Fireflower>{new Fireflower()},
-                new Collection<Mushroom>{new Mushroom()},
-                new Collection<_1up>{new _1up()},
+                Populator<Coin>(),
+                Populator<Star>(),
+                Populator<QuestionBlockObject>(),
+                Populator<HiddenBlockObject>(),
+                Populator<NormalBlockObject>(),
+                Populator<DestructibleBlockObject>(),
+                Populator<IndestructibleBlockObject>(),
+                Populator<GreenPipeObject>(),
+                Populator<UsedBlockObject>(),
+                Populator<Fireflower>(),
+                Populator<Mushroom>(),
+                Populator<_1up>(),
 
                 // then enemies
-                new Collection<Goomba>{new Goomba()},
-                new Collection<Koopa>{new Koopa()},
+                Populator<Goomba>(),
+                Populator<Koopa>(),
 
                 // Mario should be drawn in the end
-                new Collection<MarioObject>{new MarioObject()}
+                Populator<MarioObject>()
             };
         }
 
@@ -112,6 +122,8 @@ namespace WindowsGame1
 
         public void Update()
         {
+            // In order to avoid exception when objects unload themselves,
+            // for loops below should not be converted to foreach loops.
             for (int i = 0; i < ObjectList.Count; i++)
             {
                 for (int j = 0; j < ObjectList[i].Count; j++)
