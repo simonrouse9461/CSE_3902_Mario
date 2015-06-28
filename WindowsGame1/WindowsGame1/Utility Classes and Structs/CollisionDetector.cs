@@ -367,11 +367,14 @@ namespace WindowsGame1
         {
             var collision = new Collision();
             var objectRectangle = SetOffset(Object.PositionRectangle, offset);
-            foreach (var obj in WorldManager.Instance.ObjectList)
+            foreach (var collection in WorldManager.Instance.ObjectList)
             {
-                if (!ReferenceEquals(obj, Object) && typeFilter(obj) && PropertyFilter((T)obj))
+                foreach (IObject obj in collection)
                 {
-                    collision += DetectCollision(objectRectangle, obj.PositionRectangle);
+                    if (!ReferenceEquals(obj, Object) && typeFilter(obj) && PropertyFilter((T) obj))
+                    {
+                        collision += DetectCollision(objectRectangle, obj.PositionRectangle);
+                    }
                 }
             }
             return collision;

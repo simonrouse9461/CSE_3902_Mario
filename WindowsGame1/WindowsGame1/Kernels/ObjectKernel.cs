@@ -122,7 +122,7 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            State.DelayCommand(state => WorldManager.Instance.ObjectList.Remove(this));
+            State.DelayCommand(state => WorldManager.Instance.RemoveObject(this));
         }
 
         public void Update()
