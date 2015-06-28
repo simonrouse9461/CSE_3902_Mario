@@ -19,7 +19,11 @@ namespace WindowsGame1
         private ICommand marioDownCommand;
         private ICommand marioLeftCommand;
         private ICommand marioRightCommand;
-        
+        // Camera Commands
+        private ICommand cameraUpCommand;
+        private ICommand cameraDownCommand;
+        private ICommand cameraLeftCommand;
+        private ICommand cameraRightCommand;
 
         public CommandManager(MarioGame game)
         {
@@ -38,6 +42,11 @@ namespace WindowsGame1
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
 
+            cameraUpCommand = new CameraUpCommand(game);
+            cameraDownCommand = new CameraDownCommand(game);
+            cameraLeftCommand = new CameraLeftCommand(game);
+            cameraRightCommand = new CameraRightCommand(game);
+
             keyboardController.RegisterCommand(Keys.Q, quitCommand, false);
             keyboardController.RegisterCommand(Keys.R, resetCommand, false);
             gamepadController.RegisterCommand(Buttons.Back, quitCommand, false);
@@ -49,7 +58,10 @@ namespace WindowsGame1
             keyboardController.RegisterCommand(Keys.Down, marioDownCommand, false);
             keyboardController.RegisterCommand(Keys.Left, marioLeftCommand, false);
             keyboardController.RegisterCommand(Keys.Right, marioRightCommand, false);
-
+            keyboardController.RegisterCommand(Keys.W, cameraUpCommand, false);
+            keyboardController.RegisterCommand(Keys.S, cameraDownCommand, false);
+            keyboardController.RegisterCommand(Keys.A, cameraLeftCommand, false);
+            keyboardController.RegisterCommand(Keys.D, cameraRightCommand, false);
         }
 
         public void Update()

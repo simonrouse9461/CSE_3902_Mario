@@ -139,12 +139,13 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            var relativePosition = MotionState.Position - Camera.Instance.Location;
             if (SpriteState.Left)
-                SpriteState.Sprite.DrawLeft(spriteBatch, MotionState.Position, SpriteState.Color);
+                SpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, SpriteState.Color);
             else if (SpriteState.Right)
-                SpriteState.Sprite.DrawRight(spriteBatch, MotionState.Position, SpriteState.Color);
+                SpriteState.Sprite.DrawRight(spriteBatch, relativePosition, SpriteState.Color);
             else
-                SpriteState.Sprite.DrawDefault(spriteBatch, MotionState.Position, SpriteState.Color);
+                SpriteState.Sprite.DrawDefault(spriteBatch, relativePosition, SpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

@@ -108,6 +108,10 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\CameraLeftCommand.cs" />
+    <Compile Include="Commands\CameraRightCommand.cs" />
+    <Compile Include="Commands\CameraDownCommand.cs" />
+    <Compile Include="Commands\CameraUpCommand.cs" />
     <Compile Include="Commands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
@@ -239,6 +243,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Utility Classes and Structs\Camera.cs" />
     <Compile Include="Utility Classes and Structs\CollisionDetector.cs" />
     <Compile Include="Utility Classes and Structs\Collision.cs" />
     <Compile Include="Utility Classes and Structs\CollisionType.cs" />
