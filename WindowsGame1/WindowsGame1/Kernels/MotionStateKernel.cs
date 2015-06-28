@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
 
@@ -15,7 +16,7 @@ namespace WindowsGame1
         }
 
         protected Counter Timer { get; set; }
-        protected List<StatusSwitch<IMotion>> MotionList { get; set; }
+        protected Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
         protected MotionStateKernel()
         {
@@ -31,12 +32,18 @@ namespace WindowsGame1
         public void Reset()
         {
             Timer.Reset();
-            MotionList.ForEach(motion => motion.Reset(m => m.Reset()));
+            foreach (var motion in MotionList)
+            {
+                motion.Reset(m => m.Reset());
+            }
         }
 
         private void RestoreMotionStatus()
         {
-            MotionList.ForEach(motion => motion.Toggle(false));
+            foreach (var motion in MotionList)
+            {
+                motion.Toggle(false);
+            }
         }
 
         private void UpdateMotion()

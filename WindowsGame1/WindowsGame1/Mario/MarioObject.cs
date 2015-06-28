@@ -8,8 +8,10 @@ namespace WindowsGame1
             MotionState = new MarioMotionState();
             CommandHandler = new MarioCommandHandler(State);
             CollisionHandler = new MarioCollisionHandler(State);
+            BarrierDetector = new MarioBarrierDetector(this);
 
             SpriteState.BecomeSmall();
+            BarrierDetector.AddBarrier<IObject>();
         }
 
         protected override void SyncState()
@@ -57,16 +59,6 @@ namespace WindowsGame1
         public bool Destructive
         {
             get { return !SpriteState.Small; }
-        }
-
-        public bool GoingUp
-        {
-            get { return MotionState.Velocity.Y < 0; }
-        }
-
-        public bool GoingDown
-        {
-            get { return MotionState.Velocity.Y > 0; }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace WindowsGame1
 
         public CollisionType Top
         {
-            get { return TopLeft & TopRight; }
+            get { return TopLeft + TopRight; }
             set
             {
                 TopLeft = value;
@@ -23,7 +23,7 @@ namespace WindowsGame1
 
         public CollisionType Bottom
         {
-            get { return BottomLeft & BottomRight; }
+            get { return BottomLeft + BottomRight; }
             set
             {
                 BottomLeft = value;
@@ -33,7 +33,7 @@ namespace WindowsGame1
 
         public CollisionType Left
         {
-            get { return LeftTop & LeftBottom; }
+            get { return LeftTop + LeftBottom; }
             set
             {
                 LeftTop = value;
@@ -43,7 +43,7 @@ namespace WindowsGame1
 
         public CollisionType Right
         {
-            get { return RightTop & RightBottom; }
+            get { return RightTop + RightBottom; }
             set
             {
                 RightTop = value;
@@ -58,7 +58,7 @@ namespace WindowsGame1
 
         public CollisionType BothSide
         {
-            get { return Left & Right; }
+            get { return Left + Right; }
             set
             {
                 Left = value;
@@ -73,7 +73,7 @@ namespace WindowsGame1
 
         public CollisionType AllEdge
         {
-            get { return AnySide & Top & Bottom; }
+            get { return AnySide + Top + Bottom; }
             set
             {
                 BothSide = value;

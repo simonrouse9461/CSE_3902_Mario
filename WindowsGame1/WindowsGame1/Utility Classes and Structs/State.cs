@@ -8,7 +8,14 @@ namespace WindowsGame1
         where TS : ISpriteState
         where TM : IMotionState
     {
-        private Collection<KeyValuePair<Action<State<TS, TM>>, Counter>> reservations;
+        private class Reservation
+        {
+            public Action<State<TS, TM>> Command { get; set; }
+            public Func<State<TS, TM>, bool> Dependency { get; set; }
+            public Counter Timer { get; set; }
+        }
+
+        private Collection<Reservation> Waitlist;
 
         public IObject Object { get; set; }
         public TS SpriteState { get; set; }
@@ -17,23 +24,39 @@ namespace WindowsGame1
 
         public State()
         {
-            reservations = new Collection<KeyValuePair<Action<State<TS, TM>>, Counter>>();
+            Waitlist = new Collection<Reservation>();
         }
 
-        public void DelayCommand(Action<State<TS, TM>> command, int delay = 1)
+        public void DelayCommand(Action<State<TS, TM>> command, Func<State<TS, TM>, bool> dependency = null, int delay = 1)
         {
-            reservations.Add(new KeyValuePair<Action<State<TS, TM>>, Counter>(command, new Counter(delay)));
+            if (dependency == null)
+                dependency = condition => true;
+            Waitlist.Add(new Reservation
+            {
+                Command = command,
+                Dependency = dependency,
+                Timer = new Counter(delay)
+            });
+        }
+
+        public void ClearDelayedCommands()
+        {
+            Waitlist = new Collection<Reservation>();
         }
 
         public void Update()
         {
-            for (int i = 0; i < reservations.Count; i++)
+            for (var i = 0; i < Waitlist.Count; i++)
             {
-                var reservation = reservations[i];
-                if (reservation.Value.Update())
+                var reservation = Waitlist[i];
+                if (!reservation.Dependency(this))
                 {
-                    reservation.Key(this);
-                    reservations.Remove(reservation);
+                    Waitlist.Remove(reservation);
+                }
+                if (reservation.Timer.Update())
+                {
+                    reservation.Command(this);
+                    Waitlist.Remove(reservation);
                 }
             }
         }

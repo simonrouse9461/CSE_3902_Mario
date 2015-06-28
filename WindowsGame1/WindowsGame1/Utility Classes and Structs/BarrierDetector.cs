@@ -6,19 +6,24 @@ namespace WindowsGame1
 {
     public class BarrierDetector : IBarrierDetector
     {
-        private IObject Object;
-        public IMotionState MotionState { get; set; }
-        private readonly Collection<Type> BarrierList;
-        private readonly Collection<Type> BarrierExceptionList;
-        private CollisionDetector Detector;
+        protected Collection<Type> BarrierList { get; private set; }
+        protected Collection<Type> BarrierExceptionList { get; private set; }
 
-        public BarrierDetector(IObject obj, IMotionState motoinState)
+        protected IObject Object { get; private set; }
+        protected IMotionState MotionState { get; private set; }
+        protected CollisionDetector Detector { get; private set; }
+
+        public BarrierDetector(IObject obj)
         {
             Object = obj;
-            MotionState = motoinState;
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
             Detector = new CollisionDetector(Object);
+        }
+
+        public void SetMotionState(IMotionState motoinState)
+        {
+            MotionState = motoinState;
         }
 
         private static bool RemoveType(Collection<Type> typeList, Type type)
@@ -61,9 +66,15 @@ namespace WindowsGame1
                AddType(BarrierExceptionList, type);
         }
 
-        public void Detect()
+        public void ClearBarrier()
         {
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Contact)
+            BarrierList = new Collection<Type>();
+            BarrierExceptionList = new Collection<Type>();
+        }
+
+        public virtual void Detect()
+        {
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Contact && MotionState != null)
             {
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Contact)
                     MotionState.Adjust(new Vector2(0, -1));

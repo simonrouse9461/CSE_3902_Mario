@@ -37,7 +37,18 @@ namespace WindowsGame1
             {
                 motionState = value;
                 State.MotionState = value;
-                barrierDetector.MotionState = value;
+                BarrierDetector.SetMotionState(value);
+            }
+        }
+
+        protected BarrierDetector BarrierDetector
+        {
+            get { return barrierDetector; }
+            set
+            {
+                barrierDetector = value;
+                State.BarrierDetector = value;
+                BarrierDetector.SetMotionState(MotionState);
             }
         }
 
@@ -54,6 +65,26 @@ namespace WindowsGame1
             get { return false; }
         }
 
+        public bool GoingUp
+        {
+            get { return MotionState.Velocity.Y < 0; }
+        }
+
+        public bool GoingDown
+        {
+            get { return MotionState.Velocity.Y > 0; }
+        }
+
+        public bool GoingLeft
+        {
+            get { return MotionState.Velocity.X < 0; }
+        }
+
+        public bool GoingRight
+        {
+            get { return MotionState.Velocity.X > 0; }
+        }
+
         public Rectangle PositionRectangle
         {
             get { return SpriteState.Sprite.GetDestination(MotionState.Position); }
@@ -66,12 +97,11 @@ namespace WindowsGame1
 
         protected ObjectKernel()
         {
-            barrierDetector = new BarrierDetector(this, MotionState);
             State = new State<TSpriteState, TMotionState>
             {
-                Object = this,
-                BarrierDetector = barrierDetector
+                Object = this
             };
+            BarrierDetector = new BarrierDetector(this);
         }
 
         protected abstract void SyncState();
@@ -80,6 +110,8 @@ namespace WindowsGame1
         {
             SpriteState.Reset();
             MotionState.Reset();
+            State.ClearDelayedCommands();
+            BarrierDetector.ClearBarrier();
         }
 
         public void Load(ContentManager content, Vector2 location)
@@ -102,7 +134,7 @@ namespace WindowsGame1
             SyncState();
             SpriteState.Update();
             MotionState.Update();
-            barrierDetector.Detect();
+            BarrierDetector.Detect();
         }
 
         public void Draw(SpriteBatch spriteBatch)

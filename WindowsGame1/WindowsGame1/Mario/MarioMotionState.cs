@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -26,7 +27,7 @@ namespace WindowsGame1
 
         public MarioMotionState()
         {
-            MotionList = new List<StatusSwitch<IMotion>>
+            MotionList = new Collection<StatusSwitch<IMotion>>
             {
                 new StatusSwitch<IMotion>(new AccelerateRightMotion(0.1f, 3)),
                 new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)),

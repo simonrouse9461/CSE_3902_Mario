@@ -4,10 +4,7 @@ namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
-        {
-            State.BarrierDetector.AddBarrier<IObject>();
-        }
+        public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state){}
 
         public override void Handle()
         {
@@ -29,10 +26,11 @@ namespace WindowsGame1
             {
                 State.SpriteState.GetStarPower();
                 State.SpriteState.ChangeColorFrequency(8);
-                State.DelayCommand(state => state.SpriteState.ChangeColorFrequency(16), 200);
-                State.DelayCommand(state => state.SpriteState.SetDefaultColor(), 300);
+
+                State.DelayCommand(state => state.SpriteState.ChangeColorFrequency(16), state => state.SpriteState.HaveStarPower, 200);
+                State.DelayCommand(state => state.SpriteState.SetDefaultColor(), state => state.SpriteState.HaveStarPower, 300);
             }
-            if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive)+ Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Contact)
+            if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive) + Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Contact)
             {
                 if (State.SpriteState.Blinking) return;
                 if (State.SpriteState.Small)
@@ -52,9 +50,9 @@ namespace WindowsGame1
                     State.BarrierDetector.RemoveBarrier<Goomba>();
 
                     // Time up action
-                    State.DelayCommand(state => state.SpriteState.SetDefaultColor(), totalImmortalTime);
-                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Koopa>(), totalImmortalTime);
-                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Goomba>(), totalImmortalTime);
+                    State.DelayCommand(state => state.SpriteState.SetDefaultColor(), state => state.SpriteState.Blinking, totalImmortalTime);
+                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Koopa>(), null, totalImmortalTime);
+                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Goomba>(), null, totalImmortalTime);
                 }
             }
         }

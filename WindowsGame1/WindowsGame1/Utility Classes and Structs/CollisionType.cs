@@ -61,13 +61,22 @@
             return !(a == b);
         }
 
-        public static CollisionType operator &(CollisionType a, CollisionType b)
+        public static CollisionType operator +(CollisionType a, CollisionType b)
         {
             if (a.None && b.None)
                 return default(CollisionType);
             if (a.Cover && b.Cover)
                 return default(CollisionType).SetToCover();
             return default(CollisionType).SetToContact();
+        }
+
+        public static CollisionType operator &(CollisionType a, CollisionType b)
+        {
+            if (a.Cover && b.Cover)
+                return default(CollisionType).SetToCover();
+            if (a.Contact && b.Contact)
+                return default(CollisionType).SetToContact();
+            return default(CollisionType);
         }
 
         public static CollisionType operator |(CollisionType a, CollisionType b)

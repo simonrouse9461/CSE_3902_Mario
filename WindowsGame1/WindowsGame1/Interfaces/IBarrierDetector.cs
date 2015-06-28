@@ -6,6 +6,7 @@ namespace WindowsGame1
     {
         void AddBarrier<T>(Type type = null) where T : IObject;
         void RemoveBarrier<T>(Type type = null) where T : IObject;
+        void ClearBarrier();
         void Detect(); 
     }
 }
