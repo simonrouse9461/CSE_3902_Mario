@@ -47,18 +47,18 @@ namespace WindowsGame1
 
                 // then items
                 new Coin(),
-                new Star(),
+                new Star(),               
+                
+                new IndestructibleBlockObject(),
                 new QuestionBlockObject(),
                 new HiddenBlockObject(),
                 new NormalBlockObject(),
                 new DestructibleBlockObject(),
-                new IndestructibleBlockObject(),
                 new GreenPipeObject(),
                 new UsedBlockObject(),
                 new Fireflower(),
                 new Mushroom(),
                 new _1up(),
-
                 // then enemies
                 new Goomba(),
                 new Koopa(),

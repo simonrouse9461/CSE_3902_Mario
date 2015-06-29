@@ -3,14 +3,15 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class HiddenBlockObject : ObjectKernelNew<HiddenBlockSpriteState, HiddenBlockMotionState>
+    public class HiddenBlockObject : IndestructibleBlockObject
     {
 
-        public HiddenBlockObject() { 
-        
-            SpriteState = new HiddenBlockSpriteState();
-            MotionState = new HiddenBlockMotionState();
-            CollisionHandler = new HiddenBlockCollisionHandler(State);
+        public HiddenBlockObject() {
+
+            SpriteState = new BlockSpriteState();
+            SpriteState.HiddenBlock();
+            MotionState = new BlockMotionState();
+            CollisionHandler = new BlockCollisionHandler(State);
         
         }
 

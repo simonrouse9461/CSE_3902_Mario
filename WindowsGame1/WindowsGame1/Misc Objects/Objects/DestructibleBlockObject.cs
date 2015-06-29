@@ -3,14 +3,14 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockObject : ObjectKernelNew<DestructibleBlockSpriteState, DestructibleBlockMotionState>
+    public class DestructibleBlockObject : IndestructibleBlockObject
     {
 
         public DestructibleBlockObject() {
-
-            SpriteState = new DestructibleBlockSpriteState();
-            MotionState = new DestructibleBlockMotionState();
-            CollisionHandler = new DestructibleBlockCollisionHandler(State);
+            SpriteState = new BlockSpriteState();
+            MotionState = new BlockMotionState();
+            State.SpriteState.DestructibleBlock();
+            CollisionHandler = new BlockCollisionHandler(State);
         }
 
         protected override void SyncState()

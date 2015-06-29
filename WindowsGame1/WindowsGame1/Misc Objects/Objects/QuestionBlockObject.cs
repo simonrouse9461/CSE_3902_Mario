@@ -1,24 +1,19 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockObject : ObjectKernelNew<QuestionBlockSpriteState, QuestionBlockMotionState>
+    public class QuestionBlockObject : IndestructibleBlockObject
     {
-
-        public QuestionBlockObject() { 
-            SpriteState = new QuestionBlockSpriteState();
-            MotionState = new QuestionBlockMotionState();
-            CollisionHandler = new QuestionBlockCollisionHandler(State);
+        public QuestionBlockObject()
+        {
+            SpriteState = new BlockSpriteState();
+            MotionState = new BlockMotionState();
+            
+            CollisionHandler = new BlockCollisionHandler(State);
         }
-
-        //public void QuestionBlockAnimate(){
-        //    SpriteState.Status = QuestionBlockSpriteState.StatusEnum.Animated;
-        //}
-        //public void QuestionToUsedBlock()
-        //{
-        //    SpriteState.Status = QuestionBlockSpriteState.StatusEnum.UsedBlock;
-        //}
 
         protected override void SyncState()
         {
