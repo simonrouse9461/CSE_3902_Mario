@@ -9,21 +9,15 @@ namespace WindowsGame1
         protected Collection<Type> BarrierList { get; private set; }
         protected Collection<Type> BarrierExceptionList { get; private set; }
 
-        protected IObject Object { get; private set; }
-        protected IMotionState MotionState { get; private set; }
+        protected IState State { get; set; } 
         protected CollisionDetector Detector { get; private set; }
 
-        public BarrierDetector(IObject obj)
+        public BarrierDetector(IState state)
         {
-            Object = obj;
+            State = state;
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
-            Detector = new CollisionDetector(Object);
-        }
-
-        public void SetMotionState(IMotionState motoinState)
-        {
-            MotionState = motoinState;
+            Detector = new CollisionDetector(state.Object);
         }
 
         private static bool RemoveType(Collection<Type> typeList, Type type)
@@ -74,16 +68,16 @@ namespace WindowsGame1
 
         public virtual void Detect()
         {
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && MotionState != null)
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && State.GeneralMotionState != null)
             {
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Touch)
-                    MotionState.Adjust(new Vector2(0, -1));
+                    State.GeneralMotionState.Adjust(new Vector2(0, -1));
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
-                    MotionState.Adjust(new Vector2(0, 1));
+                    State.GeneralMotionState.Adjust(new Vector2(0, 1));
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
-                    MotionState.Adjust(new Vector2(1, 0));
+                    State.GeneralMotionState.Adjust(new Vector2(1, 0));
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
-                    MotionState.Adjust(new Vector2(-1, 0));
+                    State.GeneralMotionState.Adjust(new Vector2(-1, 0));
             }
         }
     }

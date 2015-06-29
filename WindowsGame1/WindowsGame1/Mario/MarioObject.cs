@@ -8,7 +8,7 @@ namespace WindowsGame1
             MotionState = new MarioMotionState();
             CommandExecutor = new MarioCommandExecutor(State);
             CollisionHandler = new MarioCollisionHandler(State);
-            BarrierDetector = new MarioBarrierDetector(this);
+            BarrierDetector = new MarioBarrierDetector(State);
 
             SpriteState.BecomeSmall();
             BarrierDetector.AddBarrier<IObject>();

@@ -8,17 +8,20 @@ namespace WindowsGame1
         where TSpriteState : SpriteStateKernel
         where TMotionState : MotionStateKernel
     {
-        private TSpriteState spriteState;
-        private TMotionState motionState;
-        private BarrierDetector barrierDetector;
-
+        // Wrapper that wraps all internal fields of the object
         protected State<TSpriteState, TMotionState> State { get; private set; }
 
-        // temporarily made for test cases
         public State<TSpriteState, TMotionState> StateGetter
         {
             get { return State; }
         }
+
+        // Private fields
+        private TSpriteState spriteState;
+        private TMotionState motionState;
+        private BarrierDetector barrierDetector;
+        private ICollisionHandler collisionHandler;
+        private ICommandExecutor commandExecutor;
 
         protected TSpriteState SpriteState
         {
@@ -37,7 +40,6 @@ namespace WindowsGame1
             {
                 motionState = value;
                 State.MotionState = value;
-                BarrierDetector.SetMotionState(value);
             }
         }
 
@@ -48,13 +50,43 @@ namespace WindowsGame1
             {
                 barrierDetector = value;
                 State.BarrierDetector = value;
-                BarrierDetector.SetMotionState(MotionState);
             }
         }
 
-        protected ICommandExecutor CommandExecutor { get; set; }
-        protected ICollisionHandler CollisionHandler { get; set; }
+        protected ICommandExecutor CommandExecutor
+        {
+            get { return commandExecutor; }
+            set
+            {
+                commandExecutor = value;
+                State.CommandExecutor = value;
+            }
+        }
 
+        protected ICollisionHandler CollisionHandler
+        {
+            get
+            {
+                return collisionHandler;
+            }
+            set
+            {
+                collisionHandler = value;
+                State.CollisionHandler = value;
+            }
+        }
+
+        // Constructor
+        protected ObjectKernel()
+        {
+            State = new State<TSpriteState, TMotionState>
+            {
+                Object = this
+            };
+            BarrierDetector = new BarrierDetector(State);
+        }
+
+        // Properties
         public virtual bool Solid
         {
             get { return true; }
@@ -95,15 +127,7 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        protected ObjectKernel()
-        {
-            State = new State<TSpriteState, TMotionState>
-            {
-                Object = this
-            };
-            BarrierDetector = new BarrierDetector(this);
-        }
-
+        // Methods
         protected abstract void SyncState();
 
         public virtual void Reset()

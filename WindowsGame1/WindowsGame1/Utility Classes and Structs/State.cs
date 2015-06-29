@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class State<TS, TM>
+    public class State<TS, TM> : IState
         where TS : ISpriteState
         where TM : IMotionState
     {
@@ -21,6 +21,18 @@ namespace WindowsGame1
         public TS SpriteState { get; set; }
         public TM MotionState { get; set; }
         public BarrierDetector BarrierDetector { get; set; }
+        public ICollisionHandler CollisionHandler { get; set; }
+        public ICommandExecutor CommandExecutor { get; set; }
+
+        public ISpriteState GeneralSpriteState
+        {
+            get { return SpriteState; }
+        }
+
+        public IMotionState GeneralMotionState
+        {
+            get { return MotionState; }
+        }
 
         public State()
         {

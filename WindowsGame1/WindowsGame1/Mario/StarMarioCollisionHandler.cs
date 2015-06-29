@@ -2,23 +2,19 @@ using System;
 
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
+    public class StarMarioCollisionHandler : MarioCollisionHandler
     {
-        public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state){}
+        public StarMarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state){}
 
         public override void Handle()
         {
             if (State.SpriteState.Dead)
                 return;
 
-            HandleFireflower();
-            HandleMushroom();
-            HandleStar();
-            HandleEnemy();
-        }
-
-        protected virtual void HandleMushroom()
-        {
+            if (Detector.Detect<Fireflower>().AnyEdge.Touch)
+            {
+                State.SpriteState.GetFire();
+            }
             if (Detector.Detect<Mushroom>().AnyEdge.Touch)
             {
                 if (State.SpriteState.Small)
@@ -26,10 +22,6 @@ namespace WindowsGame1
                     State.SpriteState.BecomeBig();
                 }
             }
-        }
-
-        protected virtual void HandleStar()
-        {
             if (Detector.Detect<Star>().AnyEdge.Touch)
             {
                 State.SpriteState.GetStarPower();
@@ -37,20 +29,8 @@ namespace WindowsGame1
 
                 State.DelayCommand(state => state.SpriteState.ChangeColorFrequency(16), state => state.SpriteState.HaveStarPower, 200);
                 State.DelayCommand(state => state.SpriteState.SetDefaultColor(), state => state.SpriteState.HaveStarPower, 300);
-            } 
-        }
-
-        protected virtual void HandleFireflower()
-        {
-            if (Detector.Detect<Fireflower>().AnyEdge.Touch)
-            {
-                State.SpriteState.GetFire();
             }
-        }
-
-        protected virtual void HandleEnemy()
-        {
-            if (Detector.Detect<IEnemy>(enemy => enemy.Solid && enemy.Alive).AnySide.Touch)
+            if ((Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive) + Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive)).AnySide.Touch)
             {
                 if (State.SpriteState.Blinking) return;
                 if (State.SpriteState.Small)
