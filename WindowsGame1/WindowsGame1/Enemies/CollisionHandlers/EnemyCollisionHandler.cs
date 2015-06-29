@@ -5,16 +5,16 @@ namespace WindowsGame1
 {
     public class EnemyCollisionHandler : CollisionHandlerKernel<EnemySpriteState, EnemyMotionState>
     {
-        public EnemyCollisionHandler(State<EnemySpriteState, EnemyMotionState> state) : base(state)
+        public EnemyCollisionHandler(Core<EnemySpriteState, EnemyMotionState> core) : base(core)
         {
-            State.BarrierDetector.AddBarrier<IObject>();
+            Core.BarrierDetector.AddBarrier<IObject>();
         }
 
         public override void Handle()
         {
             if (Detector.Detect<MarioObject>(mario => mario.Alive && mario.GoingDown).Top.Touch)
             {
-                State.SpriteState.MarioSmash();
+                Core.SpriteState.MarioSmash();
             }
         }
     }

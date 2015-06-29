@@ -129,7 +129,7 @@
     <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
-    <Compile Include="Interfaces\IState.cs" />
+    <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Mario\MarioBarrierDetector.cs" />
     <Compile Include="Mario\StarMarioCollisionHandler.cs" />
@@ -257,7 +257,7 @@
     <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\RectangleParser.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSource.cs" />
-    <Compile Include="Utility Classes and Structs\State.cs" />
+    <Compile Include="Utility Classes and Structs\Core.cs" />
     <Compile Include="Utility Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Utility Classes and Structs\SymmetricPair.cs" />
     <Compile Include="Utility Classes and Structs\WorldManager.cs" />

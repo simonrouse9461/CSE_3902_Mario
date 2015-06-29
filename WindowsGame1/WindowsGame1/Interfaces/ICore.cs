@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public interface IState
+    public interface ICore
     {
         IObject Object { get; set; }
         ISpriteState GeneralSpriteState { get; }
@@ -14,6 +14,7 @@ namespace WindowsGame1
         void DelayCommand(Action command, int delay = 1);
         void DelayCommand(Action command, Func<bool> dependency, int delay = 1);
         void ClearDelayedCommands();
+        void SwitchComponent(Object obj);
         void Update();
     }
 }

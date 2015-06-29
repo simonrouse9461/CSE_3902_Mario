@@ -9,13 +9,13 @@ namespace WindowsGame1
         where TSpriteState : SpriteStateKernel
         where TMotionState : MotionStateKernel
     {
-        public State<TSpriteState, TMotionState> State { get; set; }
+        public Core<TSpriteState, TMotionState> Core { get; set; }
         public CollisionDetector Detector { get; set; }
 
-        protected CollisionHandlerKernel(State<TSpriteState,TMotionState> state)
+        protected CollisionHandlerKernel(Core<TSpriteState,TMotionState> core)
         {
-            State = state;
-            Detector = new CollisionDetector(State.Object);
+            Core = core;
+            Detector = new CollisionDetector(Core.Object);
         }
 
         public abstract void Handle();

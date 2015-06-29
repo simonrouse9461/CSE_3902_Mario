@@ -5,31 +5,31 @@ namespace WindowsGame1
 {
     public class MarioCommandExecutor : CommandExecutorKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioCommandExecutor(State<MarioSpriteState, MarioMotionState> state) : base(state)
+        public MarioCommandExecutor(Core<MarioSpriteState, MarioMotionState> core) : base(core)
         {
             CommandAction = new Dictionary<Type, Action>
             {
-                {typeof(MarioDeadCommand), () => State.SpriteState.BecomeDead()},
-                {typeof(MarioBigCommand), () => State.SpriteState.BecomeBig()},
-                {typeof(MarioSmallCommand), () => State.SpriteState.BecomeSmall()},
-                {typeof(MarioFireCommand), () => State.SpriteState.GetFire()},
+                {typeof(MarioDeadCommand), () => Core.SpriteState.BecomeDead()},
+                {typeof(MarioBigCommand), () => Core.SpriteState.BecomeBig()},
+                {typeof(MarioSmallCommand), () => Core.SpriteState.BecomeSmall()},
+                {typeof(MarioFireCommand), () => Core.SpriteState.GetFire()},
                 {typeof(MarioLeftCommand), () =>
                 {
-                    State.SpriteState.ToLeft();
-                    State.MotionState.MoveLeft();
+                    Core.SpriteState.ToLeft();
+                    Core.MotionState.MoveLeft();
                 }},
                 {typeof(MarioRightCommand), () =>
                 {
-                    State.SpriteState.ToRight();
-                    State.MotionState.MoveRight();
+                    Core.SpriteState.ToRight();
+                    Core.MotionState.MoveRight();
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
-                    State.MotionState.Raise();
+                    Core.MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () =>
                 {
-                    State.MotionState.Fall();
+                    Core.MotionState.Fall();
                 }}
             };
         }

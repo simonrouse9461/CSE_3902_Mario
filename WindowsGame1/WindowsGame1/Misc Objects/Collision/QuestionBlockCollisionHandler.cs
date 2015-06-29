@@ -5,11 +5,11 @@ namespace WindowsGame1
 {
     public class QuestionBlockCollisionHandler : CollisionHandlerKernel<QuestionBlockSpriteState, QuestionBlockMotionState>
     {
-        public QuestionBlockCollisionHandler(State<QuestionBlockSpriteState,QuestionBlockMotionState> state) : base(state) { }
+        public QuestionBlockCollisionHandler(Core<QuestionBlockSpriteState,QuestionBlockMotionState> core) : base(core) { }
 
         public override void Handle(){
             if(Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch){
-                State.SpriteState.UsedBlock();
+                Core.SpriteState.UsedBlock();
             }
         }
     }

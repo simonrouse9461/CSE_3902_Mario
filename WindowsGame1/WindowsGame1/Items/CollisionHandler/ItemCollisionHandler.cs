@@ -5,17 +5,17 @@ namespace WindowsGame1
 {
     public class ItemCollisionHandler : CollisionHandlerKernel<ItemSpriteState, ItemMotionState>
     {
-        public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state) : base(state)
+        public ItemCollisionHandler(Core<ItemSpriteState, ItemMotionState> core) : base(core)
         {
-            State.BarrierDetector.AddBarrier<IObject>();
-            State.BarrierDetector.RemoveBarrier<IMario>();
+            Core.BarrierDetector.AddBarrier<IObject>();
+            Core.BarrierDetector.RemoveBarrier<IMario>();
         }
 
         public override void Handle()
         {
             if (Detector.Detect<IMario>().AnyEdge.Touch)
             {
-                State.Object.Unload();
+                Core.Object.Unload();
             }
         }
     }

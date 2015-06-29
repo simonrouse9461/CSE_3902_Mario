@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class MarioBarrierDetector : BarrierDetector
     {
-        public MarioBarrierDetector(IState state) : base(state) { }
+        public MarioBarrierDetector(ICore core) : base(core) { }
 
         public override void Detect()
         {
@@ -13,21 +13,21 @@ namespace WindowsGame1
             if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch)
             {
                 while (collision(0).Bottom.Touch)
-                    State.GeneralMotionState.Adjust(new Vector2(0, -1));
+                    Core.GeneralMotionState.Adjust(new Vector2(0, -1));
                 while ((collision(0).TopLeft & collision(0).TopRight).Touch)
-                    State.GeneralMotionState.Adjust(new Vector2(0, 1));
-                while ((collision(0).LeftTop & collision(0).LeftBottom).Touch || collision(0).Left.Touch && State.Object.GoingLeft)
-                    State.GeneralMotionState.Adjust(new Vector2(1, 0));
-                while ((collision(0).RightTop & collision(0).RightBottom).Touch || collision(0).Right.Touch && State.Object.GoingRight)
-                    State.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(0, 1));
+                while ((collision(0).LeftTop & collision(0).LeftBottom).Touch || collision(0).Left.Touch && Core.Object.GoingLeft)
+                    Core.GeneralMotionState.Adjust(new Vector2(1, 0));
+                while ((collision(0).RightTop & collision(0).RightBottom).Touch || collision(0).Right.Touch && Core.Object.GoingRight)
+                    Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
                 if (collision(0).TopRight.Touch && collision(0).TopLeft.None)
-                    State.GeneralMotionState.Adjust(new Vector2(-2, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(-2, 0));
                 if (collision(0).RightTop.Touch && collision(0).RightBottom.None)
-                    State.GeneralMotionState.Adjust(new Vector2(-2, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(-2, 0));
                 if (collision(0).TopLeft.Touch && collision(0).TopRight.None)
-                    State.GeneralMotionState.Adjust(new Vector2(2, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(2, 0));
                 if (collision(0).LeftTop.Touch && collision(0).LeftBottom.None)
-                    State.GeneralMotionState.Adjust(new Vector2(2, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(2, 0));
             }
         }
     }

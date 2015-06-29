@@ -10,7 +10,7 @@ namespace WindowsGame1
         
             SpriteState = new HiddenBlockSpriteState();
             MotionState = new HiddenBlockMotionState();
-            CollisionHandler = new HiddenBlockCollisionHandler(State);
+            CollisionHandler = new HiddenBlockCollisionHandler(Core);
         
         }
 

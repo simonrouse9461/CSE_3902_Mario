@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -8,81 +9,54 @@ namespace WindowsGame1
         where TSpriteState : SpriteStateKernel
         where TMotionState : MotionStateKernel
     {
-        // Wrapper that wraps all internal fields of the object
-        protected State<TSpriteState, TMotionState> State { get; private set; }
+        // Object core that wraps all internal components of the object
+        protected Core<TSpriteState, TMotionState> Core { get; private set; }
 
         // Temporarily made for test cases
-        public State<TSpriteState, TMotionState> StateGetter
+        public Core<TSpriteState, TMotionState> CoreGetter
         {
-            get { return State; }
+            get { return Core; }
         }
 
-        // Private fields
-        private TSpriteState spriteState;
-        private TMotionState motionState;
-        private BarrierDetector barrierDetector;
-        private ICollisionHandler collisionHandler;
-        private ICommandExecutor commandExecutor;
-
-        // Corresponding Properties to private fields
+        // Properties
         protected TSpriteState SpriteState
         {
-            get { return spriteState; }
-            set
-            {
-                spriteState = value;
-                State.SpriteState = value;
-            }
+            get { return Core.SpriteState; }
+            set { Core.SpriteState = value; }
         }
 
         protected TMotionState MotionState
         {
-            get { return motionState; }
-            set
-            {
-                motionState = value;
-                State.MotionState = value;
-            }
+            get { return Core.MotionState; }
+            set { Core.MotionState = value; }
         }
 
         protected BarrierDetector BarrierDetector
         {
-            get { return barrierDetector; }
-            set
-            {
-                barrierDetector = value;
-                State.BarrierDetector = value;
-            }
+            get { return Core.BarrierDetector; }
+            set { Core.BarrierDetector = value; }
         }
 
         protected ICommandExecutor CommandExecutor
         {
-            get { return commandExecutor; }
-            set
-            {
-                commandExecutor = value;
-                State.CommandExecutor = value;
-            }
+            get { return Core.CommandExecutor; }
+            set { Core.CommandExecutor = value; }
         }
 
         protected ICollisionHandler CollisionHandler
         {
-            get { return collisionHandler; }
-            set
-            {
-                collisionHandler = value;
-                State.CollisionHandler = value;
-            }
+            get { return Core.CollisionHandler; }
+            set { Core.CollisionHandler = value; }
         }
 
         // Constructor
         protected ObjectKernel()
         {
-            State = new State<TSpriteState, TMotionState>
+            Core = new Core<TSpriteState, TMotionState>
             {
                 Object = this
             };
-            BarrierDetector = new BarrierDetector(State);
+            BarrierDetector = new BarrierDetector(Core);
         }
 
         // Properties
@@ -126,14 +100,15 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        // Methods
+        // protected Methods
         protected abstract void SyncState();
 
+        // public methods
         public virtual void Reset()
         {
             SpriteState.Reset();
             MotionState.Reset();
-            State.ClearDelayedCommands();
+            Core.ClearDelayedCommands();
             BarrierDetector.ClearBarrier();
         }
 
@@ -145,12 +120,12 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            State.DelayCommand(() => WorldManager.Instance.RemoveObject(this));
+            Core.DelayCommand(() => WorldManager.Instance.RemoveObject(this));
         }
 
         public void Update()
         {
-            State.Update();
+            Core.Update();
             if (CommandExecutor != null) CommandExecutor.Execute();
             SyncState();
             if (CollisionHandler != null) CollisionHandler.Handle();

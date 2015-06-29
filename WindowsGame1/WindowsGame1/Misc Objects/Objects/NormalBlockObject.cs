@@ -8,7 +8,7 @@ namespace WindowsGame1
         public NormalBlockObject() {
             SpriteState = new NormalBlockSpriteState();
             MotionState = new NormalBlockMotionState();
-            CollisionHandler = new NormalBlockCollisionHandler(State);
+            CollisionHandler = new NormalBlockCollisionHandler(Core);
         
         }
 

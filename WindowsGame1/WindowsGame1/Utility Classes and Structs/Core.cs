@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class State<TS, TM> : IState
+    public class Core<TS, TM> : ICore
         where TS : ISpriteState
         where TM : IMotionState
     {
@@ -34,7 +34,7 @@ namespace WindowsGame1
             get { return MotionState; }
         }
 
-        public State()
+        public Core()
         {
             Waitlist = new Collection<Reservation>();
         }
@@ -62,6 +62,30 @@ namespace WindowsGame1
         public void ClearDelayedCommands()
         {
             Waitlist = new Collection<Reservation>();
+        }
+
+        public void SwitchComponent(Object obj)
+        {
+            if (obj is TS)
+            {
+                SpriteState = (TS)obj;
+            }
+            if (obj is TM)
+            {
+                MotionState = (TM)obj;
+            }
+            if (obj is ICollisionHandler)
+            {
+                CollisionHandler = (ICollisionHandler)obj;
+            }
+            if (obj is ICommandExecutor)
+            {
+                CommandExecutor = (ICommandExecutor)obj;
+            }
+            if (obj is BarrierDetector)
+            {
+                BarrierDetector = (BarrierDetector)obj;
+            }
         }
 
         public void Update()

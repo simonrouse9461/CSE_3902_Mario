@@ -9,15 +9,15 @@ namespace WindowsGame1
         protected Collection<Type> BarrierList { get; private set; }
         protected Collection<Type> BarrierExceptionList { get; private set; }
 
-        protected IState State { get; set; } 
+        protected ICore Core { get; set; } 
         protected CollisionDetector Detector { get; private set; }
 
-        public BarrierDetector(IState state)
+        public BarrierDetector(ICore core)
         {
-            State = state;
+            Core = core;
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
-            Detector = new CollisionDetector(state.Object);
+            Detector = new CollisionDetector(core.Object);
         }
 
         private static bool RemoveType(Collection<Type> typeList, Type type)
@@ -68,16 +68,16 @@ namespace WindowsGame1
 
         public virtual void Detect()
         {
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && State.GeneralMotionState != null)
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && Core.GeneralMotionState != null)
             {
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Touch)
-                    State.GeneralMotionState.Adjust(new Vector2(0, -1));
+                    Core.GeneralMotionState.Adjust(new Vector2(0, -1));
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
-                    State.GeneralMotionState.Adjust(new Vector2(0, 1));
+                    Core.GeneralMotionState.Adjust(new Vector2(0, 1));
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
-                    State.GeneralMotionState.Adjust(new Vector2(1, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(1, 0));
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
-                    State.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
             }
         }
     }

@@ -5,12 +5,12 @@ namespace WindowsGame1
 {
     public class NormalBlockCollisionHandler : CollisionHandlerKernel<NormalBlockSpriteState, NormalBlockMotionState>
     {
-        public NormalBlockCollisionHandler(State<NormalBlockSpriteState, NormalBlockMotionState> state) : base(state) { }
+        public NormalBlockCollisionHandler(Core<NormalBlockSpriteState, NormalBlockMotionState> core) : base(core) { }
 
         public override void Handle(){
             if (Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
             {
-                State.Object.Unload();
+                Core.Object.Unload();
             }
         }
     }

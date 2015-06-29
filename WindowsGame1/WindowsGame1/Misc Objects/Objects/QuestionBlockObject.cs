@@ -9,7 +9,7 @@ namespace WindowsGame1
         public QuestionBlockObject() { 
             SpriteState = new QuestionBlockSpriteState();
             MotionState = new QuestionBlockMotionState();
-            CollisionHandler = new QuestionBlockCollisionHandler(State);
+            CollisionHandler = new QuestionBlockCollisionHandler(Core);
         }
 
         //public void QuestionBlockAnimate(){

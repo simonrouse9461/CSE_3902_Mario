@@ -9,7 +9,7 @@ namespace WindowsGame1
         {
             SpriteState = new MushroomSpriteState();
             MotionState = new ItemMotionState();
-            CollisionHandler = new ItemCollisionHandler(State);
+            CollisionHandler = new ItemCollisionHandler(Core);
         }
 
         // make it not solid so that anything can pass through it

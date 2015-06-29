@@ -32,8 +32,8 @@ namespace WindowsGame1
             CompareCommand = new MarioRightCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))
@@ -60,8 +60,8 @@ namespace WindowsGame1
             CompareCommand = new MarioLeftCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))
@@ -86,8 +86,8 @@ namespace WindowsGame1
             CompareCommand = new MarioUpCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))
@@ -111,8 +111,8 @@ namespace WindowsGame1
             CompareCommand = new MarioDownCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))

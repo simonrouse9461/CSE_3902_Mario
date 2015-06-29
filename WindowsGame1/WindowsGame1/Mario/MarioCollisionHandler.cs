@@ -4,11 +4,11 @@ namespace WindowsGame1
 {
     public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state){}
+        public MarioCollisionHandler(Core<MarioSpriteState, MarioMotionState> core) : base(core){}
 
         public override void Handle()
         {
-            if (State.SpriteState.Dead)
+            if (Core.SpriteState.Dead)
                 return;
 
             HandleFireflower();
@@ -21,9 +21,9 @@ namespace WindowsGame1
         {
             if (Detector.Detect<Mushroom>().AnyEdge.Touch)
             {
-                if (State.SpriteState.Small)
+                if (Core.SpriteState.Small)
                 {
-                    State.SpriteState.BecomeBig();
+                    Core.SpriteState.BecomeBig();
                 }
             }
         }
@@ -32,11 +32,7 @@ namespace WindowsGame1
         {
             if (Detector.Detect<Star>().AnyEdge.Touch)
             {
-                State.SpriteState.GetStarPower();
-                State.SpriteState.ChangeColorFrequency(8);
-
-                State.DelayCommand(() => State.SpriteState.ChangeColorFrequency(16), () => State.SpriteState.HaveStarPower, 200);
-                State.DelayCommand(() => State.SpriteState.SetDefaultColor(), () => State.SpriteState.HaveStarPower, 300);
+                Core.SwitchComponent(new StarMarioCollisionHandler(Core, this));
             } 
         }
 
@@ -44,7 +40,7 @@ namespace WindowsGame1
         {
             if (Detector.Detect<Fireflower>().AnyEdge.Touch)
             {
-                State.SpriteState.GetFire();
+                Core.SpriteState.GetFire();
             }
         }
 
@@ -52,27 +48,27 @@ namespace WindowsGame1
         {
             if (Detector.Detect<IEnemy>(enemy => enemy.Solid && enemy.Alive).AnySide.Touch)
             {
-                if (State.SpriteState.Blinking) return;
-                if (State.SpriteState.Small)
+                if (Core.SpriteState.Blinking) return;
+                if (Core.SpriteState.Small)
                 {
-                    State.SpriteState.BecomeDead();
+                    Core.SpriteState.BecomeDead();
                     return;
                 }
-                if (State.SpriteState.Big || State.SpriteState.HaveFire)
+                if (Core.SpriteState.Big || Core.SpriteState.HaveFire)
                 {
-                    var totalImmortalTime = 200;
+                    var delayTime = 200;
 
                     // Enemy damage action
-                    State.SpriteState.BecomeSmall();
-                    State.SpriteState.BecomeBlink();
-                    State.SpriteState.ChangeColorFrequency(2);
-                    State.BarrierDetector.RemoveBarrier<Koopa>();
-                    State.BarrierDetector.RemoveBarrier<Goomba>();
+                    Core.SpriteState.BecomeSmall();
+                    Core.SpriteState.BecomeBlink();
+                    Core.SpriteState.ChangeColorFrequency(2);
+                    Core.BarrierDetector.RemoveBarrier<Koopa>();
+                    Core.BarrierDetector.RemoveBarrier<Goomba>();
 
                     // Time up action
-                    State.DelayCommand(() => State.SpriteState.SetDefaultColor(), () => State.SpriteState.Blinking, totalImmortalTime);
-                    State.DelayCommand(() => State.BarrierDetector.AddBarrier<Koopa>(), totalImmortalTime);
-                    State.DelayCommand(() => State.BarrierDetector.AddBarrier<Goomba>(), totalImmortalTime);
+                    Core.DelayCommand(() => Core.SpriteState.SetDefaultColor(), () => Core.SpriteState.Blinking, delayTime);
+                    Core.DelayCommand(() => Core.BarrierDetector.AddBarrier<Koopa>(), delayTime);
+                    Core.DelayCommand(() => Core.BarrierDetector.AddBarrier<Goomba>(), delayTime);
                 }
             }
         }

@@ -8,7 +8,7 @@ namespace WindowsGame1
         {
             SpriteState = new GoombaSpriteState();
             MotionState = new EnemyMotionState();
-            CollisionHandler = new EnemyCollisionHandler(State);
+            CollisionHandler = new EnemyCollisionHandler(Core);
         }
 
         public bool Alive

@@ -9,7 +9,7 @@ namespace WindowsGame1
     {
         private Dictionary<Type, Action> commandAction;
 
-        public State<TSpriteState, TMotionState> State { get; set; }
+        public Core<TSpriteState, TMotionState> Core { get; set; }
         protected Dictionary<Type, bool> CommandStatus { get; private set; }
 
         protected Dictionary<Type, Action> CommandAction
@@ -26,9 +26,9 @@ namespace WindowsGame1
             }
         }
 
-        protected CommandExecutorKernel(State<TSpriteState, TMotionState> state)
+        protected CommandExecutorKernel(Core<TSpriteState, TMotionState> core)
         {
-            State = state;
+            Core = core;
         }
 
         public void Reset()
