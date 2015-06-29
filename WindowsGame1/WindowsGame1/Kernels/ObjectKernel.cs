@@ -11,6 +11,7 @@ namespace WindowsGame1
         // Wrapper that wraps all internal fields of the object
         protected State<TSpriteState, TMotionState> State { get; private set; }
 
+        // Temporarily made for test cases
         public State<TSpriteState, TMotionState> StateGetter
         {
             get { return State; }
@@ -23,6 +24,7 @@ namespace WindowsGame1
         private ICollisionHandler collisionHandler;
         private ICommandExecutor commandExecutor;
 
+        // Corresponding Properties to private fields
         protected TSpriteState SpriteState
         {
             get { return spriteState; }
@@ -65,10 +67,7 @@ namespace WindowsGame1
 
         protected ICollisionHandler CollisionHandler
         {
-            get
-            {
-                return collisionHandler;
-            }
+            get { return collisionHandler; }
             set
             {
                 collisionHandler = value;
