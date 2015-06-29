@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Mushroom : ObjectKernel<ItemSpriteState, ItemMotionState>
+    public class Mushroom : ObjectKernel<ItemSpriteState, ItemMotionState>, IItem
     {
         public Mushroom()
         {

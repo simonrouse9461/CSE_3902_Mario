@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class _1up : ObjectKernel<ItemSpriteState, ItemMotionState>
+    public class _1up : ObjectKernel<ItemSpriteState, ItemMotionState>, IItem
     {
         public _1up()
         {
