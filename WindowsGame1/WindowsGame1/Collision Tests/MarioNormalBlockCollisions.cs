@@ -1,71 +1,121 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using WindowsGame1;
 
-namespace MarioNormalBlockCollisions
+namespace WindowsGame1
 {
     public class MarioNormalBlockCollisions
     {
-        private WorldManager TestWorld;
         private MarioGame TestGame;
-        private MarioObject TestMario;
-        private NormalBlockObject TestBlock;
-        private ContentManager Content;
+        private MarioObject TestMario { get; set; }
+        private MarioObject CompareMario { get; set; }
+        private NormalBlockObject TestNormalBlock { get; set; }
+
         private ICommand TestCommand;
-     
-        public void MarioNormalBlockRightCollision()
+        private ICommand CompareCommand;
+
+        public void MarioNormalBlockRightCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new NormalBlockObject(TestWorld);
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestNormalBlock = new NormalBlockObject();
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
+            CompareCommand = new MarioRightCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            //Check that block has not been broken
-            //Assert.AreEqual("NormalBlockSpriteState", TestBlock.SpriteState);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
+            //Check that block is not broken
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioNormalBlockRightCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioNormalBlockRightCollision has Failed\r\n");
+            }
         }
-        public void MarioNormalBlockLeftCollision()
+        public void MarioNormalBlockLeftCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new NormalBlockObject(TestWorld);
-            TestCommand = new MarioLeftCommand(TestGame);
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestNormalBlock = new NormalBlockObject();
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
+            TestCommand = new MarioRightCommand(TestGame);
+            CompareCommand = new MarioRightCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
 
-            //Check that block has not been broken
-            //Assert.AreEqual("NormalBlockSpriteState", TestBlock.SpriteState);
+            //Check that block is not broken
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioNormalBlockLeftCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioNormalBlockLeftCollision has Failed\r\n");
+            }
         }
 
-        public void MarioNormalBlockTopCollision()
+        public void MarioNormalBlockTopCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new NormalBlockObject(TestWorld);
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestNormalBlock = new NormalBlockObject();
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
+            CompareCommand = new MarioDownCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
 
-            //Check that block has not been broken
-            //Assert.AreEqual("NormalBlockSpriteState", TestBlock.SpriteState);
+            //Check that block is not broken
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioNormalBlockRightCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioNormalBlockRightCollision has Failed\r\n");
+            }
         }
-        public void MarioNormalBlockBottomCollision()
+        public void MarioNormalBlockBottomCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestBlock = new NormalBlockObject(TestWorld);
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestNormalBlock = new NormalBlockObject();
+            CompareCommand = new MarioBigCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
+            CompareCommand = new MarioUpCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
 
-            //Check that block has disappeared
-            //Assert.AreEqual(null, TestBlock.SpriteState);
+            //Check that block is broken
+            if (TestState.Equals(CompareState))
+            {
+                Console.Write("MarioNormalBlockBottomCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioNormalBlockBottomCollision has Failed\r\n");
+            }
         }
     }
 }
-

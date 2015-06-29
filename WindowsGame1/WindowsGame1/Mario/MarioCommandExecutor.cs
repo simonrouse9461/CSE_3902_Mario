@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class MarioCommandHandler : CommandHandlerKernel<MarioSpriteState, MarioMotionState>
+    public class MarioCommandExecutor : CommandExecutorKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioCommandHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
+        public MarioCommandExecutor(State<MarioSpriteState, MarioMotionState> state) : base(state)
         {
             CommandAction = new Dictionary<Type, Action>
             {
@@ -15,7 +15,6 @@ namespace WindowsGame1
                 {typeof(MarioFireCommand), () => State.SpriteState.GetFire()},
                 {typeof(MarioLeftCommand), () =>
                 {
-
                     State.SpriteState.ToLeft();
                     State.MotionState.MoveLeft();
                 }},
@@ -26,13 +25,11 @@ namespace WindowsGame1
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
-                    State.SpriteState.Crouch();
                     State.MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () =>
                 {
                     State.MotionState.Fall();
-                    State.SpriteState.Crouch();
                 }}
             };
         }

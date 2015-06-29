@@ -5,14 +5,14 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CoinSprite : SpriteKernelNew
+    public class CoinSprite : SpriteKernel
     {
         public CoinSprite()
         {
             const int period = 8;
 
             ImageFile.Default = "items";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

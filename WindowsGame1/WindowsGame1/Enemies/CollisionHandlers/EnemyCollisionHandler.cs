@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class EnemyCollisionHandler : CollisionHandlerKernelNew<EnemySpriteState, EnemyMotionState>
+    public class EnemyCollisionHandler : CollisionHandlerKernel<EnemySpriteState, EnemyMotionState>
     {
         public EnemyCollisionHandler(State<EnemySpriteState, EnemyMotionState> state) : base(state)
         {
-            AddBarrier<IObject>();
+            State.BarrierDetector.AddBarrier<IObject>();
         }
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>(mario => mario.Solid && mario.Alive).Top.Contact)
+            if (Detector.Detect<MarioObject>(mario => mario.Alive && mario.GoingDown).Top.Touch)
             {
                 State.SpriteState.MarioSmash();
             }

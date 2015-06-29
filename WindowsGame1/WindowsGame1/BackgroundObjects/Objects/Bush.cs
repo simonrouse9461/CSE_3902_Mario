@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Bush : ObjectKernelNew<BushSpriteState, BackgroundMotionState>
+    public class Bush : ObjectKernel<BushSpriteState, BackgroundMotionState>
     {
-        public Bush(WorldManager world) : base(world)
+        public Bush()
         {
             SpriteState = new BushSpriteState();
             MotionState = new BackgroundMotionState();

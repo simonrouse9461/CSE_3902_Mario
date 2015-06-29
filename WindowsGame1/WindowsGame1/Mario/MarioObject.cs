@@ -1,15 +1,17 @@
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernelNew<MarioSpriteState, MarioMotionState>, IMario
+    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>, IMario
     {
-        public MarioObject(WorldManager world) : base(world)
+        public MarioObject()
         {
             SpriteState = new MarioSpriteState();
             MotionState = new MarioMotionState();
-            CommandHandler = new MarioCommandHandler(State);
+            CommandExecutor = new MarioCommandExecutor(State);
             CollisionHandler = new MarioCollisionHandler(State);
+            BarrierDetector = new MarioBarrierDetector(this);
 
             SpriteState.BecomeSmall();
+            BarrierDetector.AddBarrier<IObject>();
         }
 
         protected override void SyncState()
@@ -41,7 +43,7 @@ namespace WindowsGame1
 
         public override bool Solid
         {
-            get { return Alive; }
+            get { return Alive && !SpriteState.Blinking; }
         }
 
         public bool Alive
@@ -57,11 +59,6 @@ namespace WindowsGame1
         public bool Destructive
         {
             get { return !SpriteState.Small; }
-        }
-
-        public bool GoingUp
-        {
-            get { return MotionState.Velocity.Y < 0; }
         }
     }
 }

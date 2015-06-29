@@ -16,17 +16,17 @@ namespace WindowsGame1
 
         public GoombaSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new DeadGoombaSprite(),
                 new WalkingGoombaSprite()
             };
 
             Status = StatusEnum.Walking;
-            ChangeFrequency(6);
+            ChangeSpriteFrequency(6);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

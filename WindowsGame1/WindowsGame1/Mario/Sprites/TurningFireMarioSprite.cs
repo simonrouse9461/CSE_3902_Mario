@@ -5,19 +5,19 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class TurningFireMarioSprite : SpriteKernelNew
+    public class TurningFireMarioSprite : SpriteKernel
     {
         public TurningFireMarioSprite()
         {
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(336, 122, 16, 32)
                 }
             };
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

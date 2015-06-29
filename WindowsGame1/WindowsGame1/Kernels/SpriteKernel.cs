@@ -5,15 +5,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public abstract class SpriteKernelNew : ISpriteNew
+    public abstract class SpriteKernel : ISprite
     {
-        protected SymmetricPair<SpriteSourceNew> Source { get; set; }
+        private const double SCALE = 1.5;
+        protected SymmetricPair<SpriteSource> Source { get; set; }
         protected SymmetricPair<PeriodicFunction<int>> Animation { get; set; }
         protected SymmetricPair<string> ImageFile { get; set; }
 
-        protected SpriteKernelNew()
+        protected SpriteKernel()
         {
-            Source = new SymmetricPair<SpriteSourceNew>();
+            Source = new SymmetricPair<SpriteSource>();
             Animation = new SymmetricPair<PeriodicFunction<int>>
             {
                 Default = new PeriodicFunction<int>()
@@ -40,10 +41,10 @@ namespace WindowsGame1
             Animation.Right.Update();
         }
 
-        private void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color, SpriteSourceNew source, PeriodicFunction<int> animation)
+        private void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color, SpriteSource source, PeriodicFunction<int> animation)
         {
             if (color == null) color = Color.White;
-            Rectangle sourceRectangle = source.Coordinates[animation.GetValue()];
+            Rectangle sourceRectangle = source.Coordinates[animation.Value];
             Rectangle destinationRectangle = GetDestination(location);
             spriteBatch.Draw(source.Texture, destinationRectangle, sourceRectangle, color.Value);
         }
@@ -66,10 +67,10 @@ namespace WindowsGame1
         public Rectangle GetDestination(Vector2 location)
         {
             return new Rectangle(
-                (int)location.X - Source.Default.Coordinates[Animation.Default.GetValue()].Width/2,
-                (int)location.Y - Source.Default.Coordinates[Animation.Default.GetValue()].Height,
-                Source.Default.Coordinates[Animation.Default.GetValue()].Width,
-                Source.Default.Coordinates[Animation.Default.GetValue()].Height
+                (int)location.X - Source.Default.Coordinates[Animation.Default.Value].Width/2,
+                (int)location.Y - Source.Default.Coordinates[Animation.Default.Value].Height,
+                (int)(Source.Default.Coordinates[Animation.Default.Value].Width * SCALE),
+                (int)(Source.Default.Coordinates[Animation.Default.Value].Height * SCALE)
                 );
         }
     }

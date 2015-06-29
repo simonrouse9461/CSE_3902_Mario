@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockObject : ObjectKernelNew<DestructibleBlockSpriteState, DestructibleBlockMotionState>
+    public class DestructibleBlockObject : ObjectKernel<DestructibleBlockSpriteState, DestructibleBlockMotionState>
     {
 
-        public DestructibleBlockObject(WorldManager world) : base(world) {
+        public DestructibleBlockObject() {
 
             SpriteState = new DestructibleBlockSpriteState();
             MotionState = new DestructibleBlockMotionState();

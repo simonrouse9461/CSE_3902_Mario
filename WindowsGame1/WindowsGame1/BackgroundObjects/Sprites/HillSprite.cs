@@ -5,12 +5,12 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class HillSprite : SpriteKernelNew
+    public class HillSprite : SpriteKernel
     {
         public HillSprite()
         {
             ImageFile.Default = "misc";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

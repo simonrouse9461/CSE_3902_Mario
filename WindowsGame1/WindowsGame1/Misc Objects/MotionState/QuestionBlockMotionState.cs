@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockMotionState : MotionStateKernelNew
+    public class QuestionBlockMotionState : MotionStateKernel
     {
         protected override void SetToDefaultState()
         {

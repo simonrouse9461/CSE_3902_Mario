@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeMotionState : MotionStateKernelNew
+    public class GreenPipeMotionState : MotionStateKernel
     {
         protected override void SetToDefaultState()
         {

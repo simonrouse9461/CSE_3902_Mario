@@ -1,78 +1,115 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using WindowsGame1;
 
-namespace MarioGoombaCollisions
+namespace WindowsGame1
 {
-    
+
     public class MarioGoombaCollisions
     {
-        private WorldManager TestWorld;
         private MarioGame TestGame;
-        private MarioObject TestMario;
-        private Goomba TestGoomba;
-        private ContentManager Content;
+        private MarioObject TestMario { get; set; }
+        private MarioObject CompareMario { get; set; }
+        private Goomba TestGoomba { get; set; }
+
         private ICommand TestCommand;
-       
-        public void MarioGoombaRightCollision()
+        private ICommand CompareCommand;
+
+        public void MarioGoombaRightCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestGoomba = TestGame.World.Goomba;
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestGoomba = new Goomba();
             TestCommand = new MarioRightCommand(TestGame);
+            CompareCommand = new MarioRightCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            //Check if Mario is dead
-            //Assert.AreEqual(true, TestMario.Alive);
-            //Check if Goomba is dead
-            //Assert.AreEqual("WalkingGoombaSprite", TestGoomba.SpriteState);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
+            //Check that Mario is now dead
+            if (TestState == CompareState)
+            {
+                Console.Write("MarioGoombaRightCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioGoombaRightCollision has Failed\r\n");
+            }
         }
 
-        public void MarioGoombaLeftCollision()
+        public void MarioGoombaLeftCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestGoomba = TestGame.World.Goomba;
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestGoomba = new Goomba();
             TestCommand = new MarioLeftCommand(TestGame);
+            CompareCommand = new MarioLeftCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            //Check if Mario is dead
-            //Assert.AreEqual(true, TestMario.Alive);
-            //Check if Goomba is dead
-            //Assert.AreEqual("WalkingGoombaSprite", TestGoomba.SpriteState);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
+            //Check that Mario is now dead
+            if (TestState == CompareState)
+            {
+                Console.Write("MarioGoombaLeftCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioGoombaLeftCollision has Failed\r\n");
+            }
         }
 
-        public void MarioGoombaTopCollision()
+        public void MarioGoombaTopCollision(WorldManager world, ContentManager content)
         {
             TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestGoomba = TestGame.World.Goomba;
-            TestCommand = new MarioDownCommand(TestGame);
-            TestMario.PassCommand(TestCommand);
-            //Check if Mario is dead
-            //Assert.AreEqual(false, TestMario.Alive);
-            //Check if Goomba is dead
-            //Assert.AreEqual("DeadGoombaSprite", TestGoomba.SpriteState);
-        }
-        public void MarioGoombaBottomCollision()
-        {
-            TestGame = new MarioGame();
-            TestWorld = TestGame.World;
-            Content = TestGame.Content;
-            TestMario = TestGame.World.Mario;
-            TestGoomba = TestGame.World.Goomba;
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestGoomba = new Goomba();
             TestCommand = new MarioUpCommand(TestGame);
+            CompareCommand = new MarioUpCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            //Check if Mario is dead
-            //Assert.AreEqual(true, TestMario.Alive);
-            //Check if Goomba is dead
-            //Assert.AreEqual("WalkingGoombaSprite", TestGoomba.SpriteState);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
+            //Check that Mario is not dead
+            if (TestState == CompareState)
+            {
+                Console.Write("MarioGoombaTopCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioGoombaTopCollision has Failed\r\n");
+            }
+        }
+        public void MarioGoombaBottomCollision(WorldManager world, ContentManager content)
+        {
+            TestGame = new MarioGame();
+            TestMario = new MarioObject();
+            CompareMario = new MarioObject();
+            TestGoomba = new Goomba();
+            TestCommand = new MarioDownCommand(TestGame);
+            CompareCommand = new MarioDownCommand(TestGame);
+            CompareMario.PassCommand(CompareCommand);
+            TestMario.PassCommand(TestCommand);
+            var TestState = TestMario.StateGetter;
+            var CompareState = CompareMario.StateGetter;
+
+            //Check that Mario is now dead
+            if (TestState == CompareState)
+            {
+                Console.Write("MarioGoombaBottomCollision has Passed\r\n");
+            }
+            else
+            {
+                Console.Write("MarioGoombaBottomCollision has Failed\r\n");
+            }
         }
     }
 }
-

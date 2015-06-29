@@ -16,17 +16,17 @@ namespace WindowsGame1
 
         public KoopaSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new ShellKoopaSprite(),
                 new WalkingKoopaSprite()
             };
 
             Status = StatusEnum.Walking;
-            ChangeFrequency(25);
+            ChangeSpriteFrequency(25);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

@@ -6,29 +6,37 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public abstract class SpriteStateKernelNew : ISpriteStateNew
+    public abstract class SpriteStateKernel : ISpriteState
     {
-        protected Counter Timer { get; set; }
-        protected Collection<ISpriteNew> SpriteList { get; set; }
+        protected Counter SpriteTimer { get; set; }
+        protected Counter ColorTimer { get; set; }
+
+        protected Collection<ISprite> SpriteList { get; set; }
         protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
-        protected ISpriteNew FindSprite<T>() where T : ISpriteNew
+        protected ISprite FindSprite<T>() where T : ISprite
         {
             return SpriteList.First(sprite => sprite is T);
         }
 
-        public abstract ISpriteNew Sprite { get; }
+        public abstract ISprite Sprite { get; }
 
-        public virtual Color Color { get { return Color.White; } }
+        protected virtual ColorAnimator ColorScheme { get { return null; } }
+
+        public Color Color
+        {
+            get { return ColorScheme == null ? Color.White : ColorScheme.Color; }
+        }
 
         public virtual bool Left { get { return false; } }
 
         public virtual bool Right { get { return false; } }
 
 
-        protected SpriteStateKernelNew()
+        protected SpriteStateKernel()
         {
-            Timer = new Counter();
+            SpriteTimer = new Counter();
+            ColorTimer = new Counter();
         }
 
         public void Load(ContentManager content)
@@ -39,14 +47,20 @@ namespace WindowsGame1
             }
         }
 
-        public void ChangeFrequency(int frequency)
+        public void ChangeSpriteFrequency(int frequency)
         {
-            Timer.Reset(frequency);
+            SpriteTimer.Reset(frequency);
+        }
+
+        public void ChangeColorFrequency(int frequency)
+        {
+            ColorTimer.Reset(frequency);
         }
          
         public void Reset()
         {
-            Timer.Reset();
+            SpriteTimer.Reset();
+            ColorTimer.Reset();
             foreach (var sprite in SpriteList)
             {
                 sprite.Reset();
@@ -59,11 +73,11 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (Timer.Update())
+            if (SpriteTimer.Update())
             {
                 Sprite.Update();
             }
-            if (ColorSchemeList != null)
+            if (ColorTimer.Update() &&ColorSchemeList != null)
             {
                 foreach (var colorAnimator in ColorSchemeList)
                 {

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioSpriteState : SpriteStateKernelNew
+    public class MarioSpriteState : SpriteStateKernel
     {
         private enum ActionEnum
         {
@@ -30,14 +30,22 @@ namespace WindowsGame1
             Dead
         }
 
+        private enum ColorEnum
+        {
+            None,
+            StarPower,
+            Blink
+        }
+
         private StatusEnum Status;
         private ActionEnum Action;
         private OrientationEnum Orientation;
-        private bool StarPower;
+        private ColorEnum ColorMode;
+        
 
         public MarioSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new DeadMarioSprite(),
                 new JumpingBigMarioSprite(),
@@ -61,13 +69,14 @@ namespace WindowsGame1
 
             ColorSchemeList = new Collection<ColorAnimator>
             {
-                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 8)
+                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}),
+                new ColorAnimator(new[] {Color.White, Color.Transparent})
             };
 
-            ChangeFrequency(5);
+            ChangeSpriteFrequency(5);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {
@@ -144,9 +153,20 @@ namespace WindowsGame1
             }
         }
 
-        public override Color Color
+        protected override ColorAnimator ColorScheme 
         {
-            get { return StarPower ? ColorSchemeList[0].Color : Color.White; }
+            get
+            {
+                switch (ColorMode)
+                {
+                    case ColorEnum.StarPower:
+                        return ColorSchemeList[0];
+                    case ColorEnum.Blink:
+                        return ColorSchemeList[1];
+                    default:
+                        return null;
+                }
+            }
         }
 
         public override bool Left
@@ -220,17 +240,27 @@ namespace WindowsGame1
 
         public void GetStarPower()
         {
-            StarPower = true;
-        }
-
-        public void LoseStarPower()
-        {
-            StarPower = false;
+            ColorMode = ColorEnum.StarPower;
         }
 
         public bool HaveStarPower
         {
-            get { return StarPower; }
+            get { return ColorMode == ColorEnum.StarPower; }
+        }
+
+        public void BecomeBlink()
+        {
+            ColorMode = ColorEnum.Blink;
+        }
+
+        public bool Blinking
+        {
+            get { return ColorMode == ColorEnum.Blink; }
+        }
+
+        public void SetDefaultColor()
+        {
+            ColorMode = ColorEnum.None;
         }
 
         public void Run()

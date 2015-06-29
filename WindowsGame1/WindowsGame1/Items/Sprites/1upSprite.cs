@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class _1UpSprite : SpriteKernelNew
+    public class _1UpSprite : SpriteKernel
     {
         public _1UpSprite()
         {
             ImageFile.Default = "items";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockObject : ObjectKernelNew<QuestionBlockSpriteState, QuestionBlockMotionState>
+    public class QuestionBlockObject : ObjectKernel<QuestionBlockSpriteState, QuestionBlockMotionState>
     {
 
-        public QuestionBlockObject(WorldManager world) : base(world) { 
+        public QuestionBlockObject() { 
             SpriteState = new QuestionBlockSpriteState();
             MotionState = new QuestionBlockMotionState();
             CollisionHandler = new QuestionBlockCollisionHandler(State);

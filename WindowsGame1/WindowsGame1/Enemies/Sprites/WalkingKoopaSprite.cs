@@ -5,14 +5,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class WalkingKoopaSprite : SpriteKernelNew
+    public class WalkingKoopaSprite : SpriteKernel
     {
         public WalkingKoopaSprite()
         {
             const int period = 12;
 
             ImageFile.Default = "enemies";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

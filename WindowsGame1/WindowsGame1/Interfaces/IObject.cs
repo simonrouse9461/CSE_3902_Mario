@@ -6,14 +6,19 @@
  {
     public interface IObject
     {
-        WorldManager World { get; }
         Rectangle PositionRectangle { get; }
         Vector2 PositionPoint { get; }
+
         bool Solid { get; }
+        bool Stealth { get; }
+        bool GoingUp { get; }
+        bool GoingDown { get; }
+        bool GoingLeft { get; }
+        bool GoingRight { get; }
 
         void Reset();
         void Load(ContentManager content, Vector2 location);
-        void Unload(int unloadTimer = 0);
+        void Unload();
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void PassCommand(ICommand command);

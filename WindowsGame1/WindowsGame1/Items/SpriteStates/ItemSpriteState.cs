@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public abstract class ItemSpriteState : SpriteStateKernelNew
+    public abstract class ItemSpriteState : SpriteStateKernel
     {
     }
 }

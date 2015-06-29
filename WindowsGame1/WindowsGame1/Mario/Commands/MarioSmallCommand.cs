@@ -8,7 +8,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Game.World.Mario.PassCommand(this);
+            WorldManager.FindObject<MarioObject>().PassCommand(this);
         }
     }
 }

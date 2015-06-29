@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Mushroom : ObjectKernelNew<ItemSpriteState, ItemMotionState>
+    public class Mushroom : ObjectKernel<ItemSpriteState, ItemMotionState>
     {
-        public Mushroom(WorldManager world) : base(world)
+        public Mushroom()
         {
             SpriteState = new MushroomSpriteState();
             MotionState = new ItemMotionState();

@@ -2,15 +2,15 @@
 {
     public struct CollisionType
     {
-        private bool _contact;
+        private bool _touch;
         private bool _cover;
 
-        public bool Contact
+        public bool Touch
         {
-            get { return _contact; }
+            get { return _touch; }
             private set
             {
-                _contact = value;
+                _touch = value;
                 if (!value) Cover = false;
             }
         }
@@ -21,14 +21,14 @@
             private set
             {
                 _cover = value;
-                if (value) Contact = true;
+                if (value) Touch = true;
             }
         }
 
         public bool None
         {
-            get { return !Contact; }
-            private set { if (value) Contact = false; }
+            get { return !Touch; }
+            private set { if (value) Touch = false; }
         }
 
         public CollisionType SetToNone()
@@ -40,7 +40,7 @@
         public CollisionType SetToContact()
         {
             SetToNone();
-            Contact = true;
+            Touch = true;
             return this;
         }
 
@@ -53,7 +53,7 @@
 
         public static bool operator ==(CollisionType a, CollisionType b)
         {
-            return a.Contact == b.Contact && a.Cover == b.Cover;
+            return a.Touch == b.Touch && a.Cover == b.Cover;
         }
 
         public static bool operator !=(CollisionType a, CollisionType b)
@@ -61,7 +61,7 @@
             return !(a == b);
         }
 
-        public static CollisionType operator &(CollisionType a, CollisionType b)
+        public static CollisionType operator +(CollisionType a, CollisionType b)
         {
             if (a.None && b.None)
                 return default(CollisionType);
@@ -70,11 +70,20 @@
             return default(CollisionType).SetToContact();
         }
 
+        public static CollisionType operator &(CollisionType a, CollisionType b)
+        {
+            if (a.Cover && b.Cover)
+                return default(CollisionType).SetToCover();
+            if (a.Touch && b.Touch)
+                return default(CollisionType).SetToContact();
+            return default(CollisionType);
+        }
+
         public static CollisionType operator |(CollisionType a, CollisionType b)
         {
             if (a.Cover || b.Cover)
                 return default(CollisionType).SetToCover();
-            if (a.Contact || b.Contact)
+            if (a.Touch || b.Touch)
                 return default(CollisionType).SetToContact();
             return default(CollisionType);
         }

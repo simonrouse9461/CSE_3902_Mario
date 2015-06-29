@@ -3,17 +3,17 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CloudSpriteState : SpriteStateKernelNew
+    public class CloudSpriteState : SpriteStateKernel
     {
         public CloudSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new CloudSprite()
             };
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {
