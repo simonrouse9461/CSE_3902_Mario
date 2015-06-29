@@ -10,8 +10,8 @@ namespace WindowsGame1
     {
         private class Reservation
         {
-            public Action<State<TS, TM>> Command { get; set; }
-            public Func<State<TS, TM>, bool> Dependency { get; set; }
+            public Action Command { get; set; }
+            public Func<bool> Dependency { get; set; }
             public Counter Timer { get; set; }
         }
 
@@ -39,10 +39,18 @@ namespace WindowsGame1
             Waitlist = new Collection<Reservation>();
         }
 
-        public void DelayCommand(Action<State<TS, TM>> command, Func<State<TS, TM>, bool> dependency = null, int delay = 1)
+        public void DelayCommand(Action command, int delay = 1)
         {
-            if (dependency == null)
-                dependency = condition => true;
+            Waitlist.Add(new Reservation
+            {
+                Command = command,
+                Dependency = () => true,
+                Timer = new Counter(delay)
+            });
+        }
+
+        public void DelayCommand(Action command, Func<bool> dependency, int delay = 1)
+        {
             Waitlist.Add(new Reservation
             {
                 Command = command,
@@ -61,13 +69,13 @@ namespace WindowsGame1
             for (var i = 0; i < Waitlist.Count; i++)
             {
                 var reservation = Waitlist[i];
-                if (!reservation.Dependency(this))
+                if (!reservation.Dependency())
                 {
                     Waitlist.Remove(reservation);
                 }
                 if (reservation.Timer.Update())
                 {
-                    reservation.Command(this);
+                    reservation.Command();
                     Waitlist.Remove(reservation);
                 }
             }

@@ -35,8 +35,8 @@ namespace WindowsGame1
                 State.SpriteState.GetStarPower();
                 State.SpriteState.ChangeColorFrequency(8);
 
-                State.DelayCommand(state => state.SpriteState.ChangeColorFrequency(16), state => state.SpriteState.HaveStarPower, 200);
-                State.DelayCommand(state => state.SpriteState.SetDefaultColor(), state => state.SpriteState.HaveStarPower, 300);
+                State.DelayCommand(() => State.SpriteState.ChangeColorFrequency(16), () => State.SpriteState.HaveStarPower, 200);
+                State.DelayCommand(() => State.SpriteState.SetDefaultColor(), () => State.SpriteState.HaveStarPower, 300);
             } 
         }
 
@@ -70,9 +70,9 @@ namespace WindowsGame1
                     State.BarrierDetector.RemoveBarrier<Goomba>();
 
                     // Time up action
-                    State.DelayCommand(state => state.SpriteState.SetDefaultColor(), state => state.SpriteState.Blinking, totalImmortalTime);
-                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Koopa>(), null, totalImmortalTime);
-                    State.DelayCommand(state => state.BarrierDetector.AddBarrier<Goomba>(), null, totalImmortalTime);
+                    State.DelayCommand(() => State.SpriteState.SetDefaultColor(), () => State.SpriteState.Blinking, totalImmortalTime);
+                    State.DelayCommand(() => State.BarrierDetector.AddBarrier<Koopa>(), totalImmortalTime);
+                    State.DelayCommand(() => State.BarrierDetector.AddBarrier<Goomba>(), totalImmortalTime);
                 }
             }
         }
