@@ -11,9 +11,11 @@ namespace WindowsGame1
             Core.SpriteState.GetStarPower();
             Core.SpriteState.ChangeColorFrequency(8);
 
-            Core.DelayCommand(() => Core.SpriteState.ChangeColorFrequency(16), () => Core.SpriteState.HaveStarPower, 200);
-            Core.DelayCommand(() => Core.SpriteState.SetDefaultColor(), () => Core.SpriteState.HaveStarPower, 300);
-            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), 300);
+            // time up actions
+            Core.DelayCommand(() => Core.SpriteState.ChangeColorFrequency(16), () => Core.CollisionHandler is StarMarioCollisionHandler, 200);
+            Core.DelayCommand(() => Core.SpriteState.SetDefaultColor(), () => Core.CollisionHandler is StarMarioCollisionHandler, 300);
+
+            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), () => Core.CollisionHandler is StarMarioCollisionHandler, 300);
         }
 
         protected override void HandleEnemy() { }

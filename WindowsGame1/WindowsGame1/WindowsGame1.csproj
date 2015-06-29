@@ -131,8 +131,9 @@
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Items\IItem.cs" />
+    <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\MarioBarrierDetector.cs" />
-    <Compile Include="Mario\StarMarioCollisionHandler.cs" />
+    <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />

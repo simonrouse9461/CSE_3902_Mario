@@ -67,25 +67,15 @@ namespace WindowsGame1
         public void SwitchComponent(Object obj)
         {
             if (obj is TS)
-            {
                 SpriteState = (TS)obj;
-            }
             if (obj is TM)
-            {
                 MotionState = (TM)obj;
-            }
             if (obj is ICollisionHandler)
-            {
                 CollisionHandler = (ICollisionHandler)obj;
-            }
             if (obj is ICommandExecutor)
-            {
                 CommandExecutor = (ICommandExecutor)obj;
-            }
             if (obj is BarrierDetector)
-            {
                 BarrierDetector = (BarrierDetector)obj;
-            }
         }
 
         public void Update()

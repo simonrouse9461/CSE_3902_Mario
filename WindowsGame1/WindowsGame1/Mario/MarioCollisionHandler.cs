@@ -46,9 +46,8 @@ namespace WindowsGame1
 
         protected virtual void HandleEnemy()
         {
-            if (Detector.Detect<IEnemy>(enemy => enemy.Solid && enemy.Alive).AnySide.Touch)
+            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch)
             {
-                if (Core.SpriteState.Blinking) return;
                 if (Core.SpriteState.Small)
                 {
                     Core.SpriteState.BecomeDead();
@@ -56,19 +55,7 @@ namespace WindowsGame1
                 }
                 if (Core.SpriteState.Big || Core.SpriteState.HaveFire)
                 {
-                    var delayTime = 200;
-
-                    // Enemy damage action
-                    Core.SpriteState.BecomeSmall();
-                    Core.SpriteState.BecomeBlink();
-                    Core.SpriteState.ChangeColorFrequency(2);
-                    Core.BarrierDetector.RemoveBarrier<Koopa>();
-                    Core.BarrierDetector.RemoveBarrier<Goomba>();
-
-                    // Time up action
-                    Core.DelayCommand(() => Core.SpriteState.SetDefaultColor(), () => Core.SpriteState.Blinking, delayTime);
-                    Core.DelayCommand(() => Core.BarrierDetector.AddBarrier<Koopa>(), delayTime);
-                    Core.DelayCommand(() => Core.BarrierDetector.AddBarrier<Goomba>(), delayTime);
+                    Core.SwitchComponent(new DamagedMarioCollisionHandler(Core, this));
                 }
             }
         }
