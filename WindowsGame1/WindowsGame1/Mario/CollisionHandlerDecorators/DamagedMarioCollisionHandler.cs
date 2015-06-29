@@ -7,7 +7,7 @@ namespace WindowsGame1
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
         public DamagedMarioCollisionHandler(Core<MarioSpriteState, MarioMotionState> core, MarioCollisionHandler original) : base(core)
         {
-            var restoreTime = 200;
+            var restoreTime = 500;
 
             DefaultCollisionHandler = original;
             Core.SpriteState.BecomeSmall();
