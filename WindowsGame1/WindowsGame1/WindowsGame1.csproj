@@ -138,6 +138,9 @@
     <Compile Include="Mario\Sprites\DeGrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
+    <Compile Include="Misc Objects\Objects\FireballObject.cs" />
+    <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
