@@ -4,17 +4,17 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class MushroomSpriteState : ItemSpriteState
+    public class MushroomSpriteState : SpriteStateKernel
     {
         public MushroomSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new MushroomSprite(),
             };
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

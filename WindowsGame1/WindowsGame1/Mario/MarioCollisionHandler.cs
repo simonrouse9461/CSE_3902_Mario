@@ -1,54 +1,64 @@
+using System;
+using WindowsGame1.CommandExecutorDecorators;
+
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioSpriteState, MarioMotionState>
+    public class MarioCollisionHandler : CollisionHandlerKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioCollisionHandler(State<MarioSpriteState, MarioMotionState> state) : base(state)
-        {
-            AddBarrier<IObject>();
-        }
+        public MarioCollisionHandler(Core<MarioSpriteState, MarioMotionState> core) : base(core){}
 
         public override void Handle()
         {
-            if (State.SpriteState.Dead)
+            if (Core.SpriteState.Dead)
                 return;
 
-            if (Detector.Detect<Fireflower>().AnyEdge.Contact)
+            HandleFireflower();
+            HandleMushroom();
+            HandleStar();
+            HandleEnemy();
+        }
+
+        protected virtual void HandleMushroom()
+        {
+            if (Detector.Detect<Mushroom>().AnyEdge.Touch)
             {
-                State.SpriteState.GetFire();
-            }
-            if (Detector.Detect<Mushroom>().AnyEdge.Contact)
-            {
-                if (State.SpriteState.Small)
+                if (Core.SpriteState.Small)
                 {
-                    State.SpriteState.BecomeBig();
+                    Core.SpriteState.BecomeBig();
                 }
             }
-            if (Detector.Detect<Star>().AnyEdge.Contact)
+        }
+
+        protected virtual void HandleStar()
+        {
+            if (Detector.Detect<Star>().AnyEdge.Touch)
             {
-                State.SpriteState.GetStarPower();
+                Core.SwitchComponent(new StarMarioCollisionHandler(Core, this));
+            } 
+        }
+
+        protected virtual void HandleFireflower()
+        {
+            if (Detector.Detect<Fireflower>().AnyEdge.Touch && !Core.SpriteState.HaveFire)
+            {
+                Core.SpriteState.GetFire();
+                Core.SwitchComponent(new FireMarioCommandExecutor(Core, (MarioCommandExecutor)Core.CommandExecutor));
             }
-            if (Detector.Detect<Goomba>(goomba => goomba.Solid && goomba.Alive).AnySide.Contact)
+        }
+
+        protected virtual void HandleEnemy()
+        {
+            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch)
             {
-                if (State.SpriteState.Small)
+                if (Core.SpriteState.Small)
                 {
-                    State.SpriteState.BecomeDead();
-                    return;
+                    Core.SpriteState.BecomeDead();
                 }
-                if (State.SpriteState.Big || State.SpriteState.HaveFire)
+                if (Core.SpriteState.Big || Core.SpriteState.HaveFire)
                 {
-                    State.SpriteState.BecomeSmall();
-                }
-            }
-            if (Detector.Detect<Koopa>(koopa => koopa.Solid && koopa.Alive).AnySide.Contact)
-            {
-                if (State.SpriteState.Small)
-                {
-                    State.SpriteState.BecomeDead();
-                    return;
-                }
-                if (State.SpriteState.Big || State.SpriteState.HaveFire)
-                {
-                    State.SpriteState.BecomeSmall();
+                    if (Core.SpriteState.HaveFire)
+                        Core.SwitchComponent(((FireMarioCommandExecutor)Core.CommandExecutor).DefaultCommandExecutor);
+                    Core.SwitchComponent(new DamagedMarioCollisionHandler(Core, this));
                 }
             }
         }

@@ -11,15 +11,17 @@ namespace WindowsGame1
         private ICommand quitCommand;
         private ICommand resetCommand;
         // Mario Commands
-        private ICommand marioBigCommand;
-        private ICommand marioSmallCommand;
         private ICommand marioFireCommand;
         private ICommand marioDeadCommand;
         private ICommand marioUpCommand;
         private ICommand marioDownCommand;
         private ICommand marioLeftCommand;
         private ICommand marioRightCommand;
-        
+        // Camera Commands
+        private ICommand cameraUpCommand;
+        private ICommand cameraDownCommand;
+        private ICommand cameraLeftCommand;
+        private ICommand cameraRightCommand;
 
         public CommandManager(MarioGame game)
         {
@@ -27,9 +29,7 @@ namespace WindowsGame1
             keyboardController = new KeyboardController();
             gamepadController = new GamepadController();
 
-            marioBigCommand = new MarioBigCommand(game);
-            marioSmallCommand = new MarioSmallCommand(game);
-            marioFireCommand = new MarioFireCommand(game);
+            marioFireCommand = new MarioFireBallCommand(game);
             marioDeadCommand = new MarioDeadCommand(game);
             marioUpCommand = new MarioUpCommand(game);
             marioDownCommand = new MarioDownCommand(game);
@@ -38,18 +38,24 @@ namespace WindowsGame1
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
 
+            cameraUpCommand = new CameraUpCommand(game);
+            cameraDownCommand = new CameraDownCommand(game);
+            cameraLeftCommand = new CameraLeftCommand(game);
+            cameraRightCommand = new CameraRightCommand(game);
+
             keyboardController.RegisterCommand(Keys.Q, quitCommand, false);
             keyboardController.RegisterCommand(Keys.R, resetCommand, false);
             gamepadController.RegisterCommand(Buttons.Back, quitCommand, false);
-            keyboardController.RegisterCommand(Keys.Y, marioSmallCommand, false);
-            keyboardController.RegisterCommand(Keys.U, marioBigCommand, false);
             keyboardController.RegisterCommand(Keys.I, marioFireCommand, false);
             keyboardController.RegisterCommand(Keys.O, marioDeadCommand, false);
             keyboardController.RegisterCommand(Keys.Up, marioUpCommand, false);
             keyboardController.RegisterCommand(Keys.Down, marioDownCommand, false);
             keyboardController.RegisterCommand(Keys.Left, marioLeftCommand, false);
             keyboardController.RegisterCommand(Keys.Right, marioRightCommand, false);
-
+            keyboardController.RegisterCommand(Keys.W, cameraUpCommand, false);
+            keyboardController.RegisterCommand(Keys.S, cameraDownCommand, false);
+            keyboardController.RegisterCommand(Keys.A, cameraLeftCommand, false);
+            keyboardController.RegisterCommand(Keys.D, cameraRightCommand, false);
         }
 
         public void Update()

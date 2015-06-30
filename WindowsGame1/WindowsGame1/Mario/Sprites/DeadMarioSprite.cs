@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class DeadMarioSprite : SpriteKernelNew
+    public class DeadMarioSprite : SpriteKernel
     {
         public DeadMarioSprite()
         {
             ImageFile.Default = "Mario";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

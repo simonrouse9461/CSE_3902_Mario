@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -10,7 +11,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public Collection<IObject> ObjectList { get; private set; }
+        public Collection<IList> ObjectList { get; private set; }
 
         ObjectData[] Locations;
         
@@ -26,45 +27,68 @@ namespace WindowsGame1
             }
         }
 
-        public static List<T> FindObjectList<T>() where T : IObject
+        public static List<Collection<T>> FindObjectCollectionList<T>() where T : IObject
         {
-            return Instance.ObjectList.OfType<T>().ToList();
+            return Instance.ObjectList.OfType<Collection<T>>().ToList();
+        }
+
+        public static Collection<T> FindObjectCollection<T>() where T : IObject
+        {
+            return FindObjectCollectionList<T>().First();
         }
 
         public static T FindObject<T>(int index = 0) where T : IObject
         {
-            return Instance.ObjectList.OfType<T>().ToList()[index];
+            return FindObjectCollection<T>()[index];
+        }
+
+        private static Collection<T> Populator<T>(int amount = 1) where T :  IObject, new()
+        {
+            var collection = new Collection<T>();
+            for (int i = 0; i < amount; i++)
+            {
+                collection.Add(new T());
+            }
+            return collection;
+        }
+
+        public void RemoveObject(IObject obj)
+        {
+            foreach (var collection in ObjectList)
+            {
+                collection.Remove(obj);
+            }
         }
 
         private WorldManager()
         {
-            ObjectList = new Collection<IObject>
+            ObjectList = new Collection<IList>
             {
                 // background objects should be drawn first
-                new Hill(),
-                new Bush(),
-                new Cloud(),
+                Populator<Hill>(),
+                Populator<Bush>(),
+                Populator<Cloud>(),
 
                 // then items
-                new Coin(),
-                new Star(),
-                new QuestionBlockObject(),
-                new HiddenBlockObject(),
-                new NormalBlockObject(),
-                new DestructibleBlockObject(),
-                new IndestructibleBlockObject(),
-                new GreenPipeObject(),
-                new UsedBlockObject(),
-                new Fireflower(),
-                new Mushroom(),
-                new _1up(),
+                Populator<Coin>(),
+                Populator<Star>(),
+                Populator<QuestionBlockObject>(),
+                Populator<HiddenBlockObject>(),
+                Populator<NormalBlockObject>(),
+                Populator<DestructibleBlockObject>(),
+                Populator<IndestructibleBlockObject>(),
+                Populator<GreenPipeObject>(),
+                Populator<UsedBlockObject>(),
+                Populator<Fireflower>(),
+                Populator<Mushroom>(),
+                Populator<_1up>(),
 
                 // then enemies
-                new Goomba(),
-                new Koopa(),
+                Populator<Goomba>(),
+                Populator<Koopa>(),
 
                 // Mario should be drawn in the end
-                new MarioObject()
+                Populator<MarioObject>()
             };
         }
 
@@ -98,17 +122,25 @@ namespace WindowsGame1
 
         public void Update()
         {
+            // In order to avoid exception when objects unload themselves,
+            // for loops below should not be converted to foreach loops.
             for (int i = 0; i < ObjectList.Count; i++)
             {
-                ObjectList[i].Update();
+                for (int j = 0; j < ObjectList[i].Count; j++)
+                {
+                    ((IObject)ObjectList[i][j]).Update();
+                }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var obj in ObjectList)
+            foreach (var collection in ObjectList)
             {
-                obj.Draw(spriteBatch);
+                foreach (IObject obj in collection)
+                {
+                    obj.Draw(spriteBatch);
+                }
             }
         }
     }

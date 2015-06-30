@@ -3,23 +3,12 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Bush : ObjectKernelNew<BushSpriteState, BackgroundMotionState>
+    public class Bush : ObjectKernel<BushSpriteState, StaticMotionState>
     {
-        public Bush()
-        {
-            SpriteState = new BushSpriteState();
-            MotionState = new BackgroundMotionState();
-        }
-
         // make it not solid so that anything can pass through it
         public override bool Solid
         {
             get { return false; }
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

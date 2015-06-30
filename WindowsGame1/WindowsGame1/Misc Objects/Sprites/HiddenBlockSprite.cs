@@ -5,12 +5,12 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class HiddenBlockSprite : SpriteKernelNew
+    public class HiddenBlockSprite : SpriteKernel
     {
         public HiddenBlockSprite()
         {
             ImageFile.Default = "blocks";
-            Source.Default = new SpriteSourceNew{
+            Source.Default = new SpriteSource{
                 Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(16, 32, 16, 16)

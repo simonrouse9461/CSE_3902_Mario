@@ -13,10 +13,10 @@ namespace WindowsGame1
         private MarioObject CompareMario { get; set; }
         private Fireflower TestFireflower { get; set; }
 
-        private MarioSpriteState TestMarioSprite;
-        private MarioMotionState TestMarioMotion;
-        private MarioSpriteState CompareMarioSprite;
-        private MarioMotionState CompareMarioMotion;
+//        private MarioSpriteState TestMarioSprite;
+//        private MarioMotionState TestMarioMotion;
+//        private MarioSpriteState CompareMarioSprite;
+//        private MarioMotionState CompareMarioMotion;
         private ICommand TestCommand;
         private ICommand CompareCommand;
 
@@ -26,14 +26,14 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))
@@ -54,14 +54,14 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioLeftCommand(TestGame);
             CompareCommand = new MarioLeftCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))
@@ -80,14 +80,14 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
             CompareCommand = new MarioUpCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))
@@ -105,14 +105,14 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
             CompareCommand = new MarioDownCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that Mario is now Fire Mario
             if (TestState.Equals(CompareState))

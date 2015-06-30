@@ -5,6 +5,5 @@
         bool Alive { get; }
         bool StarPower { get; }
         bool Destructive { get; }
-        bool GoingUp { get; }
     }
 }

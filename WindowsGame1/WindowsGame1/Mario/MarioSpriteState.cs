@@ -1,9 +1,9 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioSpriteState : SpriteStateKernelNew
+    public class MarioSpriteState : SpriteStateKernel
     {
         private enum ActionEnum
         {
@@ -12,7 +12,9 @@ namespace WindowsGame1
             Stand,
             Crouch,
             Turn,
-            Swim
+            Swim,
+            Grow,
+            Back
         }
 
         private enum OrientationEnum
@@ -30,14 +32,22 @@ namespace WindowsGame1
             Dead
         }
 
+        private enum ColorEnum
+        {
+            None,
+            StarPower,
+            Blink
+        }
+
         private StatusEnum Status;
         private ActionEnum Action;
         private OrientationEnum Orientation;
-        private bool StarPower;
+        private ColorEnum ColorMode;
+        
 
         public MarioSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new DeadMarioSprite(),
                 new JumpingBigMarioSprite(),
@@ -56,18 +66,23 @@ namespace WindowsGame1
                 new TurningSmallMarioSprite(),
                 new SwimmingBigMarioSprite(),
                 new SwimmingFireMarioSprite(),
-                new SwimmingSmallMarioSprite()
+                new SwimmingSmallMarioSprite(),
+                new GrowingBigMarioSprite(),
+                new GrowingFireMarioSprite(),
+                new DeGrowingBigMarioSprite(),
+                new DeGrowingFireMarioSprite()
             };
 
             ColorSchemeList = new Collection<ColorAnimator>
             {
-                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}, 8)
+                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}),
+                new ColorAnimator(new[] {Color.White, Color.Transparent})
             };
 
-            ChangeFrequency(5);
+            ChangeSpriteFrequency(5);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {
@@ -139,14 +154,47 @@ namespace WindowsGame1
                                 return FindSprite<SwimmingSmallMarioSprite>();
                         }
                         break;
+                    case ActionEnum.Grow:
+                        switch (Status)
+                        {
+                            case StatusEnum.Small:
+                                return FindSprite<GrowingBigMarioSprite>();
+                            case StatusEnum.Big:
+                                return FindSprite<GrowingFireMarioSprite>();
+                            case StatusEnum.Fire:
+                                return FindSprite<StandingFireMarioSprite>();
+                        }
+                        break;
+                    case ActionEnum.Back:
+                        switch (Status)
+                        {
+                            case StatusEnum.Small:
+                                return FindSprite<StandingSmallMarioSprite>();
+                            case StatusEnum.Big:
+                                return FindSprite<DeGrowingBigMarioSprite>();
+                            case StatusEnum.Fire:
+                                return FindSprite<DeGrowingFireMarioSprite>();
+                        }
+                        break;
                 }
                 return SpriteList[0];
             }
         }
 
-        public override Color Color
+        protected override ColorAnimator ColorScheme 
         {
-            get { return StarPower ? ColorSchemeList[0].Color : Color.White; }
+            get
+            {
+                switch (ColorMode)
+                {
+                    case ColorEnum.StarPower:
+                        return ColorSchemeList[0];
+                    case ColorEnum.Blink:
+                        return ColorSchemeList[1];
+                    default:
+                        return null;
+                }
+            }
         }
 
         public override bool Left
@@ -177,6 +225,8 @@ namespace WindowsGame1
         public void BecomeBig()
         {
             Status = StatusEnum.Big;
+            Action = ActionEnum.Grow;
+
         }
 
         public bool Big
@@ -211,6 +261,7 @@ namespace WindowsGame1
         public void GetFire()
         {
             Status = StatusEnum.Fire;
+            Action = ActionEnum.Grow;
         }
 
         public bool HaveFire
@@ -220,17 +271,27 @@ namespace WindowsGame1
 
         public void GetStarPower()
         {
-            StarPower = true;
-        }
-
-        public void LoseStarPower()
-        {
-            StarPower = false;
+            ColorMode = ColorEnum.StarPower;
         }
 
         public bool HaveStarPower
         {
-            get { return StarPower; }
+            get { return ColorMode == ColorEnum.StarPower; }
+        }
+
+        public void BecomeBlink()
+        {
+            ColorMode = ColorEnum.Blink;
+        }
+
+        public bool Blinking
+        {
+            get { return ColorMode == ColorEnum.Blink; }
+        }
+
+        public void SetDefaultColor()
+        {
+            ColorMode = ColorEnum.None;
         }
 
         public void Run()

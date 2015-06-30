@@ -5,14 +5,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class RunningSmallMarioSprite : SpriteKernelNew
+    public class RunningSmallMarioSprite : SpriteKernel
     {
         public RunningSmallMarioSprite()
         {
             const int period = 3;
 
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
@@ -28,7 +28,7 @@ namespace WindowsGame1
                     return frameSequence[phase];
                 }, 
                 period);
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

@@ -4,18 +4,18 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class FireflowerSpriteState : ItemSpriteState
+    public class FireflowerSpriteState : SpriteStateKernel
     {
         public FireflowerSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new FireflowerSprite(),
             };
-            ChangeFrequency(10);
+            ChangeSpriteFrequency(10);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

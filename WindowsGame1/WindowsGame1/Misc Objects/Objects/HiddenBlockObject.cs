@@ -3,15 +3,13 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class HiddenBlockObject : ObjectKernelNew<HiddenBlockSpriteState, HiddenBlockMotionState>
+    public class HiddenBlockObject : IndestructibleBlockObject
     {
 
-        public HiddenBlockObject() { 
-        
-            SpriteState = new HiddenBlockSpriteState();
-            MotionState = new HiddenBlockMotionState();
-            CollisionHandler = new HiddenBlockCollisionHandler(State);
-        
+        public HiddenBlockObject()
+        {
+            SpriteState.HiddenBlock();
+            CollisionHandler = new BlockCollisionHandler(Core);
         }
 
         //public void HiddenBlocktoUsed()
@@ -23,11 +21,5 @@ namespace WindowsGame1
         //{
         //    SpriteState.Status = HiddenBlockSpriteState.StatusEnum.Hidden;
         //}
-
-        protected override void SyncState()
-        {
-
-        }
     }
-
 }

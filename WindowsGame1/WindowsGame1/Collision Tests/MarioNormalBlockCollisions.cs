@@ -22,14 +22,13 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestNormalBlock = new NormalBlockObject();
-            CompareCommand = new MarioBigCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that block is not broken
             if (TestState.Equals(CompareState))
@@ -47,14 +46,13 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestNormalBlock = new NormalBlockObject();
-            CompareCommand = new MarioBigCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that block is not broken
             if (TestState.Equals(CompareState))
@@ -73,14 +71,13 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestNormalBlock = new NormalBlockObject();
-            CompareCommand = new MarioBigCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
             CompareCommand = new MarioDownCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that block is not broken
             if (TestState.Equals(CompareState))
@@ -98,14 +95,13 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestNormalBlock = new NormalBlockObject();
-            CompareCommand = new MarioBigCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
             CompareCommand = new MarioUpCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestMario.PassCommand(TestCommand);
-            var TestState = TestMario.StateGetter;
-            var CompareState = CompareMario.StateGetter;
+            var TestState = TestMario.CoreGetter;
+            var CompareState = CompareMario.CoreGetter;
 
             //Check that block is broken
             if (TestState.Equals(CompareState))
