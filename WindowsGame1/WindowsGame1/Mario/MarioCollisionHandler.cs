@@ -41,7 +41,8 @@ namespace WindowsGame1
         {
             if (Detector.Detect<Fireflower>().AnyEdge.Touch && !Core.SpriteState.HaveFire)
             {
-                Core.SwitchComponent(new FireMarioCollisionHandler(Core, this));
+                Core.SpriteState.GetFire();
+                Core.SwitchComponent(new FireMarioCommandExecutor(Core, (MarioCommandExecutor)Core.CommandExecutor));
             }
         }
 
@@ -52,10 +53,11 @@ namespace WindowsGame1
                 if (Core.SpriteState.Small)
                 {
                     Core.SpriteState.BecomeDead();
-                    return;
                 }
-                if (Core.SpriteState.Big)
+                if (Core.SpriteState.Big || Core.SpriteState.HaveFire)
                 {
+                    if (Core.SpriteState.HaveFire)
+                        Core.SwitchComponent(((FireMarioCommandExecutor)Core.CommandExecutor).DefaultCommandExecutor);
                     Core.SwitchComponent(new DamagedMarioCollisionHandler(Core, this));
                 }
             }

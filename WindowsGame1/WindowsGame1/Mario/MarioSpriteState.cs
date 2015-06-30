@@ -67,10 +67,10 @@ namespace WindowsGame1
                 new SwimmingBigMarioSprite(),
                 new SwimmingFireMarioSprite(),
                 new SwimmingSmallMarioSprite(),
-                //new GrowingBigMarioSprite(),
-                //new GrowingFireMarioSprite(),
-                //new DeGrowingBigMarioSprite(),
-                //new DeGrowingFireMarioSprite()
+                new GrowingBigMarioSprite(),
+                new GrowingFireMarioSprite(),
+                new DeGrowingBigMarioSprite(),
+                new DeGrowingFireMarioSprite()
             };
 
             ColorSchemeList = new Collection<ColorAnimator>
@@ -154,28 +154,28 @@ namespace WindowsGame1
                                 return FindSprite<SwimmingSmallMarioSprite>();
                         }
                         break;
-//                    case ActionEnum.Grow:
-//                        switch (Status)
-//                        {
-//                            case StatusEnum.Small:
-//                                return FindSprite<GrowingBigMarioSprite>();
-//                            case StatusEnum.Big:
-//                                return FindSprite<GrowingFireMarioSprite>();
-//                            case StatusEnum.Fire:
-//                                return FindSprite<StandingFireMarioSprite>();
-//                        }
-//                        break;
-//                    case ActionEnum.Back:
-//                        switch (Status)
-//                        {
-//                            case StatusEnum.Small:
-//                                return FindSprite<StandingSmallMarioSprite>();
-//                            case StatusEnum.Big:
-//                                return FindSprite<DeGrowingBigMarioSprite>();
-//                            case StatusEnum.Fire:
-//                                return FindSprite<DeGrowingFireMarioSprite>();
-//                        }
-//                        break;
+                    case ActionEnum.Grow:
+                        switch (Status)
+                        {
+                            case StatusEnum.Small:
+                                return FindSprite<GrowingBigMarioSprite>();
+                            case StatusEnum.Big:
+                                return FindSprite<GrowingFireMarioSprite>();
+                            case StatusEnum.Fire:
+                                return FindSprite<StandingFireMarioSprite>();
+                        }
+                        break;
+                    case ActionEnum.Back:
+                        switch (Status)
+                        {
+                            case StatusEnum.Small:
+                                return FindSprite<StandingSmallMarioSprite>();
+                            case StatusEnum.Big:
+                                return FindSprite<DeGrowingBigMarioSprite>();
+                            case StatusEnum.Fire:
+                                return FindSprite<DeGrowingFireMarioSprite>();
+                        }
+                        break;
                 }
                 return SpriteList[0];
             }

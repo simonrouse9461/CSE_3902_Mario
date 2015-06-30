@@ -135,7 +135,10 @@
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FireMarioCommandExecutor.cs" />
     <Compile Include="Mario\MarioBarrierDetector.cs" />
-    <Compile Include="Mario\CollisionHandlerDecorators\FireMarioCollisionHandler.cs" />
+    <Compile Include="Mario\Sprites\DeGrowingBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\DeGrowingFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
