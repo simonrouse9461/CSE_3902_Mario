@@ -13,8 +13,8 @@ namespace WindowsGame1
 
             // time up actions
             Core.DelayCommand(() => Core.SpriteState.ChangeColorFrequency(16), () => Core.CollisionHandler is StarMarioCollisionHandler, 200);
-            Core.DelayCommand(() => Core.SpriteState.SetDefaultColor(), () => Core.CollisionHandler is StarMarioCollisionHandler, 300);
-
+            Core.DelayCommand(() => Core.SpriteState.SetDefaultColor(), () => Core.CollisionHandler is StarMarioCollisionHandler, 299);
+            
             Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), () => Core.CollisionHandler is StarMarioCollisionHandler, 300);
         }
 
