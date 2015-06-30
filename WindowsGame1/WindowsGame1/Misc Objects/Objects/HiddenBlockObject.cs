@@ -5,21 +5,10 @@ namespace WindowsGame1
 {
     public class HiddenBlockObject : IndestructibleBlockObject
     {
-
-        public HiddenBlockObject()
-        {
+        public HiddenBlockObject() {
             SpriteState.HiddenBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
-
-        //public void HiddenBlocktoUsed()
-        //{
-        //    SpriteState.Status = HiddenBlockSpriteState.StatusEnum.UsedBlock;
-        //}
-
-        //public void HiddenBlockReset()
-        //{
-        //    SpriteState.Status = HiddenBlockSpriteState.StatusEnum.Hidden;
-        //}
     }
+
 }

@@ -9,6 +9,7 @@ namespace WindowsGame1
     {
         public QuestionBlockObject()
         {
+            SpriteState.QuestionBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
     }

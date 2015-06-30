@@ -6,7 +6,7 @@ namespace WindowsGame1
 {
     public class BlockSpriteState : SpriteStateKernel
     {
-        public enum StatusEnum
+        private enum StatusEnum
         {
             QuestionBlock, 
             NormalBlock,
@@ -17,7 +17,7 @@ namespace WindowsGame1
             Destroyed
         }
 
-        public StatusEnum Status;
+        private StatusEnum Status;
 
         public BlockSpriteState()
         {
@@ -79,11 +79,6 @@ namespace WindowsGame1
         {
             Status = StatusEnum.HiddenBlock;
         }
-
-        //public void NormalBlockDestroyed()
-        //{
-        //    Status = StatusEnum.Destroyed;
-        //}
 
         public void Indestructible()
         {
