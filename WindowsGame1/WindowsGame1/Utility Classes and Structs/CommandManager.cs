@@ -11,8 +11,6 @@ namespace WindowsGame1
         private ICommand quitCommand;
         private ICommand resetCommand;
         // Mario Commands
-        private ICommand marioBigCommand;
-        private ICommand marioSmallCommand;
         private ICommand marioFireCommand;
         private ICommand marioDeadCommand;
         private ICommand marioUpCommand;
@@ -31,9 +29,7 @@ namespace WindowsGame1
             keyboardController = new KeyboardController();
             gamepadController = new GamepadController();
 
-            marioBigCommand = new MarioBigCommand(game);
-            marioSmallCommand = new MarioSmallCommand(game);
-            marioFireCommand = new MarioFireCommand(game);
+            marioFireCommand = new MarioFireBallCommand(game);
             marioDeadCommand = new MarioDeadCommand(game);
             marioUpCommand = new MarioUpCommand(game);
             marioDownCommand = new MarioDownCommand(game);
@@ -50,8 +46,6 @@ namespace WindowsGame1
             keyboardController.RegisterCommand(Keys.Q, quitCommand, false);
             keyboardController.RegisterCommand(Keys.R, resetCommand, false);
             gamepadController.RegisterCommand(Buttons.Back, quitCommand, false);
-            keyboardController.RegisterCommand(Keys.Y, marioSmallCommand, false);
-            keyboardController.RegisterCommand(Keys.U, marioBigCommand, false);
             keyboardController.RegisterCommand(Keys.I, marioFireCommand, false);
             keyboardController.RegisterCommand(Keys.O, marioDeadCommand, false);
             keyboardController.RegisterCommand(Keys.Up, marioUpCommand, false);

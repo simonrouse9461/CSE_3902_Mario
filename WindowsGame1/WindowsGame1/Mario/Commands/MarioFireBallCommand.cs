@@ -2,13 +2,13 @@
 
 namespace WindowsGame1
 {
-    public class MarioSmallCommand : CommandKernel
+    public class MarioFireBallCommand : CommandKernel
     {
-        public MarioSmallCommand(MarioGame game) : base(game) { }
+        public MarioFireBallCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
             WorldManager.FindObject<MarioObject>().PassCommand(this);
-        }
+        }  
     }
 }

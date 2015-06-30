@@ -1,4 +1,5 @@
 using System;
+using WindowsGame1.CommandExecutorDecorators;
 
 namespace WindowsGame1
 {
@@ -38,9 +39,9 @@ namespace WindowsGame1
 
         protected virtual void HandleFireflower()
         {
-            if (Detector.Detect<Fireflower>().AnyEdge.Touch)
+            if (Detector.Detect<Fireflower>().AnyEdge.Touch && !Core.SpriteState.HaveFire)
             {
-                Core.SpriteState.GetFire();
+                Core.SwitchComponent(new FireMarioCollisionHandler(Core, this));
             }
         }
 
@@ -53,7 +54,7 @@ namespace WindowsGame1
                     Core.SpriteState.BecomeDead();
                     return;
                 }
-                if (Core.SpriteState.Big || Core.SpriteState.HaveFire)
+                if (Core.SpriteState.Big)
                 {
                     Core.SwitchComponent(new DamagedMarioCollisionHandler(Core, this));
                 }
