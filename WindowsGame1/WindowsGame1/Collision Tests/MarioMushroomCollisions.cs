@@ -22,7 +22,6 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestMushroom = new Mushroom();
-            CompareCommand = new MarioBigCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
@@ -48,7 +47,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestMushroom = new Mushroom();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioLeftCommand(TestGame);
             CompareCommand = new MarioLeftCommand(TestGame);
@@ -74,7 +73,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestMushroom = new Mushroom();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
             CompareCommand = new MarioUpCommand(TestGame);
@@ -99,7 +98,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestMushroom = new Mushroom();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
             CompareCommand = new MarioDownCommand(TestGame);
@@ -124,7 +123,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestMushroom = new Mushroom();
-            CompareCommand = new MarioFireCommand(TestGame);
+            CompareCommand = new MarioFireBallCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
             CompareCommand = new MarioDownCommand(TestGame);

@@ -22,7 +22,7 @@ namespace WindowsGame1
             Animation.Left = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = {1,0,1,0,1,0};
+                    int[] frameSequence = {1, 0, 1, 0, 1, 0};
                     return frameSequence[phase];
                 }, 
                 period);
