@@ -17,15 +17,15 @@ namespace WindowsGame1
             if (core is Core<TSpriteState, TMotionState>)
                 Core = (Core<TSpriteState, TMotionState>) core;
             else
-            Core = new Core<TSpriteState, TMotionState>
-            {
-                Object = core.Object,
-                SpriteState = (TSpriteState)(core.GeneralSpriteState),
-                MotionState = (TMotionState)(core.GeneralMotionState),
-                CollisionHandler = core.CollisionHandler,
-                CommandExecutor = core.CommandExecutor,
-                BarrierDetector = core.BarrierDetector
-            };
+                Core = new Core<TSpriteState, TMotionState>
+                {
+                    Object = core.Object,
+                    SpriteState = (TSpriteState) (core.GeneralSpriteState),
+                    MotionState = (TMotionState) (core.GeneralMotionState),
+                    CollisionHandler = core.CollisionHandler,
+                    CommandExecutor = core.CommandExecutor,
+                    BarrierDetector = core.BarrierDetector
+                };
             Detector = new CollisionDetector(Core.Object);
         }
 

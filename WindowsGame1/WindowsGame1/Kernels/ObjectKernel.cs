@@ -125,6 +125,11 @@ namespace WindowsGame1
             Core.DelayCommand(() => WorldManager.Instance.RemoveObject(this));
         }
 
+        public void Substitute<T>() where T : IObject, new()
+        {
+            WorldManager.Instance.ReplaceObject<T>(this);
+        }
+
         public void Update()
         {
             Core.Update();
