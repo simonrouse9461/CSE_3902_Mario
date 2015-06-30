@@ -7,24 +7,10 @@ namespace WindowsGame1
     {
 
         public HiddenBlockObject() {
-
-            SpriteState = new BlockSpriteState();
             SpriteState.HiddenBlock();
-            MotionState = new BlockMotionState();
             CollisionHandler = new BlockCollisionHandler(Core);
         
         }
-
-        //public void HiddenBlocktoUsed()
-        //{
-        //    SpriteState.Status = HiddenBlockSpriteState.StatusEnum.UsedBlock;
-        //}
-
-        //public void HiddenBlockReset()
-        //{
-        //    SpriteState.Status = HiddenBlockSpriteState.StatusEnum.Hidden;
-        //}
-
         protected override void SyncState()
         {
 

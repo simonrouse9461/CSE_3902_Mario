@@ -7,8 +7,6 @@ namespace WindowsGame1
     {
 
         public DestructibleBlockObject() {
-            SpriteState = new BlockSpriteState();
-            MotionState = new BlockMotionState();
             SpriteState.DestructibleBlock();
             CollisionHandler = new BlockCollisionHandler(Core); 
         }
