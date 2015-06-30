@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework;
         void Reset();
         void Load(ContentManager content, Vector2 location);
         void Unload();
-        void Substitute<T>() where T : IObject, new();
+        void Transform<T>() where T : IObject, new();
         void Update();
         void Draw(SpriteBatch spriteBatch);
         void PassCommand(ICommand command);
