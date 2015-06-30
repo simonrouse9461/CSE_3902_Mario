@@ -12,10 +12,5 @@ namespace WindowsGame1
             SpriteState.QuestionBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
-
-        protected override void SyncState()
-        {
-
-        }
     }
 }
