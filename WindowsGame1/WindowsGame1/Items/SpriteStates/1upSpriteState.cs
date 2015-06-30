@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class _1UpSpriteState : ItemSpriteState
+    public class _1UpSpriteState : SpriteStateKernel
     {
         public _1UpSpriteState()
         {

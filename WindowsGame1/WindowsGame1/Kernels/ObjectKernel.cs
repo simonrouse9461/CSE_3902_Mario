@@ -6,8 +6,8 @@ using Microsoft.Xna.Framework.Graphics;
 namespace WindowsGame1
 {
     public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
-        where TSpriteState : SpriteStateKernel
-        where TMotionState : MotionStateKernel
+        where TSpriteState : SpriteStateKernel, new()
+        where TMotionState : MotionStateKernel, new()
     {
         // Object core that wraps all internal components of the object
         protected Core<TSpriteState, TMotionState> Core { get; private set; }
@@ -56,6 +56,8 @@ namespace WindowsGame1
             {
                 Object = this
             };
+            SpriteState = new TSpriteState();
+            MotionState = new TMotionState();
             BarrierDetector = new BarrierDetector(Core);
         }
 
@@ -101,7 +103,7 @@ namespace WindowsGame1
         }
 
         // protected Methods
-        protected abstract void SyncState();
+        protected virtual void SyncState() { }
 
         // public methods
         public virtual void Reset()

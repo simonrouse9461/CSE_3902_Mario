@@ -3,23 +3,12 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Hill : ObjectKernel<HillSpriteState, BackgroundMotionState>
+    public class Hill : ObjectKernel<HillSpriteState, StaticMotionState>
     {
-        public Hill()
-        {
-            SpriteState = new HillSpriteState();
-            MotionState = new BackgroundMotionState();
-        }
-
         // make it not solid so that anything can pass through it
         public override bool Solid
         {
             get { return false; }
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

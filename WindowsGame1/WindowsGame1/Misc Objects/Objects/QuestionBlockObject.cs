@@ -9,15 +9,7 @@ namespace WindowsGame1
     {
         public QuestionBlockObject()
         {
-            SpriteState = new BlockSpriteState();
-            MotionState = new BlockMotionState();
-            
             CollisionHandler = new BlockCollisionHandler(Core);
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

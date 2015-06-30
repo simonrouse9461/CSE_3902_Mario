@@ -2,12 +2,10 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Star : ObjectKernel<ItemSpriteState, ItemMotionState>, IItem
+    public  class Star : ObjectKernel<StarSpriteState, StaticMotionState>, IItem
     {
         public Star()
         {
-            SpriteState = new StarSpriteState();
-            MotionState = new ItemMotionState();
             CollisionHandler = new ItemCollisionHandler(Core);
         }
 
@@ -15,11 +13,6 @@ namespace WindowsGame1
         public override bool Solid
         {
             get { return false; }
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

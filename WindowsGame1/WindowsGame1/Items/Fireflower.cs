@@ -3,12 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Fireflower : ObjectKernel<ItemSpriteState, ItemMotionState>, IItem
+    public class Fireflower : ObjectKernel<FireflowerSpriteState, StaticMotionState>, IItem
     {
         public Fireflower()
         {
-            SpriteState = new FireflowerSpriteState();
-            MotionState = new ItemMotionState();
             CollisionHandler = new ItemCollisionHandler(Core);
         }
 
@@ -16,11 +14,6 @@ namespace WindowsGame1
         public override bool Solid
         {
             get { return false; }
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

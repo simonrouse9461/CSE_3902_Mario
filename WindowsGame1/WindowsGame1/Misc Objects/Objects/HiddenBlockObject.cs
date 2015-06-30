@@ -6,13 +6,10 @@ namespace WindowsGame1
     public class HiddenBlockObject : IndestructibleBlockObject
     {
 
-        public HiddenBlockObject() {
-
-            SpriteState = new BlockSpriteState();
+        public HiddenBlockObject()
+        {
             SpriteState.HiddenBlock();
-            MotionState = new BlockMotionState();
             CollisionHandler = new BlockCollisionHandler(Core);
-        
         }
 
         //public void HiddenBlocktoUsed()
@@ -24,11 +21,5 @@ namespace WindowsGame1
         //{
         //    SpriteState.Status = HiddenBlockSpriteState.StatusEnum.Hidden;
         //}
-
-        protected override void SyncState()
-        {
-
-        }
     }
-
 }
