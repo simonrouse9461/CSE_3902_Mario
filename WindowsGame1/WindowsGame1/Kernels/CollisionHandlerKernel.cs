@@ -12,9 +12,20 @@ namespace WindowsGame1
         public Core<TSpriteState, TMotionState> Core { get; set; }
         public CollisionDetector Detector { get; set; }
 
-        protected CollisionHandlerKernel(Core<TSpriteState,TMotionState> core)
+        protected CollisionHandlerKernel(ICore core)
         {
-            Core = core;
+            if (core is Core<TSpriteState, TMotionState>)
+                Core = (Core<TSpriteState, TMotionState>) core;
+            else
+            Core = new Core<TSpriteState, TMotionState>
+            {
+                Object = core.Object,
+                SpriteState = (TSpriteState)(core.GeneralSpriteState),
+                MotionState = (TMotionState)(core.GeneralMotionState),
+                CollisionHandler = core.CollisionHandler,
+                CommandExecutor = core.CommandExecutor,
+                BarrierDetector = core.BarrierDetector
+            };
             Detector = new CollisionDetector(Core.Object);
         }
 

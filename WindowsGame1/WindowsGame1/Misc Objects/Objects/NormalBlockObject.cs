@@ -9,10 +9,5 @@ namespace WindowsGame1
             SpriteState.NormalBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
-
-        protected override void SyncState()
-        {
-
-        }
     }
 }

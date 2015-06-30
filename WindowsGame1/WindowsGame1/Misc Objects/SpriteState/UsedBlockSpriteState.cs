@@ -13,7 +13,6 @@ namespace WindowsGame1
             };
         }
 
-
         public override ISprite Sprite
         {
             get { return FindSprite<UsedBlockSprite>(); }

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class MushroomSpriteState : ItemSpriteState
+    public class MushroomSpriteState : SpriteStateKernel
     {
         public MushroomSpriteState()
         {

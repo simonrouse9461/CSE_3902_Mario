@@ -5,10 +5,7 @@ namespace WindowsGame1
 {
     public class EnemyCollisionHandler : CollisionHandlerKernel<EnemySpriteState, EnemyMotionState>
     {
-        public EnemyCollisionHandler(Core<EnemySpriteState, EnemyMotionState> core) : base(core)
-        {
-            Core.BarrierDetector.AddBarrier<IObject>();
-        }
+        public EnemyCollisionHandler(ICore core) : base(core){}
 
         public override void Handle()
         {

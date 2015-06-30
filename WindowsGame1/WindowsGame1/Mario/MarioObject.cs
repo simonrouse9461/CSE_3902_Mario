@@ -4,8 +4,6 @@ namespace WindowsGame1
     {
         public MarioObject()
         {
-            SpriteState = new MarioSpriteState();
-            MotionState = new MarioMotionState();
             CommandExecutor = new MarioCommandExecutor(Core);
             CollisionHandler = new MarioCollisionHandler(Core);
             BarrierDetector = new MarioBarrierDetector(Core);
