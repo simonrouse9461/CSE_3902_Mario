@@ -17,6 +17,7 @@ namespace WindowsGame1
         private ICommand marioDownCommand;
         private ICommand marioLeftCommand;
         private ICommand marioRightCommand;
+        private ICommand marioFireballCommand;
         // Camera Commands
         private ICommand cameraUpCommand;
         private ICommand cameraDownCommand;

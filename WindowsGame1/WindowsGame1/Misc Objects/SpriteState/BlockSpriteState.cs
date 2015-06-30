@@ -30,7 +30,7 @@ namespace WindowsGame1
                 new HiddenBlockSprite(),
                 new QuestionBlockSprite()
             };
-            
+            ChangeSpriteFrequency(10);
         }
 
         public override ISprite Sprite
