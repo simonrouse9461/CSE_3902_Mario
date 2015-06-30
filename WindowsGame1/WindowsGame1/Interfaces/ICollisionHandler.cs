@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public interface ICommandHandler
+    public interface ICollisionHandler
     {
-        void Reset();
-        void ReadCommand(ICommand command);
         void Handle();
     }
 }

@@ -3,35 +3,35 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class BlockCollisionHandler : CollisionHandlerKernelNew<BlockSpriteState, BlockMotionState>
+    public class BlockCollisionHandler : CollisionHandlerKernel<BlockSpriteState, BlockMotionState>
     {
 
 
-        public BlockCollisionHandler(State<BlockSpriteState, BlockMotionState> state)
-            : base(state)
+        public BlockCollisionHandler(Core<BlockSpriteState, BlockMotionState> core)
+            : base(core)
         {
-            AddBarrier<IObject>();
+            
         }
 
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Contact)
+            if (Detector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
-                if(State.SpriteState.isQuestionBlock){
-                    State.SpriteState.QuestionToUsedBlock();
+                if(Core.SpriteState.isQuestionBlock){
+                    Core.SpriteState.QuestionToUsedBlock();
                 }
-                if (State.SpriteState.isNormal && Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Contact)
+                if (Core.SpriteState.isNormal && Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
                 {
-                    State.Object.Unload();
+                    Core.Object.Unload();
                 }
-                if (State.SpriteState.isHidden)
+                if (Core.SpriteState.isHidden)
                 {
-                    State.SpriteState.HiddenToUsedBlock();
+                    Core.SpriteState.HiddenToUsedBlock();
                 }
-                if (State.SpriteState.isDestructible)
+                if (Core.SpriteState.isDestructible)
                 {
-                    State.Object.Unload();
+                    Core.Object.Unload();
                 }
             }
         }

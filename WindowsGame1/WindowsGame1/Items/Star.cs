@@ -2,13 +2,13 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Star : ObjectKernelNew<ItemSpriteState, ItemMotionState>
+    public  class Star : ObjectKernel<ItemSpriteState, ItemMotionState>, IItem
     {
         public Star()
         {
             SpriteState = new StarSpriteState();
             MotionState = new ItemMotionState();
-            CollisionHandler = new ItemCollisionHandler(State);
+            CollisionHandler = new ItemCollisionHandler(Core);
         }
 
         // make it not solid so that anything can pass through it

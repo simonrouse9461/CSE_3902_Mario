@@ -5,14 +5,14 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public class IndestructibleBlockObject : ObjectKernelNew<BlockSpriteState, BlockMotionState>
+    public class IndestructibleBlockObject : ObjectKernel<BlockSpriteState, BlockMotionState>
     {
         
         public IndestructibleBlockObject()
         {
             SpriteState = new BlockSpriteState();
             MotionState = new BlockMotionState();
-            State.SpriteState.Indestructible();
+            SpriteState.Indestructible();
             
         }
 

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public class SpriteSourceNew
+    public class SpriteSource
     {
         public Texture2D Texture { get; private set; }
         public Collection<Rectangle> Coordinates { get; set; }

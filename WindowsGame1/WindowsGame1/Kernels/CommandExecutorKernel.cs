@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public abstract class CommandHandlerKernel<TSpriteState, TMotionState> : ICommandHandler
-        where TSpriteState : SpriteStateKernelNew
-        where TMotionState : MotionStateKernelNew
+    public abstract class CommandExecutorKernel<TSpriteState, TMotionState> : ICommandExecutor
+        where TSpriteState : SpriteStateKernel
+        where TMotionState : MotionStateKernel
     {
         private Dictionary<Type, Action> commandAction;
 
-        public State<TSpriteState, TMotionState> State { get; set; }
+        public Core<TSpriteState, TMotionState> Core { get; set; }
         protected Dictionary<Type, bool> CommandStatus { get; private set; }
 
         protected Dictionary<Type, Action> CommandAction
@@ -26,9 +26,9 @@ namespace WindowsGame1
             }
         }
 
-        protected CommandHandlerKernel(State<TSpriteState, TMotionState> state)
+        protected CommandExecutorKernel(Core<TSpriteState, TMotionState> core)
         {
-            State = state;
+            Core = core;
         }
 
         public void Reset()
@@ -44,7 +44,7 @@ namespace WindowsGame1
             CommandStatus[command.GetType()] = true;
         }
 
-        public void Handle()
+        public void Execute()
         {
             foreach (var status in CommandStatus)
             {

@@ -9,8 +9,8 @@ namespace WindowsGame1
         public DestructibleBlockObject() {
             SpriteState = new BlockSpriteState();
             MotionState = new BlockMotionState();
-            State.SpriteState.DestructibleBlock();
-            CollisionHandler = new BlockCollisionHandler(State);
+            SpriteState.DestructibleBlock();
+            CollisionHandler = new BlockCollisionHandler(Core);
         }
 
         protected override void SyncState()

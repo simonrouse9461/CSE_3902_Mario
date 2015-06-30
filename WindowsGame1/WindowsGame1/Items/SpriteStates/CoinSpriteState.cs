@@ -7,14 +7,14 @@ namespace WindowsGame1
     {
         public CoinSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new CoinSprite(),
             };
-            ChangeFrequency(10);
+            ChangeSpriteFrequency(10);
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

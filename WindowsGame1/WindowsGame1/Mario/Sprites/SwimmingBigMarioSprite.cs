@@ -5,14 +5,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class SwimmingBigMarioSprite: SpriteKernelNew
+    public class SwimmingBigMarioSprite: SpriteKernel
     {
         public SwimmingBigMarioSprite()
         {
             const int period = 8;
 
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
@@ -33,7 +33,7 @@ namespace WindowsGame1
                     return frameSequence[phase];
                 }, 
                 period);
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

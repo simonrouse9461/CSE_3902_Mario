@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Cloud : ObjectKernelNew<CloudSpriteState, BackgroundMotionState>
+    public class Cloud : ObjectKernel<CloudSpriteState, BackgroundMotionState>
     {
         public Cloud()
         {

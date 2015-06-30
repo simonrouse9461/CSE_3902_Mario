@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class MushroomSprite : SpriteKernelNew
+    public class MushroomSprite : SpriteKernel
     {
         public MushroomSprite()
         {
             ImageFile.Default = "items";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

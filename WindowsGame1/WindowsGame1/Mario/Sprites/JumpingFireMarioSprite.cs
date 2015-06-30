@@ -3,19 +3,19 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class JumpingFireMarioSprite : SpriteKernelNew
+    public class JumpingFireMarioSprite : SpriteKernel
     {
         public JumpingFireMarioSprite()
         {
             ImageFile.Default = "Mario";
-            Source.Left = new SpriteSourceNew
+            Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
                     new Rectangle(27, 122, 16, 32)
                 }
             };
-            Source.Right = new SpriteSourceNew
+            Source.Right = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

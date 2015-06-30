@@ -12,7 +12,7 @@ namespace WindowsGame1
             SpriteState = new BlockSpriteState();
             MotionState = new BlockMotionState();
             
-            CollisionHandler = new BlockCollisionHandler(State);
+            CollisionHandler = new BlockCollisionHandler(Core);
         }
 
         protected override void SyncState()

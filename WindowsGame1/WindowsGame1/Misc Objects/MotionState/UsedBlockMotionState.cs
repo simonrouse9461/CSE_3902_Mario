@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class UsedBlockMotionState : MotionStateKernelNew
+    public class UsedBlockMotionState : MotionStateKernel
     {
 
 

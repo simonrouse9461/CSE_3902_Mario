@@ -8,8 +8,8 @@ namespace WindowsGame1
         public NormalBlockObject() {
             SpriteState = new BlockSpriteState();
             MotionState = new BlockMotionState();
-            State.SpriteState.NormalBlock();
-            CollisionHandler = new BlockCollisionHandler(State);
+            SpriteState.NormalBlock();
+            CollisionHandler = new BlockCollisionHandler(Core);
         }
 
         protected override void SyncState()

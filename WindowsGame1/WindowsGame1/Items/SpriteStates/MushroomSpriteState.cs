@@ -8,13 +8,13 @@ namespace WindowsGame1
     {
         public MushroomSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
+            SpriteList = new Collection<ISprite>
             {
                 new MushroomSprite(),
             };
         }
 
-        public override ISpriteNew Sprite
+        public override ISprite Sprite
         {
             get
             {

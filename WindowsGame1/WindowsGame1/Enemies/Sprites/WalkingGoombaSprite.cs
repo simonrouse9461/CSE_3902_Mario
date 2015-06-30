@@ -5,14 +5,14 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class WalkingGoombaSprite : SpriteKernelNew
+    public class WalkingGoombaSprite : SpriteKernel
     {
         public WalkingGoombaSprite()
         {
             const int period = 20;
 
             ImageFile.Default = "enemies";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {

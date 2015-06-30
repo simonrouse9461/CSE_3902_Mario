@@ -3,18 +3,19 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class ItemCollisionHandler : CollisionHandlerKernelNew<ItemSpriteState, ItemMotionState>
+    public class ItemCollisionHandler : CollisionHandlerKernel<ItemSpriteState, ItemMotionState>
     {
-        public ItemCollisionHandler(State<ItemSpriteState, ItemMotionState> state) : base(state)
+        public ItemCollisionHandler(Core<ItemSpriteState, ItemMotionState> core) : base(core)
         {
-            AddBarrier<IObject>();
+            Core.BarrierDetector.AddBarrier<IObject>();
+            Core.BarrierDetector.RemoveBarrier<IMario>();
         }
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>().AnyEdge.Contact)
+            if (Detector.Detect<IMario>().AnyEdge.Touch)
             {
-                State.Object.Unload();
+                Core.Object.Unload();
             }
         }
     }

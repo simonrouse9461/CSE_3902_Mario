@@ -6,12 +6,12 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class ShellKoopaSprite : SpriteKernelNew
+    public class ShellKoopaSprite : SpriteKernel
     {
         public ShellKoopaSprite()
         {
             ImageFile.Default = "enemies";
-            Source.Default = new SpriteSourceNew
+            Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
