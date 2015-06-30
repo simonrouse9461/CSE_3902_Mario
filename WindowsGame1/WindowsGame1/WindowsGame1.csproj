@@ -162,7 +162,6 @@
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandExecutorKernel.cs" />
-    <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Mario\IMario.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />

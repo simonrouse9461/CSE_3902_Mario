@@ -1,12 +1,39 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class GamepadController : ControllerKernel<Buttons>
+    public class GamepadController : IController<Buttons>
     {
-        public override void Update()
+        protected Dictionary<Buttons, ICommand> KeysRespondToPress { get; private set; }
+        protected Dictionary<Buttons, ICommand> KeysRespondToClick { get; private set; }
+        protected Dictionary<Buttons, bool> LastState { get; private set; }
+        protected Collection<Buttons> RegisteredKeys { get; private set; }
+
+        public GamepadController()
+        {
+            KeysRespondToPress = new Dictionary<Buttons, ICommand>();
+            KeysRespondToClick = new Dictionary<Buttons, ICommand>();
+            LastState = new Dictionary<Buttons, bool>();
+            RegisteredKeys = new Collection<Buttons>();
+        }
+
+        public void RegisterCommand(Buttons key, ICommand command, bool respondToClick)
+        {
+            if (respondToClick)
+            {
+                KeysRespondToClick.Add(key, command);
+            }
+            else
+            {
+                KeysRespondToPress.Add(key, command);
+            }
+            LastState.Add(key, false);
+            RegisteredKeys.Add(key);
+        }
+        public void Update()
         {
             Respond(KeysRespondToPress, true);
             Respond(KeysRespondToClick, false);
