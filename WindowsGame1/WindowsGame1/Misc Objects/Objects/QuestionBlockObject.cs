@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockObject : IndestructibleBlockObject
+    public class QuestionBlockObject : BlockKernel
     {
         public QuestionBlockObject()
         {

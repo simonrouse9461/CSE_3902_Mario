@@ -217,7 +217,7 @@
     <Compile Include="Misc Objects\Objects\DestructibleBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\GreenPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\HiddenBlockObject.cs" />
-    <Compile Include="Misc Objects\Objects\IndestructibleBlockObject.cs" />
+    <Compile Include="Misc Objects\Objects\BlockKernel.cs" />
     <Compile Include="Misc Objects\Objects\NormalBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />

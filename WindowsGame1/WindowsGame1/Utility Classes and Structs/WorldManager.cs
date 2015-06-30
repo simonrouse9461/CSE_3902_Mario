@@ -76,7 +76,7 @@ namespace WindowsGame1
                 Populator<HiddenBlockObject>(),
                 Populator<NormalBlockObject>(),
                 Populator<DestructibleBlockObject>(),
-                Populator<IndestructibleBlockObject>(),
+                Populator<BlockKernel>(),
                 Populator<GreenPipeObject>(),
                 Populator<UsedBlockObject>(),
                 Populator<Fireflower>(),
@@ -109,7 +109,7 @@ namespace WindowsGame1
             FindObject<HiddenBlockObject>().Load(content, Locations[6].Location);
             FindObject<NormalBlockObject>().Load(content, Locations[7].Location);
             FindObject<DestructibleBlockObject>().Load(content, Locations[8].Location);
-            FindObject<IndestructibleBlockObject>().Load(content, Locations[9].Location);
+            FindObject<BlockKernel>().Load(content, Locations[9].Location);
             FindObject<GreenPipeObject>().Load(content, Locations[10].Location);
             FindObject<UsedBlockObject>().Load(content, Locations[11].Location);
             FindObject<Fireflower>().Load(content, Locations[12].Location);

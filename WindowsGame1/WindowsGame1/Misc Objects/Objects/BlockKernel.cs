@@ -5,9 +5,9 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public class IndestructibleBlockObject : ObjectKernel<BlockSpriteState, StaticMotionState>
+    public class BlockKernel : ObjectKernel<BlockSpriteState, StaticMotionState>
     {
-        public IndestructibleBlockObject()
+        public BlockKernel()
         {
             SpriteState.Indestructible();
         }
