@@ -107,11 +107,11 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\CameraLeftCommand.cs" />
-    <Compile Include="Commands\CameraRightCommand.cs" />
-    <Compile Include="Commands\CameraDownCommand.cs" />
-    <Compile Include="Commands\CameraUpCommand.cs" />
-    <Compile Include="Commands\ResetCommand.cs" />
+    <Compile Include="GameCommands\CameraLeftCommand.cs" />
+    <Compile Include="GameCommands\CameraRightCommand.cs" />
+    <Compile Include="GameCommands\CameraDownCommand.cs" />
+    <Compile Include="GameCommands\CameraUpCommand.cs" />
+    <Compile Include="GameCommands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
     <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
@@ -162,7 +162,6 @@
     <Compile Include="Items\Star.cs" />
     <Compile Include="Kernels\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandExecutorKernel.cs" />
-    <Compile Include="Kernels\ControllerKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Mario\IMario.cs" />
     <Compile Include="Mario\MarioCollisionHandler.cs" />
@@ -230,7 +229,7 @@
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
     <Compile Include="Misc Objects\Objects\UsedBlockObject.cs" />
-    <Compile Include="Commands\QuitCommand.cs" />
+    <Compile Include="GameCommands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Motions\RaiseUpMotion.cs" />
