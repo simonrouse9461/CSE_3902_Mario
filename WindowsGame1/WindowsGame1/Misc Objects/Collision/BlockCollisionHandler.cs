@@ -3,16 +3,9 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class BlockCollisionHandler : CollisionHandlerKernel<BlockSpriteState, BlockMotionState>
+    public class BlockCollisionHandler : CollisionHandlerKernel<BlockSpriteState, StaticMotionState>
     {
-
-
-        public BlockCollisionHandler(Core<BlockSpriteState, BlockMotionState> core)
-            : base(core)
-        {
-            
-        }
-
+        public BlockCollisionHandler(Core<BlockSpriteState, StaticMotionState> core) : base(core){}
 
         public override void Handle()
         {

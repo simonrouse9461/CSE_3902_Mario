@@ -3,12 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class _1up : ObjectKernel<ItemSpriteState, ItemMotionState>, IItem
+    public class _1up : ObjectKernel<_1UpSpriteState, StaticMotionState>, IItem
     {
         public _1up()
         {
-            SpriteState = new _1UpSpriteState();
-            MotionState = new ItemMotionState();
             CollisionHandler = new ItemCollisionHandler(Core);
         }
 
@@ -16,11 +14,6 @@ namespace WindowsGame1
         public override bool Solid
         {
             get { return false; }
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

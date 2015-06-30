@@ -8,7 +8,7 @@ namespace WindowsGame1
     public class QuestionBlockSprite : SpriteKernel
     {
         public QuestionBlockSprite(){
-            const int period = 3;
+            const int period = 30;
             ImageFile.Default = "blocks";
             Source.Default = new SpriteSource{
                 Coordinates = new Collection<Rectangle>{
@@ -20,7 +20,7 @@ namespace WindowsGame1
             Animation.Default = new PeriodicFunction<int>(
             phase =>
             {
-                int[] frameSequence = { 0, 1, 2 };
+                int[] frameSequence = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
                 return frameSequence[phase];
             },
             period);

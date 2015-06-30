@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class StarSpriteState : ItemSpriteState
+    public class StarSpriteState : SpriteStateKernel
     {
         public StarSpriteState()
         {

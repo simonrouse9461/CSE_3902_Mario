@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CoinSpriteState : ItemSpriteState
+    public class CoinSpriteState : SpriteStateKernel
     {
         public CoinSpriteState()
         {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class ItemCollisionHandler : CollisionHandlerKernel<ItemSpriteState, ItemMotionState>
+    public class ItemCollisionHandler : CollisionHandlerKernel<SpriteStateKernel, MotionStateKernel>
     {
-        public ItemCollisionHandler(Core<ItemSpriteState, ItemMotionState> core) : base(core)
+        public ItemCollisionHandler(ICore core) : base(core)
         {
             Core.BarrierDetector.AddBarrier<IObject>();
             Core.BarrierDetector.RemoveBarrier<IMario>();

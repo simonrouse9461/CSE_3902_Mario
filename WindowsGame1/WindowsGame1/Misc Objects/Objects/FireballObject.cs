@@ -5,7 +5,8 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public abstract class ItemSpriteState : SpriteStateKernel
+    public class FireballObject
     {
+
     }
 }
