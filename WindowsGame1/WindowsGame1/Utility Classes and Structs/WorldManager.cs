@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace WindowsGame1
         public Collection<IList> ObjectList { get; private set; }
 
         ObjectData[] Locations;
-        
+
+        private ContentManager Content;
         //public MarioFireflowerCollisions MarioFireflowerCollisions;
 
         private static WorldManager _instance;
@@ -39,7 +41,14 @@ namespace WindowsGame1
 
         public static T FindObject<T>(int index = 0) where T : IObject
         {
-            return FindObjectCollection<T>()[index];
+            try
+            {
+                return FindObjectCollection<T>()[index];
+            }
+            catch (Exception e)
+            {
+                return default(T);
+            }
         }
 
         private static Collection<T> Populator<T>(int amount = 1) where T :  IObject, new()
@@ -58,6 +67,14 @@ namespace WindowsGame1
             {
                 collection.Remove(obj);
             }
+        }
+
+        public void ReplaceObject<T>(IObject obj) where T :  IObject, new()
+        {
+            var substitute = new T();
+            substitute.Load(Content, obj.PositionPoint);
+            RemoveObject(obj);
+            FindObjectCollection<T>().Add(substitute);
         }
 
         private WorldManager()
@@ -94,6 +111,7 @@ namespace WindowsGame1
 
         public void LoadContent(ContentManager content)
         {
+            Content = content;
 //            foreach (var obj in ObjectList)
 //            {
 //                obj.Load(content);
