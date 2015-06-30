@@ -11,7 +11,7 @@ namespace WindowsGame1
                 new GreenPipeSprite()
             };
         }
-       
+
         public override ISprite Sprite
         {
             get { return FindSprite<GreenPipeSprite>(); }
