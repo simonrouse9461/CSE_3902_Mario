@@ -174,10 +174,6 @@
     <Compile Include="Mario\Sprites\JumpingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingSmallMarioSprite.cs" />
     <Compile Include="Misc Objects\Collision\BlockCollisionHandler.cs" />
-    <Compile Include="Misc Objects\Collision\DestructibleBlockCollisionHandler.cs" />
-    <Compile Include="Misc Objects\Collision\HiddenBlockCollisionHandler.cs" />
-    <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
-    <Compile Include="Misc Objects\Collision\QuestionBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\IBlock.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
     <Compile Include="Misc Objects\SpriteState\BlockSpriteState.cs" />
@@ -232,12 +228,7 @@
     <Compile Include="Misc Objects\MotionState\UsedBlockMotionState.cs" />
     <Compile Include="Misc Objects\Objects\NormalBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
-    <Compile Include="Misc Objects\SpriteState\DestructibleBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />
-    <Compile Include="Misc Objects\SpriteState\HiddenBlockSpriteState.cs" />
-    <Compile Include="Misc Objects\SpriteState\IndestructibleBlockSpriteState.cs" />
-    <Compile Include="Misc Objects\SpriteState\NormalBlockSpriteState.cs" />
-    <Compile Include="Misc Objects\SpriteState\QuestionBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
