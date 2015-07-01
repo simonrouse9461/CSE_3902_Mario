@@ -48,7 +48,7 @@ namespace WindowsGame1
             keyboardController.RegisterCommand(Keys.Q, quitCommand, false);
             keyboardController.RegisterCommand(Keys.R, resetCommand, false);
             gamepadController.RegisterCommand(Buttons.Back, quitCommand, false);
-            keyboardController.RegisterCommand(Keys.I, marioFireCommand, true);
+            keyboardController.RegisterCommand(Keys.F, marioFireCommand, true);
             keyboardController.RegisterCommand(Keys.O, marioDeadCommand, false);
             keyboardController.RegisterCommand(Keys.Up, marioUpCommand, false);
             keyboardController.RegisterCommand(Keys.Down, marioDownCommand, false);
