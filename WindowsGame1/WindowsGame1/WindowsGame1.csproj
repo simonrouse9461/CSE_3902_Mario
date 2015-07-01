@@ -130,6 +130,7 @@
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FireMarioCommandExecutor.cs" />
@@ -145,6 +146,8 @@
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
+    <Compile Include="Motions\MoveRightMotion.cs" />
+    <Compile Include="Motions\MoveLeftMotion.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
