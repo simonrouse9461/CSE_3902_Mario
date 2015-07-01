@@ -1,14 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace WindowsGame1
 {
-    public class MarioFireBallCommand : CommandKernel
+    public class MarioFireballCommand : CommandKernel
     {
-        public MarioFireBallCommand(MarioGame game) : base(game) { }
+        public MarioFireballCommand(MarioGame game) : base(game) { }
 
         public override void Execute()
         {
+            
             WorldManager.FindObject<MarioObject>().PassCommand(this);
-        }  
+        } 
     }
 }

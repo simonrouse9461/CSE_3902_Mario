@@ -39,3 +39,9 @@ C:\Users\Haden\Source\Repos\CSE_3902_Mario7\LeveLoader\obj\x86\Debug\LevelLoader
 C:\Users\Haden\Source\Repos\CSE_3902_Mario7\LeveLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Haden\Source\Repos\CSE_3902_Mario7\LeveLoader\obj\x86\Debug\LeveLoader.dll
 C:\Users\Haden\Source\Repos\CSE_3902_Mario7\LeveLoader\obj\x86\Debug\LeveLoader.pdb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\LeveLoader\bin\x86\Debug\LeveLoader.dll
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\LeveLoader\bin\x86\Debug\LeveLoader.pdb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\LeveLoader\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\LeveLoader\obj\x86\Debug\LeveLoader.dll
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\LeveLoader\obj\x86\Debug\LeveLoader.pdb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario2\LeveLoader\obj\x86\Debug\LevelLoader.csprojResolveAssemblyReference.cache

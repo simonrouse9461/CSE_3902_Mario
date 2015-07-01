@@ -30,12 +30,13 @@ namespace WindowsGame1
             keyboardController = new KeyboardController();
             gamepadController = new GamepadController();
 
-            marioFireCommand = new MarioFireBallCommand(game);
+            marioFireCommand = new MarioFireCommand(game);
             marioDeadCommand = new MarioDeadCommand(game);
             marioUpCommand = new MarioUpCommand(game);
             marioDownCommand = new MarioDownCommand(game);
             marioLeftCommand = new MarioLeftCommand(game);
             marioRightCommand = new MarioRightCommand(game);
+            marioFireballCommand = new MarioFireballCommand(game);
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
 
@@ -57,6 +58,7 @@ namespace WindowsGame1
             keyboardController.RegisterCommand(Keys.S, cameraDownCommand, false);
             keyboardController.RegisterCommand(Keys.A, cameraLeftCommand, false);
             keyboardController.RegisterCommand(Keys.D, cameraRightCommand, false);
+            keyboardController.RegisterCommand(Keys.X, marioFireballCommand, false);
         }
 
         public void Update()
