@@ -140,6 +140,9 @@
     <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\MarioFireballSprite.cs" />
+    <Compile Include="Misc Objects\Collision\FireballCollisionHandler.cs" />
+    <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
+    <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
     <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
@@ -227,7 +230,6 @@
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\HiddenBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
