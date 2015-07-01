@@ -14,7 +14,8 @@ namespace WindowsGame1
             Turn,
             Swim,
             Grow,
-            Back
+            Back,
+            Shoot
         }
 
         private enum OrientationEnum
@@ -70,7 +71,8 @@ namespace WindowsGame1
                 new GrowingBigMarioSprite(),
                 new GrowingFireMarioSprite(),
                 new DeGrowingBigMarioSprite(),
-                new DeGrowingFireMarioSprite()
+                new DeGrowingFireMarioSprite(),
+                new MarioFireballSprite()
             };
 
             ColorSchemeList = new Collection<ColorAnimator>
@@ -174,6 +176,13 @@ namespace WindowsGame1
                                 return FindSprite<DeGrowingBigMarioSprite>();
                             case StatusEnum.Fire:
                                 return FindSprite<DeGrowingFireMarioSprite>();
+                        }
+                        break;
+                    case ActionEnum.Shoot:
+                        switch (Status)
+                        {
+                            case StatusEnum.Fire:
+                                return FindSprite<MarioFireballSprite>();
                         }
                         break;
                 }
@@ -351,6 +360,11 @@ namespace WindowsGame1
         public bool Swimming
         {
             get { return Action == ActionEnum.Swim; }
+        }
+
+        public void Shoot()
+        {
+            Action = ActionEnum.Shoot;
         }
     }
 }

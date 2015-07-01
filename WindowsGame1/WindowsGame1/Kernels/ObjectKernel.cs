@@ -130,6 +130,11 @@ namespace WindowsGame1
             WorldManager.Instance.ReplaceObject<T>(this);
         }
 
+        public void Generate<T>() where T : IObject, new()
+        {
+            WorldManager.Instance.CreateObject<T>(PositionPoint);
+        }
+
         public void Update()
         {
             Core.Update();

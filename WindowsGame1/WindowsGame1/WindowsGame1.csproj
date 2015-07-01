@@ -133,12 +133,16 @@
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FireMarioCommandExecutor.cs" />
+    <Compile Include="Mario\Commands\MarioFireballCommand.cs" />
     <Compile Include="Mario\MarioBarrierDetector.cs" />
     <Compile Include="Mario\Sprites\DeGrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\DeGrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\MarioFireballSprite.cs" />
+    <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
+    <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
@@ -182,7 +186,7 @@
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
-    <Compile Include="Mario\Commands\MarioFireBallCommand.cs" />
+    <Compile Include="Mario\Commands\MarioFireCommand.cs" />
     <Compile Include="Mario\Commands\MarioLeftCommand.cs" />
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
@@ -216,7 +220,7 @@
     <Compile Include="Misc Objects\Objects\DestructibleBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\GreenPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\HiddenBlockObject.cs" />
-    <Compile Include="Misc Objects\Objects\IndestructibleBlockObject.cs" />
+    <Compile Include="Misc Objects\Objects\BlockKernel.cs" />
     <Compile Include="Misc Objects\Objects\NormalBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />

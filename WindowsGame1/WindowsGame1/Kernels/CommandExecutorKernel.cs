@@ -48,7 +48,7 @@ namespace WindowsGame1
         {
             foreach (var status in CommandStatus)
             {
-                if (status.Value)
+                if (status.Value && CommandAction.ContainsKey(status.Key))
                     CommandAction[status.Key]();
             }
 

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class NormalBlockObject : IndestructibleBlockObject
+    public class NormalBlockObject : BlockKernel
     {
         public NormalBlockObject() {
             SpriteState.NormalBlock();

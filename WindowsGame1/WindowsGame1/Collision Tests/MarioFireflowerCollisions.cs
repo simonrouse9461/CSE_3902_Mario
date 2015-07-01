@@ -26,7 +26,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireBallCommand(TestGame);
+            CompareCommand = new MarioFireCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
@@ -54,7 +54,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireBallCommand(TestGame);
+            CompareCommand = new MarioFireCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioLeftCommand(TestGame);
             CompareCommand = new MarioLeftCommand(TestGame);
@@ -80,7 +80,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireBallCommand(TestGame);
+            CompareCommand = new MarioFireCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
             CompareCommand = new MarioUpCommand(TestGame);
@@ -105,7 +105,7 @@ namespace WindowsGame1
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
             TestFireflower = new Fireflower();
-            CompareCommand = new MarioFireBallCommand(TestGame);
+            CompareCommand = new MarioFireCommand(TestGame);
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
             CompareCommand = new MarioDownCommand(TestGame);
