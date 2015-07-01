@@ -11,7 +11,6 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            
             WorldManager.FindObject<MarioObject>().PassCommand(this);
         } 
     }

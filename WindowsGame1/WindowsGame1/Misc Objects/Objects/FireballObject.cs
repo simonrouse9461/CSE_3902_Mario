@@ -7,7 +7,9 @@ namespace WindowsGame1
 {
     public class FireballObject : ObjectKernel<FireballSpriteState, FireballMotionState>
     {
-        
-
+        public override bool Solid
+        {
+            get { return false; }
+        }
     }
 }

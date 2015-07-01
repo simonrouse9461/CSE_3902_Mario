@@ -21,8 +21,7 @@ namespace WindowsGame1
                     Core.MotionState.MoveRight();
                 }},
                 {typeof(MarioUpCommand), () => Core.MotionState.Raise()},
-                {typeof(MarioDownCommand), () => Core.MotionState.Fall()},
-                {typeof(MarioFireballCommand), () => Core.SpriteState.Shoot()}
+                {typeof(MarioDownCommand), () => Core.MotionState.Fall()}
             };
         }
     }

@@ -69,12 +69,17 @@ namespace WindowsGame1
             }
         }
 
-        public void ReplaceObject<T>(IObject obj) where T :  IObject, new()
+        public void CreateObject<T>(Vector2 position) where T :  IObject, new()
         {
-            var substitute = new T();
-            substitute.Load(Content, obj.PositionPoint);
+            var obj = new T();
+            obj.Load(Content, position);
+            FindObjectCollection<T>().Add(obj);
+        }
+
+        public void ReplaceObject<T>(IObject obj) where T : IObject, new()
+        {
+            CreateObject<T>(obj.PositionPoint);
             RemoveObject(obj);
-            FindObjectCollection<T>().Add(substitute);
         }
 
         private WorldManager()
@@ -105,7 +110,9 @@ namespace WindowsGame1
                 Populator<Koopa>(),
 
                 // Mario should be drawn in the end
-                Populator<MarioObject>()
+                Populator<MarioObject>(),
+
+                new Collection<FireballObject>()
             };
         }
 

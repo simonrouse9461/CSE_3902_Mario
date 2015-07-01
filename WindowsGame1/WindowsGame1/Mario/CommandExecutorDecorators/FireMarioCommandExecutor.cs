@@ -9,7 +9,11 @@ namespace WindowsGame1.CommandExecutorDecorators
         public FireMarioCommandExecutor(Core<MarioSpriteState, MarioMotionState> core, MarioCommandExecutor original) : base(core)
         {
             DefaultCommandExecutor = original;
-            CommandAction.Add(typeof(MarioFireCommand), () => {});
+            CommandAction.Add(typeof(MarioFireCommand), () =>
+            {
+                Core.SpriteState.Shoot();
+                Core.Object.Generate<FireballObject>();
+            });
         }
     }
 }
