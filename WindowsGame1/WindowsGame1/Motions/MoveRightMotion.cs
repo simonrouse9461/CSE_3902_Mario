@@ -19,7 +19,7 @@ namespace WindowsGame1
         {
             get
             {
-                StartVelocity = new Vector2(2, 0);
+                StartVelocity = new Vector2(1, 0);
                 return this;
             }
         }
@@ -28,7 +28,7 @@ namespace WindowsGame1
         {
             get
             {
-                StartVelocity = new Vector2(2, 0);
+                StartVelocity = new Vector2(1, 0);
                 return this;
             }
         }
