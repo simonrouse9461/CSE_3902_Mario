@@ -10,5 +10,7 @@ namespace WindowsGame1
         public abstract void MarioSmash();
 
         public abstract bool Dead { get; }
+
+        public abstract void Turn();
     }
 }

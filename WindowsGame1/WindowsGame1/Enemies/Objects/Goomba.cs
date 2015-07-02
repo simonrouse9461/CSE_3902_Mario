@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Goomba : ObjectKernel<GoombaSpriteState, EnemyMotionState>, IEnemy
+    public  class Goomba : ObjectKernel<GoombaSpriteState, GoombaMotionState>, IEnemy
     {
         public Goomba()
         {

@@ -11,8 +11,16 @@ namespace WindowsGame1
         private enum OrientationEnum
         {
             Left,
-            Right
+            Right,
         }
+
+        private enum ActionEnum
+        {
+            Null,
+            Stop,
+            Bounce
+        }
+
         public FireballMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>{
@@ -23,6 +31,7 @@ namespace WindowsGame1
         }
 
         private OrientationEnum Orientation;
+        private ActionEnum Action;
         protected override void RefreshMotionStatus()
         {
             switch (Orientation)
@@ -34,6 +43,15 @@ namespace WindowsGame1
                 case OrientationEnum.Right:
                     FindMotion<MoveRightMotion>().Toggle(true);
                     FindMotion<FallDownMotion>().Toggle(true);
+                    break;
+            }
+            switch (Action)
+            {
+                case ActionEnum.Stop:
+                    foreach (var motion in MotionList)
+                    {
+                        motion.Toggle(false);
+                    }
                     break;
             }
         }
@@ -61,6 +79,11 @@ namespace WindowsGame1
         public bool Right
         {
             get { return Orientation == OrientationEnum.Right; }
+        }
+
+        public void Stop()
+        {
+            Action = ActionEnum.Stop;
         }
     }
 }

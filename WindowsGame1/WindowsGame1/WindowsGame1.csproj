@@ -107,6 +107,9 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
+    <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
     <Compile Include="GameCommands\CameraLeftCommand.cs" />
     <Compile Include="GameCommands\CameraRightCommand.cs" />
     <Compile Include="GameCommands\CameraDownCommand.cs" />
@@ -114,7 +117,7 @@
     <Compile Include="GameCommands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
-    <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
+    <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
     <Compile Include="Enemies\SpriteStates\EnemySpriteState.cs" />
     <Compile Include="Enemies\SpriteStates\KoopaSpriteState.cs" />
@@ -200,7 +203,7 @@
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
     <Compile Include="Enemies\Objects\Koopa.cs" />
-    <Compile Include="Enemies\Sprites\WalkingKoopaSprite.cs" />
+    <Compile Include="Enemies\Sprites\RightWalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
     <Compile Include="Interfaces\IObject.cs" />
     <Compile Include="Items\1up.cs" />

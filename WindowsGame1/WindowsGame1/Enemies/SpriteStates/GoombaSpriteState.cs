@@ -45,7 +45,12 @@ namespace WindowsGame1
         {
             Status = StatusEnum.Dead;
         }
-        
+
+        public override void Turn()
+        {
+           
+        }
+
         public override bool Dead
         {
             get { return Status == StatusEnum.Dead; }

@@ -9,7 +9,8 @@ namespace WindowsGame1
         private enum StatusEnum
         {
             Shell,
-            Walking
+            LeftWalking,
+            RightWalking
         }
 
         private StatusEnum Status;
@@ -19,10 +20,11 @@ namespace WindowsGame1
             SpriteList = new Collection<ISprite>
             {
                 new ShellKoopaSprite(),
-                new WalkingKoopaSprite()
+                new LeftWalkingKoopaSprite(),
+                new RightWalkingKoopaSprite()
             };
 
-            Status = StatusEnum.Walking;
+            Status = StatusEnum.LeftWalking;
             ChangeSpriteFrequency(25);
         }
 
@@ -34,9 +36,13 @@ namespace WindowsGame1
                 {
                     return FindSprite<ShellKoopaSprite>();
                 }
+                else if (Status == StatusEnum.RightWalking)
+                {
+                    return FindSprite<RightWalkingKoopaSprite>();
+                }
                 else
                 {
-                    return FindSprite<WalkingKoopaSprite>();
+                    return FindSprite<LeftWalkingKoopaSprite>();
                 }
             }
         }
@@ -44,6 +50,18 @@ namespace WindowsGame1
         public override void MarioSmash()
         {
             Status = StatusEnum.Shell;
+        }
+
+        public override void Turn()
+        {
+            if (Status == StatusEnum.LeftWalking)
+            {
+                Status = StatusEnum.RightWalking;
+            }
+            else if (Status == StatusEnum.RightWalking)
+            {
+                Status = StatusEnum.LeftWalking;
+            }
         }
         
         public override bool Dead

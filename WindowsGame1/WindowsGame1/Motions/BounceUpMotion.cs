@@ -13,6 +13,7 @@ namespace WindowsGame1
             get
             {
                 var velocity = Circulator.Phase*Acceleration + StartVelocity;
+                velocity = (velocity.Y < MaxVelocity.Y) ? velocity : MaxVelocity;
                 return velocity;
             }
         }
