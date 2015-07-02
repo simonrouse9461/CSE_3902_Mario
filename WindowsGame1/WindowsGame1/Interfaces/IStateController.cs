@@ -3,5 +3,6 @@
     public interface IStateController
     {
         void SyncState();
+        void Update();
     }
 }

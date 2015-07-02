@@ -128,14 +128,14 @@ namespace WindowsGame1
             Core.DelayCommand(() => WorldManager.Instance.RemoveObject(this));
         }
 
-        public void Transform<T>() where T : IObject, new()
+        public void Transform<T>(T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.ReplaceObject<T>(this);
+            WorldManager.Instance.ReplaceObject(this, obj);
         }
 
-        public void Generate<T>() where T : IObject, new()
+        public void Generate<T>(T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.CreateObject<T>(PositionPoint);
+            WorldManager.Instance.CreateObject(PositionPoint, obj);
         }
 
         public void Update()
@@ -145,6 +145,7 @@ namespace WindowsGame1
             if (StateController != null) StateController.SyncState();
             if (CollisionHandler != null) CollisionHandler.Handle();
             if (StateController != null) StateController.SyncState();
+            if (StateController != null) StateController.Update();
             SpriteState.Update();
             MotionState.Update();
             BarrierDetector.Detect();

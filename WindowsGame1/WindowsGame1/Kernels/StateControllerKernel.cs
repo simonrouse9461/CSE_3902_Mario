@@ -24,5 +24,6 @@
         }
 
         public abstract void SyncState();
+        public abstract void Update();
     }
 }

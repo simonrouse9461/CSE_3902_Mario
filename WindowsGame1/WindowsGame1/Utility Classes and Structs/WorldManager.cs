@@ -106,16 +106,16 @@ namespace WindowsGame1
             }
         }
 
-        public void CreateObject<T>(Vector2 position) where T : IObject, new()
+        public void CreateObject<T>(Vector2 position, T obj = null) where T : class, IObject, new()
         {
-            var obj = new T();
+            obj = obj ?? new T();
             obj.Load(Content, position);
             FindObjectCollection<T>().Add(obj);
         }
 
-        public void ReplaceObject<T>(IObject obj) where T : IObject, new()
+        public void ReplaceObject<T>(IObject obj, T substitute = null) where T : class, IObject, new()
         {
-            CreateObject<T>(obj.PositionPoint);
+            CreateObject(obj.PositionPoint, substitute);
             RemoveObject(obj);
         }
 

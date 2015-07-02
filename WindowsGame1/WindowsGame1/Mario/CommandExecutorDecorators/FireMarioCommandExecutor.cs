@@ -12,7 +12,10 @@ namespace WindowsGame1.CommandExecutorDecorators
             CommandAction.Add(typeof(MarioFireCommand), () =>
             {
                 Core.SpriteState.Shoot();
-                Core.Object.Generate<FireballObject>();
+                if (Core.SpriteState.Left)
+                    Core.Object.Generate(new FireballObject().LeftFireBall);
+                else
+                    Core.Object.Generate(new FireballObject().RightFireBall);
             });
         }
     }

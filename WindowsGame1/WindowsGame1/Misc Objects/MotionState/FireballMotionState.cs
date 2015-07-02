@@ -43,15 +43,24 @@ namespace WindowsGame1
 
         }
 
-        public void Left()
+        public void GoLeft()
         {
             Orientation = OrientationEnum.Left;
         }
 
-        public void Right()
+        public void GoRight()
         {
             Orientation = OrientationEnum.Right;
         }
 
+        public bool Left
+        {
+            get { return Orientation == OrientationEnum.Left; }
+        }
+
+        public bool Right
+        {
+            get { return Orientation == OrientationEnum.Right; }
+        }
     }
 }
