@@ -1,6 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
+
+    <Item>
+      <Type>Fireflower</Type>
+      <Location>500 350</Location>
+    </Item>
+    <Item>
+      <Type>Star</Type>
+      <Location>550 350</Location>
+    </Item>
+    <Item>
+      <Type>Mushroom</Type>
+      <Location>600 350</Location>
+    </Item>
+    
+    
     <Item>
       <Type>Goomba</Type>
       <Location>658 398</Location>
@@ -504,8 +519,8 @@
       <Type>Cloud</Type>
       <Location>6240 80</Location>
     </Item>
-
-
+    
+    
 
     <Item>
       <Type>DestructibleBlockObject</Type>

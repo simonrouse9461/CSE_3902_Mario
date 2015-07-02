@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public class BlockKernel : ObjectKernel<BlockSpriteState, BlockMotionState>
+    public class BlockKernel : ObjectKernel<BlockSpriteState, BlockMotionState>, IBlock
     {
         public BlockKernel()
         {
