@@ -61,14 +61,14 @@ namespace WindowsGame1
             }
         }
 
-        public override void Die()
+        public override void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
         }
 
-        public override void MarioSmash()
+        public override void TakeMarioHitFromSide(string leftOrRight)
         {
-            MotionStatus = MotionEnum.None;
+            
         }
     }
 }

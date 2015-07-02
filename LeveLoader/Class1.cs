@@ -13,7 +13,7 @@ namespace LevelLoader
 {
     public class ObjectData
     {
-        public string Name;
+        public string Type;
         public Vector2 Location;
     }
 }

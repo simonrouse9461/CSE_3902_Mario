@@ -2,76 +2,507 @@
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
     <Item>
-      <Name>Mario</Name>
-      <Location>200 170</Location>
+      <Type>Goomba</Type>
+      <Location>658 398</Location>
     </Item>
     <Item>
-      <Name>Goomba</Name>
-      <Location>230 300</Location>
+      <Type>Goomba</Type>
+      <Location>1328 398</Location>
     </Item>
     <Item>
-      <Name>Koopa</Name>
-      <Location>200 300</Location>
+      <Type>Goomba</Type>
+      <Location>1682 398</Location>
     </Item>
     <Item>
-      <Name>Coin</Name>
-      <Location>450 300</Location>
+      <Type>Goomba</Type>
+      <Location>1730 398</Location>
     </Item>
     <Item>
-      <Name>Star</Name>
-      <Location>500 300</Location>
+      <Type>Goomba</Type>
+      <Location>2520 230</Location>
     </Item>
     <Item>
-      <Name>QuestionBlock</Name>
-      <Location>300 200</Location>
+      <Type>Goomba</Type>
+      <Location>2610 146</Location>
     </Item>
     <Item>
-      <Name>HiddenBlock</Name>
-      <Location>200 200</Location>
+      <Type>Goomba</Type>
+      <Location>3034 398</Location>
     </Item>
     <Item>
-      <Name>NormalBlock</Name>
-      <Location>100 200</Location>
+      <Type>Goomba</Type>
+      <Location>3082 398</Location>
     </Item>
     <Item>
-      <Name>DestructibleBlock</Name>
+      <Type>Goomba</Type>
+      <Location>3948 398</Location>
+    </Item>
+    <Item>
+      <Type>Goomba</Type>
+      <Location>3994 398</Location>
+    </Item>
+    <Item>
+      <Type>Goomba</Type>
+      <Location>4058 398</Location>
+    </Item>
+    <Item>
+      <Type>Goomba</Type>
+      <Location>4104 398</Location>
+    </Item>
+    <Item>
+      <Type>Goomba</Type>
+      <Location>5542 398</Location>
+    </Item>
+    <Item>
+      <Type>Goomba</Type>
+      <Location>5588 398</Location>
+    </Item>
+    <Item>
+      <Type>Koopa</Type>
+      <Location>3382 397</Location>
+    </Item>
+
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>512 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>681 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>704 240</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>729 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>2498 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>3010 240</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>3392 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>3488 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>3488 240</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>3584 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>4130 240</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>4160 240</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Location>5440 320</Location>
+    </Item>
+    <Item>
+      <Type>HiddenBlockObject</Type>
+      <Location>2048 290</Location>
+    </Item>
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>657 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>705 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>752 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>100 320</Location>
+    </Item>
+
+    <Item>
+      <Type>DestructibleBlockObject</Type>
       <Location>350 200</Location>
     </Item>
     <Item>
-      <Name>IndestructibleBlock</Name>
+      <Type>BlockKernel</Type>
       <Location>150 200</Location>
     </Item>
     <Item>
-      <Name>GreenPipe</Name>
-      <Location>500 200</Location>
+      <Type>GreenPipeObject</Type>
+      <Location>898 374</Location>
     </Item>
     <Item>
-      <Name>UsedBlock</Name>
-      <Location>250 200</Location>
+      <Type>GreenPipeObject</Type>
+      <Location>1214 374</Location>
     </Item>
     <Item>
-      <Name>Fireflower</Name>
-      <Location>400 304</Location>
+      <Type>GreenPipeObject</Type>
+      <Location>1472 374</Location>
     </Item>
     <Item>
-      <Name>Mushroom</Name>
-      <Location>550 300</Location>
+      <Type>GreenPipeObject</Type>
+      <Location>1824 374</Location>
     </Item>
     <Item>
-      <Name>_1up</Name>
-      <Location>600 300</Location>
+      <Type>GreenPipeObject</Type>
+      <Location>5216 374</Location>
     </Item>
     <Item>
-      <Name>Hill</Name>
-      <Location>700 405</Location>
+      <Type>GreenPipeObject</Type>
+      <Location>5730 374</Location>
     </Item>
     <Item>
-      <Name>Bush</Name>
-      <Location>450 405</Location>
+      <Type>Hill</Type>
+      <Location>0 389</Location>
     </Item>
     <Item>
-      <Name>Cloud</Name>
-      <Location>400 100</Location>
+      <Type>Hill</Type>
+      <Location>512 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>1572 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>2048 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>3072 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>3584 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>4610 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>5122 389</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>6768 389</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>370 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>410 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>450 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>752 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>1328 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>1368 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>1904 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>1944 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>1984 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>2290 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>2864 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>2904 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>3438 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>3478 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>3826 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>4412 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>4452 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>5052 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>5360 398</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Location>6592 398</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Location>6656 389</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>270 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>622 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>880 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>920 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>960 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>1170 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>1210 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>1810 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>2160 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>2410 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>2450 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>2490 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>2700 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>2740 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>3340 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>3700 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>3950 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>3990 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>4030 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>4240 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>4280 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>4880 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>5230 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>5490 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>5530 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>5570 80</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>5770 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>5800 50</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Location>6240 80</Location>
     </Item>
   </Asset>
 </XnaContent>

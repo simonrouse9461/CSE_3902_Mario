@@ -155,7 +155,9 @@
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
+    <Compile Include="Motions\MoveLeftFastMotion.cs" />
     <Compile Include="Motions\MoveLeftMotion.cs" />
+    <Compile Include="Motions\MoveRightFastMotion.cs" />
     <Compile Include="Motions\MoveRightMotion.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
