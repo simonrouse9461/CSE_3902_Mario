@@ -37,7 +37,7 @@ namespace WindowsGame1
         {
             get
             {
-                StartVelocity = new Vector2(6, 0);
+                StartVelocity = new Vector2(5, 0);
                 return this;
             }
         }
