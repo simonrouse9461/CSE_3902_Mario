@@ -10,6 +10,7 @@ namespace WindowsGame1
             var restoreTime = 200;
 
             DefaultCollisionHandler = original;
+        
             Core.SpriteState.BecomeSmall();
             Core.SpriteState.BecomeBlink();
             Core.SpriteState.ChangeColorFrequency(2);
