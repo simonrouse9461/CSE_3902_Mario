@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -7,6 +8,15 @@ namespace WindowsGame1
         private Vector2 StartVelocity;
         private Vector2 Acceleration;
         private Vector2 MaxVelocity;
+
+        private enum Version
+        {
+            Default,
+            MarioDie,
+            FireballBounce
+        }
+
+        private Version version = Version.Default;
 
         public override Vector2 Velocity
         {
@@ -22,11 +32,34 @@ namespace WindowsGame1
         {
             get
             {
+                version = Version.MarioDie;
                 StartVelocity = new Vector2(0, -3);
                 Acceleration = new Vector2(0, 0.1f);
                 MaxVelocity = new Vector2(0, 6);
                 return this;
             }
+        }
+
+        public bool MarioDieVersion
+        {
+            get { return version == Version.MarioDie; }
+        }
+
+        public BounceUpMotion FireballBounce
+        {
+            get
+            {
+                version = Version.FireballBounce;
+                StartVelocity = new Vector2(0, 5);
+                Acceleration = new Vector2(0, 0.2f);
+                MaxVelocity = new Vector2(0, 5);
+                return this;
+            }
+        }
+
+        public bool FireballBounceVersion
+        {
+            get { return version == Version.FireballBounce; }
         }
     }
 }

@@ -16,8 +16,8 @@ namespace WindowsGame1
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(0, 4, 15, 16),
-                    new Rectangle(30, 4, 15, 16)
+                    new Rectangle(0, 4, 16, 16),
+                    new Rectangle(30, 4, 16, 16)
                 }
             };
             Animation.Default = new PeriodicFunction<int>(
