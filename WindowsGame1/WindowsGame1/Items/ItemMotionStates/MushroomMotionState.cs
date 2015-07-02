@@ -12,8 +12,8 @@ namespace WindowsGame1
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
-                new StatusSwitch<IMotion>(new MoveLeftMotion()),
-                new StatusSwitch<IMotion>(new MoveRightMotion()),
+                new StatusSwitch<IMotion>(new MoveLeftMotion().ItemVelocity),
+                new StatusSwitch<IMotion>(new MoveRightMotion().ItemVelocity),
                 new StatusSwitch<IMotion>(new FallDownMotion())
             };
         }
