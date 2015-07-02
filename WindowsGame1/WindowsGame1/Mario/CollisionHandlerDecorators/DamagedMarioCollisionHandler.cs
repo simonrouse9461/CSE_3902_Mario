@@ -10,14 +10,7 @@ namespace WindowsGame1
             var restoreTime = 200;
 
             DefaultCollisionHandler = original;
-            if (Core.SpriteState.HaveFire)
-            {
-                Core.SpriteState.BecomeBig();
-            }
-            if (Core.SpriteState.Big)
-            {
-                Core.SpriteState.BecomeSmall();
-            }
+            Core.SpriteState.BecomeSmall();
             Core.SpriteState.BecomeBlink();
             Core.SpriteState.ChangeColorFrequency(2);
             Core.BarrierDetector.RemoveBarrier<Koopa>();
