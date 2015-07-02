@@ -32,7 +32,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new AccelerateRightMotion(0.1f, 3)),
                 new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)),
                 new StatusSwitch<IMotion>(new SuddenStopMotion(0.15f)),
-                new StatusSwitch<IMotion>(new DeadMotion()),
+                new StatusSwitch<IMotion>(new BounceUpMotion().MarioDie),
                 new StatusSwitch<IMotion>(new RaiseUpMotion()),
                 new StatusSwitch<IMotion>(new FallDownMotion())
             };
@@ -80,7 +80,7 @@ namespace WindowsGame1
                     {
                         motion.Toggle(false);
                     }
-                    FindMotion<DeadMotion>().Toggle(true);
+                    FindMotion<BounceUpMotion>().Toggle(true);
                     break;
                 case VerticalEnum.Raise:
                     FindMotion<RaiseUpMotion>().Toggle(true);

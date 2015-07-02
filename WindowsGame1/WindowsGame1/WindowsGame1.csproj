@@ -195,7 +195,7 @@
     <Compile Include="Misc Objects\SpriteState\BlockSpriteState.cs" />
     <Compile Include="Motions\AccelerateLeftMotion.cs" />
     <Compile Include="Motions\AccelerateRightMotion.cs" />
-    <Compile Include="Motions\DeadMotion.cs" />
+    <Compile Include="Motions\BounceUpMotion.cs" />
     <Compile Include="Motions\FallDownMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
