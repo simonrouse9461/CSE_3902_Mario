@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WindowsGame1.Misc_Objects.Collision
+namespace WindowsGame1
 {
     public class FireballCollisionHandler : CollisionHandlerKernel<FireballSpriteState, FireballMotionState>
     {
@@ -18,9 +18,11 @@ namespace WindowsGame1.Misc_Objects.Collision
 
         protected virtual void HandleEnemy()
         {
-            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnyEdge.Touch)
+            if (Detector.Detect<IEnemy>().AnyEdge.Touch)
             {
                 Core.SpriteState.Exploded();
+                Core.MotionState.Stop();
+                Core.DelayCommand(() => Core.Object.Unload(), 3);
             }
         }
 
