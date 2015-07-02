@@ -68,7 +68,7 @@ namespace WindowsGame1
 
         public virtual void Detect()
         {
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && Core.GeneralMotionState != null)
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && !(Core.GeneralMotionState is StaticMotionState))
             {
                 while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Touch)
                     Core.GeneralMotionState.Adjust(new Vector2(0, -1));

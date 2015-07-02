@@ -9,6 +9,27 @@ namespace WindowsGame1
         where TSpriteState : SpriteStateKernel, new()
         where TMotionState : MotionStateKernel, new()
     {
+        private bool inScreen;
+
+        private bool InScreen
+        {
+            get
+            {
+                return inScreen;
+            }
+            set
+            {
+                if (InScreen)
+                {
+                    if (!value) Unload();
+                }
+                else
+                {
+                    inScreen = value;
+                }
+            }
+        }
+
         // Object core that wraps all internal components of the object
         protected Core<TSpriteState, TMotionState> Core { get; private set; }
 
@@ -140,20 +161,28 @@ namespace WindowsGame1
 
         public void Update()
         {
-            Core.Update();
-            if (CommandExecutor != null) CommandExecutor.Execute();
-            if (StateController != null) StateController.SyncState();
-            if (CollisionHandler != null) CollisionHandler.Handle();
-            if (StateController != null) StateController.SyncState();
-            if (StateController != null) StateController.Update();
-            SpriteState.Update();
-            MotionState.Update();
-            BarrierDetector.Detect();
+            if (!Camera.OutOfRange(Core.Object))
+            {
+                InScreen = true;
+                Core.Update();
+                if (CommandExecutor != null) CommandExecutor.Execute();
+                if (StateController != null) StateController.SyncState();
+                if (CollisionHandler != null) CollisionHandler.Handle();
+                if (StateController != null) StateController.SyncState();
+                if (StateController != null) StateController.Update();
+                SpriteState.Update();
+                MotionState.Update();
+                BarrierDetector.Detect();
+            }
+            else
+            {
+                InScreen = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            var relativePosition = MotionState.Position - Camera.Instance.Location;
+            var relativePosition = MotionState.Position - Camera.Location;
             if (SpriteState.Left)
                 SpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, SpriteState.Color);
             else if (SpriteState.Right)
