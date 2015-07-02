@@ -26,7 +26,7 @@
       <Location>300 200</Location>
     </Item>
     <Item>
-      <Name>HiddenBlock</Name>
+      <Name>NormalBlock</Name>
       <Location>200 200</Location>
     </Item>
     <Item>
