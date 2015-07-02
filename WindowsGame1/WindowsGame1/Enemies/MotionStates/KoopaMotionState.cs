@@ -70,23 +70,29 @@ namespace WindowsGame1
             }
         }
 
-        public override void MarioSmash(string s = "")
+        public override void MarioSmash()
         {
-            if (MotionStatus == MotionEnum.LeftWalk || MotionStatus == MotionEnum.RightWalk)
+            MotionStatus = MotionEnum.None;
+        }
+
+        public override void TakeMarioHitFromSide(string leftOrRight)
+        {
+            if (MotionStatus == MotionEnum.None)
             {
-                MotionStatus = MotionEnum.None;
-            }
-            else
-            {
-                if (s.Equals("left"))
+                if (leftOrRight.Equals("left"))
                 {
                     MotionStatus = MotionEnum.RightShellKick;
                 }
-                else if (s.Equals("right"))
+                else if (leftOrRight.Equals("right"))
                 {
                     MotionStatus = MotionEnum.LeftShellKick;
                 }
+                else
+                {
+                    throw new System.ArgumentException("Parameter must be \"left\" or \"right\".", "leftOrRight");
+                }
             }
+            
         }
 
         public bool isMoving

@@ -11,14 +11,7 @@ namespace WindowsGame1
         {
             if (Detector.Detect<MarioObject>(mario => mario.Alive && mario.GoingDown).Top.Touch)
             {
-                if (Detector.Detect<MarioObject>(mario => mario.Alive && mario.GoingDown).TopLeft.Touch)
-                {
-                    Core.MotionState.MarioSmash("left");
-                }
-                else
-                {
-                    Core.MotionState.MarioSmash("right");
-                }
+                Core.MotionState.MarioSmash();
                 Core.SpriteState.MarioSmash();
                 //Core.Object.Transform<Goomba>();
                 //Core.DelayCommand(() => Core.Object.Unload());
@@ -36,6 +29,18 @@ namespace WindowsGame1
                 if (Core.Object is Goomba) {
                     //Core.Object.Unload();
                     Core.DelayCommand(() => Core.Object.Unload(), 100000000);
+                }
+            }
+
+            if (Detector.Detect<MarioObject>(mario => mario.Alive).AnySide.Touch)
+            {
+                if (Detector.Detect<MarioObject>(mario => mario.Alive).Left.Touch)
+                {
+                    Core.MotionState.TakeMarioHitFromSide("left");
+                }
+                else
+                {
+                    Core.MotionState.TakeMarioHitFromSide("right");
                 }
             }
 

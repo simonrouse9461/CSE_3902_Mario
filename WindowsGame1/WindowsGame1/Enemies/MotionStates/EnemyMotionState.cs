@@ -7,7 +7,9 @@ namespace WindowsGame1
 {
     public abstract class EnemyMotionState : MotionStateKernel
     {
-        public abstract void MarioSmash(string s = "");
+        public abstract void MarioSmash();
+
+        public abstract void TakeMarioHitFromSide(string leftOrRight);
 
         public abstract void Turn();
     }
