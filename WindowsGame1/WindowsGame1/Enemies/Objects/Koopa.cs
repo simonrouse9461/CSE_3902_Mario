@@ -12,5 +12,10 @@ namespace WindowsGame1
         {
             get { return !SpriteState.Dead; }
         }
+
+        public bool isMovingShell
+        {
+            get { return SpriteState.Dead && MotionState.isMoving; }
+        }
     }
 }

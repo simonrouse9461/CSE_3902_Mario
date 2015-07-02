@@ -23,7 +23,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new MoveRightMotion().EnemyVelocity)
             };
 
-            MotionStatus = MotionEnum.LeftWalk;
+            MotionStatus = MotionEnum.None;
         }
 
         protected override void RefreshMotionStatus()
@@ -75,6 +75,11 @@ namespace WindowsGame1
         public override void Die()
         {
             MotionStatus = MotionEnum.None;
+        }
+
+        public bool isMoving
+        {
+            get { return MotionStatus == MotionEnum.LeftWalk || MotionStatus == MotionEnum.RightWalk; }
         }
     }
 }

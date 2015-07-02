@@ -17,14 +17,14 @@ namespace WindowsGame1
                 //Core.DelayCommand(() => Core.Object.Unload());
             }
 
-            if (Detector.Detect<FireballObject>().AnyEdge.Touch)
+            if (Detector.Detect<FireballObject>().AnyEdge.Touch || Detector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
             {
                 Core.SpriteState.MarioSmash();
                 Core.MotionState.Die();
             }
 
-            if (Detector.Detect<IObject>().AnySide.Touch) {
-                //Core.MotionState.Turn();
+            if (Detector.Detect<IBlock>().AnySide.Touch || Detector.Detect<GreenPipeObject>().AnySide.Touch) {
+                Core.MotionState.Turn();
                 Core.SpriteState.Turn();
             }
         }

@@ -23,7 +23,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new MoveRightMotion().EnemyVelocity)
             };
 
-            MotionStatus = MotionEnum.LeftWalk;
+            MotionStatus = MotionEnum.None;
         }
 
         protected override void RefreshMotionStatus()
