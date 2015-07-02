@@ -9,7 +9,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (Detector.Detect<MarioObject>(mario => mario.HaveStarpower).AnyEdge.Touch)
+            if (Detector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
             {
                 Core.MotionState.MarioSmash();
                 Core.SpriteState.MarioSmash();
