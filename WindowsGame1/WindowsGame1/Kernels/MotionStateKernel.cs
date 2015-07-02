@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -24,9 +25,10 @@ namespace WindowsGame1
             Velocity = default(Vector2);
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>() where T : IMotion
+        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, bool> filter = null) where T : IMotion
         {
-            return MotionList.First(motion => motion.Content is T);
+            filter = filter ?? (motion => true);
+            return MotionList.First(motion => motion.Content is T && filter((T)motion.Content));
         }
 
         public void Reset()

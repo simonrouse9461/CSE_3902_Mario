@@ -80,7 +80,7 @@ namespace WindowsGame1
                     {
                         motion.Toggle(false);
                     }
-                    FindMotion<BounceUpMotion>().Toggle(true);
+                    FindMotion<BounceUpMotion>(motion => motion.MarioDieVersion).Toggle(true);
                     break;
                 case VerticalEnum.Raise:
                     FindMotion<RaiseUpMotion>().Toggle(true);
