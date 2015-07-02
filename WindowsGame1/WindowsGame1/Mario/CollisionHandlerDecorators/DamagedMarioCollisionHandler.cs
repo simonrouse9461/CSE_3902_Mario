@@ -12,6 +12,10 @@ namespace WindowsGame1
             DefaultCollisionHandler = original;
             if (Core.SpriteState.HaveFire)
             {
+                Core.SpriteState.BecomeBig();
+            }
+            if (Core.SpriteState.Big)
+            {
                 Core.SpriteState.BecomeSmall();
             }
             Core.SpriteState.BecomeBlink();
