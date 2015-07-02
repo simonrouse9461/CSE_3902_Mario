@@ -35,10 +35,10 @@ namespace WindowsGame1
             }
         }
 
-        public bool Fire
-        {
-            get { return Status == Fireball.Fireball; }
-        }
+        //public bool Fire
+        //{
+        //    get { return Status == Fireball.Fireball; }
+        //}
 
         public void Exploded(){
             Status = Fireball.Exploded;
