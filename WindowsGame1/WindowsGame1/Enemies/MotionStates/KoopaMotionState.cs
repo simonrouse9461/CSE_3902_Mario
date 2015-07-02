@@ -10,7 +10,9 @@ namespace WindowsGame1
         {
             None,
             LeftWalk,
-            RightWalk
+            RightWalk,
+            LeftShellKick,
+            RightShellKick
         }
 
         private MotionEnum MotionStatus;
@@ -20,7 +22,9 @@ namespace WindowsGame1
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
                 new StatusSwitch<IMotion>(new MoveLeftMotion().EnemyVelocity),
-                new StatusSwitch<IMotion>(new MoveRightMotion().EnemyVelocity)
+                new StatusSwitch<IMotion>(new MoveRightMotion().EnemyVelocity),
+                new StatusSwitch<IMotion>(new MoveLeftFastMotion()),
+                new StatusSwitch<IMotion>(new MoveRightFastMotion())
             };
 
             MotionStatus = MotionEnum.None;
@@ -28,20 +32,25 @@ namespace WindowsGame1
 
         protected override void RefreshMotionStatus()
         {
-            switch (MotionStatus)
+            foreach (StatusSwitch<IMotion> s in MotionList) {
+                s.Toggle(false);
+            }
+
+            if (MotionStatus == MotionEnum.LeftWalk)
             {
-                case MotionEnum.None:
-                    FindMotion<MoveLeftMotion>().Toggle(false);
-                    FindMotion<MoveRightMotion>().Toggle(false);
-                    break;
-                case MotionEnum.LeftWalk:
-                    FindMotion<MoveLeftMotion>().Toggle(true);
-                    FindMotion<MoveRightMotion>().Toggle(false);
-                    break;
-                case MotionEnum.RightWalk:
-                    FindMotion<MoveLeftMotion>().Toggle(false);
-                    FindMotion<MoveRightMotion>().Toggle(true);
-                    break;
+                FindMotion<MoveLeftMotion>().Toggle(true);
+            }
+            else if (MotionStatus == MotionEnum.RightWalk)
+            {
+                FindMotion<MoveRightMotion>().Toggle(true);
+            }
+            else if (MotionStatus == MotionEnum.LeftShellKick)
+            {
+                FindMotion<MoveLeftFastMotion>().Toggle(true);
+            }
+            else if (MotionStatus == MotionEnum.RightShellKick)
+            {
+                FindMotion<MoveRightFastMotion>().Toggle(true);
             }
         }
 
@@ -61,7 +70,7 @@ namespace WindowsGame1
             }
         }
 
-        public override void MarioSmash()
+        public override void MarioSmash(string s = "")
         {
             if (MotionStatus == MotionEnum.LeftWalk || MotionStatus == MotionEnum.RightWalk)
             {
@@ -69,17 +78,20 @@ namespace WindowsGame1
             }
             else
             {
-                MotionStatus = MotionEnum.RightWalk;
+                if (s.Equals("left"))
+                {
+                    MotionStatus = MotionEnum.RightShellKick;
+                }
+                else if (s.Equals("right"))
+                {
+                    MotionStatus = MotionEnum.LeftShellKick;
+                }
             }
-        }
-        public override void Die()
-        {
-            MotionStatus = MotionEnum.None;
         }
 
         public bool isMoving
         {
-            get { return MotionStatus == MotionEnum.LeftWalk || MotionStatus == MotionEnum.RightWalk; }
+            get { return MotionStatus != MotionEnum.None; }
         }
     }
 }
