@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace WindowsGame1
@@ -9,6 +9,19 @@ namespace WindowsGame1
 
         public override void Handle()
         {
+            if (Detector.Detect<MarioObject>(mario => mario.HaveStarpower).AnyEdge.Touch)
+            {
+                Core.MotionState.MarioSmash();
+                Core.SpriteState.MarioSmash();
+                //Core.Object.Transform<Goomba>();
+                //Core.DelayCommand(() => Core.Object.Unload());
+                if (Core.Object is Goomba)
+                {
+                    //Core.Object.Unload();
+                    Core.DelayCommand(() => Core.Object.Unload(), 100);
+                }
+            }
+            
             if (Detector.Detect<MarioObject>(mario => mario.Alive && mario.GoingDown).Top.Touch)
             {
                 Core.MotionState.MarioSmash();
