@@ -133,9 +133,9 @@ namespace WindowsGame1
             WorldManager.Instance.ReplaceObject(this, obj);
         }
 
-        public void Generate<T>(T obj = null) where T : class, IObject, new()
+        public void Generate<T>(Vector2 offset = default(Vector2), T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.CreateObject(PositionPoint, obj);
+            WorldManager.Instance.CreateObject(PositionPoint + offset, obj);
         }
 
         public void Update()

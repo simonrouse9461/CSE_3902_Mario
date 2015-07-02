@@ -59,7 +59,7 @@
         {
             if (CheckShoot())
             {
-                Core.DelayCommand(() => alreadyShot = true, 5);
+                Core.DelayCommand(() => alreadyShot = true, 8);
             }
             if (!Core.SpriteState.Shooting && alreadyShot)
             {
