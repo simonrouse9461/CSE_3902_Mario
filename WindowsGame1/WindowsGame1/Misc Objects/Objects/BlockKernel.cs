@@ -11,5 +11,7 @@ namespace WindowsGame1
         {
             SpriteState.Indestructible();
         }
+
+        
     }
 }

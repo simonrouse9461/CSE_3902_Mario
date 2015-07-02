@@ -16,7 +16,8 @@ namespace WindowsGame1
                 }
                 if (Core.SpriteState.isNormal && Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
                 {
-                    Core.Object.Unload();
+                    Core.MotionState.Hit();
+                    //Core.Object.Unload();
                 }
                 if (Core.SpriteState.isHidden)
                 {
