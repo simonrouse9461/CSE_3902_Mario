@@ -8,7 +8,7 @@ namespace WindowsGame1
 
         public override void Execute()
         {
-            Camera.Instance.Adjust(new Vector2(0, 1));
+            Camera.Adjust(new Vector2(0, 1));
         }
     }
 }
