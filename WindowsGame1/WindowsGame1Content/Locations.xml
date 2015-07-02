@@ -504,5 +504,496 @@
       <Type>Cloud</Type>
       <Location>6240 80</Location>
     </Item>
+
+
+
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>8 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>8 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>32 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>32 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>56 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>56 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>80 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>80 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>104 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>104 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>128 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>128 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>152 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>152 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>176 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>176 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>200 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>200 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>224 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>224 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>248 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>248 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>272 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>272 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>296 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>296 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>320 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>320 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>344 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>344 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>368 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>368 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>392 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>392 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>416 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>416 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>440 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>440 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>464 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>464 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>488 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>488 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>512 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>512 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>536 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>536 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>560 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>560 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>584 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>584 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>608 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>608 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>632 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>632 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>656 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>656 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>680 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>680 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>704 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>704 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>728 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>728 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>752 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>752 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>776 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>776 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>800 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>800 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>824 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>824 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>848 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>848 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>872 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>872 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>896 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>896 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>920 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>920 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>944 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>944 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>968 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>968 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>992 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>992 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1016 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1016 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1040 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1040 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1064 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1064 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1088 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1088 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1112 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1112 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1136 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1136 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1160 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1160 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1184 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1184 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1208 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1208 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1232 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1232 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1256 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1256 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1280 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1280 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1304 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1304 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1328 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1328 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1352 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1352 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1376 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1376 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1400 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1400 446</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1424 422</Location>
+    </Item>
+    <Item>
+      <Type>DestructibleBlockObject</Type>
+      <Location>1424 446</Location>
+    </Item>
+
+
+
+
+
+
+
+
   </Asset>
 </XnaContent>
