@@ -23,7 +23,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new MoveRightMotion().EnemyVelocity)
             };
 
-            MotionStatus = MotionEnum.None;
+            MotionStatus = MotionEnum.LeftWalk;
         }
 
         protected override void RefreshMotionStatus()
@@ -61,14 +61,14 @@ namespace WindowsGame1
             }
         }
 
-        public override void Die()
+        public override void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
         }
 
-        public override void MarioSmash()
+        public override void TakeMarioHitFromSide(string leftOrRight)
         {
-            MotionStatus = MotionEnum.None;
+            
         }
     }
 }

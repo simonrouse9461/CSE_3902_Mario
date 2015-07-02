@@ -66,11 +66,13 @@ namespace WindowsGame1
 
         public Rectangle GetDestination(Vector2 location)
         {
+            var width = Source.Default.Coordinates[Animation.Default.Value].Width*SCALE;
+            var height = Source.Default.Coordinates[Animation.Default.Value].Height*SCALE;
             return new Rectangle(
-                (int)location.X - Source.Default.Coordinates[Animation.Default.Value].Width/2,
-                (int)location.Y - Source.Default.Coordinates[Animation.Default.Value].Height,
-                (int)(Source.Default.Coordinates[Animation.Default.Value].Width * SCALE),
-                (int)(Source.Default.Coordinates[Animation.Default.Value].Height * SCALE)
+                (int)(location.X - width/2),
+                (int)(location.Y - height),
+                (int)(width),
+                (int)(height)
                 );
         }
     }

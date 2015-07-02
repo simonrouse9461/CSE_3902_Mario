@@ -48,7 +48,7 @@ namespace WindowsGame1
 
         protected virtual void HandleEnemy()
         {
-            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch)
+            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch || Detector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
             {
                 if (Core.SpriteState.Small)
                 {
