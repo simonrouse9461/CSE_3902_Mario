@@ -171,6 +171,18 @@ namespace WindowsGame1
                         FindObjectCollection<Cloud>().Add(new Cloud());
                         FindObjectCollection<Cloud>().Last().Load(content, Locations[i].Location);
                         break;
+                    case "Fireflower":
+                        FindObjectCollection<Fireflower>().Add(new Fireflower());
+                        FindObjectCollection<Fireflower>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "Mushroom":
+                        FindObjectCollection<Mushroom>().Add(new Mushroom());
+                        FindObjectCollection<Mushroom>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "Star":
+                        FindObjectCollection<Star>().Add(new Star());
+                        FindObjectCollection<Star>().Last().Load(content, Locations[i].Location);
+                        break;
                     default:
                         break;
                 }

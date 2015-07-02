@@ -17,26 +17,33 @@ namespace WindowsGame1
             get { return instance; }
         }
 
-        public Vector2 Location { get; set; }
-        public Vector2 ScreenSize { get; private set; }
+        public static Vector2 Location { get; set; }
+        public static Vector2 ScreenSize { get; private set; }
 
-        public void Adjust(Vector2 offset)
+        public static void Adjust(Vector2 offset)
         {
             Location += offset;
         }
 
-        public void Adjust(float x, float y = 0)
+        public static void Adjust(float x, float y = 0)
         {
             Location += new Vector2(x, y);
         }
 
-        public void Update()
+        public static void Update()
         {
             var marioPosition = WorldManager.FindObject<MarioObject>().PositionPoint;
             if (marioPosition.X > Location.X + ScreenSize.X/2)
             {
                 Adjust(marioPosition.X - Location.X - ScreenSize.X/2);
             }
+        }
+
+        public static bool OutOfRange(IObject obj)
+        {
+            return
+                !obj.PositionRectangle.Intersects(new Rectangle((int) Location.X, (int) Location.Y, (int) ScreenSize.X,
+                    (int) ScreenSize.Y));
         }
     }
 }

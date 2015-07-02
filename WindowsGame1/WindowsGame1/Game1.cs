@@ -104,7 +104,7 @@ namespace WindowsGame1
         {
             Controller.Update();
             World.Update();
-            Camera.Instance.Update();
+            Camera.Update();
 
             base.Update(gameTime);
         }
