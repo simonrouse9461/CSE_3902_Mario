@@ -24,9 +24,6 @@ namespace WindowsGame1
                 return frameSequence[phase];
             },
             period);
-        }
-        
-
-            
+        }        
     }
 }

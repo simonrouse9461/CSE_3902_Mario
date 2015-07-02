@@ -131,6 +131,7 @@
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
     <Compile Include="Items\IItem.cs" />
+    <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
     <Compile Include="Kernels\StateControllerKernel.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
@@ -143,11 +144,16 @@
     <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShootingMarioSprite.cs" />
+    <Compile Include="Misc Objects\Collision\FireballCollisionHandler.cs" />
+    <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
+    <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
     <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
+    <Compile Include="Motions\MoveLeftMotion.cs" />
+    <Compile Include="Motions\MoveRightMotion.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
     <Compile Include="Kernels\MotionStateKernel.cs" />
     <Compile Include="Kernels\ObjectKernel.cs" />
@@ -230,7 +236,6 @@
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\HiddenBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />

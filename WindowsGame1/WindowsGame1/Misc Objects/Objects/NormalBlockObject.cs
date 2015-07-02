@@ -9,5 +9,13 @@ namespace WindowsGame1
             SpriteState.NormalBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
+
+        protected void SyncState()
+        {
+            if (SpriteState.isNormal)
+            {
+                MotionState.Hit();
+            }
+        }
     }
 }

@@ -82,7 +82,7 @@ namespace WindowsGame1
             {
                 return FindObjectCollection<T>()[index];
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return default(T);
             }

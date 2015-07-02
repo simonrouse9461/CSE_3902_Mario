@@ -18,7 +18,7 @@ namespace WindowsGame1
                 new FireballSprite(),
                 new ExplodingFireballSprite()
             };
-            ChangeSpriteFrequency(3);
+            ChangeSpriteFrequency(7);
         }
 
         public override ISprite Sprite
@@ -33,6 +33,15 @@ namespace WindowsGame1
                     return FindSprite<FireballSprite>();
                 }
             }
+        }
+
+        public bool Fire
+        {
+            get { return Status == Fireball.Fireball; }
+        }
+
+        public void Exploded(){
+            Status = Fireball.Exploded;
         }
     }
 }
