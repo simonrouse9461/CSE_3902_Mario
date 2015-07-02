@@ -88,16 +88,6 @@ namespace WindowsGame1
             }
         }
 
-        private static Collection<T> Populator<T>(int amount = 1) where T : IObject, new()
-        {
-            var collection = new Collection<T>();
-            for (int i = 0; i < amount; i++)
-            {
-                collection.Add(new T());
-            }
-            return collection;
-        }
-
         public void RemoveObject(IObject obj)
         {
             foreach (var collection in ObjectList)
