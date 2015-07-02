@@ -18,8 +18,7 @@ namespace WindowsGame1.Misc_Objects.Collision
 
         protected virtual void HandleEnemy()
         {
-            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch || 
-                Detector.Detect<IEnemy>(enemy => enemy.Alive).Top.Touch)
+            if (Detector.Detect<IEnemy>(enemy => enemy.Alive).AnyEdge.Touch)
             {
                 Core.SpriteState.Exploded();
             }
