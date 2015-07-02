@@ -26,7 +26,8 @@ namespace WindowsGame1
             MotionList = new Collection<StatusSwitch<IMotion>>{
                 new StatusSwitch<IMotion>(new MoveLeftMotion().FireballVelocity),
                 new StatusSwitch<IMotion>(new MoveRightMotion().FireballVelocity),
-                new StatusSwitch<IMotion>(new FallDownMotion())
+                new StatusSwitch<IMotion>(new FallDownMotion()),
+                new StatusSwitch<IMotion>(new FireballBounceMotion())
             };
         }
 
@@ -52,6 +53,10 @@ namespace WindowsGame1
                     {
                         motion.Toggle(false);
                     }
+                    break;
+                case ActionEnum.Bounce:
+                    FindMotion<FallDownMotion>().Toggle(false);
+                    FindMotion<FireballBounceMotion>().Toggle(true);
                     break;
             }
         }
@@ -84,6 +89,11 @@ namespace WindowsGame1
         public void Stop()
         {
             Action = ActionEnum.Stop;
+        }
+
+        public void Bounce()
+        {
+            Action = ActionEnum.Bounce;
         }
     }
 }
