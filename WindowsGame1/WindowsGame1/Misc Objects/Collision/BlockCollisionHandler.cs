@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class BlockCollisionHandler : CollisionHandlerKernel<BlockSpriteState, StaticMotionState>
+    public class BlockCollisionHandler : CollisionHandlerKernel<BlockSpriteState, BlockMotionState>
     {
-        public BlockCollisionHandler(Core<BlockSpriteState, StaticMotionState> core) : base(core){}
+        public BlockCollisionHandler(Core<BlockSpriteState, BlockMotionState> core) : base(core){}
 
         public override void Handle()
         {
@@ -16,7 +16,8 @@ namespace WindowsGame1
                 }
                 if (Core.SpriteState.isNormal && Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
                 {
-                    Core.Object.Unload();
+                    Core.MotionState.Hit();
+                    //Core.Object.Unload();
                 }
                 if (Core.SpriteState.isHidden)
                 {

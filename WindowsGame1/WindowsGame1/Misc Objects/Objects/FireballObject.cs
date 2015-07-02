@@ -11,5 +11,23 @@ namespace WindowsGame1
         {
             get { return false; }
         }
+
+        public FireballObject LeftFireBall
+        {
+            get
+            {
+                Core.MotionState.GoLeft();
+                return this;
+            }
+        }
+
+        public FireballObject RightFireBall
+        {
+            get
+            {
+                Core.MotionState.GoRight();
+                return this;
+            }
+        }
     }
 }

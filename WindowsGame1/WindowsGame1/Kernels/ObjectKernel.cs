@@ -37,6 +37,12 @@ namespace WindowsGame1
             set { Core.BarrierDetector = value; }
         }
 
+        protected IStateController StateController
+        {
+            get { return Core.StateController; }
+            set { Core.StateController = value; }   
+        }
+
         protected ICommandExecutor CommandExecutor
         {
             get { return Core.CommandExecutor; }
@@ -102,9 +108,6 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        // protected Methods
-        protected virtual void SyncState() { }
-
         // public methods
         public virtual void Reset()
         {
@@ -125,23 +128,24 @@ namespace WindowsGame1
             Core.DelayCommand(() => WorldManager.Instance.RemoveObject(this));
         }
 
-        public void Transform<T>() where T : IObject, new()
+        public void Transform<T>(T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.ReplaceObject<T>(this);
+            WorldManager.Instance.ReplaceObject(this, obj);
         }
 
-        public void Generate<T>() where T : IObject, new()
+        public void Generate<T>(Vector2 offset = default(Vector2), T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.CreateObject<T>(PositionPoint);
+            WorldManager.Instance.CreateObject(PositionPoint + offset, obj);
         }
 
         public void Update()
         {
             Core.Update();
             if (CommandExecutor != null) CommandExecutor.Execute();
-            SyncState();
+            if (StateController != null) StateController.SyncState();
             if (CollisionHandler != null) CollisionHandler.Handle();
-            SyncState();
+            if (StateController != null) StateController.SyncState();
+            if (StateController != null) StateController.Update();
             SpriteState.Update();
             MotionState.Update();
             BarrierDetector.Detect();

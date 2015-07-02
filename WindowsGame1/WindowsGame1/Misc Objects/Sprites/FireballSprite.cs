@@ -9,6 +9,7 @@ namespace WindowsGame1
     {
         public FireballSprite()
         {
+            const int period = 4;
             ImageFile.Default = "misc_sprites";
             Source.Default = new SpriteSource
             {
@@ -20,6 +21,13 @@ namespace WindowsGame1
                     new Rectangle(348, 945, 8, 8)
                 }
             };
+            Animation.Default = new PeriodicFunction<int>(
+                phase =>
+                {
+                    int[] frameSequence = { 0, 1, 2, 3 };
+                    return frameSequence[phase];
+                },
+            period);
         }
     }
 }

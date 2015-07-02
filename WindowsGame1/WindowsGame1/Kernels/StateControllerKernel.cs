@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Net;
-using Microsoft.Xna.Framework;
-
-namespace WindowsGame1
+﻿namespace WindowsGame1
 {
-    public abstract class CollisionHandlerKernel<TSpriteState, TMotionState> : ICollisionHandler
-        where TSpriteState : SpriteStateKernel
-        where TMotionState : MotionStateKernel
+    public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController 
+        where TSpriteState : ISpriteState
+        where TMotionState : IMotionState
     {
-        public Core<TSpriteState, TMotionState> Core { get; set; }
-        public CollisionDetector Detector { get; set; }
+        protected Core<TSpriteState, TMotionState> Core;
 
-        protected CollisionHandlerKernel(ICore core)
+        protected StateControllerKernel(ICore core)
         {
             if (core is Core<TSpriteState, TMotionState>)
                 Core = (Core<TSpriteState, TMotionState>) core;
@@ -27,9 +21,9 @@ namespace WindowsGame1
                     CommandExecutor = core.CommandExecutor,
                     BarrierDetector = core.BarrierDetector
                 };
-            Detector = new CollisionDetector(Core.Object);
         }
 
-        public abstract void Handle();
+        public abstract void SyncState();
+        public abstract void Update();
     }
 }

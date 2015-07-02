@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public class MoveRightMotion : MotionKernel
     {
-        private static readonly Vector2 StartVelocity = new Vector2(2, 0);
+        private Vector2 StartVelocity;
 
         public override Vector2 Velocity
         {
@@ -12,6 +12,33 @@ namespace WindowsGame1
             {
                 var velocity = StartVelocity;
                 return velocity;
+            }
+        }
+
+        public MoveRightMotion EnemyVelocity
+        {
+            get
+            {
+                StartVelocity = new Vector2(1, 0);
+                return this;
+            }
+        }
+
+        public MoveRightMotion ItemVelocity
+        {
+            get
+            {
+                StartVelocity = new Vector2(1, 0);
+                return this;
+            }
+        }
+
+        public MoveRightMotion FireballVelocity
+        {
+            get
+            {
+                StartVelocity = new Vector2(6, 0);
+                return this;
             }
         }
     }

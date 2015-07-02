@@ -5,19 +5,17 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class WalkingKoopaSprite : SpriteKernel
+    public class RightWalkingKoopaSprite : SpriteKernel
     {
-        public WalkingKoopaSprite()
+        public RightWalkingKoopaSprite()
         {
-            const int period = 12;
+            const int period = 6;
 
             ImageFile.Default = "enemies";
             Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(149, 1, 18, 23),
-                    new Rectangle(179, 1, 18, 23),
                     new Rectangle(209, 1, 18, 23),
                     new Rectangle(239,1, 18,23)
                 }
@@ -25,7 +23,7 @@ namespace WindowsGame1
             Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = { 1,1,0,0,1,1,2,2,3,3,2,2 };
+                    int[] frameSequence = { 1,1,0,0,1,1 };
                     return frameSequence[phase];
                 },
                 period);

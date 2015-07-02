@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public  class Koopa : ObjectKernel<KoopaSpriteState, EnemyMotionState>, IEnemy
+    public  class Koopa : ObjectKernel<KoopaSpriteState, KoopaMotionState>, IEnemy
     {
         public Koopa() {
             CollisionHandler = new EnemyCollisionHandler(Core);
@@ -11,11 +11,6 @@ namespace WindowsGame1
         public bool Alive
         {
             get { return !SpriteState.Dead; }
-        }
-
-        protected override void SyncState()
-        {
-
         }
     }
 }

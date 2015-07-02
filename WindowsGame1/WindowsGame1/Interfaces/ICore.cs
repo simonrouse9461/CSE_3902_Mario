@@ -8,6 +8,7 @@ namespace WindowsGame1
         ISpriteState GeneralSpriteState { get; }
         IMotionState GeneralMotionState { get; }
         BarrierDetector BarrierDetector { get; set; }
+        IStateController StateController { get; set; }
         ICollisionHandler CollisionHandler { get; set; }
         ICommandExecutor CommandExecutor { get; set; }
 

@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Web.Management;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -72,7 +73,7 @@ namespace WindowsGame1
                 new GrowingFireMarioSprite(),
                 new DeGrowingBigMarioSprite(),
                 new DeGrowingFireMarioSprite(),
-                new MarioFireballSprite()
+                new ShootingMarioSprite()
             };
 
             ColorSchemeList = new Collection<ColorAnimator>
@@ -182,7 +183,7 @@ namespace WindowsGame1
                         switch (Status)
                         {
                             case StatusEnum.Fire:
-                                return FindSprite<MarioFireballSprite>();
+                                return FindSprite<ShootingMarioSprite>();
                         }
                         break;
                 }
@@ -365,6 +366,11 @@ namespace WindowsGame1
         public void Shoot()
         {
             Action = ActionEnum.Shoot;
+        }
+
+        public bool Shooting
+        {
+            get { return Action == ActionEnum.Shoot; }
         }
     }
 }

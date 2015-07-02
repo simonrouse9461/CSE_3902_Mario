@@ -12,8 +12,20 @@ namespace WindowsGame1
             if (Detector.Detect<MarioObject>(mario => mario.Alive && mario.GoingDown).Top.Touch)
             {
                 Core.SpriteState.MarioSmash();
+                Core.MotionState.MarioSmash();
                 //Core.Object.Transform<Goomba>();
                 //Core.DelayCommand(() => Core.Object.Unload());
+            }
+
+            if (Detector.Detect<FireballObject>().AnyEdge.Touch)
+            {
+                Core.SpriteState.MarioSmash();
+                Core.MotionState.Die();
+            }
+
+            if (Detector.Detect<IObject>().AnySide.Touch) {
+                //Core.MotionState.Turn();
+                Core.SpriteState.Turn();
             }
         }
     }

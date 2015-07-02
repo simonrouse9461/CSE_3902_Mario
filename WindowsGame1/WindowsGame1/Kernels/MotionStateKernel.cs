@@ -7,6 +7,9 @@ namespace WindowsGame1
 {
     public abstract class MotionStateKernel : IMotionState
     {
+        protected Counter Timer { get; set; }
+        protected Collection<StatusSwitch<IMotion>> MotionList { get; set; }
+
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
 
@@ -14,9 +17,6 @@ namespace WindowsGame1
         {
             Position += offset;
         }
-
-        protected Counter Timer { get; set; }
-        protected Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
         protected MotionStateKernel()
         {

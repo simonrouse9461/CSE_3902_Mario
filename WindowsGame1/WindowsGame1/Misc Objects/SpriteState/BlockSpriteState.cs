@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -27,9 +26,12 @@ namespace WindowsGame1
                 new IndestructibleBlockSprite(),
                 new DestructibleBlockSprite(),
                 new UsedBlockSprite(),
-                new HiddenBlockSprite(),
                 new QuestionBlockSprite()
             };
+            ColorSchemeList = new Collection<ColorAnimator>{
+                new ColorAnimator(new[] {Color.Transparent})
+            };
+
             ChangeSpriteFrequency(10);
         }
 
@@ -43,7 +45,7 @@ namespace WindowsGame1
                         return FindSprite<NormalBlockSprite>();
                         
                     case StatusEnum.HiddenBlock:
-                        return FindSprite<HiddenBlockSprite>();
+                        return FindSprite<UsedBlockSprite>();
 
                     case StatusEnum.QuestionBlock:
                         return FindSprite<QuestionBlockSprite>();
@@ -59,6 +61,20 @@ namespace WindowsGame1
                     }
                 }
             }
+
+        protected override ColorAnimator ColorScheme
+        {
+            get
+            {
+                switch (Status)
+                {
+                    case StatusEnum.HiddenBlock:
+                        return ColorSchemeList[0];
+                    default:
+                        return null;
+                }
+            }
+        }
 
         public void QuestionToUsedBlock()
         {
