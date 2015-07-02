@@ -15,12 +15,21 @@ namespace WindowsGame1
                 Core.MotionState.MarioSmash();
                 //Core.Object.Transform<Goomba>();
                 //Core.DelayCommand(() => Core.Object.Unload());
+                if (Core.Object is Koopa)
+                {
+                    //Core.Object.Unload();
+                    Core.DelayCommand(() => Core.Object.Unload(), 100);
+                }
             }
 
             if (Detector.Detect<FireballObject>().AnyEdge.Touch || Detector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
             {
                 Core.SpriteState.MarioSmash();
                 Core.MotionState.Die();
+                if (Core.Object is Koopa) {
+                    Core.Object.Unload();
+                    Core.DelayCommand(() => Core.Object.Unload(), 100000000);
+                }
             }
 
             if (Detector.Detect<IBlock>().AnySide.Touch || Detector.Detect<GreenPipeObject>().AnySide.Touch) {
