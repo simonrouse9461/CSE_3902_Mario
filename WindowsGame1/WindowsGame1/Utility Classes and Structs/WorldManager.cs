@@ -35,33 +35,33 @@ namespace WindowsGame1
         {
             ObjectList = new Collection<IList>
             {
+                
                 // background objects should be drawn first
-                Populator<Hill>(),
-                Populator<Bush>(),
-                Populator<Cloud>(),
+                new Collection<Hill>(),
+                new Collection<Bush>(),
+                new Collection<Cloud>(),
 
                 // then items
-                Populator<Coin>(),
-                Populator<Star>(),
-                Populator<QuestionBlockObject>(),
-                Populator<HiddenBlockObject>(),
-                Populator<NormalBlockObject>(),
-                Populator<DestructibleBlockObject>(),
-                Populator<BlockKernel>(),
-                Populator<GreenPipeObject>(),
-                Populator<UsedBlockObject>(),
-                Populator<Fireflower>(),
-                Populator<Mushroom>(),
-                Populator<_1up>(),
+                new Collection<Coin>(),
+                new Collection<Star>(),
+                new Collection<QuestionBlockObject>(),
+                new Collection<HiddenBlockObject>(),
+                new Collection<NormalBlockObject>(),
+                new Collection<DestructibleBlockObject>(),
+                new Collection<BlockKernel>(),
+                new Collection<GreenPipeObject>(),
+                new Collection<UsedBlockObject>(),
+                new Collection<Fireflower>(),
+                new Collection<Mushroom>(),
+                new Collection<_1up>(),
 
                 // then enemies
-                Populator<Goomba>(),
-                Populator<Koopa>(),
+                new Collection<Goomba>(),
+                new Collection<Koopa>(),
 
                 // Mario should be drawn in the end
-                Populator<MarioObject>(),
+                new Collection<MarioObject>(),
 
-                // Empty collection reserved for run time generated fireballs
                 new Collection<FireballObject>()
             };
         }
@@ -128,30 +128,63 @@ namespace WindowsGame1
         public void LoadContent(ContentManager content)
         {
             Content = content;
-//            foreach (var obj in ObjectList)
-//            {
-//                obj.Load(content);
-//            }
+
+            FindObjectCollection<MarioObject>().Add(new MarioObject());
+            FindObject<MarioObject>().Load(content, new Vector2(75, 398));
+
             Locations = content.Load<ObjectData[]>("Locations");
-            FindObject<MarioObject>().Load(content, new Vector2(200, 170));
-            
-            FindObject<Goomba>().Load(content, Locations[1].Location);
-            FindObject<Koopa>().Load(content, Locations[2].Location);
-            FindObject<Coin>().Load(content, Locations[3].Location);
-            FindObject<Star>().Load(content, Locations[4].Location);
-            FindObject<QuestionBlockObject>().Load(content, Locations[5].Location);
-            FindObject<HiddenBlockObject>().Load(content, Locations[6].Location);
-            FindObject<NormalBlockObject>().Load(content, Locations[7].Location);
-            FindObject<DestructibleBlockObject>().Load(content, Locations[8].Location);
-            FindObject<BlockKernel>().Load(content, Locations[9].Location);
-            FindObject<GreenPipeObject>().Load(content, Locations[10].Location);
-            FindObject<UsedBlockObject>().Load(content, Locations[11].Location);
-            FindObject<Fireflower>().Load(content, Locations[12].Location);
-            FindObject<Mushroom>().Load(content, Locations[13].Location);
-            FindObject<_1up>().Load(content, Locations[14].Location);
-            FindObject<Hill>().Load(content, Locations[15].Location);
-            FindObject<Bush>().Load(content, Locations[16].Location);
-            FindObject<Cloud>().Load(content, Locations[17].Location);
+            for (int i = 0; i < Locations.Length; i++)
+            {
+                switch (Locations[i].Type)
+                {
+                    case "Goomba":
+                        FindObjectCollection<Goomba>().Add(new Goomba());
+                        FindObjectCollection<Goomba>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "Koopa":
+                        FindObjectCollection<Koopa>().Add(new Koopa());
+                        FindObjectCollection<Koopa>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "BlockKernel":
+                        FindObjectCollection<BlockKernel>().Add(new BlockKernel());
+                        FindObjectCollection<BlockKernel>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "QuestionBlockObject":
+                        FindObjectCollection<QuestionBlockObject>().Add(new QuestionBlockObject());
+                        FindObjectCollection<QuestionBlockObject>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "HiddenBlockObject":
+                        FindObjectCollection<HiddenBlockObject>().Add(new HiddenBlockObject());
+                        FindObjectCollection<HiddenBlockObject>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "NormalBlockObject":
+                        FindObjectCollection<NormalBlockObject>().Add(new NormalBlockObject());
+                        FindObjectCollection<NormalBlockObject>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "DestructibleBlockObject":
+                        FindObjectCollection<DestructibleBlockObject>().Add(new DestructibleBlockObject());
+                        FindObjectCollection<DestructibleBlockObject>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "GreenPipeObject":
+                        FindObjectCollection<GreenPipeObject>().Add(new GreenPipeObject());
+                        FindObjectCollection<GreenPipeObject>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "Hill":
+                        FindObjectCollection<Hill>().Add(new Hill());
+                        FindObjectCollection<Hill>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "Bush":
+                        FindObjectCollection<Bush>().Add(new Bush());
+                        FindObjectCollection<Bush>().Last().Load(content, Locations[i].Location);
+                        break;
+                    case "Cloud":
+                        FindObjectCollection<Cloud>().Add(new Cloud());
+                        FindObjectCollection<Cloud>().Last().Load(content, Locations[i].Location);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         public void Update()
