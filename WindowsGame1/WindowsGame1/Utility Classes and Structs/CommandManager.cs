@@ -61,8 +61,7 @@ namespace WindowsGame1
             keyboardController.RegisterCommand(Keys.X, marioFireballCommand, false);
         }
 
-        public void Update()
-        {
+        public void Update() {
             keyboardController.Update();
             gamepadController.Update();
         }

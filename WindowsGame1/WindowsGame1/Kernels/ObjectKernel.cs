@@ -37,6 +37,12 @@ namespace WindowsGame1
             set { Core.BarrierDetector = value; }
         }
 
+        protected IStateController StateController
+        {
+            get { return Core.StateController; }
+            set { Core.StateController = value; }   
+        }
+
         protected ICommandExecutor CommandExecutor
         {
             get { return Core.CommandExecutor; }
@@ -102,9 +108,6 @@ namespace WindowsGame1
             get { return MotionState.Position; }
         }
 
-        // protected Methods
-        protected virtual void SyncState() { }
-
         // public methods
         public virtual void Reset()
         {
@@ -139,9 +142,9 @@ namespace WindowsGame1
         {
             Core.Update();
             if (CommandExecutor != null) CommandExecutor.Execute();
-            SyncState();
+            if (StateController != null) StateController.SyncState();
             if (CollisionHandler != null) CollisionHandler.Handle();
-            SyncState();
+            if (StateController != null) StateController.SyncState();
             SpriteState.Update();
             MotionState.Update();
             BarrierDetector.Detect();

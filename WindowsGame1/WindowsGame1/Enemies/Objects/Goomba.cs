@@ -13,11 +13,5 @@ namespace WindowsGame1
         {
             get { return !SpriteState.Dead; }
         }
-
-        protected override void SyncState()
-        {
-
-        }
-        
     }
 }

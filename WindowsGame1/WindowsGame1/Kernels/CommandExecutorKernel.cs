@@ -26,9 +26,21 @@ namespace WindowsGame1
             }
         }
 
-        protected CommandExecutorKernel(Core<TSpriteState, TMotionState> core)
+        protected CommandExecutorKernel(ICore core)
         {
-            Core = core;
+            if (core is Core<TSpriteState, TMotionState>)
+                Core = (Core<TSpriteState, TMotionState>)core;
+            else
+                Core = new Core<TSpriteState, TMotionState>
+                {
+                    Object = core.Object,
+                    SpriteState = (TSpriteState)(core.GeneralSpriteState),
+                    MotionState = (TMotionState)(core.GeneralMotionState),
+                    StateController = core.StateController,
+                    CollisionHandler = core.CollisionHandler,
+                    CommandExecutor = core.CommandExecutor,
+                    BarrierDetector = core.BarrierDetector
+                };
         }
 
         public void Reset()

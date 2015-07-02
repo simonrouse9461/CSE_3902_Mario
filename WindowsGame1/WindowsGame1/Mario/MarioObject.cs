@@ -7,36 +7,9 @@ namespace WindowsGame1
             CommandExecutor = new MarioCommandExecutor(Core);
             CollisionHandler = new MarioCollisionHandler(Core);
             BarrierDetector = new MarioBarrierDetector(Core);
-
+            StateController = new MarioStateController(Core);
             SpriteState.BecomeSmall();
             BarrierDetector.AddBarrier<IObject>();
-        }
-
-        protected override void SyncState()
-        {
-            if (MotionState.VerticalStatic)
-            {
-                if (MotionState.HorizontalStatic)
-                {
-                    SpriteState.Stand();
-                }
-                else
-                {
-                    if (MotionState.MovingRight == SpriteState.Right)
-                        SpriteState.Run();
-                    else
-                        SpriteState.Turn();
-                }
-            }
-            else
-            { 
-                if (MotionState.Raising)
-                    SpriteState.Jump();
-                else if (MotionState.Falling)
-                    SpriteState.Crouch();
-            }
-            if (SpriteState.Dead)
-                MotionState.DeadFall();
         }
 
         public override bool Solid

@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class MarioFireballSprite : SpriteKernel
+    public class ShootingMarioSprite : SpriteKernel
     {
-        public MarioFireballSprite()
+        public ShootingMarioSprite()
         {
             ImageFile.Default = "Mario";
             Source.Left = new SpriteSource

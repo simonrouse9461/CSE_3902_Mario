@@ -21,6 +21,7 @@ namespace WindowsGame1
         public TS SpriteState { get; set; }
         public TM MotionState { get; set; }
         public BarrierDetector BarrierDetector { get; set; }
+        public IStateController StateController { get; set; }
         public ICollisionHandler CollisionHandler { get; set; }
         public ICommandExecutor CommandExecutor { get; set; }
 
@@ -76,6 +77,8 @@ namespace WindowsGame1
                 CommandExecutor = (ICommandExecutor)obj;
             if (obj is BarrierDetector)
                 BarrierDetector = (BarrierDetector)obj;
+            if (obj is IStateController)
+                StateController = (IStateController) obj;
         }
 
         public void Update()
