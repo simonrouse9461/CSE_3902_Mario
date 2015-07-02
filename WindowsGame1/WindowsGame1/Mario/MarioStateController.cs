@@ -4,12 +4,19 @@
     {
         public MarioStateController(Core<MarioSpriteState, MarioMotionState> core) : base(core) { }
 
+        private bool alreadyShot;
+
         public override void SyncState()
         {
             if (Core.SpriteState.Dead)
                 Core.MotionState.DeadFall();
-            if (!Core.SpriteState.Shooting)
+            if (Core.SpriteState.Shooting && !alreadyShot)
             {
+                //alreadyShot = true;
+            }
+            else
+            {
+                alreadyShot = false;
                 if (Core.MotionState.VerticalStatic)
                 {
                     if (Core.MotionState.HorizontalStatic)

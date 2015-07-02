@@ -21,7 +21,7 @@ namespace WindowsGame1
         }
         public override bool Solid
         {
-            get { return true; }
+            get { return false; }
         }
     }
 }
