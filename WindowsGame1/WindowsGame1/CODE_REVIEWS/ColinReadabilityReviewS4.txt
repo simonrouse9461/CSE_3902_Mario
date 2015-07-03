@@ -1,0 +1,11 @@
+﻿Author: Colin Dolan
+Date: 7/2/15
+Sprint #: 4
+File: GoombaMotionState.cs
+Author of File: Haden Kersting
+Comments: Variable names are descriptive. Collection of Status switches is sensible and
+very readable. RefreshMotionState updates the various components of a Goomba's possible
+motion based on what motion is selected. Methods to get goomba to turn if it runs into
+an object and to crush goomba are very understandable and sensible to have. Overall the 
+function and purpose of this class and its components are very easy to understand and 
+modify if needed.
