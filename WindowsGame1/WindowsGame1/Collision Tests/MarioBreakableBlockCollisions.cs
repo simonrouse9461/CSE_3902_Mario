@@ -11,7 +11,7 @@ namespace WindowsGame1
         private MarioGame TestGame;
         private MarioObject TestMario { get; set; }
         private MarioObject CompareMario { get; set; }
-        private DestructibleBlockObject TestDestructibleBlock { get; set; }
+        private FloorBlockObject TestDestructibleBlock { get; set; }
 
         private ICommand TestCommand;
         private ICommand CompareCommand;
@@ -20,7 +20,7 @@ namespace WindowsGame1
             TestGame = new MarioGame();
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
-            TestDestructibleBlock = new DestructibleBlockObject();
+            TestDestructibleBlock = new FloorBlockObject();
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
@@ -44,7 +44,7 @@ namespace WindowsGame1
             TestGame = new MarioGame();
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
-            TestDestructibleBlock = new DestructibleBlockObject();
+            TestDestructibleBlock = new FloorBlockObject();
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioRightCommand(TestGame);
             CompareCommand = new MarioRightCommand(TestGame);
@@ -69,7 +69,7 @@ namespace WindowsGame1
             TestGame = new MarioGame();
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
-            TestDestructibleBlock = new DestructibleBlockObject();
+            TestDestructibleBlock = new FloorBlockObject();
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioDownCommand(TestGame);
             CompareCommand = new MarioDownCommand(TestGame);
@@ -93,7 +93,7 @@ namespace WindowsGame1
             TestGame = new MarioGame();
             TestMario = new MarioObject();
             CompareMario = new MarioObject();
-            TestDestructibleBlock = new DestructibleBlockObject();
+            TestDestructibleBlock = new FloorBlockObject();
             CompareMario.PassCommand(CompareCommand);
             TestCommand = new MarioUpCommand(TestGame);
             CompareCommand = new MarioUpCommand(TestGame);

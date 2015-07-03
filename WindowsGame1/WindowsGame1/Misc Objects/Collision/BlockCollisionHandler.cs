@@ -23,10 +23,6 @@ namespace WindowsGame1
                 {
                     Core.SpriteState.HiddenToUsedBlock();
                 }
-                if (Core.SpriteState.isDestructible)
-                {
-                    Core.Object.Unload();
-                }
             }
         }
     }
