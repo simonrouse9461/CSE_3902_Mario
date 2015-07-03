@@ -1,0 +1,16 @@
+Author: Bowen Dai
+Date: 07/02/15
+Sprint #: 4
+File: CollisionType.cs
+File Author: Bowen Dai
+Time: 3 minutes
+
+COMMENTS:
+Code was written in high cohesion which will make maintainess easier.
+If any new collision condition is needed, we could just add some new 
+thing in this file. Low coupling since everything been used is created
+in this file.
+
+HYPOTHETICAL CHANGE:
+CollisonType was build in to a struct instead of a class, which may
+cause some potential problems.
