@@ -197,7 +197,7 @@
     <Compile Include="Motions\AccelerateLeftMotion.cs" />
     <Compile Include="Motions\AccelerateRightMotion.cs" />
     <Compile Include="Motions\BounceUpMotion.cs" />
-    <Compile Include="Motions\FallDownMotion.cs" />
+    <Compile Include="Motions\GravityMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
     <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />

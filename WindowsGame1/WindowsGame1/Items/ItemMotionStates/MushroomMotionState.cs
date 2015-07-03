@@ -14,14 +14,14 @@ namespace WindowsGame1
             {
                 new StatusSwitch<IMotion>(new MoveLeftMotion().ItemVelocity),
                 new StatusSwitch<IMotion>(new MoveRightMotion().ItemVelocity),
-                new StatusSwitch<IMotion>(new FallDownMotion())
+                new StatusSwitch<IMotion>(new GravityMotion())
             };
         }
 
         protected override void RefreshMotionStatus()
         {
             FindMotion<MoveLeftMotion>().Toggle(true);
-            FindMotion<FallDownMotion>().Toggle(true);
+            FindMotion<GravityMotion>().Toggle(true);
         }
 
         protected override void SetToDefaultState()
