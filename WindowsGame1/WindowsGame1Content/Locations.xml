@@ -18,19 +18,19 @@
 
     <Item>
       <Type>Goomba</Type>
-      <Location>658 398</Location>
+      <Location>658 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>1328 398</Location>
+      <Location>1328 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>1682 398</Location>
+      <Location>1682 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>1730 398</Location>
+      <Location>1730 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
@@ -42,35 +42,35 @@
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>3034 398</Location>
+      <Location>3034 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>3082 398</Location>
+      <Location>3082 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>3948 398</Location>
+      <Location>3948 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>3994 398</Location>
+      <Location>3994 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>4058 398</Location>
+      <Location>4058 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>4104 398</Location>
+      <Location>4104 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>5542 398</Location>
+      <Location>5542 400</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>5588 398</Location>
+      <Location>5588 400</Location>
     </Item>
     <Item>
       <Type>Koopa</Type>
@@ -626,145 +626,145 @@
 
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>898 374</Location>
+      <Location>898 425</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>1214 374</Location>
+      <Location>1214 425</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>1472 374</Location>
+      <Location>1472 425</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>1824 374</Location>
+      <Location>1824 425</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>5216 374</Location>
+      <Location>5216 425</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>5720 374</Location>
+      <Location>5720 425</Location>
     </Item>
 
     <Item>
       <Type>Hill</Type>
-      <Location>0 389</Location>
+      <Location>0 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>512 389</Location>
+      <Location>512 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>1572 389</Location>
+      <Location>1572 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>2048 389</Location>
+      <Location>2048 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>3072 389</Location>
+      <Location>3072 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>3584 389</Location>
+      <Location>3584 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>4610 389</Location>
+      <Location>4610 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>5122 389</Location>
+      <Location>5122 400</Location>
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>6024 389</Location>
+      <Location>6024 400</Location>
     </Item>
 
     <Item>
       <Type>Bush</Type>
-      <Location>370 398</Location>
+      <Location>370 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>410 398</Location>
+      <Location>410 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>450 398</Location>
+      <Location>450 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>752 398</Location>
+      <Location>752 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>1328 398</Location>
+      <Location>1328 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>1368 398</Location>
+      <Location>1368 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>1904 398</Location>
+      <Location>1904 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>1944 398</Location>
+      <Location>1944 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>1984 398</Location>
+      <Location>1984 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>2290 398</Location>
+      <Location>2290 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>2864 398</Location>
+      <Location>2864 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>2904 398</Location>
+      <Location>2904 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>3438 398</Location>
+      <Location>3438 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>3478 398</Location>
+      <Location>3478 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>3826 398</Location>
+      <Location>3826 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>4412 398</Location>
+      <Location>4412 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>4452 398</Location>
+      <Location>4452 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>5052 398</Location>
+      <Location>5052 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>5360 398</Location>
+      <Location>5360 400</Location>
     </Item>
     <Item>
       <Type>Bush</Type>
-      <Location>6592 398</Location>
+      <Location>6592 400</Location>
     </Item>
 
     <Item>

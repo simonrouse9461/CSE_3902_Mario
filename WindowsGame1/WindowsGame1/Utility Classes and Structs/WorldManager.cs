@@ -47,7 +47,7 @@ namespace WindowsGame1
                 new Collection<QuestionBlockObject>(),
                 new Collection<HiddenBlockObject>(),
                 new Collection<NormalBlockObject>(),
-                new Collection<FloorBlockObject>(),
+               
                 new Collection<BlockKernel>(),
                 new Collection<GreenPipeObject>(),
                 new Collection<UsedBlockObject>(),
@@ -58,7 +58,7 @@ namespace WindowsGame1
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
-
+                 new Collection<FloorBlockObject>(),
                 // Mario should be drawn in the end
                 new Collection<MarioObject>(),
 
