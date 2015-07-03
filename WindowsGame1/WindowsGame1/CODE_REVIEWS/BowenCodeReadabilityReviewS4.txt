@@ -1,8 +1,8 @@
 Author: Bowen Dai
 Date: 07/02/15
 Sprint #: 4
-File: CollisionType.cs
-File Author: Bowen Dai
+File: DamagedMarioCollisionHandler.cs
+File Author: Chuhan Feng
 Time: 3 minutes
 
 COMMENTS:
