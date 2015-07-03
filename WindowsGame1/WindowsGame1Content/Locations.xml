@@ -11,6 +11,10 @@
       <Location>550 350</Location>
     </Item>
 
+    <Item>
+      <Type>Koopa</Type>
+      <Location>730 398</Location>
+    </Item>
 
     <Item>
       <Type>Goomba</Type>

@@ -31,6 +31,7 @@ namespace WindowsGame1
 
         protected override void RefreshMotionStatus()
         {
+            FindMotion<GravityMotion>().Toggle(true);
             switch (MotionStatus)
             {
                 case MotionEnum.None:
