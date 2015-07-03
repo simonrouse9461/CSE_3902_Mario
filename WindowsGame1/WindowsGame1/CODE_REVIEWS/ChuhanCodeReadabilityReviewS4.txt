@@ -2,14 +2,12 @@ Author: Chuhang Feng
 Date: 07/02/15
 Sprint #: 3
 File: EnemyCollisionHandler.cs
-File Author: Andrew Miller
-Time: 2 minutes
+File Author: Haden Kersting
+Time: 3 minutes
 
 Comment:
-	Declare all status of a hidden block and method to modify
-	it. So these code are in high cohesion which makes the maintainess
-	of hidden block easier. The coupling is not low but is not avoidable,
-	which is not neccesary to change the code to make it lower.
+	Declaration and method override are seperated, so the structure
+	of the code is clear. 
 
 Future possible changes:
 	The apper status is included in the UsedBlock status. It
