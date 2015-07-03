@@ -76,13 +76,13 @@ namespace WindowsGame1
                     collision = Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0))
                 {
                     if (collision.Bottom.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(0, -1));
+                        Core.GeneralMotionState.Adjust(new Vector2(0, -2));
                     if (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(0, 1));
+                        Core.GeneralMotionState.Adjust(new Vector2(0, 2));
                     if (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(1, 0));
+                        Core.GeneralMotionState.Adjust(new Vector2(2, 0));
                     if (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                        Core.GeneralMotionState.Adjust(new Vector2(-2, 0));
                 }
             }
         }
