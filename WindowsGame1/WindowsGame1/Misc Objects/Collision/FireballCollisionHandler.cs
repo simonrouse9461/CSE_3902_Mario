@@ -28,9 +28,15 @@ namespace WindowsGame1
 
         protected virtual void HandleBlock()
         {
-            if (Detector.Detect<IBlock>(block => block.Solid).AnySide.Touch)
+            if (Detector.Detect<IBlock>(block => block.Solid).Top.Touch)
             {
-
+                Core.MotionState.Bounce();
+            }
+            else
+            {
+                Core.SpriteState.Exploded();
+                Core.MotionState.Stop();
+                Core.DelayCommand(() => Core.Object.Unload(), 3);
             }
         }
     }

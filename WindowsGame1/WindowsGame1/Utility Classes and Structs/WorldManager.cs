@@ -155,6 +155,10 @@ namespace WindowsGame1
                         FindObjectCollection<DestructibleBlockObject>().Add(new DestructibleBlockObject());
                         FindObjectCollection<DestructibleBlockObject>().Last().Load(content, Locations[i].Location);
                         break;
+                    case "UsedBlockObject":
+                        FindObjectCollection<UsedBlockObject>().Add(new UsedBlockObject());
+                        FindObjectCollection<UsedBlockObject>().Last().Load(content, Locations[i].Location);
+                        break;
                     case "GreenPipeObject":
                         FindObjectCollection<GreenPipeObject>().Add(new GreenPipeObject());
                         FindObjectCollection<GreenPipeObject>().Last().Load(content, Locations[i].Location);

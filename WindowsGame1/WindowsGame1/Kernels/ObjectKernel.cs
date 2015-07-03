@@ -172,7 +172,7 @@ namespace WindowsGame1
                 if (StateController != null) StateController.Update();
                 SpriteState.Update();
                 MotionState.Update();
-                if (Solid) BarrierDetector.Detect();
+                if (Solid && !(MotionState is StaticMotionState)) BarrierDetector.Detect();
             }
             else
             {
