@@ -885,13 +885,10 @@
       <Location>6240 120</Location>
     </Item>
 
+  
     <Item>
       <Type>FloorBlockObject</Type>
       <Location>12 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>12 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -899,15 +896,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>36 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>60 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>60 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -915,15 +904,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>84 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>108 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>108 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -931,15 +912,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>132 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>156 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>156 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -947,15 +920,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>180 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>204 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>204 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -963,15 +928,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>228 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>252 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>252 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -979,15 +936,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>276 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>300 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>300 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -995,15 +944,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>324 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>348 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>348 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1011,15 +952,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>372 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>396 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>396 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1027,15 +960,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>420 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>444 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>444 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1043,15 +968,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>468 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>492 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>492 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1059,15 +976,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>516 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>540 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>540 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1075,15 +984,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>564 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>588 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>588 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1091,15 +992,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>612 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>636 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>636 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1107,15 +1000,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>660 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>684 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>684 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1123,15 +1008,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>708 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>732 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>732 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1139,15 +1016,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>756 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>780 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>780 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1155,15 +1024,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>804 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>828 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>828 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1171,15 +1032,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>852 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>876 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>876 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1187,15 +1040,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>900 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>924 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>924 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1203,15 +1048,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>948 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>972 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>972 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1219,15 +1056,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>996 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1020 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1020 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1235,15 +1064,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1044 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1068 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1068 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1251,15 +1072,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1092 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1116 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1116 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1267,15 +1080,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1140 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1164 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1164 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1283,15 +1088,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1188 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1212 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1212 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1299,15 +1096,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1236 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1260 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1260 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1315,15 +1104,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1284 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1308 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1308 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1331,15 +1112,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1332 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1356 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1356 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1347,15 +1120,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1380 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1404 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1404 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1363,15 +1128,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1428 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1452 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1452 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1379,15 +1136,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1476 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1500 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1500 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1395,15 +1144,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1524 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1548 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1548 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1411,15 +1152,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1572 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1596 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1596 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1427,15 +1160,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1620 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1644 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1644 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1443,7 +1168,15 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1668 448</Location>
+      <Location>1692 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>1716 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>1740 424</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1451,15 +1184,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1764 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1788 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1788 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1467,15 +1192,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1812 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1836 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1836 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1483,15 +1200,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1860 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1884 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1884 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1499,15 +1208,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1908 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1932 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1932 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1515,15 +1216,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>1956 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>1980 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>1980 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1531,15 +1224,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2004 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2028 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2028 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1547,15 +1232,23 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2052 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2076 424</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2076 448</Location>
+      <Location>2100 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>2124 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>2148 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>2172 424</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1563,39 +1256,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2196 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2220 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2220 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2244 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2244 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2268 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2268 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2292 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2292 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1603,15 +1264,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2316 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2340 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2340 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1619,15 +1272,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2364 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2388 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2388 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1635,15 +1280,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2412 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2436 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2436 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1651,15 +1288,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2460 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2484 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2484 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1667,15 +1296,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2508 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2532 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2532 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1683,15 +1304,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2556 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2580 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2580 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1699,15 +1312,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2604 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2628 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2628 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1715,47 +1320,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2652 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2676 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2676 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2700 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2700 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2724 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2724 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2748 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2748 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2772 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2772 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1763,15 +1328,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2796 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2820 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2820 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1779,15 +1336,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2844 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2868 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2868 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1795,15 +1344,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2892 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2916 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2916 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1811,15 +1352,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2940 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>2964 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>2964 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1827,15 +1360,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>2988 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3012 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3012 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1843,15 +1368,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3036 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3060 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3060 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1859,15 +1376,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3084 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3108 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3108 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1875,15 +1384,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3132 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3156 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3156 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1891,15 +1392,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3180 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3204 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3204 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1907,15 +1400,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3228 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3252 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3252 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1923,15 +1408,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3276 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3300 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3300 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1939,15 +1416,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3324 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3348 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3348 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1955,15 +1424,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3372 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3396 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3396 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1971,15 +1432,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3420 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3444 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3444 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -1987,15 +1440,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3468 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3492 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3492 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2003,15 +1448,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3516 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3540 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3540 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2019,15 +1456,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3564 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3588 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3588 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2035,15 +1464,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3612 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3636 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3636 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2051,7 +1472,15 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3660 448</Location>
+      <Location>3684 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>3708 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>3732 424</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2059,15 +1488,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3756 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3780 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3780 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2075,15 +1496,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3804 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3828 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3828 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2091,15 +1504,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3852 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3876 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3876 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2107,15 +1512,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3900 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3924 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3924 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2123,15 +1520,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3948 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>3972 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>3972 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2139,15 +1528,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>3996 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4020 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4020 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2155,15 +1536,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4044 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4068 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4068 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2171,15 +1544,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4092 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4116 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4116 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2187,15 +1552,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4140 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4164 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4164 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2203,15 +1560,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4188 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4212 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4212 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2219,15 +1568,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4236 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4260 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4260 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2235,15 +1576,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4284 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4308 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4308 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2251,15 +1584,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4332 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4356 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4356 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2267,15 +1592,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4380 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4404 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4404 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2283,15 +1600,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4428 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4452 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4452 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2299,15 +1608,7 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4476 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4500 424</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
-      <Location>4500 448</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
@@ -2315,15 +1616,343 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4524 448</Location>
-    </Item>
-    <Item>
-      <Type>FloorBlockObject</Type>
       <Location>4548 424</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
-      <Location>4548 448</Location>
+      <Location>4572 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4596 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4620 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4644 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4668 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4692 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4716 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4740 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4764 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4788 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4812 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4836 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4932 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4956 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4980 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5004 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5028 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5052 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5076 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5100 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5124 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5148 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5172 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5196 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5220 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5244 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5268 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5292 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5316 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5340 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5364 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5388 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5412 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5436 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5460 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5484 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5508 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5532 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5556 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5580 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5604 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5628 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5652 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5676 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5700 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5724 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5748 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5772 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5796 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5820 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5844 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5868 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5892 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5916 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5940 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5964 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>5988 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6012 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6036 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6060 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6084 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6108 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6132 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6156 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6180 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6204 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6228 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6252 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6276 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6300 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6324 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6348 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6372 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6396 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6420 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6444 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6468 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6492 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6516 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6540 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6564 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6588 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6612 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>6636 424</Location>
     </Item>
 
   </Asset>
