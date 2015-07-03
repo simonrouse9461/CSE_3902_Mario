@@ -89,6 +89,9 @@ namespace WindowsGame1
                 case VerticalEnum.Fall:
                     FindMotion<GravityMotion>().Toggle(true);
                     break;
+                default:
+                    FindMotion<GravityMotion>().Toggle(true);
+                    break;
             }
         }
 
