@@ -14,7 +14,7 @@ namespace WindowsGame1
 
         public override bool Solid
         {
-            get { return Alive && !SpriteState.Blinking; }
+            get { return Alive; }
         }
 
         public bool Alive
