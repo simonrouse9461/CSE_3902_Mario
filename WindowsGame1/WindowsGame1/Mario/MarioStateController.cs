@@ -2,13 +2,18 @@
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        public MarioStateController(Core<MarioSpriteState, MarioMotionState> core) : base(core) { }
-
+        private CollisionDetector Detector;
         private bool alreadyShot;
+
+        public MarioStateController(Core<MarioSpriteState, MarioMotionState> core) : base(core)
+        {
+            Detector = new CollisionDetector(Core.Object);
+        }
 
         private void CheckMotion()
         {
-            if (Core.MotionState.VerticalStatic)
+            var collision = Detector.Detect<IObject>(obj => obj.Solid);
+            if (collision.Bottom.Touch)
             {
                 if (Core.MotionState.HorizontalStatic)
                 {
@@ -24,10 +29,11 @@
             }
             else
             {
-                if (Core.MotionState.Raising)
-                    Core.SpriteState.Jump();
-                else if (Core.MotionState.Falling)
-                    Core.SpriteState.Crouch();
+                Core.SpriteState.Jump();
+            }
+            if (collision.Top.Touch)
+            {
+                Core.MotionState.Fall();
             }
         }
 

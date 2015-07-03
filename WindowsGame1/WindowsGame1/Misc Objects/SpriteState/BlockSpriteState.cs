@@ -11,7 +11,7 @@ namespace WindowsGame1
             NormalBlock,
             UsedBlock,
             HiddenBlock,
-            DestructibleBlock,
+            FloorBlock,
             IndestructibleBlock,
             Destroyed
         }
@@ -24,7 +24,7 @@ namespace WindowsGame1
             SpriteList = new Collection<ISprite>{
                 new NormalBlockSprite(),
                 new IndestructibleBlockSprite(),
-                new DestructibleBlockSprite(),
+                new FloorBlockSprite(),
                 new UsedBlockSprite(),
                 new QuestionBlockSprite()
             };
@@ -53,8 +53,8 @@ namespace WindowsGame1
                     case StatusEnum.UsedBlock:
                         return FindSprite<UsedBlockSprite>();
 
-                    case StatusEnum.DestructibleBlock:
-                        return FindSprite<DestructibleBlockSprite>();
+                    case StatusEnum.FloorBlock:
+                        return FindSprite<FloorBlockSprite>();
 
                     default:
                         return FindSprite<IndestructibleBlockSprite>();
@@ -86,9 +86,9 @@ namespace WindowsGame1
             Status = StatusEnum.UsedBlock;
         }
 
-        public void DestructibleBlock()
+        public void FloorBlock()
         {
-            Status = StatusEnum.DestructibleBlock;
+            Status = StatusEnum.FloorBlock;
         }
 
         public void HiddenBlock()
@@ -121,9 +121,9 @@ namespace WindowsGame1
             get { return Status == StatusEnum.NormalBlock; }
         }
 
-        public bool isDestructible
+        public bool isFloor
         {
-            get { return Status == StatusEnum.DestructibleBlock; }
+            get { return Status == StatusEnum.FloorBlock; }
         }
 
         public bool isHidden

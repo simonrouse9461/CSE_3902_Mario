@@ -24,8 +24,11 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new MoveLeftMotion().EnemyVelocity),
                 new StatusSwitch<IMotion>(new MoveRightMotion().EnemyVelocity),
                 new StatusSwitch<IMotion>(new MoveLeftFastMotion()),
-                new StatusSwitch<IMotion>(new MoveRightFastMotion())
+                new StatusSwitch<IMotion>(new MoveRightFastMotion()),
+                new StatusSwitch<IMotion>(new GravityMotion())
             };
+
+            FindMotion<GravityMotion>().Toggle(true);
 
             MotionStatus = MotionEnum.LeftWalk;
         }
@@ -35,6 +38,8 @@ namespace WindowsGame1
             foreach (StatusSwitch<IMotion> s in MotionList) {
                 s.Toggle(false);
             }
+
+            FindMotion<GravityMotion>().Toggle(true);
 
             if (MotionStatus == MotionEnum.LeftWalk)
             {

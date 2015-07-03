@@ -47,7 +47,7 @@ namespace WindowsGame1
                 new Collection<QuestionBlockObject>(),
                 new Collection<HiddenBlockObject>(),
                 new Collection<NormalBlockObject>(),
-                new Collection<DestructibleBlockObject>(),
+               
                 new Collection<BlockKernel>(),
                 new Collection<GreenPipeObject>(),
                 new Collection<UsedBlockObject>(),
@@ -58,7 +58,7 @@ namespace WindowsGame1
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
-
+                 new Collection<FloorBlockObject>(),
                 // Mario should be drawn in the end
                 new Collection<MarioObject>(),
 
@@ -151,9 +151,9 @@ namespace WindowsGame1
                         FindObjectCollection<NormalBlockObject>().Add(new NormalBlockObject());
                         FindObjectCollection<NormalBlockObject>().Last().Load(content, Locations[i].Location);
                         break;
-                    case "DestructibleBlockObject":
-                        FindObjectCollection<DestructibleBlockObject>().Add(new DestructibleBlockObject());
-                        FindObjectCollection<DestructibleBlockObject>().Last().Load(content, Locations[i].Location);
+                    case "FloorBlockObject":
+                        FindObjectCollection<FloorBlockObject>().Add(new FloorBlockObject());
+                        FindObjectCollection<FloorBlockObject>().Last().Load(content, Locations[i].Location);
                         break;
                     case "UsedBlockObject":
                         FindObjectCollection<UsedBlockObject>().Add(new UsedBlockObject());

@@ -95,7 +95,7 @@ namespace WindowsGame1
         protected override void SetToDefaultState()
         {
             HorizontalStatus = HorizontalEnum.None;
-            if (VerticalStatus != VerticalEnum.Dead)
+            if (FindMotion<BounceUpMotion>(motion => motion.MarioJumpVersion).Content.Finish)
                 VerticalStatus = VerticalEnum.Fall;
         }
 
