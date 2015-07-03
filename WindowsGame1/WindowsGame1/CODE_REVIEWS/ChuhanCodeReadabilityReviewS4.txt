@@ -1,15 +1,18 @@
 Author: Chuhang Feng
 Date: 07/02/15
-Sprint #: 3
+Sprint #: 4
 File: EnemyCollisionHandler.cs
 File Author: Haden Kersting
 Time: 3 minutes
 
 Comment:
 	Declaration and method override are seperated, so the structure
-	of the code is clear. 
+	of the code is clear. The Handle() method includes all the collision
+	case need to be handle, so it is high cohesion. At the same time,
+	all the if statements are separated, which makes the coupling low 	
+	enough.
 
 Future possible changes:
-	The apper status is included in the UsedBlock status. It
-	might need to be split from the UsedBlock enum in the future.
-	
+	There two cases handling Mario, it is possible to refactor it to get 
+	all Mario related case together. Then it will easy to target when Mario 
+	related stuff need to be changed.
