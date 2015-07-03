@@ -12,7 +12,8 @@
 
         private void CheckMotion()
         {
-            if (Detector.Detect<IObject>(obj => obj.Solid).Bottom.Touch)
+            var collision = Detector.Detect<IObject>(obj => obj.Solid);
+            if (collision.Bottom.Touch)
             {
                 if (Core.MotionState.HorizontalStatic)
                 {
@@ -29,6 +30,10 @@
             else
             {
                 Core.SpriteState.Jump();
+            }
+            if (collision.Top.Touch)
+            {
+                Core.MotionState.Fall();
             }
         }
 

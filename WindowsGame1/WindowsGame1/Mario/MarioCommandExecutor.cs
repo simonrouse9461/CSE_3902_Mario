@@ -25,7 +25,7 @@ namespace WindowsGame1
                 }},
                 {typeof(MarioUpCommand), () =>
                 {
-                    if (Detector.Detect<IObject>().Bottom.Touch)
+                    if (Detector.Detect<IObject>(obj => obj.Solid).Bottom.Touch)
                         Core.MotionState.Raise();
                 }},
                 {typeof(MarioDownCommand), () => Core.MotionState.Fall()}
