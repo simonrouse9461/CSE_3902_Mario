@@ -21,7 +21,7 @@ namespace WindowsGame1
             {
                 if (InScreen)
                 {
-                    if (!value) Unload();
+                    if (!(value || this is MarioObject)) Unload();
                 }
                 else
                 {
@@ -161,7 +161,7 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (!Camera.OutOfRange(Core.Object))
+            if (!Camera.OutOfRange(Core.Object) || this is MarioObject)
             {
                 InScreen = true;
                 Core.Update();
@@ -172,7 +172,7 @@ namespace WindowsGame1
                 if (StateController != null) StateController.Update();
                 SpriteState.Update();
                 MotionState.Update();
-                BarrierDetector.Detect();
+                if (Solid) BarrierDetector.Detect();
             }
             else
             {

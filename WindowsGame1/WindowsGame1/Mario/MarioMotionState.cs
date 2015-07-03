@@ -33,8 +33,9 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)),
                 new StatusSwitch<IMotion>(new SuddenStopMotion(0.15f)),
                 new StatusSwitch<IMotion>(new BounceUpMotion().MarioDie),
+                new StatusSwitch<IMotion>(new BounceUpMotion().MarioJump),
                 new StatusSwitch<IMotion>(new RaiseUpMotion()),
-                new StatusSwitch<IMotion>(new FallDownMotion())
+                new StatusSwitch<IMotion>(new GravityMotion())
             };
 
             HorizontalStatus = HorizontalEnum.None;
@@ -83,10 +84,10 @@ namespace WindowsGame1
                     FindMotion<BounceUpMotion>(motion => motion.MarioDieVersion).Toggle(true);
                     break;
                 case VerticalEnum.Raise:
-                    FindMotion<RaiseUpMotion>().Toggle(true);
+                    FindMotion<BounceUpMotion>(motion => motion.MarioJumpVersion).Toggle(true);
                     break;
                 case VerticalEnum.Fall:
-                    FindMotion<FallDownMotion>().Toggle(true);
+                    FindMotion<GravityMotion>().Toggle(true);
                     break;
             }
         }
@@ -95,7 +96,7 @@ namespace WindowsGame1
         {
             HorizontalStatus = HorizontalEnum.None;
             if (VerticalStatus != VerticalEnum.Dead)
-                VerticalStatus = VerticalEnum.None;
+                VerticalStatus = VerticalEnum.Fall;
         }
 
         public bool HorizontalStatic

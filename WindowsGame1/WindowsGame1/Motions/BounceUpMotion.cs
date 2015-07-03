@@ -12,6 +12,7 @@ namespace WindowsGame1
         private enum Version
         {
             Default,
+            Mariojump,
             MarioDie,
             FireballBounce
         }
@@ -26,6 +27,28 @@ namespace WindowsGame1
                 velocity = (velocity.Y < MaxVelocity.Y) ? velocity : MaxVelocity;
                 return velocity;
             }
+        }
+
+        public override bool Finish
+        {
+            get { return Velocity == MaxVelocity; }
+        }
+
+        public BounceUpMotion MarioJump
+        {
+            get
+            {
+                version = Version.Mariojump;
+                StartVelocity = new Vector2(0, -5);
+                Acceleration = new Vector2(0, 0.15f);
+                MaxVelocity = new Vector2(0,0);
+                return this;
+            }
+        }
+
+        public bool MarioJumpVersion
+        {
+            get { return version == Version.Mariojump; }
         }
 
         public BounceUpMotion MarioDie
