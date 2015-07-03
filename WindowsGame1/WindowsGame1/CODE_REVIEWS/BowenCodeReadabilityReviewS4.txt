@@ -6,11 +6,12 @@ File Author: Chuhan Feng
 Time: 3 minutes
 
 COMMENTS:
-Code was written in high cohesion which will make maintainess easier.
-If any new collision condition is needed, we could just add some new 
-thing in this file. Low coupling since everything been used is created
-in this file.
+	Code modified all the changes needed for a Mario taking damage.
+	It focus on the condition that Mario taking damage, so it is high 
+	cohesion. Each changes of Core is not related to each other, which 
+	means the coupling is low and changes won’t affect each other.
 
 HYPOTHETICAL CHANGE:
-CollisonType was build in to a struct instead of a class, which may
-cause some potential problems.
+	HandleStar is not quit fit in to this code since it deal with the enemy 
+	problem. So though it is not hard to understand but it could have better
+	place to put in to.
