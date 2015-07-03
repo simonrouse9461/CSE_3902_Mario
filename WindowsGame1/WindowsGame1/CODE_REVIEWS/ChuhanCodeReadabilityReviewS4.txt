@@ -1,0 +1,15 @@
+Author: Chuhang Feng
+Date: 07/02/15
+Sprint #: 3
+File: EnemyCollisionHandler.cs
+File Author: Haden Kersting
+Time: 3 minutes
+
+Comment:
+	Declaration and method override are seperated, so the structure
+	of the code is clear. 
+
+Future possible changes:
+	The apper status is included in the UsedBlock status. It
+	might need to be split from the UsedBlock enum in the future.
+	
