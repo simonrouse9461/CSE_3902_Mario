@@ -5,10 +5,10 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class DestructibleBlockSprite : SpriteKernel
+    public class FloorBlockSprite : SpriteKernel
     {
 
-        public DestructibleBlockSprite()
+        public FloorBlockSprite()
         {
             ImageFile.Default = "blocks";
             Source.Default = new SpriteSource

@@ -232,7 +232,7 @@
     <Compile Include="Mario\Sprites\RunningBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\RunningSmallMarioSprite.cs" />
-    <Compile Include="Misc Objects\Objects\DestructibleBlockObject.cs" />
+    <Compile Include="Misc Objects\Objects\FloorBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\GreenPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\HiddenBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\BlockKernel.cs" />
@@ -240,7 +240,7 @@
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
-    <Compile Include="Misc Objects\Sprites\DestructibleBlockSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\FloorBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
