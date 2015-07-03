@@ -12,9 +12,11 @@ namespace WindowsGame1
             LeftWalk,
             RightWalk,
             LeftShellKick,
-            RightShellKick
+            RightShellKick,
+            Null
         }
 
+        private MotionEnum OutgoingMotionStatus;
         private MotionEnum MotionStatus;
 
         public KoopaMotionState()
@@ -35,11 +37,18 @@ namespace WindowsGame1
 
         protected override void RefreshMotionStatus()
         {
-            foreach (StatusSwitch<IMotion> s in MotionList) {
-                s.Toggle(false);
-            }
+            if (OutgoingMotionStatus != MotionEnum.Null) {
+                if (OutgoingMotionStatus == MotionEnum.LeftWalk)
+                {
+                    FindMotion<MoveLeftMotion>().Toggle(false);
+                }
+                else if (OutgoingMotionStatus == MotionEnum.RightWalk)
+                {
+                    FindMotion<MoveRightMotion>().Toggle(false);
+                }
 
-            FindMotion<GravityMotion>().Toggle(true);
+                OutgoingMotionStatus = MotionEnum.Null;
+            }
 
             if (MotionStatus == MotionEnum.LeftWalk)
             {
@@ -67,16 +76,19 @@ namespace WindowsGame1
         {
             if (MotionStatus == MotionEnum.LeftWalk)
             {
+                OutgoingMotionStatus = MotionStatus;
                 MotionStatus = MotionEnum.RightWalk;
             }
             else if (MotionStatus == MotionEnum.RightWalk)
             {
+                OutgoingMotionStatus = MotionStatus;
                 MotionStatus = MotionEnum.LeftWalk;
             }
         }
 
         public override void MarioSmash()
         {
+            OutgoingMotionStatus = MotionStatus;
             MotionStatus = MotionEnum.None;
         }
 
@@ -86,10 +98,12 @@ namespace WindowsGame1
             {
                 if (leftOrRight.Equals("left"))
                 {
+                    OutgoingMotionStatus = MotionStatus;
                     MotionStatus = MotionEnum.RightShellKick;
                 }
                 else if (leftOrRight.Equals("right"))
                 {
+                    OutgoingMotionStatus = MotionStatus;
                     MotionStatus = MotionEnum.LeftShellKick;
                 }
                 else
