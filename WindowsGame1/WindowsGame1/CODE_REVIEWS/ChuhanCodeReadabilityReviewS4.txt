@@ -1,7 +1,7 @@
 Author: Chuhang Feng
 Date: 07/02/15
 Sprint #: 3
-File: HiddenBlockSpriteState.cs
+File: EnemyCollisionHandler.cs
 File Author: Andrew Miller
 Time: 2 minutes
 
