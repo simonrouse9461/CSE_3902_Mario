@@ -68,16 +68,22 @@ namespace WindowsGame1
 
         public virtual void Detect()
         {
-            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch && !(Core.GeneralMotionState is StaticMotionState))
+            if (Detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch &&
+                !(Core.GeneralMotionState is StaticMotionState))
             {
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Bottom.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(0, -1));
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(0, 1));
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(1, 0));
-                while (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                for (var collision = Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0);
+                    collision.AnyEdge.Touch;
+                    collision = Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0))
+                {
+                    if (collision.Bottom.Touch)
+                        Core.GeneralMotionState.Adjust(new Vector2(0, -1));
+                    if (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
+                        Core.GeneralMotionState.Adjust(new Vector2(0, 1));
+                    if (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
+                        Core.GeneralMotionState.Adjust(new Vector2(1, 0));
+                    if (Detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
+                        Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                }
             }
         }
     }
