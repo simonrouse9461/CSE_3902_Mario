@@ -14,8 +14,8 @@
       <Type>Mushroom</Type>
       <Location>600 350</Location>
     </Item>
-    
-    
+
+
     <Item>
       <Type>Goomba</Type>
       <Location>658 398</Location>
@@ -34,11 +34,11 @@
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>2520 230</Location>
+      <Location>2520 296</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
-      <Location>2610 146</Location>
+      <Location>2610 216</Location>
     </Item>
     <Item>
       <Type>Goomba</Type>
@@ -99,7 +99,7 @@
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Location>3010 240</Location>
+      <Location>2982 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
@@ -119,19 +119,24 @@
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Location>4130 240</Location>
+      <Location>3989 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Location>4160 240</Location>
+      <Location>4013 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Location>5440 320</Location>
     </Item>
+
     <Item>
       <Type>HiddenBlockObject</Type>
       <Location>2048 290</Location>
+    </Item>
+    <Item>
+      <Type>HiddenBlockObject</Type>
+      <Location>3224 320</Location>
     </Item>
 
     <Item>
@@ -148,17 +153,477 @@
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
-      <Location>100 320</Location>
+      <Location>2475 320</Location>
     </Item>
-    
     <Item>
-      <Type>DestructibleBlockObject</Type>
-      <Location>350 200</Location>
+      <Type>NormalBlockObject</Type>
+      <Location>2522 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2555 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2579 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2603 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2627 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2651 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2675 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2699 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2723 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2747 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2910 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2934 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2958 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>2982 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3200 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3774 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3822 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3846 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3870 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3966 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>3990 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>4014 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>4037 240</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>5392 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>5416 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Location>5464 320</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4288 398</Location>
     </Item>
     <Item>
       <Type>BlockKernel</Type>
-      <Location>150 200</Location>
+      <Location>4312 398</Location>
     </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4336 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4360 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4312 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4336 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4360 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4336 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4360 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4360 326</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4432 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4456 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4480 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4504 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4432 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4456 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4480 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4432 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4456 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4432 326</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4739 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4760 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4784 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4808 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4832 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4760 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4784 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4808 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4832 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4784 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4808 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4832 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4808 326</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4832 326</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4904 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4928 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4952 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4976 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4904 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4928 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4952 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4904 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4928 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>4904 326</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5760 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5784 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5808 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5832 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5856 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5880 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 398</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 398</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5784 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5808 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5832 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5856 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5880 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 374</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 374</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5808 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5832 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5856 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5880 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 350</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 350</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5832 326</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5856 326</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5880 326</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 326</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 326</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 326</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5856 302</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5880 302</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 302</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 302</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 302</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5880 278</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 278</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 278</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 278</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5904 254</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 254</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 254</Location>
+    </Item>
+
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5928 230</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Location>5952 230</Location>
+    </Item>
+
     <Item>
       <Type>GreenPipeObject</Type>
       <Location>898 374</Location>
@@ -181,8 +646,9 @@
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>5730 374</Location>
+      <Location>5720 374</Location>
     </Item>
+
     <Item>
       <Type>Hill</Type>
       <Location>0 389</Location>
@@ -217,8 +683,9 @@
     </Item>
     <Item>
       <Type>Hill</Type>
-      <Location>6768 389</Location>
+      <Location>6024 389</Location>
     </Item>
+
     <Item>
       <Type>Bush</Type>
       <Location>370 398</Location>
@@ -299,125 +766,127 @@
       <Type>Bush</Type>
       <Location>6592 398</Location>
     </Item>
+
     <Item>
       <Type>Hill</Type>
       <Location>6656 389</Location>
     </Item>
+
     <Item>
       <Type>Cloud</Type>
-      <Location>270 80</Location>
+      <Location>270 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>622 50</Location>
+      <Location>622 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>880 80</Location>
+      <Location>880 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>920 80</Location>
+      <Location>920 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>960 80</Location>
+      <Location>960 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>1170 50</Location>
+      <Location>1170 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>1210 50</Location>
+      <Location>1210 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>1810 80</Location>
+      <Location>1810 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>2160 50</Location>
+      <Location>2160 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>2410 80</Location>
+      <Location>2410 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>2450 80</Location>
+      <Location>2450 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>2490 80</Location>
+      <Location>2490 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>2700 50</Location>
+      <Location>2700 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>2740 50</Location>
+      <Location>2740 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>3340 80</Location>
+      <Location>3340 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>3700 50</Location>
+      <Location>3700 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>3950 80</Location>
+      <Location>3950 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>3990 80</Location>
+      <Location>3990 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>4030 80</Location>
+      <Location>4030 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>4240 50</Location>
+      <Location>4240 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>4280 50</Location>
+      <Location>4280 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>4880 80</Location>
+      <Location>4880 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>5230 50</Location>
+      <Location>5230 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>5490 80</Location>
+      <Location>5490 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>5530 80</Location>
+      <Location>5530 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>5570 80</Location>
+      <Location>5570 120</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>5770 50</Location>
+      <Location>5770 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>5800 50</Location>
+      <Location>5800 90</Location>
     </Item>
     <Item>
       <Type>Cloud</Type>
-      <Location>6240 80</Location>
+      <Location>6240 120</Location>
     </Item>
 
 
