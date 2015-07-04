@@ -14,10 +14,11 @@ namespace WindowsGame1
                 if(Core.SpriteState.isQuestionBlock){
                     Core.SpriteState.QuestionToUsedBlock();
                 }
+                
                 if (Core.SpriteState.isNormal && Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
                 {
-                    Core.MotionState.Hit();
-                    //Core.Object.Unload();
+                    Core.SpriteState.Destroyed();
+                    Core.DelayCommand(() => Core.Object.Unload(), 4);
                 }
                 if (Core.SpriteState.isHidden)
                 {
