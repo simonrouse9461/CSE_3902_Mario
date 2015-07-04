@@ -239,14 +239,12 @@
     <Compile Include="Misc Objects\Objects\NormalBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />
-    <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\FloorBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
-    <Compile Include="Misc Objects\Objects\UsedBlockObject.cs" />
     <Compile Include="GameCommands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
