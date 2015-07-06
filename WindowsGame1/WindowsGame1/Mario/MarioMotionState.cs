@@ -1,29 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Microsoft.Xna.Framework;
+﻿using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class MarioMotionState : MotionStateKernel
+    public class MarioMotionState : MotionStateKernelNew
     {
         private enum HorizontalEnum
         {
-            None,
-            AccLeft,
-            AccRight
+            Default,
+            Left,
+            Right,
+            Inertia,
+            Stop
         }
 
         private enum VerticalEnum
         {
-            None,
-            Raise,
-            Fall,
-            Dead
+            Default,
+            Jump
         }
 
         private HorizontalEnum HorizontalStatus;
         private VerticalEnum VerticalStatus;
+
+        public bool Dead { get; private set; }
+        public bool Gravity { get; private set; }
 
         public MarioMotionState()
         {
@@ -31,146 +31,147 @@ namespace WindowsGame1
             {
                 new StatusSwitch<IMotion>(new AccelerateRightMotion(0.1f, 3)),
                 new StatusSwitch<IMotion>(new AccelerateLeftMotion(0.1f, 3)),
-                new StatusSwitch<IMotion>(new SuddenStopMotion(0.15f)),
+                new StatusSwitch<IMotion>(new SuddenStopMotion()),
+                new StatusSwitch<IMotion>(new InertiaMotion()),
                 new StatusSwitch<IMotion>(new BounceUpMotion().MarioDie),
                 new StatusSwitch<IMotion>(new BounceUpMotion().MarioJump),
-                new StatusSwitch<IMotion>(new RaiseUpMotion()),
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
-            HorizontalStatus = HorizontalEnum.None;
-            VerticalStatus = VerticalEnum.None;
+            SetDefaultHorizontal();
+            SetDefaultVertical();
+            ObtainGravity();
         }
 
-        protected override void RefreshMotionStatus()
+        public void SetDefaultHorizontal()
         {
-            switch (HorizontalStatus)
-            {
-                case HorizontalEnum.AccRight:
-                    if (MovingLeft)
-                    {
-                        FindMotion<SuddenStopMotion>().Toggle(true);
-                    }
-                    else
-                    {
-                        FindMotion<AccelerateRightMotion>().Toggle(true);
-                    }
-                    break;
-                case HorizontalEnum.AccLeft:
-                    if (MovingRight)
-                    {
-                        FindMotion<SuddenStopMotion>().Toggle(true);
-                    }
-                    else
-                    {
-                        FindMotion<AccelerateLeftMotion>().Toggle(true);
-                    }
-                    break;
-                case HorizontalEnum.None:
-                    if (MovingLeft || MovingRight)
-                    {
-                        FindMotion<SuddenStopMotion>().Toggle(true);
-                    }
-                    break;
-            }
-
-            switch (VerticalStatus)
-            {
-                case VerticalEnum.Dead:
-                    foreach (var motion in MotionList)
-                    {
-                        motion.Toggle(false);
-                    }
-                    FindMotion<BounceUpMotion>(motion => motion.MarioDieVersion).Toggle(true);
-                    break;
-                case VerticalEnum.Raise:
-                    FindMotion<BounceUpMotion>(motion => motion.MarioJumpVersion).Toggle(true);
-                    break;
-                case VerticalEnum.Fall:
-                    FindMotion<GravityMotion>().Toggle(true);
-                    break;
-                default:
-                    FindMotion<GravityMotion>().Toggle(true);
-                    break;
-            }
+            HorizontalStatus = HorizontalEnum.Default;
+            FindMotion<AccelerateRightMotion>().Toggle(false);
+            FindMotion<AccelerateLeftMotion>().Toggle(false);
+            FindMotion<SuddenStopMotion>().Toggle(false);
+            FindMotion<InertiaMotion>().Toggle(false);
         }
 
-        protected override void SetToDefaultState()
+        public void SetDefaultVertical()
         {
-            HorizontalStatus = HorizontalEnum.None;
-            if (FindMotion<BounceUpMotion>(motion => motion.MarioJumpVersion).Content.Finish)
-                VerticalStatus = VerticalEnum.Fall;
+            VerticalStatus = VerticalEnum.Default;
+            FindMotion<BounceUpMotion>(m => m.MarioJumpVersion).Toggle(false);
         }
 
-        public bool HorizontalStatic
+        public void GoLeft()
         {
-            get { return Math.Abs(Velocity.X) < 0.001; }
+            SetDefaultHorizontal();
+            HorizontalStatus = HorizontalEnum.Left;
+            FindMotion<AccelerateLeftMotion>().Toggle(true);
         }
 
-        public bool VerticalStatic
+        public void GoRight()
         {
-            get { return Math.Abs(Velocity.Y) < 0.001; }
+            SetDefaultHorizontal();
+            HorizontalStatus = HorizontalEnum.Right;
+            FindMotion<AccelerateRightMotion>().Toggle(true);
         }
 
-        public void MoveRight()
+        public void Stop()
         {
-            HorizontalStatus = AcceleratingLeft ? HorizontalEnum.None : HorizontalEnum.AccRight;
+            SetDefaultHorizontal();
+            HorizontalStatus = HorizontalEnum.Stop;
+            FindMotion<SuddenStopMotion>().Toggle(true);
         }
 
-        public bool AcceleratingRight
+        public void GoMidAir()
         {
-            get { return HorizontalStatus == HorizontalEnum.AccRight; }
+            SetDefaultHorizontal();
+            HorizontalStatus = HorizontalEnum.Inertia;
+            FindMotion<InertiaMotion>().Toggle(true);
         }
 
-        public bool MovingRight
+        public void MidAirLeft()
         {
-            get { return Velocity.X > 0; }
+            ((InertiaMotion)FindMotion<InertiaMotion>().Content).Left();
         }
 
-        public void MoveLeft()
+        public void MidAirRight()
         {
-            HorizontalStatus = AcceleratingRight ? HorizontalEnum.None : HorizontalEnum.AccLeft;
+            ((InertiaMotion)FindMotion<InertiaMotion>().Content).Right();
         }
 
-        public bool AcceleratingLeft
+        public void MidAirStop()
         {
-            get { return HorizontalStatus == HorizontalEnum.AccLeft; }
+            FindMotion<InertiaMotion>().Reset();
         }
 
-        public bool MovingLeft
+        public void Jump()
         {
-            get { return Velocity.X < 0; }
-        }
-
-        public void DeadFall()
-        {
-            HorizontalStatus = HorizontalEnum.None;
-            VerticalStatus = VerticalEnum.Dead;
-        }
-
-        public bool Dead
-        {
-            get { return VerticalStatus == VerticalEnum.Dead; }
-        }
-
-        public void Raise()
-        {
-            VerticalStatus = VerticalEnum.Raise;
-        }
-
-        public bool Raising
-        {
-            get { return VerticalStatus == VerticalEnum.Raise; }
+            SetDefaultVertical();
+            VerticalStatus = VerticalEnum.Jump;
+            FindMotion<BounceUpMotion>(m => m.MarioJumpVersion).Toggle(true);
         }
 
         public void Fall()
         {
-            VerticalStatus = VerticalEnum.Fall;
+            SetDefaultVertical();
         }
 
-        public bool Falling
+        public void ObtainGravity()
         {
-            get { return VerticalStatus == VerticalEnum.Fall; }
+            Gravity = true;
+            FindMotion<GravityMotion>().Toggle(true);
+        }
+
+        public void LoseGravity()
+        {
+            Gravity = false;
+            FindMotion<GravityMotion>().Toggle(false);
+        }
+
+        public void Die()
+        {
+            Dead = true;
+            SetDefaultHorizontal();
+            SetDefaultVertical();
+            LoseGravity();
+            FindMotion<BounceUpMotion>(m => m.MarioDieVersion).Toggle(true);
+        }
+
+        public bool DefaultHorizontal
+        {
+            get
+            {
+                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<SuddenStopMotion>().Status)
+                    HorizontalStatus = HorizontalEnum.Default;
+                return HorizontalStatus == HorizontalEnum.Default;
+            }
+        }
+
+        public bool DefaultVertical
+        {
+            get { return VerticalStatus == VerticalEnum.Default; }
+        }
+
+        public bool GoingLeft
+        {
+            get { return HorizontalStatus == HorizontalEnum.Left; }
+        }
+
+        public bool GoingRight
+        {
+            get { return HorizontalStatus == HorizontalEnum.Right; }
+        }
+
+        public bool InMidAir
+        {
+            get { return HorizontalStatus == HorizontalEnum.Inertia; }
+        }
+
+        public bool Stopping
+        {
+            get { return HorizontalStatus == HorizontalEnum.Stop; }
+        }
+
+        public bool Jumping
+        {
+            get { return VerticalStatus == VerticalEnum.Jump; }
         }
     }
 }

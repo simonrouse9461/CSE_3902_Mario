@@ -1,14 +1,14 @@
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernel<MarioSpriteState, MarioMotionState>, IMario
+    public class MarioObject : ObjectKernelNew<MarioStateController>, IMario
     {
         public MarioObject()
         {
             CommandExecutor = new MarioCommandExecutor(Core);
             CollisionHandler = new MarioCollisionHandler(Core);
             BarrierDetector = new MarioBarrierDetector(Core);
-            StateController = new MarioStateController(Core);
-            SpriteState.BecomeSmall();
+
+            StateController.SpriteState.BecomeSmall();
             BarrierDetector.AddBarrier<IObject>();
         }
 
@@ -19,17 +19,17 @@ namespace WindowsGame1
 
         public bool Alive
         {
-            get { return !SpriteState.Dead; }
+            get { return !StateController.SpriteState.Dead; }
         }
 
         public bool StarPower
         {
-            get { return SpriteState.HaveStarPower; }
+            get { return StateController.SpriteState.HaveStarPower; }
         }
 
         public bool Destructive
         {
-            get { return !SpriteState.Small; }
+            get { return !StateController.SpriteState.Small; }
         }
     }
 }

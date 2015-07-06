@@ -10,7 +10,6 @@
       <Type>Star</Type>
       <Location>550 350</Location>
     </Item>
-
     <Item>
       <Type>Koopa</Type>
       <Location>730 398</Location>
@@ -76,7 +75,6 @@
       <Type>Koopa</Type>
       <Location>3382 397</Location>
     </Item>
-
     <Item>
       <Type>QuestionBlockObject</Type>
       <Location>512 320</Location>
