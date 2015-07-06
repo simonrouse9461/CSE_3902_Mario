@@ -135,6 +135,9 @@
     <Compile Include="Interfaces\IStateController.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
+    <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Kernels\MotionStateKernelNew.cs" />
+    <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\StateControllerKernel.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
@@ -154,15 +157,17 @@
     <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
+    <Compile Include="Misc Objects\Sprites\BlockDebrisSprite.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
+    <Compile Include="Motions\InertiaMotion.cs" />
     <Compile Include="Motions\MoveLeftFastMotion.cs" />
     <Compile Include="Motions\MoveLeftMotion.cs" />
     <Compile Include="Motions\MoveRightFastMotion.cs" />
     <Compile Include="Motions\MoveRightMotion.cs" />
     <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
-    <Compile Include="Kernels\MotionStateKernel.cs" />
-    <Compile Include="Kernels\ObjectKernel.cs" />
+    <Compile Include="Old Files\MotionStateKernel.cs" />
+    <Compile Include="Old Files\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\Sprites\SwimmingBigMarioSprite.cs" />
@@ -179,7 +184,7 @@
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
-    <Compile Include="Kernels\CollisionHandlerKernel.cs" />
+    <Compile Include="Old Files\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandExecutorKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Mario\IMario.cs" />
@@ -239,14 +244,12 @@
     <Compile Include="Misc Objects\Objects\NormalBlockObject.cs" />
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />
-    <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\FloorBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
-    <Compile Include="Misc Objects\Objects\UsedBlockObject.cs" />
     <Compile Include="GameCommands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
@@ -261,11 +264,12 @@
     <Compile Include="Utility Classes and Structs\CollisionType.cs" />
     <Compile Include="Utility Classes and Structs\ColorAnimator.cs" />
     <Compile Include="Utility Classes and Structs\CommandManager.cs" />
+    <Compile Include="Utility Classes and Structs\CoreNew.cs" />
     <Compile Include="Utility Classes and Structs\Counter.cs" />
     <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Utility Classes and Structs\RectangleParser.cs" />
     <Compile Include="Utility Classes and Structs\SpriteSource.cs" />
-    <Compile Include="Utility Classes and Structs\Core.cs" />
+    <Compile Include="Old Files\Core.cs" />
     <Compile Include="Utility Classes and Structs\StaticMotionState.cs" />
     <Compile Include="Utility Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Utility Classes and Structs\SymmetricPair.cs" />
@@ -276,11 +280,8 @@
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="CODE_REVIEWS\AndrewReadabilityReview.txt" />
-    <Content Include="CODE_REVIEWS\BowenMaintainabilityReviewS3.txt" />
+    <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ChuhanCodeReadabilityReviewS4.txt" />
-    <Content Include="CODE_REVIEWS\ChuhanCodeReview.txt" />
-    <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint3.txt" />
-    <Content Include="CODE_REVIEWS\ColinCodeReview.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\HadenReadabilityReview.txt" />
     <Content Include="Game.ico" />
@@ -338,7 +339,6 @@
     </None>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache" />
-    <None Include="WindowsGame1.csproj.Debug.cachefile" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

@@ -1,29 +1,29 @@
 ﻿namespace WindowsGame1
 {
-    public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController 
-        where TSpriteState : ISpriteState
-        where TMotionState : IMotionState
+    public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController
+        where TSpriteState : ISpriteState, new()
+        where TMotionState : IMotionState, new()
     {
-        protected Core<TSpriteState, TMotionState> Core;
+        public TSpriteState SpriteState { get; set; }
+        public TMotionState MotionState { get; set; }
+        public ISpriteState GeneralSpriteState { get { return SpriteState; } }
+        public IMotionState GeneralMotionState { get { return MotionState; } }
 
-        protected StateControllerKernel(ICore core)
+        public ICore Core { protected get; set; }
+
+        protected StateControllerKernel()
         {
-            if (core is Core<TSpriteState, TMotionState>)
-                Core = (Core<TSpriteState, TMotionState>) core;
-            else
-                Core = new Core<TSpriteState, TMotionState>
-                {
-                    Object = core.Object,
-                    SpriteState = (TSpriteState) (core.GeneralSpriteState),
-                    MotionState = (TMotionState) (core.GeneralMotionState),
-                    StateController = core.StateController,
-                    CollisionHandler = core.CollisionHandler,
-                    CommandExecutor = core.CommandExecutor,
-                    BarrierDetector = core.BarrierDetector
-                };
+            SpriteState = new TSpriteState();
+            MotionState = new TMotionState();
         }
 
-        public abstract void SyncState();
-        public abstract void Update();
+        protected abstract void UpdateState();
+
+        public void Update()
+        {
+            UpdateState();
+            SpriteState.Update();
+            MotionState.Update();
+        }
     }
 }

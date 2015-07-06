@@ -50,7 +50,6 @@ namespace WindowsGame1
                
                 new Collection<BlockKernel>(),
                 new Collection<GreenPipeObject>(),
-                new Collection<UsedBlockObject>(),
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
                 new Collection<_1up>(),
@@ -154,10 +153,6 @@ namespace WindowsGame1
                     case "FloorBlockObject":
                         FindObjectCollection<FloorBlockObject>().Add(new FloorBlockObject());
                         FindObjectCollection<FloorBlockObject>().Last().Load(content, Locations[i].Location);
-                        break;
-                    case "UsedBlockObject":
-                        FindObjectCollection<UsedBlockObject>().Add(new UsedBlockObject());
-                        FindObjectCollection<UsedBlockObject>().Last().Load(content, Locations[i].Location);
                         break;
                     case "GreenPipeObject":
                         FindObjectCollection<GreenPipeObject>().Add(new GreenPipeObject());

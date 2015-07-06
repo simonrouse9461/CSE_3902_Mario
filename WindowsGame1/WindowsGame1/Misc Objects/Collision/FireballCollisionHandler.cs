@@ -28,11 +28,11 @@ namespace WindowsGame1
 
         protected virtual void HandleBlock()
         {
-            if (Detector.Detect<IBlock>(block => block.Solid).Top.Touch)
+            if (Detector.Detect<IBlock>().Top.Touch)
             {
                 Core.MotionState.Bounce();
             }
-            else if (Detector.Detect<IObject>(obj => obj.Solid && !(obj is MarioObject)).Top.Touch)
+            else if (Detector.Detect<IObject>(obj => obj.Solid && !(obj is MarioObject)).BothSide.Touch)
             {
                 Core.SpriteState.Exploded();
                 Core.MotionState.Stop();
