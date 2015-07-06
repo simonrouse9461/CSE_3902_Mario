@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public abstract class CommandExecutorKernel<TSpriteState, TMotionState> : ICommandExecutor
-        where TSpriteState : SpriteStateKernel
-        where TMotionState : MotionStateKernel
+    public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
+        where TStateController : IStateController, new()
     {
         private Dictionary<Type, Action> commandAction;
 
-        public Core<TSpriteState, TMotionState> Core { get; set; }
+        public CoreNew<TStateController> Core { get; set; }
         protected Dictionary<Type, bool> CommandStatus { get; private set; }
 
         protected Dictionary<Type, Action> CommandAction
@@ -28,15 +27,12 @@ namespace WindowsGame1
 
         protected CommandExecutorKernel(ICore core)
         {
-            if (core is Core<TSpriteState, TMotionState>)
-                Core = (Core<TSpriteState, TMotionState>)core;
+            if (core is CoreNew<TStateController>)
+                Core = (CoreNew<TStateController>)core;
             else
-                Core = new Core<TSpriteState, TMotionState>
+                Core = new CoreNew<TStateController>(core.Object)
                 {
-                    Object = core.Object,
-                    SpriteState = (TSpriteState)(core.GeneralSpriteState),
-                    MotionState = (TMotionState)(core.GeneralMotionState),
-                    StateController = core.StateController,
+                    StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,
                     CommandExecutor = core.CommandExecutor,
                     BarrierDetector = core.BarrierDetector

@@ -2,7 +2,10 @@
 {
     public interface IStateController
     {
-        void SyncState();
+        ICore Core { set; }
+        ISpriteState GeneralSpriteState { get; }
+        IMotionState GeneralMotionState { get; }
+
         void Update();
     }
 }

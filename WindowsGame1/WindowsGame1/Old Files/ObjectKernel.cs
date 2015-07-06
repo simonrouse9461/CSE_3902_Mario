@@ -51,6 +51,11 @@ namespace WindowsGame1
             get { return Core.MotionState; }
             set { Core.MotionState = value; }
         }
+        protected CollisionDetector CollisionDetector
+        {
+            get { return Core.CollisionDetector; }
+            set { Core.CollisionDetector = value; }
+        }
 
         protected BarrierDetector BarrierDetector
         {
@@ -60,8 +65,8 @@ namespace WindowsGame1
 
         protected IStateController StateController
         {
-            get { return Core.StateController; }
-            set { Core.StateController = value; }   
+            get { return Core.GeneralStateController; }
+            set { Core.GeneralStateController = value; }   
         }
 
         protected ICommandExecutor CommandExecutor
@@ -85,6 +90,7 @@ namespace WindowsGame1
             };
             SpriteState = new TSpriteState();
             MotionState = new TMotionState();
+            CollisionDetector = new CollisionDetector(this);
             BarrierDetector = new BarrierDetector(Core);
         }
 
@@ -166,9 +172,7 @@ namespace WindowsGame1
                 InScreen = true;
                 Core.Update();
                 if (CommandExecutor != null) CommandExecutor.Execute();
-                if (StateController != null) StateController.SyncState();
                 if (CollisionHandler != null) CollisionHandler.Handle();
-                if (StateController != null) StateController.SyncState();
                 if (StateController != null) StateController.Update();
                 SpriteState.Update();
                 MotionState.Update();

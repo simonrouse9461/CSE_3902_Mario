@@ -31,7 +31,7 @@ namespace WindowsGame1
 
         public override bool Finish
         {
-            get { return Velocity == MaxVelocity; }
+            get { return Velocity.Y >= MaxVelocity.Y; }
         }
 
         public BounceUpMotion MarioJump
@@ -39,9 +39,9 @@ namespace WindowsGame1
             get
             {
                 version = Version.Mariojump;
-                StartVelocity = new Vector2(0, -5);
+                StartVelocity = new Vector2(0, -5) - GravityMotion.MaxVelocity;
                 Acceleration = new Vector2(0, 0.15f);
-                MaxVelocity = new Vector2(0,0);
+                MaxVelocity = - GravityMotion.MaxVelocity;
                 return this;
             }
         }
