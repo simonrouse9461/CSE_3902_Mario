@@ -18,7 +18,7 @@ namespace WindowsGame1
                 if (Core.SpriteState.isNormal && Detector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
                 {
                     Core.SpriteState.Destroyed();
-                    Core.DelayCommand(() => Core.Object.Unload(), 4);
+                    Core.DelayCommand(() => Core.Object.Unload(), 12);
                 }
                 if (Core.SpriteState.isHidden)
                 {

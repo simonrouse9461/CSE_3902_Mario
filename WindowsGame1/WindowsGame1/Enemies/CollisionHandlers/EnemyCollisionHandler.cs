@@ -60,7 +60,7 @@ namespace WindowsGame1
                 }
             }
 
-            if (Detector.Detect<IBlock>().AnySide.Touch || Detector.Detect<GreenPipeObject>().AnySide.Touch) {
+            if (Detector.Detect<IBlock>().AnySide.Touch || Detector.Detect<GreenPipeObject>().AnySide.Touch || Detector.Detect<IEnemy>().AnySide.Touch) {
                 Core.MotionState.Turn();
                 Core.SpriteState.Turn();
             }
