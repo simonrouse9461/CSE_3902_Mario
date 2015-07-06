@@ -26,7 +26,8 @@ namespace WindowsGame1
                 new IndestructibleBlockSprite(),
                 new FloorBlockSprite(),
                 new UsedBlockSprite(),
-                new QuestionBlockSprite()
+                new QuestionBlockSprite(),
+                new BlockDebrisSprite()
             };
             ColorSchemeList = new Collection<ColorAnimator>{
                 new ColorAnimator(new[] {Color.Transparent})
@@ -55,6 +56,9 @@ namespace WindowsGame1
 
                     case StatusEnum.FloorBlock:
                         return FindSprite<FloorBlockSprite>();
+
+                    case StatusEnum.Destroyed:
+                        return FindSprite<BlockDebrisSprite>();
 
                     default:
                         return FindSprite<IndestructibleBlockSprite>();
@@ -129,6 +133,11 @@ namespace WindowsGame1
         public bool isHidden
         {
             get { return Status == StatusEnum.HiddenBlock; }
+        }
+
+        public void Destroyed()
+        {
+            Status = StatusEnum.Destroyed;
         }
     }
 }

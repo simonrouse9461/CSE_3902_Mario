@@ -74,7 +74,7 @@ namespace WindowsGame1
             {
                 version = Version.FireballBounce;
                 StartVelocity = new Vector2(0, 5);
-                Acceleration = new Vector2(0, 0.2f);
+                Acceleration = new Vector2(0, 1f);
                 MaxVelocity = new Vector2(0, 5);
                 return this;
             }

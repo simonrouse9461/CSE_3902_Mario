@@ -27,7 +27,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new MoveLeftMotion().FireballVelocity),
                 new StatusSwitch<IMotion>(new MoveRightMotion().FireballVelocity),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(new FireballBounceMotion())
+                new StatusSwitch<IMotion>(new BounceUpMotion().FireballBounce)
             };
         }
 
@@ -56,7 +56,7 @@ namespace WindowsGame1
                     break;
                 case ActionEnum.Bounce:
                     FindMotion<GravityMotion>().Toggle(false);
-                    FindMotion<FireballBounceMotion>().Toggle(true);
+                    FindMotion<BounceUpMotion>().Toggle(true);
                     break;
             }
         }
