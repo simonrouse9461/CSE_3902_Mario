@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
@@ -18,9 +19,15 @@ namespace WindowsGame1
                 {
                     Core.StateController.MarioSmash();
                 }
-                else if (Core.CollisionDetector.Detect<IBlock>().AnySide.Touch || Core.CollisionDetector.Detect<GreenPipeObject>().AnySide.Touch)
+                else
                 {
-                    Core.StateController.Turn();
+                    Collection<Type> BarrierList = new Collection<Type>();
+                    BarrierList.Add(typeof(IBlock));
+                    BarrierList.Add(typeof(GreenPipeObject));
+
+                    if (Core.CollisionDetector.Detect(BarrierList).AnySide.Touch) {
+                        Core.StateController.Turn();
+                    }
                 }
                 
             }
