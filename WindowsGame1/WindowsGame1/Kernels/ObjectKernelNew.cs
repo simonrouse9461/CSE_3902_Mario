@@ -156,8 +156,7 @@ namespace WindowsGame1
                 StateController.Update();
                 if (Solid && !(GeneralMotionState is StaticMotionState)) BarrierDetector.Detect();
             }
-            else
-                InScreen = false;
+            else InScreen = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)

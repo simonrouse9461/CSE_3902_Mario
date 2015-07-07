@@ -96,11 +96,6 @@ namespace WindowsGame1
             ((InertiaMotion)FindMotion<InertiaMotion>().Content).Right();
         }
 
-        public void ResetInertia()
-        {
-            FindMotion<InertiaMotion>().Reset();
-        }
-
         public void Jump()
         {
             SetDefaultVertical();

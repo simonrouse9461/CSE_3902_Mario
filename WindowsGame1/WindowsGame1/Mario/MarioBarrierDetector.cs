@@ -11,28 +11,37 @@ namespace WindowsGame1
         {
             Func<int, Collision> detect =
                     i => Core.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, i);
-            if (detect(0).AnyEdge.Touch)
+            var collision = detect(0);
+            if (collision.AnyEdge.Touch)
             {
-                Collision collision;
+                Collision c;
                 while (detect(0).Bottom.Touch)
+                {
                     Core.GeneralMotionState.Adjust(new Vector2(0, -1));
-                for (collision = detect(0); (collision.TopLeft & collision.TopRight).Touch; collision = detect(0))
+                }
+                for (c = detect(0); (c.TopLeft & c.TopRight).Touch; c = detect(0))
+                {
                     Core.GeneralMotionState.Adjust(new Vector2(0, 1));
-                for (collision = detect(0);
-                    collision.Left.Touch && Core.Object.GoingLeft;
-                    collision = detect(0))
+                }
+                for (c = detect(0);
+                    c.Left.Touch && Core.Object.GoingLeft;
+                    c = detect(0))
+                {
                     Core.GeneralMotionState.Adjust(new Vector2(1, 0));
-                for (collision = detect(0);
-                    collision.Right.Touch && Core.Object.GoingRight;
-                    collision = detect(0))
+                }
+                for (c = detect(0);
+                    c.Right.Touch && Core.Object.GoingRight;
+                    c = detect(0))
+                {
                     Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
-                collision = detect(0);
-                if (collision.TopRight.Touch && collision.TopLeft.None ||
-                    collision.Right.Touch && Core.Object.GoingUp)
+                }
+                c = detect(0);
+                if (c.TopRight.Touch && c.TopLeft.None ||
+                    c.Right.Touch && Core.Object.GoingUp)
                     Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
-                collision = detect(0);
-                if (collision.TopLeft.Touch && collision.TopRight.None ||
-                    collision.Left.Touch && Core.Object.GoingUp)
+                c = detect(0);
+                if (c.TopLeft.Touch && c.TopRight.None ||
+                    c.Left.Touch && Core.Object.GoingUp)
                     Core.GeneralMotionState.Adjust(new Vector2(1, 0));
             }
         }

@@ -8,13 +8,6 @@ namespace WindowsGame1
         private bool dead;
         private bool WasOnFloor;
 
-        private void CheckWall()
-        {
-            if ((collision.Right.Touch && Core.Object.GoingRight ||
-                collision.Left.Touch && Core.Object.GoingLeft) 
-                && MotionState.HaveInertia) MotionState.ResetInertia();
-        }
-
         private void CheckCeiling()
         {
             if ((collision.TopLeft & collision.TopRight).Touch) MotionState.Fall();
@@ -25,7 +18,7 @@ namespace WindowsGame1
             if (collision.Bottom.Touch)
             {
                 if (MotionState.Gravity) MotionState.LoseGravity();
-                if (MotionState.DefaultHorizontal) SpriteState.Stand();
+                if (MotionState.DefaultHorizontal && !SpriteState.Crouching) SpriteState.Stand();
                 if (!WasOnFloor)
                 {
                     MotionState.Stop();
@@ -53,7 +46,12 @@ namespace WindowsGame1
         protected override void UpdateState()
         {
             collision = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid);
-            CheckWall();
+
+//            if (collision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVertical();
+//            if (collision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVertical();
+//            if (collision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontal();
+//            if (collision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontal();
+
             CheckCeiling();
             CheckFloor();
             CheckDead();
@@ -61,6 +59,7 @@ namespace WindowsGame1
 
         public void GoLeft()
         {
+            if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
 
@@ -80,6 +79,7 @@ namespace WindowsGame1
 
         public void GoRight()
         {
+            if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
             
@@ -99,6 +99,7 @@ namespace WindowsGame1
 
         public void KeepLeft()
         {
+            if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia)
             {
                 SpriteState.ToLeft();
@@ -112,6 +113,7 @@ namespace WindowsGame1
 
         public void KeepRight()
         {
+            if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia)
             {
                 SpriteState.ToRight();
@@ -147,11 +149,12 @@ namespace WindowsGame1
         public void Crouch()
         {
             SpriteState.Crouch();
+            MotionState.Stop();
         }
 
         public void StopCrouch()
         {
-            
+            SpriteState.Stand();
         }
 
         public void Grow()
