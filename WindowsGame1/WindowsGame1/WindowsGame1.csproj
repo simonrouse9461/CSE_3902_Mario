@@ -107,6 +107,8 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
+    <Compile Include="Enemies\GoombaStateController.cs" />
     <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />

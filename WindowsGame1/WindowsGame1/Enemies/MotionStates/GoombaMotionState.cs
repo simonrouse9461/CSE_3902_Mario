@@ -24,8 +24,6 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
-            FindMotion<GravityMotion>().Toggle(true);
-
             MotionStatus = MotionEnum.LeftWalk;
         }
 
@@ -69,9 +67,25 @@ namespace WindowsGame1
             MotionStatus = MotionEnum.None;
         }
 
+
+        public bool isAlive()
+        {
+            return !(MotionStatus == MotionEnum.None);
+        }
+
         public override void TakeMarioHitFromSide(string leftOrRight)
         {
             
+        }
+
+        public void ObtainGravity()
+        {
+            FindMotion<GravityMotion>().Toggle(true);
+        }
+
+        public void LoseGravity()
+        {
+            FindMotion<GravityMotion>().Toggle(false);
         }
     }
 }
