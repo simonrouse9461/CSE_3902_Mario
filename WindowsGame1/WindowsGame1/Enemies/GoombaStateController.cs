@@ -8,7 +8,7 @@ namespace WindowsGame1
 
         private void CheckFloor()
         {
-            if (collision.Bottom.Touch)
+            if (!collision.Bottom.Touch)
             {
                 MotionState.ObtainGravity();
             }

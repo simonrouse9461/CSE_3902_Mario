@@ -27,7 +27,7 @@ namespace WindowsGame1
             };
 
             MotionStatus = MotionEnum.LeftWalk;
-            ObtainGravity();
+            LoseGravity();
         }
 
         protected override void RefreshMotionStatus()
@@ -46,6 +46,15 @@ namespace WindowsGame1
                     FindMotion<MoveLeftMotion>().Toggle(false);
                     FindMotion<MoveRightMotion>().Toggle(true);
                     break;
+            }
+
+            if (Gravity)
+            {
+                FindMotion<GravityMotion>().Toggle(true);
+            }
+            else
+            {
+                FindMotion<GravityMotion>().Toggle(false);
             }
         }
 
@@ -84,13 +93,11 @@ namespace WindowsGame1
         public void ObtainGravity()
         {
             Gravity = true;
-            FindMotion<GravityMotion>().Toggle(true);
         }
 
         public void LoseGravity()
         {
             Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
         }
     }
 }
