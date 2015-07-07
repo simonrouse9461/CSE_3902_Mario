@@ -24,6 +24,10 @@ namespace WindowsGame1
         {
             Location += offset;
         }
+        public static void Reset()
+        {
+            Location = new Vector2(0, 0);
+        }
 
         public static void Adjust(float x, float y = 0)
         {
