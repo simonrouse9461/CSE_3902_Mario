@@ -9,21 +9,21 @@ namespace WindowsGame1
     {
         public BlockDebrisSprite()
         {
-            const int period = 4;
+            const int period = 12;
             ImageFile.Default = "block debris";
             Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>{
                     new Rectangle(0, 0, 15, 15),
-                    new Rectangle(18, 0, 22, 15),
-                    new Rectangle(43, 0, 28, 18),
-                    new Rectangle(3, 20, 34, 24)
+                    new Rectangle(18, 0, 22, 21),
+                    new Rectangle(45, 0, 30, 22),
+                    new Rectangle(84, 0, 46, 27)
                 }
             };
             Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = { 0, 1, 2, 3 };
+                    int[] frameSequence = { 0, 0, 1, 1, 2, 2, 3, 3 };
                     return frameSequence[phase];
                 },
                 period);

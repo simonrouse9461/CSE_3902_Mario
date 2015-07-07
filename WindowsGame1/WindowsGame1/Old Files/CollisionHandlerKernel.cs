@@ -22,7 +22,6 @@ namespace WindowsGame1
                     Object = core.Object,
                     SpriteState = (TSpriteState) (core.GeneralSpriteState),
                     MotionState = (TMotionState) (core.GeneralMotionState),
-                    StateController = core.StateController,
                     CollisionHandler = core.CollisionHandler,
                     CommandExecutor = core.CommandExecutor,
                     BarrierDetector = core.BarrierDetector

@@ -45,20 +45,20 @@ namespace WindowsGame1
             cameraLeftCommand = new CameraLeftCommand(game);
             cameraRightCommand = new CameraRightCommand(game);
 
-            keyboardController.RegisterCommand(Keys.Q, quitCommand, false);
-            keyboardController.RegisterCommand(Keys.R, resetCommand, false);
-            gamepadController.RegisterCommand(Buttons.Back, quitCommand, false);
-            keyboardController.RegisterCommand(Keys.F, marioFireCommand, true);
-            keyboardController.RegisterCommand(Keys.O, marioDeadCommand, false);
-            keyboardController.RegisterCommand(Keys.Up, marioUpCommand, false);
-            keyboardController.RegisterCommand(Keys.Down, marioDownCommand, false);
-            keyboardController.RegisterCommand(Keys.Left, marioLeftCommand, false);
-            keyboardController.RegisterCommand(Keys.Right, marioRightCommand, false);
-            keyboardController.RegisterCommand(Keys.W, cameraUpCommand, false);
-            keyboardController.RegisterCommand(Keys.S, cameraDownCommand, false);
-            keyboardController.RegisterCommand(Keys.A, cameraLeftCommand, false);
-            keyboardController.RegisterCommand(Keys.D, cameraRightCommand, false);
-            keyboardController.RegisterCommand(Keys.X, marioFireballCommand, false);
+            keyboardController.RegisterCommand(Keys.Q, quitCommand);
+            keyboardController.RegisterCommand(Keys.R, resetCommand);
+            gamepadController.RegisterCommand(Buttons.Back, quitCommand);
+            keyboardController.RegisterCommand(Keys.F, marioFireCommand);
+            keyboardController.RegisterCommand(Keys.O, marioDeadCommand);
+            keyboardController.RegisterCommand(Keys.Up, marioUpCommand);
+            keyboardController.RegisterCommand(Keys.Down, marioDownCommand);
+            keyboardController.RegisterCommand(Keys.Left, marioLeftCommand);
+            keyboardController.RegisterCommand(Keys.Right, marioRightCommand);
+            keyboardController.RegisterCommand(Keys.W, cameraUpCommand);
+            keyboardController.RegisterCommand(Keys.S, cameraDownCommand);
+            keyboardController.RegisterCommand(Keys.A, cameraLeftCommand);
+            keyboardController.RegisterCommand(Keys.D, cameraRightCommand);
+            keyboardController.RegisterCommand(Keys.X, marioFireballCommand);
         }
 
         public void Update() {

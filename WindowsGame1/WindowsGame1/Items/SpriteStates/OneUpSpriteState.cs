@@ -4,13 +4,13 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class _1UpSpriteState : SpriteStateKernel
+    public class OneUpSpriteState : SpriteStateKernel
     {
-        public _1UpSpriteState()
+        public OneUpSpriteState()
         {
             SpriteList = new Collection<ISprite>
             {
-                new _1UpSprite()
+                new OneUpSprite()
             };
         }
 
@@ -18,7 +18,7 @@ namespace WindowsGame1
         {
             get
             {
-                return FindSprite<_1UpSprite>();
+                return FindSprite<OneUpSprite>();
             }
         }
     }

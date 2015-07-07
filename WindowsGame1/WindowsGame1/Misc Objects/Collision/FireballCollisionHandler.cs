@@ -32,7 +32,7 @@ namespace WindowsGame1
             {
                 Core.MotionState.Bounce();
             }
-            else if (Detector.Detect<IObject>(obj => obj.Solid && !(obj is MarioObject)).Top.Touch)
+            else if (Detector.Detect<IObject>(obj => obj.Solid).Bottom.Touch)
             {
                 Core.SpriteState.Exploded();
                 Core.MotionState.Stop();

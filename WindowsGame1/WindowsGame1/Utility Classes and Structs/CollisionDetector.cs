@@ -404,11 +404,14 @@ namespace WindowsGame1
                     }
                 }
                 if (!pass) return false;
-                foreach (var type in exceptionTypes)
+                if (exceptionTypes != null)
                 {
-                    if (type.IsInstanceOfType(obj))
+                    foreach (var type in exceptionTypes)
                     {
-                        return false;
+                        if (type.IsInstanceOfType(obj))
+                        {
+                            return false;
+                        }
                     }
                 }
                 return true;

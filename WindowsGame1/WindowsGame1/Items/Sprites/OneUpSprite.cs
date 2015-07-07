@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class _1UpSprite : SpriteKernel
+    public class OneUpSprite : SpriteKernel
     {
-        public _1UpSprite()
+        public OneUpSprite()
         {
             ImageFile.Default = "items";
             Source.Default = new SpriteSource

@@ -5,10 +5,11 @@ namespace WindowsGame1
     public interface ICore
     {
         IObject Object { get; set; }
+        IStateController GeneralStateController { get; }
         ISpriteState GeneralSpriteState { get; }
         IMotionState GeneralMotionState { get; }
+        CollisionDetector CollisionDetector { get; set; }
         BarrierDetector BarrierDetector { get; set; }
-        IStateController StateController { get; set; }
         ICollisionHandler CollisionHandler { get; set; }
         ICommandExecutor CommandExecutor { get; set; }
 

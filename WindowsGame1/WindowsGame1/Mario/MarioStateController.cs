@@ -1,76 +1,172 @@
-﻿namespace WindowsGame1
+﻿using System;
+
+namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private CollisionDetector Detector;
-        private bool alreadyShot;
+        private Collision collision;
+        private bool dead;
+        private bool WasOnFloor;
 
-        public MarioStateController(Core<MarioSpriteState, MarioMotionState> core) : base(core)
+        private void CheckWall()
         {
-            Detector = new CollisionDetector(Core.Object);
+            if ((collision.Right.Touch && Core.Object.GoingRight ||
+                collision.Left.Touch && Core.Object.GoingLeft) 
+                && MotionState.HaveInertia) MotionState.ResetInertia();
         }
 
-        private void CheckMotion()
+        private void CheckCeiling()
         {
-            var collision = Detector.Detect<IObject>(obj => obj.Solid);
+            if ((collision.TopLeft & collision.TopRight).Touch) MotionState.Fall();
+        }
+
+        private void CheckFloor()
+        {
             if (collision.Bottom.Touch)
             {
-                if (Core.MotionState.HorizontalStatic)
+                if (MotionState.Gravity) MotionState.LoseGravity();
+                if (MotionState.DefaultHorizontal) SpriteState.Stand();
+                if (!WasOnFloor)
                 {
-                    Core.SpriteState.Stand();
+                    MotionState.Stop();
+                    SpriteState.Run();
                 }
-                else
-                {
-                    if (Core.MotionState.MovingRight == Core.SpriteState.Right)
-                        Core.SpriteState.Run();
-                    else
-                        Core.SpriteState.Turn();
-                }
+                WasOnFloor = true;
             }
             else
             {
-                Core.SpriteState.Jump();
-            }
-            if (collision.Top.Touch)
-            {
-                Core.MotionState.Fall();
+                MotionState.ObtainGravity();
+                SpriteState.Jump();
+                WasOnFloor = false;
             }
         }
 
-        private bool CheckDead()
+        private void CheckDead()
         {
-            if (Core.SpriteState.Dead)
+            if (dead)
             {
-                Core.MotionState.DeadFall();
-                return true;
-            }
-            return false;
-        }
-
-        private bool CheckShoot()
-        {
-            return Core.SpriteState.Shooting && !alreadyShot;
-        }
-
-        public override void SyncState()
-        {
-            if (!CheckDead())
-            {
-                if (!CheckShoot())
-                    CheckMotion();
+                SpriteState.BecomeDead();
+                MotionState.Die();
             }
         }
 
-        public override void Update()
+        protected override void UpdateState()
         {
-            if (CheckShoot())
+            collision = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid);
+            CheckWall();
+            CheckCeiling();
+            CheckFloor();
+            CheckDead();
+        }
+
+        public void GoLeft()
+        {
+            if (MotionState.HaveInertia) return;
+            if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
+
+            SpriteState.ToLeft();
+
+            if (MotionState.Velocity.X > 0)
             {
-                Core.DelayCommand(() => alreadyShot = true, 8);
+                MotionState.Stop();
+                SpriteState.Turn();
             }
-            if (!Core.SpriteState.Shooting && alreadyShot)
+            else
             {
-                alreadyShot = false;
+                MotionState.GoLeft();
+                SpriteState.Run();
             }
+        }
+
+        public void GoRight()
+        {
+            if (MotionState.HaveInertia) return;
+            if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
+            
+            SpriteState.ToRight();
+            
+            if (MotionState.Velocity.X < 0)
+            {
+                MotionState.Stop();
+                SpriteState.Turn();
+            }
+            else
+            {
+                MotionState.GoRight();
+                SpriteState.Run();
+            }
+        }
+
+        public void KeepLeft()
+        {
+            if (MotionState.HaveInertia)
+            {
+                SpriteState.ToLeft();
+                MotionState.AdjustInertiaLeft();
+            }
+            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            {
+                GoLeft();
+            }
+        }
+
+        public void KeepRight()
+        {
+            if (MotionState.HaveInertia)
+            {
+                SpriteState.ToRight();
+                MotionState.AdjustInertiaRight();
+            }
+            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            {
+                GoRight();
+            }
+        }
+
+        public void StopMove()
+        {
+            if (MotionState.HaveInertia) return;
+            MotionState.Stop();
+        }
+
+        public void Jump()
+        {
+            if (!MotionState.HaveInertia)
+            {
+                MotionState.GetInertia();
+                MotionState.Jump();
+                SpriteState.Jump();
+            }
+        }
+
+        public void Fall()
+        {
+            MotionState.Fall();
+        }
+
+        public void Crouch()
+        {
+            SpriteState.Crouch();
+        }
+
+        public void StopCrouch()
+        {
+            
+        }
+
+        public void Grow()
+        {
+            SpriteState.BecomeBig();
+        }
+
+        public void GetFire()
+        {
+            SpriteState.GetFire();
+        }
+
+        public void Die()
+        {
+            dead = true;
         }
     }
 }

@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class _1up : ObjectKernel<_1UpSpriteState, StaticMotionState>, IItem
+    public class OneUp : ObjectKernelNew<OneUpStateController>, IItem
     {
-        public _1up()
+        public OneUp()
         {
             CollisionHandler = new ItemCollisionHandler(Core);
         }

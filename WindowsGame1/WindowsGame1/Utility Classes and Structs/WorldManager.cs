@@ -52,12 +52,12 @@ namespace WindowsGame1
                 new Collection<GreenPipeObject>(),
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
-                new Collection<_1up>(),
+                new Collection<OneUp>(),
 
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
-                 new Collection<FloorBlockObject>(),
+                new Collection<FloorBlockObject>(),
                 // Mario should be drawn in the end
                 new Collection<MarioObject>(),
 
@@ -208,6 +208,23 @@ namespace WindowsGame1
                     }
                 }
             }
+            if (!FindObject<MarioObject>().Alive)
+            {
+                Reset();
+            }
+        }
+
+        public void Reset()
+        {
+            foreach (var collection in ObjectList)
+            {
+                for (int i = collection.Count - 1; i >= 0; i--)
+                {
+                    collection.Remove(collection[i]);
+                }
+            }
+            LoadContent(Content);
+            Camera.Reset();
         }
 
         public void Draw(SpriteBatch spriteBatch)

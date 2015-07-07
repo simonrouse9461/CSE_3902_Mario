@@ -7,7 +7,6 @@ namespace WindowsGame1
     {
         public ItemCollisionHandler(ICore core) : base(core)
         {
-            Core.BarrierDetector.AddBarrier<IBlock>();
         }
 
         public override void Handle()
