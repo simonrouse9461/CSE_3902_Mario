@@ -52,12 +52,12 @@ namespace WindowsGame1
                 new Collection<GreenPipeObject>(),
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
-                new Collection<_1up>(),
+                new Collection<OneUp>(),
 
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
-                 new Collection<FloorBlockObject>(),
+                new Collection<FloorBlockObject>(),
                 // Mario should be drawn in the end
                 new Collection<MarioObject>(),
 

@@ -10,7 +10,9 @@ namespace WindowsGame1
 
         private void CheckWall()
         {
-            if (collision.AnySide.Touch && MotionState.HaveInertia) MotionState.ResetInertia();
+            if ((collision.Right.Touch && Core.Object.GoingRight ||
+                collision.Left.Touch && Core.Object.GoingLeft) 
+                && MotionState.HaveInertia) MotionState.ResetInertia();
         }
 
         private void CheckCeiling()

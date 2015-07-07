@@ -107,6 +107,9 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
+    <Compile Include="Enemies\KoopaStateController.cs" />
+    <Compile Include="Enemies\GoombaStateController.cs" />
     <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
@@ -115,7 +118,7 @@
     <Compile Include="GameCommands\CameraDownCommand.cs" />
     <Compile Include="GameCommands\CameraUpCommand.cs" />
     <Compile Include="GameCommands\ResetCommand.cs" />
-    <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
+    <Compile Include="Enemies\CollisionHandlers\KoopaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
@@ -133,6 +136,11 @@
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
+    <Compile Include="Items\StateControllers\CoinStateController.cs" />
+    <Compile Include="Items\StateControllers\StarStateController.cs" />
+    <Compile Include="Items\StateControllers\MushroomStateController.cs" />
+    <Compile Include="Items\StateControllers\FireflowerStateController.cs" />
+    <Compile Include="Items\StateControllers\OneUpStateController.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
@@ -178,7 +186,7 @@
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
     <Compile Include="Items\CollisionHandler\ItemCollisionHandler.cs" />
-    <Compile Include="Items\SpriteStates\1upSpriteState.cs" />
+    <Compile Include="Items\SpriteStates\OneUpSpriteState.cs" />
     <Compile Include="Items\SpriteStates\CoinSpriteState.cs" />
     <Compile Include="Items\SpriteStates\FireflowerSpriteState.cs" />
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
@@ -214,10 +222,10 @@
     <Compile Include="Enemies\Sprites\RightWalkingKoopaSprite.cs" />
     <Compile Include="Interfaces\IMotionState.cs" />
     <Compile Include="Interfaces\IObject.cs" />
-    <Compile Include="Items\1up.cs" />
+    <Compile Include="Items\OneUp.cs" />
     <Compile Include="Items\Fireflower.cs" />
     <Compile Include="Items\Mushroom.cs" />
-    <Compile Include="Items\Sprites\1upSprite.cs" />
+    <Compile Include="Items\Sprites\OneUpSprite.cs" />
     <Compile Include="Items\Sprites\CoinSprite.cs" />
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />

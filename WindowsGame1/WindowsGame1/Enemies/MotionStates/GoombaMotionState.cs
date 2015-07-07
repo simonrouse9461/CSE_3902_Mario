@@ -15,6 +15,8 @@ namespace WindowsGame1
 
         private MotionEnum MotionStatus;
 
+        public bool Gravity { get; private set; }
+
         public GoombaMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
@@ -24,9 +26,8 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
-            FindMotion<GravityMotion>().Toggle(true);
-
             MotionStatus = MotionEnum.LeftWalk;
+            LoseGravity();
         }
 
         protected override void RefreshMotionStatus()
@@ -45,6 +46,15 @@ namespace WindowsGame1
                     FindMotion<MoveLeftMotion>().Toggle(false);
                     FindMotion<MoveRightMotion>().Toggle(true);
                     break;
+            }
+
+            if (Gravity)
+            {
+                FindMotion<GravityMotion>().Toggle(true);
+            }
+            else
+            {
+                FindMotion<GravityMotion>().Toggle(false);
             }
         }
 
@@ -69,9 +79,25 @@ namespace WindowsGame1
             MotionStatus = MotionEnum.None;
         }
 
+
+        public bool isAlive()
+        {
+            return !(MotionStatus == MotionEnum.None);
+        }
+
         public override void TakeMarioHitFromSide(string leftOrRight)
         {
             
+        }
+
+        public void ObtainGravity()
+        {
+            Gravity = true;
+        }
+
+        public void LoseGravity()
+        {
+            Gravity = false;
         }
     }
 }

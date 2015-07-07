@@ -3,19 +3,25 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public  class Koopa : ObjectKernel<KoopaSpriteState, KoopaMotionState>, IEnemy
+    public  class Koopa : ObjectKernelNew<KoopaStateController>, IEnemy
     {
         public Koopa() {
-            CollisionHandler = new EnemyCollisionHandler(Core);
+            CollisionHandler = new KoopaCollisionHandler(Core);
         }
+
+        public override bool Solid
+        {
+            get { return true; }
+        }
+
         public bool Alive
         {
-            get { return !SpriteState.Dead; }
+            get { return !StateController.SpriteState.Dead; }
         }
 
         public bool isMovingShell
         {
-            get { return SpriteState.Dead && MotionState.isMoving; }
+            get { return StateController.SpriteState.Dead && StateController.MotionState.isMoving; }
         }
     }
 }
