@@ -20,7 +20,7 @@ namespace WindowsGame1
 
         protected override void UpdateState()
         {
-            collision = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid);
+            collision = Core.CollisionDetector.Detect<IBlock>();
             CheckFloor();
         }
 

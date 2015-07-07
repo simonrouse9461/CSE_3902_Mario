@@ -7,6 +7,8 @@ namespace WindowsGame1
     {
         public Koopa() {
             CollisionHandler = new KoopaCollisionHandler(Core);
+            BarrierDetector = new MarioBarrierDetector(Core);
+            BarrierDetector.AddBarrier<IBlock>();
         }
 
         public override bool Solid

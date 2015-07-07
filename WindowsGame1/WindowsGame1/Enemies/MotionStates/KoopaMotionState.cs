@@ -19,6 +19,8 @@ namespace WindowsGame1
         private MotionEnum OutgoingMotionStatus;
         private MotionEnum MotionStatus;
 
+        public bool Gravity { get; private set; }
+
         public KoopaMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
@@ -29,8 +31,6 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new MoveRightFastMotion()),
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
-
-            FindMotion<GravityMotion>().Toggle(true);
 
             OutgoingMotionStatus = MotionEnum.Null;
             MotionStatus = MotionEnum.LeftWalk;
@@ -66,6 +66,15 @@ namespace WindowsGame1
             else if (MotionStatus == MotionEnum.RightShellKick)
             {
                 FindMotion<MoveRightFastMotion>().Toggle(true);
+            }
+
+            if (Gravity)
+            {
+                FindMotion<GravityMotion>().Toggle(true);
+            }
+            else
+            {
+                FindMotion<GravityMotion>().Toggle(false);
             }
         }
 
@@ -130,12 +139,12 @@ namespace WindowsGame1
 
         public void ObtainGravity()
         {
-            FindMotion<GravityMotion>().Toggle(true);
+            Gravity = true;
         }
 
         public void LoseGravity()
         {
-            FindMotion<GravityMotion>().Toggle(false);
+            Gravity = false;
         }
     }
 }
