@@ -159,9 +159,9 @@
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShootingMarioSprite.cs" />
     <Compile Include="Misc Objects\Collision\FireballCollisionHandler.cs" />
+    <Compile Include="Misc Objects\FireballStateController.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
-    <Compile Include="Misc Objects\MotionState\FireballBounceMotion.cs" />
     <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
