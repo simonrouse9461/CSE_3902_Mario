@@ -34,6 +34,11 @@ namespace WindowsGame1
             Location += new Vector2(x, y);
         }
 
+        public static void Reset(Vector2 location = default(Vector2))
+        {
+            Location = location;
+        }
+
         public static void Update()
         {
             var marioPosition = WorldManager.FindObject<MarioObject>().PositionPoint;
