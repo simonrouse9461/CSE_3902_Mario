@@ -208,6 +208,23 @@ namespace WindowsGame1
                     }
                 }
             }
+            if (!FindObject<MarioObject>().Alive)
+            {
+                Reset();
+            }
+        }
+
+        public void Reset()
+        {
+            foreach (var collection in ObjectList)
+            {
+                for (int i = collection.Count - 1; i >= 0; i--)
+                {
+                    collection.Remove(collection[i]);
+                }
+            }
+            LoadContent(Content);
+            Camera.Reset();
         }
 
         public void Draw(SpriteBatch spriteBatch)
