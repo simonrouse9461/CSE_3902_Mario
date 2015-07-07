@@ -51,21 +51,20 @@ namespace WindowsGame1
                 OutgoingMotionStatus = MotionEnum.Null;
             }
 
-            if (MotionStatus == MotionEnum.LeftWalk)
+            switch (MotionStatus)
             {
-                FindMotion<MoveLeftMotion>().Toggle(true);
-            }
-            else if (MotionStatus == MotionEnum.RightWalk)
-            {
-                FindMotion<MoveRightMotion>().Toggle(true);
-            }
-            else if (MotionStatus == MotionEnum.LeftShellKick)
-            {
-                FindMotion<MoveLeftFastMotion>().Toggle(true);
-            }
-            else if (MotionStatus == MotionEnum.RightShellKick)
-            {
-                FindMotion<MoveRightFastMotion>().Toggle(true);
+                case MotionEnum.LeftWalk:
+                    FindMotion<MoveLeftMotion>().Toggle(true);
+                    break;
+                case MotionEnum.RightWalk:
+                    FindMotion<MoveRightMotion>().Toggle(true);
+                    break;
+                case MotionEnum.LeftShellKick:
+                    FindMotion<MoveLeftFastMotion>().Toggle(true);
+                    break;
+                case MotionEnum.RightShellKick:
+                    FindMotion<MoveRightFastMotion>().Toggle(true);
+                    break;
             }
 
             if (Gravity)
