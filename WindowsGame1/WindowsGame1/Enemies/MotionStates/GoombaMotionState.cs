@@ -15,6 +15,8 @@ namespace WindowsGame1
 
         private MotionEnum MotionStatus;
 
+        public bool Gravity { get; private set; }
+
         public GoombaMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
@@ -25,6 +27,7 @@ namespace WindowsGame1
             };
 
             MotionStatus = MotionEnum.LeftWalk;
+            ObtainGravity();
         }
 
         protected override void RefreshMotionStatus()
@@ -80,11 +83,13 @@ namespace WindowsGame1
 
         public void ObtainGravity()
         {
+            Gravity = true;
             FindMotion<GravityMotion>().Toggle(true);
         }
 
         public void LoseGravity()
         {
+            Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
         }
     }

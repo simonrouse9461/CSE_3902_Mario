@@ -32,6 +32,7 @@ namespace WindowsGame1
 
             FindMotion<GravityMotion>().Toggle(true);
 
+            OutgoingMotionStatus = MotionEnum.Null;
             MotionStatus = MotionEnum.LeftWalk;
         }
 
@@ -74,15 +75,23 @@ namespace WindowsGame1
 
         public override void Turn()
         {
-            if (MotionStatus == MotionEnum.LeftWalk)
+            OutgoingMotionStatus = MotionStatus;
+
+            if (OutgoingMotionStatus == MotionEnum.LeftWalk)
             {
-                OutgoingMotionStatus = MotionStatus;
                 MotionStatus = MotionEnum.RightWalk;
             }
-            else if (MotionStatus == MotionEnum.RightWalk)
+            else if (OutgoingMotionStatus == MotionEnum.RightWalk)
             {
-                OutgoingMotionStatus = MotionStatus;
                 MotionStatus = MotionEnum.LeftWalk;
+            }
+            else if (OutgoingMotionStatus == MotionEnum.LeftShellKick)
+            {
+                MotionStatus = MotionEnum.RightShellKick;
+            }
+            else if (OutgoingMotionStatus == MotionEnum.RightShellKick)
+            {
+                MotionStatus = MotionEnum.LeftShellKick;
             }
         }
 
@@ -117,6 +126,16 @@ namespace WindowsGame1
         public bool isMoving
         {
             get { return MotionStatus != MotionEnum.None; }
+        }
+
+        public void ObtainGravity()
+        {
+            FindMotion<GravityMotion>().Toggle(true);
+        }
+
+        public void LoseGravity()
+        {
+            FindMotion<GravityMotion>().Toggle(false);
         }
     }
 }
