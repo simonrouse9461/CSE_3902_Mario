@@ -6,8 +6,8 @@ namespace WindowsGame1
 {
     public class BarrierDetector : IBarrierDetector
     {
-        protected Collection<Type> BarrierList { get; private set; }
-        protected Collection<Type> BarrierExceptionList { get; private set; }
+        public Collection<Type> BarrierList { get; private set; }
+        public Collection<Type> BarrierExceptionList { get; private set; }
 
         protected ICore Core { get; set; } 
 

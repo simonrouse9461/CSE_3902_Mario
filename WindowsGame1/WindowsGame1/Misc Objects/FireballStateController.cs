@@ -8,12 +8,9 @@ namespace WindowsGame1
 {
     public class FireballStateController : StateControllerKernel<FireballSpriteState, FireballMotionState>
     {
-
-        private Collision collision;
-
         public void Bounce()
         {
-            if (collision.Top.Touch)
+            if (BarrierCollision.Top.Touch)
             {
                 MotionState.Bounce();
             }
@@ -27,7 +24,7 @@ namespace WindowsGame1
 
         public void HitObject()
         {
-            if (collision.AnySide.Touch)
+            if (BarrierCollision.AnySide.Touch)
             {
                 Explode();
             }
@@ -35,9 +32,6 @@ namespace WindowsGame1
 
         protected override void UpdateState()
         {
-            collision = Core.CollisionDetector.Detect(new Collection<Type> {typeof (IObject)},
-                new Collection<Type> {typeof (MarioObject)}, obj => obj.Solid);
-            
             Bounce();
             HitObject();
         }

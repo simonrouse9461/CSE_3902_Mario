@@ -28,6 +28,7 @@ namespace WindowsGame1
         protected ObjectKernelNew()
         {
             Core = new CoreNew<TStateController>(this);
+            BarrierDetector = new BarrierDetector(Core);
         } 
 
         // Object core that wraps all internal components of the object
