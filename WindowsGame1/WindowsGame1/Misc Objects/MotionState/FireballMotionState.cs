@@ -76,8 +76,7 @@ namespace WindowsGame1
         public void Bounce()
         {
             Action = ActionEnum.Bounce;
-            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Toggle(true);
-            
+            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Toggle(true);          
         }
 
         public bool Bouncing
