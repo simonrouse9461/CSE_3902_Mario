@@ -7,6 +7,9 @@ namespace WindowsGame1
     {
         private bool dead;
         private bool WasOnFloor;
+        private bool AllowShoot;
+        private Counter ShootTimerFirst;
+        private Counter ShootTimerSecond;
 
         private void CheckCeiling()
         {
