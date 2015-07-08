@@ -9,6 +9,7 @@ namespace WindowsGame1
         private Vector2 Acceleration;
         private Vector2 MaxVelocity;
         private bool UnderGravity;
+        private bool FinishWhenMax;
 
         private enum Version
         {
@@ -35,7 +36,7 @@ namespace WindowsGame1
 
         public override bool Finish
         {
-            get { return Velocity.Y >= (MaxVelocity - GravityMotion.MaxVelocity*(UnderGravity ? 1 : 0)).Y; }
+            get { return (Velocity.Y >= (MaxVelocity - GravityMotion.MaxVelocity*(UnderGravity ? 1 : 0)).Y) && FinishWhenMax; }
         }
 
         public BounceUpMotion MarioJump
@@ -47,6 +48,7 @@ namespace WindowsGame1
                 Acceleration = new Vector2(0, 0.17f);
                 MaxVelocity = default(Vector2);
                 UnderGravity = true;
+                FinishWhenMax = true;
                 return this;
             }
         }
@@ -65,6 +67,7 @@ namespace WindowsGame1
                 Acceleration = new Vector2(0, 0.1f);
                 MaxVelocity = new Vector2(0, 6);
                 UnderGravity = false;
+                FinishWhenMax = false;
                 return this;
             }
         }
@@ -83,6 +86,7 @@ namespace WindowsGame1
                 Acceleration = new Vector2(0, 0.2f);
                 MaxVelocity = new Vector2(0, 2.7f);
                 UnderGravity = true;
+                FinishWhenMax = true;
                 return this;
             }
         }
