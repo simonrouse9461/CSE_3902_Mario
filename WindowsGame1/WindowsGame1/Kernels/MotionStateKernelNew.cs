@@ -76,6 +76,7 @@ namespace WindowsGame1
                 {
                     if (!motion.Status || motion.Content.Finish)
                     {
+                        motion.Toggle(false);
                         motion.Reset(m => m.Reset(Velocity));
                     }
                 }

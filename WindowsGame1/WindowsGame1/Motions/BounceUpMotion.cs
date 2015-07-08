@@ -65,7 +65,7 @@ namespace WindowsGame1
                 version = Version.MarioDie;
                 StartVelocity = new Vector2(0, -3);
                 Acceleration = new Vector2(0, 0.1f);
-                MaxVelocity = new Vector2(0, 6);
+                MaxVelocity = GravityMotion.MaxVelocity;
                 UnderGravity = false;
                 FinishWhenMax = false;
                 return this;
@@ -84,7 +84,7 @@ namespace WindowsGame1
                 version = Version.FireballBounce;
                 StartVelocity = new Vector2(0, -2.7f);
                 Acceleration = new Vector2(0, 0.2f);
-                MaxVelocity = new Vector2(0, 2.7f);
+                MaxVelocity = GravityMotion.MaxVelocity;
                 UnderGravity = true;
                 FinishWhenMax = true;
                 return this;
