@@ -16,8 +16,7 @@ namespace WindowsGame1
             set
             {
                 _ammoLeft = value;
-                if (AmmoLeft < MagazineCapacity) Reloading = true;
-                else Reloading = false;
+                Reloading = AmmoLeft < MagazineCapacity;
             }
         }
 
