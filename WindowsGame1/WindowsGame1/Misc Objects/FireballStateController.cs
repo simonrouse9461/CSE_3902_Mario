@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -34,8 +35,11 @@ namespace WindowsGame1
 
         protected override void UpdateState()
         {
-            HitObject();
+            collision = Core.CollisionDetector.Detect(new Collection<Type> {typeof (IObject)},
+                new Collection<Type> {typeof (MarioObject)}, obj => obj.Solid);
+            
             Bounce();
+            HitObject();
         }
     }
 }
