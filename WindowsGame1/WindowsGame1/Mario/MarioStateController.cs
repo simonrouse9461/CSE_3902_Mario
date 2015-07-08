@@ -5,11 +5,37 @@ namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private bool dead;
         private bool WasOnFloor;
         private const int MagazineCapacity = 2;
-        private int AmmoLeft = 2;
         private Counter ReloadTimer;
+
+        private int _ammoLeft = 2;
+        private int AmmoLeft
+        {
+            get { return _ammoLeft; }
+            set
+            {
+                _ammoLeft = value;
+                if (AmmoLeft < MagazineCapacity) Reloading = true;
+                else Reloading = false;
+            }
+        }
+
+        private bool _reloading;
+        private bool Reloading
+        {
+            get { return _reloading; }
+            set
+            {
+                if (!Reloading && value) ReloadTimer = new Counter(50);
+                _reloading = value;
+            }
+        }
+
+        private void ReloadAmmo()
+        {
+            if (Reloading && ReloadTimer.Update()) AmmoLeft = MagazineCapacity;
+        }
 
         private void CheckCeiling()
         {
@@ -49,6 +75,7 @@ namespace WindowsGame1
 
             CheckCeiling();
             CheckFloor();
+            ReloadAmmo();
         }
 
         public void GoLeft()
@@ -182,11 +209,13 @@ namespace WindowsGame1
         public void Shoot()
         {
             if (SpriteState.Dead) return;
+            if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
                 SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
                 );
+            AmmoLeft--;
         }
     }
 }
