@@ -8,6 +8,8 @@ namespace WindowsGame1
         public Mushroom()
         {
             CollisionHandler = new ItemCollisionHandler(Core);
+            BarrierDetector = new MarioBarrierDetector(Core);
+            BarrierDetector.AddBarrier<IBlock>();
         }
 
         // make it not solid so that anything can pass through it
