@@ -289,7 +289,7 @@
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="CODE_REVIEWS\AndrewReadabilityReview.txt" />
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
-    <Content Include="CODE_REVIEWS\ChuhanCodeReadabilityReviewS4.txt" />
+    <Content Include="CODE_REVIEWS\ChuhanCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\HadenReadabilityReview.txt" />
     <Content Include="Game.ico" />
