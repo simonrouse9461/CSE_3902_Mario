@@ -1,4 +1,6 @@
-﻿namespace WindowsGame1
+﻿using System;
+
+namespace WindowsGame1
 {
     public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController
         where TSpriteState : ISpriteState, new()
@@ -28,6 +30,14 @@
             UpdateState();
             SpriteState.Update();
             MotionState.Update();
+        }
+
+        public void SwitchComponent(Object component)
+        {
+            if (component is TSpriteState)
+                SpriteState = (TSpriteState)component;
+            if (component is TMotionState)
+                MotionState = (TMotionState)component;
         }
     }
 }

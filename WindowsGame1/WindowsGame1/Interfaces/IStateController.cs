@@ -1,4 +1,6 @@
-﻿namespace WindowsGame1
+﻿using System;
+
+namespace WindowsGame1
 {
     public interface IStateController
     {
@@ -7,5 +9,6 @@
         IMotionState GeneralMotionState { get; }
 
         void Update();
+        void SwitchComponent(Object component);
     }
 }
