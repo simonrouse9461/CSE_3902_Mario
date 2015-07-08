@@ -8,12 +8,14 @@ namespace WindowsGame1
 {
     public class MushroomMotionState : MotionStateKernel
     {
+
+        public bool Gravity { get; private set; }
+
         public MushroomMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
                 new StatusSwitch<IMotion>(new MoveLeftMotion().ItemVelocity),
-                new StatusSwitch<IMotion>(new MoveRightMotion().ItemVelocity),
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
         }
@@ -21,11 +23,30 @@ namespace WindowsGame1
         protected override void RefreshMotionStatus()
         {
             FindMotion<MoveLeftMotion>().Toggle(true);
-            FindMotion<GravityMotion>().Toggle(true);
+
+            if (Gravity)
+            {
+                FindMotion<GravityMotion>().Toggle(true);
+            }
+            else
+            {
+                FindMotion<GravityMotion>().Toggle(false);
+            }
+            
         }
 
         protected override void SetToDefaultState()
         {
+        }
+
+        public void ObtainGravity()
+        {
+            Gravity = true;
+        }
+
+        public void LoseGravity()
+        {
+            Gravity = false;
         }
     }
 }
