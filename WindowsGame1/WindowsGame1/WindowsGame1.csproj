@@ -290,6 +290,7 @@
     <Content Include="CODE_REVIEWS\AndrewReadabilityReview.txt" />
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ChuhanCodeQualityReviewS4.txt" />
+    <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\HadenReadabilityReview.txt" />
     <Content Include="Game.ico" />

@@ -40,7 +40,7 @@ namespace WindowsGame1
             {
                 version = Version.Mariojump;
                 StartVelocity = new Vector2(0, -6) - GravityMotion.MaxVelocity;
-                Acceleration = new Vector2(0, 0.15f);
+                Acceleration = new Vector2(0, 0.17f);
                 MaxVelocity = - GravityMotion.MaxVelocity;
                 return this;
             }

@@ -81,8 +81,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Locations.xml">
-      <Name>Locations</Name>
+    <Compile Include="LevelData.xml">
+      <Name>LevelData</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
