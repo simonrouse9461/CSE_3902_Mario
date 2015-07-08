@@ -7,9 +7,9 @@ namespace WindowsGame1
     {
         private bool dead;
         private bool WasOnFloor;
-        private bool AllowShoot;
-        private Counter ShootTimerFirst;
-        private Counter ShootTimerSecond;
+        private const int MagazineCapacity = 2;
+        private int AmmoLeft = 2;
+        private Counter ReloadTimer;
 
         private void CheckCeiling()
         {
@@ -34,6 +34,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.ObtainGravity();
+                MotionState.GetInertia();
                 SpriteState.Jump();
                 WasOnFloor = false;
             }
@@ -134,7 +135,6 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (!MotionState.HaveInertia)
             {
-                MotionState.GetInertia();
                 MotionState.Jump();
                 SpriteState.Jump();
             }

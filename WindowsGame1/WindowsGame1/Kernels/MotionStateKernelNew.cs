@@ -25,10 +25,12 @@ namespace WindowsGame1
             Velocity = default(Vector2);
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, bool> filter = null) where T : IMotion
+        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, T> filter = null) where T : IMotion, new()
         {
-            filter = filter ?? (motion => true);
-            return MotionList.First(motion => motion.Content is T && filter((T)motion.Content));
+            if (filter == null) return MotionList.First(motion => motion.Content is T);
+
+            T comparison = filter(new T());
+            return MotionList.First(motion => comparison.SameVersion(motion.Content));
         }
 
         public void Reset()

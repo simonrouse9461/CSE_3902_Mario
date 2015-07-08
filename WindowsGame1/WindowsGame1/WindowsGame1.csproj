@@ -207,8 +207,7 @@
     <Compile Include="Misc Objects\Collision\BlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\IBlock.cs" />
     <Compile Include="Misc Objects\SpriteState\BlockSpriteState.cs" />
-    <Compile Include="Motions\AccelerateLeftMotion.cs" />
-    <Compile Include="Motions\AccelerateRightMotion.cs" />
+    <Compile Include="Motions\AccelerateMotion.cs" />
     <Compile Include="Motions\BounceUpMotion.cs" />
     <Compile Include="Motions\GravityMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
@@ -290,7 +289,7 @@
     <Content Include="CODE_REVIEWS\AndrewCodeReview.txt" />
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ChuhanCodeQualityReviewS4.txt" />
-	<Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
+    <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
     <Content Include="Game.ico" />

@@ -6,6 +6,21 @@ namespace WindowsGame1
     {
         private Vector2 StartVelocity;
 
+        private enum Version
+        {
+            Default,
+            Enemy,
+            Item,
+            Fireball
+        }
+
+        private Version version = Version.Default;
+
+        public override int VersionCode
+        {
+            get { return (int)version; }
+        }
+
         public override Vector2 Velocity
         {
             get
@@ -19,6 +34,7 @@ namespace WindowsGame1
         {
             get
             {
+                version = Version.Enemy;
                 StartVelocity = new Vector2(1, 0);
                 return this;
             }
@@ -28,6 +44,7 @@ namespace WindowsGame1
         {
             get
             {
+                version = Version.Item;
                 StartVelocity = new Vector2(1, 0);
                 return this;
             }
@@ -37,6 +54,7 @@ namespace WindowsGame1
         {
             get
             {
+                version = Version.Fireball;
                 StartVelocity = new Vector2(6, 0);
                 return this;
             }

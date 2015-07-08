@@ -19,6 +19,16 @@ namespace WindowsGame1
             Circulator = new Counter(period);
         }
 
+        public virtual int VersionCode
+        {
+            get { return 0; }
+        }
+
+        public bool SameVersion(IMotion motion)
+        {
+            return motion.GetType() == GetType() && motion.VersionCode == VersionCode;
+        }
+
         public virtual void Reset(Vector2 initialVelocity = default(Vector2))
         {
             InitialVelocity = initialVelocity;
