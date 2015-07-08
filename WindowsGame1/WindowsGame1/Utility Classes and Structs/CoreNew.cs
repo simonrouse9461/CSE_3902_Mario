@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace WindowsGame1
@@ -72,18 +71,18 @@ namespace WindowsGame1
             Waitlist = new Collection<Reservation>();
         }
 
-        public void SwitchComponent(Object obj)
+        public void SwitchComponent(Object component)
         {
-            if (obj is ISpriteState || obj is IMotionState)
-                //StateController.SwitchComponent(obj);
-            if (obj is ICollisionHandler)
-                CollisionHandler = (ICollisionHandler)obj;
-            if (obj is ICommandExecutor)
-                CommandExecutor = (ICommandExecutor)obj;
-            if (obj is BarrierDetector)
-                BarrierDetector = (BarrierDetector)obj;
-            if (obj is TStateController)
-                StateController = (TStateController) obj;
+            if (component is ISpriteState || component is IMotionState)
+                StateController.SwitchComponent(component);
+            if (component is ICollisionHandler)
+                CollisionHandler = (ICollisionHandler)component;
+            if (component is ICommandExecutor)
+                CommandExecutor = (ICommandExecutor)component;
+            if (component is BarrierDetector)
+                BarrierDetector = (BarrierDetector)component;
+            if (component is TStateController)
+                StateController = (TStateController) component;
         }
 
         public void Update()

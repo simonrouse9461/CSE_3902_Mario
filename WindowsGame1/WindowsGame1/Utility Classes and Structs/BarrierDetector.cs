@@ -6,8 +6,8 @@ namespace WindowsGame1
 {
     public class BarrierDetector : IBarrierDetector
     {
-        protected Collection<Type> BarrierList { get; private set; }
-        protected Collection<Type> BarrierExceptionList { get; private set; }
+        public Collection<Type> BarrierList { get; private set; }
+        public Collection<Type> BarrierExceptionList { get; private set; }
 
         protected ICore Core { get; set; } 
 
@@ -70,13 +70,13 @@ namespace WindowsGame1
             if (collision().AnyEdge.Touch)
             {
                 while (collision().Bottom.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(0, -2));
+                    Core.GeneralMotionState.Adjust(new Vector2(0, -1));
                 while (collision().Top.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(0, 2));
+                    Core.GeneralMotionState.Adjust(new Vector2(0, 1));
                 while (collision().Left.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(2, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(1, 0));
                 while (collision().Right.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(-2, 0));
+                    Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
             }
         }
     }

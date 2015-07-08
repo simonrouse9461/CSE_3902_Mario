@@ -11,10 +11,10 @@ namespace WindowsGame1
         public FireballObject()
         {
             CollisionHandler = new FireballCollisionHandler(Core);
-        }
-        public override bool Solid
-        {
-            get { return false; }
+            BarrierDetector = new BarrierDetector(Core);
+
+            BarrierDetector.AddBarrier<IObject>();
+            BarrierDetector.RemoveBarrier<MarioObject>();
         }
 
         public FireballObject LeftFireBall

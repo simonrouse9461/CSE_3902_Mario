@@ -25,10 +25,12 @@ namespace WindowsGame1
             Velocity = default(Vector2);
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, bool> filter = null) where T : IMotion
+        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, T> filter = null) where T : IMotion, new()
         {
-            filter = filter ?? (motion => true);
-            return MotionList.First(motion => motion.Content is T && filter((T)motion.Content));
+            if (filter == null) return MotionList.First(motion => motion.Content is T);
+
+            T comparison = filter(new T());
+            return MotionList.First(motion => comparison.SameVersion(motion.Content));
         }
 
         public void Reset()
@@ -37,6 +39,22 @@ namespace WindowsGame1
             foreach (var motion in MotionList)
             {
                 motion.Reset(m => m.Reset());
+            }
+        }
+
+        public void ResetHorizontal()
+        {
+            foreach (var motion in MotionList)
+            {
+                motion.Reset(m => m.ResetX());
+            }
+        }
+
+        public void ResetVertical()
+        {
+            foreach (var motion in MotionList)
+            {
+                motion.Reset(m => m.ResetY());
             }
         }
 
@@ -60,6 +78,7 @@ namespace WindowsGame1
                 {
                     if (!motion.Status || motion.Content.Finish)
                     {
+                        motion.Toggle(false);
                         motion.Reset(m => m.Reset(Velocity));
                     }
                 }

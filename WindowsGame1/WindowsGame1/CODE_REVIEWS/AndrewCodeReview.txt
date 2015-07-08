@@ -1,0 +1,15 @@
+﻿Andrew Miller
+7/7/2015
+Sprint 4
+
+File: BounceUpMotion.cs
+File Author: Chuhan Feng
+Time: 10 minutes
+
+This class is meant to define the motions that the objects can go through that have the capability of bouncing up and down -
+namely, Mario, fireballs and blocks. There are several different versions of this bounce up motion that can be seen in 
+the enum of the class. All of the enum's versions are very clear about what they do; MarioDieVersion is related to the 
+motion of Mario dying, FireballBounceVersion is related to the bouncing motion of the Fireball, and so on. Each motion has
+it's own vectors, so that the BounceUpMotion can be defined independently for each specific need. This allows for easy
+maintenance of the objects that utilize this class. Since the method names are very descriptive for their uses, it is simple
+to figure out what each one does and it will be very easy to maintain this code since there are a variety of uses of this class.

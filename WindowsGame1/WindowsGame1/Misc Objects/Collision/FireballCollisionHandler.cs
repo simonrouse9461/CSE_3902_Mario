@@ -17,10 +17,9 @@ namespace WindowsGame1
 
         protected virtual void HandleObject()
         {
-            if (Core.CollisionDetector.Detect<IEnemy>().AnyEdge.Touch || Core.CollisionDetector.Detect<IObject>().AnySide.Touch)
+            if (Core.CollisionDetector.Detect<IEnemy>().AnyEdge.Touch)
             {
                 Core.StateController.Explode();
-                Core.DelayCommand(() => Core.Object.Unload(), 3);
             }
         }
     }

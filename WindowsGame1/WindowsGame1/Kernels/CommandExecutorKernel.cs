@@ -88,12 +88,14 @@ namespace WindowsGame1
 
         private void ToggleCurrentStatus(Type command, bool status)
         {
-            CurrentStatus.First(c => c.Content == command).Toggle(status);
+            if (RegisteredCommands.Contains(command))
+                CurrentStatus.First(c => c.Content == command).Toggle(status);
         }
 
         private void TogglePreviousStatus(Type command, bool status)
         {
-            PreviousStatus.First(c => c.Content == command).Toggle(status);
+            if (RegisteredCommands.Contains(command))
+                PreviousStatus.First(c => c.Content == command).Toggle(status);
         }
     }
 }

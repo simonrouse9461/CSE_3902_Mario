@@ -1,0 +1,26 @@
+﻿Haden Kersting
+7/7/2015
+Sprint 4
+
+File: WorldManager.cs
+File Author: Colin Dolan & Chuhan Feng
+Time: 12 minutes
+
+COMMENTS:
+		Naturally, this class has significant coupling. I think all coupling is necessary. 
+		Cohesion is fairly high. The code serves the purpose of adding and removing world 
+	objects. At first I thought it might be more cohesive to separate the level loader from 
+	the other world management logic such as removing and adding objects. However, see 
+	"hypothetical change" for a possible advantage of the current design. 
+		Also, I am a bit confused by the FindObjectCollectionList and FindObjectCollection 
+	methods. Based on the name, I would think that FindObjectCollectionList would basically 
+	just return ObjectList (since ObjectList is in some sense a list of collections) but that 
+	doesn't seem to be what it is doing. Other readers may have similar confusion, so I'd
+	consider renaming.
+
+HYPOTHETICAL CHANGE:
+		If a new type was added, it would change the code in two locations: the initialization 
+	of ObjectList and the LoadContent method which process the XML. This is a possible advantage 
+	to having the load XML logic and the world maintenance logic in the same class. (Both places
+	where you'd have to change something are in the same file.) I think the file is very 
+	maintainable.

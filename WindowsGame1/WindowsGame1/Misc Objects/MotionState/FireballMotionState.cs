@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class FireballMotionState : MotionStateKernel
+    public class FireballMotionState : MotionStateKernelNew
     {
         private enum OrientationEnum
         {
@@ -16,7 +17,7 @@ namespace WindowsGame1
 
         private enum ActionEnum
         {
-            Null,
+            Default,
             Stop,
             Bounce
         }
@@ -29,51 +30,39 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(new BounceUpMotion().FireballBounce)
             };
+
+            SetDefaultHorizontal();
+            SetDefaultVertical();
         }
 
         private OrientationEnum Orientation;
         private ActionEnum Action;
-        protected override void RefreshMotionStatus()
+
+        public void SetDefaultHorizontal()
         {
-            switch (Orientation)
-            {
-                case OrientationEnum.Left:
-                    FindMotion<MoveLeftMotion>().Toggle(true);
-                    FindMotion<GravityMotion>().Toggle(true);
-                    break;
-                case OrientationEnum.Right:
-                    FindMotion<MoveRightMotion>().Toggle(true);
-                    FindMotion<GravityMotion>().Toggle(true);
-                    break;
-            }
-            switch (Action)
-            {
-                case ActionEnum.Stop:
-                    foreach (var motion in MotionList)
-                    {
-                        motion.Toggle(false);
-                    }
-                    break;
-                case ActionEnum.Bounce:
-                    FindMotion<GravityMotion>().Toggle(false);
-                    FindMotion<BounceUpMotion>().Toggle(true);
-                    break;
-            }
+            FindMotion<MoveRightMotion>().Toggle(false);
+            FindMotion<MoveLeftMotion>().Toggle(false);
         }
 
-        protected override void SetToDefaultState()
+        public void SetDefaultVertical()
         {
-
+            FindMotion<BounceUpMotion>().Toggle(false);
         }
 
         public void GoLeft()
         {
+            SetDefaultHorizontal();
             Orientation = OrientationEnum.Left;
+            FindMotion<MoveLeftMotion>().Toggle(true);
+            FindMotion<GravityMotion>().Toggle(true);
         }
 
         public void GoRight()
         {
+            SetDefaultHorizontal();
             Orientation = OrientationEnum.Right;
+            FindMotion<MoveRightMotion>().Toggle(true);
+            FindMotion<GravityMotion>().Toggle(true);
         }
 
         public bool Left
@@ -88,12 +77,23 @@ namespace WindowsGame1
 
         public void Stop()
         {
-            Action = ActionEnum.Stop;
+            SetDefaultHorizontal();
+            SetDefaultVertical();
+            FindMotion<GravityMotion>().Toggle(false);
+            Action = ActionEnum.Default;
         }
 
         public void Bounce()
         {
+            SetDefaultVertical();
             Action = ActionEnum.Bounce;
+            FindMotion<BounceUpMotion>().Content.Reset();
+            FindMotion<BounceUpMotion>().Toggle(true);
+        }
+
+        public bool Bouncing
+        {
+            get { return Action == ActionEnum.Bounce; }
         }
     }
 }
