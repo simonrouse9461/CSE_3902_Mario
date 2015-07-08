@@ -8,9 +8,10 @@ namespace WindowsGame1
 {
     public class FireballStateController : StateControllerKernel<FireballSpriteState, FireballMotionState>
     {
+        private Collision collision;
         public void Bounce()
         {
-            if (BarrierCollision.Top.Touch)
+            if (BarrierCollision.Bottom.Touch)
             {
                 MotionState.Bounce();
             }
@@ -20,7 +21,8 @@ namespace WindowsGame1
         {
             MotionState.Stop();
             SpriteState.Exploded();
-            Core.DelayCommand(() => Core.Object.Unload(), 3);
+            Core.BarrierDetector.RemoveBarrier<IObject>();
+            Core.DelayCommand(() => Core.Object.Unload(), 6);
         }
 
         public void HitObject()
@@ -33,6 +35,7 @@ namespace WindowsGame1
 
         protected override void UpdateState()
         {
+            collision = Core.CollisionDetector.Detect<IObject>();
             Bounce();
             HitObject();
         }

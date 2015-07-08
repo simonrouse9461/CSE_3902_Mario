@@ -71,7 +71,7 @@ namespace WindowsGame1
             }
         }
 
-        public void Update()
+        public virtual void Update()
         {
             if (SpriteTimer.Update())
             {

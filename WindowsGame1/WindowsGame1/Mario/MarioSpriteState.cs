@@ -45,7 +45,7 @@ namespace WindowsGame1
         private ActionEnum Action;
         private OrientationEnum Orientation;
         private ColorEnum ColorMode;
-        
+        private Counter ShootTimer;
 
         public MarioSpriteState()
         {
@@ -207,6 +207,13 @@ namespace WindowsGame1
             }
         }
 
+        public override void Update()
+        {
+            if (Action == ActionEnum.Shoot && ShootTimer.Update())
+                Action = ActionEnum.Stand;
+            base.Update();
+        }
+
         public override bool Left
         {
             get { return Orientation == OrientationEnum.Left; }
@@ -306,6 +313,7 @@ namespace WindowsGame1
 
         public void Run()
         {
+            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Run;
         }
 
@@ -316,6 +324,7 @@ namespace WindowsGame1
 
         public void Jump()
         {
+            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Jump;
         }
 
@@ -326,7 +335,9 @@ namespace WindowsGame1
 
         public void Crouch()
         {
-            Action = Status == StatusEnum.Small ? ActionEnum.Stand : ActionEnum.Crouch;
+            if (Action == ActionEnum.Shoot) return;
+            if (Status == StatusEnum.Small) return;
+            Action = ActionEnum.Crouch;
         }
 
         public bool Crouching
@@ -336,6 +347,7 @@ namespace WindowsGame1
 
         public void Stand()
         {
+            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Stand;
         }
 
@@ -346,6 +358,7 @@ namespace WindowsGame1
 
         public void Turn()
         {
+            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Turn;
         }
 
@@ -355,6 +368,7 @@ namespace WindowsGame1
         }
         public void Swim()
         {
+            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Swim;
         }
 
@@ -366,6 +380,7 @@ namespace WindowsGame1
         public void Shoot()
         {
             Action = ActionEnum.Shoot;
+            ShootTimer = new Counter(7);
         }
 
         public bool Shooting
