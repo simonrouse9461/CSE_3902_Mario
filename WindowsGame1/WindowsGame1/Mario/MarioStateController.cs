@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -167,6 +168,15 @@ namespace WindowsGame1
         public void Die()
         {
             dead = true;
+        }
+
+        public void Shoot()
+        {
+            SpriteState.Shoot();
+            Core.Object.Generate(
+                new Vector2(SpriteState.Left ? -10 : 10, -20),
+                SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
+                );
         }
     }
 }

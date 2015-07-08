@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
@@ -76,7 +77,8 @@ namespace WindowsGame1
         public void Bounce()
         {
             Action = ActionEnum.Bounce;
-            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Toggle(true);          
+            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Content.Reset();
+            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Toggle(true);
         }
 
         public bool Bouncing
