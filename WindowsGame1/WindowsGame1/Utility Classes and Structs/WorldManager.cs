@@ -14,7 +14,7 @@ namespace WindowsGame1
     {
         public Collection<IList> ObjectList { get; private set; }
 
-        ObjectData[] Locations;
+        ObjectData[] LevelData;
 
         private ContentManager Content;
 
@@ -121,66 +121,66 @@ namespace WindowsGame1
             FindObjectCollection<MarioObject>().Add(new MarioObject());
             FindObject<MarioObject>().Load(content, new Vector2(75, 398));
 
-            Locations = content.Load<ObjectData[]>("Locations");
-            for (int i = 0; i < Locations.Length; i++)
+            LevelData = content.Load<ObjectData[]>("LevelData");
+            for (int i = 0; i < LevelData.Length; i++)
             {
-                switch (Locations[i].Type)
+                switch (LevelData[i].Type)
                 {
                     case "Goomba":
                         FindObjectCollection<Goomba>().Add(new Goomba());
-                        FindObjectCollection<Goomba>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Goomba>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Koopa":
                         FindObjectCollection<Koopa>().Add(new Koopa());
-                        FindObjectCollection<Koopa>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Koopa>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "BlockKernel":
                         FindObjectCollection<BlockKernel>().Add(new BlockKernel());
-                        FindObjectCollection<BlockKernel>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<BlockKernel>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "QuestionBlockObject":
                         FindObjectCollection<QuestionBlockObject>().Add(new QuestionBlockObject());
-                        FindObjectCollection<QuestionBlockObject>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<QuestionBlockObject>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "HiddenBlockObject":
                         FindObjectCollection<HiddenBlockObject>().Add(new HiddenBlockObject());
-                        FindObjectCollection<HiddenBlockObject>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<HiddenBlockObject>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "NormalBlockObject":
                         FindObjectCollection<NormalBlockObject>().Add(new NormalBlockObject());
-                        FindObjectCollection<NormalBlockObject>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<NormalBlockObject>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "FloorBlockObject":
                         FindObjectCollection<FloorBlockObject>().Add(new FloorBlockObject());
-                        FindObjectCollection<FloorBlockObject>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<FloorBlockObject>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "GreenPipeObject":
                         FindObjectCollection<GreenPipeObject>().Add(new GreenPipeObject());
-                        FindObjectCollection<GreenPipeObject>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<GreenPipeObject>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Hill":
                         FindObjectCollection<Hill>().Add(new Hill());
-                        FindObjectCollection<Hill>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Hill>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Bush":
                         FindObjectCollection<Bush>().Add(new Bush());
-                        FindObjectCollection<Bush>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Bush>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Cloud":
                         FindObjectCollection<Cloud>().Add(new Cloud());
-                        FindObjectCollection<Cloud>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Cloud>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Fireflower":
                         FindObjectCollection<Fireflower>().Add(new Fireflower());
-                        FindObjectCollection<Fireflower>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Fireflower>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Mushroom":
                         FindObjectCollection<Mushroom>().Add(new Mushroom());
-                        FindObjectCollection<Mushroom>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Mushroom>().Last().Load(content, LevelData[i].Location);
                         break;
                     case "Star":
                         FindObjectCollection<Star>().Add(new Star());
-                        FindObjectCollection<Star>().Last().Load(content, Locations[i].Location);
+                        FindObjectCollection<Star>().Last().Load(content, LevelData[i].Location);
                         break;
                     default:
                         break;
