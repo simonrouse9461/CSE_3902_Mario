@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace WindowsGame1
@@ -74,8 +73,8 @@ namespace WindowsGame1
 
         public void SwitchComponent(Object component)
         {
-            //if (component is ISpriteState || component is IMotionState)
-                //StateController.SwitchComponent(obj);
+            if (component is ISpriteState || component is IMotionState)
+                StateController.SwitchComponent(component);
             if (component is ICollisionHandler)
                 CollisionHandler = (ICollisionHandler)component;
             if (component is ICommandExecutor)
