@@ -29,6 +29,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(new BounceUpMotion().FireballBounce)
             };
+            SetDefaultHorizontal();
         }
 
         private OrientationEnum Orientation;
