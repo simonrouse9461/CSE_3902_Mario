@@ -108,10 +108,15 @@ namespace WindowsGame1
             RemoveObject(obj);
         }
 
-        public void FreezeWorld(int time)
+        public void FreezeWorld(int time = 0)
         {
             freeze = true;
             freezeTimer = new Counter(time);
+        }
+
+        public void RestoreWorld()
+        {
+            freeze = false;
         }
 
         public void LoadContent(ContentManager content)
@@ -193,8 +198,7 @@ namespace WindowsGame1
             if (freeze)
             {
                 FindObject<MarioObject>().Update();
-                if (freezeTimer.Update())
-                    freeze = false;
+                if (freezeTimer.Update()) RestoreWorld();
             }
             else
             {
@@ -208,7 +212,8 @@ namespace WindowsGame1
                     }
                 }
             }
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Rectangle(0,0,0,50)) && !FindObject<MarioObject>().Alive)
+
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Rectangle(0,0,0,200)) && !FindObject<MarioObject>().Alive)
             {
                 Reset();
             }
@@ -225,6 +230,7 @@ namespace WindowsGame1
             }
             LoadContent(Content);
             Camera.Reset();
+            RestoreWorld();
         }
 
         public void Draw(SpriteBatch spriteBatch)

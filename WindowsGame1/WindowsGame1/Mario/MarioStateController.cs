@@ -176,6 +176,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             SpriteState.BecomeDead();
             MotionState.Die();
+            WorldManager.Instance.FreezeWorld();
         }
 
         public void Shoot()
