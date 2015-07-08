@@ -8,6 +8,7 @@ namespace WindowsGame1
 {
     public class FireballStateController : StateControllerKernel<FireballSpriteState, FireballMotionState>
     {
+        private Collision collision;
         public void Bounce()
         {
             if (BarrierCollision.Bottom.Touch)
@@ -34,6 +35,7 @@ namespace WindowsGame1
 
         protected override void UpdateState()
         {
+            collision = Core.CollisionDetector.Detect<IObject>();
             Bounce();
             HitObject();
         }
