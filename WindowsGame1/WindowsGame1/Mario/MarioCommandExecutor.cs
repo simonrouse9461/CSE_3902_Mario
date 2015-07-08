@@ -7,13 +7,20 @@ namespace WindowsGame1
     {
         public MarioCommandExecutor(ICore core) : base(core)
         {
-            CommandAction = new Dictionary<Type, Action>
-            {
-                {typeof (MarioLeftCommand), () => Core.StateController.GoLeft()},
-                {typeof (MarioRightCommand), () => Core.StateController.GoRight()},
-                {typeof (MarioUpCommand), () => Core.StateController.Jump()},
-                {typeof (MarioDownCommand), () => Core.StateController.Crouch()}
-            };
+            RegisterCommand(typeof (MarioLeftCommand), 
+                () => Core.StateController.KeepLeft(),
+                () => Core.StateController.GoLeft(),
+                () => Core.StateController.StopMove());
+            RegisterCommand(typeof (MarioRightCommand),
+                () => Core.StateController.KeepRight(),
+                () => Core.StateController.GoRight(),
+                () => Core.StateController.StopMove());
+            RegisterCommand(typeof (MarioUpCommand), null,
+                () => Core.StateController.Jump(),
+                () => Core.StateController.Fall());
+            RegisterCommand(typeof (MarioDownCommand), null,
+                () => Core.StateController.Crouch(),
+                () => Core.StateController.StopCrouch());
         }
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Coin : ObjectKernel<CoinSpriteState, StaticMotionState>, IItem
+    public  class Coin : ObjectKernelNew<CoinStateController>, IItem
     {
         public Coin()
         {

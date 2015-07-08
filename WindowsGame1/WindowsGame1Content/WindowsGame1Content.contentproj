@@ -81,8 +81,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Locations.xml">
-      <Name>Locations</Name>
+    <Compile Include="LevelData.xml">
+      <Name>LevelData</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -109,6 +109,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mario-1-1.gif">
+      <Name>mario-1-1</Name>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

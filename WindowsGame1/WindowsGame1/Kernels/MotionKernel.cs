@@ -25,6 +25,16 @@ namespace WindowsGame1
             Circulator.Reset(); 
         }
 
+        public void ResetX(float speed = 0)
+        {
+            InitialVelocity = new Vector2(speed, InitialVelocity.Y);
+        }
+
+        public void ResetY(float speed = 0)
+        {
+            InitialVelocity = new Vector2(InitialVelocity.Y, speed);
+        }
+
         public void Update(int phase = -1)
         {
             Circulator.Update(phase);

@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace WindowsGame1
 {
     public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
         where TStateController : IStateController, new()
     {
-        private Dictionary<Type, Action> commandAction;
-
         public CoreNew<TStateController> Core { get; set; }
-        protected Dictionary<Type, bool> CommandStatus { get; private set; }
+        private Collection<Type> RegisteredCommands { get; set; }
+        private Collection<StatusSwitch<Type>> CurrentStatus { get; set; }
+        private Collection<StatusSwitch<Type>> PreviousStatus { get; set; }
+        private Dictionary<Type, Action> ReceptionActions { get; set; }
+        private Dictionary<Type, Action> CommandActions { get; set; }
+        private Dictionary<Type, Action> InterruptionActions { get; set; }
 
-        protected Dictionary<Type, Action> CommandAction
+        protected void RegisterCommand(Type type, Action action, Action receive = null, Action interrupt = null)
         {
-            get { return commandAction; }
-            set
-            {
-                commandAction = value;
-                CommandStatus = new Dictionary<Type, bool>();
-                foreach (var command in CommandAction)
-                {
-                    CommandStatus.Add(command.Key, false);
-                }
-            }
+            action = action ?? (() => { });
+            receive = receive ?? (() => { });
+            interrupt = interrupt ?? (() => { });
+            RegisteredCommands.Add(type);
+            CommandActions.Add(type, action);
+            ReceptionActions.Add(type, receive);
+            InterruptionActions.Add(type, interrupt);
+            CurrentStatus.Add(new StatusSwitch<Type>(type));
+            PreviousStatus.Add(new StatusSwitch<Type>(type));
         }
 
         protected CommandExecutorKernel(ICore core)
@@ -37,30 +41,61 @@ namespace WindowsGame1
                     CommandExecutor = core.CommandExecutor,
                     BarrierDetector = core.BarrierDetector
                 };
+            RegisteredCommands = new Collection<Type>();
+            CurrentStatus = new Collection<StatusSwitch<Type>>();
+            PreviousStatus = new Collection<StatusSwitch<Type>>();
+            CommandActions = new Dictionary<Type, Action>();
+            ReceptionActions = new Dictionary<Type, Action>();
+            InterruptionActions = new Dictionary<Type, Action>();
         }
 
         public void Reset()
         {
-            foreach (var command in CommandAction)
+            foreach (var status in CurrentStatus)
             {
-                CommandStatus[command.Key] = false;
+                status.Toggle(false);
             }
         }
 
         public void ReadCommand(ICommand command)
         {
-            CommandStatus[command.GetType()] = true;
+            ToggleCurrentStatus(command.GetType(), true);
         }
 
         public void Execute()
         {
-            foreach (var status in CommandStatus)
+            foreach (var command in RegisteredCommands)
             {
-                if (status.Value && CommandAction.ContainsKey(status.Key))
-                    CommandAction[status.Key]();
+                if (GetCurrentStatus(command)) CommandActions[command]();
+                if (GetCurrentStatus(command) && !GetPreviousStatus(command)) ReceptionActions[command]();
+                if (!GetCurrentStatus(command) && GetPreviousStatus(command)) InterruptionActions[command]();
+
+                TogglePreviousStatus(command, GetCurrentStatus(command));
             }
 
             Reset();
+        }
+
+        private bool GetCurrentStatus(Type command)
+        {
+            return CurrentStatus.First(c => c.Content == command).Status;
+        }
+
+        private bool GetPreviousStatus(Type command)
+        {
+            return PreviousStatus.First(c => c.Content == command).Status;
+        }
+
+        private void ToggleCurrentStatus(Type command, bool status)
+        {
+            if (RegisteredCommands.Contains(command))
+                CurrentStatus.First(c => c.Content == command).Toggle(status);
+        }
+
+        private void TogglePreviousStatus(Type command, bool status)
+        {
+            if (RegisteredCommands.Contains(command))
+                PreviousStatus.First(c => c.Content == command).Toggle(status);
         }
     }
 }

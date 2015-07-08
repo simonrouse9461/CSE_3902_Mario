@@ -628,23 +628,23 @@
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>1214 425</Location>
+      <Location>1214 415</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>1472 425</Location>
+      <Location>1472 405</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>1824 425</Location>
+      <Location>1824 405</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>5216 425</Location>
+      <Location>5216 405</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
-      <Location>5720 425</Location>
+      <Location>5720 405</Location>
     </Item>
 
     <Item>
@@ -767,7 +767,7 @@
 
     <Item>
       <Type>Hill</Type>
-      <Location>6656 389</Location>
+      <Location>6656 400</Location>
     </Item>
 
     <Item>
@@ -1258,6 +1258,10 @@
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>
+      <Location>2268 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
       <Location>2292 424</Location>
     </Item>
     <Item>
@@ -1667,6 +1671,10 @@
     <Item>
       <Type>FloorBlockObject</Type>
       <Location>4836 424</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Location>4908 424</Location>
     </Item>
     <Item>
       <Type>FloorBlockObject</Type>

@@ -79,26 +79,21 @@ namespace WindowsGame1
             FindMotion<SuddenStopMotion>().Toggle(true);
         }
 
-        public void GoMidAir()
+        public void GetInertia()
         {
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Inertia;
             FindMotion<InertiaMotion>().Toggle(true);
         }
 
-        public void MidAirLeft()
+        public void AdjustInertiaLeft()
         {
             ((InertiaMotion)FindMotion<InertiaMotion>().Content).Left();
         }
 
-        public void MidAirRight()
+        public void AdjustInertiaRight()
         {
             ((InertiaMotion)FindMotion<InertiaMotion>().Content).Right();
-        }
-
-        public void MidAirStop()
-        {
-            FindMotion<InertiaMotion>().Reset();
         }
 
         public void Jump()
@@ -159,14 +154,19 @@ namespace WindowsGame1
             get { return HorizontalStatus == HorizontalEnum.Right; }
         }
 
-        public bool InMidAir
+        public bool HaveInertia
         {
             get { return HorizontalStatus == HorizontalEnum.Inertia; }
         }
 
         public bool Stopping
         {
-            get { return HorizontalStatus == HorizontalEnum.Stop; }
+            get
+            {
+                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<SuddenStopMotion>().Status)
+                    HorizontalStatus = HorizontalEnum.Default; 
+                return HorizontalStatus == HorizontalEnum.Stop;
+            }
         }
 
         public bool Jumping

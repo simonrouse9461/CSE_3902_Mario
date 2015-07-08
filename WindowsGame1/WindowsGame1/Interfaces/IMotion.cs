@@ -7,6 +7,8 @@ namespace WindowsGame1
         Vector2 Velocity { get; }
         bool Finish { get; }
         void Reset(Vector2 initialVelocity = default(Vector2));
+        void ResetX(float speed = 0);
+        void ResetY(float speed = 0);
         void Update(int phase = -1);
     }
 }

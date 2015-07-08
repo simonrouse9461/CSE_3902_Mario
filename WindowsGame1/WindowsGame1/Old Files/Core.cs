@@ -67,18 +67,18 @@ namespace WindowsGame1
             Waitlist = new Collection<Reservation>();
         }
 
-        public void SwitchComponent(Object obj)
+        public void SwitchComponent(Object component)
         {
-            if (obj is TS)
-                SpriteState = (TS)obj;
-            if (obj is TM)
-                MotionState = (TM)obj;
-            if (obj is ICollisionHandler)
-                CollisionHandler = (ICollisionHandler)obj;
-            if (obj is ICommandExecutor)
-                CommandExecutor = (ICommandExecutor)obj;
-            if (obj is BarrierDetector)
-                BarrierDetector = (BarrierDetector)obj;
+            if (component is TS)
+                SpriteState = (TS)component;
+            if (component is TM)
+                MotionState = (TM)component;
+            if (component is ICollisionHandler)
+                CollisionHandler = (ICollisionHandler)component;
+            if (component is ICommandExecutor)
+                CommandExecutor = (ICommandExecutor)component;
+            if (component is BarrierDetector)
+                BarrierDetector = (BarrierDetector)component;
         }
 
         public void Update()

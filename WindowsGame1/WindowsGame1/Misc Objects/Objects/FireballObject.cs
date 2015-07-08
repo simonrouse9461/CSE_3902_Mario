@@ -5,24 +5,23 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public class FireballObject : ObjectKernel<FireballSpriteState, FireballMotionState>
+    public class FireballObject : ObjectKernelNew<FireballStateController>
     {
 
         public FireballObject()
         {
-            
             CollisionHandler = new FireballCollisionHandler(Core);
-        }
-        public override bool Solid
-        {
-            get { return false; }
+            BarrierDetector = new BarrierDetector(Core);
+
+            BarrierDetector.AddBarrier<IObject>();
+            BarrierDetector.RemoveBarrier<MarioObject>();
         }
 
         public FireballObject LeftFireBall
         {
             get
             {
-                Core.MotionState.GoLeft();
+                Core.StateController.MotionState.GoLeft();
                 return this;
             }
         }
@@ -31,7 +30,7 @@ namespace WindowsGame1
         {
             get
             {
-                Core.MotionState.GoRight();
+                Core.StateController.MotionState.GoRight();
                 return this;
             }
         }

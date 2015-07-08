@@ -19,6 +19,8 @@ namespace WindowsGame1
         private MotionEnum OutgoingMotionStatus;
         private MotionEnum MotionStatus;
 
+        public bool Gravity { get; private set; }
+
         public KoopaMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
@@ -30,8 +32,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
-            FindMotion<GravityMotion>().Toggle(true);
-
+            OutgoingMotionStatus = MotionEnum.Null;
             MotionStatus = MotionEnum.LeftWalk;
         }
 
@@ -50,21 +51,29 @@ namespace WindowsGame1
                 OutgoingMotionStatus = MotionEnum.Null;
             }
 
-            if (MotionStatus == MotionEnum.LeftWalk)
+            switch (MotionStatus)
             {
-                FindMotion<MoveLeftMotion>().Toggle(true);
+                case MotionEnum.LeftWalk:
+                    FindMotion<MoveLeftMotion>().Toggle(true);
+                    break;
+                case MotionEnum.RightWalk:
+                    FindMotion<MoveRightMotion>().Toggle(true);
+                    break;
+                case MotionEnum.LeftShellKick:
+                    FindMotion<MoveLeftFastMotion>().Toggle(true);
+                    break;
+                case MotionEnum.RightShellKick:
+                    FindMotion<MoveRightFastMotion>().Toggle(true);
+                    break;
             }
-            else if (MotionStatus == MotionEnum.RightWalk)
+
+            if (Gravity)
             {
-                FindMotion<MoveRightMotion>().Toggle(true);
+                FindMotion<GravityMotion>().Toggle(true);
             }
-            else if (MotionStatus == MotionEnum.LeftShellKick)
+            else
             {
-                FindMotion<MoveLeftFastMotion>().Toggle(true);
-            }
-            else if (MotionStatus == MotionEnum.RightShellKick)
-            {
-                FindMotion<MoveRightFastMotion>().Toggle(true);
+                FindMotion<GravityMotion>().Toggle(false);
             }
         }
 
@@ -74,15 +83,23 @@ namespace WindowsGame1
 
         public override void Turn()
         {
-            if (MotionStatus == MotionEnum.LeftWalk)
+            OutgoingMotionStatus = MotionStatus;
+
+            if (OutgoingMotionStatus == MotionEnum.LeftWalk)
             {
-                OutgoingMotionStatus = MotionStatus;
                 MotionStatus = MotionEnum.RightWalk;
             }
-            else if (MotionStatus == MotionEnum.RightWalk)
+            else if (OutgoingMotionStatus == MotionEnum.RightWalk)
             {
-                OutgoingMotionStatus = MotionStatus;
                 MotionStatus = MotionEnum.LeftWalk;
+            }
+            else if (OutgoingMotionStatus == MotionEnum.LeftShellKick)
+            {
+                MotionStatus = MotionEnum.RightShellKick;
+            }
+            else if (OutgoingMotionStatus == MotionEnum.RightShellKick)
+            {
+                MotionStatus = MotionEnum.LeftShellKick;
             }
         }
 
@@ -117,6 +134,16 @@ namespace WindowsGame1
         public bool isMoving
         {
             get { return MotionStatus != MotionEnum.None; }
+        }
+
+        public void ObtainGravity()
+        {
+            Gravity = true;
+        }
+
+        public void LoseGravity()
+        {
+            Gravity = false;
         }
     }
 }

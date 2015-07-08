@@ -16,7 +16,7 @@ namespace WindowsGame1
         void DelayCommand(Action command, int delay = 1);
         void DelayCommand(Action command, Func<bool> dependency, int delay = 1);
         void ClearDelayedCommands();
-        void SwitchComponent(Object obj);
+        void SwitchComponent(Object component);
         void Update();
     }
 }

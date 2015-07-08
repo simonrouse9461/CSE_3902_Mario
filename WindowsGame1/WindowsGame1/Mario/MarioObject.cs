@@ -10,6 +10,7 @@ namespace WindowsGame1
 
             StateController.SpriteState.BecomeSmall();
             BarrierDetector.AddBarrier<IObject>();
+            BarrierDetector.RemoveBarrier<FireballObject>();
         }
 
         public override bool Solid

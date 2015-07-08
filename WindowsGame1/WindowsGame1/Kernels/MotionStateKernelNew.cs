@@ -40,6 +40,22 @@ namespace WindowsGame1
             }
         }
 
+        public void ResetHorizontal()
+        {
+            foreach (var motion in MotionList)
+            {
+                motion.Reset(m => m.ResetX());
+            }
+        }
+
+        public void ResetVertical()
+        {
+            foreach (var motion in MotionList)
+            {
+                motion.Reset(m => m.ResetY());
+            }
+        }
+
         public void Update()
         {
             if (MotionList == null) return;

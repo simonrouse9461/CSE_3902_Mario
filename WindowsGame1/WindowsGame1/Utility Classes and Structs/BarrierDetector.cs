@@ -6,8 +6,8 @@ namespace WindowsGame1
 {
     public class BarrierDetector : IBarrierDetector
     {
-        protected Collection<Type> BarrierList { get; private set; }
-        protected Collection<Type> BarrierExceptionList { get; private set; }
+        public Collection<Type> BarrierList { get; private set; }
+        public Collection<Type> BarrierExceptionList { get; private set; }
 
         protected ICore Core { get; set; } 
 
@@ -66,23 +66,17 @@ namespace WindowsGame1
 
         public virtual void Detect()
         {
-            var detector = Core.CollisionDetector;
-            if (detector.Detect(BarrierList, BarrierExceptionList).AnyEdge.Touch &&
-                !(Core.GeneralMotionState is StaticMotionState))
+            Func<Collision> collision = () => Core.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0);
+            if (collision().AnyEdge.Touch)
             {
-                for (var collision = detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0);
-                    collision.AnyEdge.Touch;
-                    collision = detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0))
-                {
-                    if (collision.Bottom.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(0, -2));
-                    if (detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Top.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(0, 2));
-                    if (detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Left.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(2, 0));
-                    if (detector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0).Right.Touch)
-                        Core.GeneralMotionState.Adjust(new Vector2(-2, 0));
-                }
+                while (collision().Bottom.Touch)
+                    Core.GeneralMotionState.Adjust(new Vector2(0, -2));
+                while (collision().Top.Touch)
+                    Core.GeneralMotionState.Adjust(new Vector2(0, 2));
+                while (collision().Left.Touch)
+                    Core.GeneralMotionState.Adjust(new Vector2(2, 0));
+                while (collision().Right.Touch)
+                    Core.GeneralMotionState.Adjust(new Vector2(-2, 0));
             }
         }
     }
