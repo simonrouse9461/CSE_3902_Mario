@@ -56,7 +56,7 @@ namespace WindowsGame1
                     break;
                 case ActionEnum.Bounce:
                     FindMotion<GravityMotion>().Toggle(false);
-                    FindMotion<BounceUpMotion>().Toggle(true);
+                    FindMotion<BounceUpMotion>((m => m.FireballBounceVersion)).Toggle(true);
                     break;
             }
         }

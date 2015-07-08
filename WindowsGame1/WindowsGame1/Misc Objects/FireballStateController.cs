@@ -10,7 +10,7 @@ namespace WindowsGame1
     {
         public void Bounce()
         {
-            if (BarrierCollision.Top.Touch)
+            if (BarrierCollision.Bottom.Touch)
             {
                 MotionState.Bounce();
             }
