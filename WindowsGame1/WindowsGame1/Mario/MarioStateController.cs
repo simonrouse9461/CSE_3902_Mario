@@ -4,18 +4,17 @@ namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private Collision collision;
         private bool dead;
         private bool WasOnFloor;
 
         private void CheckCeiling()
         {
-            if ((collision.TopLeft & collision.TopRight).Touch) MotionState.Fall();
+            if ((BarrierCollision.TopLeft & BarrierCollision.TopRight).Touch) MotionState.Fall();
         }
 
         private void CheckFloor()
         {
-            if (collision.Bottom.Touch)
+            if (BarrierCollision.Bottom.Touch)
             {
                 if (MotionState.Gravity) MotionState.LoseGravity();
                 if (MotionState.DefaultHorizontal && !SpriteState.Crouching) SpriteState.Stand();
@@ -45,8 +44,6 @@ namespace WindowsGame1
 
         protected override void UpdateState()
         {
-            collision = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid);
-
 //            if (collision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVertical();
 //            if (collision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVertical();
 //            if (collision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontal();

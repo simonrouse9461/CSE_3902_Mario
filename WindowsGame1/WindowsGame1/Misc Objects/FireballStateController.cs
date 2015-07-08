@@ -20,6 +20,7 @@ namespace WindowsGame1
         {
             MotionState.Stop();
             SpriteState.Exploded();
+            Core.DelayCommand(() => Core.Object.Unload(), 3);
         }
 
         public void HitObject()

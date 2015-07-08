@@ -28,7 +28,6 @@ namespace WindowsGame1
         protected ObjectKernelNew()
         {
             Core = new CoreNew<TStateController>(this);
-            BarrierDetector = new BarrierDetector(Core);
         } 
 
         // Object core that wraps all internal components of the object
@@ -155,7 +154,7 @@ namespace WindowsGame1
                 if (CommandExecutor != null) CommandExecutor.Execute();
                 if (CollisionHandler != null) CollisionHandler.Handle();
                 StateController.Update();
-                if (Solid && !(GeneralMotionState is StaticMotionState)) BarrierDetector.Detect();
+                if (Solid && !(GeneralMotionState is StaticMotionState) && BarrierDetector != null) BarrierDetector.Detect();
             }
             else InScreen = false;
         }

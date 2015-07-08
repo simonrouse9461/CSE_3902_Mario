@@ -11,6 +11,8 @@ namespace WindowsGame1
         public FireballObject()
         {
             CollisionHandler = new FireballCollisionHandler(Core);
+            BarrierDetector = new BarrierDetector(Core);
+
             BarrierDetector.AddBarrier<IObject>();
             BarrierDetector.RemoveBarrier<MarioObject>();
         }

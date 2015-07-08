@@ -20,7 +20,6 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<IEnemy>().AnyEdge.Touch)
             {
                 Core.StateController.Explode();
-                Core.DelayCommand(() => Core.Object.Unload(), 3);
             }
         }
     }

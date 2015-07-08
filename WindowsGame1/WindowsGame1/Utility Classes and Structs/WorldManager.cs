@@ -208,7 +208,7 @@ namespace WindowsGame1
                     }
                 }
             }
-            if (!FindObject<MarioObject>().Alive)
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Rectangle(0,0,0,50)) && !FindObject<MarioObject>().Alive)
             {
                 Reset();
             }
