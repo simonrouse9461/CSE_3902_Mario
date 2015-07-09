@@ -5,16 +5,34 @@ namespace WindowsGame1
 {
     public class NormalBlockObject : BlockKernel
     {
+        private enum Version
+        {
+            Default,
+            Coin,
+            Star
+        }
+
+        private Version version = Version.Default;
         public NormalBlockObject() {
-            SpriteState.NormalBlock();
+            StateController.NormalBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
 
-        protected void SyncState()
+        public NormalBlockObject CoinNormalBlock
         {
-            if (SpriteState.isNormal)
+            get
             {
-                MotionState.Hit();
+                version = Version.Coin;
+                return this;
+            }
+        }
+
+        public NormalBlockObject StarNormalBlock
+        {
+            get
+            {
+                version = Version.Star;
+                return this;
             }
         }
     }

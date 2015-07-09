@@ -164,11 +164,16 @@
     <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
     <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
+    <Compile Include="Misc Objects\BlockStateController.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
+    <Compile Include="Misc Objects\PipeStateController.cs" />
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\BlockDebrisSprite.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\MediumGreenPipeSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />
     <Compile Include="Motions\InertiaMotion.cs" />
     <Compile Include="Motions\MoveLeftFastMotion.cs" />
     <Compile Include="Motions\MoveLeftMotion.cs" />
@@ -253,7 +258,7 @@
     <Compile Include="Misc Objects\Objects\QuestionBlockObject.cs" />
     <Compile Include="Misc Objects\SpriteState\GreenPipeSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\FloorBlockSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\GreenPipeSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\LargeGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />

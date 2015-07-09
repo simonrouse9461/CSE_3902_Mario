@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    interface IEnemy : IObject
+    public interface IEnemy : IObject
     {
         bool Alive { get; }
     }
