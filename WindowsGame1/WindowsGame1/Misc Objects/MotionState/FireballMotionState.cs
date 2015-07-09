@@ -30,7 +30,9 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(new BounceUpMotion().FireballBounce)
             };
+
             SetDefaultHorizontal();
+            SetDefaultVertical();
         }
 
         private OrientationEnum Orientation;
@@ -42,9 +44,14 @@ namespace WindowsGame1
             FindMotion<MoveLeftMotion>().Toggle(false);
         }
 
+        public void SetDefaultVertical()
+        {
+            FindMotion<BounceUpMotion>().Toggle(false);
+        }
+
         public void GoLeft()
         {
-            
+            SetDefaultHorizontal();
             Orientation = OrientationEnum.Left;
             FindMotion<MoveLeftMotion>().Toggle(true);
             FindMotion<GravityMotion>().Toggle(true);
@@ -52,6 +59,7 @@ namespace WindowsGame1
 
         public void GoRight()
         {
+            SetDefaultHorizontal();
             Orientation = OrientationEnum.Right;
             FindMotion<MoveRightMotion>().Toggle(true);
             FindMotion<GravityMotion>().Toggle(true);
@@ -70,15 +78,17 @@ namespace WindowsGame1
         public void Stop()
         {
             SetDefaultHorizontal();
+            SetDefaultVertical();
             FindMotion<GravityMotion>().Toggle(false);
             Action = ActionEnum.Default;
         }
 
         public void Bounce()
         {
+            SetDefaultVertical();
             Action = ActionEnum.Bounce;
-            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Content.Reset();
-            FindMotion<BounceUpMotion>(f => f.FireballBounceVersion).Toggle(true);
+            FindMotion<BounceUpMotion>().Content.Reset();
+            FindMotion<BounceUpMotion>().Toggle(true);
         }
 
         public bool Bouncing

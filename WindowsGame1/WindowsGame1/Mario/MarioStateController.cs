@@ -5,42 +5,76 @@ namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private bool dead;
         private bool WasOnFloor;
+        private const int MagazineCapacity = 2;
+        private Counter ReloadTimer;
+
+        private int _ammoLeft = 2;
+        private int AmmoLeft
+        {
+            get { return _ammoLeft; }
+            set
+            {
+                _ammoLeft = value;
+                Reloading = AmmoLeft < MagazineCapacity;
+            }
+        }
+
+        private bool _reloading;
+        private bool Reloading
+        {
+            get { return _reloading; }
+            set
+            {
+                if (!Reloading && value) ReloadTimer = new Counter(50);
+                _reloading = value;
+            }
+        }
+
+        private void ReloadAmmo()
+        {
+            if (Reloading && ReloadTimer.Update()) AmmoLeft = MagazineCapacity;
+        }
 
         private void CheckCeiling()
         {
-            if ((BarrierCollision.TopLeft & BarrierCollision.TopRight).Touch) MotionState.Fall();
+            if (SpriteState.Dead) return;
+            if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover) MotionState.Fall();
         }
 
         private void CheckFloor()
         {
+            if (SpriteState.Dead) return;
             if (BarrierCollision.Bottom.Touch)
             {
-                if (MotionState.Gravity) MotionState.LoseGravity();
-                if (MotionState.DefaultHorizontal && !SpriteState.Crouching) SpriteState.Stand();
-                if (!WasOnFloor)
-                {
-                    MotionState.Stop();
-                    SpriteState.Run();
-                }
+                Land();
+                if (!WasOnFloor) Brake();
                 WasOnFloor = true;
             }
             else
             {
-                MotionState.ObtainGravity();
-                SpriteState.Jump();
+                Liftoff();
                 WasOnFloor = false;
             }
         }
 
-        private void CheckDead()
+        public void Land()
         {
-            if (dead)
-            {
-                SpriteState.BecomeDead();
-                MotionState.Die();
-            }
+            if (MotionState.Gravity) MotionState.LoseGravity();
+            if (MotionState.DefaultHorizontal) SpriteState.TryStand();
+        }
+
+        public void Brake()
+        {
+            MotionState.Stop();
+            SpriteState.Run();
+        }
+
+        public void Liftoff()
+        {
+            MotionState.ObtainGravity();
+            MotionState.GetInertia();
+            SpriteState.TryJump();
         }
 
         protected override void UpdateState()
@@ -52,16 +86,15 @@ namespace WindowsGame1
 
             CheckCeiling();
             CheckFloor();
-            CheckDead();
+            ReloadAmmo();
         }
 
         public void GoLeft()
         {
+            if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
-
-            SpriteState.ToLeft();
 
             if (MotionState.Velocity.X > 0)
             {
@@ -77,11 +110,10 @@ namespace WindowsGame1
 
         public void GoRight()
         {
+            if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
-            
-            SpriteState.ToRight();
             
             if (MotionState.Velocity.X < 0)
             {
@@ -97,43 +129,42 @@ namespace WindowsGame1
 
         public void KeepLeft()
         {
+            SpriteState.ToLeft();
+
+            if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
+
             if (MotionState.HaveInertia)
-            {
-                SpriteState.ToLeft();
                 MotionState.AdjustInertiaLeft();
-            }
             else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
-            {
                 GoLeft();
-            }
         }
 
         public void KeepRight()
         {
+            SpriteState.ToRight();
+            
+            if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
+
             if (MotionState.HaveInertia)
-            {
-                SpriteState.ToRight();
                 MotionState.AdjustInertiaRight();
-            }
             else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
-            {
                 GoRight();
-            }
         }
 
         public void StopMove()
         {
+            if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            MotionState.Stop();
+            Brake();
         }
 
         public void Jump()
         {
+            if (SpriteState.Dead) return;
             if (!MotionState.HaveInertia)
             {
-                MotionState.GetInertia();
                 MotionState.Jump();
                 SpriteState.Jump();
             }
@@ -141,42 +172,52 @@ namespace WindowsGame1
 
         public void Fall()
         {
+            if (SpriteState.Dead) return;
             MotionState.Fall();
         }
 
         public void Crouch()
         {
+            if (SpriteState.Dead) return;
             SpriteState.Crouch();
             MotionState.Stop();
         }
 
-        public void StopCrouch()
+        public void StandUp()
         {
-            SpriteState.Stand();
+            if (SpriteState.Crouching) SpriteState.Stand();
         }
 
         public void Grow()
         {
+            if (SpriteState.Dead) return;
             SpriteState.BecomeBig();
         }
 
         public void GetFire()
         {
+            if (SpriteState.Dead) return;
             SpriteState.GetFire();
         }
 
         public void Die()
         {
-            dead = true;
+            if (SpriteState.Dead) return;
+            SpriteState.BecomeDead();
+            MotionState.Die();
+            WorldManager.Instance.FreezeWorld();
         }
 
         public void Shoot()
         {
+            if (SpriteState.Dead) return;
+            if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
                 SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
                 );
+            AmmoLeft--;
         }
     }
 }

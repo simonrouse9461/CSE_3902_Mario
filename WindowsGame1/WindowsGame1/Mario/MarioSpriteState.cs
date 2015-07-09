@@ -45,7 +45,7 @@ namespace WindowsGame1
         private ActionEnum Action;
         private OrientationEnum Orientation;
         private ColorEnum ColorMode;
-        
+        private Counter ShootTimer;
 
         public MarioSpriteState()
         {
@@ -207,6 +207,12 @@ namespace WindowsGame1
             }
         }
 
+        public override void Update()
+        {
+            if (Shooting && ShootTimer.Update()) Stand();
+            base.Update();
+        }
+
         public override bool Left
         {
             get { return Orientation == OrientationEnum.Left; }
@@ -247,7 +253,7 @@ namespace WindowsGame1
         public void BecomeSmall()
         {
             Status = StatusEnum.Small;
-            if (Action == ActionEnum.Crouch)
+            if (Crouching)
             {
                 Action = ActionEnum.Stand;
             }
@@ -306,6 +312,7 @@ namespace WindowsGame1
 
         public void Run()
         {
+            if (Shooting) return;
             Action = ActionEnum.Run;
         }
 
@@ -319,6 +326,12 @@ namespace WindowsGame1
             Action = ActionEnum.Jump;
         }
 
+        public void TryJump()
+        {
+            if (Shooting) return;
+            Jump();
+        }
+
         public bool Jumping
         {
             get { return Action == ActionEnum.Jump; }
@@ -326,7 +339,8 @@ namespace WindowsGame1
 
         public void Crouch()
         {
-            Action = Status == StatusEnum.Small ? ActionEnum.Stand : ActionEnum.Crouch;
+            if (Shooting || Small) return;
+            Action = ActionEnum.Crouch;
         }
 
         public bool Crouching
@@ -339,6 +353,12 @@ namespace WindowsGame1
             Action = ActionEnum.Stand;
         }
 
+        public void TryStand()
+        {
+            if (Shooting || Crouching) return;
+            Stand();
+        }
+
         public bool Standing
         {
             get { return Action == ActionEnum.Stand; }
@@ -346,6 +366,7 @@ namespace WindowsGame1
 
         public void Turn()
         {
+            if (Shooting) return;
             Action = ActionEnum.Turn;
         }
 
@@ -355,6 +376,7 @@ namespace WindowsGame1
         }
         public void Swim()
         {
+            if (Shooting) return;
             Action = ActionEnum.Swim;
         }
 
@@ -366,6 +388,7 @@ namespace WindowsGame1
         public void Shoot()
         {
             Action = ActionEnum.Shoot;
+            ShootTimer = new Counter(7);
         }
 
         public bool Shooting

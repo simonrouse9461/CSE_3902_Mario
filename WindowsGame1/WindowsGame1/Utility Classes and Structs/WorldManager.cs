@@ -108,13 +108,18 @@ namespace WindowsGame1
             RemoveObject(obj);
         }
 
-        public void FreezeWorld(int time)
+        public void FreezeWorld(int time = 0)
         {
             freeze = true;
             freezeTimer = new Counter(time);
         }
 
-        public void LoadContent(ContentManager content)
+        public void RestoreWorld()
+        {
+            freeze = false;
+        }
+
+        public void LoadLevel(ContentManager content)
         {
             Content = content;
 
@@ -122,67 +127,51 @@ namespace WindowsGame1
             FindObject<MarioObject>().Load(content, new Vector2(75, 398));
 
             LevelData = content.Load<ObjectData[]>("LevelData");
-            for (int i = 0; i < LevelData.Length; i++)
+            for (var i = 0; i < LevelData.Length; i++)
             {
                 switch (LevelData[i].Type)
                 {
                     case "Goomba":
-                        FindObjectCollection<Goomba>().Add(new Goomba());
-                        FindObjectCollection<Goomba>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Goomba>(LevelData[i].Location);
                         break;
                     case "Koopa":
-                        FindObjectCollection<Koopa>().Add(new Koopa());
-                        FindObjectCollection<Koopa>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Koopa>(LevelData[i].Location);
                         break;
                     case "BlockKernel":
-                        FindObjectCollection<BlockKernel>().Add(new BlockKernel());
-                        FindObjectCollection<BlockKernel>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<BlockKernel>(LevelData[i].Location);
                         break;
                     case "QuestionBlockObject":
-                        FindObjectCollection<QuestionBlockObject>().Add(new QuestionBlockObject());
-                        FindObjectCollection<QuestionBlockObject>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<QuestionBlockObject>(LevelData[i].Location);
                         break;
                     case "HiddenBlockObject":
-                        FindObjectCollection<HiddenBlockObject>().Add(new HiddenBlockObject());
-                        FindObjectCollection<HiddenBlockObject>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<HiddenBlockObject>(LevelData[i].Location);
                         break;
                     case "NormalBlockObject":
-                        FindObjectCollection<NormalBlockObject>().Add(new NormalBlockObject());
-                        FindObjectCollection<NormalBlockObject>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<NormalBlockObject>(LevelData[i].Location);
                         break;
                     case "FloorBlockObject":
-                        FindObjectCollection<FloorBlockObject>().Add(new FloorBlockObject());
-                        FindObjectCollection<FloorBlockObject>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<FloorBlockObject>(LevelData[i].Location);
                         break;
                     case "GreenPipeObject":
-                        FindObjectCollection<GreenPipeObject>().Add(new GreenPipeObject());
-                        FindObjectCollection<GreenPipeObject>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<GreenPipeObject>(LevelData[i].Location);
                         break;
                     case "Hill":
-                        FindObjectCollection<Hill>().Add(new Hill());
-                        FindObjectCollection<Hill>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Hill>(LevelData[i].Location);
                         break;
                     case "Bush":
-                        FindObjectCollection<Bush>().Add(new Bush());
-                        FindObjectCollection<Bush>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Bush>(LevelData[i].Location);
                         break;
                     case "Cloud":
-                        FindObjectCollection<Cloud>().Add(new Cloud());
-                        FindObjectCollection<Cloud>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Cloud>(LevelData[i].Location);
                         break;
                     case "Fireflower":
-                        FindObjectCollection<Fireflower>().Add(new Fireflower());
-                        FindObjectCollection<Fireflower>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Fireflower>(LevelData[i].Location);
                         break;
                     case "Mushroom":
-                        FindObjectCollection<Mushroom>().Add(new Mushroom());
-                        FindObjectCollection<Mushroom>().Last().Load(content, LevelData[i].Location);
+                        CreateObject<Mushroom>(LevelData[i].Location);
                         break;
                     case "Star":
-                        FindObjectCollection<Star>().Add(new Star());
-                        FindObjectCollection<Star>().Last().Load(content, LevelData[i].Location);
-                        break;
-                    default:
+                        CreateObject<Star>(LevelData[i].Location);
                         break;
                 }
             }
@@ -193,49 +182,30 @@ namespace WindowsGame1
             if (freeze)
             {
                 FindObject<MarioObject>().Update();
-                if (freezeTimer.Update())
-                    freeze = false;
+                if (freezeTimer.Update()) RestoreWorld();
             }
-            else
-            {
-                // In order to avoid exception when objects unload themselves,
-                // for loops below should not be converted to foreach loops.
-                for (int i = 0; i < ObjectList.Count; i++)
-                {
-                    for (int j = 0; j < ObjectList[i].Count; j++)
-                    {
-                        ((IObject)ObjectList[i][j]).Update();
-                    }
-                }
-            }
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Rectangle(0,0,0,50)) && !FindObject<MarioObject>().Alive)
-            {
-                Reset();
-            }
+            else foreach (var collection in ObjectList)
+                for (var i = 0; i < collection.Count; i++)
+                    ((IObject) collection[i]).Update();
+            
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reset();
         }
 
         public void Reset()
         {
             foreach (var collection in ObjectList)
-            {
-                for (int i = collection.Count - 1; i >= 0; i--)
-                {
+                for (var i = collection.Count - 1; i >= 0; i--)
                     collection.Remove(collection[i]);
-                }
-            }
-            LoadContent(Content);
+            LoadLevel(Content);
             Camera.Reset();
+            RestoreWorld();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (var collection in ObjectList)
-            {
                 foreach (IObject obj in collection)
-                {
                     obj.Draw(spriteBatch);
-                }
-            }
         }
     }
 }
