@@ -154,7 +154,6 @@ namespace WindowsGame1
                 if (CollisionHandler != null) CollisionHandler.Handle();
                 if (haveBarrierHandler) BarrierHandler.Update();
                 if (haveBarrierHandler) BarrierHandler.HandleCollision();
-                StateController.Update();
                 StateController.RefreshState();
                 if (haveBarrierHandler) BarrierHandler.HandleOverlap();
             }

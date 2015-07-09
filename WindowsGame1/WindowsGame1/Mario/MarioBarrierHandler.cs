@@ -11,6 +11,11 @@ namespace WindowsGame1
 
         public override void HandleCollision()
         {
+            //            if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVertical();
+            //            if (BarrierCollision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVertical();
+            //            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontal();
+            //            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontal();
+
             CheckCeiling();
             CheckFloor();
         }

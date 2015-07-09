@@ -164,7 +164,7 @@ namespace WindowsGame1
                 Core.Update();
                 if (CommandExecutor != null) CommandExecutor.Execute();
                 if (CollisionHandler != null) CollisionHandler.Handle();
-                if (StateController != null) StateController.Update();
+                if (StateController != null) StateController.RefreshState();
                 SpriteState.Update();
                 MotionState.Update();
             }

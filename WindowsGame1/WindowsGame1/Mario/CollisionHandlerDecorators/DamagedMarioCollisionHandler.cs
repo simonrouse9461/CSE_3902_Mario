@@ -7,21 +7,13 @@ namespace WindowsGame1
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
         public DamagedMarioCollisionHandler(CoreNew<MarioStateController> core, MarioCollisionHandler original) : base(core)
         {
-            var restoreTime = 200;
+            const int restoreTime = 200;
 
             DefaultCollisionHandler = original;
-            Core.StateController.SpriteState.BecomeSmall();
-            Core.StateController.SpriteState.BecomeBlink();
-            Core.StateController.SpriteState.ChangeColorFrequency(2);
-            Core.BarrierHandler.RemoveBarrier<Koopa>();
-            Core.BarrierHandler.RemoveBarrier<Goomba>();
+            Core.StateController.TakeDamage(restoreTime);
 
-            // time up actions
-            Core.DelayCommand(() => Core.StateController.SpriteState.SetDefaultColor(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
-            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
-            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
-
-            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
+            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler),
+                () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
         }
 
         protected override void HandleEnemy() { }

@@ -285,7 +285,7 @@ namespace WindowsGame1
             get { return Status == StatusEnum.Fire; }
         }
 
-        public void GetStarPower()
+        public void StarPower()
         {
             ColorMode = ColorEnum.StarPower;
         }
