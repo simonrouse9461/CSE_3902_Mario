@@ -209,8 +209,7 @@ namespace WindowsGame1
 
         public override void Update()
         {
-            if (Action == ActionEnum.Shoot && ShootTimer.Update())
-                Action = ActionEnum.Stand;
+            if (Shooting && ShootTimer.Update()) Stand();
             base.Update();
         }
 
@@ -254,7 +253,7 @@ namespace WindowsGame1
         public void BecomeSmall()
         {
             Status = StatusEnum.Small;
-            if (Action == ActionEnum.Crouch)
+            if (Crouching)
             {
                 Action = ActionEnum.Stand;
             }
@@ -313,7 +312,7 @@ namespace WindowsGame1
 
         public void Run()
         {
-            if (Action == ActionEnum.Shoot) return;
+            if (Shooting) return;
             Action = ActionEnum.Run;
         }
 
@@ -324,8 +323,13 @@ namespace WindowsGame1
 
         public void Jump()
         {
-            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Jump;
+        }
+
+        public void TryJump()
+        {
+            if (Shooting) return;
+            Jump();
         }
 
         public bool Jumping
@@ -335,8 +339,7 @@ namespace WindowsGame1
 
         public void Crouch()
         {
-            if (Action == ActionEnum.Shoot) return;
-            if (Status == StatusEnum.Small) return;
+            if (Shooting || Small) return;
             Action = ActionEnum.Crouch;
         }
 
@@ -347,8 +350,13 @@ namespace WindowsGame1
 
         public void Stand()
         {
-            if (Action == ActionEnum.Shoot) return;
             Action = ActionEnum.Stand;
+        }
+
+        public void TryStand()
+        {
+            if (Shooting || Crouching) return;
+            Stand();
         }
 
         public bool Standing
@@ -358,7 +366,7 @@ namespace WindowsGame1
 
         public void Turn()
         {
-            if (Action == ActionEnum.Shoot) return;
+            if (Shooting) return;
             Action = ActionEnum.Turn;
         }
 
@@ -368,7 +376,7 @@ namespace WindowsGame1
         }
         public void Swim()
         {
-            if (Action == ActionEnum.Shoot) return;
+            if (Shooting) return;
             Action = ActionEnum.Swim;
         }
 

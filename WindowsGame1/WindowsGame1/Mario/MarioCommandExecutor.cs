@@ -20,7 +20,7 @@ namespace WindowsGame1
                 () => Core.StateController.Fall());
             RegisterCommand(typeof (MarioDownCommand), null,
                 () => Core.StateController.Crouch(),
-                () => Core.StateController.StopCrouch());
+                () => Core.StateController.StandUp());
         }
     }
 }

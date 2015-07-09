@@ -39,7 +39,7 @@ namespace WindowsGame1
         private void CheckCeiling()
         {
             if (SpriteState.Dead) return;
-            if ((BarrierCollision.TopLeft & BarrierCollision.TopRight).Touch) MotionState.Fall();
+            if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover) MotionState.Fall();
         }
 
         private void CheckFloor()
@@ -47,22 +47,34 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (BarrierCollision.Bottom.Touch)
             {
-                if (MotionState.Gravity) MotionState.LoseGravity();
-                if (MotionState.DefaultHorizontal && !SpriteState.Crouching) SpriteState.Stand();
-                if (!WasOnFloor)
-                {
-                    MotionState.Stop();
-                    SpriteState.Run();
-                }
+                Land();
+                if (!WasOnFloor) Brake();
                 WasOnFloor = true;
             }
             else
             {
-                MotionState.ObtainGravity();
-                MotionState.GetInertia();
-                SpriteState.Jump();
+                Liftoff();
                 WasOnFloor = false;
             }
+        }
+
+        public void Land()
+        {
+            if (MotionState.Gravity) MotionState.LoseGravity();
+            if (MotionState.DefaultHorizontal) SpriteState.TryStand();
+        }
+
+        public void Brake()
+        {
+            MotionState.Stop();
+            SpriteState.Run();
+        }
+
+        public void Liftoff()
+        {
+            MotionState.ObtainGravity();
+            MotionState.GetInertia();
+            SpriteState.TryJump();
         }
 
         protected override void UpdateState()
@@ -84,8 +96,6 @@ namespace WindowsGame1
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
 
-            SpriteState.ToLeft();
-
             if (MotionState.Velocity.X > 0)
             {
                 MotionState.Stop();
@@ -105,8 +115,6 @@ namespace WindowsGame1
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
             
-            SpriteState.ToRight();
-            
             if (MotionState.Velocity.X < 0)
             {
                 MotionState.Stop();
@@ -121,39 +129,35 @@ namespace WindowsGame1
 
         public void KeepLeft()
         {
+            SpriteState.ToLeft();
+
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
+
             if (MotionState.HaveInertia)
-            {
-                SpriteState.ToLeft();
                 MotionState.AdjustInertiaLeft();
-            }
             else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
-            {
                 GoLeft();
-            }
         }
 
         public void KeepRight()
         {
+            SpriteState.ToRight();
+            
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
+
             if (MotionState.HaveInertia)
-            {
-                SpriteState.ToRight();
                 MotionState.AdjustInertiaRight();
-            }
             else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
-            {
                 GoRight();
-            }
         }
 
         public void StopMove()
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            MotionState.Stop();
+            Brake();
         }
 
         public void Jump()
@@ -179,10 +183,9 @@ namespace WindowsGame1
             MotionState.Stop();
         }
 
-        public void StopCrouch()
+        public void StandUp()
         {
-            if (SpriteState.Dead) return;
-            SpriteState.Stand();
+            if (SpriteState.Crouching) SpriteState.Stand();
         }
 
         public void Grow()
