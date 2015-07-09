@@ -129,7 +129,7 @@
     <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Enemies\IEnemy.cs" />
-    <Compile Include="Interfaces\IBarrierDetector.cs" />
+    <Compile Include="Interfaces\IBarrierHandler.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
@@ -151,7 +151,7 @@
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FireMarioCommandExecutor.cs" />
     <Compile Include="Mario\Commands\MarioFireballCommand.cs" />
-    <Compile Include="Mario\MarioBarrierDetector.cs" />
+    <Compile Include="Mario\MarioBarrierHandler.cs" />
     <Compile Include="Mario\MarioStateController.cs" />
     <Compile Include="Mario\Sprites\DeGrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\DeGrowingFireMarioSprite.cs" />
@@ -159,6 +159,7 @@
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShootingMarioSprite.cs" />
     <Compile Include="Misc Objects\Collision\FireballCollisionHandler.cs" />
+    <Compile Include="Misc Objects\FireBallBarrierHandler.cs" />
     <Compile Include="Misc Objects\FireballStateController.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
@@ -173,7 +174,7 @@
     <Compile Include="Motions\MoveLeftMotion.cs" />
     <Compile Include="Motions\MoveRightFastMotion.cs" />
     <Compile Include="Motions\MoveRightMotion.cs" />
-    <Compile Include="Utility Classes and Structs\BarrierDetector.cs" />
+    <Compile Include="Kernels\BarrierHandlerKernel.cs" />
     <Compile Include="Old Files\MotionStateKernel.cs" />
     <Compile Include="Old Files\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
@@ -265,22 +266,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Utility Classes and Structs\Camera.cs" />
-    <Compile Include="Utility Classes and Structs\CollisionDetector.cs" />
-    <Compile Include="Utility Classes and Structs\Collision.cs" />
-    <Compile Include="Utility Classes and Structs\CollisionType.cs" />
-    <Compile Include="Utility Classes and Structs\ColorAnimator.cs" />
-    <Compile Include="Utility Classes and Structs\CommandManager.cs" />
-    <Compile Include="Utility Classes and Structs\CoreNew.cs" />
-    <Compile Include="Utility Classes and Structs\Counter.cs" />
-    <Compile Include="Utility Classes and Structs\PeriodicFunction.cs" />
-    <Compile Include="Utility Classes and Structs\RectangleParser.cs" />
-    <Compile Include="Utility Classes and Structs\SpriteSource.cs" />
+    <Compile Include="Utility Classes\Camera.cs" />
+    <Compile Include="Utility Classes\CollisionDetector.cs" />
+    <Compile Include="Utility Classes\Collision.cs" />
+    <Compile Include="Utility Classes\CollisionType.cs" />
+    <Compile Include="Utility Classes\ColorAnimator.cs" />
+    <Compile Include="Utility Classes\CommandManager.cs" />
+    <Compile Include="Utility Classes\CoreNew.cs" />
+    <Compile Include="Helper Classes and Structs\Counter.cs" />
+    <Compile Include="Utility Classes\DefaultBarrierHandler.cs" />
+    <Compile Include="Helper Classes and Structs\PeriodicFunction.cs" />
+    <Compile Include="Helper Classes and Structs\RectangleParser.cs" />
+    <Compile Include="Utility Classes\SpriteSource.cs" />
     <Compile Include="Old Files\Core.cs" />
-    <Compile Include="Utility Classes and Structs\StaticMotionState.cs" />
-    <Compile Include="Utility Classes and Structs\StatusSwitch.cs" />
-    <Compile Include="Utility Classes and Structs\SymmetricPair.cs" />
-    <Compile Include="Utility Classes and Structs\WorldManager.cs" />
+    <Compile Include="Utility Classes\StaticMotionState.cs" />
+    <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
+    <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
+    <Compile Include="Utility Classes\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\x86\Debug\LeveLoader.dll" />

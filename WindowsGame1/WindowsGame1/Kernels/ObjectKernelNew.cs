@@ -8,19 +8,17 @@ namespace WindowsGame1
     public abstract class ObjectKernelNew<TStateController> : IObject
         where TStateController : IStateController, new()
     {
-        private bool inScreen;
-
+        private bool _inScreen;
         private bool InScreen
         {
-            get { return inScreen; }
+            get { return _inScreen; }
             set
             {
                 if (InScreen)
                 {
-                    if (!(value || this is MarioObject)) Unload();
+                    if (!value) Unload();
                 }
-                else
-                    inScreen = value;
+                else _inScreen = value;
             }
         }
 
@@ -50,10 +48,10 @@ namespace WindowsGame1
             get { return Core.GeneralMotionState; }
         }
 
-        protected BarrierDetector BarrierDetector
+        protected IBarrierHandler BarrierHandler
         {
-            get { return Core.BarrierDetector; }
-            set { Core.BarrierDetector = value; }
+            get { return Core.BarrierHandler; }
+            set { Core.BarrierHandler = value; }
         }
 
         protected TStateController StateController
@@ -121,7 +119,7 @@ namespace WindowsGame1
             GeneralSpriteState.Reset();
             GeneralMotionState.Reset();
             Core.ClearDelayedCommands();
-            BarrierDetector.ClearBarrier();
+            BarrierHandler.ClearBarrier();
         }
 
         public void Load(ContentManager content, Vector2 location)
@@ -149,12 +147,15 @@ namespace WindowsGame1
         {
             if (!Camera.OutOfRange(Core.Object) || this is MarioObject)
             {
+                var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
                 InScreen = true;
                 Core.Update();
                 if (CommandExecutor != null) CommandExecutor.Execute();
                 if (CollisionHandler != null) CollisionHandler.Handle();
-                StateController.Update();
-                if (Solid && !(GeneralMotionState is StaticMotionState) && BarrierDetector != null) BarrierDetector.Detect();
+                if (haveBarrierHandler) BarrierHandler.Update();
+                if (haveBarrierHandler) BarrierHandler.HandleCollision();
+                StateController.RefreshState();
+                if (haveBarrierHandler) BarrierHandler.HandleOverlap();
             }
             else InScreen = false;
         }

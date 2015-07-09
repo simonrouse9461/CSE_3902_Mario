@@ -98,6 +98,8 @@ namespace WindowsGame1
             var touched = default(CollisionType).SetToContact();
             var returnValue = new Collision();
 
+            if (Intersection.Height <= 2 && Intersection.Width <= 2) return default(Collision);
+
             if (subjectRectangle.Intersects(objectRectangle))
             {
                 switch (ComparePosition(subjectRectangle, objectRectangle))

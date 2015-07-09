@@ -3,13 +3,17 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public interface IBarrierDetector
+    public interface IBarrierHandler
     {
+        Collision BarrierCollision { get; }
         Collection<Type> BarrierList { get; }
         Collection<Type> BarrierExceptionList { get; }
+        Collision DetectBarrier(int offset = 0);
         void AddBarrier<T>(Type type = null) where T : IObject;
         void RemoveBarrier<T>(Type type = null) where T : IObject;
         void ClearBarrier();
-        void Detect(); 
+        void Update();
+        void HandleCollision();
+        void HandleOverlap();
     }
 }

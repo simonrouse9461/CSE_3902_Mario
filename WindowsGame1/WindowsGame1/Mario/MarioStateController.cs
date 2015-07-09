@@ -5,50 +5,56 @@ namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private bool dead;
-        private bool WasOnFloor;
         private const int MagazineCapacity = 2;
-        private int AmmoLeft = 2;
-        private Counter ReloadTimer;
 
-        private void CheckCeiling()
+        private int _ammoLeft = 2;
+        private int AmmoLeft
         {
-            if (SpriteState.Dead) return;
-            if ((BarrierCollision.TopLeft & BarrierCollision.TopRight).Touch) MotionState.Fall();
-        }
-
-        private void CheckFloor()
-        {
-            if (SpriteState.Dead) return;
-            if (BarrierCollision.Bottom.Touch)
+            get { return _ammoLeft; }
+            set
             {
-                if (MotionState.Gravity) MotionState.LoseGravity();
-                if (MotionState.DefaultHorizontal && !SpriteState.Crouching) SpriteState.Stand();
-                if (!WasOnFloor)
-                {
-                    MotionState.Stop();
-                    SpriteState.Run();
-                }
-                WasOnFloor = true;
-            }
-            else
-            {
-                MotionState.ObtainGravity();
-                MotionState.GetInertia();
-                SpriteState.Jump();
-                WasOnFloor = false;
+                _ammoLeft = value;
+                Reloading = AmmoLeft < MagazineCapacity;
             }
         }
 
-        protected override void UpdateState()
+        private bool _reloading;
+        private bool Reloading
         {
-//            if (collision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVertical();
-//            if (collision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVertical();
-//            if (collision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontal();
-//            if (collision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontal();
+            get { return _reloading; }
+            set
+            {
+                if (!Reloading && value) Core.DelayCommand(ReloadAmmo, 50);
+                _reloading = value;
+            }
+        }
 
-            CheckCeiling();
-            CheckFloor();
+        private void ReloadAmmo()
+        {
+            AmmoLeft = MagazineCapacity;
+            Reloading = false;
+        }
+
+        public void Land()
+        {
+            if (SpriteState.Dead) return;
+            if (MotionState.Gravity) MotionState.LoseGravity();
+            if (MotionState.DefaultHorizontal) SpriteState.TryStand();
+        }
+
+        public void Brake()
+        {
+            if (SpriteState.Dead) return;
+            MotionState.Stop();
+            SpriteState.Run();
+        }
+
+        public void Liftoff()
+        {
+            if (SpriteState.Dead) return;
+            MotionState.ObtainGravity();
+            MotionState.GetInertia();
+            SpriteState.TryJump();
         }
 
         public void GoLeft()
@@ -57,8 +63,6 @@ namespace WindowsGame1
             if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
-
-            SpriteState.ToLeft();
 
             if (MotionState.Velocity.X > 0)
             {
@@ -79,8 +83,6 @@ namespace WindowsGame1
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
             
-            SpriteState.ToRight();
-            
             if (MotionState.Velocity.X < 0)
             {
                 MotionState.Stop();
@@ -95,39 +97,35 @@ namespace WindowsGame1
 
         public void KeepLeft()
         {
+            SpriteState.ToLeft();
+
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
+
             if (MotionState.HaveInertia)
-            {
-                SpriteState.ToLeft();
                 MotionState.AdjustInertiaLeft();
-            }
             else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
-            {
                 GoLeft();
-            }
         }
 
         public void KeepRight()
         {
+            SpriteState.ToRight();
+            
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
+
             if (MotionState.HaveInertia)
-            {
-                SpriteState.ToRight();
                 MotionState.AdjustInertiaRight();
-            }
             else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
-            {
                 GoRight();
-            }
         }
 
         public void StopMove()
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            MotionState.Stop();
+            Brake();
         }
 
         public void Jump()
@@ -153,10 +151,9 @@ namespace WindowsGame1
             MotionState.Stop();
         }
 
-        public void StopCrouch()
+        public void StandUp()
         {
-            if (SpriteState.Dead) return;
-            SpriteState.Stand();
+            if (SpriteState.Crouching) SpriteState.Stand();
         }
 
         public void Grow()
@@ -176,16 +173,39 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             SpriteState.BecomeDead();
             MotionState.Die();
+            WorldManager.Instance.FreezeWorld();
         }
 
         public void Shoot()
         {
             if (SpriteState.Dead) return;
+            if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
                 SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
                 );
+            AmmoLeft--;
+        }
+
+        public void GetStarPower(int slowDownTime, int stopTime)
+        {
+            SpriteState.StarPower();
+            SpriteState.ChangeColorFrequency(8);
+            Core.DelayCommand(() => SpriteState.ChangeColorFrequency(16), () => SpriteState.HaveStarPower, slowDownTime);
+            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.HaveStarPower, stopTime);
+        }
+
+        public void TakeDamage(int restoreTime)
+        {
+            SpriteState.BecomeSmall();
+            SpriteState.BecomeBlink();
+            SpriteState.ChangeColorFrequency(2);
+            Core.BarrierHandler.RemoveBarrier<Koopa>();
+            Core.BarrierHandler.RemoveBarrier<Goomba>();
+            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
+            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
         }
     }
 }

@@ -29,10 +29,11 @@ namespace WindowsGame1
             }
         }
 
-        public static Rectangle ExtendedScreenRectangle(Rectangle offset)
+        public static Rectangle ExtendedScreenRectangle(Vector4 offset)
         {
-            return new Rectangle((int) Location.X + offset.X, (int) Location.Y + offset.Y, (int) ScreenSize.X + offset.Width,
-                    (int) ScreenSize.Y + offset.Height);
+            return new Rectangle((int) (Location.X - offset.X), (int) (Location.Y - offset.Y),
+                (int) (ScreenSize.X + offset.X + offset.Z),
+                (int) (ScreenSize.Y + offset.Y + offset.W));
         }
 
         public static void Adjust(Vector2 offset)
@@ -59,7 +60,7 @@ namespace WindowsGame1
             }
         }
 
-        public static bool OutOfRange(IObject obj, Rectangle offset = default(Rectangle))
+        public static bool OutOfRange(IObject obj, Vector4 offset = default(Vector4))
         {
             return
                 !obj.PositionRectangle.Intersects(ExtendedScreenRectangle(offset));
