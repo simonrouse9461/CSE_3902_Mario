@@ -8,36 +8,17 @@ namespace WindowsGame1
 {
     public class FireballStateController : StateControllerKernel<FireballSpriteState, FireballMotionState>
     {
-        private Collision collision;
-        public void Bounce()
-        {
-            if (BarrierCollision.Bottom.Touch)
-            {
-                MotionState.Bounce();
-            }
-        }
-
         public void Explode()
         {
             MotionState.Stop();
             SpriteState.Exploded();
-            Core.BarrierDetector.RemoveBarrier<IObject>();
+            Core.BarrierHandler.RemoveBarrier<IObject>();
             Core.DelayCommand(() => Core.Object.Unload(), 6);
         }
 
-        public void HitObject()
+        public void Bounce()
         {
-            if (BarrierCollision.AnySide.Touch)
-            {
-                Explode();
-            }
-        }
-
-        protected override void UpdateState()
-        {
-            collision = Core.CollisionDetector.Detect<IObject>();
-            Bounce();
-            HitObject();
+            MotionState.Bounce();
         }
     }
 }

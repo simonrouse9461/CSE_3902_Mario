@@ -39,7 +39,7 @@ namespace WindowsGame1
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,
                     CommandExecutor = core.CommandExecutor,
-                    BarrierDetector = core.BarrierDetector
+                    BarrierHandler = core.BarrierHandler
                 };
             RegisteredCommands = new Collection<Type>();
             CurrentStatus = new Collection<StatusSwitch<Type>>();

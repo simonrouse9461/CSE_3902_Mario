@@ -5,7 +5,6 @@ namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private bool WasOnFloor;
         private const int MagazineCapacity = 2;
         private Counter ReloadTimer;
 
@@ -36,56 +35,36 @@ namespace WindowsGame1
             if (Reloading && ReloadTimer.Update()) AmmoLeft = MagazineCapacity;
         }
 
-        private void CheckCeiling()
-        {
-            if (SpriteState.Dead) return;
-            if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover) MotionState.Fall();
-        }
-
-        private void CheckFloor()
-        {
-            if (SpriteState.Dead) return;
-            if (BarrierCollision.Bottom.Touch)
-            {
-                Land();
-                if (!WasOnFloor) Brake();
-                WasOnFloor = true;
-            }
-            else
-            {
-                Liftoff();
-                WasOnFloor = false;
-            }
-        }
 
         public void Land()
         {
+            if (SpriteState.Dead) return;
             if (MotionState.Gravity) MotionState.LoseGravity();
             if (MotionState.DefaultHorizontal) SpriteState.TryStand();
         }
 
         public void Brake()
         {
+            if (SpriteState.Dead) return;
             MotionState.Stop();
             SpriteState.Run();
         }
 
         public void Liftoff()
         {
+            if (SpriteState.Dead) return;
             MotionState.ObtainGravity();
             MotionState.GetInertia();
             SpriteState.TryJump();
         }
 
-        protected override void UpdateState()
+        public override void Update()
         {
 //            if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVertical();
 //            if (BarrierCollision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVertical();
 //            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontal();
 //            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontal();
 
-            CheckCeiling();
-            CheckFloor();
             ReloadAmmo();
         }
 

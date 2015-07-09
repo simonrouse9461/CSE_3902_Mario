@@ -10,7 +10,6 @@ namespace WindowsGame1
         public TMotionState MotionState { get; set; }
         public ISpriteState GeneralSpriteState { get { return SpriteState; } }
         public IMotionState GeneralMotionState { get { return MotionState; } }
-        protected Collision BarrierCollision { get; private set; }
 
         public ICore Core { protected get; set; }
 
@@ -20,14 +19,10 @@ namespace WindowsGame1
             MotionState = new TMotionState();
         }
 
-        protected abstract void UpdateState();
+        public virtual void Update() { }
 
-        public void Update()
+        public void RefreshState()
         {
-            BarrierCollision = Core.CollisionDetector.Detect(Core.BarrierDetector.BarrierList,
-                Core.BarrierDetector.BarrierExceptionList,
-                obj => obj.Solid);
-            UpdateState();
             SpriteState.Update();
             MotionState.Update();
         }

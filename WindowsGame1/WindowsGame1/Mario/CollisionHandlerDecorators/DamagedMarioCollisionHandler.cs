@@ -13,13 +13,13 @@ namespace WindowsGame1
             Core.StateController.SpriteState.BecomeSmall();
             Core.StateController.SpriteState.BecomeBlink();
             Core.StateController.SpriteState.ChangeColorFrequency(2);
-            Core.BarrierDetector.RemoveBarrier<Koopa>();
-            Core.BarrierDetector.RemoveBarrier<Goomba>();
+            Core.BarrierHandler.RemoveBarrier<Koopa>();
+            Core.BarrierHandler.RemoveBarrier<Goomba>();
 
             // time up actions
             Core.DelayCommand(() => Core.StateController.SpriteState.SetDefaultColor(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
-            Core.DelayCommand(() => Core.BarrierDetector.AddBarrier<Koopa>(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
-            Core.DelayCommand(() => Core.BarrierDetector.AddBarrier<Goomba>(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
+            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
+            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
 
             Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
         }
@@ -30,8 +30,8 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
-                Core.BarrierDetector.AddBarrier<Koopa>();
-                Core.BarrierDetector.AddBarrier<Goomba>();
+                Core.BarrierHandler.AddBarrier<Koopa>();
+                Core.BarrierHandler.AddBarrier<Goomba>();
                 Core.SwitchComponent(new StarMarioCollisionHandler(Core, DefaultCollisionHandler));
             }
         }

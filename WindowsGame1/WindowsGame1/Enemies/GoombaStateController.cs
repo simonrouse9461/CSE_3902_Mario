@@ -18,7 +18,7 @@ namespace WindowsGame1
             }
         }
 
-        protected override void UpdateState()
+        public override void Update()
         {
             collision = Core.CollisionDetector.Detect<IBlock>();
             CheckFloor();

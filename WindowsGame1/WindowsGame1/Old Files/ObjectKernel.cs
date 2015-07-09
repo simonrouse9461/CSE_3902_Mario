@@ -9,24 +9,17 @@ namespace WindowsGame1
         where TSpriteState : SpriteStateKernel, new()
         where TMotionState : MotionStateKernel, new()
     {
-        private bool inScreen;
-
+        private bool _inScreen;
         private bool InScreen
         {
-            get
-            {
-                return inScreen;
-            }
+            get { return _inScreen; }
             set
             {
                 if (InScreen)
                 {
-                    if (!(value || this is MarioObject)) Unload();
+                    if (!value) Unload();
                 }
-                else
-                {
-                    inScreen = value;
-                }
+                else _inScreen = value;
             }
         }
 
@@ -57,10 +50,10 @@ namespace WindowsGame1
             set { Core.CollisionDetector = value; }
         }
 
-        protected BarrierDetector BarrierDetector
+        protected IBarrierHandler BarrierHandler
         {
-            get { return Core.BarrierDetector; }
-            set { Core.BarrierDetector = value; }
+            get { return Core.BarrierHandler; }
+            set { Core.BarrierHandler = value; }
         }
 
         protected IStateController StateController
@@ -91,7 +84,6 @@ namespace WindowsGame1
             SpriteState = new TSpriteState();
             MotionState = new TMotionState();
             CollisionDetector = new CollisionDetector(this);
-            BarrierDetector = new BarrierDetector(Core);
         }
 
         // Properties
@@ -141,7 +133,6 @@ namespace WindowsGame1
             SpriteState.Reset();
             MotionState.Reset();
             Core.ClearDelayedCommands();
-            BarrierDetector.ClearBarrier();
         }
 
         public void Load(ContentManager content, Vector2 location)
@@ -176,7 +167,6 @@ namespace WindowsGame1
                 if (StateController != null) StateController.Update();
                 SpriteState.Update();
                 MotionState.Update();
-                if (Solid && !(MotionState is StaticMotionState)) BarrierDetector.Detect();
             }
             else
             {
