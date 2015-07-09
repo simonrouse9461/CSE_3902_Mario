@@ -131,9 +131,7 @@ namespace WindowsGame1
             LevelData = content.Load<ObjectData[]>("LevelData");
             CreateObject<MarioObject>(new Vector2(75, 398));
             foreach (var data in LevelData)
-            {
-                LoadObject(Activator.CreateInstance(Type.GetType("WindowsGame1." + data.Type)), data.Location);
-            }
+                LoadObject(Activator.CreateInstance (Type.GetType("WindowsGame1." + data.Type)), data.Location); 
         }
 
         public void Update()
