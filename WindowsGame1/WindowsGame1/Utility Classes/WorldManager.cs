@@ -35,8 +35,7 @@ namespace WindowsGame1
         {
             ObjectList = new Collection<IList>
             {
-                
-                // background objects should be drawn first
+                // Background objects should be drawn first
                 new Collection<Hill>(),
                 new Collection<Bush>(),
                 new Collection<Cloud>(),
@@ -49,7 +48,6 @@ namespace WindowsGame1
                 new Collection<NormalBlockObject>(),
                
                 new Collection<BlockKernel>(),
-                new Collection<GreenPipeObject>(),
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
                 new Collection<OneUp>(),
@@ -58,9 +56,14 @@ namespace WindowsGame1
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
                 new Collection<FloorBlockObject>(),
-                // Mario should be drawn in the end
+
+                // Mario should be drawn after items and enemies
                 new Collection<MarioObject>(),
 
+                // Put green pipe after Mario to allow Mario goes into pipe
+                new Collection<GreenPipeObject>(),
+
+                // Fireball is on the top of everything
                 new Collection<FireballObject>()
             };
         }
