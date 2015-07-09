@@ -110,8 +110,9 @@ namespace WindowsGame1
 
         public void LoadObject(Object obj, Vector2 position)
         {
-            ((IObject)obj).Load(Content, position);
-            Instance.ObjectList.First(list => list.GetType().GetGenericArguments().Single() == obj.GetType()).Add(obj);
+            ((IObject) obj).Load(Content, position);
+            Instance.ObjectList.First(list => list.GetType().GetGenericArguments().Single() == obj.GetType())
+                .Add(obj);
         }
 
         public void FreezeWorld(int time = 0)
@@ -129,9 +130,23 @@ namespace WindowsGame1
         {
             Content = content;
             LevelData = content.Load<ObjectData[]>("LevelData");
+            var nameSpace = GetType().Namespace;
             CreateObject<MarioObject>(new Vector2(75, 398));
             foreach (var data in LevelData)
-                LoadObject(Activator.CreateInstance (Type.GetType("WindowsGame1." + data.Type)), data.Location); 
+            {
+                var type = Type.GetType(nameSpace + "." + data.Type);
+                if (type == null) throw new Exception(nameSpace + "." + data.Type + " is not a valid type!");
+                var obj = Activator.CreateInstance(type);
+                try
+                {
+                    if (data.Version != "") obj = type.GetProperty(data.Version).GetValue(obj, null);
+                    LoadObject(obj, data.Location);
+                }
+                catch (Exception)
+                {
+                    throw new Exception(nameSpace + "." + data.Type + " has no version called " + data.Version + "!");
+                }
+            }
         }
 
         public void Update()
