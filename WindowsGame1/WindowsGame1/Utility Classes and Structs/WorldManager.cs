@@ -108,6 +108,12 @@ namespace WindowsGame1
             RemoveObject(obj);
         }
 
+        public void LoadObject(Object obj, Vector2 position)
+        {
+            ((IObject)obj).Load(Content, position);
+            Instance.ObjectList.First(list => list.GetType().GetGenericArguments().Single() == obj.GetType()).Add(obj);
+        }
+
         public void FreezeWorld(int time = 0)
         {
             freeze = true;
@@ -127,53 +133,9 @@ namespace WindowsGame1
             FindObject<MarioObject>().Load(content, new Vector2(75, 398));
 
             LevelData = content.Load<ObjectData[]>("LevelData");
-            for (var i = 0; i < LevelData.Length; i++)
+            foreach (var data in LevelData)
             {
-                switch (LevelData[i].Type)
-                {
-                    case "Goomba":
-                        CreateObject<Goomba>(LevelData[i].Location);
-                        break;
-                    case "Koopa":
-                        CreateObject<Koopa>(LevelData[i].Location);
-                        break;
-                    case "BlockKernel":
-                        CreateObject<BlockKernel>(LevelData[i].Location);
-                        break;
-                    case "QuestionBlockObject":
-                        CreateObject<QuestionBlockObject>(LevelData[i].Location);
-                        break;
-                    case "HiddenBlockObject":
-                        CreateObject<HiddenBlockObject>(LevelData[i].Location);
-                        break;
-                    case "NormalBlockObject":
-                        CreateObject<NormalBlockObject>(LevelData[i].Location);
-                        break;
-                    case "FloorBlockObject":
-                        CreateObject<FloorBlockObject>(LevelData[i].Location);
-                        break;
-                    case "GreenPipeObject":
-                        CreateObject<GreenPipeObject>(LevelData[i].Location);
-                        break;
-                    case "Hill":
-                        CreateObject<Hill>(LevelData[i].Location);
-                        break;
-                    case "Bush":
-                        CreateObject<Bush>(LevelData[i].Location);
-                        break;
-                    case "Cloud":
-                        CreateObject<Cloud>(LevelData[i].Location);
-                        break;
-                    case "Fireflower":
-                        CreateObject<Fireflower>(LevelData[i].Location);
-                        break;
-                    case "Mushroom":
-                        CreateObject<Mushroom>(LevelData[i].Location);
-                        break;
-                    case "Star":
-                        CreateObject<Star>(LevelData[i].Location);
-                        break;
-                }
+                LoadObject(Activator.CreateInstance(Type.GetType("WindowsGame1." + data.Type)), data.Location);
             }
         }
 
