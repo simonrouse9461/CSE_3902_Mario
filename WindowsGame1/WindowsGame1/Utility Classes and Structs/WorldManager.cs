@@ -119,7 +119,7 @@ namespace WindowsGame1
             freeze = false;
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadLevel(ContentManager content)
         {
             Content = content;
 
@@ -184,35 +184,19 @@ namespace WindowsGame1
                 FindObject<MarioObject>().Update();
                 if (freezeTimer.Update()) RestoreWorld();
             }
-            else
-            {
-                // In order to avoid exception when objects unload themselves,
-                // for loops below should not be converted to foreach loops.
-                for (var i = 0; i < ObjectList.Count; i++)
-                {
-                    for (var j = 0; j < ObjectList[i].Count; j++)
-                    {
-                        ((IObject)ObjectList[i][j]).Update();
-                    }
-                }
-            }
-
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200)))
-            {
-                Reset();
-            }
+            else foreach (var collection in ObjectList)
+                for (var i = 0; i < collection.Count; i++)
+                    ((IObject) collection[i]).Update();
+            
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reset();
         }
 
         public void Reset()
         {
             foreach (var collection in ObjectList)
-            {
                 for (var i = collection.Count - 1; i >= 0; i--)
-                {
                     collection.Remove(collection[i]);
-                }
-            }
-            LoadContent(Content);
+            LoadLevel(Content);
             Camera.Reset();
             RestoreWorld();
         }
@@ -220,12 +204,8 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (var collection in ObjectList)
-            {
                 foreach (IObject obj in collection)
-                {
                     obj.Draw(spriteBatch);
-                }
-            }
         }
     }
 }
