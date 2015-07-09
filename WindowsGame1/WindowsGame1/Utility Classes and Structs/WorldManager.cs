@@ -128,11 +128,8 @@ namespace WindowsGame1
         public void LoadLevel(ContentManager content)
         {
             Content = content;
-
-            FindObjectCollection<MarioObject>().Add(new MarioObject());
-            FindObject<MarioObject>().Load(content, new Vector2(75, 398));
-
             LevelData = content.Load<ObjectData[]>("LevelData");
+            CreateObject<MarioObject>(new Vector2(75, 398));
             foreach (var data in LevelData)
             {
                 LoadObject(Activator.CreateInstance(Type.GetType("WindowsGame1." + data.Type)), data.Location);
