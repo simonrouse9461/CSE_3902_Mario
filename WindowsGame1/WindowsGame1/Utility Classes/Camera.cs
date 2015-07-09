@@ -2,7 +2,7 @@
 
 namespace WindowsGame1
 {
-    public class Camera
+    public sealed class Camera
     {
         private static readonly Camera instance = new Camera(new Vector2(800, 480));
 
