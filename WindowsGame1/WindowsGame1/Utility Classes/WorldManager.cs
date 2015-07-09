@@ -2,11 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
+using WindowsGame1.Exceptions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LevelLoader;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WindowsGame1
 {
@@ -137,17 +140,21 @@ namespace WindowsGame1
             CreateObject<MarioObject>(new Vector2(75, 398));
             foreach (var data in LevelData)
             {
-                var type = Type.GetType(nameSpace + "." + data.Type);
-                if (type == null) throw new Exception(nameSpace + "." + data.Type + " is not a valid type!");
-                var obj = Activator.CreateInstance(type);
                 try
                 {
-                    if (data.Version != "") obj = type.GetProperty(data.Version).GetValue(obj, null);
+                    var type = Type.GetType(nameSpace + "." + data.Type);
+                    Debug.Assert(type != null);
+                    var obj = Activator.CreateInstance(type);
+                    if (!string.IsNullOrEmpty(data.Version)) obj = type.GetProperty(data.Version).GetValue(obj, null);
                     LoadObject(obj, data.Location);
                 }
                 catch (Exception)
                 {
-                    throw new Exception(nameSpace + "." + data.Type + " has no version called " + data.Version + "!");
+                    var type = nameSpace + "." + data.Type;
+                    var version = string.IsNullOrEmpty(data.Version)
+                        ? string.Empty
+                        : " with a version name " + data.Version; 
+                    throw new InvalidIObjectException("Unable to create instance of an IObject from type " + type + version + "!");
                 }
             }
         }

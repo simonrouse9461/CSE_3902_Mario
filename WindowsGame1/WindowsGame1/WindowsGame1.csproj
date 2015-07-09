@@ -113,6 +113,7 @@
     <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
+    <Compile Include="Exceptions\InvalidIObjectException.cs" />
     <Compile Include="GameCommands\CameraLeftCommand.cs" />
     <Compile Include="GameCommands\CameraRightCommand.cs" />
     <Compile Include="GameCommands\CameraDownCommand.cs" />
