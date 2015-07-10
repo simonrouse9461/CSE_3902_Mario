@@ -82,7 +82,7 @@ namespace WindowsGame1
 
         public bool isAlive()
         {
-            return !(MotionStatus == MotionEnum.None);
+            return MotionStatus != MotionEnum.None;
         }
 
         public override void TakeMarioHitFromSide(string leftOrRight)
