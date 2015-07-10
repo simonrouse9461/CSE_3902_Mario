@@ -1,9 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
     public class GravityMotion : MotionKernel
     {
+        private float StartVelocity { get; set; }
+        private float Acceleration { get { return 0.38f; } }
+
         public static Vector2 MaxVelocity
         {
             get { return new Vector2(0, 4.5f); }
@@ -13,9 +17,16 @@ namespace WindowsGame1
         {
             get
             {
-                var velocity = MaxVelocity;
-                return velocity;
+                var velocity = StartVelocity + Circulator.Phase*Acceleration;
+                velocity = velocity < 0 ? velocity : MaxVelocity.Y;
+                return new Vector2(0, velocity);
             }
+        }
+
+        public override void Reset()
+        {
+            StartVelocity = CurrentVelocity.Y;
+            Circulator.Reset();
         }
     }
 }

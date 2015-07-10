@@ -42,7 +42,7 @@ namespace WindowsGame1
             }
         }
 
-        public void ResetHorizontal()
+        public void ResetHorizontalVelocity()
         {
             foreach (var motion in MotionList)
             {
@@ -50,7 +50,7 @@ namespace WindowsGame1
             }
         }
 
-        public void ResetVertical()
+        public void ResetVerticalVelocity()
         {
             foreach (var motion in MotionList)
             {
@@ -67,20 +67,19 @@ namespace WindowsGame1
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Content.Finish)
+                    if (motion.Content.Finish) motion.Toggle(false);
+                    if (motion.Status)
                     {
                         motion.Content.Update();
                         Velocity += motion.Content.Velocity;
                     }
+                    else motion.Reset(m => m.Reset());
                 }
 
                 foreach (var motion in MotionList)
                 {
-                    if (!motion.Status || motion.Content.Finish)
-                    {
-                        motion.Toggle(false);
-                        motion.Reset(m => m.Reset(Velocity));
-                    }
+                    motion.Content.SetCurrentVelocity(Velocity);
+                    if (!motion.Status) motion.Reset(m => m.SetInitialVelocity(Velocity));
                 }
 
                 Position += Velocity;

@@ -31,7 +31,7 @@ namespace WindowsGame1
             {
                 new StatusSwitch<IMotion>(new AccelerateMotion().MarioLeft),
                 new StatusSwitch<IMotion>(new AccelerateMotion().MarioRight),
-                new StatusSwitch<IMotion>(new SuddenStopMotion()),
+                new StatusSwitch<IMotion>(new DampMotion()),
                 new StatusSwitch<IMotion>(new InertiaMotion()),
                 new StatusSwitch<IMotion>(new BounceUpMotion().MarioDie),
                 new StatusSwitch<IMotion>(new BounceUpMotion().MarioJump),
@@ -48,7 +48,7 @@ namespace WindowsGame1
             HorizontalStatus = HorizontalEnum.Default;
             FindMotion<AccelerateMotion>(m => m.MarioRight).Toggle(false);
             FindMotion<AccelerateMotion>(m => m.MarioLeft).Toggle(false);
-            FindMotion<SuddenStopMotion>().Toggle(false);
+            FindMotion<DampMotion>().Toggle(false);
             FindMotion<InertiaMotion>().Toggle(false);
         }
 
@@ -76,7 +76,7 @@ namespace WindowsGame1
         {
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Stop;
-            FindMotion<SuddenStopMotion>().Toggle(true);
+            FindMotion<DampMotion>().Toggle(true);
         }
 
         public void GetInertia()
@@ -106,6 +106,7 @@ namespace WindowsGame1
         public void Fall()
         {
             SetDefaultVertical();
+            FindMotion<GravityMotion>().Content.Reset();
         }
 
         public void ObtainGravity()
@@ -133,7 +134,7 @@ namespace WindowsGame1
         {
             get
             {
-                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<SuddenStopMotion>().Status)
+                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<DampMotion>().Status)
                     HorizontalStatus = HorizontalEnum.Default;
                 return HorizontalStatus == HorizontalEnum.Default;
             }
@@ -163,7 +164,7 @@ namespace WindowsGame1
         {
             get
             {
-                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<SuddenStopMotion>().Status)
+                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<DampMotion>().Status)
                     HorizontalStatus = HorizontalEnum.Default; 
                 return HorizontalStatus == HorizontalEnum.Stop;
             }

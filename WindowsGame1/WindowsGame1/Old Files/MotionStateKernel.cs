@@ -36,13 +36,13 @@ namespace WindowsGame1
             Timer.Reset();
             foreach (var motion in MotionList)
             {
-                motion.Reset(m => m.Reset());
+                motion.Reset(m => m.SetCurrentVelocity());
             }
         }
 
-        public void ResetHorizontal() { }
+        public void ResetHorizontalVelocity() { }
 
-        public void ResetVertical() { }
+        public void ResetVerticalVelocity() { }
 
         private void RestoreMotionStatus()
         {
@@ -65,7 +65,7 @@ namespace WindowsGame1
                 }
                 else
                 {
-                    motion.Reset(m => m.Reset(Velocity));
+                    motion.Reset(m => m.SetCurrentVelocity(Velocity));
                 }
             }
 

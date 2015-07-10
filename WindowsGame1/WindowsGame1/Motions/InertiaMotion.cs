@@ -10,19 +10,19 @@ namespace WindowsGame1
 
         public override Vector2 Velocity
         {
-            get { return new Vector2(InitialVelocity.X, 0); }
+            get { return new Vector2(CurrentVelocity.X, 0); }
         }
 
         public void Left()
         {
-            var velocity = InitialVelocity - new Vector2(Acceleration, 0);
-            InitialVelocity = Math.Abs(velocity.X) >= MaxVelocity ? InitialVelocity : velocity;
+            var velocity = CurrentVelocity - new Vector2(Acceleration, 0);
+            SetCurrentVelocity(velocity.X <= -MaxVelocity ? CurrentVelocity : velocity);
         }
 
         public void Right()
         {
-            var velocity = InitialVelocity + new Vector2(Acceleration, 0);
-            InitialVelocity = Math.Abs(velocity.X) >= MaxVelocity ? InitialVelocity : velocity;
+            var velocity = CurrentVelocity + new Vector2(Acceleration, 0);
+            SetCurrentVelocity(velocity.X >= MaxVelocity ? CurrentVelocity : velocity);
         }
     }
 }
