@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
-{
+{ 
     public abstract class BarrierHandlerKernel<TStateController> : IBarrierHandler
         where TStateController : IStateController, new()
     {

@@ -6,6 +6,12 @@ namespace WindowsGame1
 {
     public class SecretPipeObject : GreenPipeObject
     {
+        private enum Version
+        {
+            Warp
+        }
+
+        private Version version = Version.Warp;
 
         public SecretPipeObject()
         {

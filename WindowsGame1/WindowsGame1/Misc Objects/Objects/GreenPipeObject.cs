@@ -3,7 +3,8 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeObject : ObjectKernelNew<PipeStateController>{
+    public class GreenPipeObject : ObjectKernelNew<PipeStateController>
+    {
 
         private enum Version
         {
@@ -15,18 +16,17 @@ namespace WindowsGame1
         {
             StateController.SpriteState.TallPipe();                
         }
-        
-
-
-
+       
         private Version version = Version.Default;
 
-        public GreenPipeObject WarpPipe
+        public static GreenPipeObject WarpPipe
         {
             get
             {
-                version = Version.Warp;
-                return this;
+                return new GreenPipeObject
+                {
+                    version = Version.Warp
+                };
             }
         }
     }

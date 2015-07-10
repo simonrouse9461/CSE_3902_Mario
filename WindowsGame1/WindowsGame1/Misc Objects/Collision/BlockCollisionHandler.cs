@@ -9,20 +9,54 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
+            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
             {
-                if(Core.StateController.SpriteState.isQuestionBlock){
-                    Core.StateController.SpriteState.QuestionToUsedBlock();
-                }
-                
-                if (Core.StateController.SpriteState.isNormal && Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
+                if (((QuestionBlockObject)Core.Object).giveItem)
                 {
-                    Core.StateController.SpriteState.Destroyed();
-                    Core.DelayCommand(() => Core.Object.Unload(), 12);
+                    Core.StateController.QuestionBlockGiveFireflower();
                 }
-                if (Core.StateController.SpriteState.isHidden)
+                else if (Core.StateController.SpriteState.isNormal)
                 {
-                    Core.StateController.SpriteState.HiddenToUsedBlock();
+                    Core.StateController.NormalBlockDestroyed();
+                }
+                else if (((QuestionBlockObject)Core.Object).giveCoin)
+                {
+                    Core.StateController.QuestionBlockGiveCoin();
+                }
+                else if (((NormalBlockObject)Core.Object).giveCoin)
+                {
+                    Core.StateController.NormalBlockCoinHit();
+                }
+                else if (((HiddenBlockObject)Core.Object).giveOneUp)
+                {
+                    Core.StateController.HiddenBlockGive1Up();
+                }
+                else if (((HiddenBlockObject)Core.Object).giveStar)
+                {
+                    Core.StateController.NormalBlockGiveStar();
+                }
+            }
+            else if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
+            {
+                if (((QuestionBlockObject)Core.Object).giveItem)
+                {
+                    Core.StateController.QuestionBlockGiveMushroom();
+                }
+                else if (((QuestionBlockObject)Core.Object).giveCoin)
+                {
+                    Core.StateController.QuestionBlockGiveCoin();
+                }
+                else if (((NormalBlockObject)Core.Object).giveCoin)
+                {
+                    Core.StateController.NormalBlockCoinHit();
+                }
+                else if (((HiddenBlockObject)Core.Object).giveOneUp)
+                {
+                    Core.StateController.HiddenBlockGive1Up();
+                }
+                else if (((HiddenBlockObject)Core.Object).giveStar)
+                {
+                    Core.StateController.NormalBlockGiveStar();
                 }
             }
         }

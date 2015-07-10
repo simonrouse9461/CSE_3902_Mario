@@ -12,27 +12,24 @@ namespace WindowsGame1
             Star
         }
 
+        public bool giveStar { get; set; }
+        public bool giveCoin { get; set; }
         private Version version;
-        public NormalBlockObject() {
+
+        public NormalBlockObject()
+        {
             StateController.NormalBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
 
-        public NormalBlockObject CoinNormalBlock
+        public static NormalBlockObject CoinNormalBlock
         {
             get
             {
-                version = Version.Coin;
-                return this;
-            }
-        }
-
-        public NormalBlockObject StarNormalBlock
-        {
-            get
-            {
-                version = Version.Star;
-                return this;
+                return new NormalBlockObject
+                {
+                    version = Version.Coin
+                };
             }
         }
     }
