@@ -11,6 +11,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
+            //add methods for blocks and pipes
             if (Detector.Detect<IMario>().AnyEdge.Touch)
             {
                 Core.Object.Unload();

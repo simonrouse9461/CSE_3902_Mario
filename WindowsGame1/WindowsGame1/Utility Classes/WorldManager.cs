@@ -148,7 +148,7 @@ namespace WindowsGame1
                     var type = Type.GetType(nameSpace + "." + data.Type);
                     Debug.Assert(type != null);
                     var obj = Activator.CreateInstance(type);
-                    if (!string.IsNullOrEmpty(data.Version)) obj = type.GetProperty(data.Version).GetValue(obj, null);
+                    if (!string.IsNullOrEmpty(data.Version)) obj = type.GetProperty(data.Version).GetValue(null, null);
                     LoadObject(obj, data.Location);
                 }
                 catch (Exception)

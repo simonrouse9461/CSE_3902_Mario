@@ -7,6 +7,8 @@ namespace WindowsGame1
         public Goomba()
         {
             CollisionHandler = new GoombaCollisionHandler(Core);
+            //Core.BarrierHandler.AddBarrier<IBlock>();
+            //Core.BarrierHandler.AddBarrier<IEnemy>();
         }
 
         public override bool Solid
