@@ -162,6 +162,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (Camera.OutOfRange(Core.Object)) return;
             var relativePosition = GeneralMotionState.Position - Camera.Location;
             if (GeneralSpriteState.Left)
                 GeneralSpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, GeneralSpriteState.Color);
