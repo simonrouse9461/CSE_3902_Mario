@@ -12,7 +12,7 @@ namespace WindowsGame1
             Star
         }
 
-        private Version version = Version.Default;
+        private Version version;
         public NormalBlockObject() {
             StateController.NormalBlock();
             CollisionHandler = new BlockCollisionHandler(Core);

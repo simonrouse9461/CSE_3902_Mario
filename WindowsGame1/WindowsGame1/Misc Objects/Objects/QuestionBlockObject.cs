@@ -14,7 +14,7 @@ namespace WindowsGame1
             Default
         }
 
-        private Version version = Version.Default;
+        private Version version;
 
 
         public QuestionBlockObject()

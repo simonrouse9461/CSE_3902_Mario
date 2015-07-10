@@ -12,7 +12,7 @@ namespace WindowsGame1
             ExtraLife
         }
 
-        private Version version = Version.Default;
+        private Version version;
 
 
         public HiddenBlockObject() {
