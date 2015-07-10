@@ -26,8 +26,11 @@ namespace WindowsGame1
 
         public void MarioSmash()
         {
-            MotionState.MarioSmash();
-            SpriteState.MarioSmash();
+            Core.DelayCommand(() =>
+            {
+                MotionState.MarioSmash();
+                SpriteState.MarioSmash();
+            });
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)
