@@ -3,18 +3,33 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class NormalBlockObject : BlockKernel
+    public class NormalBlockObject : BlockKernel, IBlock
     {
-        public NormalBlockObject() {
-            SpriteState.NormalBlock();
+        private enum Version
+        {
+            Default,
+            Coin,
+            Star
+        }
+
+        public bool giveStar { get; set; }
+        public bool giveCoin { get; set; }
+        private Version version;
+
+        public NormalBlockObject()
+        {
+            StateController.NormalBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
 
-        protected void SyncState()
+        public static NormalBlockObject CoinNormalBlock
         {
-            if (SpriteState.isNormal)
+            get
             {
-                MotionState.Hit();
+                return new NormalBlockObject
+                {
+                    version = Version.Coin
+                };
             }
         }
     }

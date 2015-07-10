@@ -38,7 +38,7 @@ namespace WindowsGame1
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             Background = Content.Load<Texture2D>("overworld");
-            World.LoadContent(Content);
+            World.LoadLevel(Content);
 
             base.LoadContent();
         }

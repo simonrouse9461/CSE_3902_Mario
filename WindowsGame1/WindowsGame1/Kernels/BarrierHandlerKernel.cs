@@ -1,24 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
-{
-    public class BarrierDetector : IBarrierDetector
+{ 
+    public abstract class BarrierHandlerKernel<TStateController> : IBarrierHandler
+        where TStateController : IStateController, new()
     {
+        public Collision BarrierCollision { get; private set; }
         public Collection<Type> BarrierList { get; private set; }
         public Collection<Type> BarrierExceptionList { get; private set; }
 
-        protected ICore Core { get; set; } 
+        protected CoreNew<TStateController> Core { get; set; } 
 
-        public BarrierDetector(ICore core)
+        protected BarrierHandlerKernel(ICore core)
         {
-            Core = core;
+            if (core is CoreNew<TStateController>)
+                Core = (CoreNew<TStateController>)core;
+            else
+                Core = new CoreNew<TStateController>(core.Object)
+                {
+                    StateController = (TStateController)core.GeneralStateController,
+                    CollisionHandler = core.CollisionHandler,
+                    CommandExecutor = core.CommandExecutor,
+                    BarrierHandler = core.BarrierHandler
+                };
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
         }
 
-        private static bool RemoveType(Collection<Type> typeList, Type type)
+        public Collision DetectBarrier(int offset = 0)
+        {
+            return Core.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, offset);
+        } 
+
+        private static bool RemoveType(IList<Type> typeList, Type type)
         {
             var found = false;
             for (var i = 0; i < typeList.Count; i++)
@@ -26,15 +43,14 @@ namespace WindowsGame1
                 var currentType = typeList[i];
                 if (type.IsAssignableFrom(currentType))
                 {
-                    if (currentType.Equals(type))
-                        found = true;
+                    if (currentType == type) found = true;
                     typeList.Remove(currentType);
                 }
             }
             return found;
         }
         
-        private static void AddType(Collection<Type> typeList, Type type)
+        private static void AddType(ICollection<Type> typeList, Type type)
         {
             foreach (var currentType in typeList)
             {
@@ -64,18 +80,24 @@ namespace WindowsGame1
             BarrierExceptionList = new Collection<Type>();
         }
 
-        public virtual void Detect()
+        public void Update()
         {
-            Func<Collision> collision = () => Core.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, 0);
-            if (collision().AnyEdge.Touch)
+            BarrierCollision = DetectBarrier(1);
+        }
+
+        public abstract void HandleCollision();
+
+        public virtual void HandleOverlap()
+        {
+            if (DetectBarrier().AnyEdge.Touch)
             {
-                while (collision().Bottom.Touch)
+                while (DetectBarrier().Bottom.Touch)
                     Core.GeneralMotionState.Adjust(new Vector2(0, -1));
-                while (collision().Top.Touch)
+                while (DetectBarrier().Top.Touch)
                     Core.GeneralMotionState.Adjust(new Vector2(0, 1));
-                while (collision().Left.Touch)
+                while (DetectBarrier().Left.Touch)
                     Core.GeneralMotionState.Adjust(new Vector2(1, 0));
-                while (collision().Right.Touch)
+                while (DetectBarrier().Right.Touch)
                     Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
             }
         }

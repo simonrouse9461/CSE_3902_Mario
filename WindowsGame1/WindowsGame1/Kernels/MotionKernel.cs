@@ -4,8 +4,9 @@ namespace WindowsGame1
 {
     public abstract class MotionKernel : IMotion
     {
-        protected Vector2 InitialVelocity { get; set; }
-        protected Counter Circulator { get; set; }
+        protected Vector2 InitialVelocity { get; private set; }
+        protected Vector2 CurrentVelocity { get; private set; }
+        protected Counter Circulator { get; private set; }
 
         public virtual bool Finish
         {
@@ -19,22 +20,46 @@ namespace WindowsGame1
             Circulator = new Counter(period);
         }
 
-        public virtual void Reset(Vector2 initialVelocity = default(Vector2))
+        public virtual int VersionCode
         {
-            InitialVelocity = initialVelocity;
-            Circulator.Reset(); 
+            get { return 0; }
+        }
+
+        public bool SameVersion(IMotion motion)
+        {
+            return motion.GetType() == GetType() && motion.VersionCode == VersionCode;
+        }
+
+        public void SetInitialVelocity(Vector2 velocity = default (Vector2))
+        {
+            InitialVelocity = velocity;
+        }
+
+        public void SetCurrentVelocity(Vector2 velocity = default (Vector2))
+        {
+            CurrentVelocity = velocity;
+        }
+
+        public virtual void Reset(Vector2 velocity)
+        {
+            SetInitialVelocity(velocity);
+            SetCurrentVelocity(velocity);
+            Circulator.Reset();
+        }
+
+        public virtual void Reset()
+        {
+            Reset(default(Vector2));
         }
 
         public void ResetX(float speed = 0)
         {
-            InitialVelocity = new Vector2(speed, InitialVelocity.Y);
-            Circulator.Reset();
+            Reset(new Vector2(speed, CurrentVelocity.Y));
         }
 
         public void ResetY(float speed = 0)
         {
-            InitialVelocity = new Vector2(InitialVelocity.Y, speed);
-            Circulator.Reset();
+            Reset(new Vector2(CurrentVelocity.X, speed));
         }
 
         public void Update(int phase = -1)

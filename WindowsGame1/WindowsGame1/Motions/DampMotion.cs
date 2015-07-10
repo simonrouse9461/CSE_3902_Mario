@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class SuddenStopMotion : MotionKernel
+    public class DampMotion : MotionKernel
     {
         private readonly float Acceleration = 0.15f;
         private int Sign;

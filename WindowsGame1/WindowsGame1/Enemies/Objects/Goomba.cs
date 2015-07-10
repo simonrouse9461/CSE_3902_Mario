@@ -7,8 +7,8 @@ namespace WindowsGame1
         public Goomba()
         {
             CollisionHandler = new GoombaCollisionHandler(Core);
-            BarrierDetector = new MarioBarrierDetector(Core);
-            BarrierDetector.AddBarrier<IBlock>();
+            //Core.BarrierHandler.AddBarrier<IBlock>();
+            //Core.BarrierHandler.AddBarrier<IEnemy>();
         }
 
         public override bool Solid

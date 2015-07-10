@@ -5,16 +5,17 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class GreenPipeSprite : SpriteKernel
+    public class SmallGreenPipeSprite : SpriteKernel
     {
-        public GreenPipeSprite()
+
+        public SmallGreenPipeSprite()
         {
-            ImageFile.Default = "misc";
+            ImageFile.Default = "pipes green";
             Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(230, 385, 32, 64)
+                    new Rectangle(308, 100, 32, 32)
                 }
             };
         }

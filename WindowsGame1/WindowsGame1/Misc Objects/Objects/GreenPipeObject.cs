@@ -3,5 +3,31 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeObject : ObjectKernel<GreenPipeSpriteState, StaticMotionState>{}
+    public class GreenPipeObject : ObjectKernelNew<PipeStateController>
+    {
+
+        private enum Version
+        {
+            Warp,
+            Default
+        }
+
+        public GreenPipeObject()
+        {
+            StateController.SpriteState.TallPipe();                
+        }
+       
+        private Version version = Version.Default;
+
+        public static GreenPipeObject WarpPipe
+        {
+            get
+            {
+                return new GreenPipeObject
+                {
+                    version = Version.Warp
+                };
+            }
+        }
+    }
 }

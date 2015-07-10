@@ -11,27 +11,31 @@ namespace WindowsGame1
         public FireballObject()
         {
             CollisionHandler = new FireballCollisionHandler(Core);
-            BarrierDetector = new BarrierDetector(Core);
+            BarrierHandler = new FireBallBarrierHandler(Core);
 
-            BarrierDetector.AddBarrier<IObject>();
-            BarrierDetector.RemoveBarrier<MarioObject>();
+            BarrierHandler.AddBarrier<IObject>();
+            BarrierHandler.RemoveBarrier<MarioObject>();
         }
 
-        public FireballObject LeftFireBall
+        // Versions
+
+        public static FireballObject LeftFireBall
         {
             get
             {
-                Core.StateController.MotionState.GoLeft();
-                return this;
+                var instance = new FireballObject();
+                instance.Core.StateController.MotionState.GoLeft();
+                return instance;
             }
         }
 
-        public FireballObject RightFireBall
+        public static FireballObject RightFireBall
         {
             get
             {
-                Core.StateController.MotionState.GoRight();
-                return this;
+                var instance = new FireballObject();
+                instance.Core.StateController.MotionState.GoRight();
+                return instance;
             }
         }
     }

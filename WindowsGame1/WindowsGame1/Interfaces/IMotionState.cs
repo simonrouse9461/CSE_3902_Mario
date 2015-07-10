@@ -8,8 +8,8 @@ namespace WindowsGame1
         Vector2 Velocity { get; set; }
         void Adjust(Vector2 offset);
         void Reset();
-        void ResetHorizontal();
-        void ResetVertical();
+        void ResetHorizontalVelocity();
+        void ResetVerticalVelocity();
         void Update();
     }
 }

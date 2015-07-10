@@ -25,12 +25,13 @@ namespace WindowsGame1
             Velocity = default(Vector2);
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, bool> filter = null) where T : IMotion
+        protected StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
         {
-            filter = filter ?? (motion => true);
-            return MotionList.First(motion => motion.Content is T && filter((T)motion.Content));
+            return motion == null
+                ? MotionList.First(m => m.Content is T)
+                : MotionList.First(m => motion.SameVersion(m.Content));
         }
-
+        
         public void Reset()
         {
             Timer.Reset();
@@ -40,7 +41,7 @@ namespace WindowsGame1
             }
         }
 
-        public void ResetHorizontal()
+        public void ResetHorizontalVelocity()
         {
             foreach (var motion in MotionList)
             {
@@ -48,7 +49,7 @@ namespace WindowsGame1
             }
         }
 
-        public void ResetVertical()
+        public void ResetVerticalVelocity()
         {
             foreach (var motion in MotionList)
             {
@@ -65,20 +66,19 @@ namespace WindowsGame1
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Content.Finish)
+                    if (motion.Content.Finish) motion.Toggle(false);
+                    if (motion.Status)
                     {
                         motion.Content.Update();
                         Velocity += motion.Content.Velocity;
                     }
+                    else motion.Reset(m => m.Reset());
                 }
 
                 foreach (var motion in MotionList)
                 {
-                    if (!motion.Status || motion.Content.Finish)
-                    {
-                        motion.Toggle(false);
-                        motion.Reset(m => m.Reset(Velocity));
-                    }
+                    motion.Content.SetCurrentVelocity(Velocity);
+                    if (!motion.Status) motion.Reset(m => m.SetInitialVelocity(Velocity));
                 }
 
                 Position += Velocity;

@@ -7,15 +7,14 @@ namespace WindowsGame1
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
         public StarMarioCollisionHandler(CoreNew<MarioStateController> core, MarioCollisionHandler original) : base(core)
         {
-            DefaultCollisionHandler = original;
-            Core.StateController.SpriteState.GetStarPower();
-            Core.StateController.SpriteState.ChangeColorFrequency(8);
+            const int slowDownTime = 200;
+            const int stopTime = 300;
 
-            // time up actions
-            Core.DelayCommand(() => Core.StateController.SpriteState.ChangeColorFrequency(16), () => Core.CollisionHandler is StarMarioCollisionHandler, 200);
-            Core.DelayCommand(() => Core.StateController.SpriteState.SetDefaultColor(), () => Core.CollisionHandler is StarMarioCollisionHandler, 299);
-            
-            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), () => Core.CollisionHandler is StarMarioCollisionHandler, 300);
+            DefaultCollisionHandler = original;
+            Core.StateController.GetStarPower(slowDownTime, stopTime);
+
+            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), 
+                () => Core.CollisionHandler is StarMarioCollisionHandler, stopTime);
         }
 
         protected override void HandleEnemy() { }

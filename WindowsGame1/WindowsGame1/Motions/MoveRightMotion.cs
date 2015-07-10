@@ -6,6 +6,21 @@ namespace WindowsGame1
     {
         private Vector2 StartVelocity;
 
+        private enum Version
+        {
+            Default,
+            Enemy,
+            Item,
+            Fireball
+        }
+
+        private Version version = Version.Default;
+
+        public override int VersionCode
+        {
+            get { return (int)version; }
+        }
+
         public override Vector2 Velocity
         {
             get
@@ -15,21 +30,29 @@ namespace WindowsGame1
             }
         }
 
-        public MoveRightMotion EnemyVelocity
+        // Versions
+
+        public static MoveRightMotion EnemyVelocity
         {
             get
             {
-                StartVelocity = new Vector2(1, 0);
-                return this;
+                return new MoveRightMotion
+                {
+                    version = Version.Enemy,
+                    StartVelocity = new Vector2(1, 0)
+                };
             }
         }
 
-        public MoveRightMotion ItemVelocity
+        public static MoveRightMotion ItemVelocity
         {
             get
             {
-                StartVelocity = new Vector2(1, 0);
-                return this;
+                return new MoveRightMotion
+                {
+                    version = Version.Item,
+                    StartVelocity = new Vector2(1, 0)
+                };
             }
         }
 
@@ -37,8 +60,11 @@ namespace WindowsGame1
         {
             get
             {
-                StartVelocity = new Vector2(6, 0);
-                return this;
+                return new MoveRightMotion
+                {
+                    version = Version.Fireball,
+                    StartVelocity = new Vector2(6, 0)
+                };
             }
         }
     }

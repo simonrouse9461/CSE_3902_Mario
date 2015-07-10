@@ -6,11 +6,12 @@ namespace WindowsGame1
         {
             CommandExecutor = new MarioCommandExecutor(Core);
             CollisionHandler = new MarioCollisionHandler(Core);
-            BarrierDetector = new MarioBarrierDetector(Core);
+            BarrierHandler = new MarioBarrierHandler(Core);
 
             StateController.SpriteState.BecomeSmall();
-            BarrierDetector.AddBarrier<IObject>();
-            BarrierDetector.RemoveBarrier<FireballObject>();
+            BarrierHandler.AddBarrier<IObject>();
+            BarrierHandler.RemoveBarrier<FireballObject>();
+            BarrierHandler.RemoveBarrier<IItem>();
         }
 
         public override bool Solid
