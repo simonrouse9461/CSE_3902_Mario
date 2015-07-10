@@ -167,6 +167,9 @@
     <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\BlockStateController.cs" />
     <Compile Include="Misc Objects\Objects\FireballObject.cs" />
+    <Compile Include="Misc Objects\Objects\MediumPipeObject.cs" />
+    <Compile Include="Misc Objects\Objects\SecretPipeObject.cs" />
+    <Compile Include="Misc Objects\Objects\SmallPipeObject.cs" />
     <Compile Include="Misc Objects\PipeStateController.cs" />
     <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\BlockDebrisSprite.cs" />

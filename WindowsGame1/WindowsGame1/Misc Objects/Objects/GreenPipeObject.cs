@@ -11,6 +11,14 @@ namespace WindowsGame1
             Default
         }
 
+        public GreenPipeObject()
+        {
+            StateController.SpriteState.TallPipe();                
+        }
+        
+
+
+
         private Version version = Version.Default;
 
         public GreenPipeObject WarpPipe
