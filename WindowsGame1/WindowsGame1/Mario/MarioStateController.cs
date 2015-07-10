@@ -41,6 +41,7 @@ namespace WindowsGame1
             if (MotionState.GoingLeft || MotionState.GoingRight) SpriteState.Run();
             if (MotionState.HaveInertia) SpriteState.Jump();
             //if (MotionState.Stopping)
+            // TODO
         }
 
         public void Land()

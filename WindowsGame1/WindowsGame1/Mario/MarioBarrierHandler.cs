@@ -23,6 +23,7 @@ namespace WindowsGame1
             if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover && Core.Object.GoingUp) Core.GeneralMotionState.ResetVerticalVelocity();
             //if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
             //if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
+            // TODO
         }
 
         private void CheckCeiling()
@@ -35,7 +36,7 @@ namespace WindowsGame1
 
         private void CheckFloor()
         {
-            if (BarrierCollision.Bottom.Touch)
+            if (BarrierCollision.Bottom.Touch && !Core.Object.GoingUp)
             {
                 Core.StateController.Land();
                 if (!WasOnFloor) Core.StateController.Brake();
