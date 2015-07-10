@@ -13,13 +13,13 @@ namespace WindowsGame1
             get { return new Vector2(CurrentVelocity.X, 0); }
         }
 
-        public void Left()
+        public void LeftAdjust()
         {
             var velocity = CurrentVelocity - new Vector2(Acceleration, 0);
             SetCurrentVelocity(velocity.X <= -MaxVelocity ? CurrentVelocity : velocity);
         }
 
-        public void Right()
+        public void RightAdjust()
         {
             var velocity = CurrentVelocity + new Vector2(Acceleration, 0);
             SetCurrentVelocity(velocity.X >= MaxVelocity ? CurrentVelocity : velocity);

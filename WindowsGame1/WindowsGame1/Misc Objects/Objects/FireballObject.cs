@@ -17,21 +17,25 @@ namespace WindowsGame1
             BarrierHandler.RemoveBarrier<MarioObject>();
         }
 
-        public FireballObject LeftFireBall
+        // Versions
+
+        public static FireballObject LeftFireBall
         {
             get
             {
-                Core.StateController.MotionState.GoLeft();
-                return this;
+                var instance = new FireballObject();
+                instance.Core.StateController.MotionState.GoLeft();
+                return instance;
             }
         }
 
-        public FireballObject RightFireBall
+        public static FireballObject RightFireBall
         {
             get
             {
-                Core.StateController.MotionState.GoRight();
-                return this;
+                var instance = new FireballObject();
+                instance.Core.StateController.MotionState.GoRight();
+                return instance;
             }
         }
     }

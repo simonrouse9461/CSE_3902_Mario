@@ -193,7 +193,7 @@ namespace WindowsGame1
             Core.DelayCommand(DefaultAction, () => SpriteState.Shooting, 7);
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
-                SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
+                SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
         }
