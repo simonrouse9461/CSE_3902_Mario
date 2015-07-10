@@ -780,34 +780,34 @@
     </Item>
 
     <Item>
-      <Type>GreenPipeObject</Type>
+      <Type>SmallPipeObject</Type>
       <Version></Version>
-      <Location>898 425</Location>
+      <Location>898 400</Location>
+    </Item>
+    <Item>
+      <Type>MediumPipeObject</Type>
+      <Version></Version>
+      <Location>1214 400</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
       <Version></Version>
-      <Location>1214 415</Location>
+      <Location>1472 400</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
       <Version></Version>
-      <Location>1472 405</Location>
+      <Location>1824 400</Location>
     </Item>
     <Item>
-      <Type>GreenPipeObject</Type>
+      <Type>SmallPipeObject</Type>
       <Version></Version>
-      <Location>1824 405</Location>
+      <Location>5216 400</Location>
     </Item>
     <Item>
-      <Type>GreenPipeObject</Type>
+      <Type>SmallPipeObject</Type>
       <Version></Version>
-      <Location>5216 405</Location>
-    </Item>
-    <Item>
-      <Type>GreenPipeObject</Type>
-      <Version></Version>
-      <Location>5720 405</Location>
+      <Location>5720 400</Location>
     </Item>
 
     <Item>

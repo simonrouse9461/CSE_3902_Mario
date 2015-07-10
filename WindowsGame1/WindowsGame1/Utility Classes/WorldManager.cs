@@ -58,13 +58,16 @@ namespace WindowsGame1
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
+                new Collection<FloorBlockObject>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioObject>(),
 
                 // Put green pipe after Mario to allow Mario goes into pipe
                 new Collection<GreenPipeObject>(),
-                new Collection<FloorBlockObject>(),
+                new Collection<SmallPipeObject>(),
+                new Collection<MediumPipeObject>(),
+                //new Collection<SecretPipeObject>(),
 
                 // Fireball is on the top of everything
                 new Collection<FireballObject>()
