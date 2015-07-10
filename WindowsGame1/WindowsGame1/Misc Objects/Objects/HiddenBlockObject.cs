@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class HiddenBlockObject : BlockKernel
+    public class HiddenBlockObject : BlockKernel, IBlock
     {
 
         private enum Version

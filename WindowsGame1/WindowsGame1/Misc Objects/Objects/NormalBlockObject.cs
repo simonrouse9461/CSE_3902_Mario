@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class NormalBlockObject : BlockKernel
+    public class NormalBlockObject : BlockKernel, IBlock
     {
         private enum Version
         {
