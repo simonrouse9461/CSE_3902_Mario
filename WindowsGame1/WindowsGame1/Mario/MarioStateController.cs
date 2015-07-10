@@ -5,9 +5,7 @@ namespace WindowsGame1
 {
     public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
-        private bool WasOnFloor;
         private const int MagazineCapacity = 2;
-        private Counter ReloadTimer;
 
         private int _ammoLeft = 2;
         private int AmmoLeft
@@ -26,67 +24,37 @@ namespace WindowsGame1
             get { return _reloading; }
             set
             {
-                if (!Reloading && value) ReloadTimer = new Counter(50);
+                if (!Reloading && value) Core.DelayCommand(ReloadAmmo, 50);
                 _reloading = value;
             }
         }
 
         private void ReloadAmmo()
         {
-            if (Reloading && ReloadTimer.Update()) AmmoLeft = MagazineCapacity;
-        }
-
-        private void CheckCeiling()
-        {
-            if (SpriteState.Dead) return;
-            if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover) MotionState.Fall();
-        }
-
-        private void CheckFloor()
-        {
-            if (SpriteState.Dead) return;
-            if (BarrierCollision.Bottom.Touch)
-            {
-                Land();
-                if (!WasOnFloor) Brake();
-                WasOnFloor = true;
-            }
-            else
-            {
-                Liftoff();
-                WasOnFloor = false;
-            }
+            AmmoLeft = MagazineCapacity;
+            Reloading = false;
         }
 
         public void Land()
         {
+            if (SpriteState.Dead) return;
             if (MotionState.Gravity) MotionState.LoseGravity();
             if (MotionState.DefaultHorizontal) SpriteState.TryStand();
         }
 
         public void Brake()
         {
+            if (SpriteState.Dead) return;
             MotionState.Stop();
             SpriteState.Run();
         }
 
         public void Liftoff()
         {
+            if (SpriteState.Dead) return;
             MotionState.ObtainGravity();
             MotionState.GetInertia();
             SpriteState.TryJump();
-        }
-
-        protected override void UpdateState()
-        {
-//            if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVertical();
-//            if (BarrierCollision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVertical();
-//            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontal();
-//            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontal();
-
-            CheckCeiling();
-            CheckFloor();
-            ReloadAmmo();
         }
 
         public void GoLeft()
@@ -218,6 +186,26 @@ namespace WindowsGame1
                 SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
                 );
             AmmoLeft--;
+        }
+
+        public void GetStarPower(int slowDownTime, int stopTime)
+        {
+            SpriteState.StarPower();
+            SpriteState.ChangeColorFrequency(8);
+            Core.DelayCommand(() => SpriteState.ChangeColorFrequency(16), () => SpriteState.HaveStarPower, slowDownTime);
+            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.HaveStarPower, stopTime);
+        }
+
+        public void TakeDamage(int restoreTime)
+        {
+            SpriteState.BecomeSmall();
+            SpriteState.BecomeBlink();
+            SpriteState.ChangeColorFrequency(2);
+            Core.BarrierHandler.RemoveBarrier<Koopa>();
+            Core.BarrierHandler.RemoveBarrier<Goomba>();
+            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
+            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
         }
     }
 }

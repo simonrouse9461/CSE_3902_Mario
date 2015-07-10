@@ -24,7 +24,7 @@ namespace WindowsGame1
                     MotionState = (TMotionState) (core.GeneralMotionState),
                     CollisionHandler = core.CollisionHandler,
                     CommandExecutor = core.CommandExecutor,
-                    BarrierDetector = core.BarrierDetector
+                    BarrierHandler = core.BarrierHandler
                 };
             Detector = new CollisionDetector(Core.Object);
         }

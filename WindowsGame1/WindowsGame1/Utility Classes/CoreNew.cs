@@ -17,7 +17,7 @@ namespace WindowsGame1
 
         public IObject Object { get; set; }
         public CollisionDetector CollisionDetector { get; set; }
-        public BarrierDetector BarrierDetector { get; set; }
+        public IBarrierHandler BarrierHandler { get; set; }
         public TStateController StateController { get; set; }
         public ICollisionHandler CollisionHandler { get; set; }
         public ICommandExecutor CommandExecutor { get; set; }
@@ -43,7 +43,6 @@ namespace WindowsGame1
             Waitlist = new Collection<Reservation>();
             StateController = new TStateController {Core = this};
             CollisionDetector = new CollisionDetector(obj);
-            BarrierDetector = new BarrierDetector(this);
         }
 
         public void DelayCommand(Action command, int delay = 1)
@@ -79,8 +78,8 @@ namespace WindowsGame1
                 CollisionHandler = (ICollisionHandler)component;
             if (component is ICommandExecutor)
                 CommandExecutor = (ICommandExecutor)component;
-            if (component is BarrierDetector)
-                BarrierDetector = (BarrierDetector)component;
+            if (component is IBarrierHandler)
+                BarrierHandler = (IBarrierHandler)component;
             if (component is TStateController)
                 StateController = (TStateController) component;
         }
