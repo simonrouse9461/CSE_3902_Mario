@@ -45,7 +45,7 @@ namespace WindowsGame1
         {
             foreach (var motion in MotionList)
             {
-                motion.Reset(m => m.ResetX());
+                if ((int)motion.Content.Velocity.X != 0) motion.Content.ResetX();
             }
         }
 
@@ -53,7 +53,7 @@ namespace WindowsGame1
         {
             foreach (var motion in MotionList)
             {
-                motion.Reset(m => m.ResetY());
+                if ((int)motion.Content.Velocity.Y != 0) motion.Content.ResetY();
             }
         }
 
