@@ -137,6 +137,7 @@
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
+    <Compile Include="Items\ItemMotionStates\StarMotionState.cs" />
     <Compile Include="Items\StateControllers\CoinStateController.cs" />
     <Compile Include="Items\StateControllers\StarStateController.cs" />
     <Compile Include="Items\StateControllers\MushroomStateController.cs" />

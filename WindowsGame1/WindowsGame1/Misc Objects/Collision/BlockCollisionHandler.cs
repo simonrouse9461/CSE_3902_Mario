@@ -11,7 +11,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
             {
-                if (((QuestionBlockObject)Core.Object).giveItem)
+                if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
                 {
                     Core.StateController.QuestionBlockGiveFireflower();
                 }
@@ -19,42 +19,42 @@ namespace WindowsGame1
                 {
                     Core.StateController.NormalBlockDestroyed();
                 }
-                else if (((QuestionBlockObject)Core.Object).giveCoin)
+                else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
                 {
                     Core.StateController.QuestionBlockGiveCoin();
                 }
-                else if (((NormalBlockObject)Core.Object).giveCoin)
+                else if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
                 {
                     Core.StateController.NormalBlockCoinHit();
                 }
-                else if (((HiddenBlockObject)Core.Object).giveOneUp)
+                else if (Core.StateController.SpriteState.isHidden && Core.StateController.giveOneUp)
                 {
                     Core.StateController.HiddenBlockGive1Up();
                 }
-                else if (((HiddenBlockObject)Core.Object).giveStar)
+                else if (Core.StateController.SpriteState.isHidden && Core.StateController.giveStar)
                 {
                     Core.StateController.NormalBlockGiveStar();
                 }
             }
             else if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
-                if (((QuestionBlockObject)Core.Object).giveItem)
+                if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
                 {
                     Core.StateController.QuestionBlockGiveMushroom();
                 }
-                else if (((QuestionBlockObject)Core.Object).giveCoin)
+                else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
                 {
                     Core.StateController.QuestionBlockGiveCoin();
                 }
-                else if (((NormalBlockObject)Core.Object).giveCoin)
+                else if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
                 {
                     Core.StateController.NormalBlockCoinHit();
                 }
-                else if (((HiddenBlockObject)Core.Object).giveOneUp)
+                else if (Core.StateController.SpriteState.isHidden && Core.StateController.giveOneUp)
                 {
                     Core.StateController.HiddenBlockGive1Up();
                 }
-                else if (((HiddenBlockObject)Core.Object).giveStar)
+                else if (Core.StateController.SpriteState.isHidden && Core.StateController.giveStar)
                 {
                     Core.StateController.NormalBlockGiveStar();
                 }

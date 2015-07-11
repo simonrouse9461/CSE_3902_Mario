@@ -13,8 +13,6 @@ namespace WindowsGame1
             Star
         }
 
-        public bool giveStar { get; set; }
-        public bool giveOneUp { get; set; }
         private Version version;
 
         public HiddenBlockObject() {

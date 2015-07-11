@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class MushroomMotionState : MotionStateKernel
+    public class MushroomMotionState : MotionStateKernelNew
     {
 
         public bool Gravity { get; private set; }
@@ -16,27 +12,34 @@ namespace WindowsGame1
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
                 new StatusSwitch<IMotion>(MoveLeftMotion.ItemVelocity),
-                new StatusSwitch<IMotion>(new GravityMotion())
+                new StatusSwitch<IMotion>(new GravityMotion()),
+                new StatusSwitch<IMotion>(new RaiseUpMotion())
             };
+            LoseGravity();
+            SetDefaultHorizontal();
+            SetDefaultVertical();
         }
 
-        protected override void RefreshMotionStatus()
+        public void SetDefaultHorizontal()
         {
+            FindMotion<MoveLeftMotion>().Toggle(false);
+        }
+
+        public void SetDefaultVertical()
+        {
+            FindMotion<RaiseUpMotion>().Toggle(false);
+        }
+
+        public void Generated()
+        {
+            FindMotion<RaiseUpMotion>().Toggle(true);
+        }
+
+        public void Moving()
+        {
+            FindMotion<RaiseUpMotion>().Toggle(false);
             FindMotion<MoveLeftMotion>().Toggle(true);
-
-            if (Gravity)
-            {
-                FindMotion<GravityMotion>().Toggle(true);
-            }
-            else
-            {
-                FindMotion<GravityMotion>().Toggle(false);
-            }
-            
-        }
-
-        protected override void SetToDefaultState()
-        {
+            ObtainGravity();
         }
 
         public void ObtainGravity()
