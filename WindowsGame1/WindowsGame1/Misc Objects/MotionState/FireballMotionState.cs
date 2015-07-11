@@ -20,10 +20,10 @@ namespace WindowsGame1
         public FireballMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(new MoveLeftMotion().FireballVelocity),
-                new StatusSwitch<IMotion>(new MoveRightMotion().FireballVelocity),
+                new StatusSwitch<IMotion>(MoveLeftMotion.FireballVelocity),
+                new StatusSwitch<IMotion>(MoveRightMotion.FireballVelocity),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(new BounceUpMotion().FireballBounce)
+                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
 
             SetDefaultHorizontal();

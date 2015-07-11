@@ -147,6 +147,13 @@ namespace WindowsGame1
             }
         }
 
+        public void Bounce()
+        {
+            if (SpriteState.Dead) return;
+            MotionState.Bounce();
+            SpriteState.Jump();
+        }
+
         public void Fall()
         {
             if (SpriteState.Dead) return;

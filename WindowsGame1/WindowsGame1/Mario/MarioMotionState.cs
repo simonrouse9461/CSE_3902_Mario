@@ -16,7 +16,8 @@ namespace WindowsGame1
         private enum VerticalEnum
         {
             Default,
-            Jump
+            Jump,
+            Bounce
         }
 
         private HorizontalEnum HorizontalStatus;
@@ -35,6 +36,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new InertiaMotion()),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioDie),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioJump),
+                new StatusSwitch<IMotion>(BounceUpMotion.MarioBounce),
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
@@ -109,6 +111,13 @@ namespace WindowsGame1
             FindMotion<GravityMotion>().Content.Reset();
         }
 
+        public void Bounce()
+        {
+            SetDefaultVertical();
+            VerticalStatus = VerticalEnum.Bounce;
+            FindMotion(BounceUpMotion.MarioBounce).Toggle(true);
+        }
+
         public void ObtainGravity()
         {
             Gravity = true;
@@ -173,6 +182,11 @@ namespace WindowsGame1
         public bool Jumping
         {
             get { return VerticalStatus == VerticalEnum.Jump; }
+        }
+
+        public bool Bouncing
+        {
+            get { return VerticalStatus == VerticalEnum.Bounce; }
         }
     }
 }
