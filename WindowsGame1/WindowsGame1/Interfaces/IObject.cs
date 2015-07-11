@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
  {
     public interface IObject
     {
+        Rectangle CollisionRectangle { get; }
         Rectangle PositionRectangle { get; }
         Vector2 PositionPoint { get; }
 

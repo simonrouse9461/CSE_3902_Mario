@@ -84,6 +84,13 @@ namespace WindowsGame1
         {
             BarrierCollision = DetectBarrier(1);
         }
+        public virtual void ResetVelocity()
+        {
+            if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVerticalVelocity();
+            if (BarrierCollision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVerticalVelocity();
+            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
+            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
+        }
 
         public abstract void HandleCollision();
 

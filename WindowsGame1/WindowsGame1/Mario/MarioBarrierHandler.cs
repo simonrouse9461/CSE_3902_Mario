@@ -11,19 +11,16 @@ namespace WindowsGame1
 
         public override void HandleCollision()
         {
-            ResetVelocity();
-
             CheckCeiling();
             CheckFloor();
         }
 
-        public void ResetVelocity()
+        public override void ResetVelocity()
         {
             if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVerticalVelocity();
             if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover && Core.Object.GoingUp) Core.GeneralMotionState.ResetVerticalVelocity();
-            //if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
-            //if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
-            // TODO
+            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
+            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
         }
 
         private void CheckCeiling()
