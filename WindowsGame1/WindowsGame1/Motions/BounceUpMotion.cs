@@ -16,6 +16,7 @@ namespace WindowsGame1
             Default,
             Mariojump,
             MarioDie,
+            MarioBounce,
             FireballBounce
         }
 
@@ -44,45 +45,69 @@ namespace WindowsGame1
             get { return (Velocity.Y >= (MaxVelocity - GravityMotion.MaxVelocity*(InvolveGravity ? 1 : 0)).Y) && FinishWhenMax; }
         }
 
-        public BounceUpMotion MarioJump
+        // Versions
+
+        public static BounceUpMotion MarioJump
         {
             get
             {
-                version = Version.Mariojump;
-                StartVelocity = new Vector2(0, -6);
-                Acceleration = new Vector2(0, 0.17f);
-                MaxVelocity = default(Vector2);
-                InvolveGravity = true;
-                FinishWhenMax = true;
-                return this;
+                return new BounceUpMotion
+                {
+                    version = Version.Mariojump,
+                    StartVelocity = new Vector2(0, -6),
+                    Acceleration = new Vector2(0, 0.17f),
+                    MaxVelocity = default(Vector2),
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
             }
         }
 
-        public BounceUpMotion MarioDie
+        public static BounceUpMotion MarioDie
         {
             get
             {
-                version = Version.MarioDie;
-                StartVelocity = new Vector2(0, -3);
-                Acceleration = new Vector2(0, 0.1f);
-                MaxVelocity = GravityMotion.MaxVelocity;
-                InvolveGravity = false;
-                FinishWhenMax = false;
-                return this;
+                return new BounceUpMotion
+                {
+                    version = Version.MarioDie,
+                    StartVelocity = new Vector2(0, -3),
+                    Acceleration = new Vector2(0, 0.1f),
+                    MaxVelocity = GravityMotion.MaxVelocity,
+                    InvolveGravity = false,
+                    FinishWhenMax = false
+                };
             }
         }
 
-        public BounceUpMotion FireballBounce
+        public static BounceUpMotion MarioBounce
         {
             get
             {
-                version = Version.FireballBounce;
-                StartVelocity = new Vector2(0, -2.7f);
-                Acceleration = new Vector2(0, 0.2f);
-                MaxVelocity = GravityMotion.MaxVelocity;
-                InvolveGravity = true;
-                FinishWhenMax = true;
-                return this;
+                return new BounceUpMotion
+                {
+                    version = Version.MarioBounce,
+                    StartVelocity = new Vector2(0, -5),
+                    Acceleration = new Vector2(0, 0.4f),
+                    MaxVelocity = GravityMotion.MaxVelocity,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion FireballBounce
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.FireballBounce,
+                    StartVelocity = new Vector2(0, -2.7f),
+                    Acceleration = new Vector2(0, 0.2f),
+                    MaxVelocity = GravityMotion.MaxVelocity,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
             }
         }
     }

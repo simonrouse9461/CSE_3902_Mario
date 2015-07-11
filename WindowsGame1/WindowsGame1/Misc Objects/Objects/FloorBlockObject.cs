@@ -14,16 +14,19 @@ namespace WindowsGame1
 
         private Version version;
 
-        public FloorBlockObject() {
+        public FloorBlockObject() 
+        {
             StateController.FloorBlock();
         }
 
-        public FloorBlockObject Invisible
+        public static FloorBlockObject Invisible
         {
             get
             {
-                version = Version.Invisible;
-                return this;
+                return new FloorBlockObject
+                {
+                    version = Version.Invisible
+                };
             }
         }
     }

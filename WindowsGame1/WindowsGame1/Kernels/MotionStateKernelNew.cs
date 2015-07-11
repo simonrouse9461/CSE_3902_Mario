@@ -25,14 +25,13 @@ namespace WindowsGame1
             Velocity = default(Vector2);
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>(Func<T, T> filter = null) where T : IMotion, new()
+        protected StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
         {
-            if (filter == null) return MotionList.First(motion => motion.Content is T);
-
-            T comparison = filter(new T());
-            return MotionList.First(motion => comparison.SameVersion(motion.Content));
+            return motion == null
+                ? MotionList.First(m => m.Content is T)
+                : MotionList.First(m => motion.SameVersion(m.Content));
         }
-
+        
         public void Reset()
         {
             Timer.Reset();
@@ -42,19 +41,19 @@ namespace WindowsGame1
             }
         }
 
-        public void ResetHorizontal()
+        public void ResetHorizontalVelocity()
         {
             foreach (var motion in MotionList)
             {
-                motion.Reset(m => m.ResetX());
+                if ((int)motion.Content.Velocity.X != 0) motion.Content.ResetX();
             }
         }
 
-        public void ResetVertical()
+        public void ResetVerticalVelocity()
         {
             foreach (var motion in MotionList)
             {
-                motion.Reset(m => m.ResetY());
+                if ((int)motion.Content.Velocity.Y != 0) motion.Content.ResetY();
             }
         }
 
@@ -67,20 +66,19 @@ namespace WindowsGame1
 
                 foreach (var motion in MotionList)
                 {
-                    if (motion.Status && !motion.Content.Finish)
+                    if (motion.Content.Finish) motion.Toggle(false);
+                    if (motion.Status)
                     {
                         motion.Content.Update();
                         Velocity += motion.Content.Velocity;
                     }
+                    else motion.Reset(m => m.Reset());
                 }
 
                 foreach (var motion in MotionList)
                 {
-                    if (!motion.Status || motion.Content.Finish)
-                    {
-                        motion.Toggle(false);
-                        motion.Reset(m => m.Reset(Velocity));
-                    }
+                    motion.Content.SetCurrentVelocity(Velocity);
+                    if (!motion.Status) motion.Reset(m => m.SetInitialVelocity(Velocity));
                 }
 
                 Position += Velocity;

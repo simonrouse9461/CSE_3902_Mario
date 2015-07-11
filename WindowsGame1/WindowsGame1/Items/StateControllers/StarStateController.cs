@@ -2,7 +2,9 @@
 
 namespace WindowsGame1
 {
-    public class StarStateController : StateControllerKernel<StarSpriteState, StaticMotionState>
+    public class StarStateController : StateControllerKernel<StarSpriteState, StarMotionState>
     {
+
+
     }
 }

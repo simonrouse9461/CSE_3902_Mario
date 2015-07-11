@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
-{
+{ 
     public abstract class BarrierHandlerKernel<TStateController> : IBarrierHandler
         where TStateController : IStateController, new()
     {
@@ -83,6 +83,13 @@ namespace WindowsGame1
         public void Update()
         {
             BarrierCollision = DetectBarrier(1);
+        }
+        public virtual void ResetVelocity()
+        {
+            if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVerticalVelocity();
+            if (BarrierCollision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVerticalVelocity();
+            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
+            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
         }
 
         public abstract void HandleCollision();

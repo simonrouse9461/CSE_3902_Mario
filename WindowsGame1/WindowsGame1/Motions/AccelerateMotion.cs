@@ -33,25 +33,31 @@ namespace WindowsGame1
             }
         }
 
-        public AccelerateMotion MarioLeft
+        // Versions
+
+        public static AccelerateMotion MarioLeft
         {
             get
             {
-                version = Version.MarioLeft;
-                Acceleration = new Vector2(-0.1f, 0);
-                MaxVelocity = new Vector2(-3, 0);
-                return this;
+                return new AccelerateMotion
+                {
+                    version = Version.MarioLeft,
+                    Acceleration = new Vector2(-0.1f, 0),
+                    MaxVelocity = new Vector2(-3, 0)
+                };
             }
         }
 
-        public AccelerateMotion MarioRight
+        public static AccelerateMotion MarioRight
         {
             get
             {
-                version = Version.MarioRight;
-                Acceleration = new Vector2(0.1f, 0);
-                MaxVelocity = new Vector2(3, 0);
-                return this;
+                return new AccelerateMotion
+                {
+                    version = Version.MarioRight,
+                    Acceleration = new Vector2(0.1f, 0),
+                    MaxVelocity = new Vector2(3, 0)
+                };
             }
         }
     }

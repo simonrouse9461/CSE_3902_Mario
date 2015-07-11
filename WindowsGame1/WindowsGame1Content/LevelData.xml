@@ -1,22 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
-
-    <Item>
-      <Type>Fireflower</Type>
-      <Version></Version>
-      <Location>500 350</Location>
-    </Item>
-    <Item>
-      <Type>Star</Type>
-      <Version></Version>
-      <Location>550 350</Location>
-    </Item>
-    <Item>
-      <Type>Mushroom</Type>
-      <Version></Version>
-      <Location>550 350</Location>
-    </Item>
     
     <Item>
       <Type>Koopa</Type>
@@ -99,80 +83,81 @@
       <Version></Version>
       <Location>3382 397</Location>
     </Item>
+    
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>512 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>ItemQuestionBlock</Version>
       <Location>681 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>704 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>729 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>ItemQuestionBlock</Version>
       <Location>2498 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>2982 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>3392 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>ItemQuestionBlock</Version>
       <Location>3488 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>3488 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>3584 320</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>3989 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>4013 240</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
-      <Version></Version>
+      <Version>CoinQuestionBlock</Version>
       <Location>5440 320</Location>
     </Item>
 
     <Item>
       <Type>HiddenBlockObject</Type>
-      <Version></Version>
+      <Version>ExtraLifeHiddenBlock</Version>
       <Location>2048 290</Location>
     </Item>
     <Item>
       <Type>HiddenBlockObject</Type>
-      <Version></Version>
+      <Version>StarHiddenBlock</Version>
       <Location>3224 320</Location>
     </Item>
 
@@ -263,7 +248,7 @@
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
-      <Version></Version>
+      <Version>CoinNormalBlock</Version>
       <Location>2982 320</Location>
     </Item>
     <Item>

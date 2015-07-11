@@ -25,11 +25,8 @@ namespace WindowsGame1
                 }
                 else
                 {
-                    Collection<Type> BarrierList = new Collection<Type>();
-                    BarrierList.Add(typeof(IBlock));
-                    BarrierList.Add(typeof(GreenPipeObject));
-
-                    if (Core.CollisionDetector.Detect(BarrierList).AnySide.Touch) {
+                    if (Core.CollisionDetector.Detect<IObject>().AnySide.Touch)
+                    {
                         Core.StateController.Turn();
                     }
                 }

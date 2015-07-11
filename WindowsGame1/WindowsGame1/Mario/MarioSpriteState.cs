@@ -45,7 +45,6 @@ namespace WindowsGame1
         private ActionEnum Action;
         private OrientationEnum Orientation;
         private ColorEnum ColorMode;
-        private Counter ShootTimer;
 
         public MarioSpriteState()
         {
@@ -207,12 +206,6 @@ namespace WindowsGame1
             }
         }
 
-        public override void Update()
-        {
-            if (Shooting && ShootTimer.Update()) Stand();
-            base.Update();
-        }
-
         public override bool Left
         {
             get { return Orientation == OrientationEnum.Left; }
@@ -312,8 +305,13 @@ namespace WindowsGame1
 
         public void Run()
         {
-            if (Shooting) return;
             Action = ActionEnum.Run;
+        }
+
+        public void TryRun()
+        {
+            if (Shooting) return;
+            Run();
         }
 
         public bool Running
@@ -388,7 +386,6 @@ namespace WindowsGame1
         public void Shoot()
         {
             Action = ActionEnum.Shoot;
-            ShootTimer = new Counter(7);
         }
 
         public bool Shooting

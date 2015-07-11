@@ -29,10 +29,19 @@ namespace WindowsGame1
             }
         }
 
-        private void ReloadAmmo()
+        public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
             Reloading = false;
+        }
+
+        public void DefaultAction()
+        {
+            if (MotionState.DefaultHorizontal) SpriteState.Stand();
+            if (MotionState.GoingLeft || MotionState.GoingRight) SpriteState.Run();
+            if (MotionState.HaveInertia) SpriteState.Jump();
+            //if (MotionState.Stopping)
+            // TODO
         }
 
         public void Land()
@@ -46,7 +55,7 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             MotionState.Stop();
-            SpriteState.Run();
+            SpriteState.TryRun();
         }
 
         public void Liftoff()
@@ -72,7 +81,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoLeft();
-                SpriteState.Run();
+                SpriteState.TryRun();
             }
         }
 
@@ -91,7 +100,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoRight();
-                SpriteState.Run();
+                SpriteState.TryRun();
             }
         }
 
@@ -138,6 +147,13 @@ namespace WindowsGame1
             }
         }
 
+        public void Bounce()
+        {
+            if (SpriteState.Dead) return;
+            MotionState.Bounce();
+            SpriteState.Jump();
+        }
+
         public void Fall()
         {
             if (SpriteState.Dead) return;
@@ -173,7 +189,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             SpriteState.BecomeDead();
             MotionState.Die();
-            WorldManager.Instance.FreezeWorld();
+            WorldManager.FreezeWorld();
         }
 
         public void Shoot()
@@ -181,9 +197,10 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
+            Core.DelayCommand(DefaultAction, () => SpriteState.Shooting, 7);
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
-                SpriteState.Left ? new FireballObject().LeftFireBall : new FireballObject().RightFireBall
+                SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
         }

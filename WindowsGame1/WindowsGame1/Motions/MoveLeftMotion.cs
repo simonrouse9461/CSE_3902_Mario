@@ -30,33 +30,41 @@ namespace WindowsGame1
             }
         }
 
-        public MoveLeftMotion EnemyVelocity
+        // Versions
+
+        public static MoveLeftMotion EnemyVelocity
         {
             get
             {
-                version = Version.Enemy;
-                StartVelocity = new Vector2(-1, 0);
-                return this;
+                return new MoveLeftMotion
+                {
+                    version = Version.Enemy,
+                    StartVelocity = new Vector2(-1, 0)
+                };
             }
         }
 
-        public MoveLeftMotion ItemVelocity
+        public static MoveLeftMotion ItemVelocity
         {
             get
             {
-                version = Version.Item;
-                StartVelocity = new Vector2(-1, 0);
-                return this;
+                return new MoveLeftMotion
+                {
+                    version = Version.Item,
+                    StartVelocity = new Vector2(-1, 0)
+                };
             }
         }
 
-        public MoveLeftMotion FireballVelocity
+        public static MoveLeftMotion FireballVelocity
         {
             get
             {
-                version = Version.Fireball;
-                StartVelocity = new Vector2(-6, 0);
-                return this;
+                return new MoveLeftMotion
+                {
+                    version = Version.Fireball,
+                    StartVelocity = new Vector2(-6, 0)
+                };
             }
         }
     }

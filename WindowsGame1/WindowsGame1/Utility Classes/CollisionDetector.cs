@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -365,20 +368,15 @@ namespace WindowsGame1
             return returnValue;
         }
 
-        private static Collision SearchCollision<T>(IObject Object, Func<IObject, bool> typeFilter, Func<T, bool> PropertyFilter, int offset) where T : IObject
+        private static Collision SearchCollision<T>(IObject Object, Func<IObject, bool> typeFilter, Func<T, bool> propertyFilter, int offset) where T : IObject
         {
             var collision = new Collision();
-            var objectRectangle = SetOffset(Object.PositionRectangle, offset);
-            foreach (var collection in WorldManager.Instance.ObjectList)
-            {
-                foreach (IObject obj in collection)
-                {
-                    if (!ReferenceEquals(obj, Object) && typeFilter(obj) && PropertyFilter((T) obj))
-                    {
-                        collision += DetectCollision(objectRectangle, obj.PositionRectangle);
-                    }
-                }
-            }
+            var objectRectangle = SetOffset(Object.CollisionRectangle, offset);
+
+            foreach (var obj in WorldManager.ObjectList)
+                if (!ReferenceEquals(obj, Object) && typeFilter(obj) && propertyFilter((T) obj))
+                    collision += DetectCollision(objectRectangle, obj.CollisionRectangle);
+
             return collision;
         }
 
@@ -391,34 +389,15 @@ namespace WindowsGame1
             return rectangle;
         }
 
-        public Collision Detect(Collection<Type> types, Collection<Type> exceptionTypes = null, Func<IObject, bool> filter = null, int offset = 1)
+        public Collision Detect(Collection<Type> types, Collection<Type> exceptionTypes = null, Func<IObject, bool> propertyFilter = null, int offset = 1)
         {
-            var propertyFilter = filter ?? (obj => true);
+            propertyFilter = propertyFilter ?? (obj => true);
+            exceptionTypes = exceptionTypes ?? new Collection<Type>();
             Func<IObject, bool> typeFilter = obj =>
             {
-                var pass = false;
-                foreach (var type in types)
-                {
-                    if (type.IsInstanceOfType(obj))
-                    {
-                        pass = true;
-                        break;
-                    }
-                }
-                if (!pass) return false;
-                if (exceptionTypes != null)
-                {
-                    foreach (var type in exceptionTypes)
-                    {
-                        if (type.IsInstanceOfType(obj))
-                        {
-                            return false;
-                        }
-                    }
-                }
-                return true;
+                if (types.All(type => !type.IsInstanceOfType(obj))) return false;
+                return exceptionTypes.All(type => !type.IsInstanceOfType(obj));
             };
-            
             return SearchCollision(_object, typeFilter, propertyFilter, offset);
         }
 

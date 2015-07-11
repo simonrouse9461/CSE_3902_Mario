@@ -15,8 +15,6 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        public Collection<IList> ObjectList { get; private set; }
-
         ObjectData[] LevelData;
 
         private ContentManager Content;
@@ -34,9 +32,15 @@ namespace WindowsGame1
             }
         }
 
+        private readonly Collection<IList> _objectList;
+        public static List<IObject> ObjectList
+        {
+            get { return Instance._objectList.SelectMany(list => (IEnumerable<IObject>) list).ToList(); }
+        }
+
         private WorldManager()
         {
-            ObjectList = new Collection<IList>
+            _objectList = new Collection<IList>
             {
                 // Background objects should be drawn first
                 new Collection<Hill>(),
@@ -76,7 +80,7 @@ namespace WindowsGame1
 
         public static List<Collection<T>> FindObjectCollectionList<T>() where T : IObject
         {
-            return Instance.ObjectList.OfType<Collection<T>>().ToList();
+            return Instance._objectList.OfType<Collection<T>>().ToList();
         }
 
         public static Collection<T> FindObjectCollection<T>() where T : IObject
@@ -96,59 +100,59 @@ namespace WindowsGame1
             }
         }
 
-        public void RemoveObject(IObject obj)
+        public static void RemoveObject(IObject obj)
         {
-            foreach (var collection in ObjectList)
+            foreach (var collection in Instance._objectList)
             {
                 collection.Remove(obj);
             }
         }
 
-        public void CreateObject<T>(Vector2 position, T obj = null) where T : class, IObject, new()
+        public static void CreateObject<T>(Vector2 position, T obj = null) where T : class, IObject, new()
         {
             obj = obj ?? new T();
-            obj.Load(Content, position);
+            obj.Load(Instance.Content, position);
             FindObjectCollection<T>().Add(obj);
         }
 
-        public void ReplaceObject<T>(IObject obj, T substitute = null) where T : class, IObject, new()
+        public static void ReplaceObject<T>(IObject obj, T substitute = null) where T : class, IObject, new()
         {
             CreateObject(obj.PositionPoint, substitute);
             RemoveObject(obj);
         }
 
-        public void LoadObject(Object obj, Vector2 position)
+        public static void LoadObject(Object obj, Vector2 position)
         {
-            ((IObject) obj).Load(Content, position);
-            Instance.ObjectList.First(list => list.GetType().GetGenericArguments().Single() == obj.GetType())
+            ((IObject) obj).Load(Instance.Content, position);
+            Instance._objectList.First(list => list.GetType().GetGenericArguments().Single() == obj.GetType())
                 .Add(obj);
         }
 
-        public void FreezeWorld(int time = 0)
+        public static void FreezeWorld(int time = 0)
         {
-            freeze = true;
-            freezeTimer = new Counter(time);
+            Instance.freeze = true;
+            Instance.freezeTimer = new Counter(time);
         }
 
-        public void RestoreWorld()
+        public static void RestoreWorld()
         {
-            freeze = false;
+            Instance.freeze = false;
         }
 
-        public void LoadLevel(ContentManager content)
+        public static void LoadLevel(ContentManager content)
         {
-            Content = content;
-            LevelData = content.Load<ObjectData[]>("LevelData");
-            var nameSpace = GetType().Namespace;
+            Instance.Content = content;
+            Instance.LevelData = content.Load<ObjectData[]>("LevelData");
+            var nameSpace = Instance.GetType().Namespace;
             CreateObject<MarioObject>(new Vector2(75, 398));
-            foreach (var data in LevelData)
+            foreach (var data in Instance.LevelData)
             {
                 try
                 {
                     var type = Type.GetType(nameSpace + "." + data.Type);
                     Debug.Assert(type != null);
                     var obj = Activator.CreateInstance(type);
-                    if (!string.IsNullOrEmpty(data.Version)) obj = type.GetProperty(data.Version).GetValue(obj, null);
+                    if (!string.IsNullOrEmpty(data.Version)) obj = type.GetProperty(data.Version).GetValue(null, null);
                     LoadObject(obj, data.Location);
                 }
                 catch (Exception)
@@ -162,23 +166,23 @@ namespace WindowsGame1
             }
         }
 
-        public void Update()
+        public static void Update()
         {
-            if (freeze)
+            if (Instance.freeze)
             {
                 FindObject<MarioObject>().Update();
-                if (freezeTimer.Update()) RestoreWorld();
+                if (Instance.freezeTimer.Update()) RestoreWorld();
             }
-            else foreach (var collection in ObjectList)
+            else foreach (var collection in Instance._objectList)
                 for (var i = 0; i < collection.Count; i++)
                     ((IObject) collection[i]).Update();
             
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reset();
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Instance.Reset();
         }
 
         public void Reset()
         {
-            foreach (var collection in ObjectList)
+            foreach (var collection in _objectList)
                 for (var i = collection.Count - 1; i >= 0; i--)
                     collection.Remove(collection[i]);
             LoadLevel(Content);
@@ -188,7 +192,7 @@ namespace WindowsGame1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var collection in ObjectList)
+            foreach (var collection in _objectList)
                 foreach (IObject obj in collection)
                     obj.Draw(spriteBatch);
         }

@@ -9,25 +9,37 @@ namespace WindowsGame1
         private enum Version
         {
             Default,
-            ExtraLife
+            ExtraLife,
+            Star
         }
 
         private Version version;
-
 
         public HiddenBlockObject() {
             StateController.HiddenBlock();
             CollisionHandler = new BlockCollisionHandler(Core);
         }
 
-        public HiddenBlockObject ExtraLifeHiddenBlock
+        public static HiddenBlockObject ExtraLifeHiddenBlock
         {
             get
             {
-                version = Version.ExtraLife;
-                return this;
+                return new HiddenBlockObject
+                {
+                    version = Version.ExtraLife
+                };               
+            }
+        }
+
+        public static HiddenBlockObject StarHiddenBlock
+        {
+            get
+            {
+                return new HiddenBlockObject
+                {
+                    version = Version.Star
+                };
             }
         }
     }
-
 }

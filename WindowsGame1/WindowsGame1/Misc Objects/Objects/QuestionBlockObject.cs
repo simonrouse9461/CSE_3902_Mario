@@ -13,9 +13,8 @@ namespace WindowsGame1
             Coin,
             Default
         }
-
+      
         private Version version;
-
 
         public QuestionBlockObject()
         {
@@ -23,21 +22,25 @@ namespace WindowsGame1
             CollisionHandler = new BlockCollisionHandler(Core);
         }
 
-        public QuestionBlockObject ItemQuestionBlock
+        public static QuestionBlockObject ItemQuestionBlock
         {
             get
             {
-                version = Version.Item;
-                return this;
+                return new QuestionBlockObject
+                {
+                    version = Version.Item
+                };              
             }
         }
 
-        public QuestionBlockObject CoinQuestionBlock
+        public static QuestionBlockObject CoinQuestionBlock
         {
             get
             {
-                version = Version.Coin;
-                return this;
+                return new QuestionBlockObject
+                {
+                    version = Version.Coin
+                };           
             }
         }
     }

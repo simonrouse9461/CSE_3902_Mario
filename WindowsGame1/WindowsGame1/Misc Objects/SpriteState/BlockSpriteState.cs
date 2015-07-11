@@ -115,29 +115,24 @@ namespace WindowsGame1
             Status = StatusEnum.NormalBlock;
         }
 
-        public bool isQuestionBlock
-        {
-            get { return Status == StatusEnum.QuestionBlock; }
-        }
-
         public bool isNormal
         {
             get { return Status == StatusEnum.NormalBlock; }
         }
 
-        public bool isFloor
+        public void Destroyed()
         {
-            get { return Status == StatusEnum.FloorBlock; }
+            Status = StatusEnum.Destroyed;
+        }
+
+        public bool isQuestion
+        {
+            get { return Status == StatusEnum.QuestionBlock; }
         }
 
         public bool isHidden
         {
             get { return Status == StatusEnum.HiddenBlock; }
-        }
-
-        public void Destroyed()
-        {
-            Status = StatusEnum.Destroyed;
         }
     }
 }

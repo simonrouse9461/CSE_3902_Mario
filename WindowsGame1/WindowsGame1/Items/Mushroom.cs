@@ -8,6 +8,7 @@ namespace WindowsGame1
         public Mushroom()
         {
             CollisionHandler = new ItemCollisionHandler(Core);
+            Core.StateController.MotionState.Generated();
         }
 
         // make it not solid so that anything can pass through it

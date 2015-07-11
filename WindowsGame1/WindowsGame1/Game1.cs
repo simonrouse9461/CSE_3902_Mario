@@ -38,7 +38,7 @@ namespace WindowsGame1
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             Background = Content.Load<Texture2D>("overworld");
-            World.LoadLevel(Content);
+            WorldManager.LoadLevel(Content);
 
             base.LoadContent();
         }
@@ -54,7 +54,7 @@ namespace WindowsGame1
         protected override void Update(GameTime gameTime)
         {
             Controller.Update();
-            World.Update();
+            WorldManager.Update();
             Camera.Update();
 
             base.Update(gameTime);
