@@ -7,14 +7,23 @@ namespace WindowsGame1
     {
         public OneUp()
         {
-            CollisionHandler = new ItemCollisionHandler(Core);
-            Core.StateController.MotionState.Generated();
+            CollisionHandler = new OneUpCollisionHandler(Core);
         }
 
         // make it not solid so that anything can pass through it
         public override bool Solid
         {
             get { return false; }
+        }
+
+        public static OneUp MakeOneUp
+        {
+            get
+            {
+                var instance = new OneUp();
+                instance.Core.StateController.MotionState.Generated();
+                return instance;
+            }
         }
     }
 }

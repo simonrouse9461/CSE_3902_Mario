@@ -137,6 +137,12 @@
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
+    <Compile Include="Items\CollisionHandler\CoinCollisionHandler.cs" />
+    <Compile Include="Items\CollisionHandler\FireflowerCollisionHandler.cs" />
+    <Compile Include="Items\CollisionHandler\MushroomCollisionHandler.cs" />
+    <Compile Include="Items\CollisionHandler\OneUpCollisionHandler.cs" />
+    <Compile Include="Items\CollisionHandler\StarCollisionHandler.cs" />
+    <Compile Include="Items\ItemMotionStates\CoinMotionState.cs" />
     <Compile Include="Items\ItemMotionStates\StarMotionState.cs" />
     <Compile Include="Items\StateControllers\CoinStateController.cs" />
     <Compile Include="Items\StateControllers\StarStateController.cs" />
@@ -196,7 +202,6 @@
     <Compile Include="Interfaces\ICommandExecutor.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Items\Coin.cs" />
-    <Compile Include="Items\CollisionHandler\ItemCollisionHandler.cs" />
     <Compile Include="Items\SpriteStates\OneUpSpriteState.cs" />
     <Compile Include="Items\SpriteStates\CoinSpriteState.cs" />
     <Compile Include="Items\SpriteStates\FireflowerSpriteState.cs" />
