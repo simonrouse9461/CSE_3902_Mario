@@ -7,6 +7,8 @@ namespace WindowsGame1
         public Goomba()
         {
             CollisionHandler = new GoombaCollisionHandler(Core);
+            BarrierHandler = new GoombaBarrierHandler(Core);
+            BarrierHandler.AddBarrier<IBlock>();
             //Core.BarrierHandler.AddBarrier<IBlock>();
             //Core.BarrierHandler.AddBarrier<IEnemy>();
         }
