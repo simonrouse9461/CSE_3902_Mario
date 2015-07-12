@@ -20,6 +20,8 @@ namespace WindowsGame1
         private readonly Collection<IList> _objectList;
         private static WorldManager _instance;
 
+        private static bool Reloaded { get; set; }
+
         private ObjectData[] LevelData { get; set; }
 
         private ContentManager Content { get; set; }
@@ -176,15 +178,16 @@ namespace WindowsGame1
         {
             FindObject<MarioObject>().Update();
 
-            foreach (var collection in Instance._objectList)
-            {
-                for (var i = 0; i < collection.Count; i++)
-                {
-                    var obj = (IObject) collection[i];
-                    if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
-                    else Camera.AddObject(obj);
-                }
-            }
+            if (Camera.Adjusted || Reloaded)
+                foreach (var collection in Instance._objectList)
+                    for (var i = 0; i < collection.Count; i++)
+                    {
+                        var obj = (IObject) collection[i];
+                        if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                        else Camera.AddObject(obj);
+                    }
+
+            Reloaded = false;
 
             if (Instance.freeze)
             {
@@ -199,15 +202,16 @@ namespace WindowsGame1
                 }
             }
 
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reset();
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reload();
         }
         
-        public static void Reset()
+        public static void Reload()
         {
             foreach (var collection in Instance._objectList)
                 collection.Clear();
             LoadLevel(Instance.Content);
             Camera.Reset();
+            Reloaded = true;
             RestoreWorld();
         }
 

@@ -15,8 +15,10 @@ namespace WindowsGame1
             _location = default(Vector2);
             _screenSize = new Vector2(800, 480);
             _objectList = new Collection<IObject>();
+            Adjusted = true;
         }
 
+        public static bool Adjusted { get; private set; }
 
         public static Vector2 Location { get { return Instance._location; } }
 
@@ -50,17 +52,20 @@ namespace WindowsGame1
 
         public static void Adjust(float x, float y = 0)
         {
-            Instance._location += new Vector2(x, y);
+            Adjust(new Vector2(x, y));
+            Adjusted = true;
         }
 
         public static void Reset(Vector2 location = default(Vector2))
         {
             Instance._location = location;
             ObjectList.Clear();
+            Adjusted = true;
         }
 
         public static void Update()
         {
+            Adjusted = false;
             var marioPosition = WorldManager.FindObject<MarioObject>().PositionPoint;
             if (marioPosition.X > Location.X + ScreenSize.X/2)
             {
