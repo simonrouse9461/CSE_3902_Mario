@@ -16,11 +16,11 @@ namespace WindowsGame1
         {
             if (Core.StateController.MotionState.Gravity && BarrierCollision.Bottom.Touch)
             {
-                Core.StateController.MotionState.ObtainGravity();
-            }
-            else if (Core.StateController.MotionState.Gravity && !BarrierCollision.Bottom.Touch)
-            {
                 Core.StateController.MotionState.LoseGravity();
+            }
+            else if (!Core.StateController.MotionState.Gravity && !BarrierCollision.Bottom.Touch)
+            {
+                Core.StateController.MotionState.ObtainGravity();
             }
         }
 
@@ -32,6 +32,11 @@ namespace WindowsGame1
             {
                 Core.GeneralMotionState.Adjust(new Vector2(0, -1));
             }
+        }
+
+        public override void ResetVelocity()
+        {
+            Core.StateController.MotionState.LoseGravity();
         }
     }
 }
