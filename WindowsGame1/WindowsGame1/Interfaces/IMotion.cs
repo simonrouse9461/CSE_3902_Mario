@@ -4,7 +4,11 @@ namespace WindowsGame1
 {
     public interface IMotion
     {
+        Vector2 StartVelocity { get; }
+        Vector2 MaxVelocity { get; }
+        Vector2 Acceleration { get; }
         Vector2 Velocity { get; }
+        bool Status { get; }
         bool Finish { get; }
         int VersionCode { get; }
         bool SameVersion(IMotion motion);

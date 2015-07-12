@@ -107,6 +107,7 @@ namespace WindowsGame1
 
         public static void RemoveObject(IObject obj)
         {
+            if (obj is MarioObject) return;
             foreach (var collection in Instance._objectList)
             {
                 collection.Remove(obj);
@@ -173,23 +174,38 @@ namespace WindowsGame1
 
         public static void Update()
         {
+            FindObject<MarioObject>().Update();
+
+            foreach (var collection in Instance._objectList)
+            {
+                for (var i = 0; i < collection.Count; i++)
+                {
+                    var obj = (IObject) collection[i];
+                    if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                    else Camera.AddObject(obj);
+                }
+            }
+
             if (Instance.freeze)
             {
-                FindObject<MarioObject>().Update();
                 if (Instance.freezeTimer.Update()) RestoreWorld();
             }
-            else foreach (var collection in Instance._objectList)
-                for (var i = 0; i < collection.Count; i++)
-                    ((IObject) collection[i]).Update();
-            
+            else
+            {
+                for (var i = 0; i < Camera.ObjectList.Count; i++)
+                {
+                    if (Camera.ObjectList[i] is MarioObject) continue;
+                    Camera.ObjectList[i].Update();
+                }
+            }
+
             if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reset();
         }
-
+        
         public static void Reset()
         {
             foreach (var collection in Instance._objectList)
-                for (var i = collection.Count - 1; i >= 0; i--)
-                    collection.Remove(collection[i]);
+                collection.Clear();
             LoadLevel(Instance.Content);
             Camera.Reset();
             RestoreWorld();
@@ -199,7 +215,7 @@ namespace WindowsGame1
         {
             foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
-                    obj.Draw(spriteBatch);
+                    if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);
         }
     }
 }

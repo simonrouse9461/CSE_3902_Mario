@@ -19,8 +19,13 @@ namespace WindowsGame1
 
 
         public static Vector2 Location { get { return Instance._location; } }
+
         public static Vector2 ScreenSize { get { return Instance._screenSize; } }
-        public static Collection<IObject> ObjectList{get { return Instance._objectList; }}
+
+        public static Collection<IObject> ObjectList
+        {
+            get { return Instance._objectList; }
+        }
 
         public static Rectangle ScreenRectangle
         {
@@ -51,6 +56,7 @@ namespace WindowsGame1
         public static void Reset(Vector2 location = default(Vector2))
         {
             Instance._location = location;
+            ObjectList.Clear();
         }
 
         public static void Update()
@@ -62,6 +68,21 @@ namespace WindowsGame1
             }
         }
 
+        public static void AddObject(IObject obj)
+        {
+            if (!ObjectList.Contains(obj))
+                ObjectList.Add(obj);
+        }
+
+        public static void RemoveObject(IObject obj)
+        {
+            if (ObjectList.Contains(obj))
+            {
+                ObjectList.Remove(obj);
+                WorldManager.RemoveObject(obj);
+            }
+        }
+        
         public static bool OutOfRange(IObject obj, Vector4 offset = default(Vector4))
         {
             return

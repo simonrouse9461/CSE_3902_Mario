@@ -5,19 +5,19 @@ namespace WindowsGame1
 {
     public class GravityMotion : MotionKernel
     {
-        private float StartVelocity { get; set; }
-        private float Acceleration { get { return 0.38f; } }
+        public static Vector2 Max { get { return new Vector2(0, 4.5f); } }
 
-        public static Vector2 MaxVelocity
+        public GravityMotion()
         {
-            get { return new Vector2(0, 4.5f); }
-        } 
-
+            Acceleration = new Vector2(0, 0.38f);
+            MaxVelocity = Max;
+        }
+        
         public override Vector2 Velocity
         {
             get
             {
-                var velocity = StartVelocity + Circulator.Phase*Acceleration;
+                var velocity = StartVelocity.Y + Circulator.Phase*Acceleration.Y;
                 velocity = velocity < 0 ? velocity : MaxVelocity.Y;
                 return new Vector2(0, velocity);
             }
@@ -25,7 +25,7 @@ namespace WindowsGame1
 
         public override void Reset()
         {
-            StartVelocity = CurrentVelocity.Y;
+            StartVelocity = CurrentVelocity;
             Circulator.Reset();
         }
     }
