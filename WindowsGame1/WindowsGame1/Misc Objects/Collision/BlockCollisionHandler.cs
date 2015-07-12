@@ -48,7 +48,7 @@ namespace WindowsGame1
                 }
                 else if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
                 {
-                    Core.StateController.NormalBlockCoinHit();q
+                    Core.StateController.NormalBlockCoinHit();
                 }
                 else if (Core.StateController.SpriteState.isHidden && Core.StateController.giveOneUp)
                 {
