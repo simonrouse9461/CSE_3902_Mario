@@ -1,4 +1,3 @@
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -15,7 +14,6 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
 
         private CommandManager Controller;
-        public WorldManager World { get; private set; }
         private Texture2D Background;
 
 
@@ -28,7 +26,7 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Controller = new CommandManager(this);
-            World = WorldManager.Instance;
+            WorldManager.Initialize();
             base.Initialize();
         }
 
@@ -65,7 +63,7 @@ namespace WindowsGame1
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             spriteBatch.Draw(Background, new Rectangle(0, 0, 800, 480), Color.White);
-            World.Draw(spriteBatch);
+            WorldManager.Draw(spriteBatch);
 
             spriteBatch.End();
             base.Draw(gameTime);

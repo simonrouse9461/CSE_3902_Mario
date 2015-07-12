@@ -1,24 +1,26 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.ObjectModel;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
     public sealed class Camera
     {
-        private static readonly Camera instance = new Camera(new Vector2(800, 480));
+        private Vector2 _location;
+        private readonly Vector2 _screenSize;
+        private readonly Collection<IObject> _objectList;
+        private readonly static Camera Instance = new Camera();
 
-        private Camera(Vector2 size)
+        private Camera()
         {
-            Location = default(Vector2);
-            ScreenSize = size;
+            _location = default(Vector2);
+            _screenSize = new Vector2(800, 480);
+            _objectList = new Collection<IObject>();
         }
 
-        public static Camera Instance
-        {
-            get { return instance; }
-        }
 
-        public static Vector2 Location { get; set; }
-        public static Vector2 ScreenSize { get; private set; }
+        public static Vector2 Location { get { return Instance._location; } }
+        public static Vector2 ScreenSize { get { return Instance._screenSize; } }
+        public static Collection<IObject> ObjectList{get { return Instance._objectList; }}
 
         public static Rectangle ScreenRectangle
         {
@@ -38,17 +40,17 @@ namespace WindowsGame1
 
         public static void Adjust(Vector2 offset)
         {
-            Location += offset;
+            Instance._location += offset;
         }
 
         public static void Adjust(float x, float y = 0)
         {
-            Location += new Vector2(x, y);
+            Instance._location += new Vector2(x, y);
         }
 
         public static void Reset(Vector2 location = default(Vector2))
         {
-            Location = location;
+            Instance._location = location;
         }
 
         public static void Update()
