@@ -48,7 +48,7 @@ namespace WindowsGame1
                 }
                 else if (((NormalBlockObject)Core.Object).giveCoin)
                 {
-                    Core.StateController.NormalBlockCoinHit();
+                    Core.StateController.NormalBlockCoinHit();q
                 }
                 else if (((HiddenBlockObject)Core.Object).giveOneUp)
                 {
