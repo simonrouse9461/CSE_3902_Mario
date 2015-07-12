@@ -6,10 +6,6 @@ namespace WindowsGame1
 {
     public class AccelerateMotion : MotionKernel
     {
-        private Vector2 Acceleration;
-
-        private Vector2 MaxVelocity;
-
         private enum Version
         {
             Default,

@@ -5,8 +5,12 @@ namespace WindowsGame1
 {
     public class DampMotion : MotionKernel
     {
-        private readonly float Acceleration = 0.15f;
-        private int Sign;
+        private int _sign;
+
+        public DampMotion()
+        {
+            Acceleration = new Vector2(0.15f, 0);
+        }
 
         public override bool Finish
         {
@@ -17,9 +21,9 @@ namespace WindowsGame1
         {
             get
             {
-                Sign = Math.Sign(InitialVelocity.X);
-                var velocity = InitialVelocity.X - Circulator.Phase*Acceleration*Sign;
-                return velocity*Sign <= 0 ? default(Vector2) : new Vector2(velocity, 0);
+                _sign = Math.Sign(InitialVelocity.X);
+                var velocity = InitialVelocity.X - Circulator.Phase*Acceleration.X*_sign;
+                return velocity*_sign <= 0 ? default(Vector2) : new Vector2(velocity, 0);
             }
         }
     }

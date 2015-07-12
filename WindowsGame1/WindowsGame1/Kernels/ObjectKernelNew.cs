@@ -8,20 +8,6 @@ namespace WindowsGame1
     public abstract class ObjectKernelNew<TStateController> : IObject
         where TStateController : IStateController, new()
     {
-        private bool _inScreen;
-        private bool InScreen
-        {
-            get { return _inScreen; }
-            set
-            {
-                if (InScreen)
-                {
-                    if (!value) Unload();
-                }
-                else _inScreen = value;
-            }
-        }
-
         // Constructor
         protected ObjectKernelNew()
         {
@@ -132,7 +118,7 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            Core.DelayCommand(() => WorldManager.RemoveObject(this));
+            Core.DelayCommand(() => Camera.RemoveObject(this));
         }
 
         public void Transform<T>(T obj = null) where T : class, IObject, new()
@@ -147,25 +133,19 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (!Camera.OutOfRange(Core.Object) || this is MarioObject)
-            {
-                var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
-                InScreen = true;
-                Core.Update();
-                if (CommandExecutor != null) CommandExecutor.Execute();
-                if (CollisionHandler != null) CollisionHandler.Handle();
-                if (haveBarrierHandler) BarrierHandler.Update();
-                if (haveBarrierHandler) BarrierHandler.ResetVelocity();
-                if (haveBarrierHandler) BarrierHandler.HandleCollision();
-                StateController.RefreshState();
-                if (haveBarrierHandler) BarrierHandler.HandleOverlap();
-            }
-            else InScreen = false;
+            var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
+            Core.Update();
+            if (CommandExecutor != null) CommandExecutor.Execute();
+            if (haveBarrierHandler) BarrierHandler.Update();
+            if (haveBarrierHandler) BarrierHandler.ResetVelocity();
+            if (haveBarrierHandler) BarrierHandler.HandleCollision();
+            StateController.RefreshState();
+            if (haveBarrierHandler) BarrierHandler.HandleOverlap();
+            if (CollisionHandler != null) CollisionHandler.Handle();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (Camera.OutOfRange(Core.Object)) return;
             var relativePosition = GeneralMotionState.Position - Camera.Location;
             if (GeneralSpriteState.Left)
                 GeneralSpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, GeneralSpriteState.Color);

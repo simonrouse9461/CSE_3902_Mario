@@ -4,9 +4,18 @@ namespace WindowsGame1
 {
     public abstract class MotionKernel : IMotion
     {
-        protected Vector2 InitialVelocity { get; private set; }
-        protected Vector2 CurrentVelocity { get; private set; }
         protected Counter Circulator { get; private set; }
+
+        // The velocity of the object when this motion is turned on
+        protected Vector2 InitialVelocity { get; private set; }
+        // The current velocity of the object
+        protected Vector2 CurrentVelocity { get; private set; }
+
+        public Vector2 StartVelocity { get; protected set; }
+        public Vector2 MaxVelocity { get; protected set; }
+        public Vector2 Acceleration { get; protected set; }
+
+        public bool Status { get; protected set; }
 
         public virtual bool Finish
         {

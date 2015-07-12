@@ -373,7 +373,7 @@ namespace WindowsGame1
             var collision = new Collision();
             var objectRectangle = SetOffset(Object.CollisionRectangle, offset);
 
-            foreach (var obj in WorldManager.ObjectList)
+            foreach (var obj in Camera.ObjectList)
                 if (!ReferenceEquals(obj, Object) && typeFilter(obj) && propertyFilter((T) obj))
                     collision += DetectCollision(objectRectangle, obj.CollisionRectangle);
 
