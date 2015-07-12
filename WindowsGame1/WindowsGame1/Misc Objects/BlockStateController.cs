@@ -88,8 +88,7 @@ namespace WindowsGame1
 
         public void QuestionBlockGiveFireflower()
         {
-            Core.Object.Generate<Fireflower>();
-            
+            Core.Object.Generate<Fireflower>();           
             SpriteState.QuestionToUsedBlock();
         }
 
