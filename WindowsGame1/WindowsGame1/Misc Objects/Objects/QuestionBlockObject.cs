@@ -13,9 +13,7 @@ namespace WindowsGame1
             Coin,
             Default
         }
-
-        public bool giveItem { get; set; }
-        public bool giveCoin { get; set; }
+      
         private Version version;
 
         public QuestionBlockObject()

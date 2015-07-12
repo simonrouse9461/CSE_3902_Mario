@@ -7,9 +7,8 @@ namespace WindowsGame1
     {
         public Mushroom()
         {
-            CollisionHandler = new ItemCollisionHandler(Core);
+            CollisionHandler = new MushroomCollisionHandler(Core);
             
-
         }
 
         // make it not solid so that anything can pass through it
@@ -17,5 +16,17 @@ namespace WindowsGame1
         {
             get { return true; }
         }
+
+        public static Mushroom MakeMushroom
+        {
+            get
+            {
+                var instance = new Mushroom();
+                instance.Core.StateController.MotionState.Generated();
+                return instance;
+            }
+        }
+
+        
     }
 }

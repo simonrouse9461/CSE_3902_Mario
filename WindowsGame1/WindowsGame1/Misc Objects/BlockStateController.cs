@@ -5,8 +5,17 @@ namespace WindowsGame1
 {
     public class BlockStateController : StateControllerKernel<BlockSpriteState, BlockMotionState>
     {
+        private enum Version
+        {
+            Coin,
+            Item,
+            Star,
+            ExtraLife
+        }
 
+        private Version version;
         private int _coinLeft = 10;
+
         private int CoinLeft
         {
             get { return _coinLeft; }
@@ -18,6 +27,38 @@ namespace WindowsGame1
                     SpriteState.QuestionToUsedBlock();
                 }
             }          
+        }
+
+        public bool giveCoin
+        {
+            get
+            {
+                return version == Version.Coin;
+            }
+        }
+
+        public bool giveItem
+        {
+            get
+            {
+                return version == Version.Item;
+            }
+        }
+
+        public bool giveStar
+        {
+            get
+            {
+                return version == Version.Star;
+            }
+        }
+
+        public bool giveOneUp
+        {
+            get
+            {
+                return version == Version.ExtraLife;
+            }
         }
 
         public void QuestionBlock()
@@ -47,7 +88,7 @@ namespace WindowsGame1
 
         public void QuestionBlockGiveFireflower()
         {
-            Core.Object.Generate<Fireflower>();
+            Core.Object.Generate<Fireflower>();           
             SpriteState.QuestionToUsedBlock();
         }
 
@@ -85,5 +126,7 @@ namespace WindowsGame1
         {
             SpriteState.Destroyed();
         }
+
+
     }
 }

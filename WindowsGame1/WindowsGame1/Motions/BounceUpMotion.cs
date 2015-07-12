@@ -16,7 +16,9 @@ namespace WindowsGame1
             Default,
             Mariojump,
             MarioDie,
-            FireballBounce
+            MarioBounce,
+            FireballBounce,
+            Coin
         }
 
         private Version version = Version.Default;
@@ -78,7 +80,23 @@ namespace WindowsGame1
             }
         }
 
-        public BounceUpMotion FireballBounce
+        public static BounceUpMotion MarioBounce
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.MarioBounce,
+                    StartVelocity = new Vector2(0, -5),
+                    Acceleration = new Vector2(0, 0.4f),
+                    MaxVelocity = GravityMotion.MaxVelocity,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion FireballBounce
         {
             get
             {
@@ -90,6 +108,19 @@ namespace WindowsGame1
                     MaxVelocity = GravityMotion.MaxVelocity,
                     InvolveGravity = true,
                     FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion CoinMotion
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.Coin,
+                    StartVelocity = new Vector2(0, -4f),
+                    InvolveGravity = false
                 };
             }
         }

@@ -56,7 +56,7 @@ namespace WindowsGame1
             }
         }
 
-        public MoveLeftMotion FireballVelocity
+        public static MoveLeftMotion FireballVelocity
         {
             get
             {

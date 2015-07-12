@@ -124,6 +124,16 @@ namespace WindowsGame1
         {
             Status = StatusEnum.Destroyed;
         }
+
+        public bool isQuestion
+        {
+            get { return Status == StatusEnum.QuestionBlock; }
+        }
+
+        public bool isHidden
+        {
+            get { return Status == StatusEnum.HiddenBlock; }
+        }
     }
 }
 

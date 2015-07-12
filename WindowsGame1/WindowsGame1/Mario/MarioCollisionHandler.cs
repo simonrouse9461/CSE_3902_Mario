@@ -47,7 +47,8 @@ namespace WindowsGame1
 
         protected virtual void HandleEnemy()
         {
-            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive || (enemy is Koopa && ((Koopa)enemy).isMovingShell)).AnySide.Touch)
+            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive);
+            if (collision.AnySide.Touch)
             {
                 if (Core.StateController.SpriteState.Small)
                 {
@@ -59,6 +60,11 @@ namespace WindowsGame1
                         Core.SwitchComponent(((FireMarioCommandExecutor)Core.CommandExecutor).DefaultCommandExecutor);
                     Core.SwitchComponent(new DamagedMarioCollisionHandler(Core, this));
                 }
+            }
+            collision = Core.CollisionDetector.Detect<IEnemy>();
+            if (collision.Bottom.Touch)
+            {
+                Core.StateController.Bounce();
             }
         }
     }

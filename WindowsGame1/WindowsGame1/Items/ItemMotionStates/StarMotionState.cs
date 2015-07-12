@@ -2,12 +2,12 @@
 
 namespace WindowsGame1
 {
-    public class MushroomMotionState : MotionStateKernelNew
+    public class StarMotionState : MotionStateKernelNew
     {
 
         public bool Gravity { get; private set; }
 
-        public MushroomMotionState()
+        public StarMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
@@ -17,7 +17,6 @@ namespace WindowsGame1
             };
             LoseGravity();
             SetDefaultHorizontal();
-            SetDefaultVertical();
         }
 
         public void SetDefaultHorizontal()
@@ -35,13 +34,6 @@ namespace WindowsGame1
             FindMotion<RaiseUpMotion>().Toggle(true);
         }
 
-        public void Moving()
-        {
-            FindMotion<RaiseUpMotion>().Toggle(false);
-            FindMotion<MoveLeftMotion>().Toggle(true);
-            ObtainGravity();
-        }
-
         public void ObtainGravity()
         {
             Gravity = true;
@@ -51,5 +43,6 @@ namespace WindowsGame1
         {
             Gravity = false;
         }
+
     }
 }

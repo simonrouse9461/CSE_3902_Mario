@@ -117,6 +117,11 @@ namespace WindowsGame1
             get { return MotionState.Velocity.X > 0; }
         }
 
+        public Rectangle CollisionRectangle
+        {
+            get { return PositionRectangle; }
+        }
+
         public Rectangle PositionRectangle
         {
             get { return SpriteState.Sprite.GetDestination(MotionState.Position); }
@@ -143,17 +148,17 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            Core.DelayCommand(() => WorldManager.Instance.RemoveObject(this));
+            Core.DelayCommand(() => WorldManager.RemoveObject(this));
         }
 
         public void Transform<T>(T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.ReplaceObject(this, obj);
+            WorldManager.ReplaceObject(this, obj);
         }
 
         public void Generate<T>(Vector2 offset = default(Vector2), T obj = null) where T : class, IObject, new()
         {
-            WorldManager.Instance.CreateObject(PositionPoint + offset, obj);
+            WorldManager.CreateObject(PositionPoint + offset, obj);
         }
 
         public void Update()

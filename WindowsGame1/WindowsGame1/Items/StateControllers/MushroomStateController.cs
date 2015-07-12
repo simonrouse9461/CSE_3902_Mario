@@ -4,24 +4,39 @@ namespace WindowsGame1
 {
     public class MushroomStateController : StateControllerKernel<MushroomSpriteState, MushroomMotionState>
     {
-        private Collision collision;
 
-        private void CheckFloor()
+        public void Generate()
         {
-            if (!collision.Bottom.Touch)
-            {
-                MotionState.ObtainGravity();
-            }
-            else
-            {
-                MotionState.LoseGravity();
-            }
+            MotionState.Generated();
         }
 
-        public void Update()
+        public void StartMoving()
         {
-            collision = Core.CollisionDetector.Detect<IBlock>();
-            CheckFloor();
+            MotionState.Moving();
         }
+
+
+
+
+
+        //private Collision collision;
+
+        //private void CheckFloor()
+        //{
+        //    if (!collision.Bottom.Touch)
+        //    {
+        //        MotionState.ObtainGravity();
+        //    }
+        //    else
+        //    {
+        //        MotionState.LoseGravity();
+        //    }
+        //}
+
+        //public void Update()
+        //{
+        //    collision = Core.CollisionDetector.Detect<IBlock>();
+        //    CheckFloor();
+        //}
     }
 }
