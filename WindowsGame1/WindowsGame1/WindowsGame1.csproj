@@ -299,7 +299,7 @@
     <Compile Include="Utility Classes\StaticMotionState.cs" />
     <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
-    <Compile Include="Utility Classes\Texture.cs" />
+    <Compile Include="Utility Classes\Display.cs" />
     <Compile Include="Utility Classes\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

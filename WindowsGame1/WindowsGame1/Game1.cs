@@ -27,7 +27,7 @@ namespace WindowsGame1
         {
             Controller = new CommandManager(this);
             WorldManager.Initialize();
-            Texture.Initialize();
+            Display.Initialize();
             base.Initialize();
         }
 
@@ -38,7 +38,7 @@ namespace WindowsGame1
             
             Background = Content.Load<Texture2D>("overworld");
             WorldManager.LoadLevel(Content);
-            Texture.LoadContent(Content);
+            Display.LoadContent(Content);
 
             base.LoadContent();
         }
@@ -56,7 +56,7 @@ namespace WindowsGame1
             Controller.Update();
             WorldManager.Update();
             Camera.Update();
-            Texture.Update(gameTime);
+            Display.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -68,7 +68,7 @@ namespace WindowsGame1
             spriteBatch.Draw(Background, new Rectangle(0, 0, 800, 480), Color.White);
             WorldManager.Draw(spriteBatch);
             
-            Texture.Draw(spriteBatch);            
+            Display.Draw(spriteBatch);            
 
             spriteBatch.End();
             base.Draw(gameTime);
