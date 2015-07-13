@@ -14,7 +14,6 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
 
         private CommandManager Controller;
-        private Texture2D Background;
 
 
         public MarioGame()
@@ -36,7 +35,6 @@ namespace WindowsGame1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            Background = Content.Load<Texture2D>("overworld");
             WorldManager.LoadLevel(Content);
             Display.LoadContent(Content);
 
@@ -65,9 +63,8 @@ namespace WindowsGame1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            spriteBatch.Draw(Background, new Rectangle(0, 0, 800, 480), Color.White);
+
             WorldManager.Draw(spriteBatch);
-            
             Display.Draw(spriteBatch);            
 
             spriteBatch.End();

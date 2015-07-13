@@ -5,8 +5,11 @@ namespace WindowsGame1
 {
     public class InertiaMotion : MotionKernel
     {
-        private static float Acceleration = 0.1f;
-        private static float MaxVelocity = 3;
+        public InertiaMotion()
+        {
+            Acceleration = new Vector2(0.1f, 0);
+            MaxVelocity = new Vector2(3, 0);
+        }
 
         public override Vector2 Velocity
         {
@@ -15,14 +18,14 @@ namespace WindowsGame1
 
         public void LeftAdjust()
         {
-            var velocity = CurrentVelocity - new Vector2(Acceleration, 0);
-            SetCurrentVelocity(velocity.X <= -MaxVelocity ? CurrentVelocity : velocity);
+            var velocity = CurrentVelocity - Acceleration;
+            SetCurrentVelocity(velocity.X <= -MaxVelocity.X ? CurrentVelocity : velocity);
         }
 
         public void RightAdjust()
         {
-            var velocity = CurrentVelocity + new Vector2(Acceleration, 0);
-            SetCurrentVelocity(velocity.X >= MaxVelocity ? CurrentVelocity : velocity);
+            var velocity = CurrentVelocity + Acceleration;
+            SetCurrentVelocity(velocity.X >= MaxVelocity.X ? CurrentVelocity : velocity);
         }
     }
 }
