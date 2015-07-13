@@ -1,18 +1,6 @@
-﻿using System.Collections.ObjectModel;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using WindowsGame1.Exceptions;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.GamerServices;
-using LevelLoader;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace WindowsGame1
 {
