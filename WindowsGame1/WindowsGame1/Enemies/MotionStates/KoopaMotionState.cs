@@ -19,8 +19,6 @@ namespace WindowsGame1
         private MotionEnum OutgoingMotionStatus;
         private MotionEnum MotionStatus;
 
-        public bool Gravity { get; private set; }
-
         public KoopaMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>

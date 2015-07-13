@@ -9,12 +9,18 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (!Core.StateController.SpriteState.Dead) {
+            if (Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy)).AnySide.Touch)
+            {
+                Core.StateController.Turn();
+            }
+
+            if (!Core.StateController.SpriteState.Dead)
+            {
                 if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
                 {
                     Core.StateController.MarioSmash();
                 }
-                if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
+                else if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
                 {
                     Core.StateController.MarioSmash();
                 }
@@ -22,36 +28,19 @@ namespace WindowsGame1
                 {
                     Core.StateController.MarioSmash();
                 }
-                else if (Core.CollisionDetector.Detect<IBlock>().AnySide.Touch || Core.CollisionDetector.Detect<GreenPipeObject>().AnySide.Touch)
-                {
-                    Core.StateController.Turn();
-                }
             }
             else
             {
-                Collision collis = Core.CollisionDetector.Detect<MarioObject>(mario => mario.Alive);
-                if (collis.Left.Touch)
+                Collision c = Core.CollisionDetector.Detect<MarioObject>(mario => mario.Alive);
+                if (c.Left.Touch)
                 {
-                    Core.StateController.MotionState.TakeMarioHitFromSide("left");
+                    Core.StateController.TakeMarioHitFromSide("left");
                 }
-                else if (collis.Right.Touch)
+                else if (c.Right.Touch)
                 {
-                    Core.StateController.MotionState.TakeMarioHitFromSide("right");
-                }
-                else if (Core.CollisionDetector.Detect<IBlock>().AnySide.Touch || Core.CollisionDetector.Detect<GreenPipeObject>().AnySide.Touch)
-                {
-                    Core.StateController.Turn();
+                    Core.StateController.TakeMarioHitFromSide("right");
                 }
             }
-
-
-
-            /*
-             *  if (Detector.Detect<MarioObject>(mario => mario.Alive).AnySide.Touch)
-            {
-                
-            }
-             */
         }
     }
 }
