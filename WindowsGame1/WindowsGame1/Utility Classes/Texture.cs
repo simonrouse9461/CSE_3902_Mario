@@ -101,7 +101,7 @@ namespace WindowsGame1
 
         public static void Update(GameTime gameTime)
         {
-            Instance.GameTime = gameTime.TotalGameTime.Seconds;
+            Instance.GameTime = (int) gameTime.TotalGameTime.TotalSeconds;
             Instance.Time = Instance.MaxTime + Instance.StartTime - Instance.GameTime;
         }
 
