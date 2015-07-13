@@ -15,8 +15,6 @@ namespace WindowsGame1
 
         private MotionEnum MotionStatus;
 
-        public bool Gravity { get; private set; }
-
         public GoombaMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>

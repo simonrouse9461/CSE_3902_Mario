@@ -107,10 +107,11 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enemies\BarrierHandlers\KoopaBarrierHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
-    <Compile Include="Enemies\KoopaStateController.cs" />
-    <Compile Include="Enemies\GoombaStateController.cs" />
-    <Compile Include="Enemies\GoombaBarrierHandler.cs" />
+    <Compile Include="Enemies\StateContollers\GoombaStateController.cs" />
+    <Compile Include="Enemies\StateContollers\KoopaStateController.cs" />
+    <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
     <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
