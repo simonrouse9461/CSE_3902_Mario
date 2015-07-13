@@ -56,7 +56,7 @@ namespace WindowsGame1
             Controller.Update();
             WorldManager.Update();
             Camera.Update();
-            Texture.Update();
+            Texture.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -68,7 +68,7 @@ namespace WindowsGame1
             spriteBatch.Draw(Background, new Rectangle(0, 0, 800, 480), Color.White);
             WorldManager.Draw(spriteBatch);
             
-            Texture.Draw(spriteBatch,gameTime);            
+            Texture.Draw(spriteBatch);            
 
             spriteBatch.End();
             base.Draw(gameTime);
