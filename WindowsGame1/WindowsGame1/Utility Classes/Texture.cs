@@ -1,48 +1,33 @@
-﻿using System.Collections.ObjectModel;
-using Microsoft.Xna.Framework;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using WindowsGame1.Exceptions;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.GamerServices;
-using LevelLoader;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 
 namespace WindowsGame1
 {
     public class Texture
     {
-        private int time{set;get;}
-        public int usedtime { set; get; }
-        public int score;
-        public int coins;
-        public String level;
-
-
-        public Vector2 pscore;
-        private Vector2 pcoin;
-        private Vector2 plevel;
-        private Vector2 ptime;
-        static SpriteFont georgia;
         private static Texture _instance;
+
+        private readonly Vector2 pscore;
+        private readonly Vector2 pcoin;
+        private readonly Vector2 plevel;
+        private readonly Vector2 ptime;
+
+        private int Time { get; set; }
+        private int MaxTime { get; set; }
+        private int Score { get; set; }
+        private int Coins { get; set; }
+        private string Level { get; set; }
+        private static SpriteFont Font { get; set; }
 
         private Texture()
         {
-            ptime.X = 600;
-            ptime.Y = 0;
-            pscore.X = 0;
-            pscore.Y = 0;
-            pcoin.X = 200;
-            pcoin.Y = 0;
-            plevel.X = 400;
-            plevel.Y = 0;
-            level = "1-1";
+            ptime = new Vector2 {X = 600, Y = 15};
+            pscore = new Vector2 {X = 50, Y = 15};
+            pcoin = new Vector2 {X = 230, Y = 15};
+            plevel = new Vector2 {X = 400, Y = 15};
+            Level = "1-1";
+            MaxTime = 300;
         }
 
         private static Texture Instance
@@ -53,47 +38,49 @@ namespace WindowsGame1
                 return _instance;
             }
         }
+
         public static void Initialize()
         {
             _instance = _instance ?? new Texture();
         }
 
-        public static void LoadContent(ContentManager Content)
+        public static void LoadContent(ContentManager content)
         {
-            georgia = Content.Load<SpriteFont>("GeorgiaFont");
-
+            Font = content.Load<SpriteFont>("SegoeUIMono");
         }
 
-        public static void Increment(String obj)
+        public static void Increment<T>() where T : IObject
         {
-            if (obj.Equals("Mushroom")) { 
-                Instance.score+=10;
-            }
-            if (obj.Equals("Coin")){
-                Instance.score+=5;
-                Instance.coins+=1;
-            }
-            if (obj.Equals("Fireflower")){
-                Instance.score += 10;
-            }
-            if (obj.Equals("Koopa")||obj.Equals("Goomba"))
+            if (typeof (Mushroom).IsAssignableFrom(typeof (T)))
             {
-                Instance.score += 100;
+                Instance.Score += 10;
+            }
+            if (typeof (Coin).IsAssignableFrom(typeof (T)))
+            {
+                Instance.Score += 5;
+                Instance.Coins += 1;
+            }
+            if (typeof (Fireflower).IsAssignableFrom(typeof (T)))
+            {
+                Instance.Score += 10;
+            }
+            if (typeof (IEnemy).IsAssignableFrom(typeof (T)))
+            {
+                Instance.Score += 100;
             }
         }
+
         public static void Update(GameTime gameTime)
         {
-            Instance.time = gameTime.TotalGameTime.Seconds-10;
+            Instance.Time = Instance.MaxTime - gameTime.TotalGameTime.Seconds;
         }
 
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(georgia, "MARIO: " + Instance.score, Instance.pscore, Color.White);
-            spriteBatch.DrawString(georgia, "COIN: " + Instance.coins, Instance.pcoin, Color.White);
-            spriteBatch.DrawString(georgia, "WORLD: " + Instance.level, Instance.plevel, Color.White);
-            spriteBatch.DrawString(georgia, "TIME: " + Instance.time, Instance.ptime, Color.White);
-
-
+            spriteBatch.DrawString(Font, "MARIO: " + Instance.Score, Instance.pscore, Color.White);
+            spriteBatch.DrawString(Font, "COIN: " + Instance.Coins, Instance.pcoin, Color.White);
+            spriteBatch.DrawString(Font, "WORLD: " + Instance.Level, Instance.plevel, Color.White);
+            spriteBatch.DrawString(Font, "TIME: " + Instance.Time, Instance.ptime, Color.White);
         }
     }
 }

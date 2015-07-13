@@ -15,7 +15,6 @@ namespace WindowsGame1
             _location = default(Vector2);
             _screenSize = new Vector2(800, 480);
             _objectList = new Collection<IObject>();
-            Adjusted = true;
         }
 
         public static bool Adjusted { get; private set; }
