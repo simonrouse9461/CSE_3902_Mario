@@ -4,7 +4,7 @@
     {
         protected MarioGame Game { get; set; }
 
-        protected CommandKernel(MarioGame game)
+        protected CommandKernel(MarioGame game = null)
         {
             Game = game;
         }

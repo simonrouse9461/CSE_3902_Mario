@@ -31,7 +31,7 @@ namespace WindowsGame1
             gamepadController = new GamepadController();
 
             marioFireCommand = new MarioFireCommand(game);
-            marioDeadCommand = new MarioDeadCommand(game);
+            marioDeadCommand = new MarioDeadCommand();
             marioUpCommand = new MarioUpCommand(game);
             marioDownCommand = new MarioDownCommand(game);
             marioLeftCommand = new MarioLeftCommand(game);

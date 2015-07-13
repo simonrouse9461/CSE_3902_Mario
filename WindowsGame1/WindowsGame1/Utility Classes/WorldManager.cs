@@ -211,6 +211,7 @@ namespace WindowsGame1
                 collection.Clear();
             LoadLevel(Instance.Content);
             Camera.Reset();
+            Texture.Reset();
             Reloaded = true;
             RestoreWorld();
         }

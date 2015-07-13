@@ -12,9 +12,31 @@ namespace WindowsGame1
         private readonly Vector2 pcoin;
         private readonly Vector2 plevel;
         private readonly Vector2 ptime;
+        private readonly Vector2 ptimeup;
 
-        private int Time { get; set; }
+        private int _time;
+
+        private int Time
+        {
+            get
+            {
+                return _time;
+            }
+            set
+            {
+                _time = value <= 0 ? 0 : value;
+                if (Time == 0)
+                {
+                    new MarioDeadCommand().Execute();
+                    TimeUp = true;
+                }
+            }
+        }
+
         private int MaxTime { get; set; }
+        private int StartTime { get; set; }
+        private int GameTime { get; set; }
+        private bool TimeUp { get; set; }
         private int Score { get; set; }
         private int Coins { get; set; }
         private string Level { get; set; }
@@ -26,8 +48,9 @@ namespace WindowsGame1
             pscore = new Vector2 {X = 50, Y = 15};
             pcoin = new Vector2 {X = 230, Y = 15};
             plevel = new Vector2 {X = 400, Y = 15};
+            ptimeup = new Vector2 {X = 305, Y = 195};
             Level = "1-1";
-            MaxTime = 300;
+            MaxTime = 20;
         }
 
         private static Texture Instance
@@ -42,6 +65,12 @@ namespace WindowsGame1
         public static void Initialize()
         {
             _instance = _instance ?? new Texture();
+        }
+
+        public static void Reset()
+        {
+            Instance.StartTime = Instance.GameTime;
+            Instance.TimeUp = false;
         }
 
         public static void LoadContent(ContentManager content)
@@ -72,7 +101,8 @@ namespace WindowsGame1
 
         public static void Update(GameTime gameTime)
         {
-            Instance.Time = Instance.MaxTime - gameTime.TotalGameTime.Seconds;
+            Instance.GameTime = gameTime.TotalGameTime.Seconds;
+            Instance.Time = Instance.MaxTime + Instance.StartTime - Instance.GameTime;
         }
 
         public static void Draw(SpriteBatch spriteBatch)
@@ -81,6 +111,7 @@ namespace WindowsGame1
             spriteBatch.DrawString(Font, "COIN: " + Instance.Coins, Instance.pcoin, Color.White);
             spriteBatch.DrawString(Font, "WORLD: " + Instance.Level, Instance.plevel, Color.White);
             spriteBatch.DrawString(Font, "TIME: " + Instance.Time, Instance.ptime, Color.White);
+            if (Instance.TimeUp) spriteBatch.DrawString(Font, "TIME IS UP!", Instance.ptimeup, Color.White);
         }
     }
 }

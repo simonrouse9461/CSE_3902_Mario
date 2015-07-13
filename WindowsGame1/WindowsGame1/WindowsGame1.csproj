@@ -153,6 +153,7 @@
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\StateControllerKernel.cs" />
@@ -246,7 +247,6 @@
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />
     <Compile Include="Items\Sprites\StarSprite.cs" />
-    <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
