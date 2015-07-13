@@ -44,10 +44,10 @@ namespace WindowsGame1
 
         private Display()
         {
-            ptime = new Vector2 {X = 600, Y = 15};
-            pscore = new Vector2 {X = 50, Y = 15};
-            pcoin = new Vector2 {X = 230, Y = 15};
-            plevel = new Vector2 {X = 400, Y = 15};
+            pscore = new Vector2 {X = 70, Y = 15};
+            pcoin = new Vector2 {X = 270, Y = 15};
+            plevel = new Vector2 {X = 470, Y = 15};
+            ptime = new Vector2 {X = 670, Y = 15};
             ptimeup = new Vector2 {X = 305, Y = 195};
             Level = "1-1";
             MaxTime = 20;
@@ -76,6 +76,7 @@ namespace WindowsGame1
         public static void LoadContent(ContentManager content)
         {
             Font = content.Load<SpriteFont>("SegoeUIMono");
+            Font.LineSpacing = 20;
         }
 
         public static void Increment<T>() where T : IObject
@@ -107,10 +108,10 @@ namespace WindowsGame1
 
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Font, "MARIO: " + Instance.Score, Instance.pscore, Color.White);
-            spriteBatch.DrawString(Font, "COIN: " + Instance.Coins, Instance.pcoin, Color.White);
-            spriteBatch.DrawString(Font, "WORLD: " + Instance.Level, Instance.plevel, Color.White);
-            spriteBatch.DrawString(Font, "TIME: " + Instance.Time, Instance.ptime, Color.White);
+            spriteBatch.DrawString(Font, "MARIO\n" + Instance.Score, Instance.pscore, Color.White);
+            spriteBatch.DrawString(Font, "COIN\n" + Instance.Coins, Instance.pcoin, Color.White);
+            spriteBatch.DrawString(Font, "WORLD\n" + Instance.Level, Instance.plevel, Color.White);
+            spriteBatch.DrawString(Font, "TIME\n" + Instance.Time, Instance.ptime, Color.White);
             if (Instance.TimeUp) spriteBatch.DrawString(Font, "TIME IS UP!", Instance.ptimeup, Color.White);
         }
     }
