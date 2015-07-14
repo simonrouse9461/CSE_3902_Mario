@@ -107,10 +107,11 @@
     <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enemies\BarrierHandlers\KoopaBarrierHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
-    <Compile Include="Enemies\KoopaStateController.cs" />
-    <Compile Include="Enemies\GoombaStateController.cs" />
-    <Compile Include="Enemies\GoombaBarrierHandler.cs" />
+    <Compile Include="Enemies\StateContollers\GoombaStateController.cs" />
+    <Compile Include="Enemies\StateContollers\KoopaStateController.cs" />
+    <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
     <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
@@ -153,11 +154,13 @@
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\StateControllerKernel.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
+    <Compile Include="Mario\CommandExecutorDecorators\TransformingMarioCommandExecutor.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FireMarioCommandExecutor.cs" />
     <Compile Include="Mario\Commands\MarioFireballCommand.cs" />
     <Compile Include="Mario\MarioBarrierHandler.cs" />
@@ -167,22 +170,22 @@
     <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShootingMarioSprite.cs" />
-    <Compile Include="Misc Objects\Collision\FireballCollisionHandler.cs" />
-    <Compile Include="Misc Objects\FireBallBarrierHandler.cs" />
-    <Compile Include="Misc Objects\FireballStateController.cs" />
+    <Compile Include="Fireball\FireballCollisionHandler.cs" />
+    <Compile Include="Fireball\FireBallBarrierHandler.cs" />
+    <Compile Include="Fireball\FireballStateController.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
-    <Compile Include="Misc Objects\MotionState\FireballMotionState.cs" />
+    <Compile Include="Fireball\FireballMotionState.cs" />
     <Compile Include="Misc Objects\BlockStateController.cs" />
-    <Compile Include="Misc Objects\Objects\FireballObject.cs" />
+    <Compile Include="Fireball\FireballObject.cs" />
     <Compile Include="Misc Objects\Objects\MediumPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SecretPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SmallPipeObject.cs" />
     <Compile Include="Misc Objects\PipeStateController.cs" />
-    <Compile Include="Misc Objects\SpriteState\FireballSpriteState.cs" />
+    <Compile Include="Fireball\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\BlockDebrisSprite.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\FireballSprite.cs" />
+    <Compile Include="Fireball\FireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\MediumGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />
@@ -246,7 +249,6 @@
     <Compile Include="Items\Sprites\MushroomSprite.cs" />
     <Compile Include="Items\Sprites\FireflowerSprite.cs" />
     <Compile Include="Items\Sprites\StarSprite.cs" />
-    <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
@@ -298,6 +300,7 @@
     <Compile Include="Utility Classes\StaticMotionState.cs" />
     <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
+    <Compile Include="Utility Classes\Display.cs" />
     <Compile Include="Utility Classes\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

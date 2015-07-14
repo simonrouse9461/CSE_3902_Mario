@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Collections.ObjectModel;
 
@@ -18,8 +18,6 @@ namespace WindowsGame1
 
         private MotionEnum OutgoingMotionStatus;
         private MotionEnum MotionStatus;
-
-        public bool Gravity { get; private set; }
 
         public KoopaMotionState()
         {
@@ -107,6 +105,7 @@ namespace WindowsGame1
         {
             OutgoingMotionStatus = MotionStatus;
             MotionStatus = MotionEnum.None;
+            Display.Increment<Koopa>();
         }
 
         public override void TakeMarioHitFromSide(string leftOrRight)

@@ -20,6 +20,8 @@ namespace WindowsGame1
         private readonly Collection<IList> _objectList;
         private static WorldManager _instance;
 
+        private static bool Modified { get; set; }
+
         private ObjectData[] LevelData { get; set; }
 
         private ContentManager Content { get; set; }
@@ -107,10 +109,13 @@ namespace WindowsGame1
 
         public static void RemoveObject(IObject obj)
         {
+            if (obj is MarioObject) return;
+            if (!ObjectList.Contains(obj)) return;
             foreach (var collection in Instance._objectList)
             {
                 collection.Remove(obj);
             }
+            Camera.RemoveObject(obj);
         }
 
         public static void CreateObject<T>(Vector2 position, T obj = null) where T : class, IObject, new()
@@ -118,6 +123,7 @@ namespace WindowsGame1
             obj = obj ?? new T();
             obj.Load(Instance.Content, position);
             FindObjectCollection<T>().Add(obj);
+            Modified = true;
         }
 
         public static void ReplaceObject<T>(IObject obj, T substitute = null) where T : class, IObject, new()
@@ -173,25 +179,43 @@ namespace WindowsGame1
 
         public static void Update()
         {
+            FindObject<MarioObject>().Update();
+
+            if (Camera.Adjusted || Modified)
+                foreach (var collection in Instance._objectList)
+                    for (var i = 0; i < collection.Count; i++)
+                    {
+                        var obj = (IObject) collection[i];
+                        if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                        else Camera.AddObject(obj);
+                    }
+
+            Modified = false;
+
             if (Instance.freeze)
             {
-                FindObject<MarioObject>().Update();
                 if (Instance.freezeTimer.Update()) RestoreWorld();
             }
-            else foreach (var collection in Instance._objectList)
-                for (var i = 0; i < collection.Count; i++)
-                    ((IObject) collection[i]).Update();
-            
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reset();
-        }
+            else
+            {
+                for (var i = 0; i < Camera.ObjectList.Count; i++)
+                {
+                    if (Camera.ObjectList[i] is MarioObject) continue;
+                    Camera.ObjectList[i].Update();
+                }
+            }
 
-        public static void Reset()
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reload();
+        }
+        
+        public static void Reload()
         {
             foreach (var collection in Instance._objectList)
-                for (var i = collection.Count - 1; i >= 0; i--)
-                    collection.Remove(collection[i]);
+                collection.Clear();
             LoadLevel(Instance.Content);
             Camera.Reset();
+            Display.Reset();
+            Modified = true;
             RestoreWorld();
         }
 
@@ -199,7 +223,7 @@ namespace WindowsGame1
         {
             foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
-                    obj.Draw(spriteBatch);
+                    if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);
         }
     }
 }

@@ -17,10 +17,16 @@ namespace WindowsGame1
             _objectList = new Collection<IObject>();
         }
 
+        public static bool Adjusted { get; private set; }
 
         public static Vector2 Location { get { return Instance._location; } }
+
         public static Vector2 ScreenSize { get { return Instance._screenSize; } }
-        public static Collection<IObject> ObjectList{get { return Instance._objectList; }}
+
+        public static Collection<IObject> ObjectList
+        {
+            get { return Instance._objectList; }
+        }
 
         public static Rectangle ScreenRectangle
         {
@@ -45,16 +51,20 @@ namespace WindowsGame1
 
         public static void Adjust(float x, float y = 0)
         {
-            Instance._location += new Vector2(x, y);
+            Adjust(new Vector2(x, y));
+            Adjusted = true;
         }
 
         public static void Reset(Vector2 location = default(Vector2))
         {
             Instance._location = location;
+            ObjectList.Clear();
+            Adjusted = true;
         }
 
         public static void Update()
         {
+            Adjusted = false;
             var marioPosition = WorldManager.FindObject<MarioObject>().PositionPoint;
             if (marioPosition.X > Location.X + ScreenSize.X/2)
             {
@@ -62,6 +72,21 @@ namespace WindowsGame1
             }
         }
 
+        public static void AddObject(IObject obj)
+        {
+            if (!ObjectList.Contains(obj))
+                ObjectList.Add(obj);
+        }
+
+        public static void RemoveObject(IObject obj)
+        {
+            if (ObjectList.Contains(obj))
+            {
+                ObjectList.Remove(obj);
+                WorldManager.RemoveObject(obj);
+            }
+        }
+        
         public static bool OutOfRange(IObject obj, Vector4 offset = default(Vector4))
         {
             return
