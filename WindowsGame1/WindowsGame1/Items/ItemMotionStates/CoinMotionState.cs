@@ -16,5 +16,13 @@ namespace WindowsGame1
         {
             FindMotion<BounceUpMotion>().Toggle(true);
         }
+
+        public bool StopMoving
+        {
+            get
+            {
+                return FindMotion<BounceUpMotion>().Content.Finish;
+            }  
+        }
     }
 }

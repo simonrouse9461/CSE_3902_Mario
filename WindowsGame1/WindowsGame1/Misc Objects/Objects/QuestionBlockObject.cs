@@ -14,12 +14,12 @@ namespace WindowsGame1
             Default
         }
       
-        private Version version;
+        private Version version = Version.Default;
 
         public QuestionBlockObject()
         {
             StateController.QuestionBlock();
-            CollisionHandler = new BlockCollisionHandler(Core);
+            CollisionHandler = new QuestionBlockCollisionHandler(Core);
         }
 
         public static QuestionBlockObject ItemQuestionBlock

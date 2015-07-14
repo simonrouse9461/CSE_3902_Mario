@@ -100,7 +100,7 @@ namespace WindowsGame1
 
         public void QuestionBlockGiveCoin()
         {
-            Core.Object.Generate<Coin>();           
+            Core.Object.Generate<Coin>();   
             SpriteState.QuestionToUsedBlock();
         }
 
@@ -124,8 +124,9 @@ namespace WindowsGame1
 
         public void NormalBlockDestroyed()
         {
+            SpriteState.ChangeSpriteFrequency(20);
             SpriteState.Destroyed();
-            Core.DelayCommand(() => Core.Object.Unload(), 12);
+            Core.DelayCommand(() => Core.Object.Unload(), 35);
         }
 
 
