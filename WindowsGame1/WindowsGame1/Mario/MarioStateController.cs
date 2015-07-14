@@ -146,7 +146,7 @@ namespace WindowsGame1
                 MotionState.Jump();
                 SpriteState.Jump();
             }
-            SoundManager.jumpSoundPlay();
+            SoundManager.JumpSoundPlay();
         }
 
         public void Bounce()

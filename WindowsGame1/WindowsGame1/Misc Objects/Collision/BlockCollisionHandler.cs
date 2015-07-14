@@ -18,7 +18,7 @@ namespace WindowsGame1
                 else if (Core.StateController.SpriteState.isNormal)
                 {
                     Core.StateController.NormalBlockDestroyed();
-                    SoundManager.blockBreakSoundPlay();
+                    SoundManager.BlockBreakSoundPlay();
                 }
                 else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
                 {

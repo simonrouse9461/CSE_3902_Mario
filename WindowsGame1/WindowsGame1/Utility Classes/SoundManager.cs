@@ -22,24 +22,24 @@ namespace WindowsGame1
             stompSound = content.Load<SoundEffect>("Audio/stomp");
         }
 
-        public static void overworldMusicPlay()
+        public static void OverworldMusicPlay()
         {
             currentlyPlayingMusic = overworldMusic.CreateInstance();
             currentlyPlayingMusic.IsLooped = true;
             currentlyPlayingMusic.Play();
         }
 
-        public static void jumpSoundPlay()
+        public static void JumpSoundPlay()
         {
             jumpSound.Play();
         }
 
-        public static void blockBreakSoundPlay()
+        public static void BlockBreakSoundPlay()
         {
             blockBreakSound.Play();
         }
 
-        public static void stompSoundPlay()
+        public static void StompSoundPlay()
         {
             stompSound.Play();
         }
