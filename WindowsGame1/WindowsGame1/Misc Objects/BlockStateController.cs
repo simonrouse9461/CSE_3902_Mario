@@ -125,6 +125,7 @@ namespace WindowsGame1
         public void NormalBlockDestroyed()
         {
             SpriteState.Destroyed();
+            Core.DelayCommand(() => Core.Object.Unload(), 12);
         }
 
 

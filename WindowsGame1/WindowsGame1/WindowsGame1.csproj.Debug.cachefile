@@ -1,3 +1,5 @@
+Content\SegoeUIMono.xnb
+Content\GeorgiaFont.xnb
 Content\Mario.xnb
 Content\blocks.xnb
 Content\overworld.xnb
@@ -9,5 +11,7 @@ Content\misc_sprites.xnb
 Content\block debris.xnb
 Content\pipes green.xnb
 Content\LevelData.xnb
-Content\GeorgiaFont.xnb
-Content\SegoeUIMono.xnb
+Content\Audio\blockBreak.xnb
+Content\Audio\stomp.xnb
+Content\Audio\jump.xnb
+Content\Audio\overworldMusic.xnb

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Collections.ObjectModel;
 
@@ -75,6 +75,7 @@ namespace WindowsGame1
         public override void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
+            Display.Increment<Goomba>();
         }
 
 
