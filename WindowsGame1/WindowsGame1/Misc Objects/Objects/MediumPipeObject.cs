@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MediumPipeObject : GreenPipeObject
+    public class MediumPipeObject : GreenPipeObject, IPipe
     {
 
         public MediumPipeObject()

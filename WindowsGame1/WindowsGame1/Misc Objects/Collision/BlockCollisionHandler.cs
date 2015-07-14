@@ -11,20 +11,13 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
             {
-                if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
-                {
-                    Core.StateController.QuestionBlockGiveFireflower();
-                }
-                else if (Core.StateController.SpriteState.isNormal)
+
+                if (Core.StateController.SpriteState.isNormal)
                 {
                     Core.StateController.NormalBlockDestroyed();
                     SoundManager.BlockBreakSoundPlay();
                 }
-                else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
-                {
-                    Core.StateController.QuestionBlockGiveCoin();
-                }
-                else if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
+                if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
                 {
                     Core.StateController.NormalBlockCoinHit();
                 }
@@ -39,15 +32,7 @@ namespace WindowsGame1
             }
             else if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
-                if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
-                {
-                    Core.StateController.QuestionBlockGiveMushroom();
-                }
-                else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
-                {
-                    Core.StateController.QuestionBlockGiveCoin();
-                }
-                else if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
+                if (Core.StateController.SpriteState.isNormal && Core.StateController.giveCoin)
                 {
                     Core.StateController.NormalBlockCoinHit();
                 }

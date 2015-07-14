@@ -9,7 +9,7 @@ namespace WindowsGame1
     {
         public BlockDebrisSprite()
         {
-            const int period = 12;
+            const int period = 4;
             ImageFile.Default = "block debris";
             Source.Default = new SpriteSource
             {
@@ -23,7 +23,7 @@ namespace WindowsGame1
             Animation.Default = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = { 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3 };
+                    int[] frameSequence = { 0, 1, 2, 3 };
                     return frameSequence[phase];
                 },
                 period);
