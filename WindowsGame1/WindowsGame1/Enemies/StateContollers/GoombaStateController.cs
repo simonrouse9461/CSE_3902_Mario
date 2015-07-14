@@ -15,6 +15,8 @@ namespace WindowsGame1
                 MotionState.MarioSmash();
                 SpriteState.MarioSmash();
             });
+
+            SoundManager.stompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)

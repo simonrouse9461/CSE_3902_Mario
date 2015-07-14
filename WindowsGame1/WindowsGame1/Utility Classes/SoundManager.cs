@@ -7,25 +7,41 @@ namespace WindowsGame1
 {
     public static class SoundManager
     {
-        private static SoundEffectInstance music;
-        private static SoundEffect boing;
+        private static SoundEffectInstance currentlyPlayingMusic;
+
+        private static SoundEffect overworldMusic;
+        private static SoundEffect jumpSound;
+        private static SoundEffect blockBreakSound;
+        private static SoundEffect stompSound;
 
         public static void LoadAllSounds(ContentManager content)
         {
-            music = content.Load<SoundEffect>("music").CreateInstance();
-            music.IsLooped = true;
-
-            boing = content.Load<SoundEffect>("boing");
+            overworldMusic = content.Load<SoundEffect>("Audio/overworldMusic");
+            jumpSound = content.Load<SoundEffect>("Audio/jump");
+            blockBreakSound = content.Load<SoundEffect>("Audio/blockBreak");
+            stompSound = content.Load<SoundEffect>("Audio/stomp");
         }
 
-        public static void playOverworldMusic()
+        public static void overworldMusicPlay()
         {
-            music.Play();
+            currentlyPlayingMusic = overworldMusic.CreateInstance();
+            currentlyPlayingMusic.IsLooped = true;
+            currentlyPlayingMusic.Play();
         }
 
-        public static void playBoing()
+        public static void jumpSoundPlay()
         {
-            boing.Play();
+            jumpSound.Play();
+        }
+
+        public static void blockBreakSoundPlay()
+        {
+            blockBreakSound.Play();
+        }
+
+        public static void stompSoundPlay()
+        {
+            stompSound.Play();
         }
     }
 }
