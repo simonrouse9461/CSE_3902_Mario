@@ -37,9 +37,8 @@ namespace WindowsGame1
             
             WorldManager.LoadLevel(Content);
             Display.LoadContent(Content);
-            SoundManager.music = Content.Load<SoundEffect>("music").CreateInstance();
-            SoundManager.music.IsLooped = true;
-            SoundManager.music.Play();
+            SoundManager.LoadAllSounds(Content);
+            SoundManager.playOverworldMusic();
 
             base.LoadContent();
         }

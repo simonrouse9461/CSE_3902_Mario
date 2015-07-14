@@ -7,6 +7,25 @@ namespace WindowsGame1
 {
     public static class SoundManager
     {
-        public static SoundEffectInstance music;
+        private static SoundEffectInstance music;
+        private static SoundEffect boing;
+
+        public static void LoadAllSounds(ContentManager content)
+        {
+            music = content.Load<SoundEffect>("music").CreateInstance();
+            music.IsLooped = true;
+
+            boing = content.Load<SoundEffect>("boing");
+        }
+
+        public static void playOverworldMusic()
+        {
+            music.Play();
+        }
+
+        public static void playBoing()
+        {
+            boing.Play();
+        }
     }
 }
