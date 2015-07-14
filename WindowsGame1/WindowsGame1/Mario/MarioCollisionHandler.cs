@@ -41,7 +41,6 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch && !Core.StateController.SpriteState.HaveFire)
             {
                 Core.StateController.GetFire();
-                Core.SwitchComponent(new FireMarioCommandExecutor(Core, (MarioCommandExecutor)Core.CommandExecutor));
             }
         }
 

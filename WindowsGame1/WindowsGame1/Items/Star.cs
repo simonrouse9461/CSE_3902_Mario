@@ -14,15 +14,5 @@ namespace WindowsGame1
         {
             get { return false; }
         }
-
-        public Star MakeStar
-        {
-            get
-            {
-                var instance = new Star();
-                instance.Core.StateController.MotionState.Generated();
-                return instance;
-            }
-        }
     }
 }

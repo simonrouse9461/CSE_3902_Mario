@@ -21,6 +21,7 @@ namespace WindowsGame1
             RegisterCommand(typeof (MarioDownCommand), null,
                 () => Core.StateController.Crouch(),
                 () => Core.StateController.StandUp());
+            RegisterCommand(typeof (MarioDeadCommand), () => Core.StateController.Die());
         }
     }
 }

@@ -3,13 +3,13 @@
   <Asset Type="LevelLoader.ObjectData[]">
 
     <Item>
-      <Type>Koopa</Type>
+      <Type>Mushroom</Type>
       <Version></Version>
       <Location>730 398</Location>
     </Item>
 
     <Item>
-      <Type>Goomba</Type>
+      <Type>Fireflower</Type>
       <Version></Version>
       <Location>658 400</Location>
     </Item>

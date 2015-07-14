@@ -12,16 +12,13 @@ namespace WindowsGame1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SoundManager sound;
 
         private CommandManager Controller;
-        private Texture2D Background;
 
 
         public MarioGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            sound = new SoundManager();
             Content.RootDirectory = "Content";
         }
 
@@ -29,7 +26,7 @@ namespace WindowsGame1
         {
             Controller = new CommandManager(this);
             WorldManager.Initialize();
-            Texture.Initialize();
+            Display.Initialize();
             base.Initialize();
         }
 
@@ -38,9 +35,8 @@ namespace WindowsGame1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            Background = Content.Load<Texture2D>("overworld");
             WorldManager.LoadLevel(Content);
-            Texture.LoadContent(Content);
+            Display.LoadContent(Content);
             SoundManager.music = Content.Load<SoundEffect>("music").CreateInstance();
             SoundManager.music.IsLooped = true;
             SoundManager.music.Play();
@@ -61,8 +57,7 @@ namespace WindowsGame1
             Controller.Update();
             WorldManager.Update();
             Camera.Update();
-            Texture.Update(gameTime);
-            sound.Update();
+            Display.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -71,10 +66,9 @@ namespace WindowsGame1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            spriteBatch.Draw(Background, new Rectangle(0, 0, 800, 480), Color.White);
+
             WorldManager.Draw(spriteBatch);
-            
-            Texture.Draw(spriteBatch);            
+            Display.Draw(spriteBatch);            
 
             spriteBatch.End();
             base.Draw(gameTime);
