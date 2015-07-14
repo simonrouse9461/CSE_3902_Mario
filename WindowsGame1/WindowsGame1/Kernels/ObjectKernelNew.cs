@@ -118,7 +118,7 @@ namespace WindowsGame1
 
         public void Unload()
         {
-            Core.DelayCommand(() => Camera.RemoveObject(this));
+            Core.DelayCommand(() => WorldManager.RemoveObject(this));
         }
 
         public void Transform<T>(T obj = null) where T : class, IObject, new()
