@@ -57,6 +57,16 @@ namespace WindowsGame1
             }
         }
 
+        protected void ClearCommands()
+        {
+            RegisteredCommands.Clear();
+            CommandActions.Clear();
+            ReceptionActions.Clear();
+            InterruptionActions.Clear();
+            CurrentStatus.Clear();
+            PreviousStatus.Clear();
+        }
+
         public void ReadCommand(ICommand command)
         {
             ToggleCurrentStatus(command.GetType(), true);

@@ -4,8 +4,6 @@ namespace WindowsGame1
 {
     public class MoveRightMotion : MotionKernel
     {
-        private Vector2 StartVelocity;
-
         private enum Version
         {
             Default,

@@ -1,24 +1,32 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.ObjectModel;
+using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
     public sealed class Camera
     {
-        private static readonly Camera instance = new Camera(new Vector2(800, 480));
+        private Vector2 _location;
+        private readonly Vector2 _screenSize;
+        private readonly Collection<IObject> _objectList;
+        private readonly static Camera Instance = new Camera();
 
-        private Camera(Vector2 size)
+        private Camera()
         {
-            Location = default(Vector2);
-            ScreenSize = size;
+            _location = default(Vector2);
+            _screenSize = new Vector2(800, 480);
+            _objectList = new Collection<IObject>();
         }
 
-        public static Camera Instance
-        {
-            get { return instance; }
-        }
+        public static bool Adjusted { get; private set; }
 
-        public static Vector2 Location { get; set; }
-        public static Vector2 ScreenSize { get; private set; }
+        public static Vector2 Location { get { return Instance._location; } }
+
+        public static Vector2 ScreenSize { get { return Instance._screenSize; } }
+
+        public static Collection<IObject> ObjectList
+        {
+            get { return Instance._objectList; }
+        }
 
         public static Rectangle ScreenRectangle
         {
@@ -38,21 +46,25 @@ namespace WindowsGame1
 
         public static void Adjust(Vector2 offset)
         {
-            Location += offset;
+            Instance._location += offset;
         }
 
         public static void Adjust(float x, float y = 0)
         {
-            Location += new Vector2(x, y);
+            Adjust(new Vector2(x, y));
+            Adjusted = true;
         }
 
         public static void Reset(Vector2 location = default(Vector2))
         {
-            Location = location;
+            Instance._location = location;
+            ObjectList.Clear();
+            Adjusted = true;
         }
 
         public static void Update()
         {
+            Adjusted = false;
             var marioPosition = WorldManager.FindObject<MarioObject>().PositionPoint;
             if (marioPosition.X > Location.X + ScreenSize.X/2)
             {
@@ -60,6 +72,21 @@ namespace WindowsGame1
             }
         }
 
+        public static void AddObject(IObject obj)
+        {
+            if (!ObjectList.Contains(obj))
+                ObjectList.Add(obj);
+        }
+
+        public static void RemoveObject(IObject obj)
+        {
+            if (ObjectList.Contains(obj))
+            {
+                ObjectList.Remove(obj);
+                WorldManager.RemoveObject(obj);
+            }
+        }
+        
         public static bool OutOfRange(IObject obj, Vector4 offset = default(Vector4))
         {
             return

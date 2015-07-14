@@ -1,4 +1,3 @@
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -15,8 +14,6 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
 
         private CommandManager Controller;
-        public WorldManager World { get; private set; }
-        private Texture2D Background;
 
 
         public MarioGame()
@@ -28,7 +25,8 @@ namespace WindowsGame1
         protected override void Initialize()
         {
             Controller = new CommandManager(this);
-            World = WorldManager.Instance;
+            WorldManager.Initialize();
+            Display.Initialize();
             base.Initialize();
         }
 
@@ -37,8 +35,8 @@ namespace WindowsGame1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
-            Background = Content.Load<Texture2D>("overworld");
             WorldManager.LoadLevel(Content);
+            Display.LoadContent(Content);
 
             base.LoadContent();
         }
@@ -56,6 +54,7 @@ namespace WindowsGame1
             Controller.Update();
             WorldManager.Update();
             Camera.Update();
+            Display.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -64,8 +63,9 @@ namespace WindowsGame1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            spriteBatch.Draw(Background, new Rectangle(0, 0, 800, 480), Color.White);
-            World.Draw(spriteBatch);
+
+            WorldManager.Draw(spriteBatch);
+            Display.Draw(spriteBatch);            
 
             spriteBatch.End();
             base.Draw(gameTime);

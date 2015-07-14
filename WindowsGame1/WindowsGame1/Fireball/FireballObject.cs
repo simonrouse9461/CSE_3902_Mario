@@ -7,7 +7,6 @@ namespace WindowsGame1
 {
     public class FireballObject : ObjectKernelNew<FireballStateController>
     {
-
         public FireballObject()
         {
             CollisionHandler = new FireballCollisionHandler(Core);

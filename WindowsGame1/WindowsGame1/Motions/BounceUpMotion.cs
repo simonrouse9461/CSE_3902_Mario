@@ -5,9 +5,6 @@ namespace WindowsGame1
 {
     public class BounceUpMotion : MotionKernel
     {
-        private Vector2 StartVelocity;
-        private Vector2 Acceleration;
-        private Vector2 MaxVelocity;
         private bool InvolveGravity;
         private bool FinishWhenMax;
 
@@ -33,17 +30,20 @@ namespace WindowsGame1
             get
             {
                 var velocity = Circulator.Phase*Acceleration + StartVelocity -
-                               GravityMotion.MaxVelocity*(InvolveGravity ? 1 : 0);
-                velocity = (velocity.Y < (MaxVelocity - GravityMotion.MaxVelocity*(InvolveGravity ? 1 : 0)).Y)
+                               GravityMotion.Max*(InvolveGravity ? 1 : 0);
+                velocity = (velocity.Y < (MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0)).Y)
                     ? velocity
-                    : MaxVelocity - GravityMotion.MaxVelocity*(InvolveGravity ? 1 : 0);
+                    : MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0);
                 return velocity;
             }
         }
 
         public override bool Finish
         {
-            get { return (Velocity.Y >= (MaxVelocity - GravityMotion.MaxVelocity*(InvolveGravity ? 1 : 0)).Y) && FinishWhenMax; }
+            get
+            {
+                return (Velocity.Y >= (MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0)).Y) && FinishWhenMax;
+            }
         }
 
         // Versions
@@ -73,7 +73,7 @@ namespace WindowsGame1
                     version = Version.MarioDie,
                     StartVelocity = new Vector2(0, -3),
                     Acceleration = new Vector2(0, 0.1f),
-                    MaxVelocity = GravityMotion.MaxVelocity,
+                    MaxVelocity = GravityMotion.Max,
                     InvolveGravity = false,
                     FinishWhenMax = false
                 };
@@ -89,7 +89,7 @@ namespace WindowsGame1
                     version = Version.MarioBounce,
                     StartVelocity = new Vector2(0, -5),
                     Acceleration = new Vector2(0, 0.4f),
-                    MaxVelocity = GravityMotion.MaxVelocity,
+                    MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true
                 };
@@ -105,7 +105,7 @@ namespace WindowsGame1
                     version = Version.FireballBounce,
                     StartVelocity = new Vector2(0, -2.7f),
                     Acceleration = new Vector2(0, 0.2f),
-                    MaxVelocity = GravityMotion.MaxVelocity,
+                    MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true
                 };

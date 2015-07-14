@@ -15,27 +15,24 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        ObjectData[] LevelData;
-
-        private ContentManager Content;
-
         private bool freeze;
         private Counter freezeTimer;
-
+        private readonly Collection<IList> _objectList;
         private static WorldManager _instance;
-        public static WorldManager Instance
+
+        private static bool Modified { get; set; }
+
+        private ObjectData[] LevelData { get; set; }
+
+        private ContentManager Content { get; set; }
+
+        private static WorldManager Instance
         {
             get
             {
-                _instance = _instance ?? new WorldManager();
+                Initialize();
                 return _instance;
             }
-        }
-
-        private readonly Collection<IList> _objectList;
-        public static List<IObject> ObjectList
-        {
-            get { return Instance._objectList.SelectMany(list => (IEnumerable<IObject>) list).ToList(); }
         }
 
         private WorldManager()
@@ -53,7 +50,7 @@ namespace WindowsGame1
                 new Collection<QuestionBlockObject>(),
                 new Collection<HiddenBlockObject>(),
                 new Collection<NormalBlockObject>(),
-               
+
                 new Collection<BlockKernel>(),
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
@@ -76,6 +73,16 @@ namespace WindowsGame1
                 // Fireball is on the top of everything
                 new Collection<FireballObject>()
             };
+        }
+
+        public static void Initialize()
+        {
+            _instance = _instance ?? new WorldManager();
+        }
+
+        public static List<IObject> ObjectList
+        {
+            get { return Instance._objectList.SelectMany(list => (IEnumerable<IObject>) list).ToList(); }
         }
 
         public static List<Collection<T>> FindObjectCollectionList<T>() where T : IObject
@@ -102,10 +109,13 @@ namespace WindowsGame1
 
         public static void RemoveObject(IObject obj)
         {
+            if (obj is MarioObject) return;
+            if (!ObjectList.Contains(obj)) return;
             foreach (var collection in Instance._objectList)
             {
                 collection.Remove(obj);
             }
+            Camera.RemoveObject(obj);
         }
 
         public static void CreateObject<T>(Vector2 position, T obj = null) where T : class, IObject, new()
@@ -113,6 +123,7 @@ namespace WindowsGame1
             obj = obj ?? new T();
             obj.Load(Instance.Content, position);
             FindObjectCollection<T>().Add(obj);
+            Modified = true;
         }
 
         public static void ReplaceObject<T>(IObject obj, T substitute = null) where T : class, IObject, new()
@@ -168,33 +179,51 @@ namespace WindowsGame1
 
         public static void Update()
         {
+            FindObject<MarioObject>().Update();
+
+            if (Camera.Adjusted || Modified)
+                foreach (var collection in Instance._objectList)
+                    for (var i = 0; i < collection.Count; i++)
+                    {
+                        var obj = (IObject) collection[i];
+                        if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                        else Camera.AddObject(obj);
+                    }
+
+            Modified = false;
+
             if (Instance.freeze)
             {
-                FindObject<MarioObject>().Update();
                 if (Instance.freezeTimer.Update()) RestoreWorld();
             }
-            else foreach (var collection in Instance._objectList)
-                for (var i = 0; i < collection.Count; i++)
-                    ((IObject) collection[i]).Update();
-            
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Instance.Reset();
-        }
+            else
+            {
+                for (var i = 0; i < Camera.ObjectList.Count; i++)
+                {
+                    if (Camera.ObjectList[i] is MarioObject) continue;
+                    Camera.ObjectList[i].Update();
+                }
+            }
 
-        public void Reset()
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reload();
+        }
+        
+        public static void Reload()
         {
-            foreach (var collection in _objectList)
-                for (var i = collection.Count - 1; i >= 0; i--)
-                    collection.Remove(collection[i]);
-            LoadLevel(Content);
+            foreach (var collection in Instance._objectList)
+                collection.Clear();
+            LoadLevel(Instance.Content);
             Camera.Reset();
+            Display.Reset();
+            Modified = true;
             RestoreWorld();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public static void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var collection in _objectList)
+            foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
-                    obj.Draw(spriteBatch);
+                    if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);
         }
     }
 }

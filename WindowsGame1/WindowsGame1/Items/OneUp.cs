@@ -15,15 +15,5 @@ namespace WindowsGame1
         {
             get { return false; }
         }
-
-        public static OneUp MakeOneUp
-        {
-            get
-            {
-                var instance = new OneUp();
-                instance.Core.StateController.MotionState.Generated();
-                return instance;
-            }
-        }
     }
 }

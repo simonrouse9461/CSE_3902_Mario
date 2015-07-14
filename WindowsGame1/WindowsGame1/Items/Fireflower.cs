@@ -15,15 +15,5 @@ namespace WindowsGame1
         {
             get { return false; }
         }
-
-        public Fireflower MakeFireflower
-        {
-            get
-            {
-                var instance = new Fireflower();
-                instance.Core.StateController.MotionState.Generated();
-                return instance;
-            }
-        }
     }
 }

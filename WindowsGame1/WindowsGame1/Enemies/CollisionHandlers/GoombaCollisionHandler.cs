@@ -10,12 +10,13 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (!Core.StateController.SpriteState.Dead) {
-               if (Core.CollisionDetector.Detect<MarioObject>(mario =>mario.StarPower).AnyEdge.Touch)
+            if (!Core.StateController.SpriteState.Dead)
+            {
+                if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
                 {
                     Core.StateController.MarioSmash();
                 }
-                if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown) ).Top.Touch)
+                if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
                 {
                     Core.StateController.MarioSmash();
                 }
@@ -25,29 +26,12 @@ namespace WindowsGame1
                 }
                 else
                 {
-                    if (Core.CollisionDetector.Detect<IObject>().AnySide.Touch)
+                    if (Core.CollisionDetector.Detect<IObject>(obj => obj.Solid).AnySide.Touch)
                     {
                         Core.StateController.Turn();
                     }
                 }
-                
             }
-
-
-
-            /*
-             *  if (Detector.Detect<MarioObject>(mario => mario.Alive).AnySide.Touch)
-            {
-                if (Detector.Detect<MarioObject>(mario => mario.Alive).Left.Touch)
-                {
-                    Core.MotionState.TakeMarioHitFromSide("left");
-                }
-                else
-                {
-                    Core.MotionState.TakeMarioHitFromSide("right");
-                }
-            }
-             */
         }
     }
 }

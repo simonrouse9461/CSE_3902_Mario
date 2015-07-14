@@ -2,26 +2,10 @@
 
 namespace WindowsGame1
 {
-    public class KoopaStateController : StateControllerKernel<KoopaSpriteState, KoopaMotionState>
+    public class GoombaStateController : StateControllerKernel<GoombaSpriteState, GoombaMotionState>
     {
-        private Collision collision;
-
-        private void CheckFloor()
-        {
-            if (!collision.Bottom.Touch)
-            {
-                MotionState.ObtainGravity();
-            }
-            else
-            {
-                MotionState.LoseGravity();
-            }
-        }
-
         public void Update()
         {
-            collision = Core.CollisionDetector.Detect<IBlock>();
-            CheckFloor();
         }
 
         public void MarioSmash()

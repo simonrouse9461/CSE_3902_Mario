@@ -1,4 +1,5 @@
 ﻿using System;
+using WindowsGame1.CommandExecutorDecorators;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
@@ -182,6 +183,7 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             SpriteState.GetFire();
+            Core.SwitchComponent(new FireMarioCommandExecutor(Core, (MarioCommandExecutor)Core.CommandExecutor));
         }
 
         public void Die()

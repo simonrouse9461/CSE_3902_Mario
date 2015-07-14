@@ -7,6 +7,8 @@ namespace WindowsGame1
     {
         public Koopa() {
             CollisionHandler = new KoopaCollisionHandler(Core);
+            BarrierHandler = new KoopaBarrierHandler(Core);
+            BarrierHandler.AddBarrier<IBlock>();
         }
 
         public override bool Solid
