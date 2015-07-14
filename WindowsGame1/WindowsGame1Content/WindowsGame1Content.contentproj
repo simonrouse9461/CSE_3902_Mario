@@ -111,6 +111,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\blockBreak.wav">
+      <Name>blockBreak</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\stomp.wav">
+      <Name>stomp</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Content Include="mario-1-1.gif">
       <Name>mario-1-1</Name>
     </Content>
@@ -118,6 +128,16 @@
       <Name>pipes green</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\overworldMusic.wma">
+      <Name>overworldMusic</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Audio\jump.wav">
+      <Name>jump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
