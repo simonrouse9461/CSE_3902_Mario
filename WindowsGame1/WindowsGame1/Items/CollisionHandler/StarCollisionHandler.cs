@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace WindowsGame1
@@ -18,6 +18,7 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<MarioObject>().AnySide.Touch)
             {
                 Core.Object.Unload();
+                Display.Increment<Star>();
             }
         }
     }
