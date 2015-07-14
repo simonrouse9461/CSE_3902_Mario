@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Collections.ObjectModel;
 
@@ -105,6 +105,7 @@ namespace WindowsGame1
         {
             OutgoingMotionStatus = MotionStatus;
             MotionStatus = MotionEnum.None;
+            Display.Increment<Koopa>();
         }
 
         public override void TakeMarioHitFromSide(string leftOrRight)
