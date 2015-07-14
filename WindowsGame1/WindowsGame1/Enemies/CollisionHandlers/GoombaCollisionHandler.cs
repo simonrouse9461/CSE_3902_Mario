@@ -15,17 +15,14 @@ namespace WindowsGame1
                 if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
                 {
                     Core.StateController.MarioSmash();
-                    Display.Increment<Goomba>();
                 }
                 if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
                 {
                     Core.StateController.MarioSmash();
-                    Display.Increment<Goomba>();
                 }
                 else if (Core.CollisionDetector.Detect<FireballObject>().AnyEdge.Touch || Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
                 {
                     Core.StateController.MarioSmash();
-                    Display.Increment<Goomba>();
                 }
                 else
                 {
