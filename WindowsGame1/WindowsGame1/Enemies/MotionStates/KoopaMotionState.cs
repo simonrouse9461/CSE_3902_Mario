@@ -105,7 +105,6 @@ namespace WindowsGame1
         {
             OutgoingMotionStatus = MotionStatus;
             MotionStatus = MotionEnum.None;
-            Display.Increment<Koopa>();
         }
 
         public override void TakeMarioHitFromSide(string leftOrRight)

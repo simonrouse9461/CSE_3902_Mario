@@ -16,6 +16,7 @@ namespace WindowsGame1
                 SpriteState.MarioSmash();
             });
 
+            Display.AddScore<Koopa>();
             SoundManager.StompSoundPlay();
         }
 

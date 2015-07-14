@@ -18,7 +18,7 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<MarioObject>().AnySide.Touch)
             {
                 Core.Object.Unload();
-                Display.Increment<Coin>();
+                Display.AddScore<Coin>();
             }
         }
     }

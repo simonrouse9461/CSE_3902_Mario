@@ -232,7 +232,7 @@
     <Compile Include="Motions\BounceUpMotion.cs" />
     <Compile Include="Motions\GravityMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
-    <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
+    <Compile Include="Mario\Commands\MarioDieCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
     <Compile Include="Mario\Commands\MarioFireCommand.cs" />
     <Compile Include="Mario\Commands\MarioLeftCommand.cs" />
