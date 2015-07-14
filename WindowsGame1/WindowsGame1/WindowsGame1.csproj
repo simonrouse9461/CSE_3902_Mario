@@ -135,6 +135,7 @@
     <Compile Include="Interfaces\IBarrierHandler.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
+    <Compile Include="Interfaces\IDecorator.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
