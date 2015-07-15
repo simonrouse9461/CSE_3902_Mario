@@ -2,18 +2,22 @@ using System;
 
 namespace WindowsGame1
 {
-    public class DamagedMarioCollisionHandler : MarioCollisionHandler
+    public class DamagedMarioCollisionHandler : MarioCollisionHandler, IDecorator
     {
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
-        public DamagedMarioCollisionHandler(CoreNew<MarioStateController> core, MarioCollisionHandler original) : base(core)
+        public DamagedMarioCollisionHandler(ICore core) : base(core)
         {
-            const int restoreTime = 200;
+            DefaultCollisionHandler = (MarioCollisionHandler)core.CollisionHandler;
+        }
 
-            DefaultCollisionHandler = original;
-            Core.StateController.TakeDamage(restoreTime);
+        public void Restore()
+        {
+            Core.SwitchComponent(DefaultCollisionHandler);
+        }
 
-            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler),
-                () => Core.CollisionHandler is DamagedMarioCollisionHandler, restoreTime);
+        public void DelayRestore(int timeDelay)
+        {
+            Core.DelayCommand(Restore, () => Core.CollisionHandler == this, timeDelay);
         }
 
         protected override void HandleEnemy() { }
@@ -24,7 +28,7 @@ namespace WindowsGame1
             {
                 Core.BarrierHandler.AddBarrier<Koopa>();
                 Core.BarrierHandler.AddBarrier<Goomba>();
-                Core.SwitchComponent(new StarMarioCollisionHandler(Core, DefaultCollisionHandler));
+                Core.SwitchComponent(new StarMarioCollisionHandler(Core));
             }
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class GoombaCollisionHandler : CollisionHandlerKernelNew<GoombaStateController>
+    public class GoombaCollisionHandler : CollisionHandlerKernel<GoombaStateController>
     {
         public GoombaCollisionHandler(ICore core) : base(core){}
 

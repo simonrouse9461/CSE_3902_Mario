@@ -2,19 +2,23 @@ using System;
 
 namespace WindowsGame1
 {
-    public class StarMarioCollisionHandler : MarioCollisionHandler
+    public class StarMarioCollisionHandler : MarioCollisionHandler, IDecorator
     {
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
-        public StarMarioCollisionHandler(CoreNew<MarioStateController> core, MarioCollisionHandler original) : base(core)
+
+        public StarMarioCollisionHandler(ICore core) : base(core)
         {
-            const int slowDownTime = 200;
-            const int stopTime = 300;
+            DefaultCollisionHandler = (MarioCollisionHandler)core.CollisionHandler;
+        }
 
-            DefaultCollisionHandler = original;
-            Core.StateController.GetStarPower(slowDownTime, stopTime);
+        public void Restore()
+        {
+            Core.SwitchComponent(DefaultCollisionHandler);
+        }
 
-            Core.DelayCommand(() => Core.SwitchComponent(DefaultCollisionHandler), 
-                () => Core.CollisionHandler is StarMarioCollisionHandler, stopTime);
+        public void DelayRestore(int timeDelay)
+        {
+            Core.DelayCommand(Restore, () => Core.CollisionHandler == this, timeDelay);
         }
 
         protected override void HandleEnemy() { }

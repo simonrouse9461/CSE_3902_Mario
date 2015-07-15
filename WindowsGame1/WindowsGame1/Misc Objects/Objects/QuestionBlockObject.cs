@@ -7,29 +7,20 @@ namespace WindowsGame1
 {
     public class QuestionBlockObject : BlockKernel
     {
-        private enum Version
-        {
-            Item,
-            Coin,
-            Default
-        }
-      
-        private Version version;
 
         public QuestionBlockObject()
         {
             StateController.QuestionBlock();
-            CollisionHandler = new BlockCollisionHandler(Core);
+            CollisionHandler = new QuestionBlockCollisionHandler(Core);
         }
 
         public static QuestionBlockObject ItemQuestionBlock
         {
             get
             {
-                return new QuestionBlockObject
-                {
-                    version = Version.Item
-                };              
+                var instance = new QuestionBlockObject();
+                instance.Core.StateController.hasItem();
+                return instance;
             }
         }
 
@@ -37,11 +28,10 @@ namespace WindowsGame1
         {
             get
             {
-                return new QuestionBlockObject
-                {
-                    version = Version.Coin
-                };           
+                var instance = new QuestionBlockObject();
+                instance.Core.StateController.hasCoin();
+                return instance;
             }
-        }
+        }       
     }
 }

@@ -8,7 +8,14 @@ namespace WindowsGame1
         public void Generated()
         {
             MotionState.Generated();
+        }
 
+        public override void Update()
+        {
+            if (MotionState.StopMoving)
+            {
+                Core.Object.Unload();
+            }
         }
     }
 }

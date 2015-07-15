@@ -8,7 +8,7 @@ namespace WindowsGame1
     public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
         where TStateController : IStateController, new()
     {
-        public CoreNew<TStateController> Core { get; set; }
+        public Core<TStateController> Core { get; set; }
         private Collection<Type> RegisteredCommands { get; set; }
         private Collection<StatusSwitch<Type>> CurrentStatus { get; set; }
         private Collection<StatusSwitch<Type>> PreviousStatus { get; set; }
@@ -31,10 +31,10 @@ namespace WindowsGame1
 
         protected CommandExecutorKernel(ICore core)
         {
-            if (core is CoreNew<TStateController>)
-                Core = (CoreNew<TStateController>)core;
+            if (core is Core<TStateController>)
+                Core = (Core<TStateController>)core;
             else
-                Core = new CoreNew<TStateController>(core.Object)
+                Core = new Core<TStateController>(core.Object)
                 {
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,

@@ -5,31 +5,30 @@ namespace WindowsGame1
 {
     public class NormalBlockObject : BlockKernel, IBlock
     {
-        private enum Version
-        {
-            Default,
-            Coin,
-            Star
-        }
-
-        public bool giveStar { get; set; }
-        public bool giveCoin { get; set; }
-        private Version version;
 
         public NormalBlockObject()
         {
             StateController.NormalBlock();
-            CollisionHandler = new BlockCollisionHandler(Core);
+            CollisionHandler = new NormalBlockCollisionHandler(Core);
         }
 
         public static NormalBlockObject CoinNormalBlock
         {
             get
             {
-                return new NormalBlockObject
-                {
-                    version = Version.Coin
-                };
+                var instance = new NormalBlockObject();
+                instance.Core.StateController.hasCoin();
+                return instance;
+            }
+        }
+
+        public static NormalBlockObject StarNormalBlock
+        {
+            get
+            {
+                var instance = new NormalBlockObject();
+                instance.Core.StateController.hasStar();
+                return instance;
             }
         }
     }

@@ -7,7 +7,6 @@ namespace WindowsGame1
 {
     public class SmallGreenPipeSprite : SpriteKernel
     {
-
         public SmallGreenPipeSprite()
         {
             ImageFile.Default = "pipes green";

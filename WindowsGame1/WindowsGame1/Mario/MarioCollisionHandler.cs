@@ -3,7 +3,7 @@ using WindowsGame1.CommandExecutorDecorators;
 
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
+    public class MarioCollisionHandler : CollisionHandlerKernel<MarioStateController>
     {
         public MarioCollisionHandler(ICore core) : base(core){}
 
@@ -21,10 +21,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Mushroom>().AnyEdge.Touch)
             {
-                if (Core.StateController.SpriteState.Small)
-                {
-                    Core.StateController.Grow();
-                }
+                Core.DelayCommand(Core.StateController.Grow, 5);
             }
         }
 
@@ -32,13 +29,13 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
-                Core.SwitchComponent(new StarMarioCollisionHandler(Core, this));
+                Core.StateController.GetStarPower(200, 300);
             } 
         }
 
         protected virtual void HandleFireflower()
         {
-            if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch && !Core.StateController.SpriteState.HaveFire)
+            if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
                 Core.StateController.GetFire();
             }
@@ -46,22 +43,11 @@ namespace WindowsGame1
 
         protected virtual void HandleEnemy()
         {
-            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive);
-            if (collision.AnySide.Touch)
+            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch)
             {
-                if (Core.StateController.SpriteState.Small)
-                {
-                    Core.StateController.Die();
-                }
-                if (Core.StateController.SpriteState.Big || Core.StateController.SpriteState.HaveFire)
-                {
-                    if (Core.StateController.SpriteState.HaveFire)
-                        Core.SwitchComponent(((FireMarioCommandExecutor)Core.CommandExecutor).DefaultCommandExecutor);
-                    Core.SwitchComponent(new DamagedMarioCollisionHandler(Core, this));
-                }
+                Core.StateController.TakeDamage(200);
             }
-            collision = Core.CollisionDetector.Detect<IEnemy>();
-            if (collision.Bottom.Touch)
+            if (Core.CollisionDetector.Detect<IEnemy>().Bottom.Touch)
             {
                 Core.StateController.Bounce();
             }

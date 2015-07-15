@@ -34,50 +34,48 @@ namespace WindowsGame1
             MotionStatus = MotionEnum.LeftWalk;
         }
 
-        protected override void RefreshMotionStatus()
-        {
-            if (OutgoingMotionStatus != MotionEnum.Null) {
-                if (OutgoingMotionStatus == MotionEnum.LeftWalk)
-                {
-                    FindMotion<MoveLeftMotion>().Toggle(false);
-                }
-                else if (OutgoingMotionStatus == MotionEnum.RightWalk)
-                {
-                    FindMotion<MoveRightMotion>().Toggle(false);
-                }
+        // this method has been abandoned
 
-                OutgoingMotionStatus = MotionEnum.Null;
-            }
-
-            switch (MotionStatus)
-            {
-                case MotionEnum.LeftWalk:
-                    FindMotion<MoveLeftMotion>().Toggle(true);
-                    break;
-                case MotionEnum.RightWalk:
-                    FindMotion<MoveRightMotion>().Toggle(true);
-                    break;
-                case MotionEnum.LeftShellKick:
-                    FindMotion<MoveLeftFastMotion>().Toggle(true);
-                    break;
-                case MotionEnum.RightShellKick:
-                    FindMotion<MoveRightFastMotion>().Toggle(true);
-                    break;
-            }
-
-            if (Gravity)
-            {
-                FindMotion<GravityMotion>().Toggle(true);
-            }
-            else
-            {
-                FindMotion<GravityMotion>().Toggle(false);
-            }
-        }
-
-        protected override void SetToDefaultState()
-        {
-        }
+//        protected override void RefreshMotionStatus()
+//        {
+//            if (OutgoingMotionStatus != MotionEnum.Null) {
+//                if (OutgoingMotionStatus == MotionEnum.LeftWalk)
+//                {
+//                    FindMotion<MoveLeftMotion>().Toggle(false);
+//                }
+//                else if (OutgoingMotionStatus == MotionEnum.RightWalk)
+//                {
+//                    FindMotion<MoveRightMotion>().Toggle(false);
+//                }
+//
+//                OutgoingMotionStatus = MotionEnum.Null;
+//            }
+//
+//            switch (MotionStatus)
+//            {
+//                case MotionEnum.LeftWalk:
+//                    FindMotion<MoveLeftMotion>().Toggle(true);
+//                    break;
+//                case MotionEnum.RightWalk:
+//                    FindMotion<MoveRightMotion>().Toggle(true);
+//                    break;
+//                case MotionEnum.LeftShellKick:
+//                    FindMotion<MoveLeftFastMotion>().Toggle(true);
+//                    break;
+//                case MotionEnum.RightShellKick:
+//                    FindMotion<MoveRightFastMotion>().Toggle(true);
+//                    break;
+//            }
+//
+//            if (Gravity)
+//            {
+//                FindMotion<GravityMotion>().Toggle(true);
+//            }
+//            else
+//            {
+//                FindMotion<GravityMotion>().Toggle(false);
+//            }
+//        }
 
         public override void Turn()
         {
@@ -105,7 +103,6 @@ namespace WindowsGame1
         {
             OutgoingMotionStatus = MotionStatus;
             MotionStatus = MotionEnum.None;
-            Display.Increment<Koopa>();
         }
 
         public override void TakeMarioHitFromSide(string leftOrRight)

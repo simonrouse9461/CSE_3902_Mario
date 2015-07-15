@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class StarCollisionHandler : CollisionHandlerKernelNew<StarStateController>
+    public class StarCollisionHandler : CollisionHandlerKernel<StarStateController>
     {
 
         public StarCollisionHandler(ICore core) : base(core) { }
@@ -18,7 +18,7 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<MarioObject>().AnySide.Touch)
             {
                 Core.Object.Unload();
-                Display.Increment<Star>();
+                Display.AddScore<Star>();
             }
         }
     }

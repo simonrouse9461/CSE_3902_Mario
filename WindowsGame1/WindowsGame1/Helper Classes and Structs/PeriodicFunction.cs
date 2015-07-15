@@ -20,9 +20,9 @@ namespace WindowsGame1
             Circulator.Reset(); 
         }
 
-        public void Update(int phase = -1)
+        public bool Update(int phase = -1)
         {
-            Circulator.Update(phase);
+            return Circulator.Update(phase);
         }
 
         public T Value

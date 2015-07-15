@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public class FireballCollisionHandler : CollisionHandlerKernelNew<FireballStateController>
+    public class FireballCollisionHandler : CollisionHandlerKernel<FireballStateController>
     {
 
         public FireballCollisionHandler(ICore core) : base(core) {}

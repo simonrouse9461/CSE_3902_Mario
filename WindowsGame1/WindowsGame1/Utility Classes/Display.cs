@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -27,7 +28,7 @@ namespace WindowsGame1
                 _time = value <= 0 ? 0 : value;
                 if (Time == 0)
                 {
-                    new MarioDeadCommand().Execute();
+                    new MarioDieCommand().Execute();
                     TimeUp = true;
                 }
             }
@@ -50,7 +51,7 @@ namespace WindowsGame1
             ptime = new Vector2 {X = 670, Y = 15};
             ptimeup = new Vector2 {X = 305, Y = 195};
             Level = "1-1";
-            MaxTime = 20;
+            MaxTime = 60;
         }
 
         private static Display Instance
@@ -79,22 +80,23 @@ namespace WindowsGame1
             Font.LineSpacing = 20;
         }
 
-        public static void Increment<T>() where T : IObject
+        public static void AddScore<T>(T obj = null) where T : class, IObject
         {
-            if (typeof (Mushroom).IsAssignableFrom(typeof (T)))
+            var type = obj == null ? typeof (T) : obj.GetType();
+            if (typeof (Mushroom).IsAssignableFrom(type))
             {
                 Instance.Score += 10;
             }
-            if (typeof (Coin).IsAssignableFrom(typeof (T)))
+            if (typeof (Coin).IsAssignableFrom(type))
             {
                 Instance.Score += 5;
                 Instance.Coins += 1;
             }
-            if (typeof (Fireflower).IsAssignableFrom(typeof (T)))
+            if (typeof (Fireflower).IsAssignableFrom(type))
             {
                 Instance.Score += 10;
             }
-            if (typeof (IEnemy).IsAssignableFrom(typeof (T)))
+            if (typeof (IEnemy).IsAssignableFrom(type))
             {
                 Instance.Score += 100;
             }

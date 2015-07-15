@@ -5,17 +5,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernelNew<TStateController> : IObject
+    public abstract class ObjectKernel<TStateController> : IObject
         where TStateController : IStateController, new()
     {
         // Constructor
-        protected ObjectKernelNew()
+        protected ObjectKernel()
         {
-            Core = new CoreNew<TStateController>(this);
+            Core = new Core<TStateController>(this);
         } 
 
         // Object core that wraps all internal components of the object
-        protected CoreNew<TStateController> Core { get; set; }
+        protected Core<TStateController> Core { get; set; }
 
         // Temporarily made for test cases
         public ICore CoreGetter
@@ -139,6 +139,7 @@ namespace WindowsGame1
             if (haveBarrierHandler) BarrierHandler.Update();
             if (haveBarrierHandler) BarrierHandler.ResetVelocity();
             if (haveBarrierHandler) BarrierHandler.HandleCollision();
+            StateController.Update();
             StateController.RefreshState();
             if (haveBarrierHandler) BarrierHandler.HandleOverlap();
             if (CollisionHandler != null) CollisionHandler.Handle();

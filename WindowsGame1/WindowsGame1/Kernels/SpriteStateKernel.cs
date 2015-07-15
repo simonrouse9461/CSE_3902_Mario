@@ -19,7 +19,15 @@ namespace WindowsGame1
             return SpriteList.First(sprite => sprite is T);
         }
 
-        public abstract ISprite Sprite { get; }
+        public ISprite Sprite
+        {
+            get { return Frozen ? FrozenSprite : RawSprite; }
+        }
+
+        protected abstract ISprite RawSprite { get; }
+        private ISprite LastSprite { get; set; }
+        private ISprite FrozenSprite { get; set; }
+        
 
         protected virtual ColorAnimator ColorScheme { get { return null; } }
 
@@ -32,11 +40,23 @@ namespace WindowsGame1
 
         public virtual bool Right { get { return false; } }
 
+        public bool Frozen { get; private set; }
 
         protected SpriteStateKernel()
         {
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
+        }
+
+        public void Freeze()
+        {
+            FrozenSprite = Sprite;
+            Frozen = true;
+        }
+
+        public void Restore()
+        {
+            Frozen = false;
         }
 
         public void Load(ContentManager content)
@@ -73,10 +93,8 @@ namespace WindowsGame1
 
         public virtual void Update()
         {
-            if (SpriteTimer.Update())
-            {
-                Sprite.Update();
-            }
+            if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
+            if (SpriteTimer.Update()) Sprite.Update();
             if (ColorTimer.Update() &&ColorSchemeList != null)
             {
                 foreach (var colorAnimator in ColorSchemeList)
@@ -84,6 +102,7 @@ namespace WindowsGame1
                     colorAnimator.Update();
                 }
             }
+            LastSprite = Sprite;
         }
     }
 }

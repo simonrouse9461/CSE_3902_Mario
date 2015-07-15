@@ -2,17 +2,17 @@
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
 
-    <Item>
+    <!--<Item>
       <Type>Mushroom</Type>
       <Version></Version>
       <Location>730 398</Location>
-    </Item>
+    </Item>-->
 
-    <Item>
+    <!--<Item>
       <Type>Fireflower</Type>
       <Version></Version>
       <Location>658 400</Location>
-    </Item>
+    </Item>-->
     <Item>
       <Type>Goomba</Type>
       <Version></Version>
@@ -156,8 +156,8 @@
       <Location>2048 290</Location>
     </Item>
     <Item>
-      <Type>HiddenBlockObject</Type>
-      <Version>StarHiddenBlock</Version>
+      <Type>NormalBlockObject</Type>
+      <Version>StarNormalBlock</Version>
       <Location>3224 320</Location>
     </Item>
 

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class SecretPipeObject : GreenPipeObject
+    public class SecretPipeObject : GreenPipeObject, IPipe
     {
         private enum Version
         {

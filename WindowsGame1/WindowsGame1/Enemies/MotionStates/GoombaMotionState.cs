@@ -28,37 +28,36 @@ namespace WindowsGame1
             LoseGravity();
         }
 
-        protected override void RefreshMotionStatus()
-        {
-            switch (MotionStatus)
-            {
-                case MotionEnum.None:
-                    FindMotion<MoveLeftMotion>().Toggle(false);
-                    FindMotion<MoveRightMotion>().Toggle(false);
-                    break;
-                case MotionEnum.LeftWalk:
-                    FindMotion<MoveLeftMotion>().Toggle(true);
-                    FindMotion<MoveRightMotion>().Toggle(false);
-                    break;
-                case MotionEnum.RightWalk:
-                    FindMotion<MoveLeftMotion>().Toggle(false);
-                    FindMotion<MoveRightMotion>().Toggle(true);
-                    break;
-            }
+        // this method has been abandoned
 
-            if (Gravity)
-            {
-                FindMotion<GravityMotion>().Toggle(true);
-            }
-            else
-            {
-                FindMotion<GravityMotion>().Toggle(false);
-            }
-        }
+//        protected override void RefreshMotionStatus()
+//        {
+//            switch (MotionStatus)
+//            {
+//                case MotionEnum.None:
+//                    FindMotion<MoveLeftMotion>().Toggle(false);
+//                    FindMotion<MoveRightMotion>().Toggle(false);
+//                    break;
+//                case MotionEnum.LeftWalk:
+//                    FindMotion<MoveLeftMotion>().Toggle(true);
+//                    FindMotion<MoveRightMotion>().Toggle(false);
+//                    break;
+//                case MotionEnum.RightWalk:
+//                    FindMotion<MoveLeftMotion>().Toggle(false);
+//                    FindMotion<MoveRightMotion>().Toggle(true);
+//                    break;
+//            }
+//
+//            if (Gravity)
+//            {
+//                FindMotion<GravityMotion>().Toggle(true);
+//            }
+//            else
+//            {
+//                FindMotion<GravityMotion>().Toggle(false);
+//            }
+//        }
 
-        protected override void SetToDefaultState()
-        {
-        }
 
         public override void Turn()
         {
@@ -75,7 +74,6 @@ namespace WindowsGame1
         public override void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
-            Display.Increment<Goomba>();
         }
 
 

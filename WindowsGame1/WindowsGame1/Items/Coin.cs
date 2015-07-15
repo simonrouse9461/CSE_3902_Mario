@@ -2,11 +2,12 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Coin : ObjectKernelNew<CoinStateController>, IItem
+    public  class Coin : ObjectKernel<CoinStateController>, IItem
     {
         public Coin()
         {
             CollisionHandler = new CoinCollisionHandler(Core);
+            Core.StateController.MotionState.Generated();
         }
 
         // make it not solid so that anything can pass through it

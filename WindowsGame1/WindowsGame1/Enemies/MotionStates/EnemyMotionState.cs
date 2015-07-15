@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsGame1
 {
-    public abstract class EnemyMotionState : MotionStateKernel
+    public abstract class EnemyMotionState : MotionStateKernelNew
     {
         public bool Gravity { get; protected set; }
 

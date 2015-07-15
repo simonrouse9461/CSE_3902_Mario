@@ -14,29 +14,5 @@ namespace WindowsGame1
         {
             MotionState.Moving();
         }
-
-
-
-
-
-        //private Collision collision;
-
-        //private void CheckFloor()
-        //{
-        //    if (!collision.Bottom.Touch)
-        //    {
-        //        MotionState.ObtainGravity();
-        //    }
-        //    else
-        //    {
-        //        MotionState.LoseGravity();
-        //    }
-        //}
-
-        //public void Update()
-        //{
-        //    collision = Core.CollisionDetector.Detect<IBlock>();
-        //    CheckFloor();
-        //}
     }
 }
