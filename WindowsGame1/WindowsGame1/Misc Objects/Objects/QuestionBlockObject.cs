@@ -7,14 +7,6 @@ namespace WindowsGame1
 {
     public class QuestionBlockObject : BlockKernel
     {
-        public enum Version
-        {
-            Item,
-            Coin,
-            Default
-        }
-      
-        public Version version = Version.Default;
 
         public QuestionBlockObject()
         {
@@ -26,12 +18,9 @@ namespace WindowsGame1
         {
             get
             {
-                
-                return new QuestionBlockObject
-                {
-                    version = Version.Item
-                };  
-                
+                var instance = new QuestionBlockObject();
+                instance.Core.StateController.hasItem();
+                return instance;
             }
         }
 
@@ -39,21 +28,10 @@ namespace WindowsGame1
         {
             get
             {
-                return new QuestionBlockObject
-                {
-                    version = Version.Coin
-                };           
+                var instance = new QuestionBlockObject();
+                instance.Core.StateController.hasCoin();
+                return instance;
             }
-        }
-
-        public bool isItem
-        {
-            get
-            {
-                return version == Version.Item;
-            }
-        }
-
-        
+        }       
     }
 }
