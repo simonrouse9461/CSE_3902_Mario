@@ -51,7 +51,7 @@ namespace WindowsGame1
             ptime = new Vector2 {X = 670, Y = 15};
             ptimeup = new Vector2 {X = 305, Y = 195};
             Level = "1-1";
-            MaxTime = 20;
+            MaxTime = 60;
         }
 
         private static Display Instance
