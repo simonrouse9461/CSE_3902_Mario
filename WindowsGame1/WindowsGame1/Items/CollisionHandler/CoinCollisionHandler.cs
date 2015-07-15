@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class CoinCollisionHandler : CollisionHandlerKernelNew<CoinStateController>
+    public class CoinCollisionHandler : CollisionHandlerKernel<CoinStateController>
     {
 
         public CoinCollisionHandler(ICore core) : base(core) { }

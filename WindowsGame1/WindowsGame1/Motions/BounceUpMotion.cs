@@ -119,9 +119,9 @@ namespace WindowsGame1
                 return new BounceUpMotion
                 {
                     version = Version.Coin,
-                    StartVelocity = new Vector2(0, -8f),
-                    Acceleration = new Vector2(0, 0.3f),
-                    MaxVelocity = new Vector2(0, 3f),
+                    StartVelocity = new Vector2(0, -10f),
+                    Acceleration = new Vector2(0, 0.5f),
+                    MaxVelocity = new Vector2(0, 6f),
                     InvolveGravity = false,
                     FinishWhenMax = true
                 };

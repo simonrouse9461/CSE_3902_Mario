@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class MushroomCollisionHandler : CollisionHandlerKernelNew<MushroomStateController>
+    public class MushroomCollisionHandler : CollisionHandlerKernel<MushroomStateController>
     {
 
         public MushroomCollisionHandler(ICore core) : base(core){ }

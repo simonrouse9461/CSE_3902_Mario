@@ -158,11 +158,11 @@
     <Compile Include="Items\StateControllers\OneUpStateController.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomMotionState.cs" />
-    <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Kernels\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Kernels\BackgroundObjectKernel.cs" />
-    <Compile Include="Kernels\ObjectKernelNew.cs" />
+    <Compile Include="Kernels\ObjectKernel.cs" />
     <Compile Include="Kernels\StateControllerKernel.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
@@ -297,7 +297,7 @@
     <Compile Include="Utility Classes\CollisionType.cs" />
     <Compile Include="Utility Classes\ColorAnimator.cs" />
     <Compile Include="Utility Classes\CommandManager.cs" />
-    <Compile Include="Utility Classes\CoreNew.cs" />
+    <Compile Include="Utility Classes\Core.cs" />
     <Compile Include="Helper Classes and Structs\Counter.cs" />
     <Compile Include="Utility Classes\DefaultBarrierHandler.cs" />
     <Compile Include="Helper Classes and Structs\PeriodicFunction.cs" />
