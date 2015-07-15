@@ -7,14 +7,14 @@ namespace WindowsGame1
 {
     public class QuestionBlockObject : BlockKernel
     {
-        private enum Version
+        public enum Version
         {
             Item,
             Coin,
             Default
         }
       
-        private Version version = Version.Default;
+        public Version version = Version.Default;
 
         public QuestionBlockObject()
         {
@@ -26,10 +26,12 @@ namespace WindowsGame1
         {
             get
             {
+                
                 return new QuestionBlockObject
                 {
                     version = Version.Item
-                };              
+                };  
+                
             }
         }
 
@@ -43,5 +45,15 @@ namespace WindowsGame1
                 };           
             }
         }
+
+        public bool isItem
+        {
+            get
+            {
+                return version == Version.Item;
+            }
+        }
+
+        
     }
 }
