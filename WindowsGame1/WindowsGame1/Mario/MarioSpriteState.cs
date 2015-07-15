@@ -159,12 +159,10 @@ namespace WindowsGame1
                     case ActionEnum.Grow:
                         switch (Status)
                         {
-                            case StatusEnum.Small:
-                                return FindSprite<GrowingBigMarioSprite>();
                             case StatusEnum.Big:
-                                return FindSprite<GrowingFireMarioSprite>();
+                                return FindSprite<GrowingBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return FindSprite<StandingFireMarioSprite>();
+                                return FindSprite<GrowingFireMarioSprite>();
                         }
                         break;
                     case ActionEnum.Back:
@@ -186,7 +184,7 @@ namespace WindowsGame1
                         }
                         break;
                 }
-                return SpriteList[0];
+                return null;
             }
         }
 
@@ -231,17 +229,6 @@ namespace WindowsGame1
             Orientation = OrientationEnum.Default;
         }
 
-        public void BecomeBig()
-        {
-            Status = StatusEnum.Big;
-            Action = ActionEnum.Grow;
-        }
-
-        public bool Big
-        {
-            get { return Status == StatusEnum.Big; }
-        }
-
         public void BecomeSmall()
         {
             Status = StatusEnum.Small;
@@ -266,6 +253,17 @@ namespace WindowsGame1
             get { return Status == StatusEnum.Dead; }
         }
 
+        public void GrowBig()
+        {
+            Status = StatusEnum.Big;
+            Action = ActionEnum.Grow;
+        }
+
+        public bool Big
+        {
+            get { return Status == StatusEnum.Big; }
+        }
+
         public void GetFire()
         {
             Status = StatusEnum.Fire;
@@ -275,6 +273,20 @@ namespace WindowsGame1
         public bool HaveFire
         {
             get { return Status == StatusEnum.Fire; }
+        }
+
+        public bool Growing
+        {
+            get { return Action == ActionEnum.Grow; }
+        }
+
+        public bool FinishGrow
+        {
+            get
+            {
+                return Big && FindSprite<GrowingBigMarioSprite>().Cycle == 1 ||
+                       HaveFire && FindSprite<GrowingFireMarioSprite>().Cycle == 1;
+            }
         }
 
         public void StarPower()
@@ -397,9 +409,5 @@ namespace WindowsGame1
             get { return Action == ActionEnum.Shoot; }
         }
 
-        public bool Growing
-        {
-            get { return Action == ActionEnum.Grow; }
-        }
     }
 }
