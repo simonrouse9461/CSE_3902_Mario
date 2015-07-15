@@ -2,13 +2,13 @@
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
 
-    <Item>
+    <!--<Item>
       <Type>Mushroom</Type>
       <Version></Version>
       <Location>500 400</Location>
     </Item>
 
-    <!--<Item>
+    <Item>
       <Type>Fireflower</Type>
       <Version></Version>
       <Location>600 400</Location>
@@ -18,7 +18,7 @@
       <Type>Star</Type>
       <Version></Version>
       <Location>700 400</Location>
-    </Item>
+    </Item>-->
     
     <Item>
       <Type>Goomba</Type>
