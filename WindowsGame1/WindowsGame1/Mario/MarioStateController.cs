@@ -32,7 +32,11 @@ namespace WindowsGame1
 
         public override void Update()
         {
-            if (SpriteState.FinishGrow) DefaultAction();
+            if (SpriteState.FinishGrow)
+            {
+                DefaultAction();
+                ((IDecorator)Core.CommandExecutor).Restore();
+            }
         }
 
         public void ReloadAmmo()
@@ -182,6 +186,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
             SpriteState.GrowBig();
+            Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
         }
 
         public void GetFire()
@@ -189,7 +194,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (SpriteState.HaveFire) return;
             SpriteState.GetFire();
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core, Core.CommandExecutor));
+            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
 
         public void Die()
@@ -215,7 +220,7 @@ namespace WindowsGame1
 
         public void GetStarPower(int slowDownTime, int stopTime)
         {
-            var decorator = new StarMarioCollisionHandler(Core, Core.CollisionHandler);
+            var decorator = new StarMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
 
@@ -235,7 +240,7 @@ namespace WindowsGame1
 
             if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
 
-            var decorator = new DamagedMarioCollisionHandler(Core, Core.CollisionHandler);
+            var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 

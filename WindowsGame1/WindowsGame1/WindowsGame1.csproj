@@ -140,7 +140,6 @@
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
-    <Compile Include="Items\BarrierHandlers\FireflowerBarrierHandler.cs" />
     <Compile Include="Items\BarrierHandlers\MushroomBarrierHandler.cs" />
     <Compile Include="Items\BarrierHandlers\OneUpBarrierHandler.cs" />
     <Compile Include="Items\BarrierHandlers\StarBarrierHandler.cs" />

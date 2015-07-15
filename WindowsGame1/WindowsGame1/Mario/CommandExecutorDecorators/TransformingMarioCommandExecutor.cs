@@ -7,9 +7,9 @@ namespace WindowsGame1.CommandExecutorDecorators
     public class TransformingMarioCommandExecutor : MarioCommandExecutor, IDecorator
     {
         public MarioCommandExecutor DefaultCommandExecutor { get; private set; }
-        public TransformingMarioCommandExecutor(ICore core, MarioCommandExecutor original) : base(core)
+        public TransformingMarioCommandExecutor(ICore core) : base(core)
         {
-            DefaultCommandExecutor = original;
+            DefaultCommandExecutor = (MarioCommandExecutor)core.CommandExecutor;
             ClearCommands();
             RegisterCommand(typeof (MarioDieCommand), () => Core.StateController.Die());
         }
