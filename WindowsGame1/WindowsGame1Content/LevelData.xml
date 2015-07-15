@@ -156,8 +156,8 @@
       <Location>2048 290</Location>
     </Item>
     <Item>
-      <Type>HiddenBlockObject</Type>
-      <Version>StarHiddenBlock</Version>
+      <Type>NormalBlockObject</Type>
+      <Version>StarNormalBlock</Version>
       <Location>3224 320</Location>
     </Item>
 

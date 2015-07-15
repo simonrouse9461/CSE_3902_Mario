@@ -178,7 +178,6 @@
     <Compile Include="Fireball\FireBallBarrierHandler.cs" />
     <Compile Include="Fireball\FireballStateController.cs" />
     <Compile Include="Misc Objects\Collision\HiddenBlockCollisionHandler.cs" />
-    <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\Collision\QuestionBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\IPipe.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
@@ -232,7 +231,6 @@
     <Compile Include="Mario\Sprites\JumpingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingFireMarioSprite.cs" />
     <Compile Include="Mario\Sprites\JumpingSmallMarioSprite.cs" />
-    <Compile Include="Misc Objects\Collision\BlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\IBlock.cs" />
     <Compile Include="Misc Objects\SpriteState\BlockSpriteState.cs" />
     <Compile Include="Motions\AccelerateMotion.cs" />
