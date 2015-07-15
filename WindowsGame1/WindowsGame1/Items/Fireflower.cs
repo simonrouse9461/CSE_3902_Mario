@@ -9,6 +9,7 @@ namespace WindowsGame1
         {
             CollisionHandler = new FireflowerCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
+            BarrierHandler = new FireflowerBarrierHandler(Core);
         }
 
         // make it not solid so that anything can pass through it
