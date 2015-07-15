@@ -141,11 +141,10 @@ namespace WindowsGame1
         public void Jump()
         {
             if (SpriteState.Dead) return;
-            if (!MotionState.HaveInertia)
-            {
-                MotionState.Jump();
-                SpriteState.Jump();
-            }
+            if (MotionState.HaveInertia) return;
+            MotionState.Jump();
+            SpriteState.Jump();
+            SoundManager.JumpSoundPlay();
         }
 
         public void Bounce()
@@ -164,7 +163,7 @@ namespace WindowsGame1
         public void Crouch()
         {
             if (SpriteState.Dead) return;
-            SpriteState.Crouch();
+            SpriteState.TryCrouch();
             MotionState.Stop();
         }
 
@@ -176,14 +175,16 @@ namespace WindowsGame1
         public void Grow()
         {
             if (SpriteState.Dead) return;
+            if (!SpriteState.Small) return;
             SpriteState.BecomeBig();
         }
 
         public void GetFire()
         {
             if (SpriteState.Dead) return;
+            if (SpriteState.HaveFire) return;
             SpriteState.GetFire();
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core, (MarioCommandExecutor)Core.CommandExecutor));
+            Core.SwitchComponent(new FireMarioCommandExecutor(Core, Core.CommandExecutor));
         }
 
         public void Die()
@@ -209,6 +210,10 @@ namespace WindowsGame1
 
         public void GetStarPower(int slowDownTime, int stopTime)
         {
+            var decorator = new StarMarioCollisionHandler(Core, Core.CollisionHandler);
+            Core.SwitchComponent(decorator);
+            decorator.DelayRestore(stopTime);
+
             SpriteState.StarPower();
             SpriteState.ChangeColorFrequency(8);
             Core.DelayCommand(() => SpriteState.ChangeColorFrequency(16), () => SpriteState.HaveStarPower, slowDownTime);
@@ -217,6 +222,18 @@ namespace WindowsGame1
 
         public void TakeDamage(int restoreTime)
         {
+            if (SpriteState.Small)
+            {
+                Die();
+                return;
+            }
+
+            if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
+
+            var decorator = new DamagedMarioCollisionHandler(Core, Core.CollisionHandler);
+            Core.SwitchComponent(decorator);
+            decorator.DelayRestore(restoreTime);
+
             SpriteState.BecomeSmall();
             SpriteState.BecomeBlink();
             SpriteState.ChangeColorFrequency(2);

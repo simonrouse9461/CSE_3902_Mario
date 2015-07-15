@@ -135,10 +135,14 @@
     <Compile Include="Interfaces\IBarrierHandler.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
+    <Compile Include="Interfaces\IDecorator.cs" />
     <Compile Include="Interfaces\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteState.cs" />
     <Compile Include="Interfaces\ICore.cs" />
     <Compile Include="Interfaces\IStateController.cs" />
+    <Compile Include="Items\BarrierHandlers\MushroomBarrierHandler.cs" />
+    <Compile Include="Items\BarrierHandlers\OneUpBarrierHandler.cs" />
+    <Compile Include="Items\BarrierHandlers\StarBarrierHandler.cs" />
     <Compile Include="Items\CollisionHandler\CoinCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\FireflowerCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\MushroomCollisionHandler.cs" />
@@ -173,6 +177,10 @@
     <Compile Include="Fireball\FireballCollisionHandler.cs" />
     <Compile Include="Fireball\FireBallBarrierHandler.cs" />
     <Compile Include="Fireball\FireballStateController.cs" />
+    <Compile Include="Misc Objects\Collision\HiddenBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\Collision\QuestionBlockCollisionHandler.cs" />
+    <Compile Include="Misc Objects\IPipe.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
     <Compile Include="Fireball\FireballMotionState.cs" />
@@ -231,7 +239,7 @@
     <Compile Include="Motions\BounceUpMotion.cs" />
     <Compile Include="Motions\GravityMotion.cs" />
     <Compile Include="Motions\NullMotion.cs" />
-    <Compile Include="Mario\Commands\MarioDeadCommand.cs" />
+    <Compile Include="Mario\Commands\MarioDieCommand.cs" />
     <Compile Include="Mario\Commands\MarioDownCommand.cs" />
     <Compile Include="Mario\Commands\MarioFireCommand.cs" />
     <Compile Include="Mario\Commands\MarioLeftCommand.cs" />
@@ -284,6 +292,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Utility Classes\SoundManager.cs" />
     <Compile Include="Utility Classes\Camera.cs" />
     <Compile Include="Utility Classes\CollisionDetector.cs" />
     <Compile Include="Utility Classes\Collision.cs" />

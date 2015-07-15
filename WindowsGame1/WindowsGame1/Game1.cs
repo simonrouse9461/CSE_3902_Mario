@@ -37,6 +37,8 @@ namespace WindowsGame1
             
             WorldManager.LoadLevel(Content);
             Display.LoadContent(Content);
+            SoundManager.LoadAllSounds(Content);
+            SoundManager.OverworldMusicPlay();
 
             base.LoadContent();
         }

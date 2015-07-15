@@ -8,7 +8,15 @@ namespace WindowsGame1
         public void Generated()
         {
             MotionState.Generated();
+        }
 
+        public override void RefreshState()
+        {
+            if (MotionState.StopMoving)
+            {
+                Core.Object.Unload();
+            }
+            base.RefreshState();
         }
     }
 }

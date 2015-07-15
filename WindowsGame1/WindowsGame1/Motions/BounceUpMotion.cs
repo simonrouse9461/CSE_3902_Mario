@@ -5,8 +5,8 @@ namespace WindowsGame1
 {
     public class BounceUpMotion : MotionKernel
     {
-        private bool InvolveGravity;
-        private bool FinishWhenMax;
+        private bool InvolveGravity { get; set; }
+        private bool FinishWhenMax { get; set; }
 
         private enum Version
         {
@@ -80,15 +80,15 @@ namespace WindowsGame1
             }
         }
 
-        public static BounceUpMotion MarioBounce
+        public static BounceUpMotion MarioStamp
         {
             get
             {
                 return new BounceUpMotion
                 {
                     version = Version.MarioBounce,
-                    StartVelocity = new Vector2(0, -5),
-                    Acceleration = new Vector2(0, 0.4f),
+                    StartVelocity = new Vector2(0, -5.5f),
+                    Acceleration = new Vector2(0, 0.5f),
                     MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true
@@ -119,8 +119,11 @@ namespace WindowsGame1
                 return new BounceUpMotion
                 {
                     version = Version.Coin,
-                    StartVelocity = new Vector2(0, -4f),
-                    InvolveGravity = false
+                    StartVelocity = new Vector2(0, -8f),
+                    Acceleration = new Vector2(0, 0.3f),
+                    MaxVelocity = new Vector2(0, 3f),
+                    InvolveGravity = false,
+                    FinishWhenMax = true
                 };
             }
         }

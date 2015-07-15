@@ -47,14 +47,15 @@ namespace WindowsGame1
                 // then items
                 new Collection<Coin>(),
                 new Collection<Star>(),
-                new Collection<QuestionBlockObject>(),
-                new Collection<HiddenBlockObject>(),
-                new Collection<NormalBlockObject>(),
-
-                new Collection<BlockKernel>(),
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
                 new Collection<OneUp>(),
+
+                // then blocks
+                new Collection<QuestionBlockObject>(),
+                new Collection<HiddenBlockObject>(),
+                new Collection<NormalBlockObject>(),
+                new Collection<BlockKernel>(),
 
                 // then enemies
                 new Collection<Goomba>(),

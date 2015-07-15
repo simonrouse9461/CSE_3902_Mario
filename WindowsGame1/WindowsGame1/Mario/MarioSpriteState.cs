@@ -235,7 +235,6 @@ namespace WindowsGame1
         {
             Status = StatusEnum.Big;
             Action = ActionEnum.Grow;
-
         }
 
         public bool Big
@@ -310,7 +309,7 @@ namespace WindowsGame1
 
         public void TryRun()
         {
-            if (Shooting) return;
+            if (Shooting || Growing) return;
             Run();
         }
 
@@ -326,7 +325,7 @@ namespace WindowsGame1
 
         public void TryJump()
         {
-            if (Shooting) return;
+            if (Shooting || Growing) return;
             Jump();
         }
 
@@ -337,8 +336,13 @@ namespace WindowsGame1
 
         public void Crouch()
         {
-            if (Shooting || Small) return;
             Action = ActionEnum.Crouch;
+        }
+
+        public void TryCrouch()
+        {
+            if (Shooting || Growing || Small) return;
+            Crouch();
         }
 
         public bool Crouching
@@ -353,7 +357,7 @@ namespace WindowsGame1
 
         public void TryStand()
         {
-            if (Shooting || Crouching) return;
+            if (Shooting || Crouching || Growing) return;
             Stand();
         }
 
@@ -364,7 +368,7 @@ namespace WindowsGame1
 
         public void Turn()
         {
-            if (Shooting) return;
+            if (Shooting || Growing) return;
             Action = ActionEnum.Turn;
         }
 
@@ -391,6 +395,11 @@ namespace WindowsGame1
         public bool Shooting
         {
             get { return Action == ActionEnum.Shoot; }
+        }
+
+        public bool Growing
+        {
+            get { return Action == ActionEnum.Grow; }
         }
     }
 }
