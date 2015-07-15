@@ -8,7 +8,7 @@
       <Location>500 400</Location>
     </Item>
 
-    <Item>
+    <!--<Item>
       <Type>Fireflower</Type>
       <Version></Version>
       <Location>600 400</Location>
