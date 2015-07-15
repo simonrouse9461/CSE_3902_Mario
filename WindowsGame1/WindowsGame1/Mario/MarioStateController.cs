@@ -163,7 +163,7 @@ namespace WindowsGame1
         public void Crouch()
         {
             if (SpriteState.Dead) return;
-            SpriteState.Crouch();
+            SpriteState.TryCrouch();
             MotionState.Stop();
         }
 
