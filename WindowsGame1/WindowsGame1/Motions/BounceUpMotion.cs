@@ -5,8 +5,8 @@ namespace WindowsGame1
 {
     public class BounceUpMotion : MotionKernel
     {
-        private bool InvolveGravity;
-        private bool FinishWhenMax;
+        private bool InvolveGravity { get; set; }
+        private bool FinishWhenMax { get; set; }
 
         private enum Version
         {

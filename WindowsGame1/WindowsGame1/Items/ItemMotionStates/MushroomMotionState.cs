@@ -59,7 +59,7 @@ namespace WindowsGame1
         {
             get
             {
-                return FindMotion<BounceUpMotion>().Status;
+                return FindMotion<RaiseUpMotion>().Status;
             }
         }
 

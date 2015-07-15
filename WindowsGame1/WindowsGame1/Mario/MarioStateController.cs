@@ -141,12 +141,10 @@ namespace WindowsGame1
         public void Jump()
         {
             if (SpriteState.Dead) return;
-            if (!MotionState.HaveInertia)
-            {
-                MotionState.Jump();
-                SpriteState.Jump();
-                SoundManager.JumpSoundPlay();
-            }
+            if (MotionState.HaveInertia) return;
+            MotionState.Jump();
+            SpriteState.Jump();
+            SoundManager.JumpSoundPlay();
         }
 
         public void Bounce()
