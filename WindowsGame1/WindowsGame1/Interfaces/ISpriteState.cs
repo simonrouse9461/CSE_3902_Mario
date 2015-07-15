@@ -10,6 +10,10 @@ namespace WindowsGame1
         Color Color { get; }
         bool Left { get; }
         bool Right { get; }
+        bool Frozen { get; }
+
+        void Freeze();
+        void Restore();
         void Load(ContentManager content);
         void ChangeSpriteFrequency(int frequency);
         void ChangeColorFrequency(int frequency);

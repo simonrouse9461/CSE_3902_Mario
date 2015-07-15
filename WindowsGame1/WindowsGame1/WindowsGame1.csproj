@@ -161,6 +161,7 @@
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
+    <Compile Include="Kernels\BackgroundObjectKernel.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Kernels\StateControllerKernel.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
@@ -204,8 +205,6 @@
     <Compile Include="Motions\MoveRightFastMotion.cs" />
     <Compile Include="Motions\MoveRightMotion.cs" />
     <Compile Include="Kernels\BarrierHandlerKernel.cs" />
-    <Compile Include="Old Files\MotionStateKernel.cs" />
-    <Compile Include="Old Files\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteKernel.cs" />
     <Compile Include="Kernels\SpriteStateKernel.cs" />
     <Compile Include="Mario\Sprites\SwimmingBigMarioSprite.cs" />
@@ -221,7 +220,6 @@
     <Compile Include="Items\SpriteStates\MushroomSpriteState.cs" />
     <Compile Include="Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Items\Star.cs" />
-    <Compile Include="Old Files\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandExecutorKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />
     <Compile Include="Mario\IMario.cs" />
@@ -305,7 +303,6 @@
     <Compile Include="Helper Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Helper Classes and Structs\RectangleParser.cs" />
     <Compile Include="Utility Classes\SpriteSource.cs" />
-    <Compile Include="Old Files\Core.cs" />
     <Compile Include="Utility Classes\StaticMotionState.cs" />
     <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
@@ -369,6 +366,7 @@
   <ItemGroup>
     <Folder Include="bin\x86\Release\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
+    <Folder Include="Old Files\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

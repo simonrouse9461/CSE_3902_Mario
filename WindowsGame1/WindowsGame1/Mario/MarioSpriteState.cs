@@ -84,7 +84,7 @@ namespace WindowsGame1
             ChangeSpriteFrequency(5);
         }
 
-        public override ISprite Sprite
+        protected override ISprite RawSprite
         {
             get
             {

@@ -13,6 +13,12 @@ namespace WindowsGame1
 
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
+        public bool Frozen { get; private set; }
+
+        public bool Static
+        {
+            get { return MotionList.All(m => !m.Status); }
+        }
 
         public void Adjust(Vector2 offset)
         {
@@ -31,7 +37,18 @@ namespace WindowsGame1
                 ? MotionList.First(m => m.Content is T)
                 : MotionList.First(m => motion.SameVersion(m.Content));
         }
-        
+
+        public void Freeze()
+        {
+            foreach (var motion in MotionList) motion.Toggle(false);
+            Frozen = true;
+        }
+
+        public void Restore()
+        {
+            Frozen = false;
+        }
+
         public void Reset()
         {
             Timer.Reset();

@@ -125,7 +125,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
                 GoLeft();
         }
 
@@ -138,7 +138,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
                 GoRight();
         }
 

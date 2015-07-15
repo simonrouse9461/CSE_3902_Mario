@@ -20,12 +20,11 @@ namespace WindowsGame1
             Bounce
         }
 
-        private HorizontalEnum HorizontalStatus;
-        private VerticalEnum VerticalStatus;
+        private HorizontalEnum HorizontalStatus { get; set; }
+        private VerticalEnum VerticalStatus { get; set; }
 
         public bool Dead { get; private set; }
         public bool Gravity { get; private set; }
-        public bool Frozen { get; private set; }
 
         public MarioMotionState()
         {
@@ -59,19 +58,6 @@ namespace WindowsGame1
         {
             VerticalStatus = VerticalEnum.Default;
             FindMotion(BounceUpMotion.MarioJump).Toggle(false);
-        }
-
-        public void Freeze()
-        {
-            SetDefaultHorizontal();
-            SetDefaultVertical();
-            LoseGravity();
-            Frozen = true;
-        }
-
-        public void Restore()
-        {
-            Frozen = false;
         }
 
         public void GoLeft()
