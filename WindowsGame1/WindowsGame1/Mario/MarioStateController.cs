@@ -30,6 +30,11 @@ namespace WindowsGame1
             }
         }
 
+        public override void Update()
+        {
+            if (SpriteState.FinishGrow) DefaultAction();
+        }
+
         public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
@@ -176,7 +181,7 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
-            SpriteState.BecomeBig();
+            SpriteState.GrowBig();
         }
 
         public void GetFire()

@@ -12,6 +12,8 @@ namespace WindowsGame1
         protected SymmetricPair<PeriodicFunction<int>> Animation { get; set; }
         protected SymmetricPair<string> ImageFile { get; set; }
 
+        public int Cycle { get; private set; }
+
         protected SpriteKernel()
         {
             Source = new SymmetricPair<SpriteSource>();
@@ -37,8 +39,11 @@ namespace WindowsGame1
 
         public void Update()
         {
-            Animation.Left.Update();
-            Animation.Right.Update();
+            if (Animation.Left.Update() ||
+                Animation.Right.Update())
+            {
+                Cycle++;
+            }
         }
 
         private void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color, SpriteSource source, PeriodicFunction<int> animation)
