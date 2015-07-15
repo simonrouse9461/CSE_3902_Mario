@@ -32,9 +32,10 @@ namespace WindowsGame1
 
         public override void Update()
         {
-            if (SpriteState.Growing && SpriteState.FinishGrow)
+            if (SpriteState.FinishGrow)
             {
                 DefaultAction();
+                MotionState.Restore();
                 ((IDecorator)Core.CommandExecutor).Restore();
                 WorldManager.RestoreWorld();
             }
@@ -187,7 +188,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
             SpriteState.GrowBig();
-            MotionState.SetDefaultHorizontal();
+            MotionState.Freeze();
             Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
             WorldManager.FreezeWorld();
         }

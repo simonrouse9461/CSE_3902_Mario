@@ -28,6 +28,7 @@ namespace WindowsGame1
         {
             Animation.Left.Reset();
             Animation.Right.Reset();
+            Cycle = 0;
         }
 
         public void Load(ContentManager content)
