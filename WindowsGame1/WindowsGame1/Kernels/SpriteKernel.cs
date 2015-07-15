@@ -39,11 +39,9 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (Animation.Left.Update() ||
-                Animation.Right.Update())
-            {
-                Cycle++;
-            }
+            var leftCycleComplete = Animation.Left.Update();
+            var rightCycleComplete = Animation.Right.Update();
+            if (leftCycleComplete || rightCycleComplete) Cycle++;
         }
 
         private void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color, SpriteSource source, PeriodicFunction<int> animation)

@@ -36,6 +36,7 @@ namespace WindowsGame1
             {
                 DefaultAction();
                 ((IDecorator)Core.CommandExecutor).Restore();
+                WorldManager.RestoreWorld();
             }
         }
 
@@ -188,8 +189,9 @@ namespace WindowsGame1
             SpriteState.GrowBig();
             MotionState.SetDefaultHorizontal();
             Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
+            WorldManager.FreezeWorld();
         }
-
+        
         public void GetFire()
         {
             if (SpriteState.Dead) return;

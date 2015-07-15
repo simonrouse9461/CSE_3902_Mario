@@ -21,7 +21,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Mushroom>().AnyEdge.Touch)
             {
-                Core.StateController.Grow();
+                Core.DelayCommand(Core.StateController.Grow, 5);
             }
         }
 
