@@ -5,21 +5,14 @@
     <!--<Item>
       <Type>Mushroom</Type>
       <Version></Version>
-      <Location>500 400</Location>
-    </Item>
+      <Location>730 398</Location>
+    </Item>-->
 
-    <Item>
+    <!--<Item>
       <Type>Fireflower</Type>
       <Version></Version>
-      <Location>600 400</Location>
-    </Item>
-
-    <Item>
-      <Type>Star</Type>
-      <Version></Version>
-      <Location>700 400</Location>
+      <Location>658 400</Location>
     </Item>-->
-    
     <Item>
       <Type>Goomba</Type>
       <Version></Version>

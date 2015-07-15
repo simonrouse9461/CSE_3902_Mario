@@ -5,15 +5,12 @@ namespace WindowsGame1
 {
     public class BlockStateController : StateControllerKernel<BlockSpriteState, BlockMotionState>
     {
-        private enum Version
-        {
-            Coin,
-            Item,
-            Star,
-            ExtraLife
-        }
-
-        private Version version;
+        
+        public bool giveCoin;
+        public bool giveItem;
+        public bool giveStar;
+        public bool giveOneUp;
+         
         private int _coinLeft = 10;
 
         private int CoinLeft
@@ -29,36 +26,36 @@ namespace WindowsGame1
             }          
         }
 
-        public bool giveCoin
+        public void hasCoin()
         {
-            get
-            {
-                return version == Version.Coin;
-            }
+            giveCoin = true;
+            giveItem = false;
+            giveOneUp = false;
+            giveStar = false;
         }
 
-        public bool giveItem
+        public void hasItem()
         {
-            get
-            {
-                return version == Version.Item;
-            }
+            giveCoin = false;
+            giveItem = true;
+            giveOneUp = false;
+            giveStar = false;
         }
 
-        public bool giveStar
+        public void hasStar()
         {
-            get
-            {
-                return version == Version.Star;
-            }
+            giveItem = false;
+            giveCoin = false;
+            giveOneUp = false;
+            giveStar = true;
         }
 
-        public bool giveOneUp
+        public void hasOneUp()
         {
-            get
-            {
-                return version == Version.ExtraLife;
-            }
+            giveItem = false;
+            giveCoin = false;
+            giveOneUp = true;
+            giveStar = false;
         }
 
         public void QuestionBlock()
