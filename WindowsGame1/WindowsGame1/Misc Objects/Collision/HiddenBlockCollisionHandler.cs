@@ -10,7 +10,10 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            
+            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
+            {
+                Core.StateController.HiddenBlockGive1Up();
+            }
         }
     }
 }
