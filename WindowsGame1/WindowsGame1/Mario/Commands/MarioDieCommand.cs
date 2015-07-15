@@ -1,6 +1,6 @@
 ﻿namespace WindowsGame1
 {
-    public class MarioDeadCommand : CommandKernel
+    public class MarioDieCommand : CommandKernel
     {
         public override void Execute()
         {

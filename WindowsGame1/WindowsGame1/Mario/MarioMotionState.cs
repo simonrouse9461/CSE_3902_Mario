@@ -36,7 +36,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new InertiaMotion()),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioDie),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioJump),
-                new StatusSwitch<IMotion>(BounceUpMotion.MarioBounce),
+                new StatusSwitch<IMotion>(BounceUpMotion.MarioStamp),
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
@@ -115,7 +115,7 @@ namespace WindowsGame1
         {
             SetDefaultVertical();
             VerticalStatus = VerticalEnum.Bounce;
-            FindMotion(BounceUpMotion.MarioBounce).Toggle(true);
+            FindMotion(BounceUpMotion.MarioStamp).Toggle(true);
         }
 
         public void ObtainGravity()

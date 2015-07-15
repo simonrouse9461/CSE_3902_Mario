@@ -11,7 +11,7 @@ namespace WindowsGame1.CommandExecutorDecorators
         {
             DefaultCommandExecutor = original;
             ClearCommands();
-            RegisterCommand(typeof (MarioDeadCommand), () => Core.StateController.Die());
+            RegisterCommand(typeof (MarioDieCommand), () => Core.StateController.Die());
         }
         public void Restore()
         {

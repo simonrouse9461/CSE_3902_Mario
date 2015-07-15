@@ -75,7 +75,6 @@ namespace WindowsGame1
         public override void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
-            Display.Increment<Goomba>();
         }
 
 

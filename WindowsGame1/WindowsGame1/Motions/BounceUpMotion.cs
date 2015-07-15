@@ -80,15 +80,15 @@ namespace WindowsGame1
             }
         }
 
-        public static BounceUpMotion MarioBounce
+        public static BounceUpMotion MarioStamp
         {
             get
             {
                 return new BounceUpMotion
                 {
                     version = Version.MarioBounce,
-                    StartVelocity = new Vector2(0, -5),
-                    Acceleration = new Vector2(0, 0.4f),
+                    StartVelocity = new Vector2(0, -5.5f),
+                    Acceleration = new Vector2(0, 0.5f),
                     MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true

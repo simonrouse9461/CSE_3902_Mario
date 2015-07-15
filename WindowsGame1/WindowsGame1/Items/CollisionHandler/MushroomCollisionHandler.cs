@@ -23,7 +23,7 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<MarioObject>().AnySide.Touch)
             {
                 Core.Object.Unload();
-                Display.Increment<Mushroom>();
+                Display.AddScore<Mushroom>();
             }
         }
 
