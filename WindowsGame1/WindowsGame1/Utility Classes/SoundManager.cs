@@ -41,7 +41,7 @@ namespace WindowsGame1
             kickSound = content.Load<SoundEffect>("Audio/kick");
         }
 
-        public static void OverworldMusicPlay()
+        public static void changeToOverworldMusic()
         {
             if (currentlyPlayingMusic != null)
             {
@@ -52,7 +52,7 @@ namespace WindowsGame1
             currentlyPlayingMusic.Play();
         }
 
-        public static void UnderworldMusicPlay()
+        public static void changeToUnderworldMusic()
         {
             if (currentlyPlayingMusic != null)
             {
@@ -64,7 +64,7 @@ namespace WindowsGame1
             currentlyPlayingMusic.Play();
         }
 
-        public static void DieMusicPlay()
+        public static void changeToDieMusic()
         {
             if (currentlyPlayingMusic != null)
             {
@@ -75,7 +75,7 @@ namespace WindowsGame1
             currentlyPlayingMusic.Play();
         }
 
-        public static void WinMusicPlay()
+        public static void changeToWinMusic()
         {
             if (currentlyPlayingMusic != null)
             {
@@ -86,7 +86,7 @@ namespace WindowsGame1
             currentlyPlayingMusic.Play();
         }
 
-        public static void StarMusicPlay()
+        public static void changeToStarMusic()
         {
             if (currentlyPlayingMusic != null)
             {
