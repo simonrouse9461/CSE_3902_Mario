@@ -150,6 +150,7 @@
     <Compile Include="Items\CollisionHandler\OneUpCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\StarCollisionHandler.cs" />
     <Compile Include="Items\ItemMotionStates\CoinMotionState.cs" />
+    <Compile Include="Items\ItemMotionStates\OneUpMotionState.cs" />
     <Compile Include="Items\ItemMotionStates\StarMotionState.cs" />
     <Compile Include="Items\StateControllers\CoinStateController.cs" />
     <Compile Include="Items\StateControllers\StarStateController.cs" />
