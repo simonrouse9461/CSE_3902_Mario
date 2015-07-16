@@ -398,5 +398,11 @@
       <Version></Version>
       <Location>216 280</Location>
     </Item>
+
+    <Item>
+      <Type>SecretPipeObject</Type>
+      <Version></Version>
+      <Location>250 398</Location>
+    </Item>
   </Asset>
 </XnaContent>
