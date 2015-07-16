@@ -122,6 +122,11 @@ namespace WindowsGame1
         public override void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
+
+            FindMotion<MoveLeftMotion>().Toggle(false);
+            FindMotion<MoveRightMotion>().Toggle(false);
+            FindMotion<MoveRightFastMotion>().Toggle(false);
+            FindMotion<MoveLeftFastMotion>().Toggle(false);
         }
 
         public override void TakeMarioHitFromSide(string leftOrRight)
