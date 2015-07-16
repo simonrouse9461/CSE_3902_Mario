@@ -135,5 +135,6 @@ namespace WindowsGame1
         {
             SpriteState.Flag();
         }
+
     }
 }

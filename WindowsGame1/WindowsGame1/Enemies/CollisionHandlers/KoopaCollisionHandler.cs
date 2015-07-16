@@ -9,6 +9,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
+            Core.BarrierHandler.RemoveBarrier<IItem>();
             if (!Core.StateController.MotionState.Gravity)
             {
                 Collision c = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy));

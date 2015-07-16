@@ -130,6 +130,11 @@ namespace WindowsGame1
             get { return Status == StatusEnum.NormalBlock; }
         }
 
+        public bool isUsed
+        {
+            get { return Status == StatusEnum.UsedBlock; }
+        }
+
         public void Destroyed()
         {
             Status = StatusEnum.Destroyed;

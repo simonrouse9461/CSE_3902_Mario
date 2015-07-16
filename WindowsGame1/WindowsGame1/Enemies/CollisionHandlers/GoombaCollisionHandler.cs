@@ -10,6 +10,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
+            Core.BarrierHandler.RemoveBarrier<IItem>();
             if (!Core.StateController.SpriteState.Dead)
             {
                 if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
