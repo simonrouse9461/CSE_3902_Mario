@@ -52,6 +52,7 @@ namespace WindowsGame1
             FindMotion<RaiseUpMotion>().Toggle(false);
             FindMotion<MoveRightMotion>().Toggle(true);
             FindMotion<BounceUpMotion>().Toggle(true);
+            FindMotion<GravityMotion>().Toggle(true);
         }
 
         public bool isGenerating

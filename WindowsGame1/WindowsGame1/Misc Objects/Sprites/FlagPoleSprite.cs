@@ -5,17 +5,17 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class FlagSprite : SpriteKernel
+    public class FlagPoleSprite : SpriteKernel
     {
 
-        public FlagSprite()
+        public FlagPoleSprite()
         {
             ImageFile.Default = "misc";
             Source.Default = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(249,594,20,152)
+                    new Rectangle(261,594,8,152)
                 }
             };
         }    

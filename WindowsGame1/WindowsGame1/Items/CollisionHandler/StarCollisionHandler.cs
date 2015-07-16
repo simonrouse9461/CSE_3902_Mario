@@ -35,6 +35,7 @@ namespace WindowsGame1
 
             if (Core.CollisionDetector.Detect<IBlock>().AllEdge.None)
             {
+               
                 Core.BarrierHandler.AddBarrier<IBlock>();
                 Core.BarrierHandler.AddBarrier<IPipe>();
                 Core.StateController.MotionState.Moving();
