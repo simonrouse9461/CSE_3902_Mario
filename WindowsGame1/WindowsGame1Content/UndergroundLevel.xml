@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="LevelLoader.ObjectData[]">
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 232</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 256</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 280</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 304</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 328</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>0 400</Location>
+    </Item>
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>96 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>120 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>144 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>168 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>192 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>216 208</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>240 208</Location>
+    </Item>
+    
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>96 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>120 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>144 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>168 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>192 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>216 352</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>240 352</Location>
+    </Item>
+
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>96 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>120 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>144 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>168 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>192 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>216 376</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>240 376</Location>
+    </Item>
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>96 400</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>120 400</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>144 400</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>168 400</Location>
+    </Item>
+    
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>120 208</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>144 208</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>168 208</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>192 208</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>216 208</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>240 208</Location>
+    </Item>
+      
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>216 400</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>240 400</Location>
+    </Item>
+
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>0 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>24 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>48 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>72 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>96 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>120 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>144 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>168 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>192 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>216 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>240 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>264 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>288 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>312 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>336 400</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>360 400</Location>
+    </Item>
+
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>96 328</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>120 328</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>144 328</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>168 328</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>192 328</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>216 328</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>240 328</Location>
+    </Item>
+
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>96 304</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>120 304</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>144 304</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>168 304</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>192 304</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>216 304</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>240 304</Location>
+    </Item>
+
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>120 280</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>144 280</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>168 280</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>192 280</Location>
+    </Item>
+    <Item>
+      <Type>Coin</Type>
+      <Version></Version>
+      <Location>216 280</Location>
+    </Item>
+  </Asset>
+</XnaContent>
