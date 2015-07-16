@@ -120,6 +120,7 @@
     <Compile Include="GameCommands\CameraRightCommand.cs" />
     <Compile Include="GameCommands\CameraDownCommand.cs" />
     <Compile Include="GameCommands\CameraUpCommand.cs" />
+    <Compile Include="GameCommands\PauseCommand.cs" />
     <Compile Include="GameCommands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\KoopaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
