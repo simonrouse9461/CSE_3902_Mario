@@ -15,9 +15,13 @@ Content\LevelData.xnb
 Content\Audio\blockBreak.xnb
 Content\Audio\stomp.xnb
 Content\Audio\jump.xnb
-Content\Audio\overworldMusic.xnb
-Content\UndergroundLevel.xnb
 Content\Audio\coin.xnb
 Content\Audio\powerUpAppear.xnb
 Content\Audio\powerUp.xnb
 Content\Audio\kick.xnb
+Content\UndergroundLevel.xnb
+Content\Audio\die.xnb
+Content\Audio\overworld.xnb
+Content\Audio\win.xnb
+Content\Audio\underworld.xnb
+Content\Audio\star.xnb
