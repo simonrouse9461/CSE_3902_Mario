@@ -9,10 +9,5 @@ namespace WindowsGame1
         {
             MotionState.Generated();
         }
-
-        public void StartMoving()
-        {
-            MotionState.Moving();
-        }
     }
 }

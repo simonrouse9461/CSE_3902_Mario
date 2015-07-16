@@ -21,6 +21,5 @@
             if (BarrierCollision.Bottom.Touch) 
                 Core.StateController.Bounce();
         }
-
     }
 }

@@ -14,8 +14,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(MoveLeftMotion.ItemVelocity),
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(new RaiseUpMotion()),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(new MoveRightMotion())
+                new StatusSwitch<IMotion>(MoveRightMotion.ItemVelocity)
             };
             LoseGravity();
             SetDefaultHorizontal();

@@ -5,7 +5,6 @@ namespace WindowsGame1
 {
     public class MushroomCollisionHandler : CollisionHandlerKernel<MushroomStateController>
     {
-
         public MushroomCollisionHandler(ICore core) : base(core){ }
 
         public override void Handle()
@@ -15,7 +14,10 @@ namespace WindowsGame1
             {
                 HandleGeneration();
             }
-            HandleObject();
+            if (!Core.StateController.MotionState.isGenerating)
+            {
+                HandleObject();
+            }
         }
 
         protected virtual void HandleMario()
@@ -32,9 +34,9 @@ namespace WindowsGame1
 
             if (Core.CollisionDetector.Detect<IBlock>().AllEdge.None)
             {
-                Core.StateController.MotionState.Moving();
                 Core.BarrierHandler.AddBarrier<IBlock>();
                 Core.BarrierHandler.AddBarrier<IPipe>();
+                Core.StateController.MotionState.Moving();
             }
         }
 

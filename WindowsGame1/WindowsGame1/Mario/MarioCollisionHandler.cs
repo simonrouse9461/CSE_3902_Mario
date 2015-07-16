@@ -22,7 +22,6 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<Mushroom>().AnyEdge.Touch)
             {
                 Core.DelayCommand(Core.StateController.Grow, 5);
-                SoundManager.powerUpSoundPlay();
             }
         }
 
@@ -39,7 +38,6 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
                 Core.StateController.GetFire();
-                SoundManager.powerUpSoundPlay();
             }
         }
 

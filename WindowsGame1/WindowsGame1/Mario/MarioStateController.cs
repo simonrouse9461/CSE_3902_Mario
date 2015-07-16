@@ -191,6 +191,7 @@ namespace WindowsGame1
             MotionState.Freeze();
             Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
             WorldManager.FreezeWorld();
+            SoundManager.powerUpSoundPlay();
         }
         
         public void GetFire()
@@ -199,6 +200,7 @@ namespace WindowsGame1
             if (SpriteState.HaveFire) return;
             SpriteState.GetFire();
             Core.SwitchComponent(new FireMarioCommandExecutor(Core));
+            SoundManager.powerUpSoundPlay();
         }
 
         public void Die()

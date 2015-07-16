@@ -15,6 +15,10 @@ namespace WindowsGame1
             {
                 HandleGeneration();
             }
+            if (!Core.StateController.MotionState.isGenerating)
+            {
+                HandleObject();
+            }
         }
 
         protected virtual void HandleMario()
@@ -31,8 +35,16 @@ namespace WindowsGame1
 
             if (Core.CollisionDetector.Detect<IBlock>().AllEdge.None)
             {
-                Core.StateController.MotionState.ObtainGravity();
                 Core.BarrierHandler.AddBarrier<IBlock>();
+                Core.StateController.MotionState.SetDefaultVertical();
+            }
+        }
+        
+        protected virtual void HandleObject()
+        {
+            if (Core.CollisionDetector.Detect<IBlock>().Bottom.Touch)
+            {
+                Core.StateController.MotionState.LoseGravity();
             }
         }
     }
