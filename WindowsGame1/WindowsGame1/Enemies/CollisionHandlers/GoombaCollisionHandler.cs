@@ -26,7 +26,7 @@ namespace WindowsGame1
                 }
                 else
                 {
-                    if (Core.CollisionDetector.Detect<IObject>(obj => obj.Solid).AnySide.Touch)
+                    if (!Core.StateController.MotionState.Gravity && Core.CollisionDetector.Detect<IObject>(obj => obj.Solid).AnySide.Touch)
                     {
                         Core.StateController.Turn();
                     }
