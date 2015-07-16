@@ -35,7 +35,9 @@ namespace WindowsGame1
             if (SpriteState.FinishGrow)
             {
                 DefaultAction();
+                MotionState.Restore();
                 ((IDecorator)Core.CommandExecutor).Restore();
+                WorldManager.RestoreWorld();
             }
         }
 
@@ -123,7 +125,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
                 GoLeft();
         }
 
@@ -136,7 +138,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
                 GoRight();
         }
 
@@ -186,9 +188,11 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
             SpriteState.GrowBig();
+            MotionState.Freeze();
             Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
+            WorldManager.FreezeWorld();
         }
-
+        
         public void GetFire()
         {
             if (SpriteState.Dead) return;

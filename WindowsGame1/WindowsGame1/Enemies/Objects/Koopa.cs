@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public  class Koopa : ObjectKernelNew<KoopaStateController>, IEnemy
+    public  class Koopa : ObjectKernel<KoopaStateController>, IEnemy
     {
         public Koopa() {
             CollisionHandler = new KoopaCollisionHandler(Core);

@@ -4,8 +4,12 @@ namespace WindowsGame1
 {
     public class GoombaStateController : StateControllerKernel<GoombaSpriteState, GoombaMotionState>
     {
-        public void Update()
+        public override void Update()
         {
+            if (!MotionState.isAlive())
+            {
+                Core.Object.Unload();
+            }
         }
 
         public void MarioSmash()

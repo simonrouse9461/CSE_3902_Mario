@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CoreNew<TStateController> : ICore
+    public class Core<TStateController> : ICore
         where TStateController : IStateController, new()
     {
         private class Reservation
@@ -37,7 +37,7 @@ namespace WindowsGame1
             get { return StateController.GeneralMotionState; }
         }
 
-        public CoreNew(IObject obj)
+        public Core(IObject obj)
         {
             Object = obj;
             Waitlist = new Collection<Reservation>();

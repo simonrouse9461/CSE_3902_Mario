@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class Fireflower : ObjectKernelNew<FireflowerStateController>, IItem
+    public class Fireflower : ObjectKernel<FireflowerStateController>, IItem
     {
         public Fireflower()
         {

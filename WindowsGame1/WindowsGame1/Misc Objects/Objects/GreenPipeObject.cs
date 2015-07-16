@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class GreenPipeObject : ObjectKernelNew<PipeStateController>, IPipe
+    public class GreenPipeObject : ObjectKernel<PipeStateController>, IPipe
     {
 
         private enum Version

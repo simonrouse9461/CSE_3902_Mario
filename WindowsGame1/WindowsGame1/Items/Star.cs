@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
-    public  class Star : ObjectKernelNew<StarStateController>, IItem
+    public  class Star : ObjectKernel<StarStateController>, IItem
     {
         public Star()
         {

@@ -5,17 +5,17 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public abstract class CollisionHandlerKernelNew<TStateController> : ICollisionHandler
+    public abstract class CollisionHandlerKernel<TStateController> : ICollisionHandler
         where TStateController : IStateController, new()
     {
-        public CoreNew<TStateController> Core { get; set; }
+        public Core<TStateController> Core { get; set; }
 
-        protected CollisionHandlerKernelNew(ICore core)
+        protected CollisionHandlerKernel(ICore core)
         {
-            if (core is CoreNew<TStateController>)
-                Core = (CoreNew<TStateController>)core;
+            if (core is Core<TStateController>)
+                Core = (Core<TStateController>)core;
             else
-                Core = new CoreNew<TStateController>(core.Object)
+                Core = new Core<TStateController>(core.Object)
                 {
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,

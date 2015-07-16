@@ -28,7 +28,7 @@ namespace WindowsGame1
             {
                 Core.BarrierHandler.AddBarrier<Koopa>();
                 Core.BarrierHandler.AddBarrier<Goomba>();
-                Core.SwitchComponent(new StarMarioCollisionHandler(Core, DefaultCollisionHandler));
+                Core.SwitchComponent(new StarMarioCollisionHandler(Core));
             }
         }
     }

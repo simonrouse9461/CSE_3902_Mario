@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class OneUpCollisionHandler : CollisionHandlerKernelNew<OneUpStateController>
+    public class OneUpCollisionHandler : CollisionHandlerKernel<OneUpStateController>
     {
 
         public OneUpCollisionHandler(ICore core) : base(core) { }

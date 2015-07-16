@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class FireflowerCollisionHandler : CollisionHandlerKernelNew<FireflowerStateController>
+    public class FireflowerCollisionHandler : CollisionHandlerKernel<FireflowerStateController>
     {
 
         public FireflowerCollisionHandler(ICore core) : base(core) { }

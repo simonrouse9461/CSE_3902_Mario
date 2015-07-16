@@ -14,6 +14,7 @@ namespace WindowsGame1
         private static SoundEffect blockBreakSound;
         private static SoundEffect stompSound;
 
+
         public static void LoadAllSounds(ContentManager content)
         {
             overworldMusic = content.Load<SoundEffect>("Audio/overworldMusic");

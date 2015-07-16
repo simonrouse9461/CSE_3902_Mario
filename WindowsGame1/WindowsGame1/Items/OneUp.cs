@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class OneUp : ObjectKernelNew<OneUpStateController>, IItem
+    public class OneUp : ObjectKernel<OneUpStateController>, IItem
     {
         public OneUp()
         {

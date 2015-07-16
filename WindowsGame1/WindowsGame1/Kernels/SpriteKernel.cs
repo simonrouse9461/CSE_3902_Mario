@@ -28,22 +28,26 @@ namespace WindowsGame1
         {
             Animation.Left.Reset();
             Animation.Right.Reset();
+            Cycle = 0;
         }
 
         public void Load(ContentManager content)
         {
             if (Source.Default != null) { Source.Default.Load(content, ImageFile.Default); }
-            if (Source.Default != null) { Source.Left.Load(content, ImageFile.Left); }
-            if (Source.Default != null) { Source.Right.Load(content, ImageFile.Right); }
+            if (Source.Left != null) { Source.Left.Load(content, ImageFile.Left); }
+            if (Source.Right != null) { Source.Right.Load(content, ImageFile.Right); }
         }
 
         public void Update()
         {
-            if (Animation.Left.Update() ||
-                Animation.Right.Update())
+            if (Animation.IsDefault)
             {
-                Cycle++;
+                if (Animation.Default.Update()) Cycle++; 
+                return;
             }
+            var leftCycleComplete = Animation.Left.Update();
+            var rightCycleComplete = Animation.Right.Update();
+            if (leftCycleComplete || rightCycleComplete) Cycle++;
         }
 
         private void Draw(SpriteBatch spriteBatch, Vector2 location, Color? color, SpriteSource source, PeriodicFunction<int> animation)
