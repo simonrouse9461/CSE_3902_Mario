@@ -5,25 +5,52 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class ShootingMarioSprite : SpriteKernel
+    public class ShootingMarioSprite : SpriteKernelNew
     {
         public ShootingMarioSprite()
         {
-            ImageFile.Default = "Mario";
-            Source.Left = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+            AddSource(
+                MarioSpriteVersion.Normal,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
                 {
-                    new Rectangle(77, 123, 16, 30)
-                }
-            };
-            Source.Right = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+                    {new Rectangle(9, 59, 16, 22), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Fire,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
                 {
-                    new Rectangle(312, 123, 16, 30)
-                }
-            };
+                    {new Rectangle(185, 59, 16, 22), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Black,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(9, 147, 16, 22), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Red,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(185, 147, 16, 22), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Green,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(9, 235, 16, 22), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Luigi,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(185, 235, 16, 22), Orientation.Right}
+                });
         }
     }
 }

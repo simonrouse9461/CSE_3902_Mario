@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioSpriteState : SpriteStateKernel
+    public class MarioSpriteState : SpriteStateKernelNew
     {
         private enum ActionEnum
         {
@@ -17,13 +17,6 @@ namespace WindowsGame1
             Grow,
             Back,
             Shoot
-        }
-
-        private enum OrientationEnum
-        {
-            Left,
-            Right,
-            Default
         }
 
         private enum StatusEnum
@@ -43,12 +36,11 @@ namespace WindowsGame1
 
         private StatusEnum Status;
         private ActionEnum Action;
-        private OrientationEnum Orientation;
         private ColorEnum ColorMode;
 
         public MarioSpriteState()
         {
-            SpriteList = new Collection<ISprite>
+            SpriteList = new Collection<ISpriteNew>
             {
                 new DeadMarioSprite(),
                 new JumpingBigMarioSprite(),
@@ -81,10 +73,10 @@ namespace WindowsGame1
                 new ColorAnimator(new[] {Color.White, Color.Transparent})
             };
 
-            ChangeSpriteFrequency(5);
+            SetSpriteFrequency(5);
         }
 
-        protected override ISprite RawSprite
+        protected override ISpriteNew RawSprite
         {
             get
             {
@@ -204,29 +196,19 @@ namespace WindowsGame1
             }
         }
 
-        public override bool Left
-        {
-            get { return Orientation == OrientationEnum.Left; }
-        }
-
-        public override bool Right
-        {
-            get { return Orientation == OrientationEnum.Right; }
-        }
-
         public void ToLeft()
         {
-            Orientation = OrientationEnum.Left;
+            Orientation = Orientation.Left;
         }
 
         public void ToRight()
         {
-            Orientation = OrientationEnum.Right;
+            Orientation = Orientation.Right;
         }
 
         public void ToDefault()
         {
-            Orientation = OrientationEnum.Default;
+            Orientation = Orientation.Default;
         }
 
         public void BecomeSmall()

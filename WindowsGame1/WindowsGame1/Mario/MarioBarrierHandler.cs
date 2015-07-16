@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioBarrierHandler : BarrierHandlerKernel<MarioStateController>
+    public class MarioBarrierHandler : BarrierHandlerKernelNew<MarioStateController>
     {
         private bool WasOnFloor;
 
-        public MarioBarrierHandler(ICore core) : base(core) { }
+        public MarioBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
         {

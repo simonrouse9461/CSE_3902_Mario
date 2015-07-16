@@ -5,7 +5,7 @@ namespace WindowsGame1
 {
     public class MarioCommandExecutor : CommandExecutorKernel<MarioStateController>
     {
-        public MarioCommandExecutor(ICore core) : base(core)
+        public MarioCommandExecutor(ICoreNew core) : base(core)
         {
             RegisterCommand(typeof (MarioLeftCommand), 
                 () => Core.StateController.KeepLeft(),

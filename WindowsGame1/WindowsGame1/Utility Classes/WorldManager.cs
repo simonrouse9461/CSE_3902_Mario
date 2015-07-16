@@ -15,7 +15,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        private bool freeze;
+        private bool frozen;
         private Counter freezeTimer;
         private readonly Collection<IList> _objectList;
         private static WorldManager _instance;
@@ -142,13 +142,13 @@ namespace WindowsGame1
 
         public static void FreezeWorld(int time = 0)
         {
-            Instance.freeze = true;
+            Instance.frozen = true;
             Instance.freezeTimer = new Counter(time);
         }
 
         public static void RestoreWorld()
         {
-            Instance.freeze = false;
+            Instance.frozen = false;
         }
 
         public static void LoadLevel(ContentManager content)
@@ -193,7 +193,7 @@ namespace WindowsGame1
 
             Modified = false;
 
-            if (Instance.freeze)
+            if (Instance.frozen)
             {
                 if (Instance.freezeTimer.Update()) RestoreWorld();
             }

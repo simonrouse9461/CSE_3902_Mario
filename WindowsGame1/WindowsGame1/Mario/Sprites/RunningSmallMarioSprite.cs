@@ -5,45 +5,70 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class RunningSmallMarioSprite : SpriteKernel
+    public class RunningSmallMarioSprite : SpriteKernelNew
     {
         public RunningSmallMarioSprite()
         {
-            const int period = 3;
-
-            ImageFile.Default = "Mario";
-            Source.Left = new SpriteSource
+            AddSource(
+                MarioSpriteVersion.Normal,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(70, 7, 12, 16), Orientation.Right},
+                    {new Rectangle(85, 8, 14, 15), Orientation.Right},
+                    {new Rectangle(102, 7, 16, 16), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Fire,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(246, 7, 12, 16), Orientation.Right},
+                    {new Rectangle(261, 8, 14, 15), Orientation.Right},
+                    {new Rectangle(278, 7, 16, 16), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Black,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(70, 95, 12, 16), Orientation.Right},
+                    {new Rectangle(85, 96, 14, 15), Orientation.Right},
+                    {new Rectangle(102, 95, 16, 16), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Red,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(246, 95, 12, 16), Orientation.Right},
+                    {new Rectangle(261, 96, 14, 15), Orientation.Right},
+                    {new Rectangle(278, 95, 16, 16), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Green,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(70, 183, 12, 16), Orientation.Right},
+                    {new Rectangle(85, 184, 14, 15), Orientation.Right},
+                    {new Rectangle(102, 183, 16, 16), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Luigi,
+                "MiscMario",
+                new SortedList<Rectangle, Orientation>
+                {
+                    {new Rectangle(246, 183, 12, 16), Orientation.Right},
+                    {new Rectangle(261, 184, 14, 15), Orientation.Right},
+                    {new Rectangle(278, 183, 16, 16), Orientation.Right}
+                });
+            SetAnimation(new[]
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(89, 0, 16, 16),
-                    new Rectangle(121, 0, 12, 16),
-                    new Rectangle(150, 0, 14, 15)
-                }
-            };
-            Animation.Left = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = {0, 1, 2};
-                    return frameSequence[phase];
-                }, 
-                period);
-            Source.Right = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(241, 0, 14, 15),
-                    new Rectangle(272, 0, 12, 16),
-                    new Rectangle(300, 0, 16, 16)
-                }
-            };
-            Animation.Right = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = {2, 1, 0};
-                    return frameSequence[phase];
-                },
-                period);
+                new SpriteTransformation(1), 
+                new SpriteTransformation(2), 
+                new SpriteTransformation(0)
+            });
         }
     }
 }

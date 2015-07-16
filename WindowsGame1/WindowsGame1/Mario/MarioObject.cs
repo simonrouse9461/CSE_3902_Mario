@@ -1,6 +1,6 @@
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernel<MarioStateController>, IMario
+    public class MarioObject : ObjectKernelNew<MarioStateController>, IMario
     {
         public MarioObject()
         {
