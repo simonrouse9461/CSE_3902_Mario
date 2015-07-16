@@ -126,6 +126,14 @@ namespace WindowsGame1
             Core.DelayCommand(() => Core.Object.Unload(), 35);
         }
 
+        public void Castle()
+        {
+            SpriteState.Castle();
+        }
 
+        public void Flag()
+        {
+            SpriteState.Flag();
+        }
     }
 }

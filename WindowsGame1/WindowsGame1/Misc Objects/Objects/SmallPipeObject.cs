@@ -6,14 +6,6 @@ namespace WindowsGame1
     public class SmallPipeObject : GreenPipeObject, IPipe
     {
 
-        private enum Version
-        {
-            Warp,
-            Default
-        }
-
-        private Version version = Version.Default;
-
         public SmallPipeObject()
         {
             StateController.SpriteState.SmallPipe();
@@ -23,10 +15,9 @@ namespace WindowsGame1
         {
             get
             {
-                return new SmallPipeObject
-                {
-                    version = Version.Warp
-                };
+                var instance = new SmallPipeObject();
+                instance.Core.StateController.isWarp();
+                return instance;
             }
         }
     }
