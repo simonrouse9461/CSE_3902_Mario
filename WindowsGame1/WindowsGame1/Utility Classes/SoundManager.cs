@@ -13,6 +13,10 @@ namespace WindowsGame1
         private static SoundEffect jumpSound;
         private static SoundEffect blockBreakSound;
         private static SoundEffect stompSound;
+        private static SoundEffect coinSound;
+        private static SoundEffect powerUpAppearSound;
+        private static SoundEffect powerUpSound;
+        private static SoundEffect kickSound;
 
 
         public static void LoadAllSounds(ContentManager content)
@@ -21,6 +25,10 @@ namespace WindowsGame1
             jumpSound = content.Load<SoundEffect>("Audio/jump");
             blockBreakSound = content.Load<SoundEffect>("Audio/blockBreak");
             stompSound = content.Load<SoundEffect>("Audio/stomp");
+            coinSound = content.Load<SoundEffect>("Audio/coin");
+            powerUpAppearSound = content.Load<SoundEffect>("Audio/powerUpAppear");
+            powerUpSound = content.Load<SoundEffect>("Audio/powerUp");
+            kickSound = content.Load<SoundEffect>("Audio/kick");
         }
 
         public static void OverworldMusicPlay()
@@ -43,6 +51,26 @@ namespace WindowsGame1
         public static void StompSoundPlay()
         {
             stompSound.Play();
+        }
+
+        public static void coinSoundPlay()
+        {
+            coinSound.Play();
+        }
+
+        public static void powerUpAppearSoundPlay()
+        {
+            powerUpAppearSound.Play();
+        }
+
+        public static void powerUpSoundPlay()
+        {
+            powerUpSound.Play();
+        }
+
+        public static void kickSoundPlay()
+        {
+            kickSound.Play();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace WindowsGame1
         // Program quit command
         private ICommand quitCommand;
         private ICommand resetCommand;
+        private ICommand pauseCommand;
         // Mario Commands
         private ICommand marioFireCommand;
         private ICommand marioDeadCommand;
@@ -37,6 +38,7 @@ namespace WindowsGame1
             marioLeftCommand = new MarioLeftCommand(game);
             marioRightCommand = new MarioRightCommand(game);
             marioFireballCommand = new MarioFireballCommand(game);
+            pauseCommand = new PauseCommand(game);
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
 
@@ -45,6 +47,7 @@ namespace WindowsGame1
             cameraLeftCommand = new CameraLeftCommand(game);
             cameraRightCommand = new CameraRightCommand(game);
 
+            keyboardController.RegisterCommand(Keys.P, pauseCommand);
             keyboardController.RegisterCommand(Keys.Q, quitCommand);
             keyboardController.RegisterCommand(Keys.R, resetCommand);
             gamepadController.RegisterCommand(Buttons.Back, quitCommand);
@@ -61,7 +64,8 @@ namespace WindowsGame1
             keyboardController.RegisterCommand(Keys.X, marioFireballCommand);
         }
 
-        public void Update() {
+        public void Update()
+        {
             keyboardController.Update();
             gamepadController.Update();
         }

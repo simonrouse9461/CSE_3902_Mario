@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class GoombaMotionState : EnemyMotionState
+    public class GoombaMotionState : MotionStateKernelNew
     {
         private enum MotionEnum
         {
@@ -14,6 +14,7 @@ namespace WindowsGame1
         }
 
         private MotionEnum MotionStatus;
+        public bool Gravity { get; private set; }
 
         public GoombaMotionState()
         {
@@ -71,7 +72,7 @@ namespace WindowsGame1
             FindMotion<GravityMotion>().Toggle(false);
         }
 
-        public override void Turn()
+        public void Turn()
         {
             if (MotionStatus == MotionEnum.LeftWalk)
             {
@@ -88,7 +89,7 @@ namespace WindowsGame1
         }
 
 
-        public override void MarioSmash()
+        public void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
             FindMotion<MoveLeftMotion>().Toggle(false);
@@ -101,7 +102,7 @@ namespace WindowsGame1
             return MotionStatus != MotionEnum.None;
         }
 
-        public override void TakeMarioHitFromSide(string leftOrRight)
+        public void TakeMarioHitFromSide(string leftOrRight)
         {
             
         }

@@ -9,10 +9,22 @@ namespace WindowsGame1
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy)).AnySide.Touch)
+            if (!Core.StateController.MotionState.Gravity)
             {
-                Core.StateController.Turn();
-            }
+                Collision c = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy));
+                if (c.AnySide.Touch)
+                {
+                    SoundManager.kickSoundPlay();
+                    if (c.Right.Touch)
+                    {
+                        Core.StateController.Turn("left");
+                    }
+                    else if (c.Left.Touch)
+                    {
+                        Core.StateController.Turn("right");
+                    }
+                }
+            } 
 
             if (!Core.StateController.SpriteState.Dead)
             {

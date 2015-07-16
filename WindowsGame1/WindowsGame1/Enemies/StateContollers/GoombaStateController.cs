@@ -8,7 +8,10 @@ namespace WindowsGame1
         {
             if (!MotionState.isAlive())
             {
-                Core.Object.Unload();
+                Core.DelayCommand(() =>
+                    {
+                        Core.Object.Unload();
+                    }, 75);
             }
         }
 

@@ -8,6 +8,7 @@ namespace WindowsGame1
         {
             CollisionHandler = new CoinCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
+            SoundManager.coinSoundPlay();
         }
 
         // make it not solid so that anything can pass through it

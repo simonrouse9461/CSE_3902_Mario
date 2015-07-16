@@ -14,7 +14,7 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
 
         private CommandManager Controller;
-
+        public bool paused = false;
 
         public MarioGame()
         {
@@ -30,35 +30,41 @@ namespace WindowsGame1
             base.Initialize();
         }
 
-        
+
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             WorldManager.LoadLevel(Content);
             Display.LoadContent(Content);
             SoundManager.LoadAllSounds(Content);
             SoundManager.OverworldMusicPlay();
-
             base.LoadContent();
         }
 
-       
+
         protected override void UnloadContent()
         {
-            
+
             base.UnloadContent();
         }
 
-  
+        public void PauseGame()
+        {
+            paused = !paused;
+        }
+
         protected override void Update(GameTime gameTime)
         {
             Controller.Update();
-            WorldManager.Update();
-            Camera.Update();
-            Display.Update(gameTime);
+            if (!paused)
+            {
+                WorldManager.Update();
+                Camera.Update();
+                Display.Update(gameTime);
+                base.Update(gameTime);
+            }
 
-            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -67,7 +73,7 @@ namespace WindowsGame1
             spriteBatch.Begin();
 
             WorldManager.Draw(spriteBatch);
-            Display.Draw(spriteBatch);            
+            Display.Draw(spriteBatch);
 
             spriteBatch.End();
             base.Draw(gameTime);
