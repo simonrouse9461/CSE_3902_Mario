@@ -587,7 +587,7 @@
       <Location>6150 400</Location>
     </Item>
     <Item>
-      <Type>FlagObject</Type>
+      <Type>FlagPoleObject</Type>
       <Version></Version>
       <Location>6150 376</Location>
     </Item>

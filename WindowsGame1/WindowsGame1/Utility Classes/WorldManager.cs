@@ -62,7 +62,7 @@ namespace WindowsGame1
                 new Collection<Koopa>(),
                 new Collection<FloorBlockObject>(),
                 new Collection<CastleObject>(),
-                new Collection<FlagObject>(),
+                new Collection<FlagPoleObject>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioObject>(),

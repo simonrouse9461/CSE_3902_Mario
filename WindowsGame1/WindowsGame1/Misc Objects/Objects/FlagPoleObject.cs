@@ -5,10 +5,10 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class FlagObject : ObjectKernel<BlockStateController>
+    public class FlagPoleObject : ObjectKernel<BlockStateController>
     {
 
-        public FlagObject()
+        public FlagPoleObject()
         {
             StateController.Flag();
         }

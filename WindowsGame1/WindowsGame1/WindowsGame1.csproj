@@ -190,7 +190,7 @@
     <Compile Include="Misc Objects\BlockStateController.cs" />
     <Compile Include="Fireball\FireballObject.cs" />
     <Compile Include="Misc Objects\Objects\CastleObject.cs" />
-    <Compile Include="Misc Objects\Objects\FlagObject.cs" />
+    <Compile Include="Misc Objects\Objects\FlagPoleObject.cs" />
     <Compile Include="Misc Objects\Objects\MediumPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SecretPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SmallPipeObject.cs" />
@@ -200,7 +200,7 @@
     <Compile Include="Misc Objects\Sprites\CastleSprite.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Fireball\FireballSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\FlagSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\FlagPoleSprite.cs" />
     <Compile Include="Misc Objects\Sprites\MediumGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />

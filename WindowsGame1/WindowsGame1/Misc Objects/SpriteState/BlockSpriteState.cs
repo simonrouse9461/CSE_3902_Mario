@@ -31,7 +31,7 @@ namespace WindowsGame1
                 new QuestionBlockSprite(),
                 new BlockDebrisSprite(),
                 new CastleSprite(),
-                new FlagSprite()
+                new FlagPoleSprite()
             };
             ColorSchemeList = new Collection<ColorAnimator>{
                 new ColorAnimator(new[] {Color.Transparent})
@@ -68,7 +68,7 @@ namespace WindowsGame1
                         return FindSprite<CastleSprite>();
 
                     case StatusEnum.Flag:
-                        return FindSprite<FlagSprite>();
+                        return FindSprite<FlagPoleSprite>();
 
                     default:
                         return FindSprite<IndestructibleBlockSprite>();
