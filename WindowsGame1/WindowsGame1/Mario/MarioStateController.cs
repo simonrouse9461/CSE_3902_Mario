@@ -32,9 +32,8 @@ namespace WindowsGame1
 
         public override void Update()
         {
-            if (SpriteState.Growing && SpriteState.Grown)
+            if (SpriteState.Grown)
             {
-                DefaultAction();
                 MotionState.Restore();
                 SpriteState.Restore();
                 WorldManager.RestoreWorld();
@@ -209,7 +208,7 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
-            SpriteState.TurnBig();
+            SpriteState.Grow();
             MotionState.Freeze();
             SpriteState.Hold();
             WorldManager.FreezeWorld();

@@ -10,7 +10,7 @@ namespace WindowsGame1
 {
     public abstract class SpriteKernelNew : ISpriteNew
     {
-        private const double UniversalScale = 1.75;
+        private const double UniversalScale = 1.5;
 
         protected Dictionary<IConvertible, SpriteSourceNew> SourceList { get; private set; }
         protected PeriodicFunction<SpriteTransformation> Animation { get; private set; }
@@ -37,7 +37,7 @@ namespace WindowsGame1
         protected SpriteKernelNew(IConvertible initialVersion)
         {
             SourceList = new Dictionary<IConvertible, SpriteSourceNew>();
-            Animation = new PeriodicFunction<SpriteTransformation>(stage => new SpriteTransformation());
+            Animation = new PeriodicFunction<SpriteTransformation>(stage => new SpriteTransformation(0));
             RegisteredVersion = new Collection<IConvertible>();
             Version = initialVersion;
         }

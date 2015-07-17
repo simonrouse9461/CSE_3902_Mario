@@ -12,7 +12,7 @@ namespace WindowsGame1
         public Color Color;
         public int Scale;
 
-        public SpriteTransformation(int index = 0, SpriteEffects effect = SpriteEffects.None, float rotation = 0,
+        public SpriteTransformation(int index, SpriteEffects effect = SpriteEffects.None, float rotation = 0,
             Color? color = null, int scale = 1)
         {
             Index = index;

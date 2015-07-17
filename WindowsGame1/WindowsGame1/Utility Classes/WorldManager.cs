@@ -250,7 +250,11 @@ namespace WindowsGame1
                 }
             }
 
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200))) Reload();
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200)))
+            {
+                Console.WriteLine(FindObject<MarioObject>().PositionRectangle);
+                Reload();
+            }
         }
 
         public static void Reload()

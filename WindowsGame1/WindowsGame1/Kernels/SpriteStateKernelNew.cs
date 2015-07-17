@@ -128,7 +128,8 @@ namespace WindowsGame1
         public virtual void Update()
         {
             if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
-            if (SpriteTimer.Update()) Sprite.Update();
+            if (SpriteTimer.Update()) 
+                Sprite.Update();
             if (ColorTimer.Update() &&ColorSchemeList != null)
             {
                 foreach (var colorAnimator in ColorSchemeList)

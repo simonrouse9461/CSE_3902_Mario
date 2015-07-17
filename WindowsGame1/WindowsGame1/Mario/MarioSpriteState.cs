@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Dynamic;
 using System.Web.Management;
 using Microsoft.Xna.Framework;
 
@@ -17,6 +18,7 @@ namespace WindowsGame1
             Shoot,
             Die
         }
+
 
         private ActionEnum Action { get; set; }
         public bool Big { get; private set; }
@@ -148,7 +150,7 @@ namespace WindowsGame1
 
         public bool Grown
         {
-            get { return Big && FindSprite<GrowingMarioSprite>().Cycle == 1; }
+            get { return Growing && FindSprite<GrowingMarioSprite>().Cycle >= 1; }
         }
 
         public void Run()
