@@ -10,7 +10,7 @@ namespace WindowsGame1
     {
         public string ImageFile { get; private set; }
         public Texture2D Texture { get; private set; }
-        public SortedList<Rectangle, Orientation> FrameData { get; set; }
+        public OrderedPairs<Rectangle, Orientation> FrameData { get; set; }
 
         public SpriteSourceNew(string source)
         {

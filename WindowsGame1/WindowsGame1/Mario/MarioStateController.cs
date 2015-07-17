@@ -32,7 +32,7 @@ namespace WindowsGame1
 
         public override void Update()
         {
-            if (SpriteState.Growing && SpriteState.FinishGrow)
+            if (SpriteState.Growing && SpriteState.Grown)
             {
                 DefaultAction();
                 MotionState.Restore();
@@ -60,14 +60,14 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (MotionState.Gravity) MotionState.LoseGravity();
-            if (MotionState.DefaultHorizontal) SpriteState.TryStand();
+            if (MotionState.DefaultHorizontal) SpriteState.Stand();
         }
 
         public void Brake()
         {
             if (SpriteState.Dead) return;
             MotionState.Stop();
-            SpriteState.TryRun();
+            SpriteState.Run();
         }
 
         public void Liftoff()
@@ -75,7 +75,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             MotionState.ObtainGravity();
             MotionState.GetInertia();
-            SpriteState.TryJump();
+            SpriteState.Jump();
         }
 
         public void GoLeft()
@@ -93,7 +93,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoLeft();
-                SpriteState.TryRun();
+                SpriteState.Run();
             }
         }
 
@@ -112,7 +112,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoRight();
-                SpriteState.TryRun();
+                SpriteState.Run();
             }
         }
 
@@ -174,7 +174,7 @@ namespace WindowsGame1
         public void Crouch()
         {
             if (SpriteState.Dead) return;
-            SpriteState.TryCrouch();
+            SpriteState.Crouch();
             MotionState.Stop();
         }
 
@@ -186,7 +186,7 @@ namespace WindowsGame1
         public void Die()
         {
             if (SpriteState.Dead) return;
-            SpriteState.BecomeDead();
+            SpriteState.Die();
             MotionState.Die();
             WorldManager.FreezeWorld();
         }
@@ -209,7 +209,7 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
-            SpriteState.GrowBig();
+            SpriteState.TurnBig();
             MotionState.Freeze();
             SpriteState.Hold();
             WorldManager.FreezeWorld();
@@ -218,7 +218,7 @@ namespace WindowsGame1
         public void GetFire()
         {
             if (SpriteState.Dead) return;
-            if (SpriteState.HaveFire) return;
+            if (SpriteState.Fire) return;
             SpriteState.GetFire();
             Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
@@ -229,10 +229,10 @@ namespace WindowsGame1
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
 
-            SpriteState.StarPower();
+            SpriteState.GetPower();
             SpriteState.SetColorFrequency(8);
-            Core.DelayCommand(() => SpriteState.SetColorFrequency(16), () => SpriteState.HaveStarPower, slowDownTime);
-            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.HaveStarPower, stopTime);
+            Core.DelayCommand(() => SpriteState.SetColorFrequency(16), () => SpriteState.Power, slowDownTime);
+            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.Power, stopTime);
         }
 
         public void TakeDamage(int restoreTime)
@@ -243,18 +243,18 @@ namespace WindowsGame1
                 return;
             }
 
-            if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
+            if (SpriteState.Fire) ((IDecorator)Core.CommandExecutor).Restore();
 
             var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 
-            SpriteState.BecomeSmall();
-            SpriteState.BecomeBlink();
+            SpriteState.TurnSmall();
+            SpriteState.StartBlink();
             SpriteState.SetColorFrequency(2);
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
-            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blink, restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
         }

@@ -15,7 +15,7 @@ namespace WindowsGame1
 
         protected StateControllerKernelNew()
         {
-            SpriteState = new TSpriteState();
+            SpriteState = new TSpriteState {Core = Core};
             MotionState = new TMotionState();
         }
 

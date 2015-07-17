@@ -6,7 +6,7 @@
         Fire,
         Luigi,
         Black,
-        Red,
-        Green
+        Green,
+        Red
     }
 }

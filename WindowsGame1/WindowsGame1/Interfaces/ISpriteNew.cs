@@ -9,9 +9,9 @@ namespace WindowsGame1
     public interface ISpriteNew
     {
         int Cycle { get; }
-        int Version { get; }
+        IConvertible Version { get; }
 
-        void SetVersion(int version);
+        void SetVersion(IConvertible version);
         void Reset();
         void Load(ContentManager content);
         void Update();

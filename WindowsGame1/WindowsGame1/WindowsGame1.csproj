@@ -86,27 +86,6 @@
     <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
-    <Compile Include="Collision Tests\MarioBreakableBlockCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Collision Tests\MarioFireflowerCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Collision Tests\MarioGoombaCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Collision Tests\MarioKoopaCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Collision Tests\MarioMushroomCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Collision Tests\MarioNormalBlockCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Collision Tests\MarioQuestionBlockCollisions.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Enemies\BarrierHandlers\KoopaBarrierHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
     <Compile Include="Enemies\StateContollers\GoombaStateController.cs" />
@@ -132,6 +111,7 @@
     <Compile Include="Enemies\Sprites\WalkingGoombaSprite.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Enemies\IEnemy.cs" />
+    <Compile Include="Helper Classes and Structs\OrderedPairs.cs" />
     <Compile Include="Helper Classes and Structs\Orientation.cs" />
     <Compile Include="Interfaces\IBarrierHandler.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
@@ -183,7 +163,7 @@
     <Compile Include="Mario\MarioBarrierHandler.cs" />
     <Compile Include="Mario\MarioStateController.cs" />
     <Compile Include="Mario\Sprites\DeGrowingBigMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\GrowingBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\GrowingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShootingMarioSprite.cs" />
     <Compile Include="Fireball\FireballCollisionHandler.cs" />
     <Compile Include="Fireball\FireBallBarrierHandler.cs" />
@@ -266,7 +246,7 @@
     <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
-    <Compile Include="Mario\Sprites\CrouchingBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\CrouchingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\DeadMarioSprite.cs" />
     <Compile Include="Mario\Sprites\StandingBigMarioSprite.cs" />
     <Compile Include="Mario\Sprites\StandingSmallMarioSprite.cs" />

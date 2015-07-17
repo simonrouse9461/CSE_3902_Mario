@@ -12,12 +12,13 @@ namespace WindowsGame1
     {
         private const double UniversalScale = 1.75;
 
-        protected Dictionary<int, SpriteSourceNew> SourceList { get; set; }
-        protected PeriodicFunction<SpriteTransformation> Animation { get; set; }
+        protected Dictionary<IConvertible, SpriteSourceNew> SourceList { get; private set; }
+        protected PeriodicFunction<SpriteTransformation> Animation { get; private set; }
+        protected Collection<IConvertible> RegisteredVersion { get; private set; }
 
-        protected SortedList<Rectangle, Orientation> FrameData { get { return SourceList[Version].FrameData; } }
-        protected Rectangle SourceCoodinates { get { return FrameData.ElementAt(Index).Key; } }
-        protected Orientation SourceOrientation { get { return FrameData.ElementAt(Index).Value; } }
+        protected OrderedPairs<Rectangle, Orientation> FrameData { get { return SourceList[Version].FrameData; } }
+        protected Rectangle SourceCoodinates { get { return FrameData.KeyAt(Index); } }
+        protected Orientation SourceOrientation { get { return FrameData.ValueAt(Index); } }
         protected Texture2D Texture { get { return SourceList[Version].Texture; } }
         protected int Index { get { return Animation.Value.Index; } }
         protected int Scale { get { return Animation.Value.Scale; } }
@@ -26,28 +27,30 @@ namespace WindowsGame1
         protected SpriteEffects Effect { get { return Animation.Value.Effect; } }
 
         public int Cycle { get; private set; }
-        public int Version { get; private set; }
+        public IConvertible Version { get; private set; }
 
-        public void SetVersion(int version)
+        public void SetVersion(IConvertible version)
         {
-            Version = version;
+            if(RegisteredVersion.Contains(version)) Version = version;
         } 
 
         protected SpriteKernelNew()
         {
-            SourceList = new Dictionary<int, SpriteSourceNew>();
+            SourceList = new Dictionary<IConvertible, SpriteSourceNew>();
             Animation = new PeriodicFunction<SpriteTransformation>(stage => new SpriteTransformation());
+            RegisteredVersion = new Collection<IConvertible>();
         }
 
-        protected void AddSource(IConvertible version, string file, SortedList<Rectangle, Orientation> data)
+        protected void AddSource(IConvertible version, string file, OrderedPairs<Rectangle, Orientation> data)
         {
-            SourceList.Add((int)version, new SpriteSourceNew(file)
+            SourceList.Add(version, new SpriteSourceNew(file)
             {
                 FrameData = data
             });
+            RegisteredVersion.Add(version);
         }
 
-        protected void AddSource(string file, SortedList<Rectangle, Orientation> data)
+        protected void AddSource(string file, OrderedPairs<Rectangle, Orientation> data)
         {
             AddSource(0, file, data);
         }

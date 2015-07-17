@@ -5,16 +5,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class StandingBigMarioSprite : SpriteKernelNew
+    public class CrouchingMarioSprite : SpriteKernelNew
     {
-        public StandingBigMarioSprite()
+        public CrouchingMarioSprite()
         {
             var D = 48;
 
-            var X = 176;
-            var Y = 0;
+            var X = 160;
+            var Y = 10;
             var W = 16;
-            var H = 32;
+            var H = 22;
 
             AddSource(
                 MarioSpriteVersion.Normal,

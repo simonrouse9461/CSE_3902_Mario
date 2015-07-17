@@ -9,47 +9,54 @@ namespace WindowsGame1
     {
         public JumpingBigMarioSprite()
         {
+            var D = 48;
+
+            var X = 144;
+            var Y = 0;
+            var W = 16;
+            var H = 31;
+
             AddSource(
                 MarioSpriteVersion.Normal,
-                "MiscMario",
-                new SortedList<Rectangle, Orientation>
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(152, 46, 16, 32), Orientation.Right}
+                    {new Rectangle(X, Y, W, H), Orientation.Right}
                 });
             AddSource(
                 MarioSpriteVersion.Fire,
-                "MiscMario",
-                new SortedList<Rectangle, Orientation>
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(328, 46, 16, 32), Orientation.Right}
-                });
-            AddSource(
-                MarioSpriteVersion.Black,
-                "MiscMario",
-                new SortedList<Rectangle, Orientation>
-                {
-                    {new Rectangle(152, 134, 16, 32), Orientation.Right}
-                });
-            AddSource(
-                MarioSpriteVersion.Red,
-                "MiscMario",
-                new SortedList<Rectangle, Orientation>
-                {
-                    {new Rectangle(328, 134, 16, 32), Orientation.Right}
-                });
-            AddSource(
-                MarioSpriteVersion.Green,
-                "MiscMario",
-                new SortedList<Rectangle, Orientation>
-                {
-                    {new Rectangle(152, 222, 16, 32), Orientation.Right}
+                    {new Rectangle(X, Y+D, W, H), Orientation.Right}
                 });
             AddSource(
                 MarioSpriteVersion.Luigi,
-                "MiscMario",
-                new SortedList<Rectangle, Orientation>
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(328, 222, 16, 32), Orientation.Right}
+                    {new Rectangle(X, Y+2*D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Black,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+3*D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Green,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+4*D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Red,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+5*D, W, H), Orientation.Right}
                 });
         }
     }

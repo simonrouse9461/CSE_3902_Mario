@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -8,25 +9,26 @@ namespace WindowsGame1
 {
     public abstract class SpriteStateKernelNew : ISpriteStateNew
     {
+        public ICoreNew Core { protected get; set; }
         protected Counter SpriteTimer { get; set; }
         protected Counter ColorTimer { get; set; }
 
-        protected Dictionary<int, ISpriteNew> SpriteList { get; set; }
+        protected Collection<ISpriteNew> SpriteList { get; set; }
         protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
         protected ISpriteNew FindSprite<T>() where T : ISpriteNew
         {
-            return SpriteList.First(sprite => sprite.Value is T).Value;
+            return SpriteList.First(sprite => sprite is T);
         }
 
         public ISpriteNew Sprite
         {
-            get { return Held ? FrozenSprite : RawSprite; }
+            get { return Held ? HoldSprite : RawSprite; }
         }
 
         protected abstract ISpriteNew RawSprite { get; }
         private ISpriteNew LastSprite { get; set; }
-        private ISpriteNew FrozenSprite { get; set; }
+        private ISpriteNew HoldSprite { get; set; }
         
 
         protected virtual ColorAnimator ColorScheme { get { return null; } }
@@ -36,7 +38,8 @@ namespace WindowsGame1
             get { return ColorScheme == null ? Color.White : ColorScheme.Color; }
         }
 
-        public Orientation Orientation { get; protected set; }
+        public Orientation Orientation { get; private set; }
+        public IConvertible Version { get; private set; }
         public bool Left { get { return Orientation == Orientation.Left; } }
         public bool Right { get { return Orientation == Orientation.Right; } }
         public bool Default { get { return Orientation == Orientation.Default; } }
@@ -46,13 +49,43 @@ namespace WindowsGame1
         {
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
-            Orientation = Orientation.Default;
+            ToDefault();
         }
 
-        public void Hold()
+        public void SetVersion(IConvertible version)
         {
-            FrozenSprite = Sprite;
+            foreach (var sprite in SpriteList)
+            {
+                sprite.SetVersion(version);
+            }
+            Version = version;
+        }
+
+        public void SetOrientation(Orientation orientation)
+        {
+            Orientation = orientation;
+        }
+
+        public void ToLeft()
+        {
+            SetOrientation(Orientation.Left);
+        }
+
+        public void ToRight()
+        {
+            SetOrientation(Orientation.Right);
+        }
+
+        public void ToDefault()
+        {
+            SetOrientation(Orientation.Default);
+        }
+
+        public void Hold(int timer = 0)
+        {
+            HoldSprite = Sprite;
             Held = true;
+            if (timer > 0) Core.DelayCommand(Restore, timer);
         }
 
         public void Restore()
@@ -64,7 +97,7 @@ namespace WindowsGame1
         {
             foreach (var sprite in SpriteList)
             {
-                sprite.Value.Load(content);
+                sprite.Load(content);
             }
         }
 
@@ -84,7 +117,7 @@ namespace WindowsGame1
             ColorTimer.Reset();
             foreach (var sprite in SpriteList)
             {
-                sprite.Value.Reset();
+                sprite.Reset();
             }
             foreach (var colorAnimator in ColorSchemeList)
             {

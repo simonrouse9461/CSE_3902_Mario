@@ -8,7 +8,7 @@ namespace WindowsGame1
             CollisionHandler = new MarioCollisionHandler(Core);
             BarrierHandler = new MarioBarrierHandler(Core);
 
-            StateController.SpriteState.BecomeSmall();
+            StateController.SpriteState.TurnSmall();
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
@@ -26,7 +26,7 @@ namespace WindowsGame1
 
         public bool StarPower
         {
-            get { return StateController.SpriteState.HaveStarPower; }
+            get { return StateController.SpriteState.Power; }
         }
 
         public bool Destructive
