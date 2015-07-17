@@ -5,9 +5,9 @@ namespace WindowsGame1
     public class DamagedMarioCollisionHandler : MarioCollisionHandler, IDecorator
     {
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
-        public DamagedMarioCollisionHandler(ICore core, ICollisionHandler original) : base(core)
+        public DamagedMarioCollisionHandler(ICore core) : base(core)
         {
-            DefaultCollisionHandler = (MarioCollisionHandler)original;
+            DefaultCollisionHandler = (MarioCollisionHandler)core.CollisionHandler;
         }
 
         public void Restore()
@@ -28,7 +28,7 @@ namespace WindowsGame1
             {
                 Core.BarrierHandler.AddBarrier<Koopa>();
                 Core.BarrierHandler.AddBarrier<Goomba>();
-                Core.SwitchComponent(new StarMarioCollisionHandler(Core, DefaultCollisionHandler));
+                Core.SwitchComponent(new StarMarioCollisionHandler(Core));
             }
         }
     }

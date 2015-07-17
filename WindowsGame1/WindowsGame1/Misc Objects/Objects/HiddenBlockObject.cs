@@ -6,39 +6,18 @@ namespace WindowsGame1
     public class HiddenBlockObject : BlockKernel, IBlock
     {
 
-        private enum Version
-        {
-            Default,
-            ExtraLife,
-            Star
-        }
-
-        private Version version;
-
         public HiddenBlockObject() {
             StateController.HiddenBlock();
-            CollisionHandler = new BlockCollisionHandler(Core);
+            CollisionHandler = new HiddenBlockCollisionHandler(Core);
         }
 
         public static HiddenBlockObject ExtraLifeHiddenBlock
         {
             get
             {
-                return new HiddenBlockObject
-                {
-                    version = Version.ExtraLife
-                };               
-            }
-        }
-
-        public static HiddenBlockObject StarHiddenBlock
-        {
-            get
-            {
-                return new HiddenBlockObject
-                {
-                    version = Version.Star
-                };
+                var instance = new HiddenBlockObject();
+                instance.Core.StateController.hasOneUp();
+                return instance;
             }
         }
     }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class BlockMotionState : MotionStateKernel
+    public class BlockMotionState : MotionStateKernelNew
     {
 
         private enum VerticalEnum
@@ -21,20 +21,6 @@ namespace WindowsGame1
             MotionList = new Collection<StatusSwitch<IMotion>>{
                 new StatusSwitch<IMotion>(new BlockMotion())
             };         
-        }
-
-        protected override void RefreshMotionStatus()
-        {
-            if (VerticalStatus == VerticalEnum.Hit)
-            {
-                FindMotion<BlockMotion>();
-            }
-            
-        }
-
-        protected override void SetToDefaultState()
-        {
-            VerticalStatus = VerticalEnum.None;
         }
 
         public void Hit()

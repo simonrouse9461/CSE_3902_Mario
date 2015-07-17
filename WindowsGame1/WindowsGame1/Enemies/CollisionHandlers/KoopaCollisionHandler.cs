@@ -3,16 +3,29 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class KoopaCollisionHandler : CollisionHandlerKernelNew<KoopaStateController>
+    public class KoopaCollisionHandler : CollisionHandlerKernel<KoopaStateController>
     {
         public KoopaCollisionHandler(ICore core) : base(core){}
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy)).AnySide.Touch)
+            Core.BarrierHandler.RemoveBarrier<IItem>();
+            if (!Core.StateController.MotionState.Gravity)
             {
-                Core.StateController.Turn();
-            }
+                Collision c = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy));
+                if (c.AnySide.Touch)
+                {
+                    SoundManager.kickSoundPlay();
+                    if (c.Right.Touch)
+                    {
+                        Core.StateController.Turn("left");
+                    }
+                    else if (c.Left.Touch)
+                    {
+                        Core.StateController.Turn("right");
+                    }
+                }
+            } 
 
             if (!Core.StateController.SpriteState.Dead)
             {

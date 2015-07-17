@@ -14,7 +14,7 @@ namespace WindowsGame1
             };
         }
 
-        public override ISprite Sprite
+        protected override ISprite RawSprite
         {
             get
             {

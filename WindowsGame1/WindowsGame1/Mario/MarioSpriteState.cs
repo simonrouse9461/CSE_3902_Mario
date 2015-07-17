@@ -84,7 +84,7 @@ namespace WindowsGame1
             ChangeSpriteFrequency(5);
         }
 
-        public override ISprite Sprite
+        protected override ISprite RawSprite
         {
             get
             {
@@ -159,12 +159,10 @@ namespace WindowsGame1
                     case ActionEnum.Grow:
                         switch (Status)
                         {
-                            case StatusEnum.Small:
-                                return FindSprite<GrowingBigMarioSprite>();
                             case StatusEnum.Big:
-                                return FindSprite<GrowingFireMarioSprite>();
+                                return FindSprite<GrowingBigMarioSprite>();
                             case StatusEnum.Fire:
-                                return FindSprite<StandingFireMarioSprite>();
+                                return FindSprite<GrowingFireMarioSprite>();
                         }
                         break;
                     case ActionEnum.Back:
@@ -186,7 +184,7 @@ namespace WindowsGame1
                         }
                         break;
                 }
-                return SpriteList[0];
+                return null;
             }
         }
 
@@ -231,18 +229,6 @@ namespace WindowsGame1
             Orientation = OrientationEnum.Default;
         }
 
-        public void BecomeBig()
-        {
-            Status = StatusEnum.Big;
-            Action = ActionEnum.Grow;
-
-        }
-
-        public bool Big
-        {
-            get { return Status == StatusEnum.Big; }
-        }
-
         public void BecomeSmall()
         {
             Status = StatusEnum.Small;
@@ -267,6 +253,17 @@ namespace WindowsGame1
             get { return Status == StatusEnum.Dead; }
         }
 
+        public void GrowBig()
+        {
+            Status = StatusEnum.Big;
+            Action = ActionEnum.Grow;
+        }
+
+        public bool Big
+        {
+            get { return Status == StatusEnum.Big; }
+        }
+
         public void GetFire()
         {
             Status = StatusEnum.Fire;
@@ -276,6 +273,20 @@ namespace WindowsGame1
         public bool HaveFire
         {
             get { return Status == StatusEnum.Fire; }
+        }
+
+        public bool Growing
+        {
+            get { return Action == ActionEnum.Grow; }
+        }
+
+        public bool FinishGrow
+        {
+            get
+            {
+                return Big && FindSprite<GrowingBigMarioSprite>().Cycle == 1 ||
+                       HaveFire && FindSprite<GrowingFireMarioSprite>().Cycle == 1;
+            }
         }
 
         public void StarPower()
@@ -310,7 +321,7 @@ namespace WindowsGame1
 
         public void TryRun()
         {
-            if (Shooting) return;
+            if (Shooting || Growing) return;
             Run();
         }
 
@@ -326,7 +337,7 @@ namespace WindowsGame1
 
         public void TryJump()
         {
-            if (Shooting) return;
+            if (Shooting || Growing) return;
             Jump();
         }
 
@@ -337,8 +348,13 @@ namespace WindowsGame1
 
         public void Crouch()
         {
-            if (Shooting || Small) return;
             Action = ActionEnum.Crouch;
+        }
+
+        public void TryCrouch()
+        {
+            if (Shooting || Growing || Small) return;
+            Crouch();
         }
 
         public bool Crouching
@@ -353,7 +369,7 @@ namespace WindowsGame1
 
         public void TryStand()
         {
-            if (Shooting || Crouching) return;
+            if (Shooting || Crouching || Growing) return;
             Stand();
         }
 
@@ -364,7 +380,7 @@ namespace WindowsGame1
 
         public void Turn()
         {
-            if (Shooting) return;
+            if (Shooting || Growing) return;
             Action = ActionEnum.Turn;
         }
 
@@ -392,5 +408,6 @@ namespace WindowsGame1
         {
             get { return Action == ActionEnum.Shoot; }
         }
+
     }
 }

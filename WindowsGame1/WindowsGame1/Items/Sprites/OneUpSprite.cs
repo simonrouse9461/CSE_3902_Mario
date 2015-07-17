@@ -14,7 +14,7 @@ namespace WindowsGame1
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(260, 114, 18, 18)
+                    new Rectangle(214, 34, 16, 16)
                 }
             };
         }

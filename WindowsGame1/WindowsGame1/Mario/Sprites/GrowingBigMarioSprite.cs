@@ -9,20 +9,21 @@ namespace WindowsGame1
     {
         public GrowingBigMarioSprite()
         {
-            const int period = 6;
-            ImageFile.Default = "Mario";
+            const int period = 10;
+            ImageFile.Default = "characters";
             Source.Left = new SpriteSource
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(180, 0, 14, 16),
-                    new Rectangle(180, 51, 16, 31)
+                    new Rectangle(224, 44, 12, 16),
+                    new Rectangle(239, 36, 16, 24),
+                    new Rectangle(239, 1, 16, 32)
                 }
             };
             Animation.Left = new PeriodicFunction<int>(
                 phase =>
                 {
-                    int[] frameSequence = {0,1,0,1,0,1};
+                    int[] frameSequence = {0, 1, 0, 1, 0, 1, 2, 0, 1, 2};
                     return frameSequence[phase];
                 }, 
                 period);
@@ -30,14 +31,15 @@ namespace WindowsGame1
             {
                 Coordinates = new Collection<Rectangle>
                 {
-                    new Rectangle(210, 0, 13, 15),
-                    new Rectangle(209, 52, 15, 31)
+                    new Rectangle(277, 44, 12, 16),
+                    new Rectangle(258, 36, 16, 24),
+                    new Rectangle(258, 1, 16, 32)
                 }
             };
             Animation.Right = new PeriodicFunction<int>(
                phase =>
                {
-                   int[] frameSequence = { 0, 1, 0, 1, 0, 1 };
+                   int[] frameSequence = {0, 1, 0, 1, 0, 1, 2, 0, 1, 2};
                    return frameSequence[phase];
                },
                period);

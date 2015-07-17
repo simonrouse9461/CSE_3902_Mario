@@ -19,7 +19,9 @@ namespace WindowsGame1
             MotionState = new TMotionState();
         }
 
-        public virtual void RefreshState()
+        public virtual void Update() { } 
+
+        public void RefreshState()
         {
             SpriteState.Update();
             MotionState.Update();

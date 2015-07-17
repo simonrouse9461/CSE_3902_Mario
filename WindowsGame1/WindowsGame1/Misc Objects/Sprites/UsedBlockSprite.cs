@@ -7,7 +7,6 @@ namespace WindowsGame1
 {
     public class UsedBlockSprite : SpriteKernel
     {
-
         public UsedBlockSprite()
         {
             ImageFile.Default = "blocks";

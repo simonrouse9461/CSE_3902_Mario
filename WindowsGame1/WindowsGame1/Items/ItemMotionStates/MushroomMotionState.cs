@@ -14,8 +14,7 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(MoveLeftMotion.ItemVelocity),
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(new RaiseUpMotion()),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(new MoveRightMotion())
+                new StatusSwitch<IMotion>(MoveRightMotion.ItemVelocity)
             };
             LoseGravity();
             SetDefaultHorizontal();
@@ -25,6 +24,7 @@ namespace WindowsGame1
         public void SetDefaultHorizontal()
         {
             FindMotion<MoveLeftMotion>().Toggle(false);
+            FindMotion<MoveRightMotion>().Toggle(false);
         }
 
         public void SetDefaultVertical()
@@ -40,7 +40,7 @@ namespace WindowsGame1
         public void Moving()
         {
             FindMotion<RaiseUpMotion>().Toggle(false);
-            FindMotion<MoveLeftMotion>().Toggle(true);
+            FindMotion<MoveRightMotion>().Toggle(true);
         }
 
         public void ObtainGravity()

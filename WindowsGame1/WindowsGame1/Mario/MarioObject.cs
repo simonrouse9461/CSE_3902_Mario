@@ -1,6 +1,6 @@
 namespace WindowsGame1
 {
-    public class MarioObject : ObjectKernelNew<MarioStateController>, IMario
+    public class MarioObject : ObjectKernel<MarioStateController>, IMario
     {
         public MarioObject()
         {
@@ -12,6 +12,7 @@ namespace WindowsGame1
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
+            SoundManager.changeToOverworldMusic();
         }
 
         public override bool Solid

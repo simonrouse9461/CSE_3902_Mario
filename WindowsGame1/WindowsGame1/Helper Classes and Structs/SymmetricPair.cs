@@ -1,6 +1,6 @@
 ﻿namespace WindowsGame1
 {
-    public class SymmetricPair<T>
+    public class SymmetricPair<T> where T : class
     {
         public T Left { get; set; }
         public T Right { get; set; }
@@ -13,6 +13,11 @@
                 Left = value;
                 Right = value;
             }
+        }
+
+        public bool IsDefault
+        {
+            get { return Left == Right; }
         }
     }
 }

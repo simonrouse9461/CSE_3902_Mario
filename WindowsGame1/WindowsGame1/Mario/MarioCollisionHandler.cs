@@ -3,7 +3,7 @@ using WindowsGame1.CommandExecutorDecorators;
 
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
+    public class MarioCollisionHandler : CollisionHandlerKernel<MarioStateController>
     {
         public MarioCollisionHandler(ICore core) : base(core){}
 
@@ -21,7 +21,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Mushroom>().AnyEdge.Touch)
             {
-                Core.StateController.Grow();
+                Core.DelayCommand(Core.StateController.Grow, 5);
             }
         }
 
@@ -30,7 +30,8 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
                 Core.StateController.GetStarPower(200, 300);
-            } 
+                SoundManager.changeToStarMusic();
+            }
         }
 
         protected virtual void HandleFireflower()

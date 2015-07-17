@@ -21,7 +21,7 @@ namespace WindowsGame1
             ChangeSpriteFrequency(7);
         }
 
-        public override ISprite Sprite
+        protected override ISprite RawSprite
         {
             get {
                 if (Status == Fireball.Exploded)

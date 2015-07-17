@@ -30,6 +30,17 @@ namespace WindowsGame1
             }
         }
 
+        public override void Update()
+        {
+            if (SpriteState.FinishGrow)
+            {
+                DefaultAction();
+                MotionState.Restore();
+                ((IDecorator)Core.CommandExecutor).Restore();
+                WorldManager.RestoreWorld();
+            }
+        }
+
         public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
@@ -114,7 +125,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
                 GoLeft();
         }
 
@@ -127,7 +138,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
                 GoRight();
         }
 
@@ -144,7 +155,7 @@ namespace WindowsGame1
             if (MotionState.HaveInertia) return;
             MotionState.Jump();
             SpriteState.Jump();
-            SoundManager.JumpSoundPlay();
+            SoundManager.jumpSoundPlay();
         }
 
         public void Bounce()
@@ -163,7 +174,7 @@ namespace WindowsGame1
         public void Crouch()
         {
             if (SpriteState.Dead) return;
-            SpriteState.Crouch();
+            SpriteState.TryCrouch();
             MotionState.Stop();
         }
 
@@ -176,15 +187,20 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
-            SpriteState.BecomeBig();
+            SpriteState.GrowBig();
+            MotionState.Freeze();
+            Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
+            WorldManager.FreezeWorld();
+            SoundManager.powerUpSoundPlay();
         }
-
+        
         public void GetFire()
         {
             if (SpriteState.Dead) return;
             if (SpriteState.HaveFire) return;
             SpriteState.GetFire();
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core, Core.CommandExecutor));
+            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
+            SoundManager.powerUpSoundPlay();
         }
 
         public void Die()
@@ -193,6 +209,7 @@ namespace WindowsGame1
             SpriteState.BecomeDead();
             MotionState.Die();
             WorldManager.FreezeWorld();
+            SoundManager.changeToDieMusic();
         }
 
         public void Shoot()
@@ -210,7 +227,7 @@ namespace WindowsGame1
 
         public void GetStarPower(int slowDownTime, int stopTime)
         {
-            var decorator = new StarMarioCollisionHandler(Core, Core.CollisionHandler);
+            var decorator = new StarMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
 
@@ -228,9 +245,10 @@ namespace WindowsGame1
                 return;
             }
 
+            SoundManager.pipeSoundPlay();
             if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
 
-            var decorator = new DamagedMarioCollisionHandler(Core, Core.CollisionHandler);
+            var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 
