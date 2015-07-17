@@ -43,6 +43,11 @@ namespace WindowsGame1
             pipeSound = content.Load<SoundEffect>("Audio/pipe");
         }
 
+        public static void stopMusic()
+        {
+            currentlyPlayingMusic.Dispose();
+        }
+
         public static void changeToOverworldMusic()
         {
             if (currentlyPlayingMusic != null)
