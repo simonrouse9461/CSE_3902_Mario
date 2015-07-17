@@ -35,10 +35,9 @@ namespace WindowsGame1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            SoundManager.LoadAllSounds(Content);
             WorldManager.LoadLevel(Content);
             Display.LoadContent(Content);
-            SoundManager.LoadAllSounds(Content);
-            SoundManager.changeToOverworldMusic();
             base.LoadContent();
         }
 

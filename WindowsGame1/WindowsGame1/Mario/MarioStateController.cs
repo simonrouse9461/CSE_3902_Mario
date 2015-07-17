@@ -155,7 +155,7 @@ namespace WindowsGame1
             if (MotionState.HaveInertia) return;
             MotionState.Jump();
             SpriteState.Jump();
-            SoundManager.JumpSoundPlay();
+            SoundManager.jumpSoundPlay();
         }
 
         public void Bounce()
@@ -245,6 +245,7 @@ namespace WindowsGame1
                 return;
             }
 
+            SoundManager.pipeSoundPlay();
             if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
 
             var decorator = new DamagedMarioCollisionHandler(Core);

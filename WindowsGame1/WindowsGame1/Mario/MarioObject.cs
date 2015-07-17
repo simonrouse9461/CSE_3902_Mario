@@ -12,6 +12,7 @@ namespace WindowsGame1
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
+            SoundManager.changeToOverworldMusic();
         }
 
         public override bool Solid

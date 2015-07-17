@@ -171,6 +171,11 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+    <Compile Include="Audio\pipe.wav">
+      <Name>pipe</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Content Include="mario-1-1.gif">
       <Name>mario-1-1</Name>
     </Content>
