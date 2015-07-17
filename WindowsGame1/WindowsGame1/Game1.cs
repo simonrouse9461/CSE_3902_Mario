@@ -35,10 +35,9 @@ namespace WindowsGame1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            SoundManager.LoadAllSounds(Content);
             WorldManager.LoadLevel(Content);
             Display.LoadContent(Content);
-            SoundManager.LoadAllSounds(Content);
-            SoundManager.OverworldMusicPlay();
             base.LoadContent();
         }
 
@@ -51,7 +50,16 @@ namespace WindowsGame1
 
         public void PauseGame()
         {
-            paused = !paused;
+            if (paused)
+            {
+                paused = false;
+                SoundManager.changeToOverworldMusic();
+            }
+            else
+            {
+                paused = true;
+                SoundManager.stopMusic();
+            }
         }
 
         protected override void Update(GameTime gameTime)

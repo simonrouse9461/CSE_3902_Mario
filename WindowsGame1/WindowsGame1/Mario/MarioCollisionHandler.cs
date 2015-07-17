@@ -30,7 +30,8 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
                 Core.StateController.GetStarPower(200, 300);
-            } 
+                SoundManager.changeToStarMusic();
+            }
         }
 
         protected virtual void HandleFireflower()

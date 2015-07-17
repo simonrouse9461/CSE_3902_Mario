@@ -17,7 +17,7 @@ namespace WindowsGame1
             });
 
             Display.AddScore<Koopa>();
-            SoundManager.StompSoundPlay();
+            SoundManager.stompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)

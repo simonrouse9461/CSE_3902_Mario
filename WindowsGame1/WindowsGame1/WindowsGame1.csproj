@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="Enemies\BarrierHandlers\KoopaBarrierHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
+    <Compile Include="Enemies\Sprites\UpsideDownGoombaSprite.cs" />
     <Compile Include="Enemies\StateContollers\GoombaStateController.cs" />
     <Compile Include="Enemies\StateContollers\KoopaStateController.cs" />
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />

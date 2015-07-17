@@ -178,36 +178,7 @@
       <Location>168 400</Location>
     </Item>
     
-    <!--<Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>120 208</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>144 208</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>168 208</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>192 208</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>216 208</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>240 208</Location>
-    </Item>-->
+    
       
     <Item>
       <Type>NormalBlockObject</Type>
@@ -300,109 +271,17 @@
       <Version></Version>
       <Location>360 400</Location>
     </Item>
-
-    <!--<Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>96 328</Location>
-    </Item>
     <Item>
-      <Type>FloatingCoinObject</Type>
+      <Type>FloorBlockObject</Type>
       <Version></Version>
-      <Location>120 328</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>144 328</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>168 328</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>192 328</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>216 328</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>240 328</Location>
+      <Location>384 400</Location>
     </Item>
 
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>96 304</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>120 304</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>144 304</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>168 304</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>192 304</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>216 304</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>240 304</Location>
-    </Item>
-
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>120 280</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>144 280</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>168 280</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>192 280</Location>
-    </Item>
-    <Item>
-      <Type>FloatingCoinObject</Type>
-      <Version></Version>
-      <Location>216 280</Location>
-    </Item>-->
-
+   
     <Item>
       <Type>SecretPipeObject</Type>
       <Version></Version>
-      <Location>250 398</Location>
+      <Location>349 375</Location>
     </Item>
   </Asset>
 </XnaContent>

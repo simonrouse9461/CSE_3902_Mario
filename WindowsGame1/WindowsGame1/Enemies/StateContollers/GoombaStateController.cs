@@ -6,13 +6,6 @@ namespace WindowsGame1
     {
         public override void Update()
         {
-            if (!MotionState.isAlive())
-            {
-                Core.DelayCommand(() =>
-                    {
-                        Core.Object.Unload();
-                    }, 75);
-            }
         }
 
         public void MarioSmash()
@@ -23,8 +16,27 @@ namespace WindowsGame1
                 SpriteState.MarioSmash();
             });
 
+            Core.DelayCommand(() =>
+            {
+                Core.Object.Unload();
+            }, 75);
+
             Display.AddScore<Goomba>();
-            SoundManager.StompSoundPlay();
+            SoundManager.stompSoundPlay();
+        }
+
+        public void Flip()
+        {
+            MotionState.Flip();
+            SpriteState.Flip();
+
+            Core.DelayCommand(() =>
+            {
+                Core.Object.Unload();
+            }, 30);
+
+            Display.AddScore<Goomba>();
+            SoundManager.stompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)
