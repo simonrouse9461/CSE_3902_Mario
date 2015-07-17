@@ -50,7 +50,16 @@ namespace WindowsGame1
 
         public void PauseGame()
         {
-            paused = !paused;
+            if (paused)
+            {
+                paused = false;
+                SoundManager.changeToOverworldMusic();
+            }
+            else
+            {
+                paused = true;
+                SoundManager.stopMusic();
+            }
         }
 
         protected override void Update(GameTime gameTime)
