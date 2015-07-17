@@ -17,5 +17,10 @@ namespace WindowsGame1
                 Core.Object.Unload();
             }
         }
+
+        public void Static()
+        {
+            MotionState.ResetStatus();
+        }
     }
 }

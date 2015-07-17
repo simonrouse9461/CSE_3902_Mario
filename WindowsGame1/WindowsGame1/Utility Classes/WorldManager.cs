@@ -76,6 +76,7 @@ namespace WindowsGame1
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
                 new Collection<OneUp>(),
+                new Collection<FloatingCoinObject>(),
 
                 // then blocks
                 new Collection<QuestionBlockObject>(),
