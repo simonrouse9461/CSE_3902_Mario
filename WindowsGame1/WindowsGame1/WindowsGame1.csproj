@@ -88,6 +88,7 @@
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
     <Compile Include="Enemies\BarrierHandlers\KoopaBarrierHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
+    <Compile Include="Enemies\Sprites\UpsideDownGoombaSprite.cs" />
     <Compile Include="Enemies\StateContollers\GoombaStateController.cs" />
     <Compile Include="Enemies\StateContollers\KoopaStateController.cs" />
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
@@ -134,13 +135,18 @@
     <Compile Include="Items\BarrierHandlers\StarBarrierHandler.cs" />
     <Compile Include="Items\CollisionHandler\CoinCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\FireflowerCollisionHandler.cs" />
+    <Compile Include="Items\CollisionHandler\FloatingCoinCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\MushroomCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\OneUpCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\StarCollisionHandler.cs" />
     <Compile Include="Items\ItemMotionStates\CoinMotionState.cs" />
+    <Compile Include="Items\ItemMotionStates\FloatingCoinMotionState.cs" />
     <Compile Include="Items\ItemMotionStates\OneUpMotionState.cs" />
     <Compile Include="Items\ItemMotionStates\StarMotionState.cs" />
+    <Compile Include="Items\SpriteStates\FloatingCoinSpriteState.cs" />
+    <Compile Include="Items\Sprites\FloatingCoinSprite.cs" />
     <Compile Include="Items\StateControllers\CoinStateController.cs" />
+    <Compile Include="Items\StateControllers\FloatingCoinStateController.cs" />
     <Compile Include="Items\StateControllers\StarStateController.cs" />
     <Compile Include="Items\StateControllers\MushroomStateController.cs" />
     <Compile Include="Items\StateControllers\FireflowerStateController.cs" />
@@ -180,6 +186,7 @@
     <Compile Include="Fireball\FireballObject.cs" />
     <Compile Include="Misc Objects\Objects\CastleObject.cs" />
     <Compile Include="Misc Objects\Objects\FlagPoleObject.cs" />
+    <Compile Include="Items\FloatingCoinObject.cs" />
     <Compile Include="Misc Objects\Objects\MediumPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SecretPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SmallPipeObject.cs" />
@@ -309,6 +316,7 @@
     <Content Include="CODE_REVIEWS\ChuhanCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
+    <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint5.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">

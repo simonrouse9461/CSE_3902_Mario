@@ -9,7 +9,8 @@ namespace WindowsGame1
         private enum StatusEnum
         {
             Dead,
-            Walking
+            Walking,
+            Flip
         }
 
         private StatusEnum Status;
@@ -19,7 +20,8 @@ namespace WindowsGame1
             SpriteList = new Collection<ISprite>
             {
                 new DeadGoombaSprite(),
-                new WalkingGoombaSprite()
+                new WalkingGoombaSprite(),
+                new UpsideDownGoombaSprite()
             };
 
             Status = StatusEnum.Walking;
@@ -34,9 +36,13 @@ namespace WindowsGame1
                 {
                     return FindSprite<DeadGoombaSprite>();
                 }
-                else
+                else if (Status == StatusEnum.Walking)
                 {
                     return FindSprite<WalkingGoombaSprite>();
+                }
+                else
+                {
+                    return FindSprite<UpsideDownGoombaSprite>();
                 }
             }
         }
@@ -49,6 +55,11 @@ namespace WindowsGame1
         public override void Turn()
         {
            
+        }
+
+        public void Flip()
+        {
+            Status = StatusEnum.Flip;
         }
 
         public override bool Dead

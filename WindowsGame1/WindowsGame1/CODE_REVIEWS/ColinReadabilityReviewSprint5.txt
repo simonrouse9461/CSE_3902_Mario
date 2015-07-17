@@ -1,0 +1,11 @@
+﻿Author: Colin Dolan
+Date: 7/16/15
+Sprint #: 4
+File: BlockStateController.cs
+Author of File: Andrew Miller
+
+Comments: While this class is on the long side, the short, one line methods are easy to 
+understand and the methods make sense to group together. Inheritence is clear aside from the 
+blockMotionState. It doesn't appear to be used in the class. This class handles all versions 
+of blocks but it does so in a very simple way, descriptive names make the functions very
+clear and easy to implement if needed.

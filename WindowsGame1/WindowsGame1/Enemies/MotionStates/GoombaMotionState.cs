@@ -10,7 +10,8 @@ namespace WindowsGame1
         {
             None,
             LeftWalk,
-            RightWalk
+            RightWalk,
+            Flip
         }
 
         private MotionEnum MotionStatus;
@@ -22,7 +23,8 @@ namespace WindowsGame1
             {
                 new StatusSwitch<IMotion>(MoveLeftMotion.EnemyVelocity),
                 new StatusSwitch<IMotion>(MoveRightMotion.EnemyVelocity),
-                new StatusSwitch<IMotion>(new GravityMotion())
+                new StatusSwitch<IMotion>(new GravityMotion()),
+                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
 
             LoseGravity();
@@ -30,35 +32,6 @@ namespace WindowsGame1
             SetDefaultHorizontal();
         }
 
-        // this method has been abandoned
-
-//        protected override void RefreshMotionStatus()
-//        {
-//            switch (MotionStatus)
-//            {
-//                case MotionEnum.None:
-//                    FindMotion<MoveLeftMotion>().Toggle(false);
-//                    FindMotion<MoveRightMotion>().Toggle(false);
-//                    break;
-//                case MotionEnum.LeftWalk:
-//                    FindMotion<MoveLeftMotion>().Toggle(true);
-//                    FindMotion<MoveRightMotion>().Toggle(false);
-//                    break;
-//                case MotionEnum.RightWalk:
-//                    FindMotion<MoveLeftMotion>().Toggle(false);
-//                    FindMotion<MoveRightMotion>().Toggle(true);
-//                    break;
-//            }
-//
-//            if (Gravity)
-//            {
-//                FindMotion<GravityMotion>().Toggle(true);
-//            }
-//            else
-//            {
-//                FindMotion<GravityMotion>().Toggle(false);
-//            }
-//        }
         public void SetDefaultHorizontal()
         {
             MotionStatus = MotionEnum.LeftWalk;
@@ -70,6 +43,7 @@ namespace WindowsGame1
         {
             Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+            FindMotion<BounceUpMotion>().Toggle(false);
         }
 
         public void Turn()
@@ -99,7 +73,7 @@ namespace WindowsGame1
 
         public bool isAlive()
         {
-            return MotionStatus != MotionEnum.None;
+            return MotionStatus != MotionEnum.None && MotionStatus != MotionEnum.Flip;
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)
@@ -117,6 +91,12 @@ namespace WindowsGame1
         {
             Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+        }
+
+        public void Flip()
+        {
+            MotionStatus = MotionEnum.Flip;
+            FindMotion<BounceUpMotion>().Toggle(true);
         }
     }
 }

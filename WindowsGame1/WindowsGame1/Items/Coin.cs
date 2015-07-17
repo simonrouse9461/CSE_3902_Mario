@@ -17,15 +17,5 @@ namespace WindowsGame1
         {
             get { return false; }
         }
-
-        public Coin MakeCoin
-        {
-            get
-            {
-                var instance = new Coin();
-                Core.StateController.MotionState.Generated();
-                return instance;
-            }
-        }
     }
 }
