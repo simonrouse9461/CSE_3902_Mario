@@ -8,6 +8,7 @@ namespace WindowsGame1
     public class JumpingSmallMarioSprite : SpriteKernelNew
     {
         public JumpingSmallMarioSprite()
+            : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 

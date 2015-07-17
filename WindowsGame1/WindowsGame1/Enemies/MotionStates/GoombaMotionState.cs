@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class GoombaMotionState : EnemyMotionState
+    public class GoombaMotionState : MotionStateKernelNew
     {
         private enum MotionEnum
         {
@@ -14,6 +14,7 @@ namespace WindowsGame1
         }
 
         private MotionEnum MotionStatus;
+        public bool Gravity { get; private set; }
 
         public GoombaMotionState()
         {
@@ -24,8 +25,9 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(new GravityMotion())
             };
 
-            MotionStatus = MotionEnum.LeftWalk;
             LoseGravity();
+            SetDefaultVertical();
+            SetDefaultHorizontal();
         }
 
         // this method has been abandoned
@@ -57,23 +59,41 @@ namespace WindowsGame1
 //                FindMotion<GravityMotion>().Toggle(false);
 //            }
 //        }
+        public void SetDefaultHorizontal()
+        {
+            MotionStatus = MotionEnum.LeftWalk;
+            FindMotion<MoveLeftMotion>().Toggle(true);
+            FindMotion<MoveRightMotion>().Toggle(false);
+        }
 
+        public void SetDefaultVertical()
+        {
+            Gravity = false;
+            FindMotion<GravityMotion>().Toggle(false);
+        }
 
-        public override void Turn()
+        public void Turn()
         {
             if (MotionStatus == MotionEnum.LeftWalk)
             {
+                FindMotion<MoveRightMotion>().Toggle(true);
+                FindMotion<MoveLeftMotion>().Toggle(false);
                 MotionStatus = MotionEnum.RightWalk;
             }
             else if (MotionStatus == MotionEnum.RightWalk)
             {
+                FindMotion<MoveRightMotion>().Toggle(false);
+                FindMotion<MoveLeftMotion>().Toggle(true);
                 MotionStatus = MotionEnum.LeftWalk;
             }
         }
 
-        public override void MarioSmash()
+
+        public void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
+            FindMotion<MoveLeftMotion>().Toggle(false);
+            FindMotion<MoveRightMotion>().Toggle(false);
         }
 
 
@@ -82,7 +102,7 @@ namespace WindowsGame1
             return MotionStatus != MotionEnum.None;
         }
 
-        public override void TakeMarioHitFromSide(string leftOrRight)
+        public void TakeMarioHitFromSide(string leftOrRight)
         {
             
         }
@@ -90,11 +110,13 @@ namespace WindowsGame1
         public void ObtainGravity()
         {
             Gravity = true;
+            FindMotion<GravityMotion>().Toggle(true);
         }
 
         public void LoseGravity()
         {
             Gravity = false;
+            FindMotion<GravityMotion>().Toggle(false);
         }
     }
 }

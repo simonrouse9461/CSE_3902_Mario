@@ -8,6 +8,7 @@ namespace WindowsGame1
     public class ShootingMarioSprite : SpriteKernelNew
     {
         public ShootingMarioSprite()
+            : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 

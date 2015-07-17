@@ -8,6 +8,7 @@ namespace WindowsGame1
     public class StandingSmallMarioSprite : SpriteKernelNew
     {
         public StandingSmallMarioSprite()
+            : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 

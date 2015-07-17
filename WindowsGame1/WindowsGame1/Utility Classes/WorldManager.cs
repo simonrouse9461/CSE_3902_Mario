@@ -35,6 +35,32 @@ namespace WindowsGame1
             }
         }
 
+        public enum LevelSection
+        {
+            Default,
+            Underground,
+            Warp
+        }
+
+        public static LevelSection CurrentSection { get; set; }
+
+        public static void SetDefaultSection()
+        {
+            CurrentSection = LevelSection.Default;
+            Reload();
+        }
+
+        public static void SetUndergroundSection()
+        {
+            CurrentSection = LevelSection.Underground;
+            Reload();
+        }
+        public static void SetWarpSection()
+        {
+            CurrentSection = LevelSection.Warp;
+            Reload();
+        }
+
         private WorldManager()
         {
             _objectList = new Collection<IList>
@@ -61,6 +87,8 @@ namespace WindowsGame1
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
                 new Collection<FloorBlockObject>(),
+                new Collection<CastleObject>(),
+                new Collection<FlagPoleObject>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioObject>(),
@@ -69,7 +97,7 @@ namespace WindowsGame1
                 new Collection<GreenPipeObject>(),
                 new Collection<SmallPipeObject>(),
                 new Collection<MediumPipeObject>(),
-                //new Collection<SecretPipeObject>(),
+                new Collection<SecretPipeObject>(),
 
                 // Fireball is on the top of everything
                 new Collection<FireballObject>()
@@ -83,7 +111,7 @@ namespace WindowsGame1
 
         public static List<IObject> ObjectList
         {
-            get { return Instance._objectList.SelectMany(list => (IEnumerable<IObject>) list).ToList(); }
+            get { return Instance._objectList.SelectMany(list => (IEnumerable<IObject>)list).ToList(); }
         }
 
         public static List<Collection<T>> FindObjectCollectionList<T>() where T : IObject
@@ -135,7 +163,7 @@ namespace WindowsGame1
 
         public static void LoadObject(Object obj, Vector2 position)
         {
-            ((IObject) obj).Load(Instance.Content, position);
+            ((IObject)obj).Load(Instance.Content, position);
             Instance._objectList.First(list => list.GetType().GetGenericArguments().Single() == obj.GetType())
                 .Add(obj);
         }
@@ -154,9 +182,25 @@ namespace WindowsGame1
         public static void LoadLevel(ContentManager content)
         {
             Instance.Content = content;
-            Instance.LevelData = content.Load<ObjectData[]>("LevelData");
+            //CurrentSection = LevelSection.Default;
+            if (CurrentSection == LevelSection.Default)
+            {
+                Instance.LevelData = content.Load<ObjectData[]>("LevelData");
+                CreateObject<MarioObject>(new Vector2(75, 398));
+            }
+            else if (CurrentSection == LevelSection.Underground)
+            {
+                Instance.LevelData = content.Load<ObjectData[]>("UndergroundLevel");
+                CreateObject<MarioObject>(new Vector2(50, 200));
+            }
+            else if (CurrentSection == LevelSection.Warp)
+            {
+                Instance.LevelData = content.Load<ObjectData[]>("LevelData");
+                CreateObject<MarioObject>(new Vector2(5216, 370));
+                Camera.Adjust(new Vector2(5200, 0));
+            }
+
             var nameSpace = Instance.GetType().Namespace;
-            CreateObject<MarioObject>(new Vector2(75, 398));
             foreach (var data in Instance.LevelData)
             {
                 try
@@ -172,7 +216,7 @@ namespace WindowsGame1
                     var type = nameSpace + "." + data.Type;
                     var version = string.IsNullOrEmpty(data.Version)
                         ? string.Empty
-                        : " with a version name " + data.Version; 
+                        : " with a version name " + data.Version;
                     throw new InvalidIObjectException("Unable to create instance of an IObject from type " + type + version + "!");
                 }
             }
@@ -186,7 +230,7 @@ namespace WindowsGame1
                 foreach (var collection in Instance._objectList)
                     for (var i = 0; i < collection.Count; i++)
                     {
-                        var obj = (IObject) collection[i];
+                        var obj = (IObject)collection[i];
                         if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
                         else Camera.AddObject(obj);
                     }
@@ -206,18 +250,22 @@ namespace WindowsGame1
                 }
             }
 
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0,200,0,200))) Reload();
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200))) Reload();
         }
-        
+
         public static void Reload()
         {
             foreach (var collection in Instance._objectList)
                 collection.Clear();
             LoadLevel(Instance.Content);
             Camera.Reset();
-            Display.Reset();
             Modified = true;
             RestoreWorld();
+
+            if (CurrentSection == LevelSection.Default)
+            {
+                Display.Reset();
+            }
         }
 
         public static void Draw(SpriteBatch spriteBatch)

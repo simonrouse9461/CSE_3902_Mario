@@ -4,7 +4,7 @@ namespace WindowsGame1
 {
     public class KoopaStateController : StateControllerKernel<KoopaSpriteState, KoopaMotionState>
     {
-        public void Update()
+        public override void Update()
         {
         }
 
@@ -17,7 +17,7 @@ namespace WindowsGame1
             });
 
             Display.AddScore<Koopa>();
-            SoundManager.StompSoundPlay();
+            SoundManager.stompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)
@@ -25,10 +25,21 @@ namespace WindowsGame1
             MotionState.TakeMarioHitFromSide(leftOrRight);
         }
 
-        public void Turn()
+        public void Turn(String leftOrRight)
         {
+            if (leftOrRight.Equals("left"))
+            {
+                MotionState.Turn(leftOrRight);
+            }
+            else if (leftOrRight.Equals("right"))
+            {
+                MotionState.Turn(leftOrRight);
+            }
+            else
+            {
+                throw new System.ArgumentException("Parameter must be \"left\" or \"right\".", "leftOrRight");
+            }
             SpriteState.Turn();
-            MotionState.Turn();
         }
     }
 }

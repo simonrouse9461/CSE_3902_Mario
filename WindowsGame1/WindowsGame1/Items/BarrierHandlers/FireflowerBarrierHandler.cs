@@ -19,6 +19,10 @@ namespace WindowsGame1
             {
                 Core.StateController.MotionState.LoseGravity();
             }
+            else
+            {
+                Core.StateController.MotionState.ObtainGravity();
+            }
         }
     }
 }

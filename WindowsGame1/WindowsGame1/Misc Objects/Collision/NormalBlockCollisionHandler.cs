@@ -12,7 +12,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
             {
-                if (Core.StateController.giveCoin)
+                if (Core.StateController.giveCoin && !Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockCoinHit();
                 }
@@ -23,12 +23,12 @@ namespace WindowsGame1
                 else
                 {
                     Core.StateController.NormalBlockDestroyed();
-                    SoundManager.BlockBreakSoundPlay();
+                    SoundManager.blockBreakSoundPlay();
                 }
             }
             else if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
-                if (Core.StateController.giveCoin)
+                if (Core.StateController.giveCoin && !Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockCoinHit();
                 }

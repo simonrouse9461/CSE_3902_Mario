@@ -8,6 +8,7 @@ namespace WindowsGame1
     public class CrouchingMarioSprite : SpriteKernelNew
     {
         public CrouchingMarioSprite()
+            : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 

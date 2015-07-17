@@ -7,6 +7,7 @@ namespace WindowsGame1
     public class RunningBigMarioSprite : SpriteKernelNew
     {
         public RunningBigMarioSprite()
+            : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 

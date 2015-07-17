@@ -34,12 +34,15 @@ namespace WindowsGame1
             if(RegisteredVersion.Contains(version)) Version = version;
         } 
 
-        protected SpriteKernelNew()
+        protected SpriteKernelNew(IConvertible initialVersion)
         {
             SourceList = new Dictionary<IConvertible, SpriteSourceNew>();
             Animation = new PeriodicFunction<SpriteTransformation>(stage => new SpriteTransformation());
             RegisteredVersion = new Collection<IConvertible>();
+            Version = initialVersion;
         }
+
+        protected SpriteKernelNew() : this(0) { }
 
         protected void AddSource(IConvertible version, string file, OrderedPairs<Rectangle, Orientation> data)
         {

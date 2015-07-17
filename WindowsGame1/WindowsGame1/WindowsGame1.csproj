@@ -91,7 +91,6 @@
     <Compile Include="Enemies\StateContollers\GoombaStateController.cs" />
     <Compile Include="Enemies\StateContollers\KoopaStateController.cs" />
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
-    <Compile Include="Enemies\MotionStates\EnemyMotionState.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
     <Compile Include="Exceptions\InvalidIObjectException.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="GameCommands\CameraRightCommand.cs" />
     <Compile Include="GameCommands\CameraDownCommand.cs" />
     <Compile Include="GameCommands\CameraUpCommand.cs" />
+    <Compile Include="GameCommands\PauseCommand.cs" />
     <Compile Include="GameCommands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\KoopaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
@@ -138,6 +138,7 @@
     <Compile Include="Items\CollisionHandler\OneUpCollisionHandler.cs" />
     <Compile Include="Items\CollisionHandler\StarCollisionHandler.cs" />
     <Compile Include="Items\ItemMotionStates\CoinMotionState.cs" />
+    <Compile Include="Items\ItemMotionStates\OneUpMotionState.cs" />
     <Compile Include="Items\ItemMotionStates\StarMotionState.cs" />
     <Compile Include="Items\StateControllers\CoinStateController.cs" />
     <Compile Include="Items\StateControllers\StarStateController.cs" />
@@ -177,14 +178,18 @@
     <Compile Include="Fireball\FireballMotionState.cs" />
     <Compile Include="Misc Objects\BlockStateController.cs" />
     <Compile Include="Fireball\FireballObject.cs" />
+    <Compile Include="Misc Objects\Objects\CastleObject.cs" />
+    <Compile Include="Misc Objects\Objects\FlagPoleObject.cs" />
     <Compile Include="Misc Objects\Objects\MediumPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SecretPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SmallPipeObject.cs" />
     <Compile Include="Misc Objects\PipeStateController.cs" />
     <Compile Include="Fireball\FireballSpriteState.cs" />
     <Compile Include="Misc Objects\Sprites\BlockDebrisSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\CastleSprite.cs" />
     <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
     <Compile Include="Fireball\FireballSprite.cs" />
+    <Compile Include="Misc Objects\Sprites\FlagPoleSprite.cs" />
     <Compile Include="Misc Objects\Sprites\MediumGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />

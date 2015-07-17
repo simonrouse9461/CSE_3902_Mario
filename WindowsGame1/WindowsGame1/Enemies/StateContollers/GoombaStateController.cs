@@ -4,8 +4,15 @@ namespace WindowsGame1
 {
     public class GoombaStateController : StateControllerKernel<GoombaSpriteState, GoombaMotionState>
     {
-        public void Update()
+        public override void Update()
         {
+            if (!MotionState.isAlive())
+            {
+                Core.DelayCommand(() =>
+                    {
+                        Core.Object.Unload();
+                    }, 75);
+            }
         }
 
         public void MarioSmash()
@@ -17,7 +24,7 @@ namespace WindowsGame1
             });
 
             Display.AddScore<Goomba>();
-            SoundManager.StompSoundPlay();
+            SoundManager.stompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)

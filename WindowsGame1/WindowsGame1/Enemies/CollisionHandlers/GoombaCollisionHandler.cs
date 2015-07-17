@@ -10,6 +10,7 @@ namespace WindowsGame1
 
         public override void Handle()
         {
+            Core.BarrierHandler.RemoveBarrier<IItem>();
             if (!Core.StateController.SpriteState.Dead)
             {
                 if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
@@ -26,7 +27,7 @@ namespace WindowsGame1
                 }
                 else
                 {
-                    if (Core.CollisionDetector.Detect<IObject>(obj => obj.Solid).AnySide.Touch)
+                    if (!Core.StateController.MotionState.Gravity && Core.CollisionDetector.Detect<IObject>(obj => obj.Solid).AnySide.Touch)
                     {
                         Core.StateController.Turn();
                     }

@@ -8,6 +8,8 @@ namespace WindowsGame1
         {
             CollisionHandler = new CoinCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
+            SoundManager.coinSoundPlay();
+            
         }
 
         // make it not solid so that anything can pass through it
@@ -21,7 +23,7 @@ namespace WindowsGame1
             get
             {
                 var instance = new Coin();
-                instance.Core.StateController.MotionState.Generated();
+                Core.StateController.MotionState.Generated();
                 return instance;
             }
         }
