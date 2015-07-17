@@ -209,6 +209,7 @@ namespace WindowsGame1
             SpriteState.BecomeDead();
             MotionState.Die();
             WorldManager.FreezeWorld();
+            SoundManager.changeToDieMusic();
         }
 
         public void Shoot()
