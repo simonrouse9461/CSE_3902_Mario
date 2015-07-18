@@ -3,8 +3,8 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class CoreNew<TStateController> : ICore
-        where TStateController : IStateController, new()
+    public class CoreNew<TStateController> : ICoreNew
+        where TStateController : IStateControllerNew, new()
     {
         private class Reservation
         {
@@ -13,7 +13,7 @@ namespace WindowsGame1
             public Counter Timer { get; set; }
         }
 
-        private Collection<Reservation> Waitlist;
+        private Collection<Reservation> Waitlist { get; set; }
 
         public IObject Object { get; set; }
         public CollisionDetector CollisionDetector { get; set; }
@@ -22,12 +22,12 @@ namespace WindowsGame1
         public ICollisionHandler CollisionHandler { get; set; }
         public ICommandExecutor CommandExecutor { get; set; }
 
-        public IStateController GeneralStateController
+        public IStateControllerNew GeneralStateController
         {
             get { return StateController; }
         }
 
-        public ISpriteState GeneralSpriteState
+        public ISpriteStateNew GeneralSpriteState
         {
             get { return StateController.GeneralSpriteState; }
         }
@@ -70,9 +70,9 @@ namespace WindowsGame1
             Waitlist = new Collection<Reservation>();
         }
 
-        public void SwitchComponent(Object component)
+        public void SwitchComponent(object component)
         {
-            if (component is ISpriteState || component is IMotionState)
+            if (component is ISpriteStateNew || component is IMotionState)
                 StateController.SwitchComponent(component);
             if (component is ICollisionHandler)
                 CollisionHandler = (ICollisionHandler)component;

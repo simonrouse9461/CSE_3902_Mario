@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace WindowsGame1
 {
     public abstract class ObjectKernelNew<TStateController> : IObject
-        where TStateController : IStateController, new()
+        where TStateController : IStateControllerNew, new()
     {
         // Constructor
         protected ObjectKernelNew()
@@ -17,14 +17,8 @@ namespace WindowsGame1
         // Object core that wraps all internal components of the object
         protected CoreNew<TStateController> Core { get; set; }
 
-        // Temporarily made for test cases
-        public ICore CoreGetter
-        {
-            get { return Core; }
-        }
-
         // Protected Properties
-        protected ISpriteState GeneralSpriteState
+        protected ISpriteStateNew GeneralSpriteState
         {
             get { return Core.GeneralSpriteState; }
         }
@@ -139,6 +133,7 @@ namespace WindowsGame1
             if (haveBarrierHandler) BarrierHandler.Update();
             if (haveBarrierHandler) BarrierHandler.ResetVelocity();
             if (haveBarrierHandler) BarrierHandler.HandleCollision();
+            StateController.Update();
             StateController.RefreshState();
             if (haveBarrierHandler) BarrierHandler.HandleOverlap();
             if (CollisionHandler != null) CollisionHandler.Handle();
@@ -147,12 +142,7 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             var relativePosition = GeneralMotionState.Position - Camera.Location;
-            if (GeneralSpriteState.Left)
-                GeneralSpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, GeneralSpriteState.Color);
-            else if (GeneralSpriteState.Right)
-                GeneralSpriteState.Sprite.DrawRight(spriteBatch, relativePosition, GeneralSpriteState.Color);
-            else
-                GeneralSpriteState.Sprite.DrawDefault(spriteBatch, relativePosition, GeneralSpriteState.Color);
+            GeneralSpriteState.Sprite.Draw(spriteBatch, relativePosition, GeneralSpriteState.Orientation, GeneralSpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

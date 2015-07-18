@@ -12,14 +12,14 @@ namespace WindowsGame1
         public Collection<Type> BarrierList { get; private set; }
         public Collection<Type> BarrierExceptionList { get; private set; }
 
-        protected CoreNew<TStateController> Core { get; set; } 
+        protected Core<TStateController> Core { get; set; } 
 
         protected BarrierHandlerKernel(ICore core)
         {
-            if (core is CoreNew<TStateController>)
-                Core = (CoreNew<TStateController>)core;
+            if (core is Core<TStateController>)
+                Core = (Core<TStateController>)core;
             else
-                Core = new CoreNew<TStateController>(core.Object)
+                Core = new Core<TStateController>(core.Object)
                 {
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,

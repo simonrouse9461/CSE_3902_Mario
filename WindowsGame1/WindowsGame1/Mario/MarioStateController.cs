@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
+    public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
     {
         private const int MagazineCapacity = 2;
 
@@ -41,30 +41,26 @@ namespace WindowsGame1
             if (MotionState.DefaultHorizontal) SpriteState.Stand();
             if (MotionState.GoingLeft || MotionState.GoingRight) SpriteState.Run();
             if (MotionState.HaveInertia) SpriteState.Jump();
-            //if (MotionState.Stopping)
-            // TODO
         }
 
-        public void Land()
+        public void KeepOnLand()
         {
             if (SpriteState.Dead) return;
             if (MotionState.Gravity) MotionState.LoseGravity();
-            if (MotionState.DefaultHorizontal) SpriteState.TryStand();
-        }
-
-        public void Brake()
-        {
-            if (SpriteState.Dead) return;
-            MotionState.Stop();
-            SpriteState.TryRun();
+            if (MotionState.HaveInertia)
+            {
+                MotionState.Stop();
+                SpriteState.Run();
+            }
+            DefaultAction();
         }
 
         public void Liftoff()
         {
             if (SpriteState.Dead) return;
-            MotionState.ObtainGravity();
-            MotionState.GetInertia();
-            SpriteState.TryJump();
+            if (!MotionState.Gravity) MotionState.ObtainGravity();
+            if (!MotionState.HaveInertia) MotionState.GetInertia();
+            DefaultAction();
         }
 
         public void GoLeft()
@@ -82,7 +78,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoLeft();
-                SpriteState.TryRun();
+                SpriteState.Run();
             }
         }
 
@@ -101,7 +97,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoRight();
-                SpriteState.TryRun();
+                SpriteState.Run();
             }
         }
 
@@ -114,7 +110,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
                 GoLeft();
         }
 
@@ -127,7 +123,7 @@ namespace WindowsGame1
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
-            else if (MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
                 GoRight();
         }
 
@@ -135,18 +131,17 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            Brake();
+            MotionState.Stop();
+            SpriteState.Run();
         }
 
         public void Jump()
         {
             if (SpriteState.Dead) return;
-            if (!MotionState.HaveInertia)
-            {
-                MotionState.Jump();
-                SpriteState.Jump();
-                SoundManager.JumpSoundPlay();
-            }
+            if (MotionState.HaveInertia) return;
+            MotionState.Jump();
+            SpriteState.Jump();
+            SoundManager.jumpSoundPlay();
         }
 
         public void Bounce()
@@ -166,33 +161,19 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             SpriteState.Crouch();
+            SpriteState.Hold(false);
             MotionState.Stop();
         }
 
         public void StandUp()
         {
-            if (SpriteState.Crouching) SpriteState.Stand();
-        }
-
-        public void Grow()
-        {
-            if (SpriteState.Dead) return;
-            if (!SpriteState.Small) return;
-            SpriteState.BecomeBig();
-        }
-
-        public void GetFire()
-        {
-            if (SpriteState.Dead) return;
-            if (SpriteState.HaveFire) return;
-            SpriteState.GetFire();
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core, Core.CommandExecutor));
+            SpriteState.Resume();
         }
 
         public void Die()
         {
             if (SpriteState.Dead) return;
-            SpriteState.BecomeDead();
+            SpriteState.Die();
             MotionState.Die();
             WorldManager.FreezeWorld();
         }
@@ -202,7 +183,7 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
-            Core.DelayCommand(DefaultAction, () => SpriteState.Shooting, 7);
+            SpriteState.Hold(true, 7);
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
@@ -210,16 +191,39 @@ namespace WindowsGame1
             AmmoLeft--;
         }
 
+        public void Grow()
+        {
+            if (SpriteState.Dead) return;
+            if (!SpriteState.Small) return;
+            SpriteState.Grow();
+            WorldManager.FreezeWorld();
+            MotionState.Freeze();
+            SpriteState.HoldTillFinish(true, () =>
+            {
+                SpriteState.TurnBig();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
+        }
+
+        public void GetFire()
+        {
+            if (SpriteState.Dead) return;
+            if (SpriteState.Fire) return;
+            SpriteState.GetFire();
+            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
+        }
+
         public void GetStarPower(int slowDownTime, int stopTime)
         {
-            var decorator = new StarMarioCollisionHandler(Core, Core.CollisionHandler);
+            var decorator = new StarMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
 
-            SpriteState.StarPower();
-            SpriteState.ChangeColorFrequency(8);
-            Core.DelayCommand(() => SpriteState.ChangeColorFrequency(16), () => SpriteState.HaveStarPower, slowDownTime);
-            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.HaveStarPower, stopTime);
+            SpriteState.GetPower();
+            SpriteState.SetColorFrequency(8);
+            Core.DelayCommand(() => SpriteState.SetColorFrequency(16), () => SpriteState.Power, slowDownTime);
+            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.Power, stopTime);
         }
 
         public void TakeDamage(int restoreTime)
@@ -230,18 +234,18 @@ namespace WindowsGame1
                 return;
             }
 
-            if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
+            if (SpriteState.Fire) ((IDecorator)Core.CommandExecutor).Restore();
 
-            var decorator = new DamagedMarioCollisionHandler(Core, Core.CollisionHandler);
+            var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 
-            SpriteState.BecomeSmall();
-            SpriteState.BecomeBlink();
-            SpriteState.ChangeColorFrequency(2);
+            SpriteState.TurnSmall();
+            SpriteState.StartBlink();
+            SpriteState.SetColorFrequency(2);
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
-            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blink, restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
         }

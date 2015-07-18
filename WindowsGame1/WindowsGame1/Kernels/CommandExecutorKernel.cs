@@ -6,7 +6,7 @@ using System.Linq;
 namespace WindowsGame1
 {
     public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
-        where TStateController : IStateController, new()
+        where TStateController : IStateControllerNew, new()
     {
         public CoreNew<TStateController> Core { get; set; }
         private Collection<Type> RegisteredCommands { get; set; }
@@ -29,7 +29,7 @@ namespace WindowsGame1
             PreviousStatus.Add(new StatusSwitch<Type>(type));
         }
 
-        protected CommandExecutorKernel(ICore core)
+        protected CommandExecutorKernel(ICoreNew core)
         {
             if (core is CoreNew<TStateController>)
                 Core = (CoreNew<TStateController>)core;

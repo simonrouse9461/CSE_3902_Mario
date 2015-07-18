@@ -6,11 +6,11 @@ using Microsoft.Xna.Framework;
 namespace WindowsGame1
 {
     public abstract class CollisionHandlerKernelNew<TStateController> : ICollisionHandler
-        where TStateController : IStateController, new()
+        where TStateController : IStateControllerNew, new()
     {
         public CoreNew<TStateController> Core { get; set; }
 
-        protected CollisionHandlerKernelNew(ICore core)
+        protected CollisionHandlerKernelNew(ICoreNew core)
         {
             if (core is CoreNew<TStateController>)
                 Core = (CoreNew<TStateController>)core;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockCollisionHandler : CollisionHandlerKernelNew<BlockStateController>
+    public class QuestionBlockCollisionHandler : CollisionHandlerKernel<BlockStateController>
     {
 
         public QuestionBlockCollisionHandler(ICore core) : base(core) { }

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class Core<TS, TM> : ICore
-        where TS : ISpriteState
-        where TM : IMotionState
+    public class Core<TStateController> : ICore
+        where TStateController : IStateController, new()
     {
         private class Reservation
         {
@@ -18,28 +16,33 @@ namespace WindowsGame1
         private Collection<Reservation> Waitlist;
 
         public IObject Object { get; set; }
-        public TS SpriteState { get; set; }
-        public TM MotionState { get; set; }
         public CollisionDetector CollisionDetector { get; set; }
         public IBarrierHandler BarrierHandler { get; set; }
-        public IStateController GeneralStateController { get; set; }
+        public TStateController StateController { get; set; }
         public ICollisionHandler CollisionHandler { get; set; }
         public ICommandExecutor CommandExecutor { get; set; }
 
+        public IStateController GeneralStateController
+        {
+            get { return StateController; }
+        }
+
         public ISpriteState GeneralSpriteState
         {
-            get { return SpriteState; }
+            get { return StateController.GeneralSpriteState; }
         }
 
         public IMotionState GeneralMotionState
         {
-            get { return MotionState; }
+            get { return StateController.GeneralMotionState; }
         }
 
-        public Core()
+        public Core(IObject obj)
         {
+            Object = obj;
             Waitlist = new Collection<Reservation>();
-            CollisionDetector = new CollisionDetector(Object);
+            StateController = new TStateController {Core = this};
+            CollisionDetector = new CollisionDetector(obj);
         }
 
         public void DelayCommand(Action command, int delay = 1)
@@ -69,14 +72,16 @@ namespace WindowsGame1
 
         public void SwitchComponent(Object component)
         {
-            if (component is TS)
-                SpriteState = (TS)component;
-            if (component is TM)
-                MotionState = (TM)component;
+            if (component is ISpriteState || component is IMotionState)
+                StateController.SwitchComponent(component);
             if (component is ICollisionHandler)
                 CollisionHandler = (ICollisionHandler)component;
             if (component is ICommandExecutor)
                 CommandExecutor = (ICommandExecutor)component;
+            if (component is IBarrierHandler)
+                BarrierHandler = (IBarrierHandler)component;
+            if (component is TStateController)
+                StateController = (TStateController) component;
         }
 
         public void Update()

@@ -10,13 +10,17 @@ namespace WindowsGame1
             MotionState.Generated();
         }
 
-        public override void RefreshState()
+        public override void Update()
         {
             if (MotionState.StopMoving)
             {
                 Core.Object.Unload();
             }
-            base.RefreshState();
+        }
+
+        public void Static()
+        {
+            MotionState.ResetStatus();
         }
     }
 }

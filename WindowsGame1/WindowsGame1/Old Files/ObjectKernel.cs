@@ -5,49 +5,33 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel<TSpriteState, TMotionState> : IObject
-        where TSpriteState : SpriteStateKernel, new()
-        where TMotionState : MotionStateKernel, new()
+    public abstract class ObjectKernel<TStateController> : IObject
+        where TStateController : IStateController, new()
     {
-        private bool _inScreen;
-        private bool InScreen
+        // Constructor
+        protected ObjectKernel()
         {
-            get { return _inScreen; }
-            set
-            {
-                if (InScreen)
-                {
-                    if (!value) Unload();
-                }
-                else _inScreen = value;
-            }
-        }
+            Core = new Core<TStateController>(this);
+        } 
 
         // Object core that wraps all internal components of the object
-        protected Core<TSpriteState, TMotionState> Core { get; private set; }
+        protected Core<TStateController> Core { get; set; }
 
         // Temporarily made for test cases
-        public Core<TSpriteState, TMotionState> CoreGetter
+        public ICore CoreGetter
         {
             get { return Core; }
         }
 
-        // Properties
-        protected TSpriteState SpriteState
+        // Protected Properties
+        protected ISpriteState GeneralSpriteState
         {
-            get { return Core.SpriteState; }
-            set { Core.SpriteState = value; }
+            get { return Core.GeneralSpriteState; }
         }
 
-        protected TMotionState MotionState
+        protected IMotionState GeneralMotionState
         {
-            get { return Core.MotionState; }
-            set { Core.MotionState = value; }
-        }
-        protected CollisionDetector CollisionDetector
-        {
-            get { return Core.CollisionDetector; }
-            set { Core.CollisionDetector = value; }
+            get { return Core.GeneralMotionState; }
         }
 
         protected IBarrierHandler BarrierHandler
@@ -56,10 +40,10 @@ namespace WindowsGame1
             set { Core.BarrierHandler = value; }
         }
 
-        protected IStateController StateController
+        protected TStateController StateController
         {
-            get { return Core.GeneralStateController; }
-            set { Core.GeneralStateController = value; }   
+            get { return Core.StateController; }
+            set { Core.StateController = value; }   
         }
 
         protected ICommandExecutor CommandExecutor
@@ -74,19 +58,7 @@ namespace WindowsGame1
             set { Core.CollisionHandler = value; }
         }
 
-        // Constructor
-        protected ObjectKernel()
-        {
-            Core = new Core<TSpriteState, TMotionState>
-            {
-                Object = this
-            };
-            SpriteState = new TSpriteState();
-            MotionState = new TMotionState();
-            CollisionDetector = new CollisionDetector(this);
-        }
-
-        // Properties
+        // Public State Properties
         public virtual bool Solid
         {
             get { return true; }
@@ -99,51 +71,49 @@ namespace WindowsGame1
 
         public bool GoingUp
         {
-            get { return MotionState.Velocity.Y < 0; }
+            get { return GeneralMotionState.Velocity.Y < 0; }
         }
 
         public bool GoingDown
         {
-            get { return MotionState.Velocity.Y > 0; }
+            get { return GeneralMotionState.Velocity.Y > 0; }
         }
 
         public bool GoingLeft
         {
-            get { return MotionState.Velocity.X < 0; }
+            get { return GeneralMotionState.Velocity.X < 0; }
         }
 
         public bool GoingRight
         {
-            get { return MotionState.Velocity.X > 0; }
+            get { return GeneralMotionState.Velocity.X > 0; }
         }
 
-        public Rectangle CollisionRectangle
-        {
-            get { return PositionRectangle; }
-        }
+        public virtual Rectangle CollisionRectangle { get { return PositionRectangle; } }
 
         public Rectangle PositionRectangle
         {
-            get { return SpriteState.Sprite.GetDestination(MotionState.Position); }
+            get { return GeneralSpriteState.Sprite.GetDestination(GeneralMotionState.Position); }
         }
 
         public Vector2 PositionPoint
         {
-            get { return MotionState.Position; }
+            get { return GeneralMotionState.Position; }
         }
 
         // public methods
         public virtual void Reset()
         {
-            SpriteState.Reset();
-            MotionState.Reset();
+            GeneralSpriteState.Reset();
+            GeneralMotionState.Reset();
             Core.ClearDelayedCommands();
+            BarrierHandler.ClearBarrier();
         }
 
         public void Load(ContentManager content, Vector2 location)
         {
-            SpriteState.Load(content);
-            MotionState.Position = location;
+            GeneralSpriteState.Load(content);
+            GeneralMotionState.Position = location;
         }
 
         public void Unload()
@@ -163,31 +133,27 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (!Camera.OutOfRange(Core.Object) || this is MarioObject)
-            {
-                InScreen = true;
-                Core.Update();
-                if (CommandExecutor != null) CommandExecutor.Execute();
-                if (CollisionHandler != null) CollisionHandler.Handle();
-                if (StateController != null) StateController.RefreshState();
-                SpriteState.Update();
-                MotionState.Update();
-            }
-            else
-            {
-                InScreen = false;
-            }
+            var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
+            Core.Update();
+            if (CommandExecutor != null) CommandExecutor.Execute();
+            if (haveBarrierHandler) BarrierHandler.Update();
+            if (haveBarrierHandler) BarrierHandler.ResetVelocity();
+            if (haveBarrierHandler) BarrierHandler.HandleCollision();
+            StateController.Update();
+            StateController.RefreshState();
+            if (haveBarrierHandler) BarrierHandler.HandleOverlap();
+            if (CollisionHandler != null) CollisionHandler.Handle();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            var relativePosition = MotionState.Position - Camera.Location;
-            if (SpriteState.Left)
-                SpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, SpriteState.Color);
-            else if (SpriteState.Right)
-                SpriteState.Sprite.DrawRight(spriteBatch, relativePosition, SpriteState.Color);
+            var relativePosition = GeneralMotionState.Position - Camera.Location;
+            if (GeneralSpriteState.Left)
+                GeneralSpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, GeneralSpriteState.Color);
+            else if (GeneralSpriteState.Right)
+                GeneralSpriteState.Sprite.DrawRight(spriteBatch, relativePosition, GeneralSpriteState.Color);
             else
-                SpriteState.Sprite.DrawDefault(spriteBatch, relativePosition, SpriteState.Color);
+                GeneralSpriteState.Sprite.DrawDefault(spriteBatch, relativePosition, GeneralSpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

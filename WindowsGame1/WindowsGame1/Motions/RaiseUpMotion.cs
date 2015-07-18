@@ -6,7 +6,7 @@ namespace WindowsGame1
     {
         public RaiseUpMotion()
         {
-            StartVelocity = new Vector2(0, -3);
+            StartVelocity = new Vector2(0, -0.4f);
         }
 
         public override Vector2 Velocity

@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioBarrierHandler : BarrierHandlerKernel<MarioStateController>
+    public class MarioBarrierHandler : BarrierHandlerKernelNew<MarioStateController>
     {
         private bool WasOnFloor;
 
-        public MarioBarrierHandler(ICore core) : base(core) { }
+        public MarioBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
         {
@@ -35,8 +35,7 @@ namespace WindowsGame1
         {
             if (BarrierCollision.Bottom.Touch && !Core.Object.GoingUp)
             {
-                Core.StateController.Land();
-                if (!WasOnFloor) Core.StateController.Brake();
+                Core.StateController.KeepOnLand();
                 WasOnFloor = true;
             }
             else

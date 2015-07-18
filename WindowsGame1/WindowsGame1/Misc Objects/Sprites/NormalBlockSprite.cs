@@ -7,7 +7,6 @@ namespace WindowsGame1
 {
     public class NormalBlockSprite : SpriteKernel
     {
-
         public NormalBlockSprite()
         {
             ImageFile.Default = "blocks";

@@ -6,9 +6,9 @@ namespace WindowsGame1
     {
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
 
-        public StarMarioCollisionHandler(ICore core, ICollisionHandler original) : base(core)
+        public StarMarioCollisionHandler(ICoreNew core) : base(core)
         {
-            DefaultCollisionHandler = (MarioCollisionHandler)original;
+            DefaultCollisionHandler = (MarioCollisionHandler)core.CollisionHandler;
         }
 
         public void Restore()

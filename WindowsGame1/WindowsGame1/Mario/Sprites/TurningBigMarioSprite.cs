@@ -5,25 +5,60 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class TurningBigMarioSprite : SpriteKernel
+    public class TurningBigMarioSprite : SpriteKernelNew
     {
         public TurningBigMarioSprite()
+            : base(MarioSpriteVersion.Normal)
         {
-            ImageFile.Default = "Mario";
-            Source.Left = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+            var D = 48;
+
+            var X = 128;
+            var Y = 0;
+            var W = 16;
+            var H = 32;
+
+            AddSource(
+                MarioSpriteVersion.Normal,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(329, 52, 16, 32)
-                }
-            };
-            Source.Right = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+                    {new Rectangle(X, Y, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Fire,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(60, 52, 16, 32)
-                }
-            };
+                    {new Rectangle(X, Y+D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Luigi,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+2*D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Black,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+3*D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Green,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+4*D, W, H), Orientation.Right}
+                });
+            AddSource(
+                MarioSpriteVersion.Red,
+                "mario-luigi",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(X, Y+5*D, W, H), Orientation.Right}
+                });
         }
     }
 }
