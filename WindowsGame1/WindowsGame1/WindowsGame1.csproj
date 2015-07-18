@@ -179,7 +179,6 @@
     <Compile Include="Misc Objects\Collision\NormalBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\Collision\QuestionBlockCollisionHandler.cs" />
     <Compile Include="Misc Objects\IPipe.cs" />
-    <Compile Include="Misc Objects\MotionState\BlockMotion.cs" />
     <Compile Include="Misc Objects\MotionState\BlockMotionState.cs" />
     <Compile Include="Fireball\FireballMotionState.cs" />
     <Compile Include="Misc Objects\BlockStateController.cs" />
