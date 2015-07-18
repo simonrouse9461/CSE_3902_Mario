@@ -34,7 +34,12 @@ namespace WindowsGame1
                 }
                 else if(Core.StateController.giveStar)
                 {
+                 
                     Core.StateController.NormalBlockGiveStar();
+                }
+                else if (Core.StateController.SpriteState.isNormal)
+                {
+                    Core.StateController.MotionState.Hit();
                 }
             }
         }
