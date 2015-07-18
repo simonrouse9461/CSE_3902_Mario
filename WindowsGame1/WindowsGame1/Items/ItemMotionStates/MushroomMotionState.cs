@@ -25,6 +25,7 @@ namespace WindowsGame1
         public void SetDefaultHorizontal()
         {
             FindMotion<MoveLeftMotion>().Toggle(false);
+            FindMotion<MoveRightMotion>().Toggle(false);
         }
 
         public void SetDefaultVertical()
@@ -35,12 +36,13 @@ namespace WindowsGame1
         public void Generated()
         {
             FindMotion<RaiseUpMotion>().Toggle(true);
+            SetDefaultHorizontal();
         }
 
         public void Moving()
         {
-            FindMotion<RaiseUpMotion>().Toggle(false);
-            FindMotion<MoveLeftMotion>().Toggle(true);
+            SetDefaultVertical();
+            FindMotion<MoveRightMotion>().Toggle(true);
         }
 
         public void ObtainGravity()
