@@ -23,14 +23,16 @@ namespace WindowsGame1
 
         public ISpriteNew Sprite
         {
-            get { return Held ? HoldSprite : RawSprite; }
+            get { return Held ? HeldSprite : ActualSprite; }
         }
 
-        protected abstract ISpriteNew RawSprite { get; }
+        protected abstract ISpriteNew ActualSprite { get; }
         private ISpriteNew LastSprite { get; set; }
-        private ISpriteNew HoldSprite { get; set; }
+        private ISpriteNew HeldSprite { get; set; }
+        private bool HoldOrientation { get; set; }
+        private int CycleWhenFinish { get; set; }
+        private Action FinishAction { get; set; }
         
-
         protected virtual ColorAnimator ColorScheme { get { return null; } }
 
         public Color Color
@@ -63,6 +65,7 @@ namespace WindowsGame1
 
         public void SetOrientation(Orientation orientation)
         {
+            if (HoldOrientation) return;
             Orientation = orientation;
         }
 
@@ -81,16 +84,36 @@ namespace WindowsGame1
             SetOrientation(Orientation.Default);
         }
 
-        public void Hold(int timer = 0)
+        public void Hold(bool holdOrientation, int timer = 0, Action action = null)
         {
-            HoldSprite = Sprite;
+            HoldOrientation = holdOrientation;
+            HeldSprite = Sprite;
             Held = true;
-            if (timer > 0) Core.DelayCommand(Restore, timer);
+            if (timer > 0) Core.DelayCommand(() =>
+            {
+                Resume();
+                if (action != null) action();
+            }, timer);
         }
 
-        public void Restore()
+        public void HoldTillFinish(bool holdOrientation, int cycle, Action action = null)
+        {
+            HoldOrientation = holdOrientation;
+            HeldSprite = Sprite;
+            Held = true;
+            CycleWhenFinish = cycle;
+            FinishAction = action ?? (() => { });
+        }
+
+        public void HoldTillFinish(bool holdOrientation, Action action = null)
+        {
+            HoldTillFinish(holdOrientation, 1, action);
+        }
+
+        public void Resume()
         {
             Held = false;
+            HoldOrientation = false;
         }
 
         public void Load(ContentManager content)
@@ -130,6 +153,12 @@ namespace WindowsGame1
             if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
             if (SpriteTimer.Update()) 
                 Sprite.Update();
+            if (!Held) CycleWhenFinish = 0;
+            if (Held && CycleWhenFinish > 0 && Sprite.Cycle == CycleWhenFinish)
+            {
+                Resume();
+                FinishAction();
+            }
             if (ColorTimer.Update() &&ColorSchemeList != null)
             {
                 foreach (var colorAnimator in ColorSchemeList)

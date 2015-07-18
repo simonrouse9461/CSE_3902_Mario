@@ -21,8 +21,10 @@ namespace WindowsGame1
         void ToLeft();
         void ToRight();
         void ToDefault();
-        void Hold(int timer = 0);
-        void Restore();
+        void Hold(bool holdOrientation, int timer = 0, Action action = null);
+        void HoldTillFinish(bool holdOrientation, int cycle, Action action = null);
+        void HoldTillFinish(bool holdOrientation, Action action = null);
+        void Resume();
         void Load(ContentManager content);
         void SetSpriteFrequency(int frequency);
         void SetColorFrequency(int frequency);

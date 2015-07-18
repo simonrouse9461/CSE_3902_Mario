@@ -10,7 +10,7 @@ namespace WindowsGame1
 {
     public abstract class SpriteKernelNew : ISpriteNew
     {
-        private const double UniversalScale = 1.5;
+        private const double UniversalScale = 1.75;
 
         protected Dictionary<IConvertible, SpriteSourceNew> SourceList { get; private set; }
         protected PeriodicFunction<SpriteTransformation> Animation { get; private set; }

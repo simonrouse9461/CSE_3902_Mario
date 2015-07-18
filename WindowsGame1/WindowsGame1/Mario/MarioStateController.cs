@@ -30,16 +30,6 @@ namespace WindowsGame1
             }
         }
 
-        public override void Update()
-        {
-            if (SpriteState.Grown)
-            {
-                MotionState.Restore();
-                SpriteState.Restore();
-                WorldManager.RestoreWorld();
-            }
-        }
-
         public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
@@ -51,30 +41,26 @@ namespace WindowsGame1
             if (MotionState.DefaultHorizontal) SpriteState.Stand();
             if (MotionState.GoingLeft || MotionState.GoingRight) SpriteState.Run();
             if (MotionState.HaveInertia) SpriteState.Jump();
-            //if (MotionState.Stopping)
-            // TODO
         }
 
-        public void Land()
+        public void KeepOnLand()
         {
             if (SpriteState.Dead) return;
             if (MotionState.Gravity) MotionState.LoseGravity();
-            if (MotionState.DefaultHorizontal) SpriteState.Stand();
-        }
-
-        public void Brake()
-        {
-            if (SpriteState.Dead) return;
-            MotionState.Stop();
-            SpriteState.Run();
+            if (MotionState.HaveInertia)
+            {
+                MotionState.Stop();
+                SpriteState.Run();
+            }
+            DefaultAction();
         }
 
         public void Liftoff()
         {
             if (SpriteState.Dead) return;
-            MotionState.ObtainGravity();
-            MotionState.GetInertia();
-            SpriteState.Jump();
+            if (!MotionState.Gravity) MotionState.ObtainGravity();
+            if (!MotionState.HaveInertia) MotionState.GetInertia();
+            DefaultAction();
         }
 
         public void GoLeft()
@@ -145,7 +131,8 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            Brake();
+            MotionState.Stop();
+            SpriteState.Run();
         }
 
         public void Jump()
@@ -174,12 +161,13 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             SpriteState.Crouch();
+            SpriteState.Hold(false);
             MotionState.Stop();
         }
 
         public void StandUp()
         {
-            if (SpriteState.Crouching) SpriteState.Stand();
+            SpriteState.Resume();
         }
 
         public void Die()
@@ -192,11 +180,10 @@ namespace WindowsGame1
 
         public void Shoot()
         {
-            Console.WriteLine("shoot");
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
-            Core.DelayCommand(DefaultAction, () => SpriteState.Shooting, 7);
+            SpriteState.Hold(true, 7);
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
@@ -209,9 +196,14 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
             SpriteState.Grow();
-            MotionState.Freeze();
-            SpriteState.Hold();
             WorldManager.FreezeWorld();
+            MotionState.Freeze();
+            SpriteState.HoldTillFinish(true, () =>
+            {
+                SpriteState.TurnBig();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
         }
 
         public void GetFire()

@@ -35,8 +35,7 @@ namespace WindowsGame1
         {
             if (BarrierCollision.Bottom.Touch && !Core.Object.GoingUp)
             {
-                Core.StateController.Land();
-                if (!WasOnFloor) Core.StateController.Brake();
+                Core.StateController.KeepOnLand();
                 WasOnFloor = true;
             }
             else

@@ -53,7 +53,7 @@ namespace WindowsGame1
             SetSpriteFrequency(5);
         }
 
-        protected override ISpriteNew RawSprite
+        protected override ISpriteNew ActualSprite
         {
             get
             {
