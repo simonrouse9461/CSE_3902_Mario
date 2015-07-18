@@ -21,14 +21,24 @@ namespace WindowsGame1
             return SpriteList.First(sprite => sprite is T);
         }
 
-        public ISpriteNew Sprite
+        protected void SetSprite<T>() where T : ISpriteNew
         {
-            get { return Held ? HeldSprite : ActualSprite; }
+            Sprite = FindSprite<T>();
         }
 
-        protected abstract ISpriteNew ActualSprite { get; }
+        protected bool IsSprite<T>() where T : ISpriteNew
+        {
+            return Sprite == FindSprite<T>();
+        }
+
+        private ISpriteNew _sprite;
+        public ISpriteNew Sprite
+        {
+            get { return _sprite; }
+            set { if (!Held) _sprite = value; }
+        }
+
         private ISpriteNew LastSprite { get; set; }
-        private ISpriteNew HeldSprite { get; set; }
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
         private Action FinishAction { get; set; }
@@ -87,7 +97,6 @@ namespace WindowsGame1
         public void Hold(bool holdOrientation, int timer = 0, Action action = null)
         {
             HoldOrientation = holdOrientation;
-            HeldSprite = Sprite;
             Held = true;
             if (timer > 0) Core.DelayCommand(() =>
             {
@@ -99,7 +108,6 @@ namespace WindowsGame1
         public void HoldTillFinish(bool holdOrientation, int cycle, Action action = null)
         {
             HoldOrientation = holdOrientation;
-            HeldSprite = Sprite;
             Held = true;
             CycleWhenFinish = cycle;
             FinishAction = action ?? (() => { });

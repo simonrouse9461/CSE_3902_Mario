@@ -5,8 +5,6 @@ namespace WindowsGame1
 {
     public class MarioBarrierHandler : BarrierHandlerKernelNew<MarioStateController>
     {
-        private bool WasOnFloor;
-
         public MarioBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
@@ -33,16 +31,12 @@ namespace WindowsGame1
 
         private void CheckFloor()
         {
-            if (BarrierCollision.Bottom.Touch && !Core.Object.GoingUp)
+            if (BarrierCollision.Bottom.Touch)
             {
-                Core.StateController.KeepOnLand();
-                WasOnFloor = true;
+                if (!Core.Object.GoingUp) 
+                    Core.StateController.KeepOnLand();
             }
-            else
-            {
-                Core.StateController.Liftoff();
-                WasOnFloor = false;
-            }
+            else Core.StateController.Liftoff();
         }
 
         public override void HandleOverlap()

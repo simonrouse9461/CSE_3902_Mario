@@ -7,20 +7,6 @@ namespace WindowsGame1
 {
     public class MarioSpriteState : SpriteStateKernelNew
     {
-        private enum ActionEnum
-        {
-            Jump,
-            Run,
-            Stand,
-            Crouch,
-            Turn,
-            Grow,
-            Shoot,
-            Die
-        }
-
-
-        private ActionEnum Action { get; set; }
         public bool Big { get; private set; }
         public bool Small { get { return !Big; } }
         public bool Fire { get; private set; }
@@ -51,34 +37,7 @@ namespace WindowsGame1
             };
 
             SetSpriteFrequency(5);
-        }
-
-        protected override ISpriteNew ActualSprite
-        {
-            get
-            {
-                switch (Action)
-                {
-                    case ActionEnum.Jump:
-                        return Big ? FindSprite<JumpingBigMarioSprite>() : FindSprite<JumpingSmallMarioSprite>();
-                    case ActionEnum.Run:
-                        return Big ? FindSprite<RunningBigMarioSprite>() : FindSprite<RunningSmallMarioSprite>();
-                    case ActionEnum.Stand:
-                        return Big ? FindSprite<StandingBigMarioSprite>() : FindSprite<StandingSmallMarioSprite>();
-                    case ActionEnum.Crouch:
-                        return FindSprite<CrouchingMarioSprite>();
-                    case ActionEnum.Turn:
-                        return Big ? FindSprite<TurningBigMarioSprite>() : FindSprite<TurningSmallMarioSprite>();
-                    case ActionEnum.Grow:
-                        return FindSprite<GrowingMarioSprite>();
-                    case ActionEnum.Shoot:
-                        return FindSprite<ShootingMarioSprite>();
-                    case ActionEnum.Die:
-                        return FindSprite<DeadMarioSprite>();
-                    default:
-                        return null;
-                }
-            }
+            Stand();
         }
 
         protected override ColorAnimator ColorScheme
@@ -130,22 +89,22 @@ namespace WindowsGame1
 
         public void Die()
         {
-            Action = ActionEnum.Die;
+            SetSprite<DeadMarioSprite>();
         }
 
         public bool Dead
         {
-            get { return Action == ActionEnum.Die; }
+            get { return IsSprite<DeadMarioSprite>(); }
         }
 
         public void Grow()
         {
-            Action = ActionEnum.Grow;
+            SetSprite<GrowingMarioSprite>();
         }
 
         public bool Growing
         {
-            get { return Action == ActionEnum.Grow; }
+            get { return IsSprite<GrowingMarioSprite>(); }
         }
 
         public bool Grown
@@ -155,62 +114,69 @@ namespace WindowsGame1
 
         public void Run()
         {
-            Action = ActionEnum.Run;
+            if (Big) SetSprite<RunningBigMarioSprite>();
+            else SetSprite<RunningSmallMarioSprite>();
         }
 
         public bool Running
         {
-            get { return Action == ActionEnum.Run; }
+            get
+            {
+                return IsSprite<RunningBigMarioSprite>() || IsSprite<RunningSmallMarioSprite>();
+            }
         }
 
         public void Jump()
         {
-            Action = ActionEnum.Jump;
+            if (Big) SetSprite<JumpingBigMarioSprite>();
+            else SetSprite<JumpingSmallMarioSprite>();
         }
 
         public bool Jumping
         {
-            get { return Action == ActionEnum.Jump; }
+            get { return IsSprite<JumpingBigMarioSprite>() || IsSprite<JumpingSmallMarioSprite>(); }
         }
 
         public void Crouch()
         {
-            Action = ActionEnum.Crouch;
+            SetSprite<CrouchingMarioSprite>();
         }
 
         public bool Crouching
         {
-            get { return Action == ActionEnum.Crouch; }
+            get { return IsSprite<CrouchingMarioSprite>(); }
         }
 
         public void Stand()
         {
-            Action = ActionEnum.Stand;
+            if (Big) SetSprite<StandingBigMarioSprite>();
+            else SetSprite<StandingSmallMarioSprite>();
         }
 
         public bool Standing
         {
-            get { return Action == ActionEnum.Stand; }
+            get { return IsSprite<StandingBigMarioSprite>() || IsSprite<StandingSmallMarioSprite>(); }
         }
 
         public void Turn()
         {
-            Action = ActionEnum.Turn;
+            if (Big) SetSprite<TurningBigMarioSprite>();
+            else SetSprite<TurningSmallMarioSprite>();
         }
 
         public bool Turning
         {
-            get { return Action == ActionEnum.Turn; }
+            get { return IsSprite<TurningBigMarioSprite>() || IsSprite<TurningSmallMarioSprite>(); }
         }
 
         public void Shoot()
         {
-            Action = ActionEnum.Shoot;
+            SetSprite<ShootingMarioSprite>();
         }
 
         public bool Shooting
         {
-            get { return Action == ActionEnum.Shoot; }
+            get { return IsSprite<ShootingMarioSprite>(); }
         }
     }
 }

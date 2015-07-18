@@ -24,7 +24,12 @@ namespace WindowsGame1
         private VerticalEnum VerticalStatus { get; set; }
 
         public bool Dead { get; private set; }
-        public bool Gravity { get; private set; }
+
+        public bool Gravity
+        {
+            get { return FindMotion<GravityMotion>().Status; }
+            set { FindMotion<GravityMotion>().Toggle(value); }
+        }
 
         public MarioMotionState()
         {
@@ -129,14 +134,12 @@ namespace WindowsGame1
         {
             if (Frozen) return;
             Gravity = true;
-            FindMotion<GravityMotion>().Toggle(true);
         }
 
         public void LoseGravity()
         {
             if (Frozen) return;
             Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
         }
 
         public void Die()
