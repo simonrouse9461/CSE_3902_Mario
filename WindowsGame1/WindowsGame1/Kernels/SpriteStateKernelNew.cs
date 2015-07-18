@@ -16,21 +16,6 @@ namespace WindowsGame1
         protected Collection<ISpriteNew> SpriteList { get; set; }
         protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
-        protected ISpriteNew FindSprite<T>() where T : ISpriteNew
-        {
-            return SpriteList.First(sprite => sprite is T);
-        }
-
-        protected void SetSprite<T>() where T : ISpriteNew
-        {
-            Sprite = FindSprite<T>();
-        }
-
-        protected bool IsSprite<T>() where T : ISpriteNew
-        {
-            return Sprite == FindSprite<T>();
-        }
-
         private ISpriteNew _sprite;
         public ISpriteNew Sprite
         {
@@ -62,6 +47,21 @@ namespace WindowsGame1
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
             ToDefault();
+        }
+
+        public ISpriteNew FindSprite<T>() where T : ISpriteNew
+        {
+            return SpriteList.First(sprite => sprite is T);
+        }
+
+        public void SetSprite<T>() where T : ISpriteNew
+        {
+            Sprite = FindSprite<T>();
+        }
+
+        public bool IsSprite<T>() where T : ISpriteNew
+        {
+            return Sprite == FindSprite<T>();
         }
 
         public void SetVersion(IConvertible version)

@@ -16,6 +16,9 @@ namespace WindowsGame1
         bool Default { get; }
         bool Held { get; }
 
+        ISpriteNew FindSprite<T>() where T : ISpriteNew;
+        void SetSprite<T>() where T : ISpriteNew;
+        bool IsSprite<T>() where T : ISpriteNew;
         void SetVersion(IConvertible version);
         void SetOrientation(Orientation orientation);
         void ToLeft();
