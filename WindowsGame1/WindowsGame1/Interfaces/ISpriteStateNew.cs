@@ -21,9 +21,9 @@ namespace WindowsGame1
         bool IsSprite<T>() where T : ISpriteNew;
         void SetVersion(IConvertible version);
         void SetOrientation(Orientation orientation);
-        void ToLeft();
-        void ToRight();
-        void ToDefault();
+        void FaceLeft();
+        void FaceRight();
+        void FaceDefault();
         void Hold(bool holdOrientation, int timer = 0, Action action = null);
         void HoldTillFinish(bool holdOrientation, int cycle, Action action = null);
         void HoldTillFinish(bool holdOrientation, Action action = null);

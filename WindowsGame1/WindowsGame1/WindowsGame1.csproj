@@ -291,7 +291,7 @@
     <Compile Include="Utility Classes\CollisionDetector.cs" />
     <Compile Include="Utility Classes\Collision.cs" />
     <Compile Include="Utility Classes\CollisionType.cs" />
-    <Compile Include="Utility Classes\ColorAnimator.cs" />
+    <Compile Include="Old Files\ColorAnimator.cs" />
     <Compile Include="Utility Classes\CommandManager.cs" />
     <Compile Include="Old Files\Core.cs" />
     <Compile Include="Helper Classes and Structs\Counter.cs" />

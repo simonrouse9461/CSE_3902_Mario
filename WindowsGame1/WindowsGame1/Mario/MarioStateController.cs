@@ -103,7 +103,7 @@ namespace WindowsGame1
 
         public void KeepLeft()
         {
-            SpriteState.ToLeft();
+            SpriteState.FaceLeft();
 
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
@@ -116,7 +116,7 @@ namespace WindowsGame1
 
         public void KeepRight()
         {
-            SpriteState.ToRight();
+            SpriteState.FaceRight();
             
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
@@ -246,7 +246,7 @@ namespace WindowsGame1
             SpriteState.SetColorFrequency(2);
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
-            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blink, restoreTime);
+            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
         }

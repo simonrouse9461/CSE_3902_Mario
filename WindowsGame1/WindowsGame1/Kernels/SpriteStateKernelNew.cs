@@ -14,26 +14,25 @@ namespace WindowsGame1
         protected Counter ColorTimer { get; set; }
 
         private Collection<ISpriteNew> SpriteList { get; set; }
-        protected Collection<ColorAnimator> ColorSchemeList { get; set; }
-
         private ISpriteNew _sprite;
         public ISpriteNew Sprite
         {
             get { return _sprite; }
             set { if (!Held) _sprite = value; }
         }
-
         private ISpriteNew LastSprite { get; set; }
+
+        private Dictionary<IConvertible, PeriodicFunction<Color>> ColorSchemeList { get; set; }
+        private PeriodicFunction<Color> ColorScheme { get; set; }
+        public Color Color
+        {
+            get { return ColorScheme == null ? Color.White : ColorScheme.Value; }
+        }
+
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
         private Action FinishAction { get; set; }
         
-        protected virtual ColorAnimator ColorScheme { get { return null; } }
-
-        public Color Color
-        {
-            get { return ColorScheme == null ? Color.White : ColorScheme.Color; }
-        }
 
         public Orientation Orientation { get; private set; }
         public IConvertible Version { get; private set; }
@@ -47,7 +46,8 @@ namespace WindowsGame1
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
             SpriteList = new Collection<ISpriteNew>();
-            ToDefault();
+            ColorSchemeList = new Dictionary<IConvertible, PeriodicFunction<Color>>();
+            FaceDefault();
         }
 
         public void AddSprite<T>() where T : ISpriteNew, new()
@@ -71,6 +71,26 @@ namespace WindowsGame1
             return Sprite == FindSprite<T>();
         }
 
+        public void AddColorScheme(IConvertible name, Color[] colorList)
+        {
+            ColorSchemeList.Add(name, new PeriodicFunction<Color>(i => colorList[i], colorList.Length));
+        }
+
+        public void SetColorScheme(IConvertible name)
+        {
+            ColorScheme = ColorSchemeList[name];
+        }
+
+        public bool IsColorScheme(IConvertible name)
+        {
+            return ColorScheme == ColorSchemeList[name];
+        }
+
+        public void RestoreColorScheme()
+        {
+            ColorScheme = null;
+        }
+
         public void SetVersion(IConvertible version)
         {
             foreach (var sprite in SpriteList)
@@ -86,17 +106,17 @@ namespace WindowsGame1
             Orientation = orientation;
         }
 
-        public void ToLeft()
+        public void FaceLeft()
         {
             SetOrientation(Orientation.Left);
         }
 
-        public void ToRight()
+        public void FaceRight()
         {
             SetOrientation(Orientation.Right);
         }
 
-        public void ToDefault()
+        public void FaceDefault()
         {
             SetOrientation(Orientation.Default);
         }
@@ -159,7 +179,7 @@ namespace WindowsGame1
             }
             foreach (var colorAnimator in ColorSchemeList)
             {
-                colorAnimator.Reset();
+                colorAnimator.Value.Reset();
             }
         }
 
@@ -174,11 +194,11 @@ namespace WindowsGame1
                 Resume();
                 FinishAction();
             }
-            if (ColorTimer.Update() &&ColorSchemeList != null)
+            if (ColorTimer.Update() && ColorSchemeList != null)
             {
                 foreach (var colorAnimator in ColorSchemeList)
                 {
-                    colorAnimator.Update();
+                    colorAnimator.Value.Update();
                 }
             }
             LastSprite = Sprite;

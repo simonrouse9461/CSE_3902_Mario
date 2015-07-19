@@ -7,11 +7,15 @@ namespace WindowsGame1
 {
     public class MarioSpriteState : SpriteStateKernelNew
     {
+        private enum ColorScheme
+        {
+            Blink
+        }
+
         public bool Big { get; private set; }
         public bool Small { get { return !Big; } }
         public bool Fire { get; private set; }
         public bool Power { get; private set; }
-        public bool Blink { get; private set; }
 
         public MarioSpriteState()
         {
@@ -28,18 +32,11 @@ namespace WindowsGame1
             AddSprite<GrowingMarioSprite>();
             AddSprite<ShootingMarioSprite>();
 
-            ColorSchemeList = new Collection<ColorAnimator>
-            {
-                new ColorAnimator(new[] {Color.White, Color.Transparent})
-            };
+            AddColorScheme(ColorScheme.Blink, 
+                new[] {Color.White, Color.Transparent});
 
             SetSpriteFrequency(5);
             Stand();
-        }
-
-        protected override ColorAnimator ColorScheme
-        {
-            get { return Blink ? ColorSchemeList[0] : null; }
         }
 
         public void TurnSmall()
@@ -76,12 +73,17 @@ namespace WindowsGame1
 
         public void StartBlink()
         {
-            Blink = true;
+            SetColorScheme(ColorScheme.Blink);
         }
 
         public void StopBlink()
         {
-            Blink = false;
+            RestoreColorScheme();
+        }
+
+        public bool Blinking
+        {
+            get { return IsColorScheme(ColorScheme.Blink); }
         }
 
         public void Die()
