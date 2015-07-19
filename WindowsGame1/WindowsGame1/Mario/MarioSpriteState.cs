@@ -15,21 +15,18 @@ namespace WindowsGame1
 
         public MarioSpriteState()
         {
-            SpriteList = new Collection<ISpriteNew>
-            {
-                new DeadMarioSprite(),
-                new JumpingBigMarioSprite(),
-                new JumpingSmallMarioSprite(),
-                new RunningBigMarioSprite(),
-                new RunningSmallMarioSprite(),
-                new StandingBigMarioSprite(),
-                new StandingSmallMarioSprite(),
-                new CrouchingMarioSprite(),
-                new TurningBigMarioSprite(),
-                new TurningSmallMarioSprite(),
-                new GrowingMarioSprite(),
-                new ShootingMarioSprite()
-            };
+            AddSprite<DeadMarioSprite>();
+            AddSprite<JumpingBigMarioSprite>();
+            AddSprite<JumpingSmallMarioSprite>();
+            AddSprite<RunningBigMarioSprite>();
+            AddSprite<RunningSmallMarioSprite>();
+            AddSprite<StandingBigMarioSprite>();
+            AddSprite<StandingSmallMarioSprite>();
+            AddSprite<CrouchingMarioSprite>();
+            AddSprite<TurningBigMarioSprite>();
+            AddSprite<TurningSmallMarioSprite>();
+            AddSprite<GrowingMarioSprite>();
+            AddSprite<ShootingMarioSprite>();
 
             ColorSchemeList = new Collection<ColorAnimator>
             {
@@ -54,7 +51,7 @@ namespace WindowsGame1
         {
             Big = true;
         }
-
+        
         public void GetFire()
         {
             SetVersion(MarioSpriteVersion.Fire);

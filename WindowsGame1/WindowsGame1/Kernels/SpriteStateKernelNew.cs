@@ -13,7 +13,7 @@ namespace WindowsGame1
         protected Counter SpriteTimer { get; set; }
         protected Counter ColorTimer { get; set; }
 
-        protected Collection<ISpriteNew> SpriteList { get; set; }
+        private Collection<ISpriteNew> SpriteList { get; set; }
         protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
         private ISpriteNew _sprite;
@@ -46,7 +46,14 @@ namespace WindowsGame1
         {
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
+            SpriteList = new Collection<ISpriteNew>();
             ToDefault();
+        }
+
+        public void AddSprite<T>() where T : ISpriteNew, new()
+        {
+            if (SpriteList.Any(s => s is T)) return;
+            SpriteList.Add(new T());
         }
 
         public ISpriteNew FindSprite<T>() where T : ISpriteNew
