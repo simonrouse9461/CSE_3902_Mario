@@ -10,8 +10,9 @@ namespace WindowsGame1
     public abstract class SpriteStateKernelNew : ISpriteStateNew
     {
         public ICoreNew Core { protected get; set; }
-        protected Counter SpriteTimer { get; set; }
         protected Counter ColorTimer { get; set; }
+        protected Counter SpriteTimer { get; set; }
+        protected Counter VersionTimer { get; set; }
 
         private Collection<ISpriteNew> SpriteList { get; set; }
         private ISpriteNew _sprite;
@@ -29,13 +30,22 @@ namespace WindowsGame1
             get { return ColorScheme == null ? Color.White : ColorScheme.Value; }
         }
 
+        private Dictionary<IConvertible, PeriodicFunction<IConvertible>> VersionAnimatorList { get; set; }
+        private PeriodicFunction<IConvertible> VersionAnimator { get; set; }
+        private IConvertible _version;
+        public IConvertible Version
+        {
+            get { return VersionAnimator == null ? _version : VersionAnimator.Value; }
+            private set { _version = value; }
+        }
+        public IConvertible ActualVersion { get { return _version; } }
+
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
         private Action FinishAction { get; set; }
         
 
         public Orientation Orientation { get; private set; }
-        public IConvertible Version { get; private set; }
         public bool Left { get { return Orientation == Orientation.Left; } }
         public bool Right { get { return Orientation == Orientation.Right; } }
         public bool Default { get { return Orientation == Orientation.Default; } }
@@ -43,10 +53,12 @@ namespace WindowsGame1
 
         protected SpriteStateKernelNew()
         {
-            SpriteTimer = new Counter();
-            ColorTimer = new Counter();
             SpriteList = new Collection<ISpriteNew>();
             ColorSchemeList = new Dictionary<IConvertible, PeriodicFunction<Color>>();
+            VersionAnimatorList = new Dictionary<IConvertible, PeriodicFunction<IConvertible>>();
+            SpriteTimer = new Counter();
+            ColorTimer = new Counter();
+            VersionTimer = new Counter();
             FaceDefault();
         }
 
