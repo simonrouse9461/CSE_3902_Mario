@@ -6,9 +6,9 @@ using System.Linq;
 namespace WindowsGame1
 {
     public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
-        where TStateController : IStateController, new()
+        where TStateController : IStateControllerNew, new()
     {
-        public Core<TStateController> Core { get; set; }
+        public CoreNew<TStateController> Core { get; set; }
         private Collection<Type> RegisteredCommands { get; set; }
         private Collection<StatusSwitch<Type>> CurrentStatus { get; set; }
         private Collection<StatusSwitch<Type>> PreviousStatus { get; set; }
@@ -29,12 +29,12 @@ namespace WindowsGame1
             PreviousStatus.Add(new StatusSwitch<Type>(type));
         }
 
-        protected CommandExecutorKernel(ICore core)
+        protected CommandExecutorKernel(ICoreNew core)
         {
-            if (core is Core<TStateController>)
-                Core = (Core<TStateController>)core;
+            if (core is CoreNew<TStateController>)
+                Core = (CoreNew<TStateController>)core;
             else
-                Core = new Core<TStateController>(core.Object)
+                Core = new CoreNew<TStateController>(core.Object)
                 {
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,

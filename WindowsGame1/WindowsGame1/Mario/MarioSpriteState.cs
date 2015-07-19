@@ -1,413 +1,181 @@
 using System.Collections.ObjectModel;
+using System.Dynamic;
 using System.Web.Management;
 using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioSpriteState : SpriteStateKernel
+    public class MarioSpriteState : SpriteStateKernelNew
     {
-        private enum ActionEnum
+        private enum ColorScheme
         {
-            Jump,
-            Run,
-            Stand,
-            Crouch,
-            Turn,
-            Swim,
-            Grow,
-            Back,
-            Shoot
-        }
-
-        private enum OrientationEnum
-        {
-            Left,
-            Right,
-            Default
-        }
-
-        private enum StatusEnum
-        {
-            Big,
-            Small,
-            Fire,
-            Dead
-        }
-
-        private enum ColorEnum
-        {
-            None,
-            StarPower,
             Blink
         }
 
-        private StatusEnum Status;
-        private ActionEnum Action;
-        private OrientationEnum Orientation;
-        private ColorEnum ColorMode;
+        public bool Big { get; private set; }
+        public bool Small { get { return !Big; } }
+        public bool Fire { get; private set; }
+        public bool Power { get; private set; }
 
         public MarioSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new DeadMarioSprite(),
-                new JumpingBigMarioSprite(),
-                new JumpingFireMarioSprite(),
-                new JumpingSmallMarioSprite(),
-                new RunningBigMarioSprite(),
-                new RunningFireMarioSprite(),
-                new RunningSmallMarioSprite(),
-                new StandingBigMarioSprite(),
-                new StandingFireMarioSprite(),
-                new StandingSmallMarioSprite(),
-                new CrouchingBigMarioSprite(),
-                new CrouchingFireMarioSprite(),
-                new TurningBigMarioSprite(),
-                new TurningFireMarioSprite(),
-                new TurningSmallMarioSprite(),
-                new SwimmingBigMarioSprite(),
-                new SwimmingFireMarioSprite(),
-                new SwimmingSmallMarioSprite(),
-                new GrowingBigMarioSprite(),
-                new GrowingFireMarioSprite(),
-                new DeGrowingBigMarioSprite(),
-                new DeGrowingFireMarioSprite(),
-                new ShootingMarioSprite()
-            };
+            AddSprite<DeadMarioSprite>();
+            AddSprite<JumpingBigMarioSprite>();
+            AddSprite<JumpingSmallMarioSprite>();
+            AddSprite<RunningBigMarioSprite>();
+            AddSprite<RunningSmallMarioSprite>();
+            AddSprite<StandingBigMarioSprite>();
+            AddSprite<StandingSmallMarioSprite>();
+            AddSprite<CrouchingMarioSprite>();
+            AddSprite<TurningBigMarioSprite>();
+            AddSprite<TurningSmallMarioSprite>();
+            AddSprite<GrowingMarioSprite>();
+            AddSprite<ShootingMarioSprite>();
 
-            ColorSchemeList = new Collection<ColorAnimator>
-            {
-                new ColorAnimator(new[] {Color.Red, Color.Yellow, Color.Green, Color.Blue}),
-                new ColorAnimator(new[] {Color.White, Color.Transparent})
-            };
+            AddColorScheme(ColorScheme.Blink, 
+                new[] {Color.White, Color.Transparent});
 
-            ChangeSpriteFrequency(5);
+            SetSpriteFrequency(5);
+            Stand();
         }
 
-        protected override ISprite RawSprite
+        public void TurnSmall()
         {
-            get
-            {
-                if (Status == StatusEnum.Dead)
-                    return FindSprite<DeadMarioSprite>();
-                switch (Action)
-                {
-                    case ActionEnum.Jump:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<JumpingBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<JumpingFireMarioSprite>();
-                            case StatusEnum.Small:
-                                return FindSprite<JumpingSmallMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Run:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<RunningBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<RunningFireMarioSprite>();
-                            case StatusEnum.Small:
-                                return FindSprite<RunningSmallMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Stand:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<StandingBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<StandingFireMarioSprite>();
-                            case StatusEnum.Small:
-                                return FindSprite<StandingSmallMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Crouch:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<CrouchingBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<CrouchingFireMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Turn:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<TurningBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<TurningFireMarioSprite>();
-                            case StatusEnum.Small:
-                                return FindSprite<TurningSmallMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Swim:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<SwimmingBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<SwimmingFireMarioSprite>();
-                            case StatusEnum.Small:
-                                return FindSprite<SwimmingSmallMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Grow:
-                        switch (Status)
-                        {
-                            case StatusEnum.Big:
-                                return FindSprite<GrowingBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<GrowingFireMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Back:
-                        switch (Status)
-                        {
-                            case StatusEnum.Small:
-                                return FindSprite<StandingSmallMarioSprite>();
-                            case StatusEnum.Big:
-                                return FindSprite<DeGrowingBigMarioSprite>();
-                            case StatusEnum.Fire:
-                                return FindSprite<DeGrowingFireMarioSprite>();
-                        }
-                        break;
-                    case ActionEnum.Shoot:
-                        switch (Status)
-                        {
-                            case StatusEnum.Fire:
-                                return FindSprite<ShootingMarioSprite>();
-                        }
-                        break;
-                }
-                return null;
-            }
+            Big = false;
         }
 
-        protected override ColorAnimator ColorScheme 
+        public void TurnBig()
         {
-            get
-            {
-                switch (ColorMode)
-                {
-                    case ColorEnum.StarPower:
-                        return ColorSchemeList[0];
-                    case ColorEnum.Blink:
-                        return ColorSchemeList[1];
-                    default:
-                        return null;
-                }
-            }
+            Big = true;
         }
-
-        public override bool Left
-        {
-            get { return Orientation == OrientationEnum.Left; }
-        }
-
-        public override bool Right
-        {
-            get { return Orientation == OrientationEnum.Right; }
-        }
-
-        public void ToLeft()
-        {
-            Orientation = OrientationEnum.Left;
-        }
-
-        public void ToRight()
-        {
-            Orientation = OrientationEnum.Right;
-        }
-
-        public void ToDefault()
-        {
-            Orientation = OrientationEnum.Default;
-        }
-
-        public void BecomeSmall()
-        {
-            Status = StatusEnum.Small;
-            if (Crouching)
-            {
-                Action = ActionEnum.Stand;
-            }
-        }
-
-        public bool Small
-        {
-            get { return Status == StatusEnum.Small; }
-        }
-
-        public void BecomeDead()
-        {
-            Status = StatusEnum.Dead;
-        }
-
-        public bool Dead
-        {
-            get { return Status == StatusEnum.Dead; }
-        }
-
-        public void GrowBig()
-        {
-            Status = StatusEnum.Big;
-            Action = ActionEnum.Grow;
-        }
-
-        public bool Big
-        {
-            get { return Status == StatusEnum.Big; }
-        }
-
+        
         public void GetFire()
         {
-            Status = StatusEnum.Fire;
-            Action = ActionEnum.Grow;
+            SetVersion(MarioSpriteVersion.Fire);
+            Fire = true;
         }
 
-        public bool HaveFire
+        public void LoseFire()
         {
-            get { return Status == StatusEnum.Fire; }
+            SetVersion(MarioSpriteVersion.Normal);
+            Fire = false;
         }
 
-        public bool Growing
+        public void GetPower()
         {
-            get { return Action == ActionEnum.Grow; }
+            Power = true;
         }
 
-        public bool FinishGrow
+        public void LosePower()
         {
-            get
-            {
-                return Big && FindSprite<GrowingBigMarioSprite>().Cycle == 1 ||
-                       HaveFire && FindSprite<GrowingFireMarioSprite>().Cycle == 1;
-            }
+            Power = false;
         }
 
-        public void StarPower()
+        public void StartBlink()
         {
-            ColorMode = ColorEnum.StarPower;
+            SetColorScheme(ColorScheme.Blink);
         }
 
-        public bool HaveStarPower
+        public void StopBlink()
         {
-            get { return ColorMode == ColorEnum.StarPower; }
-        }
-
-        public void BecomeBlink()
-        {
-            ColorMode = ColorEnum.Blink;
+            RestoreColorScheme();
         }
 
         public bool Blinking
         {
-            get { return ColorMode == ColorEnum.Blink; }
+            get { return IsColorScheme(ColorScheme.Blink); }
         }
 
-        public void SetDefaultColor()
+        public void Die()
         {
-            ColorMode = ColorEnum.None;
+            SetSprite<DeadMarioSprite>();
+        }
+
+        public bool Dead
+        {
+            get { return IsSprite<DeadMarioSprite>(); }
+        }
+
+        public void Grow()
+        {
+            SetSprite<GrowingMarioSprite>();
+        }
+
+        public bool Growing
+        {
+            get { return IsSprite<GrowingMarioSprite>(); }
+        }
+
+        public bool Grown
+        {
+            get { return Growing && FindSprite<GrowingMarioSprite>().Cycle >= 1; }
         }
 
         public void Run()
         {
-            Action = ActionEnum.Run;
-        }
-
-        public void TryRun()
-        {
-            if (Shooting || Growing) return;
-            Run();
+            if (Big) SetSprite<RunningBigMarioSprite>();
+            else SetSprite<RunningSmallMarioSprite>();
         }
 
         public bool Running
         {
-            get { return Action == ActionEnum.Run; }
+            get
+            {
+                return IsSprite<RunningBigMarioSprite>() || IsSprite<RunningSmallMarioSprite>();
+            }
         }
 
         public void Jump()
         {
-            Action = ActionEnum.Jump;
-        }
-
-        public void TryJump()
-        {
-            if (Shooting || Growing) return;
-            Jump();
+            if (Big) SetSprite<JumpingBigMarioSprite>();
+            else SetSprite<JumpingSmallMarioSprite>();
         }
 
         public bool Jumping
         {
-            get { return Action == ActionEnum.Jump; }
+            get { return IsSprite<JumpingBigMarioSprite>() || IsSprite<JumpingSmallMarioSprite>(); }
         }
 
         public void Crouch()
         {
-            Action = ActionEnum.Crouch;
-        }
-
-        public void TryCrouch()
-        {
-            if (Shooting || Growing || Small) return;
-            Crouch();
+            SetSprite<CrouchingMarioSprite>();
         }
 
         public bool Crouching
         {
-            get { return Action == ActionEnum.Crouch; }
+            get { return IsSprite<CrouchingMarioSprite>(); }
         }
 
         public void Stand()
         {
-            Action = ActionEnum.Stand;
-        }
-
-        public void TryStand()
-        {
-            if (Shooting || Crouching || Growing) return;
-            Stand();
+            if (Big) SetSprite<StandingBigMarioSprite>();
+            else SetSprite<StandingSmallMarioSprite>();
         }
 
         public bool Standing
         {
-            get { return Action == ActionEnum.Stand; }
+            get { return IsSprite<StandingBigMarioSprite>() || IsSprite<StandingSmallMarioSprite>(); }
         }
 
         public void Turn()
         {
-            if (Shooting || Growing) return;
-            Action = ActionEnum.Turn;
+            if (Big) SetSprite<TurningBigMarioSprite>();
+            else SetSprite<TurningSmallMarioSprite>();
         }
 
         public bool Turning
         {
-            get { return Action == ActionEnum.Turn; }
-        }
-        public void Swim()
-        {
-            if (Shooting) return;
-            Action = ActionEnum.Swim;
-        }
-
-        public bool Swimming
-        {
-            get { return Action == ActionEnum.Swim; }
+            get { return IsSprite<TurningBigMarioSprite>() || IsSprite<TurningSmallMarioSprite>(); }
         }
 
         public void Shoot()
         {
-            Action = ActionEnum.Shoot;
+            SetSprite<ShootingMarioSprite>();
         }
 
         public bool Shooting
         {
-            get { return Action == ActionEnum.Shoot; }
+            get { return IsSprite<ShootingMarioSprite>(); }
         }
-
     }
 }

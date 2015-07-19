@@ -20,22 +20,22 @@ namespace WindowsGame1
             get { return MotionList.All(m => !m.Status); }
         }
 
-        public void Adjust(Vector2 offset)
-        {
-            Position += offset;
-        }
-
         protected MotionStateKernelNew()
         {
             Timer =  new Counter();
             Velocity = default(Vector2);
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
+        public StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
         {
             return motion == null
                 ? MotionList.First(m => m.Content is T)
                 : MotionList.First(m => motion.SameVersion(m.Content));
+        }
+
+        public void Adjust(Vector2 offset)
+        {
+            Position += offset;
         }
 
         public void Freeze()

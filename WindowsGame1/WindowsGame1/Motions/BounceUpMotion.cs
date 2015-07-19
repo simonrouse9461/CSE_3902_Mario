@@ -16,7 +16,8 @@ namespace WindowsGame1
             MarioBounce,
             FireballBounce,
             Coin,
-            Star
+            Star,
+            BlockHit
         }
 
         private Version version = Version.Default;
@@ -141,6 +142,22 @@ namespace WindowsGame1
                     InvolveGravity = true,
                     MaxVelocity = GravityMotion.Max,
                     FinishWhenMax = false
+                };
+            }
+        }
+
+        public static BounceUpMotion BlockHit
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.BlockHit,
+                    StartVelocity = new Vector2(0, -7f),
+                    Acceleration = new Vector2(0, 1.6f),
+                    InvolveGravity = false,
+                    MaxVelocity = GravityMotion.Max,
+                    FinishWhenMax = true
                 };
             }
         }

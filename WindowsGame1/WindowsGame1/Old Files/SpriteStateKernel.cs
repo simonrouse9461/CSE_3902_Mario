@@ -21,7 +21,7 @@ namespace WindowsGame1
 
         public ISprite Sprite
         {
-            get { return Frozen ? FrozenSprite : RawSprite; }
+            get { return Held ? FrozenSprite : RawSprite; }
         }
 
         protected abstract ISprite RawSprite { get; }
@@ -40,7 +40,7 @@ namespace WindowsGame1
 
         public virtual bool Right { get { return false; } }
 
-        public bool Frozen { get; private set; }
+        public bool Held { get; private set; }
 
         protected SpriteStateKernel()
         {
@@ -48,15 +48,15 @@ namespace WindowsGame1
             ColorTimer = new Counter();
         }
 
-        public void Freeze()
+        public void Hold()
         {
             FrozenSprite = Sprite;
-            Frozen = true;
+            Held = true;
         }
 
         public void Restore()
         {
-            Frozen = false;
+            Held = false;
         }
 
         public void Load(ContentManager content)

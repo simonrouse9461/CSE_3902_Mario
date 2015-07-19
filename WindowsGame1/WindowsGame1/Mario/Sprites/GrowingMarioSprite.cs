@@ -5,27 +5,27 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class RunningSmallMarioSprite : SpriteKernelNew
+    public class GrowingMarioSprite : SpriteKernelNew
     {
-        public RunningSmallMarioSprite()
+        public GrowingMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 
-            var X0 = 80;
+            var X0 = 178;
             var Y0 = 32;
-            var W0 = 15;
+            var W0 = 12;
             var H0 = 16;
 
-            var X1 = 99;
-            var Y1 = 32;
-            var W1 = 11;
-            var H1 = 16;
+            var X1 = 320;
+            var Y1 = 8;
+            var W1 = 16;
+            var H1 = 24;
 
-            var X2 = 114;
-            var Y2 = 33;
-            var W2 = 13;
-            var H2 = 15;
+            var X2 = 176;
+            var Y2 = 0;
+            var W2 = 16;
+            var H2 = 32;
 
             AddSource(
                 MarioSpriteVersion.Normal,
@@ -81,11 +81,18 @@ namespace WindowsGame1
                     {new Rectangle(X1, Y1+5*D, W1, H1), Orientation.Right},
                     {new Rectangle(X2, Y2+5*D, W2, H2), Orientation.Right}
                 });
-            SetAnimation(new[]
+            SetAnimation(new []
             {
-                new SpriteTransformation(2), 
-                new SpriteTransformation(1), 
-                new SpriteTransformation(0)
+                new SpriteTransformation(0),
+                new SpriteTransformation(1),
+                new SpriteTransformation(0),
+                new SpriteTransformation(1),
+                new SpriteTransformation(0),
+                new SpriteTransformation(1),
+                new SpriteTransformation(2),
+                new SpriteTransformation(0),
+                new SpriteTransformation(1),
+                new SpriteTransformation(2),
             });
         }
     }
