@@ -18,6 +18,7 @@ namespace WindowsGame1
             {
                 HandleObject();
             }
+            HandleBlock();
         }
 
         protected virtual void HandleMario()
@@ -43,6 +44,14 @@ namespace WindowsGame1
         protected virtual void HandleObject()
         {
             if (Core.CollisionDetector.Detect<IBlock>().BothSide.Touch || Core.CollisionDetector.Detect<IPipe>().BothSide.Touch)
+            {
+                Core.StateController.MotionState.ChangeDirection();
+            }
+        }
+
+        protected virtual void HandleBlock()
+        {
+            if (Core.CollisionDetector.Detect<IBlock>(block => block.Hit).Bottom.Touch)
             {
                 Core.StateController.MotionState.ChangeDirection();
             }

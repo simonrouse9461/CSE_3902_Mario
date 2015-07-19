@@ -154,7 +154,7 @@ namespace WindowsGame1
                 {
                     version = Version.BlockHit,
                     StartVelocity = new Vector2(0, -7f),
-                    Acceleration = new Vector2(0, 1.6f),
+                    Acceleration = new Vector2(0, 1.59f),
                     InvolveGravity = false,
                     MaxVelocity = GravityMotion.Max,
                     FinishWhenMax = true

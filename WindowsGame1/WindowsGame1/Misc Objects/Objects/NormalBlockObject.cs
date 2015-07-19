@@ -31,5 +31,13 @@ namespace WindowsGame1
                 return instance;
             }
         }
+
+        public bool isHit
+        {
+            get
+            {
+                return Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch;
+            }
+        }
     }
 }

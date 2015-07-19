@@ -25,6 +25,10 @@ namespace WindowsGame1
                 {
                     Core.StateController.MarioSmash();
                 }
+                else if(Core.CollisionDetector.Detect<IBlock>(block => block.Hit).Bottom.Touch)
+                {
+                    Core.StateController.Flip();
+                }
                 else
                 {
                     if (!Core.StateController.MotionState.Gravity && Core.CollisionDetector.Detect<IObject>(obj => obj.Solid).AnySide.Touch)
