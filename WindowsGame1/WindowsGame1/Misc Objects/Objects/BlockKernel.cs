@@ -16,7 +16,7 @@ namespace WindowsGame1
         {
             get
             {
-                return false;
+                return StateController.MotionState.isHit;
             }
         }
     }

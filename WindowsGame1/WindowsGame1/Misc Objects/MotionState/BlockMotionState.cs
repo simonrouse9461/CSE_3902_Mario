@@ -31,7 +31,7 @@ namespace WindowsGame1
 
         public bool isHit
         {
-            get { return VerticalStatus == VerticalEnum.Hit; }
+            get { return FindMotion<BounceUpMotion>().Status; }
         }
     }
 }
