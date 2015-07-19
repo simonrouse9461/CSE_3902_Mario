@@ -285,6 +285,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Utility Classes\CoreNew.cs" />
+    <Compile Include="Utility Classes\GameSettings.cs" />
     <Compile Include="Utility Classes\SoundManager.cs" />
     <Compile Include="Utility Classes\Camera.cs" />
     <Compile Include="Utility Classes\CollisionDetector.cs" />

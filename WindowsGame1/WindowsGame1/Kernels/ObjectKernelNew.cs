@@ -92,7 +92,7 @@ namespace WindowsGame1
 
         public Vector2 PositionPoint
         {
-            get { return GeneralMotionState.Position; }
+            get { return GeneralSpriteState.Sprite.GetLocation(GeneralMotionState.Position); }
         }
 
         // public methods
