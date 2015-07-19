@@ -142,7 +142,7 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             var relativePosition = GeneralMotionState.Position - Camera.Location;
-            GeneralSpriteState.Sprite.Draw(spriteBatch, relativePosition, GeneralSpriteState.Orientation, GeneralSpriteState.Color);
+            GeneralSpriteState.Sprite.Draw(spriteBatch, relativePosition, GeneralSpriteState.Orientation, GeneralSpriteState.Version, GeneralSpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

@@ -210,7 +210,7 @@ namespace WindowsGame1
         public void GetFire()
         {
             if (SpriteState.Dead) return;
-            if (SpriteState.Fire) return;
+            if (SpriteState.HaveFire) return;
             SpriteState.GetFire();
             Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
@@ -222,9 +222,9 @@ namespace WindowsGame1
             decorator.DelayRestore(stopTime);
 
             SpriteState.GetPower();
-            SpriteState.SetColorFrequency(8);
-            Core.DelayCommand(() => SpriteState.SetColorFrequency(16), () => SpriteState.Power, slowDownTime);
-            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.Power, stopTime);
+            SpriteState.SetVersionFrequency(4);
+            Core.DelayCommand(() => SpriteState.SetVersionFrequency(8), () => SpriteState.HavePower, slowDownTime);
+            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.HavePower, stopTime);
         }
 
         public void TakeDamage(int restoreTime)
@@ -235,7 +235,7 @@ namespace WindowsGame1
                 return;
             }
 
-            if (SpriteState.Fire) ((IDecorator)Core.CommandExecutor).Restore();
+            if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
 
             var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);

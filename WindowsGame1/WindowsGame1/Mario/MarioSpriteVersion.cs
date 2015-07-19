@@ -2,6 +2,7 @@
 {
     public enum MarioSpriteVersion
     {
+        Default,
         Normal,
         Fire,
         Luigi,

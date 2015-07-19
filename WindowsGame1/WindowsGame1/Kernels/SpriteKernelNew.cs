@@ -139,8 +139,9 @@ namespace WindowsGame1
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location, Orientation orientation, Color? color = null)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, Orientation orientation, IConvertible version, Color? color = null)
         {
+            SetVersion(version);
             var orientationEffect = GetEffect(SourceOrientation, orientation);
             var mixedEffect = MixEffect(orientationEffect, Effect);
             var rotation = orientation == Orientation.Left ? mixedEffect.Value - Rotation : mixedEffect.Value + Rotation;
