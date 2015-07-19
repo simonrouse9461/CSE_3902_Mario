@@ -15,7 +15,7 @@ namespace WindowsGame1
 {
     public class WorldManager
     {
-        private bool freeze;
+        private bool frozen;
         private Counter freezeTimer;
         private readonly Collection<IList> _objectList;
         private static WorldManager _instance;
@@ -76,6 +76,7 @@ namespace WindowsGame1
                 new Collection<Fireflower>(),
                 new Collection<Mushroom>(),
                 new Collection<OneUp>(),
+                new Collection<FloatingCoinObject>(),
 
                 // then blocks
                 new Collection<QuestionBlockObject>(),
@@ -170,13 +171,13 @@ namespace WindowsGame1
 
         public static void FreezeWorld(int time = 0)
         {
-            Instance.freeze = true;
+            Instance.frozen = true;
             Instance.freezeTimer = new Counter(time);
         }
 
         public static void RestoreWorld()
         {
-            Instance.freeze = false;
+            Instance.frozen = false;
         }
 
         public static void LoadLevel(ContentManager content)
@@ -237,7 +238,7 @@ namespace WindowsGame1
 
             Modified = false;
 
-            if (Instance.freeze)
+            if (Instance.frozen)
             {
                 if (Instance.freezeTimer.Update()) RestoreWorld();
             }
@@ -250,7 +251,11 @@ namespace WindowsGame1
                 }
             }
 
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200))) Reload();
+            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200)))
+            {
+                Console.WriteLine(FindObject<MarioObject>().PositionRectangle);
+                Reload();
+            }
         }
 
         public static void Reload()

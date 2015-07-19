@@ -9,6 +9,7 @@ namespace WindowsGame1
         bool Frozen { get; }
         bool Static { get; }
 
+        StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new();
         void Freeze();
         void Restore();
         void Adjust(Vector2 offset);

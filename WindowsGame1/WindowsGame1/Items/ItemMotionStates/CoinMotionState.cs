@@ -24,5 +24,10 @@ namespace WindowsGame1
                 return FindMotion<BounceUpMotion>().Content.Finish;
             }  
         }
+
+        public void ResetStatus()
+        {
+            FindMotion<BounceUpMotion>().Toggle(false);
+        }
     }
 }

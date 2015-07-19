@@ -19,18 +19,19 @@ namespace WindowsGame1
         public BlockMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(new BlockMotion())
+                new StatusSwitch<IMotion>(BounceUpMotion.BlockHit)
             };         
         }
 
         public void Hit()
         {
             VerticalStatus = VerticalEnum.Hit;
+            FindMotion<BounceUpMotion>().Toggle(true);
         }
 
         public bool isHit
         {
-            get { return VerticalStatus == VerticalEnum.Hit; }
+            get { return FindMotion<BounceUpMotion>().Status; }
         }
     }
 }

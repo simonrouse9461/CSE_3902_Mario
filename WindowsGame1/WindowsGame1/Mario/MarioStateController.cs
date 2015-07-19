@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
+    public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
     {
         private const int MagazineCapacity = 2;
 
@@ -30,17 +30,6 @@ namespace WindowsGame1
             }
         }
 
-        public override void Update()
-        {
-            if (SpriteState.FinishGrow)
-            {
-                DefaultAction();
-                MotionState.Restore();
-                ((IDecorator)Core.CommandExecutor).Restore();
-                WorldManager.RestoreWorld();
-            }
-        }
-
         public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
@@ -52,30 +41,26 @@ namespace WindowsGame1
             if (MotionState.DefaultHorizontal) SpriteState.Stand();
             if (MotionState.GoingLeft || MotionState.GoingRight) SpriteState.Run();
             if (MotionState.HaveInertia) SpriteState.Jump();
-            //if (MotionState.Stopping)
-            // TODO
         }
 
-        public void Land()
+        public void KeepOnLand()
         {
             if (SpriteState.Dead) return;
             if (MotionState.Gravity) MotionState.LoseGravity();
-            if (MotionState.DefaultHorizontal) SpriteState.TryStand();
-        }
-
-        public void Brake()
-        {
-            if (SpriteState.Dead) return;
-            MotionState.Stop();
-            SpriteState.TryRun();
+            if (MotionState.HaveInertia)
+            {
+                MotionState.Stop();
+                SpriteState.Run();
+            }
+            DefaultAction();
         }
 
         public void Liftoff()
         {
             if (SpriteState.Dead) return;
-            MotionState.ObtainGravity();
-            MotionState.GetInertia();
-            SpriteState.TryJump();
+            if (!MotionState.Gravity) MotionState.ObtainGravity();
+            if (!MotionState.HaveInertia) MotionState.GetInertia();
+            DefaultAction();
         }
 
         public void GoLeft()
@@ -93,7 +78,7 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoLeft();
-                SpriteState.TryRun();
+                SpriteState.Run();
             }
         }
 
@@ -112,13 +97,13 @@ namespace WindowsGame1
             else
             {
                 MotionState.GoRight();
-                SpriteState.TryRun();
+                SpriteState.Run();
             }
         }
 
         public void KeepLeft()
         {
-            SpriteState.ToLeft();
+            SpriteState.FaceLeft();
 
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
@@ -131,7 +116,7 @@ namespace WindowsGame1
 
         public void KeepRight()
         {
-            SpriteState.ToRight();
+            SpriteState.FaceRight();
             
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
@@ -146,7 +131,8 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            Brake();
+            MotionState.Stop();
+            SpriteState.Run();
         }
 
         public void Jump()
@@ -174,42 +160,23 @@ namespace WindowsGame1
         public void Crouch()
         {
             if (SpriteState.Dead) return;
-            SpriteState.TryCrouch();
+            if (SpriteState.Small) return;
+            SpriteState.Crouch();
+            SpriteState.Hold(false);
             MotionState.Stop();
         }
 
         public void StandUp()
         {
-            if (SpriteState.Crouching) SpriteState.Stand();
-        }
-
-        public void Grow()
-        {
-            if (SpriteState.Dead) return;
-            if (!SpriteState.Small) return;
-            SpriteState.GrowBig();
-            MotionState.Freeze();
-            Core.SwitchComponent(new TransformingMarioCommandExecutor(Core));
-            WorldManager.FreezeWorld();
-            SoundManager.powerUpSoundPlay();
-        }
-        
-        public void GetFire()
-        {
-            if (SpriteState.Dead) return;
-            if (SpriteState.HaveFire) return;
-            SpriteState.GetFire();
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
-            SoundManager.powerUpSoundPlay();
+            SpriteState.Resume();
         }
 
         public void Die()
         {
             if (SpriteState.Dead) return;
-            SpriteState.BecomeDead();
+            SpriteState.Die();
             MotionState.Die();
             WorldManager.FreezeWorld();
-            SoundManager.changeToDieMusic();
         }
 
         public void Shoot()
@@ -217,12 +184,35 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
-            Core.DelayCommand(DefaultAction, () => SpriteState.Shooting, 7);
+            SpriteState.Hold(true, 7);
             Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -20),
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
+        }
+
+        public void Grow()
+        {
+            if (SpriteState.Dead) return;
+            if (!SpriteState.Small) return;
+            SpriteState.Grow();
+            WorldManager.FreezeWorld();
+            MotionState.Freeze();
+            SpriteState.HoldTillFinish(true, () =>
+            {
+                SpriteState.TurnBig();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
+        }
+
+        public void GetFire()
+        {
+            if (SpriteState.Dead) return;
+            if (SpriteState.Fire) return;
+            SpriteState.GetFire();
+            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
 
         public void GetStarPower(int slowDownTime, int stopTime)
@@ -231,10 +221,10 @@ namespace WindowsGame1
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
 
-            SpriteState.StarPower();
-            SpriteState.ChangeColorFrequency(8);
-            Core.DelayCommand(() => SpriteState.ChangeColorFrequency(16), () => SpriteState.HaveStarPower, slowDownTime);
-            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.HaveStarPower, stopTime);
+            SpriteState.GetPower();
+            SpriteState.SetColorFrequency(8);
+            Core.DelayCommand(() => SpriteState.SetColorFrequency(16), () => SpriteState.Power, slowDownTime);
+            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.Power, stopTime);
         }
 
         public void TakeDamage(int restoreTime)
@@ -245,19 +235,18 @@ namespace WindowsGame1
                 return;
             }
 
-            SoundManager.pipeSoundPlay();
-            if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
+            if (SpriteState.Fire) ((IDecorator)Core.CommandExecutor).Restore();
 
             var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 
-            SpriteState.BecomeSmall();
-            SpriteState.BecomeBlink();
-            SpriteState.ChangeColorFrequency(2);
+            SpriteState.TurnSmall();
+            SpriteState.StartBlink();
+            SpriteState.SetColorFrequency(2);
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
-            Core.DelayCommand(SpriteState.SetDefaultColor, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
         }

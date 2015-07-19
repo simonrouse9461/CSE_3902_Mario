@@ -3,9 +3,9 @@ using WindowsGame1.CommandExecutorDecorators;
 
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernel<MarioStateController>
+    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
     {
-        public MarioCollisionHandler(ICore core) : base(core){}
+        public MarioCollisionHandler(ICoreNew core) : base(core){}
 
         public override void Handle()
         {

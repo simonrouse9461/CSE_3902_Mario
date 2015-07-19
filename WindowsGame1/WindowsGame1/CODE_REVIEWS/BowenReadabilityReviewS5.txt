@@ -1,0 +1,10 @@
+Author: Bowen Dai
+Date: 7/16/15
+Sprint #: 5
+File: SoundManager.cs
+Author of File: Haden Kersting
+
+Comments: Declaration is clear. Naming is reasonable. It is easy to 
+	  see what a methond by its' names. Though naming are really 
+	  reasonable, some names might be too long. This increased 
+	  readability but somehow decreased reading speed.
