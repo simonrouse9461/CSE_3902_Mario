@@ -186,7 +186,7 @@ namespace WindowsGame1
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
             Core.Object.Generate(
-                new Vector2(SpriteState.Left ? -10 : 10, -20),
+                new Vector2(SpriteState.Left ? -10 : 10, -25),
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
@@ -235,7 +235,11 @@ namespace WindowsGame1
                 return;
             }
 
-            if (SpriteState.HaveFire) ((IDecorator)Core.CommandExecutor).Restore();
+            if (SpriteState.HaveFire)
+            {
+                ((IDecorator) Core.CommandExecutor).Restore();
+                SpriteState.LoseFire();
+            }
 
             var decorator = new DamagedMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
@@ -243,7 +247,7 @@ namespace WindowsGame1
 
             SpriteState.TurnSmall();
             SpriteState.StartBlink();
-            SpriteState.SetColorFrequency(2);
+            SpriteState.SetColorFrequency(3);
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
             Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);

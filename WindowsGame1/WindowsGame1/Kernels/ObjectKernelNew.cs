@@ -87,12 +87,12 @@ namespace WindowsGame1
 
         public Rectangle PositionRectangle
         {
-            get { return GeneralSpriteState.Sprite.GetDestination(GeneralMotionState.Position); }
+            get { return GeneralSpriteState.Sprite.GetScreenDestination(GeneralMotionState.Position); }
         }
 
         public Vector2 PositionPoint
         {
-            get { return GeneralSpriteState.Sprite.GetLocation(GeneralMotionState.Position); }
+            get { return GeneralMotionState.Position; }
         }
 
         // public methods
@@ -123,6 +123,11 @@ namespace WindowsGame1
         public void Generate<T>(Vector2 offset = default(Vector2), T obj = null) where T : class, IObject, new()
         {
             WorldManager.CreateObject(PositionPoint + offset, obj);
+        }
+
+        public void Generate<T>(T obj) where T : class, IObject, new()
+        {
+            Generate(default(Vector2), obj);
         }
 
         public void Update()

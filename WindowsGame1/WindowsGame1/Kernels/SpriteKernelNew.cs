@@ -147,11 +147,11 @@ namespace WindowsGame1
             var rotation = orientation == Orientation.Left ? mixedEffect.Value - Rotation : mixedEffect.Value + Rotation;
 
             if (color == null) color = Color;
-            spriteBatch.Draw(Texture, GetDestination(location), SourceCoodinates, color.Value, rotation,
-                default(Vector2), mixedEffect.Key, 1);
+            spriteBatch.Draw(Texture, GetScreenLocation(location), SourceCoodinates, color.Value, rotation,
+                default(Vector2), GameSettings.SpriteScale*Scale, mixedEffect.Key, 1);
         }
 
-        public Rectangle GetDestination(Vector2 position)
+        public Rectangle GetScreenDestination(Vector2 position)
         {
             var width = SourceCoodinates.Width*Scale*GameSettings.SpriteScale;
             var height = SourceCoodinates.Height*Scale*GameSettings.SpriteScale;
@@ -164,7 +164,7 @@ namespace WindowsGame1
                 (int) (height));
         }
 
-        public Vector2 GetLocation(Vector2 position)
+        public Vector2 GetScreenLocation(Vector2 position)
         {
             var width = SourceCoodinates.Width*Scale*GameSettings.SpriteScale;
             var height = SourceCoodinates.Height*Scale*GameSettings.SpriteScale;

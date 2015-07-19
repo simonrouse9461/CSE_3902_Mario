@@ -85,11 +85,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="MiscMario.png">
-      <Name>MiscMario</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LeveLoader\LevelLoader.csproj">
@@ -190,6 +185,11 @@
     </Compile>
     <Compile Include="mario-luigi.png">
       <Name>mario-luigi</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="misc_sprites.png">
+      <Name>misc_sprites</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
