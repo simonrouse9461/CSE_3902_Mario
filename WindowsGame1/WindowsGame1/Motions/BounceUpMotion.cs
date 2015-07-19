@@ -57,7 +57,7 @@ namespace WindowsGame1
                 return new BounceUpMotion
                 {
                     version = Version.Mariojump,
-                    StartVelocity = new Vector2(0, -6),
+                    StartVelocity = new Vector2(0, -6.2f),
                     Acceleration = new Vector2(0, 0.17f),
                     MaxVelocity = default(Vector2),
                     InvolveGravity = true,
