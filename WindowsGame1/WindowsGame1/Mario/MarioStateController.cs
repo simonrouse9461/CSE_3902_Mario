@@ -168,7 +168,7 @@ namespace WindowsGame1
 
         public void StandUp()
         {
-            SpriteState.Resume();
+            SpriteState.Release();
         }
 
         public void Die()
@@ -199,7 +199,7 @@ namespace WindowsGame1
             SpriteState.Grow();
             WorldManager.FreezeWorld();
             MotionState.Freeze();
-            SpriteState.HoldTillFinish(true, () =>
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
             {
                 SpriteState.TurnBig();
                 MotionState.Restore();
@@ -211,7 +211,18 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (SpriteState.HaveFire) return;
+            if (SpriteState.Upgrading) return;
+            SpriteState.Run();
+            SpriteState.Upgrade();
             SpriteState.GetFire();
+            WorldManager.FreezeWorld();
+            MotionState.Freeze();
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.VersionAnimation, 4, () =>
+            {
+                SpriteState.FinishUpgrade();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
             Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
 
@@ -222,8 +233,7 @@ namespace WindowsGame1
             decorator.DelayRestore(stopTime);
 
             SpriteState.GetPower();
-            SpriteState.SetVersionFrequency(4);
-            Core.DelayCommand(() => SpriteState.SetVersionFrequency(8), () => SpriteState.HavePower, slowDownTime);
+            Core.DelayCommand(() => SpriteState.SlowDownPower(), () => SpriteState.HavePower, slowDownTime);
             Core.DelayCommand(SpriteState.LosePower, () => SpriteState.HavePower, stopTime);
         }
 

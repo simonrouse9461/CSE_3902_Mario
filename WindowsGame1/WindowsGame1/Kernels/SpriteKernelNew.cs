@@ -59,7 +59,8 @@ namespace WindowsGame1
             get { return Animation.Value.Effect; }
         }
 
-        public int Cycle { get; private set; }
+        public int Cycle { get { return Animation.Cycle; } }
+
         public IConvertible Version { get; private set; }
 
         public void SetVersion(IConvertible version)
@@ -101,7 +102,6 @@ namespace WindowsGame1
         public void Reset()
         {
             Animation.Reset();
-            Cycle = 0;
         }
 
         public void Load(ContentManager content)
@@ -114,7 +114,7 @@ namespace WindowsGame1
 
         public void Update()
         {
-            if (Animation.Update()) Cycle++;
+            Animation.Update();
         }
 
         private static SpriteEffects GetEffect(Orientation origin, Orientation goal)

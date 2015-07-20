@@ -14,7 +14,8 @@ namespace WindowsGame1
 
         private enum VersionAnimator
         {
-            StarPower
+            StarPower,
+            Upgrade
         }
 
         public bool Big { get; private set; }
@@ -34,12 +35,17 @@ namespace WindowsGame1
             AddSprite<TurningSmallMarioSprite>();
             AddSprite<GrowingMarioSprite>();
             AddSprite<ShootingMarioSprite>();
+            AddSprite<UpgradingMarioSprite>();
 
             AddColorScheme(ColorScheme.Blink, 
                 new[] {Color.White, Color.Transparent});
 
             AddVersionAnimator(VersionAnimator.StarPower,
-                new [] {MarioSpriteVersion.Black, MarioSpriteVersion.Default, MarioSpriteVersion.Green, MarioSpriteVersion.Red});
+                new[]
+                {MarioSpriteVersion.Black, MarioSpriteVersion.Default, MarioSpriteVersion.Green, MarioSpriteVersion.Red});
+            AddVersionAnimator(VersionAnimator.Upgrade,
+                new[]
+                {MarioSpriteVersion.Red, MarioSpriteVersion.Black, MarioSpriteVersion.Fire, MarioSpriteVersion.Green});
 
             SetSpriteFrequency(5);
             SetDefaultVersion(MarioSpriteVersion.Normal);
@@ -55,7 +61,24 @@ namespace WindowsGame1
         {
             Big = true;
         }
-        
+
+        public void Upgrade()
+        {
+            SetSprite<UpgradingMarioSprite>();
+            SetVersionAnimator(VersionAnimator.Upgrade);
+            SetVersionFrequency(4);
+        }
+
+        public bool Upgrading
+        {
+            get { return IsSprite<UpgradingMarioSprite>(); }
+        }
+
+        public void FinishUpgrade()
+        {
+            StopVersionAnimator();
+        }
+
         public void GetFire()
         {
             SetVersion(MarioSpriteVersion.Fire);
@@ -74,6 +97,12 @@ namespace WindowsGame1
         public void GetPower()
         {
             SetVersionAnimator(VersionAnimator.StarPower);
+            SetVersionFrequency(4);
+        }
+
+        public void SlowDownPower()
+        {
+            SetVersionFrequency(8);
         }
 
         public bool HavePower

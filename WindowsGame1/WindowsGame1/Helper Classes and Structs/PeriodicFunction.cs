@@ -9,6 +9,8 @@ namespace WindowsGame1
 
         private Func<int, T> Function;
 
+        public int Cycle { get; private set; }
+
         public PeriodicFunction(Func<int, T> getValue = null, int period = 0)
         { 
             Function = getValue ?? (stage => default(T));
@@ -17,12 +19,15 @@ namespace WindowsGame1
 
         public virtual void Reset()
         {
-            Circulator.Reset(); 
+            Circulator.Reset();
+            Cycle = 0;
         }
 
         public bool Update(int phase = -1)
         {
-            return Circulator.Update(phase);
+            if (!Circulator.Update(phase)) return false;
+            Cycle ++;
+            return true;
         }
 
         public T Value

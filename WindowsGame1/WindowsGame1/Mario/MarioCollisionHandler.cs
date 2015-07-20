@@ -38,7 +38,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
-                Core.StateController.GetFire();
+                Core.DelayCommand(Core.StateController.GetFire, 5);
             }
         }
 
