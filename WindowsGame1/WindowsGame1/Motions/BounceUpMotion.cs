@@ -137,7 +137,7 @@ namespace WindowsGame1
                 return new BounceUpMotion
                 {
                     version = Version.Star,
-                    StartVelocity = new Vector2(0, -5f),
+                    StartVelocity = new Vector2(0, -7f),
                     Acceleration = new Vector2(0, 0.3f),
                     InvolveGravity = true,
                     MaxVelocity = GravityMotion.Max,

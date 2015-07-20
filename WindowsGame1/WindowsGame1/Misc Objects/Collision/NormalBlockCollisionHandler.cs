@@ -15,12 +15,13 @@ namespace WindowsGame1
                 if (Core.StateController.giveCoin && !Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockCoinHit();
+                    Core.StateController.MotionState.Hit();
                 }
                 else if (Core.StateController.giveStar)
                 {
                     Core.StateController.NormalBlockGiveStar();
                 }
-                else
+                else if(!Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockDestroyed();
                     SoundManager.blockBreakSoundPlay();
@@ -31,6 +32,7 @@ namespace WindowsGame1
                 if (Core.StateController.giveCoin && !Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockCoinHit();
+                    Core.StateController.MotionState.Hit();
                 }
                 else if(Core.StateController.giveStar)
                 {

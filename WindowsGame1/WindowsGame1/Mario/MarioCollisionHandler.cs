@@ -29,7 +29,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
-                Core.StateController.GetStarPower(400, 600);
+                Core.StateController.GetStarPower(600, 800);
                 SoundManager.changeToStarMusic();
             }
         }

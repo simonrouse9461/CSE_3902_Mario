@@ -12,7 +12,7 @@ namespace WindowsGame1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        private int pauseCountdown = 5;
         private CommandManager Controller;
         public bool paused = false;
 
@@ -52,13 +52,19 @@ namespace WindowsGame1
         {
             if (paused)
             {
-                paused = false;
-                SoundManager.changeToOverworldMusic();
+                if (pauseCountdown == 5)
+                {
+                    paused = false;
+                    SoundManager.changeToOverworldMusic();
+                }
             }
             else
             {
-                paused = true;
-                SoundManager.stopMusic();
+                if (pauseCountdown == 5)
+                {
+                    paused = true;
+                    SoundManager.stopMusic();
+                }
             }
         }
 
@@ -72,19 +78,30 @@ namespace WindowsGame1
                 Display.Update(gameTime);
                 base.Update(gameTime);
             }
+            
+            if (pauseCountdown == 0)
+            {
+                pauseCountdown = 5;
+            }
+            else
+            {
+                pauseCountdown--;
+            }
 
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, GameSettings.TextureSampling, null, null);
 
             WorldManager.Draw(spriteBatch);
             Display.Draw(spriteBatch);
 
             spriteBatch.End();
             base.Draw(gameTime);
+
+           
         }
     }
 }
