@@ -28,7 +28,7 @@ namespace WindowsGame1
 
         public bool StarPower
         {
-            get { return StateController.SpriteState.Power; }
+            get { return StateController.SpriteState.HavePower; }
         }
 
         public bool Destructive

@@ -6,7 +6,6 @@ Content\overworld.xnb
 Content\items.xnb
 Content\scenery.xnb
 Content\misc.xnb
-Content\MiscMario.xnb
 Content\block debris.xnb
 Content\characters.xnb
 Content\enemies.xnb
@@ -26,3 +25,4 @@ Content\Audio\star.xnb
 Content\Audio\underworld.xnb
 Content\Audio\win.xnb
 Content\Audio\jump.xnb
+Content\misc_sprites.xnb

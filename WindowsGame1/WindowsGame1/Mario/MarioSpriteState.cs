@@ -5,17 +5,20 @@ using Microsoft.Xna.Framework;
 
 namespace WindowsGame1
 {
-    public class MarioSpriteState : SpriteStateKernelNew
+    public class MarioSpriteState : SpriteStateKernelNew<MarioSpriteVersion>
     {
         private enum ColorScheme
         {
             Blink
         }
 
+        private enum VersionAnimator
+        {
+            StarPower
+        }
+
         public bool Big { get; private set; }
         public bool Small { get { return !Big; } }
-        public bool Fire { get; private set; }
-        public bool Power { get; private set; }
 
         public MarioSpriteState()
         {
@@ -35,7 +38,11 @@ namespace WindowsGame1
             AddColorScheme(ColorScheme.Blink, 
                 new[] {Color.White, Color.Transparent});
 
+            AddVersionAnimator(VersionAnimator.StarPower,
+                new [] {MarioSpriteVersion.Black, MarioSpriteVersion.Default, MarioSpriteVersion.Green, MarioSpriteVersion.Red});
+
             SetSpriteFrequency(5);
+            SetDefaultVersion(MarioSpriteVersion.Normal);
             Stand();
         }
 
@@ -52,23 +59,31 @@ namespace WindowsGame1
         public void GetFire()
         {
             SetVersion(MarioSpriteVersion.Fire);
-            Fire = true;
         }
 
         public void LoseFire()
         {
-            SetVersion(MarioSpriteVersion.Normal);
-            Fire = false;
+            SetDefaultVersion();
+        }
+
+        public bool HaveFire
+        {
+            get { return IsVersion(MarioSpriteVersion.Fire); }
         }
 
         public void GetPower()
         {
-            Power = true;
+            SetVersionAnimator(VersionAnimator.StarPower);
+        }
+
+        public bool HavePower
+        {
+            get { return IsVersionAnimator(VersionAnimator.StarPower); }
         }
 
         public void LosePower()
         {
-            Power = false;
+            StopVersionAnimator();
         }
 
         public void StartBlink()

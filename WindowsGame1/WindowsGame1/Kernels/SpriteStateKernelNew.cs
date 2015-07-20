@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public abstract class SpriteStateKernelNew : ISpriteStateNew
+    public abstract class SpriteStateKernelNew<TVersion> : ISpriteStateNew where TVersion : IConvertible
     {
         public ICoreNew Core { protected get; set; }
         protected Counter ColorTimer { get; set; }
@@ -30,15 +31,25 @@ namespace WindowsGame1
             get { return ColorScheme == null ? Color.White : ColorScheme.Value; }
         }
 
-        private Dictionary<IConvertible, PeriodicFunction<IConvertible>> VersionAnimatorList { get; set; }
-        private PeriodicFunction<IConvertible> VersionAnimator { get; set; }
-        private IConvertible _version;
+        private Dictionary<IConvertible, PeriodicFunction<TVersion>> VersionAnimatorList { get; set; }
+        private PeriodicFunction<TVersion> VersionAnimator { get; set; }
+        protected TVersion ActualVersion { get; set; }
+        protected TVersion DefaultVersion { get; set; }
         public IConvertible Version
         {
-            get { return VersionAnimator == null ? _version : VersionAnimator.Value; }
-            private set { _version = value; }
+            get
+            {
+                foreach (var sprite in SpriteList)
+                {
+                    sprite.SetVersion(ActualVersion);
+                }
+                return VersionAnimator == null ? ActualVersion : VersionAnimator.Value;
+            }
+            private set
+            {
+                ActualVersion = (TVersion)value;
+            }
         }
-        public IConvertible ActualVersion { get { return _version; } }
 
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
@@ -55,61 +66,93 @@ namespace WindowsGame1
         {
             SpriteList = new Collection<ISpriteNew>();
             ColorSchemeList = new Dictionary<IConvertible, PeriodicFunction<Color>>();
-            VersionAnimatorList = new Dictionary<IConvertible, PeriodicFunction<IConvertible>>();
+            VersionAnimatorList = new Dictionary<IConvertible, PeriodicFunction<TVersion>>();
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
             VersionTimer = new Counter();
             FaceDefault();
         }
 
-        public void AddSprite<T>() where T : ISpriteNew, new()
+        protected void AddSprite<T>() where T : ISpriteNew, new()
         {
             if (SpriteList.Any(s => s is T)) return;
             SpriteList.Add(new T());
         }
 
-        public ISpriteNew FindSprite<T>() where T : ISpriteNew
+        protected ISpriteNew FindSprite<T>() where T : ISpriteNew
         {
             return SpriteList.First(sprite => sprite is T);
         }
 
-        public void SetSprite<T>() where T : ISpriteNew
+        protected void SetSprite<T>() where T : ISpriteNew
         {
             Sprite = FindSprite<T>();
         }
 
-        public bool IsSprite<T>() where T : ISpriteNew
+        protected bool IsSprite<T>() where T : ISpriteNew
         {
             return Sprite == FindSprite<T>();
         }
 
-        public void AddColorScheme(IConvertible name, Color[] colorList)
+        protected void AddColorScheme(IConvertible name, Color[] colorList)
         {
             ColorSchemeList.Add(name, new PeriodicFunction<Color>(i => colorList[i], colorList.Length));
         }
 
-        public void SetColorScheme(IConvertible name)
+        protected void SetColorScheme(IConvertible name)
         {
             ColorScheme = ColorSchemeList[name];
         }
 
-        public bool IsColorScheme(IConvertible name)
+        protected bool IsColorScheme(IConvertible name)
         {
             return ColorScheme == ColorSchemeList[name];
         }
 
-        public void RestoreColorScheme()
+        protected void RestoreColorScheme()
         {
             ColorScheme = null;
         }
 
-        public void SetVersion(IConvertible version)
+        protected void AddVersionAnimator(IConvertible name, TVersion[] versionList)
         {
-            foreach (var sprite in SpriteList)
-            {
-                sprite.SetVersion(version);
-            }
+            VersionAnimatorList.Add(name, new PeriodicFunction<TVersion>(i => versionList[i], versionList.Length));
+        }
+
+        protected void SetVersionAnimator(IConvertible name)
+        {
+            VersionAnimator = VersionAnimatorList[name];
+        }
+
+        protected bool IsVersionAnimator(IConvertible name)
+        {
+            return VersionAnimator == VersionAnimatorList[name];
+        }
+
+        protected void StopVersionAnimator()
+        {
+            VersionAnimator = null;
+        }
+
+        protected void SetVersion(TVersion version)
+        {
             Version = version;
+        }
+
+        protected bool IsVersion(TVersion version)
+        {
+            return ActualVersion.Equals(version);
+        }
+
+        protected void SetDefaultVersion()
+        {
+            SetVersion(DefaultVersion);
+        }
+
+        protected void SetDefaultVersion(TVersion version)
+        {
+            DefaultVersion = version;
+            SetDefaultVersion();
         }
 
         public void SetOrientation(Orientation orientation)
@@ -136,11 +179,12 @@ namespace WindowsGame1
         public void Hold(bool holdOrientation, int timer = 0, Action action = null)
         {
             HoldOrientation = holdOrientation;
+            action = action ?? (() => { });
             Held = true;
             if (timer > 0) Core.DelayCommand(() =>
             {
                 Resume();
-                if (action != null) action();
+                action();
             }, timer);
         }
 
@@ -180,6 +224,11 @@ namespace WindowsGame1
         {
             ColorTimer.Reset(frequency);
         }
+
+        public void SetVersionFrequency(int frequency)
+        {
+            VersionTimer.Reset(frequency);
+        }
          
         public void Reset()
         {
@@ -208,9 +257,16 @@ namespace WindowsGame1
             }
             if (ColorTimer.Update() && ColorSchemeList != null)
             {
-                foreach (var colorAnimator in ColorSchemeList)
+                foreach (var colorScheme in ColorSchemeList)
                 {
-                    colorAnimator.Value.Update();
+                    colorScheme.Value.Update();
+                }
+            }
+            if (VersionTimer.Update() && VersionAnimatorList != null)
+            {
+                foreach (var versionAnimator in VersionAnimatorList)
+                {
+                    versionAnimator.Value.Update();
                 }
             }
             LastSprite = Sprite;

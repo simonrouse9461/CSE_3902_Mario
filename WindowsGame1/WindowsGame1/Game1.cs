@@ -78,7 +78,7 @@ namespace WindowsGame1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, GameSettings.TextureSampling, null, null);
 
             WorldManager.Draw(spriteBatch);
             Display.Draw(spriteBatch);

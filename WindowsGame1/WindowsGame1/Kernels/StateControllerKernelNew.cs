@@ -11,11 +11,24 @@ namespace WindowsGame1
         public ISpriteStateNew GeneralSpriteState { get { return SpriteState; } }
         public IMotionState GeneralMotionState { get { return MotionState; } }
 
-        public ICoreNew Core { protected get; set; }
+        private ICoreNew _core;
+
+        public ICoreNew Core
+        {
+            protected get
+            {
+                return _core;
+            }
+            set
+            {
+                _core = value;
+                SpriteState.Core = value;
+            }
+        }
 
         protected StateControllerKernelNew()
         {
-            SpriteState = new TSpriteState {Core = Core};
+            SpriteState = new TSpriteState();
             MotionState = new TMotionState();
         }
 

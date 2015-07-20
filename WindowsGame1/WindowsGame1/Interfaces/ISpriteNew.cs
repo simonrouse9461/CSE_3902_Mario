@@ -15,8 +15,8 @@ namespace WindowsGame1
         void Reset();
         void Load(ContentManager content);
         void Update();
-        void Draw(SpriteBatch spriteBatch, Vector2 location, Orientation orientation, Color? color = null);
-        Rectangle GetDestination(Vector2 position);
-        Vector2 GetLocation(Vector2 position);
+        void Draw(SpriteBatch spriteBatch, Vector2 location, Orientation orientation, IConvertible version, Color? color = null);
+        Rectangle GetScreenDestination(Vector2 position);
+        Vector2 GetScreenLocation(Vector2 position);
     }
 }

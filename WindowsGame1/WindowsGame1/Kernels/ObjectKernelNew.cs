@@ -87,12 +87,12 @@ namespace WindowsGame1
 
         public Rectangle PositionRectangle
         {
-            get { return GeneralSpriteState.Sprite.GetDestination(GeneralMotionState.Position); }
+            get { return GeneralSpriteState.Sprite.GetScreenDestination(GeneralMotionState.Position); }
         }
 
         public Vector2 PositionPoint
         {
-            get { return GeneralSpriteState.Sprite.GetLocation(GeneralMotionState.Position); }
+            get { return GeneralMotionState.Position; }
         }
 
         // public methods
@@ -125,6 +125,11 @@ namespace WindowsGame1
             WorldManager.CreateObject(PositionPoint + offset, obj);
         }
 
+        public void Generate<T>(T obj) where T : class, IObject, new()
+        {
+            Generate(default(Vector2), obj);
+        }
+
         public void Update()
         {
             var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
@@ -142,7 +147,7 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             var relativePosition = GeneralMotionState.Position - Camera.Location;
-            GeneralSpriteState.Sprite.Draw(spriteBatch, relativePosition, GeneralSpriteState.Orientation, GeneralSpriteState.Color);
+            GeneralSpriteState.Sprite.Draw(spriteBatch, relativePosition, GeneralSpriteState.Orientation, GeneralSpriteState.Version, GeneralSpriteState.Color);
         }
 
         public void PassCommand(ICommand command)
