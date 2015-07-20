@@ -32,35 +32,6 @@ namespace WindowsGame1
             SetDefaultHorizontal();
         }
 
-        // this method has been abandoned
-
-//        protected override void RefreshMotionStatus()
-//        {
-//            switch (MotionStatus)
-//            {
-//                case MotionEnum.None:
-//                    FindMotion<MoveLeftMotion>().Toggle(false);
-//                    FindMotion<MoveRightMotion>().Toggle(false);
-//                    break;
-//                case MotionEnum.LeftWalk:
-//                    FindMotion<MoveLeftMotion>().Toggle(true);
-//                    FindMotion<MoveRightMotion>().Toggle(false);
-//                    break;
-//                case MotionEnum.RightWalk:
-//                    FindMotion<MoveLeftMotion>().Toggle(false);
-//                    FindMotion<MoveRightMotion>().Toggle(true);
-//                    break;
-//            }
-//
-//            if (Gravity)
-//            {
-//                FindMotion<GravityMotion>().Toggle(true);
-//            }
-//            else
-//            {
-//                FindMotion<GravityMotion>().Toggle(false);
-//            }
-//        }
         public void SetDefaultHorizontal()
         {
             MotionStatus = MotionEnum.LeftWalk;

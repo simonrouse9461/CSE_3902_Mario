@@ -3,9 +3,9 @@ using WindowsGame1.CommandExecutorDecorators;
 
 namespace WindowsGame1
 {
-    public class MarioCollisionHandler : CollisionHandlerKernel<MarioStateController>
+    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
     {
-        public MarioCollisionHandler(ICore core) : base(core){}
+        public MarioCollisionHandler(ICoreNew core) : base(core){}
 
         public override void Handle()
         {
@@ -29,7 +29,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
-                Core.StateController.GetStarPower(200, 300);
+                Core.StateController.GetStarPower(600, 800);
                 SoundManager.changeToStarMusic();
             }
         }

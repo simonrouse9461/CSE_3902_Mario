@@ -5,7 +5,7 @@ namespace WindowsGame1
     public class DamagedMarioCollisionHandler : MarioCollisionHandler, IDecorator
     {
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
-        public DamagedMarioCollisionHandler(ICore core) : base(core)
+        public DamagedMarioCollisionHandler(ICoreNew core) : base(core)
         {
             DefaultCollisionHandler = (MarioCollisionHandler)core.CollisionHandler;
         }

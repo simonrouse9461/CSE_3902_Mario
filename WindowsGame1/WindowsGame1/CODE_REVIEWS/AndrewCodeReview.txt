@@ -1,15 +1,16 @@
 ﻿Andrew Miller
-7/7/2015
-Sprint 4
+7/16/2015
+Sprint 5
 
-File: BounceUpMotion.cs
-File Author: Chuhan Feng
+File: GoombaMotionState.cs
+File Author: Haden Kersting
 Time: 10 minutes
 
-This class is meant to define the motions that the objects can go through that have the capability of bouncing up and down -
-namely, Mario, fireballs and blocks. There are several different versions of this bounce up motion that can be seen in 
-the enum of the class. All of the enum's versions are very clear about what they do; MarioDieVersion is related to the 
-motion of Mario dying, FireballBounceVersion is related to the bouncing motion of the Fireball, and so on. Each motion has
-it's own vectors, so that the BounceUpMotion can be defined independently for each specific need. This allows for easy
-maintenance of the objects that utilize this class. Since the method names are very descriptive for their uses, it is simple
-to figure out what each one does and it will be very easy to maintain this code since there are a variety of uses of this class.
+This class is designed to detail how the Goombas move throughout the world and how to react when they
+are presented with certain obstacles such as blocks, pipes, and Mario, as well as how to react when they
+walk off a ledge or a cliff. Each of the methods are descriptive and easily detail what action is being
+performed. There also seems to be more depth to the "motions", as there are modifiers like EnemyVelocity
+that may change the way the motion behaves depending on the type of object. There are not many, if any, 
+improvements to be made in this class since all the methods handle each of the movements and the cases
+that the Goomba will encounter while the game is running. The class is also fairly short, and nesting
+is minimal; the only nesting done is to perform specific checks to then decide what to do next.

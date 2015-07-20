@@ -34,7 +34,6 @@ namespace WindowsGame1
             }
         }
 
-        private int MaxTime { get; set; }
         private int StartTime { get; set; }
         private int GameTime { get; set; }
         private bool TimeUp { get; set; }
@@ -51,7 +50,6 @@ namespace WindowsGame1
             ptime = new Vector2 {X = 670, Y = 15};
             ptimeup = new Vector2 {X = 305, Y = 195};
             Level = "1-1";
-            MaxTime = 60;
         }
 
         private static Display Instance
@@ -105,7 +103,7 @@ namespace WindowsGame1
         public static void Update(GameTime gameTime)
         {
             Instance.GameTime = (int) gameTime.TotalGameTime.TotalSeconds;
-            Instance.Time = Instance.MaxTime + Instance.StartTime - Instance.GameTime;
+            Instance.Time = GameSettings.MaxTime + Instance.StartTime - Instance.GameTime;
         }
 
         public static void Draw(SpriteBatch spriteBatch)

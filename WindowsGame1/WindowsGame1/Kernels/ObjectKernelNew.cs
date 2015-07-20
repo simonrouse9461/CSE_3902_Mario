@@ -5,26 +5,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace WindowsGame1
 {
-    public abstract class ObjectKernel<TStateController> : IObject
-        where TStateController : IStateController, new()
+    public abstract class ObjectKernelNew<TStateController> : IObject
+        where TStateController : IStateControllerNew, new()
     {
         // Constructor
-        protected ObjectKernel()
+        protected ObjectKernelNew()
         {
-            Core = new Core<TStateController>(this);
+            Core = new CoreNew<TStateController>(this);
         } 
 
         // Object core that wraps all internal components of the object
-        protected Core<TStateController> Core { get; set; }
-
-        // Temporarily made for test cases
-        public ICore CoreGetter
-        {
-            get { return Core; }
-        }
+        protected CoreNew<TStateController> Core { get; set; }
 
         // Protected Properties
-        protected ISpriteState GeneralSpriteState
+        protected ISpriteStateNew GeneralSpriteState
         {
             get { return Core.GeneralSpriteState; }
         }
@@ -93,7 +87,7 @@ namespace WindowsGame1
 
         public Rectangle PositionRectangle
         {
-            get { return GeneralSpriteState.Sprite.GetDestination(GeneralMotionState.Position); }
+            get { return GeneralSpriteState.Sprite.GetScreenDestination(GeneralMotionState.Position); }
         }
 
         public Vector2 PositionPoint
@@ -131,6 +125,11 @@ namespace WindowsGame1
             WorldManager.CreateObject(PositionPoint + offset, obj);
         }
 
+        public void Generate<T>(T obj) where T : class, IObject, new()
+        {
+            Generate(default(Vector2), obj);
+        }
+
         public void Update()
         {
             var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
@@ -148,12 +147,7 @@ namespace WindowsGame1
         public void Draw(SpriteBatch spriteBatch)
         {
             var relativePosition = GeneralMotionState.Position - Camera.Location;
-            if (GeneralSpriteState.Left)
-                GeneralSpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, GeneralSpriteState.Color);
-            else if (GeneralSpriteState.Right)
-                GeneralSpriteState.Sprite.DrawRight(spriteBatch, relativePosition, GeneralSpriteState.Color);
-            else
-                GeneralSpriteState.Sprite.DrawDefault(spriteBatch, relativePosition, GeneralSpriteState.Color);
+            GeneralSpriteState.Sprite.Draw(spriteBatch, relativePosition, GeneralSpriteState.Orientation, GeneralSpriteState.Version, GeneralSpriteState.Color);
         }
 
         public void PassCommand(ICommand command)

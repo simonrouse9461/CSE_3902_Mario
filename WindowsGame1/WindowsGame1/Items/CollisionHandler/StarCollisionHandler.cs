@@ -44,9 +44,13 @@ namespace WindowsGame1
 
         protected virtual void HandleObject()
         {
-            if (Core.CollisionDetector.Detect<IBlock>().BothSide.Touch || Core.CollisionDetector.Detect<IPipe>().BothSide.Touch)
+            if (Core.CollisionDetector.Detect<IBlock>().AnySide.Touch || Core.CollisionDetector.Detect<IPipe>().AnySide.Touch)
             {
                 Core.StateController.MotionState.ChangeDirection();
+            }
+            if (Core.CollisionDetector.Detect<IBlock>().Top.Touch)
+            {
+                Core.StateController.MotionState.SetDefaultVertical();
             }
         }
     }

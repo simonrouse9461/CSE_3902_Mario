@@ -81,6 +81,11 @@ namespace WindowsGame1
             WorldManager.CreateObject(PositionPoint + offset, obj);
         }
 
+        public void Generate<T>(T obj) where T : class, IObject, new()
+        {
+            Generate(default(Vector2), obj);
+        }
+
         public void Update()
         {
             SpriteState.Update();
