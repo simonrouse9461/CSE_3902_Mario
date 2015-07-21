@@ -123,6 +123,7 @@
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
+    <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />
     <Compile Include="Interfaces\ISpriteStateNew.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="Utility Classes\DefaultBarrierHandler.cs" />
     <Compile Include="Helper Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Helper Classes and Structs\RectangleParser.cs" />
+    <Compile Include="Utility Classes\SpriteHoldDependency.cs" />
     <Compile Include="Utility Classes\SpriteSourceNew.cs" />
     <Compile Include="Old Files\SpriteSource.cs" />
     <Compile Include="Utility Classes\SpriteTransformation.cs" />
