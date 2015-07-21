@@ -87,68 +87,68 @@
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>512 316</Location>
+      <Location>512 310</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>ItemQuestionBlock</Version>
-      <Location>677 316</Location>
+      <Location>677 310</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>704 208</Location>
+      <Location>704 200</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>733 316</Location>
+      <Location>733 310</Location>
     </Item>
 
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>ItemQuestionBlock</Version>
-      <Location>2498 316</Location>
+      <Location>2498 310</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>2993 208</Location>
+      <Location>2993 200</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>3392 316</Location>
+      <Location>3392 310</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>ItemQuestionBlock</Version>
-      <Location>3488 316</Location>
+      <Location>3488 310</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>3488 208</Location>
+      <Location>3488 200</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>3584 316</Location>
+      <Location>3584 310</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>4001 208</Location>
+      <Location>4001 200</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>4029 208</Location>
+      <Location>4029 200</Location>
     </Item>
     <Item>
       <Type>QuestionBlockObject</Type>
       <Version>CoinQuestionBlock</Version>
-      <Location>5448 316</Location>
+      <Location>5448 310</Location>
     </Item>
 
     <Item>
@@ -159,165 +159,165 @@
     <Item>
       <Type>NormalBlockObject</Type>
       <Version>StarNormalBlock</Version>
-      <Location>3224 316</Location>
+      <Location>3224 310</Location>
     </Item>
 
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>649 316</Location>
+      <Location>649 310</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>705 316</Location>
+      <Location>705 310</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>760 316</Location>
+      <Location>760 310</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>2470 316</Location>
+      <Location>2470 310</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>2526 316</Location>
-    </Item>
-
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2555 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2583 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2611 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2639 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2667 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2695 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2723 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2749 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>2775 208</Location>
+      <Location>2526 310</Location>
     </Item>
 
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>2910 208</Location>
+      <Location>2555 200</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>2938 208</Location>
+      <Location>2583 200</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>2966 208</Location>
+      <Location>2611 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2639 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2667 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2695 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2723 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2749 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2775 200</Location>
+    </Item>
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2910 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2938 200</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2966 200</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version>CoinNormalBlock</Version>
-      <Location>2993 316</Location>
+      <Location>2993 310</Location>
     </Item>
 
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>3200 316</Location>
+      <Location>3200 310</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>3760 316</Location>
-    </Item>
-
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>3818 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>3846 208</Location>
-    </Item>
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>3874 208</Location>
+      <Location>3760 310</Location>
     </Item>
 
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>3974 208</Location>
+      <Location>3818 200</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>4000 316</Location>
+      <Location>3846 200</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>4028 316</Location>
-    </Item>
-
-    <Item>
-      <Type>NormalBlockObject</Type>
-      <Version></Version>
-      <Location>4057 208</Location>
+      <Location>3874 200</Location>
     </Item>
 
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>5392 316</Location>
+      <Location>3974 200</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>5420 316</Location>
+      <Location>4000 310</Location>
     </Item>
     <Item>
       <Type>NormalBlockObject</Type>
       <Version></Version>
-      <Location>5476 316</Location>
+      <Location>4028 310</Location>
+    </Item>
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>4057 200</Location>
+    </Item>
+
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>5392 310</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>5420 310</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>5476 310</Location>
     </Item>
 
     <Item>

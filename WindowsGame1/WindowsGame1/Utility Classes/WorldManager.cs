@@ -280,6 +280,7 @@ namespace MarioGame
 
         public static void Draw(SpriteBatch spriteBatch)
         {
+            
             foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
                     if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);
