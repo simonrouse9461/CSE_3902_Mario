@@ -7,7 +7,7 @@ namespace MarioGame
 {
     public abstract class SpriteKernel : ISprite
     {
-        private const double SCALE = 2;
+        private const double SCALE = 1.75;
         protected SymmetricPair<SpriteSource> Source { get; set; }
         protected SymmetricPair<PeriodicFunction<int>> Animation { get; set; }
         protected SymmetricPair<string> ImageFile { get; set; }
