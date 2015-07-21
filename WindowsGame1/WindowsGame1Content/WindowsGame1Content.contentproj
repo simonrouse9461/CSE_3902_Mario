@@ -170,9 +170,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Content Include="mario-1-1.gif">
-      <Name>mario-1-1</Name>
-    </Content>
     <Compile Include="pipes green.png">
       <Name>pipes green</Name>
       <Importer>TextureImporter</Importer>

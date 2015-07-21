@@ -76,9 +76,7 @@ namespace WindowsGame1
             Version = initialVersion;
         }
 
-        protected SpriteKernelNew() : this(0)
-        {
-        }
+        protected SpriteKernelNew() : this(0) { }
 
         protected void AddSource(IConvertible version, string file, OrderedPairs<Rectangle, Orientation> data)
         {
