@@ -5,23 +5,31 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class QuestionBlockSprite : SpriteKernel
+    public class QuestionBlockSprite : SpriteKernelNew
     {
-        public QuestionBlockSprite(){
-            ImageFile.Default = "blocks";
-            Source.Default = new SpriteSource{
-                Coordinates = new Collection<Rectangle>{
-                    new Rectangle(0,0,16,16),
-                    new Rectangle(16,0,16,16),
-                    new Rectangle(32,0,16,16)
-                }
-            };
-            Animation.Default = new PeriodicFunction<int>(
-                phase =>
+        public QuestionBlockSprite()
+            : base(BlockSpriteVersion.BlockVersion.Overworld)
+        {
+
+            AddSource(
+                BlockSpriteVersion.BlockVersion.Overworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    int[] frameSequence = {1, 2, 1, 0, 0, 0};
-                    return frameSequence[phase];
-                }, 6);
+                    {new Rectangle(372, 160, 16, 16), Orientation.Default},
+                    {new Rectangle(390, 160, 16, 16), Orientation.Default},
+                    {new Rectangle(409, 160, 16, 16), Orientation.Default}
+                });
+
+            AddSource(
+                BlockSpriteVersion.BlockVersion.Underworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(372, 179, 16, 16), Orientation.Default},
+                    {new Rectangle(390, 179, 16, 16), Orientation.Default},
+                    {new Rectangle(409, 179, 16, 16), Orientation.Default}
+                }
+                );
         }        
     }
 }

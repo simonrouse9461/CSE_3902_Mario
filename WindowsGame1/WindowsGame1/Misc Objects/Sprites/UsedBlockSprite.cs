@@ -5,16 +5,27 @@ using System.Collections.ObjectModel;
 
 namespace WindowsGame1
 {
-    public class UsedBlockSprite : SpriteKernel
+    public class UsedBlockSprite : SpriteKernelNew
     {
         public UsedBlockSprite()
+            : base(BlockSpriteVersion.BlockVersion.Overworld)
         {
-            ImageFile.Default = "blocks";
-            Source.Default = new SpriteSource{
-                Coordinates = new Collection<Rectangle>{
-                    new Rectangle(0,32,16,16),
+
+            AddSource(
+                BlockSpriteVersion.BlockVersion.Overworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(373, 84, 16, 16), Orientation.Default},
+                });
+
+            AddSource(
+                BlockSpriteVersion.BlockVersion.Underworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(394, 84, 16, 16), Orientation.Default},
                 }
-            };
+                );
         }
     }
 }

@@ -122,6 +122,8 @@
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
+    <Compile Include="Misc Objects\BlockSpriteVersion.cs" />
+    <Compile Include="Misc Objects\Objects\FlagObject.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />
     <Compile Include="Interfaces\ISpriteStateNew.cs" />
