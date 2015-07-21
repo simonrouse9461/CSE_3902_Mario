@@ -183,6 +183,7 @@ namespace MarioGame
 
         public void Shoot()
         {
+            if (!SpriteState.HaveFire) return;
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
@@ -197,7 +198,7 @@ namespace MarioGame
 
         public void Sprint()
         {
-            
+            if (!SpriteState.Super) return;
         }
 
         public void Grow()
