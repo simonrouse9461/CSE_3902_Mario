@@ -22,5 +22,10 @@ namespace WindowsGame1
         {
             get { return StateController.MotionState.isAlive(); }
         }
+
+        public bool isMovingShell
+        {
+            get { return false; }
+        }
     }
 }

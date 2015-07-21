@@ -66,7 +66,7 @@ namespace WindowsGame1
         {
             SetSprite<UpgradingMarioSprite>();
             SetVersionAnimator(VersionAnimator.Upgrade);
-            SetVersionFrequency(4);
+            SetVersionFrequency(5);
         }
 
         public bool Upgrading
@@ -76,7 +76,7 @@ namespace WindowsGame1
 
         public void FinishUpgrade()
         {
-            StopVersionAnimator();
+            StopVersionAnimator(VersionAnimator.Upgrade);
         }
 
         public void GetFire()
@@ -97,12 +97,12 @@ namespace WindowsGame1
         public void GetPower()
         {
             SetVersionAnimator(VersionAnimator.StarPower);
-            SetVersionFrequency(4);
+            SetVersionFrequency(2);
         }
 
         public void SlowDownPower()
         {
-            SetVersionFrequency(8);
+            SetVersionFrequency(10);
         }
 
         public bool HavePower
@@ -112,7 +112,7 @@ namespace WindowsGame1
 
         public void LosePower()
         {
-            StopVersionAnimator();
+            StopVersionAnimator(VersionAnimator.StarPower);
         }
 
         public void StartBlink()

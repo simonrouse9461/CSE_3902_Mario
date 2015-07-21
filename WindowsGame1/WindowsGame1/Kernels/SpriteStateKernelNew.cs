@@ -32,7 +32,12 @@ namespace WindowsGame1
         }
 
         private Dictionary<IConvertible, PeriodicFunction<TVersion>> VersionAnimatorList { get; set; }
-        private PeriodicFunction<TVersion> VersionAnimator { get; set; }
+        private LinkedList<PeriodicFunction<TVersion>> ActiveVersionAnimatorStack { get; set; }
+        private PeriodicFunction<TVersion> EffectiveVersionAnimator
+        {
+            get { return ActiveVersionAnimatorStack.First == null ? null : ActiveVersionAnimatorStack.First.Value; }
+        }
+        private PeriodicFunction<TVersion> DependencyVersionAnimator { get; set; }
         protected TVersion ActualVersion { get; set; }
         protected TVersion DefaultVersion { get; set; }
         public IConvertible Version
@@ -43,7 +48,7 @@ namespace WindowsGame1
                 {
                     sprite.SetVersion(ActualVersion);
                 }
-                return VersionAnimator == null ? ActualVersion : VersionAnimator.Value;
+                return EffectiveVersionAnimator == null ? ActualVersion : EffectiveVersionAnimator.Value;
             }
             private set
             {
@@ -68,6 +73,7 @@ namespace WindowsGame1
             SpriteList = new Collection<ISpriteNew>();
             ColorSchemeList = new Dictionary<IConvertible, PeriodicFunction<Color>>();
             VersionAnimatorList = new Dictionary<IConvertible, PeriodicFunction<TVersion>>();
+            ActiveVersionAnimatorStack = new LinkedList<PeriodicFunction<TVersion>>();
             SpriteTimer = new Counter();
             ColorTimer = new Counter();
             VersionTimer = new Counter();
@@ -123,18 +129,17 @@ namespace WindowsGame1
 
         protected void SetVersionAnimator(IConvertible name)
         {
-            VersionAnimator = VersionAnimatorList[name];
+            ActiveVersionAnimatorStack.AddFirst(VersionAnimatorList[name]);
         }
 
         protected bool IsVersionAnimator(IConvertible name)
         {
-            return VersionAnimator == VersionAnimatorList[name];
+            return ActiveVersionAnimatorStack.Contains(VersionAnimatorList[name]);
         }
 
-        protected void StopVersionAnimator()
+        protected void StopVersionAnimator(IConvertible name)
         {
-            VersionAnimator.Reset();
-            VersionAnimator = null;
+            ActiveVersionAnimatorStack.Remove(VersionAnimatorList[name]);
         }
 
         protected void SetVersion(TVersion version)
@@ -202,6 +207,7 @@ namespace WindowsGame1
             HoldOrientation = holdOrientation;
             Held = true;
             HoldDependency = dependency;
+            DependencyVersionAnimator = EffectiveVersionAnimator;
             CycleWhenFinish = cycle;
             FinishAction = action ?? (() => { });
         }
@@ -276,7 +282,7 @@ namespace WindowsGame1
             {
                 foreach (var versionAnimator in VersionAnimatorList)
                 {
-                    if (versionAnimator.Value == VersionAnimator) versionAnimator.Value.Update();
+                    if (ActiveVersionAnimatorStack.Contains(versionAnimator.Value)) versionAnimator.Value.Update();
                     else versionAnimator.Value.Reset();
                 }
             }
@@ -293,7 +299,7 @@ namespace WindowsGame1
                         cycle = ColorScheme.Cycle;
                         break;
                     case SpriteHoldDependency.VersionAnimation:
-                        cycle = VersionAnimator.Cycle;
+                        cycle = DependencyVersionAnimator.Cycle;
                         break;
                 }
                 if (cycle == CycleWhenFinish)
