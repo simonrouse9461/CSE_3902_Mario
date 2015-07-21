@@ -17,7 +17,7 @@ namespace WindowsGame1
                 {
                     Core.StateController.Flip();
                 }
-                if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
+                else if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
                 {
                     Core.StateController.MarioSmash();
                 }

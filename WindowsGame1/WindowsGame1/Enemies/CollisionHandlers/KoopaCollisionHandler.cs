@@ -53,11 +53,11 @@ namespace WindowsGame1
             else
             {
                 Collision c = Core.CollisionDetector.Detect<MarioObject>(mario => mario.Alive);
-                if (c.Left.Touch)
+                if (c.Left.Touch || c.TopLeft.Touch)
                 {
                     Core.StateController.TakeMarioHitFromSide("left");
                 }
-                else if (c.Right.Touch)
+                else if (c.Right.Touch || c.TopRight.Touch)
                 {
                     Core.StateController.TakeMarioHitFromSide("right");
                 }
