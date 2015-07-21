@@ -123,6 +123,7 @@
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
+    <Compile Include="Mario\MotionStateDecorators\FinishLevelMotionState.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
     <Compile Include="Motions\UniformMotion.cs" />
