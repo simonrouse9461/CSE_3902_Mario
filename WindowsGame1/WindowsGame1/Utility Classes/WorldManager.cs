@@ -252,10 +252,13 @@ namespace WindowsGame1
                     Camera.ObjectList[i].Update();
                 }
             }
-
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200)))
+            if (Camera.OutOfRange(FindObject<MarioObject>()))
             {
-                Console.WriteLine(FindObject<MarioObject>().PositionRectangle);
+                new MarioDieCommand().Execute();
+                FindObject<MarioObject>().Freeze();
+            }
+            if (SoundManager.DieMusicFinished)
+            {
                 Reload();
             }
         }

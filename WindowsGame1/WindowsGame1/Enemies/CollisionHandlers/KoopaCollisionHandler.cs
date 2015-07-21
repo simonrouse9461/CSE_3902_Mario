@@ -15,7 +15,7 @@ namespace WindowsGame1
                 Collision c = Core.CollisionDetector.Detect<IObject>(obj => obj.Solid && !(obj is IEnemy));
                 if (c.AnySide.Touch)
                 {
-                    SoundManager.kickSoundPlay();
+                    SoundManager.KickSoundPlay();
                     if (c.Right.Touch)
                     {
                         Core.StateController.Turn("left");

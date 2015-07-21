@@ -22,7 +22,7 @@ namespace WindowsGame1
             }, 75);
 
             Display.AddScore<Goomba>();
-            SoundManager.stompSoundPlay();
+            SoundManager.StompSoundPlay();
         }
 
         public void Flip()
@@ -31,7 +31,7 @@ namespace WindowsGame1
             SpriteState.Flip();
 
             Display.AddScore<Goomba>();
-            SoundManager.stompSoundPlay();
+            SoundManager.StompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)

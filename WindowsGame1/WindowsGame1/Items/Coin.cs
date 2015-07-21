@@ -8,7 +8,7 @@ namespace WindowsGame1
         {
             CollisionHandler = new CoinCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
-            SoundManager.coinSoundPlay();
+            SoundManager.CoinSoundPlay();
             
         }
 

@@ -10,7 +10,7 @@ namespace WindowsGame1
             CollisionHandler = new FireflowerCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new FireflowerBarrierHandler(Core);
-            SoundManager.powerUpAppearSoundPlay();
+            SoundManager.PowerUpAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
 

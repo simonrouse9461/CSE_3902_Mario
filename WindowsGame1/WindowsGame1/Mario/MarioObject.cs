@@ -12,8 +12,8 @@ namespace WindowsGame1
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
-            BarrierHandler.RemoveBarrier<IEnemy>();
-            SoundManager.changeToOverworldMusic();
+            BarrierHandler.RemoveBarrier<Goomba>();
+            SoundManager.ChangeToOverworldMusic();
         }
 
         public override bool Solid
@@ -34,6 +34,11 @@ namespace WindowsGame1
         public bool Destructive
         {
             get { return !StateController.SpriteState.Small; }
+        }
+
+        public void Freeze()
+        {
+            StateController.MotionState.Freeze();
         }
     }
 }

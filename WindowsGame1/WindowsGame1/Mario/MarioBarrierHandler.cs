@@ -26,6 +26,7 @@ namespace WindowsGame1
             if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover)
             {
                 Core.StateController.Fall();
+                SoundManager.BumpSoundPlay();
             }
         }
 

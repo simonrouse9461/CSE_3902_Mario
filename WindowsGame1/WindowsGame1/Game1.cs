@@ -55,7 +55,7 @@ namespace WindowsGame1
                 if (pauseCountdown == 5)
                 {
                     paused = false;
-                    SoundManager.changeToOverworldMusic();
+                    SoundManager.ChangeToOverworldMusic();
                 }
             }
             else
@@ -63,7 +63,7 @@ namespace WindowsGame1
                 if (pauseCountdown == 5)
                 {
                     paused = true;
-                    SoundManager.stopMusic();
+                    SoundManager.StopMusic();
                 }
             }
         }

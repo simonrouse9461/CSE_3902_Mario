@@ -139,9 +139,11 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
+            if (SpriteState.Held) return;
             MotionState.Jump();
             SpriteState.Jump();
-            SoundManager.jumpSoundPlay();
+            if (SpriteState.Small) SoundManager.SmallJumpSoundPlay();
+            else SoundManager.SuperJumpSoundPlay();
         }
 
         public void Bounce()
@@ -176,7 +178,8 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             SpriteState.Die();
             MotionState.Die();
-            WorldManager.FreezeWorld();
+            SoundManager.ChangeToDieMusic();
+            MotionState.Freeze(25);
         }
 
         public void Shoot()
@@ -231,14 +234,19 @@ namespace WindowsGame1
             var decorator = new StarMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
-
             SpriteState.GetPower();
-            Core.DelayCommand(() => SpriteState.SlowDownPower(), () => SpriteState.HavePower, slowDownTime);
-            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.HavePower, stopTime);
+            SoundManager.ChangeToStarMusic();
+            Core.DelayCommand(SpriteState.SlowDownPower, () => SpriteState.HavePower, slowDownTime);
+            Core.DelayCommand(() =>
+            {
+                SpriteState.LosePower();
+                SoundManager.ChangeToOverworldMusic();
+            }, () => SpriteState.HavePower, stopTime);
         }
 
         public void TakeDamage(int restoreTime)
         {
+            WorldManager.FreezeWorld();
             if (SpriteState.Small)
             {
                 Die();
@@ -255,11 +263,19 @@ namespace WindowsGame1
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 
-            SpriteState.TurnSmall();
             SpriteState.StartBlink();
-            SpriteState.SetColorFrequency(3);
+            SpriteState.Shrink();
+            MotionState.Freeze();
+            SoundManager.PowerDownSoundPlay();
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
+            {
+                SpriteState.TurnSmall();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
+
             Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);

@@ -171,7 +171,7 @@
     <Compile Include="Mario\Commands\MarioFireballCommand.cs" />
     <Compile Include="Mario\MarioBarrierHandler.cs" />
     <Compile Include="Mario\MarioStateController.cs" />
-    <Compile Include="Mario\Sprites\DeGrowingBigMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\GrowingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShootingMarioSprite.cs" />
     <Compile Include="Fireball\FireballCollisionHandler.cs" />
