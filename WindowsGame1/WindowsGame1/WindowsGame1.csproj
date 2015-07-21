@@ -125,6 +125,7 @@
     <Compile Include="Mario\MarioSpriteVersion.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
+    <Compile Include="Motions\UniformMotion.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />
     <Compile Include="Interfaces\ISpriteStateNew.cs" />
@@ -200,7 +201,6 @@
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />
     <Compile Include="Motions\InertiaMotion.cs" />
-    <Compile Include="Motions\UniformMotion.cs" />
     <Compile Include="Kernels\BarrierHandlerKernel.cs" />
     <Compile Include="Old Files\SpriteKernel.cs" />
     <Compile Include="Old Files\SpriteStateKernel.cs" />
