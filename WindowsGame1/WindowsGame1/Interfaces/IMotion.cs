@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public interface IMotion
     {
@@ -10,7 +10,9 @@ namespace WindowsGame1
         Vector2 Velocity { get; }
         bool Status { get; }
         bool Finish { get; }
+        bool ReachMax { get; }
         int VersionCode { get; }
+
         bool SameVersion(IMotion motion);
         void SetInitialVelocity(Vector2 velocity = default(Vector2));
         void SetCurrentVelocity(Vector2 velocity = default(Vector2));

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class GoombaCollisionHandler : CollisionHandlerKernel<GoombaStateController>
     {
@@ -17,7 +17,7 @@ namespace WindowsGame1
                 {
                     Core.StateController.Flip();
                 }
-                if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
+                else if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
                 {
                     Core.StateController.MarioSmash();
                 }

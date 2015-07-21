@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class TurningBigMarioSprite : SpriteKernelNew
+    public class UpgradingMarioSprite : SpriteKernelNew
     {
-        public TurningBigMarioSprite()
+        public UpgradingMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
@@ -15,7 +15,7 @@ namespace WindowsGame1
             var X = 128;
             var Y = 0;
             var W = 16;
-            var H = 32;
+            var H = 30;
 
             AddSource(
                 MarioSpriteVersion.Normal,

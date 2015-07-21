@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class SecretPipeObject : GreenPipeObject, IPipe
     {

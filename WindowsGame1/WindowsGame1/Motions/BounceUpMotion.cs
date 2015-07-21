@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class BounceUpMotion : MotionKernel
     {
@@ -15,6 +15,7 @@ namespace WindowsGame1
             MarioDie,
             MarioBounce,
             FireballBounce,
+            EnemyFlip,
             Coin,
             Star,
             BlockHit
@@ -57,8 +58,8 @@ namespace WindowsGame1
                 return new BounceUpMotion
                 {
                     version = Version.Mariojump,
-                    StartVelocity = new Vector2(0, -6.2f),
-                    Acceleration = new Vector2(0, 0.17f),
+                    StartVelocity = new Vector2(0, -7.2f),
+                    Acceleration = new Vector2(0, 0.2f),
                     MaxVelocity = default(Vector2),
                     InvolveGravity = true,
                     FinishWhenMax = true
@@ -107,6 +108,22 @@ namespace WindowsGame1
                     version = Version.FireballBounce,
                     StartVelocity = new Vector2(0, -2.7f),
                     Acceleration = new Vector2(0, 0.2f),
+                    MaxVelocity = GravityMotion.Max,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion EnemyFlip
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.EnemyFlip,
+                    StartVelocity = new Vector2(0, -4),
+                    Acceleration = new Vector2(0, 0.25f),
                     MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true

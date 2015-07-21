@@ -1,8 +1,7 @@
 ﻿using System;
-using WindowsGame1.CommandExecutorDecorators;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
     {
@@ -139,9 +138,11 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
+            if (SpriteState.Held) return;
             MotionState.Jump();
             SpriteState.Jump();
-            SoundManager.jumpSoundPlay();
+            if (SpriteState.Small) SoundManager.SmallJumpSoundPlay();
+            else SoundManager.SuperJumpSoundPlay();
         }
 
         public void Bounce()
@@ -168,7 +169,7 @@ namespace WindowsGame1
 
         public void StandUp()
         {
-            SpriteState.Resume();
+            SpriteState.Release();
         }
 
         public void Die()
@@ -176,7 +177,8 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             SpriteState.Die();
             MotionState.Die();
-            WorldManager.FreezeWorld();
+            SoundManager.ChangeToDieMusic();
+            MotionState.Freeze(40);
         }
 
         public void Shoot()
@@ -190,6 +192,12 @@ namespace WindowsGame1
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
+            SoundManager.FireballSoundPlay();
+        }
+
+        public void Sprint()
+        {
+            
         }
 
         public void Grow()
@@ -199,9 +207,9 @@ namespace WindowsGame1
             SpriteState.Grow();
             WorldManager.FreezeWorld();
             MotionState.Freeze();
-            SpriteState.HoldTillFinish(true, () =>
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
             {
-                SpriteState.TurnBig();
+                SpriteState.TurnSuper();
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
@@ -211,24 +219,41 @@ namespace WindowsGame1
         {
             if (SpriteState.Dead) return;
             if (SpriteState.HaveFire) return;
+            if (SpriteState.Upgrading) return;
+            SpriteState.Run();
+            SpriteState.Upgrade();
             SpriteState.GetFire();
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
+            WorldManager.FreezeWorld();
+            MotionState.Freeze();
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.VersionAnimation, 4, () =>
+            {
+                SpriteState.FinishUpgrade();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
         }
 
-        public void GetStarPower(int slowDownTime, int stopTime)
+        public void GetStarPower()
         {
+            const int slowDownTime = 600;
+            const int stopTime = 810;
             var decorator = new StarMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
-
             SpriteState.GetPower();
-            SpriteState.SetVersionFrequency(4);
-            Core.DelayCommand(() => SpriteState.SetVersionFrequency(8), () => SpriteState.HavePower, slowDownTime);
-            Core.DelayCommand(SpriteState.LosePower, () => SpriteState.HavePower, stopTime);
+            SoundManager.ChangeToStarMusic();
+            Core.DelayCommand(SpriteState.SlowDownPower, () => SpriteState.HavePower, slowDownTime);
+            Core.DelayCommand(() =>
+            {
+                SpriteState.LosePower();
+                SoundManager.ChangeToOverworldMusic();
+            }, () => SpriteState.HavePower, stopTime);
         }
 
-        public void TakeDamage(int restoreTime)
+        public void TakeDamage()
         {
+            const int restoreTime = 200;
+            WorldManager.FreezeWorld();
             if (SpriteState.Small)
             {
                 Die();
@@ -237,7 +262,6 @@ namespace WindowsGame1
 
             if (SpriteState.HaveFire)
             {
-                ((IDecorator) Core.CommandExecutor).Restore();
                 SpriteState.LoseFire();
             }
 
@@ -245,11 +269,19 @@ namespace WindowsGame1
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(restoreTime);
 
-            SpriteState.TurnSmall();
             SpriteState.StartBlink();
-            SpriteState.SetColorFrequency(3);
+            SpriteState.Shrink();
+            MotionState.Freeze();
+            SoundManager.PowerDownSoundPlay();
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
+            {
+                SpriteState.TurnSmall();
+                MotionState.Restore();
+                WorldManager.RestoreWorld();
+            });
             Core.BarrierHandler.RemoveBarrier<Koopa>();
             Core.BarrierHandler.RemoveBarrier<Goomba>();
+
             Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
             Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);

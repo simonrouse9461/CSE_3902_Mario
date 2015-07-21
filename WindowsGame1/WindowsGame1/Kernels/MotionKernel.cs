@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class MotionKernel : IMotion
     {
@@ -20,6 +20,11 @@ namespace WindowsGame1
         public virtual bool Finish
         {
             get { return false; }
+        }
+
+        public bool ReachMax
+        {
+            get { return Velocity == MaxVelocity; }
         }
 
         public abstract Vector2 Velocity { get; }

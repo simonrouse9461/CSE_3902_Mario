@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public interface ISprite
     {

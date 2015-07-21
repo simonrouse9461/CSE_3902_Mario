@@ -3,19 +3,19 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class JumpingBigMarioSprite : SpriteKernelNew
+    public class TurningSuperMarioSprite : SpriteKernelNew
     {
-        public JumpingBigMarioSprite()
+        public TurningSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 
-            var X = 144;
+            var X = 128;
             var Y = 0;
             var W = 16;
-            var H = 31;
+            var H = 32;
 
             AddSource(
                 MarioSpriteVersion.Normal,

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class GoombaStateController : StateControllerKernel<GoombaSpriteState, GoombaMotionState>
     {
@@ -22,7 +22,7 @@ namespace WindowsGame1
             }, 75);
 
             Display.AddScore<Goomba>();
-            SoundManager.stompSoundPlay();
+            SoundManager.StompSoundPlay();
         }
 
         public void Flip()
@@ -30,13 +30,8 @@ namespace WindowsGame1
             MotionState.Flip();
             SpriteState.Flip();
 
-            Core.DelayCommand(() =>
-            {
-                Core.Object.Unload();
-            }, 30);
-
             Display.AddScore<Goomba>();
-            SoundManager.stompSoundPlay();
+            SoundManager.StompSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)

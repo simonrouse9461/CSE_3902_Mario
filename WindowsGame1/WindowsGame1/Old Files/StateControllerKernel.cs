@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController
         where TSpriteState : ISpriteState, new()

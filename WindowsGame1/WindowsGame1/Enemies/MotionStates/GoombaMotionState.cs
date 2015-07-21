@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class GoombaMotionState : MotionStateKernelNew
     {
@@ -21,10 +21,10 @@ namespace WindowsGame1
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
-                new StatusSwitch<IMotion>(MoveLeftMotion.EnemyVelocity),
-                new StatusSwitch<IMotion>(MoveRightMotion.EnemyVelocity),
+                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
+                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
+                new StatusSwitch<IMotion>(BounceUpMotion.EnemyFlip)
             };
 
             LoseGravity();
@@ -35,8 +35,8 @@ namespace WindowsGame1
         public void SetDefaultHorizontal()
         {
             MotionStatus = MotionEnum.LeftWalk;
-            FindMotion<MoveLeftMotion>().Toggle(true);
-            FindMotion<MoveRightMotion>().Toggle(false);
+            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
+            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
         }
 
         public void SetDefaultVertical()
@@ -50,14 +50,14 @@ namespace WindowsGame1
         {
             if (MotionStatus == MotionEnum.LeftWalk)
             {
-                FindMotion<MoveRightMotion>().Toggle(true);
-                FindMotion<MoveLeftMotion>().Toggle(false);
+                FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
+                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
                 MotionStatus = MotionEnum.RightWalk;
             }
             else if (MotionStatus == MotionEnum.RightWalk)
             {
-                FindMotion<MoveRightMotion>().Toggle(false);
-                FindMotion<MoveLeftMotion>().Toggle(true);
+                FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
+                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
                 MotionStatus = MotionEnum.LeftWalk;
             }
         }
@@ -66,8 +66,8 @@ namespace WindowsGame1
         public void MarioSmash()
         {
             MotionStatus = MotionEnum.None;
-            FindMotion<MoveLeftMotion>().Toggle(false);
-            FindMotion<MoveRightMotion>().Toggle(false);
+            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
+            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
         }
 
 
@@ -97,6 +97,7 @@ namespace WindowsGame1
         {
             MotionStatus = MotionEnum.Flip;
             FindMotion<BounceUpMotion>().Toggle(true);
+            ObtainGravity();
         }
     }
 }

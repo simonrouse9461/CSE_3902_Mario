@@ -1,20 +1,20 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class OneUpMotionState : MotionStateKernelNew
-
+    public class MushroomOneUpMotionState : MotionStateKernelNew
     {
+
         public bool Gravity { get; private set; }
 
-        public OneUpMotionState()
+        public MushroomOneUpMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
-                new StatusSwitch<IMotion>(MoveLeftMotion.ItemVelocity),
+                new StatusSwitch<IMotion>(UniformMotion.ItemMoveLeft),
+                new StatusSwitch<IMotion>(UniformMotion.ItemMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(new RaiseUpMotion()),
-                new StatusSwitch<IMotion>(MoveRightMotion.ItemVelocity)
+                new StatusSwitch<IMotion>(new RaiseUpMotion())
             };
             LoseGravity();
             SetDefaultHorizontal();
@@ -23,8 +23,8 @@ namespace WindowsGame1
 
         public void SetDefaultHorizontal()
         {
-            FindMotion<MoveLeftMotion>().Toggle(false);
-            FindMotion<MoveRightMotion>().Toggle(false);
+            FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
+            FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
         }
 
         public void SetDefaultVertical()
@@ -40,7 +40,7 @@ namespace WindowsGame1
         public void Moving()
         {
             FindMotion<RaiseUpMotion>().Toggle(false);
-            FindMotion<MoveRightMotion>().Toggle(true);
+            FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
         }
 
         public void ObtainGravity()
@@ -65,15 +65,15 @@ namespace WindowsGame1
 
         public void ChangeDirection()
         {
-            if (FindMotion<MoveRightMotion>().Status)
+            if (FindMotion(UniformMotion.ItemMoveRight).Status)
             {
-                FindMotion<MoveRightMotion>().Toggle(false);
-                FindMotion<MoveLeftMotion>().Toggle(true);
+                FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
+                FindMotion(UniformMotion.ItemMoveLeft).Toggle(true);
             }
             else
             {
-                FindMotion<MoveLeftMotion>().Toggle(false);
-                FindMotion<MoveRightMotion>().Toggle(true);
+                FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
+                FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
             }
         }
     }

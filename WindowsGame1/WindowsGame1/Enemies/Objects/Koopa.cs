@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public  class Koopa : ObjectKernel<KoopaStateController>, IEnemy
     {
@@ -13,12 +13,12 @@ namespace WindowsGame1
 
         public override bool Solid
         {
-            get { return true; }
+            get { return Alive; }
         }
 
         public bool Alive
         {
-            get { return !StateController.SpriteState.Dead; }
+            get { return !StateController.MotionState.isDead(); }
         }
 
         public bool isMovingShell

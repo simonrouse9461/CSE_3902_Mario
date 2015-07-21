@@ -2,11 +2,11 @@
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class RunningBigMarioSprite : SpriteKernelNew
+    public class RunningSuperMarioSprite : SpriteKernelNew
     {
-        public RunningBigMarioSprite()
+        public RunningSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;

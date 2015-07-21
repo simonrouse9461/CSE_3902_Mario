@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using WindowsGame1.Exceptions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LevelLoader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class WorldManager
     {
@@ -84,12 +83,14 @@ namespace WindowsGame1
                 new Collection<NormalBlockObject>(),
                 new Collection<BlockKernel>(),
 
-                // then enemies
-                new Collection<Goomba>(),
-                new Collection<Koopa>(),
+                // then scenery
                 new Collection<FloorBlockObject>(),
                 new Collection<CastleObject>(),
                 new Collection<FlagPoleObject>(),
+
+                // then enemies
+                new Collection<Goomba>(),
+                new Collection<Koopa>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioObject>(),
@@ -160,6 +161,7 @@ namespace WindowsGame1
         {
             CreateObject(obj.PositionPoint, substitute);
             RemoveObject(obj);
+            Modified = true;
         }
 
         public static void LoadObject(Object obj, Vector2 position)
@@ -250,10 +252,13 @@ namespace WindowsGame1
                     Camera.ObjectList[i].Update();
                 }
             }
-
-            if (Camera.OutOfRange(FindObject<MarioObject>(), new Vector4(0, 200, 0, 200)))
+            if (Camera.OutOfRange(FindObject<MarioObject>()))
             {
-                Console.WriteLine(FindObject<MarioObject>().PositionRectangle);
+                new MarioDieCommand().Execute();
+                FindObject<MarioObject>().Freeze();
+            }
+            if (SoundManager.DieMusicFinished)
+            {
                 Reload();
             }
         }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class FireballMotionState : MotionStateKernelNew
     {
@@ -20,8 +20,8 @@ namespace WindowsGame1
         public FireballMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(MoveLeftMotion.FireballVelocity),
-                new StatusSwitch<IMotion>(MoveRightMotion.FireballVelocity),
+                new StatusSwitch<IMotion>(UniformMotion.FireballMoveLeft),
+                new StatusSwitch<IMotion>(UniformMotion.FireballMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
@@ -35,8 +35,8 @@ namespace WindowsGame1
 
         public void SetDefaultHorizontal()
         {
-            FindMotion<MoveRightMotion>().Toggle(false);
-            FindMotion<MoveLeftMotion>().Toggle(false);
+            FindMotion(UniformMotion.FireballMoveRight).Toggle(false);
+            FindMotion(UniformMotion.FireballMoveLeft).Toggle(false);
         }
 
         public void SetDefaultVertical()
@@ -48,7 +48,7 @@ namespace WindowsGame1
         {
             SetDefaultHorizontal();
             Orientation = OrientationEnum.Left;
-            FindMotion<MoveLeftMotion>().Toggle(true);
+            FindMotion(UniformMotion.FireballMoveLeft).Toggle(true);
             FindMotion<GravityMotion>().Toggle(true);
         }
 
@@ -56,7 +56,7 @@ namespace WindowsGame1
         {
             SetDefaultHorizontal();
             Orientation = OrientationEnum.Right;
-            FindMotion<MoveRightMotion>().Toggle(true);
+            FindMotion(UniformMotion.FireballMoveRight).Toggle(true);
             FindMotion<GravityMotion>().Toggle(true);
         }
 

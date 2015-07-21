@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class StateControllerKernelNew<TSpriteState, TMotionState> : IStateControllerNew
         where TSpriteState : ISpriteStateNew, new()
@@ -23,6 +23,7 @@ namespace WindowsGame1
             {
                 _core = value;
                 SpriteState.Core = value;
+                MotionState.Core = value;
             }
         }
 

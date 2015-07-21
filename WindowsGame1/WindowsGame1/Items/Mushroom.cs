@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class Mushroom : ObjectKernel<MushroomStateController>, IItem
     {
@@ -10,7 +10,7 @@ namespace WindowsGame1
             CollisionHandler = new MushroomCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new MushroomBarrierHandler(Core);
-            SoundManager.powerUpAppearSoundPlay();
+            SoundManager.PowerUpAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
 

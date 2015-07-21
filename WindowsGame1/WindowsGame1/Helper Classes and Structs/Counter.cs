@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Resources;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class Counter
     {
-        private int _cycle;
+        private int _frequency;
 
-        public int Cycle
+        public int Frequency
         {
-            get { return _cycle; }
+            get { return _frequency; }
             set
             {
-                _cycle = value;
+                _frequency = value;
                 Phase = 0;
             }
         }
@@ -25,20 +25,20 @@ namespace WindowsGame1
             set
             {
                 _phase = value;
-                if (_phase == Cycle || _phase >= Int32.MaxValue)
+                if (_phase == Frequency || _phase >= int.MaxValue)
                     _phase = 0;
             }
         }
 
-        public Counter(int cycle = 1)
+        public Counter(int frequency = 1)
         {
-            Reset(cycle);
+            Reset(frequency);
         }
 
-        public void Reset(int cycle = -1)
+        public void Reset(int frequency = -1)
         {
-            if (cycle != -1)
-                Cycle = cycle;
+            if (frequency != -1)
+                Frequency = frequency;
             Phase = 0;
         }
 

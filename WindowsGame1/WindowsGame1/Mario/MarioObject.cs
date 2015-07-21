@@ -1,4 +1,4 @@
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioObject : ObjectKernelNew<MarioStateController>, IMario
     {
@@ -13,7 +13,7 @@ namespace WindowsGame1
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
             BarrierHandler.RemoveBarrier<Goomba>();
-            SoundManager.changeToOverworldMusic();
+            SoundManager.ChangeToOverworldMusic();
         }
 
         public override bool Solid
@@ -34,6 +34,11 @@ namespace WindowsGame1
         public bool Destructive
         {
             get { return !StateController.SpriteState.Small; }
+        }
+
+        public void Freeze()
+        {
+            StateController.MotionState.Freeze();
         }
     }
 }

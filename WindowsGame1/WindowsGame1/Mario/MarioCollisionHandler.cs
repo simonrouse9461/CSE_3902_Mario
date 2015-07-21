@@ -1,7 +1,6 @@
 using System;
-using WindowsGame1.CommandExecutorDecorators;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
     {
@@ -22,6 +21,7 @@ namespace WindowsGame1
             if (Core.CollisionDetector.Detect<Mushroom>().AnyEdge.Touch)
             {
                 Core.DelayCommand(Core.StateController.Grow, 5);
+                SoundManager.PowerUpSoundPlay();
             }
         }
 
@@ -29,8 +29,8 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
-                Core.StateController.GetStarPower(600, 800);
-                SoundManager.changeToStarMusic();
+                Core.StateController.GetStarPower();
+                SoundManager.PowerUpSoundPlay();
             }
         }
 
@@ -38,15 +38,16 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
-                Core.StateController.GetFire();
+                Core.DelayCommand(Core.StateController.GetFire, 5);
+                SoundManager.PowerUpSoundPlay();
             }
         }
 
         protected virtual void HandleEnemy()
         {
-            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch)
+            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell).AnySide.Touch)
             {
-                Core.StateController.TakeDamage(200);
+                Core.StateController.TakeDamage();
             }
             if (Core.CollisionDetector.Detect<IEnemy>().Bottom.Touch)
             {

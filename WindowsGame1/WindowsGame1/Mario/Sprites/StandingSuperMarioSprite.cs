@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class StandingBigMarioSprite : SpriteKernelNew
+    public class StandingSuperMarioSprite : SpriteKernelNew
     {
-        public StandingBigMarioSprite()
+        public StandingSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;

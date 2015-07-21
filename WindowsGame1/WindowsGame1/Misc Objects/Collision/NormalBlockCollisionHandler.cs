@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class NormalBlockCollisionHandler : CollisionHandlerKernel<BlockStateController>
     {
@@ -16,15 +16,17 @@ namespace WindowsGame1
                 {
                     Core.StateController.NormalBlockCoinHit();
                     Core.StateController.MotionState.Hit();
+                    Display.AddScore<Coin>();
                 }
                 else if (Core.StateController.giveStar)
                 {
                     Core.StateController.NormalBlockGiveStar();
+                    Display.AddScore<Star>();
                 }
                 else if(!Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockDestroyed();
-                    SoundManager.blockBreakSoundPlay();
+                    SoundManager.BlockBreakSoundPlay();
                 }
             }
             else if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
@@ -33,11 +35,13 @@ namespace WindowsGame1
                 {
                     Core.StateController.NormalBlockCoinHit();
                     Core.StateController.MotionState.Hit();
+                    Display.AddScore<Coin>();
                 }
                 else if(Core.StateController.giveStar)
                 {
                  
                     Core.StateController.NormalBlockGiveStar();
+                    Display.AddScore<Star>();
                 }
                 else if (Core.StateController.SpriteState.isNormal)
                 {

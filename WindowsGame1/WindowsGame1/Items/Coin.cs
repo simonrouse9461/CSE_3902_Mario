@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-namespace WindowsGame1
+namespace MarioGame
 {
     public  class Coin : ObjectKernel<CoinStateController>, IItem
     {
@@ -8,7 +8,7 @@ namespace WindowsGame1
         {
             CollisionHandler = new CoinCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
-            SoundManager.coinSoundPlay();
+            SoundManager.CoinSoundPlay();
             
         }
 

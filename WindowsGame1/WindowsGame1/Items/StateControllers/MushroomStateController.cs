@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class MushroomStateController : StateControllerKernel<MushroomSpriteState, MushroomMotionState>
+    public class MushroomStateController : StateControllerKernel<MushroomSpriteState, MushroomOneUpMotionState>
     {
-
         public void Generate()
         {
             MotionState.Generated();

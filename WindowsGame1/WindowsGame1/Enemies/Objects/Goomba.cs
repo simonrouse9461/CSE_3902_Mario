@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-namespace WindowsGame1
+namespace MarioGame
 {
     public  class Goomba : ObjectKernel<GoombaStateController>, IEnemy
     {
@@ -21,6 +21,11 @@ namespace WindowsGame1
         public bool Alive
         {
             get { return StateController.MotionState.isAlive(); }
+        }
+
+        public bool isMovingShell
+        {
+            get { return false; }
         }
     }
 }

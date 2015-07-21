@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class CollisionDetector : ICollisionDetector
     {

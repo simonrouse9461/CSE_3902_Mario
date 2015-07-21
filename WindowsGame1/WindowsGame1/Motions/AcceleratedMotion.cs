@@ -2,9 +2,9 @@
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class AccelerateMotion : MotionKernel
+    public class AcceleratedMotion : MotionKernel
     {
         private enum Version
         {
@@ -31,11 +31,11 @@ namespace WindowsGame1
 
         // Versions
 
-        public static AccelerateMotion MarioLeft
+        public static AcceleratedMotion MarioLeft
         {
             get
             {
-                return new AccelerateMotion
+                return new AcceleratedMotion
                 {
                     version = Version.MarioLeft,
                     Acceleration = new Vector2(-0.1f, 0),
@@ -44,11 +44,11 @@ namespace WindowsGame1
             }
         }
 
-        public static AccelerateMotion MarioRight
+        public static AcceleratedMotion MarioRight
         {
             get
             {
-                return new AccelerateMotion
+                return new AcceleratedMotion
                 {
                     version = Version.MarioRight,
                     Acceleration = new Vector2(0.1f, 0),

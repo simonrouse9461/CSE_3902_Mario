@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+﻿namespace MarioGame
 {
     public interface IDecorator
     {

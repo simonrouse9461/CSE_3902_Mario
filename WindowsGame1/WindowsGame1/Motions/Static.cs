@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
-    public class NullMotion : MotionKernel
+    public class Static : MotionKernel
     {
         public override bool Finish
         {

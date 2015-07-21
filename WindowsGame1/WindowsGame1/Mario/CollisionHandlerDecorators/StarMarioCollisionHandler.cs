@@ -1,6 +1,6 @@
 using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class StarMarioCollisionHandler : MarioCollisionHandler, IDecorator
     {
@@ -18,7 +18,7 @@ namespace WindowsGame1
 
         public void DelayRestore(int timeDelay)
         {
-            Core.DelayCommand(Restore, () => Core.CollisionHandler == this, timeDelay);
+            Core.DelayCommand(Restore, () => Core.CollisionHandler is StarMarioCollisionHandler, timeDelay);
         }
 
         protected override void HandleEnemy() { }

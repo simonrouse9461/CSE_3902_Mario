@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public interface ISpriteStateNew
     {
@@ -21,9 +21,10 @@ namespace WindowsGame1
         void FaceRight();
         void FaceDefault();
         void Hold(bool holdOrientation, int timer = 0, Action action = null);
-        void HoldTillFinish(bool holdOrientation, int cycle, Action action = null);
-        void HoldTillFinish(bool holdOrientation, Action action = null);
-        void Resume();
+        void HoldTillFinish(bool holdOrientation, SpriteHoldDependency dependency, int cycle, Action action = null);
+        void HoldTillFinish(bool holdOrientation, SpriteHoldDependency dependency, Action action = null);
+        void HoldTillFinish(bool holdOrientation, int cycle = 1, Action action = null);
+        void Release();
         void Load(ContentManager content);
         void SetSpriteFrequency(int frequency);
         void SetColorFrequency(int frequency);

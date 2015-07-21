@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+﻿namespace MarioGame
 {
     class PauseCommand : CommandKernel
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class KoopaSpriteState : EnemySpriteState
     {
@@ -10,7 +10,8 @@ namespace WindowsGame1
         {
             Shell,
             LeftWalking,
-            RightWalking
+            RightWalking,
+            Flip
         }
 
         private StatusEnum Status;
@@ -21,7 +22,8 @@ namespace WindowsGame1
             {
                 new ShellKoopaSprite(),
                 new LeftWalkingKoopaSprite(),
-                new RightWalkingKoopaSprite()
+                new RightWalkingKoopaSprite(),
+                new UpsideDownShellKoopaSprite()
             };
 
             Status = StatusEnum.LeftWalking;
@@ -40,9 +42,17 @@ namespace WindowsGame1
                 {
                     return FindSprite<RightWalkingKoopaSprite>();
                 }
-                else
+                else if (Status == StatusEnum.LeftWalking)
                 {
                     return FindSprite<LeftWalkingKoopaSprite>();
+                }
+                else if (Status == StatusEnum.Flip)
+                {
+                    return FindSprite<UpsideDownShellKoopaSprite>();
+                }
+                else
+                {
+                    return null;
                 }
             }
         }
@@ -66,7 +76,12 @@ namespace WindowsGame1
         
         public override bool Dead
         {
-            get { return Status == StatusEnum.Shell; }
+            get { return Status == StatusEnum.Shell || Status == StatusEnum.Flip; }
+        }
+
+        public void Flip()
+        {
+            Status = StatusEnum.Flip;
         }
     }
 }

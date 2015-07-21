@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioBarrierHandler : BarrierHandlerKernelNew<MarioStateController>
     {
@@ -26,6 +26,7 @@ namespace WindowsGame1
             if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover)
             {
                 Core.StateController.Fall();
+                SoundManager.BumpSoundPlay();
             }
         }
 

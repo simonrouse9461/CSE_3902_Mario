@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class OneUp : ObjectKernel<OneUpStateController>, IItem
     {
@@ -10,7 +10,7 @@ namespace WindowsGame1
             CollisionHandler = new OneUpCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new OneUpBarrierHandler(Core);
-            SoundManager.powerUpAppearSoundPlay();
+            SoundManager.PowerUpAppearSoundPlay();
         }
 
         // make it not solid so that anything can pass through it

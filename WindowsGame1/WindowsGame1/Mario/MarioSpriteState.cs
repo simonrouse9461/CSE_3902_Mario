@@ -3,7 +3,7 @@ using System.Dynamic;
 using System.Web.Management;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioSpriteState : SpriteStateKernelNew<MarioSpriteVersion>
     {
@@ -14,32 +14,39 @@ namespace WindowsGame1
 
         private enum VersionAnimator
         {
-            StarPower
+            StarPower,
+            Upgrade
         }
 
-        public bool Big { get; private set; }
-        public bool Small { get { return !Big; } }
+        public bool Super { get; private set; }
+        public bool Small { get { return !Super; } }
 
         public MarioSpriteState()
         {
             AddSprite<DeadMarioSprite>();
-            AddSprite<JumpingBigMarioSprite>();
+            AddSprite<JumpingSuperMarioSprite>();
             AddSprite<JumpingSmallMarioSprite>();
-            AddSprite<RunningBigMarioSprite>();
+            AddSprite<RunningSuperMarioSprite>();
             AddSprite<RunningSmallMarioSprite>();
-            AddSprite<StandingBigMarioSprite>();
+            AddSprite<StandingSuperMarioSprite>();
             AddSprite<StandingSmallMarioSprite>();
             AddSprite<CrouchingMarioSprite>();
-            AddSprite<TurningBigMarioSprite>();
+            AddSprite<TurningSuperMarioSprite>();
             AddSprite<TurningSmallMarioSprite>();
             AddSprite<GrowingMarioSprite>();
+            AddSprite<ShrinkingMarioSprite>();
             AddSprite<ShootingMarioSprite>();
+            AddSprite<UpgradingMarioSprite>();
 
             AddColorScheme(ColorScheme.Blink, 
                 new[] {Color.White, Color.Transparent});
 
             AddVersionAnimator(VersionAnimator.StarPower,
-                new [] {MarioSpriteVersion.Black, MarioSpriteVersion.Default, MarioSpriteVersion.Green, MarioSpriteVersion.Red});
+                new[]
+                {MarioSpriteVersion.Black, MarioSpriteVersion.Default, MarioSpriteVersion.Green, MarioSpriteVersion.Red});
+            AddVersionAnimator(VersionAnimator.Upgrade,
+                new[]
+                {MarioSpriteVersion.Red, MarioSpriteVersion.Black, MarioSpriteVersion.Fire, MarioSpriteVersion.Green});
 
             SetSpriteFrequency(5);
             SetDefaultVersion(MarioSpriteVersion.Normal);
@@ -48,14 +55,31 @@ namespace WindowsGame1
 
         public void TurnSmall()
         {
-            Big = false;
+            Super = false;
         }
 
-        public void TurnBig()
+        public void TurnSuper()
         {
-            Big = true;
+            Super = true;
         }
-        
+
+        public void Upgrade()
+        {
+            SetSprite<UpgradingMarioSprite>();
+            SetVersionAnimator(VersionAnimator.Upgrade);
+            SetVersionFrequency(5);
+        }
+
+        public bool Upgrading
+        {
+            get { return IsSprite<UpgradingMarioSprite>(); }
+        }
+
+        public void FinishUpgrade()
+        {
+            StopVersionAnimator(VersionAnimator.Upgrade);
+        }
+
         public void GetFire()
         {
             SetVersion(MarioSpriteVersion.Fire);
@@ -74,6 +98,12 @@ namespace WindowsGame1
         public void GetPower()
         {
             SetVersionAnimator(VersionAnimator.StarPower);
+            SetVersionFrequency(2);
+        }
+
+        public void SlowDownPower()
+        {
+            SetVersionFrequency(10);
         }
 
         public bool HavePower
@@ -83,12 +113,13 @@ namespace WindowsGame1
 
         public void LosePower()
         {
-            StopVersionAnimator();
+            StopVersionAnimator(VersionAnimator.StarPower);
         }
 
         public void StartBlink()
         {
             SetColorScheme(ColorScheme.Blink);
+            SetColorFrequency(3);
         }
 
         public void StopBlink()
@@ -121,14 +152,19 @@ namespace WindowsGame1
             get { return IsSprite<GrowingMarioSprite>(); }
         }
 
-        public bool Grown
+        public void Shrink()
         {
-            get { return Growing && FindSprite<GrowingMarioSprite>().Cycle >= 1; }
+            SetSprite<ShrinkingMarioSprite>();
+        }
+
+        public bool Shrinking()
+        {
+            return IsSprite<ShrinkingMarioSprite>();
         }
 
         public void Run()
         {
-            if (Big) SetSprite<RunningBigMarioSprite>();
+            if (Super) SetSprite<RunningSuperMarioSprite>();
             else SetSprite<RunningSmallMarioSprite>();
         }
 
@@ -136,19 +172,19 @@ namespace WindowsGame1
         {
             get
             {
-                return IsSprite<RunningBigMarioSprite>() || IsSprite<RunningSmallMarioSprite>();
+                return IsSprite<RunningSuperMarioSprite>() || IsSprite<RunningSmallMarioSprite>();
             }
         }
 
         public void Jump()
         {
-            if (Big) SetSprite<JumpingBigMarioSprite>();
+            if (Super) SetSprite<JumpingSuperMarioSprite>();
             else SetSprite<JumpingSmallMarioSprite>();
         }
 
         public bool Jumping
         {
-            get { return IsSprite<JumpingBigMarioSprite>() || IsSprite<JumpingSmallMarioSprite>(); }
+            get { return IsSprite<JumpingSuperMarioSprite>() || IsSprite<JumpingSmallMarioSprite>(); }
         }
 
         public void Crouch()
@@ -163,24 +199,24 @@ namespace WindowsGame1
 
         public void Stand()
         {
-            if (Big) SetSprite<StandingBigMarioSprite>();
+            if (Super) SetSprite<StandingSuperMarioSprite>();
             else SetSprite<StandingSmallMarioSprite>();
         }
 
         public bool Standing
         {
-            get { return IsSprite<StandingBigMarioSprite>() || IsSprite<StandingSmallMarioSprite>(); }
+            get { return IsSprite<StandingSuperMarioSprite>() || IsSprite<StandingSmallMarioSprite>(); }
         }
 
         public void Turn()
         {
-            if (Big) SetSprite<TurningBigMarioSprite>();
+            if (Super) SetSprite<TurningSuperMarioSprite>();
             else SetSprite<TurningSmallMarioSprite>();
         }
 
         public bool Turning
         {
-            get { return IsSprite<TurningBigMarioSprite>() || IsSprite<TurningSmallMarioSprite>(); }
+            get { return IsSprite<TurningSuperMarioSprite>() || IsSprite<TurningSmallMarioSprite>(); }
         }
 
         public void Shoot()

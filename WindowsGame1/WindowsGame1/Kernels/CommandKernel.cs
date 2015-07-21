@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+﻿namespace MarioGame
 {
     public abstract class CommandKernel : ICommand
     {

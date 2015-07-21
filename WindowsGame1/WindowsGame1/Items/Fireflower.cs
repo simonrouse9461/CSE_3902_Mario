@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class Fireflower : ObjectKernel<FireflowerStateController>, IItem
     {
@@ -10,7 +10,7 @@ namespace WindowsGame1
             CollisionHandler = new FireflowerCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new FireflowerBarrierHandler(Core);
-            SoundManager.powerUpAppearSoundPlay();
+            SoundManager.PowerUpAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
 

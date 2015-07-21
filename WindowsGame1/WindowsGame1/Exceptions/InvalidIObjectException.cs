@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsGame1.Exceptions
+namespace MarioGame
 {
     public class InvalidIObjectException : Exception
     {

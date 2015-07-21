@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class KoopaMotionState : MotionStateKernelNew
     {
@@ -13,7 +13,7 @@ namespace WindowsGame1
             RightWalk,
             LeftShellKick,
             RightShellKick,
-            Null
+            Flip
         }
 
         private MotionEnum MotionStatus;
@@ -23,11 +23,12 @@ namespace WindowsGame1
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
-                new StatusSwitch<IMotion>(MoveLeftMotion.EnemyVelocity),
-                new StatusSwitch<IMotion>(MoveRightMotion.EnemyVelocity),
-                new StatusSwitch<IMotion>(new MoveLeftFastMotion()),
-                new StatusSwitch<IMotion>(new MoveRightFastMotion()),
-                new StatusSwitch<IMotion>(new GravityMotion())
+                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
+                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
+                new StatusSwitch<IMotion>(UniformMotion.KoopaSlipLeft),
+                new StatusSwitch<IMotion>(UniformMotion.KoopaSlipRight),
+                new StatusSwitch<IMotion>(new GravityMotion()),
+                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
 
             LoseGravity();
@@ -46,7 +47,7 @@ namespace WindowsGame1
 //                }
 //                else if (OutgoingMotionStatus == MotionEnum.RightWalk)
 //                {
-//                    FindMotion<MoveRightMotion>().Toggle(false);
+//                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
 //                }
 //
 //                OutgoingMotionStatus = MotionEnum.Null;
@@ -58,13 +59,13 @@ namespace WindowsGame1
 //                    FindMotion<MoveLeftMotion>().Toggle(true);
 //                    break;
 //                case MotionEnum.RightWalk:
-//                    FindMotion<MoveRightMotion>().Toggle(true);
+//                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
 //                    break;
 //                case MotionEnum.LeftShellKick:
-//                    FindMotion<MoveLeftFastMotion>().Toggle(true);
+//                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(true);
 //                    break;
 //                case MotionEnum.RightShellKick:
-//                    FindMotion<MoveRightFastMotion>().Toggle(true);
+//                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(true);
 //                    break;
 //            }
 //
@@ -80,16 +81,17 @@ namespace WindowsGame1
         public void SetDefaultHorizontal()
         {
             MotionStatus = MotionEnum.LeftWalk;
-            FindMotion<MoveLeftMotion>().Toggle(true);
-            FindMotion<MoveRightMotion>().Toggle(false);
-            FindMotion<MoveLeftFastMotion>().Toggle(false);
-            FindMotion<MoveRightFastMotion>().Toggle(false);
+            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
+            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
+            FindMotion(UniformMotion.KoopaSlipLeft).Toggle(false);
+            FindMotion(UniformMotion.KoopaSlipRight).Toggle(false);
         }
 
         public void SetDefaultVertical()
         {
             Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+            FindMotion<BounceUpMotion>().Toggle(false);
         }
 
         public void Turn(string leftOrRight)
@@ -98,14 +100,14 @@ namespace WindowsGame1
             {
                 if (MotionStatus == MotionEnum.RightWalk)
                 {
-                    FindMotion<MoveRightMotion>().Toggle(false);
-                    FindMotion<MoveLeftMotion>().Toggle(true);
+                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
+                    FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
                     MotionStatus = MotionEnum.LeftWalk;
                 }
                 else if (MotionStatus == MotionEnum.RightShellKick)
                 {
-                    FindMotion<MoveRightFastMotion>().Toggle(false);
-                    FindMotion<MoveLeftFastMotion>().Toggle(true);
+                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(false);
+                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(true);
                     MotionStatus = MotionEnum.LeftShellKick;
                 }
             }
@@ -113,14 +115,14 @@ namespace WindowsGame1
             {
                 if (MotionStatus == MotionEnum.LeftWalk)
                 {
-                    FindMotion<MoveRightMotion>().Toggle(true);
-                    FindMotion<MoveLeftMotion>().Toggle(false);
+                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
+                    FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
                     MotionStatus = MotionEnum.RightWalk;
                 }
                 else if (MotionStatus == MotionEnum.LeftShellKick)
                 {
-                    FindMotion<MoveRightFastMotion>().Toggle(true);
-                    FindMotion<MoveLeftFastMotion>().Toggle(false);
+                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(true);
+                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(false);
                     MotionStatus = MotionEnum.RightShellKick;
                 }
             }
@@ -134,10 +136,10 @@ namespace WindowsGame1
         {
             MotionStatus = MotionEnum.None;
 
-            FindMotion<MoveLeftMotion>().Toggle(false);
-            FindMotion<MoveRightMotion>().Toggle(false);
-            FindMotion<MoveRightFastMotion>().Toggle(false);
-            FindMotion<MoveLeftFastMotion>().Toggle(false);
+            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
+            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
+            FindMotion(UniformMotion.KoopaSlipRight).Toggle(false);
+            FindMotion(UniformMotion.KoopaSlipLeft).Toggle(false);
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)
@@ -147,12 +149,12 @@ namespace WindowsGame1
                 if (leftOrRight.Equals("left"))
                 {
                     MotionStatus = MotionEnum.RightShellKick;
-                    FindMotion<MoveRightFastMotion>().Toggle(true);
+                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(true);
                 }
                 else if (leftOrRight.Equals("right"))
                 {
                     MotionStatus = MotionEnum.LeftShellKick;
-                    FindMotion<MoveLeftFastMotion>().Toggle(true);
+                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(true);
                 }
                 else
                 {
@@ -164,8 +166,14 @@ namespace WindowsGame1
 
         public bool isMoving
         {
-            get { return MotionStatus != MotionEnum.None; }
+            get { return MotionStatus != MotionEnum.None;  }
         }
+
+        public bool isDead()
+        {
+            return MotionStatus == MotionEnum.None || MotionStatus == MotionEnum.Flip;
+        }
+
 
         public void ObtainGravity()
         {
@@ -177,6 +185,13 @@ namespace WindowsGame1
         {
             Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+        }
+
+        public void Flip()
+        {
+            MotionStatus = MotionEnum.Flip;
+            FindMotion<BounceUpMotion>().Toggle(true);
+            ObtainGravity();
         }
     }
 }
