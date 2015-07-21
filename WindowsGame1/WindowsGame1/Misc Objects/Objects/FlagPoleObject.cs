@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class FlagPoleObject : ObjectKernel<BlockStateController>
+    public class FlagPoleObject : ObjectKernelNew<BlockStateController>
     {
 
         public FlagPoleObject()

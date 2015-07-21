@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MarioGame
 {
-    public class BlockKernel : ObjectKernel<BlockStateController>, IBlock
+    public class BlockKernel : ObjectKernelNew<BlockStateController>, IBlock
     {
         public BlockKernel()
         {

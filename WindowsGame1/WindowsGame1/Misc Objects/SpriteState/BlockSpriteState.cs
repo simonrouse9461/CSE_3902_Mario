@@ -3,161 +3,165 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class BlockSpriteState : SpriteStateKernel
+    public class BlockSpriteState : SpriteStateKernelNew<BlockSpriteVersion>
     {
-        private enum StatusEnum
+        //private enum StatusEnum
+        //{
+        //    QuestionBlock, 
+        //    NormalBlock,
+        //    UsedBlock,
+        //    HiddenBlock,
+        //    FloorBlock,
+        //    IndestructibleBlock,
+        //    Destroyed,
+        //    Castle,
+        //    Flag
+        //}
+
+        private enum ColorList
         {
-            QuestionBlock, 
-            NormalBlock,
-            UsedBlock,
-            HiddenBlock,
-            FloorBlock,
-            IndestructibleBlock,
-            Destroyed,
-            Castle,
-            Flag
+            Transparent
         }
 
-        private StatusEnum Status;
+        //private StatusEnum Status;
 
         public BlockSpriteState()
         {
 
-            SpriteList = new Collection<ISprite>{
-                new NormalBlockSprite(),
-                new IndestructibleBlockSprite(),
-                new FloorBlockSprite(),
-                new UsedBlockSprite(),
-                new QuestionBlockSprite(),
-                new BlockDebrisSprite(),
-                new CastleSprite(),
-                new FlagPoleSprite()
-            };
-            ColorSchemeList = new Collection<ColorAnimator>{
-                new ColorAnimator(new[] {Color.Transparent})
-            };
+            AddSprite<UsedBlockSprite>();
+            AddSprite<QuestionBlockSprite>();
+            AddSprite<NormalBlockSprite>();
+            AddSprite<FloorBlockSprite>();
+            AddSprite<IndestructibleBlockSprite>();
+            AddSprite<CastleSprite>();
+            AddSprite<FlagPoleSprite>();
 
-            ChangeSpriteFrequency(10);
+            AddColorScheme(ColorList.Transparent,
+                new[] { Color.Transparent });
         }
 
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                switch (Status)
-                {
-                    case StatusEnum.NormalBlock:
-                        return FindSprite<NormalBlockSprite>();
+        //protected override ISprite RawSprite
+        //{
+        //    get
+        //    {
+        //        switch (Status)
+        //        {
+        //            case StatusEnum.NormalBlock:
+        //                return FindSprite<NormalBlockSprite>();
                         
-                    case StatusEnum.HiddenBlock:
-                        return FindSprite<UsedBlockSprite>();
+        //            case StatusEnum.HiddenBlock:
+        //                return FindSprite<UsedBlockSprite>();
 
-                    case StatusEnum.QuestionBlock:
-                        return FindSprite<QuestionBlockSprite>();
+        //            case StatusEnum.QuestionBlock:
+        //                return FindSprite<QuestionBlockSprite>();
 
-                    case StatusEnum.UsedBlock:
-                        return FindSprite<UsedBlockSprite>();
+        //            case StatusEnum.UsedBlock:
+        //                return FindSprite<UsedBlockSprite>();
 
-                    case StatusEnum.FloorBlock:
-                        return FindSprite<FloorBlockSprite>();
+        //            case StatusEnum.FloorBlock:
+        //                return FindSprite<FloorBlockSprite>();
 
-                    case StatusEnum.Destroyed:
-                        return FindSprite<BlockDebrisSprite>();
+        //            case StatusEnum.Destroyed:
+        //                return FindSprite<BlockDebrisSprite>();
 
-                    case StatusEnum.Castle:
-                        return FindSprite<CastleSprite>();
+        //            case StatusEnum.Castle:
+        //                return FindSprite<CastleSprite>();
 
-                    case StatusEnum.Flag:
-                        return FindSprite<FlagPoleSprite>();
+        //            case StatusEnum.Flag:
+        //                return FindSprite<FlagPoleSprite>();
 
-                    default:
-                        return FindSprite<IndestructibleBlockSprite>();
-                    }
-                }
-            }
+        //            default:
+        //                return FindSprite<IndestructibleBlockSprite>();
+        //            }
+        //        }
+        //    }
 
-        protected override ColorAnimator ColorScheme
-        {
-            get
-            {
-                switch (Status)
-                {
-                    case StatusEnum.HiddenBlock:
-                        return ColorSchemeList[0];
-                    default:
-                        return null;
-                }
-            }
-        }
+        //protected override ColorAnimator ColorScheme
+        //{
+        //    get
+        //    {
+        //        switch (Status)
+        //        {
+        //            case StatusEnum.HiddenBlock:
+        //                return ColorSchemeList[0];
+        //            default:
+        //                return null;
+        //        }
+        //    }
+        //}
 
         public void QuestionToUsedBlock()
         {
-            Status = StatusEnum.UsedBlock;
+            SetSprite<UsedBlockSprite>();
+            
         }
 
         public void HiddenToUsedBlock()
         {
-            Status = StatusEnum.UsedBlock;
+            SetSprite<UsedBlockSprite>();
+            
         }
 
         public void FloorBlock()
         {
-            Status = StatusEnum.FloorBlock;
+            SetSprite<FloorBlockSprite>();
+            
         }
 
         public void HiddenBlock()
         {
-            Status = StatusEnum.HiddenBlock;
+            SetColorScheme(ColorList.Transparent);
+           
         }
 
         public void Indestructible()
         {
-            Status = StatusEnum.IndestructibleBlock;
+            SetSprite<IndestructibleBlockSprite>();
+            
         }
 
         public void QuestionBlock()
         {
-            Status = StatusEnum.QuestionBlock;
+            SetSprite<QuestionBlockSprite>();
         }
 
         public void NormalBlock()
         {
-            Status = StatusEnum.NormalBlock;
+            SetSprite<NormalBlockSprite>();
         }
 
         public bool isNormal
         {
-            get { return Status == StatusEnum.NormalBlock; }
+            get { return IsSprite<NormalBlockSprite>(); }
         }
 
         public bool isUsed
         {
-            get { return Status == StatusEnum.UsedBlock; }
-        }
-
-        public void Destroyed()
-        {
-            Status = StatusEnum.Destroyed;
-        }
-
-        public bool isQuestion
-        {
-            get { return Status == StatusEnum.QuestionBlock; }
-        }
-
-        public bool isHidden
-        {
-            get { return Status == StatusEnum.HiddenBlock; }
-        }
-
-        public void Castle()
-        {
-            Status = StatusEnum.Castle;
+            get { return IsSprite<UsedBlockSprite>(); }
         }
 
         public void Flag()
         {
-            Status = StatusEnum.Flag;
+            SetSprite<FlagPoleSprite>();
+        }
+        //public void Destroyed()
+        //{
+        //    Status = StatusEnum.Destroyed;
+        //}
+
+        public bool isQuestion
+        {
+            get { return IsSprite<QuestionBlockSprite>(); }
+        }
+
+        public bool isHidden
+        {
+            get { return IsColorScheme(ColorList.Transparent); }
+        }
+
+        public void Castle()
+        {
+            SetSprite<CastleSprite>();
         }
     }
 }

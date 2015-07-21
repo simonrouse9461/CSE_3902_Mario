@@ -5,23 +5,57 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class QuestionBlockSprite : SpriteKernel
+    public class QuestionBlockSprite : SpriteKernelNew
     {
-        public QuestionBlockSprite(){
-            ImageFile.Default = "blocks";
-            Source.Default = new SpriteSource{
-                Coordinates = new Collection<Rectangle>{
-                    new Rectangle(0,0,16,16),
-                    new Rectangle(16,0,16,16),
-                    new Rectangle(32,0,16,16)
-                }
-            };
-            Animation.Default = new PeriodicFunction<int>(
-                phase =>
+        public QuestionBlockSprite()
+            : base(QuestionBlockSpriteVersion.YellowOver)
+        {
+
+            AddSource(
+                QuestionBlockSpriteVersion.YellowOver,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    int[] frameSequence = {1, 2, 1, 0, 0, 0};
-                    return frameSequence[phase];
-                }, 6);
+                    {new Rectangle(372, 160, 16, 16), Orientation.Default}   
+                });
+            AddSource(
+                QuestionBlockSpriteVersion.OrangeOver,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                   {new Rectangle(390, 160, 16, 16), Orientation.Default}
+                });
+            AddSource(
+                QuestionBlockSpriteVersion.BrownOver,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                    {new Rectangle(409, 160, 16, 16), Orientation.Default}
+                });
+
+            AddSource(
+                QuestionBlockSpriteVersion.YellowUnder,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(372, 179, 16, 16), Orientation.Default}
+                }
+                );
+
+            AddSource(
+                QuestionBlockSpriteVersion.OrangeUnder,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(390, 179, 16, 16), Orientation.Default}
+                }
+                );
+
+            AddSource(
+                QuestionBlockSpriteVersion.BrownUnder,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(409, 179, 16, 16), Orientation.Default}
+                }
+                );
         }        
     }
 }
