@@ -58,7 +58,7 @@ namespace WindowsGame1
         public static void Reset(Vector2 location = default(Vector2))
         {
             Instance._location = location;
-            ObjectList.Clear();
+            ClearObject();
             Adjusted = true;
         }
 
@@ -86,7 +86,12 @@ namespace WindowsGame1
                 WorldManager.RemoveObject(obj);
             }
         }
-        
+
+        public static void ClearObject()
+        {
+            ObjectList.Clear();
+        }
+
         public static bool OutOfRange(IObject obj, Vector4 offset = default(Vector4))
         {
             return

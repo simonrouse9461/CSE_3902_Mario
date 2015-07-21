@@ -193,6 +193,7 @@ namespace WindowsGame1
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
+            SoundManager.FireballSoundPlay();
         }
 
         public void Grow()

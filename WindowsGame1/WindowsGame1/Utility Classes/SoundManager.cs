@@ -25,6 +25,7 @@ namespace WindowsGame1
         private static SoundEffect powerUpSound;
         private static SoundEffect kickSound;
         private static SoundEffect pipeSound;
+        private static SoundEffect fireballSound;
 
         // Music Instance
         private static SoundEffectInstance currentBackgroundMusic;
@@ -40,6 +41,7 @@ namespace WindowsGame1
         private static SoundEffectInstance powerUpInstance;
         private static SoundEffectInstance kickInstance;
         private static SoundEffectInstance pipeInstance;
+        private static SoundEffectInstance fireballInstance;
 
         // Sound Properties
         private static SoundEffectInstance SmallJumpSound
@@ -92,6 +94,11 @@ namespace WindowsGame1
             get { return CreateInstance(pipeSound, ref pipeInstance); }
         }
 
+        private static SoundEffectInstance FireballSound
+        {
+            get { return CreateInstance(fireballSound, ref fireballInstance); }
+        }
+
         private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance)
         {
             if (soundInstance == null || soundInstance.State == SoundState.Stopped)
@@ -125,6 +132,7 @@ namespace WindowsGame1
             powerUpSound = content.Load<SoundEffect>("Audio/powerUp");
             kickSound = content.Load<SoundEffect>("Audio/kick");
             pipeSound = content.Load<SoundEffect>("Audio/pipe");
+            fireballSound = content.Load<SoundEffect>("Audio/fireball");
         }
 
         public static void StopMusic()
@@ -260,6 +268,14 @@ namespace WindowsGame1
         public static void PipeSoundPlay()
         {
             PlaySound(PipeSound);
+        }
+
+        public static void FireballSoundPlay()
+        {
+            if (fireballInstance != null && 
+                fireballInstance.State == SoundState.Playing) 
+                fireballInstance.Stop();
+            PlaySound(FireballSound);
         }
     }
 }
