@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace WindowsGame1
@@ -15,6 +15,7 @@ namespace WindowsGame1
                 if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
                 {
                     Core.StateController.QuestionBlockGiveCoin();
+                    Display.AddScore<Coin>();
                 }
                 else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
                 {
@@ -30,6 +31,7 @@ namespace WindowsGame1
                 else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
                 {
                     Core.StateController.QuestionBlockGiveCoin();
+                    Display.AddScore<Coin>();
                 }
             }
         }
