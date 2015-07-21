@@ -23,6 +23,7 @@ namespace WindowsGame1
             {
                 _core = value;
                 SpriteState.Core = value;
+                MotionState.Core = value;
             }
         }
 

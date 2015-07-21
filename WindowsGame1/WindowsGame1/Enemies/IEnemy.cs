@@ -8,5 +8,7 @@ namespace WindowsGame1
     public interface IEnemy : IObject
     {
         bool Alive { get; }
+
+        bool isMovingShell { get; }
     }
 }

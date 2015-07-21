@@ -35,5 +35,10 @@ namespace WindowsGame1
         {
             get { return !StateController.SpriteState.Small; }
         }
+
+        public void Freeze()
+        {
+            StateController.MotionState.Freeze();
+        }
     }
 }

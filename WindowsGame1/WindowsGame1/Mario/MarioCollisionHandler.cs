@@ -46,7 +46,7 @@ namespace WindowsGame1
 
         protected virtual void HandleEnemy()
         {
-            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive).AnySide.Touch)
+            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell).AnySide.Touch)
             {
                 Core.StateController.TakeDamage(200);
             }

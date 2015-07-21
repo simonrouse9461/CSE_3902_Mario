@@ -24,5 +24,7 @@ Content\Audio\powerUpAppear.xnb
 Content\Audio\star.xnb
 Content\Audio\underworld.xnb
 Content\Audio\win.xnb
-Content\Audio\jump.xnb
 Content\misc_sprites.xnb
+Content\Audio\bump.xnb
+Content\Audio\jump-small.xnb
+Content\Audio\jump-super.xnb

@@ -178,7 +178,8 @@ namespace WindowsGame1
             if (SpriteState.Dead) return;
             SpriteState.Die();
             MotionState.Die();
-            WorldManager.FreezeWorld();
+            SoundManager.ChangeToDieMusic();
+            MotionState.Freeze(25);
         }
 
         public void Shoot()
@@ -245,10 +246,10 @@ namespace WindowsGame1
 
         public void TakeDamage(int restoreTime)
         {
+            WorldManager.FreezeWorld();
             if (SpriteState.Small)
             {
                 Die();
-                SoundManager.ChangeToDieMusic();
                 return;
             }
 
@@ -265,7 +266,6 @@ namespace WindowsGame1
             SpriteState.StartBlink();
             SpriteState.Shrink();
             MotionState.Freeze();
-            WorldManager.FreezeWorld();
             SoundManager.PowerDownSoundPlay();
             SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
             {

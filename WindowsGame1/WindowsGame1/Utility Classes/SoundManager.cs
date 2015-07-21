@@ -17,6 +17,7 @@ namespace WindowsGame1
         // Action Sounds
         private static SoundEffect smallJumpSound;
         private static SoundEffect superJumpSound;
+        private static SoundEffect bumpSound;
         private static SoundEffect blockBreakSound;
         private static SoundEffect stompSound;
         private static SoundEffect coinSound;
@@ -31,6 +32,7 @@ namespace WindowsGame1
         // Sound Instances
         private static SoundEffectInstance smallJumpInstance;
         private static SoundEffectInstance superJumpInstance;
+        private static SoundEffectInstance bumpInstance;
         private static SoundEffectInstance blockBreakInstance;
         private static SoundEffectInstance stompInstance;
         private static SoundEffectInstance coinInstance;
@@ -48,6 +50,11 @@ namespace WindowsGame1
         private static SoundEffectInstance SuperJumpSound
         {
             get { return CreateInstance(superJumpSound, ref superJumpInstance); }
+        }
+
+        private static SoundEffectInstance BumpSound
+        {
+            get { return CreateInstance(bumpSound, ref bumpInstance); }
         }
 
         private static SoundEffectInstance BlockBreakSound
@@ -110,6 +117,7 @@ namespace WindowsGame1
             starMusic = content.Load<SoundEffect>("Audio/star");
             smallJumpSound = content.Load<SoundEffect>("Audio/jump-small");
             superJumpSound = content.Load<SoundEffect>("Audio/jump-super");
+            bumpSound = content.Load<SoundEffect>("Audio/bump");
             blockBreakSound = content.Load<SoundEffect>("Audio/blockBreak");
             stompSound = content.Load<SoundEffect>("Audio/stomp");
             coinSound = content.Load<SoundEffect>("Audio/coin");
@@ -155,6 +163,22 @@ namespace WindowsGame1
             currentBackgroundMusic = dieMusic.CreateInstance();
             currentBackgroundMusic.IsLooped = false;
             currentBackgroundMusic.Play();
+            DieMusicPlaying = true;
+        }
+
+        public static bool DieMusicPlaying { get; private set; }
+
+        public static bool DieMusicFinished
+        {
+            get
+            {
+                if (DieMusicPlaying && currentBackgroundMusic.State == SoundState.Stopped)
+                {
+                    DieMusicPlaying = false;
+                    return true;
+                }
+                return false;
+            }
         }
 
         public static void ChangeToWinMusic()
@@ -187,6 +211,15 @@ namespace WindowsGame1
         public static void SuperJumpSoundPlay()
         {
             PlaySound(SuperJumpSound);
+        }
+
+        public static void BumpSoundPlay()
+        {
+            if (smallJumpInstance != null && smallJumpInstance.State == SoundState.Playing) 
+                smallJumpInstance.Stop();
+            if (superJumpInstance != null && superJumpInstance.State == SoundState.Playing) 
+                superJumpInstance.Stop();
+            PlaySound(BumpSound);
         }
 
         public static void BlockBreakSoundPlay()

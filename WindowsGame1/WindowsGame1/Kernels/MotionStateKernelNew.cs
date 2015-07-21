@@ -8,6 +8,7 @@ namespace WindowsGame1
 {
     public abstract class MotionStateKernelNew : IMotionState
     {
+        public ICoreNew Core { protected get; set; }
         protected Counter Timer { get; set; }
         protected Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
@@ -38,10 +39,10 @@ namespace WindowsGame1
             Position += offset;
         }
 
-        public void Freeze()
+        public void Freeze(int timer = 0)
         {
-            foreach (var motion in MotionList) motion.Toggle(false);
             Frozen = true;
+            if (timer != 0) Core.DelayCommand(Restore, timer);
         }
 
         public void Restore()
@@ -76,6 +77,7 @@ namespace WindowsGame1
 
         public void Update()
         {
+            if (Frozen) return;
             if (MotionList == null) return;
             if (Timer.Update())
             {

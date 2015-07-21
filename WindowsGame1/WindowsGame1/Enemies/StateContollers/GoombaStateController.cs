@@ -30,11 +30,6 @@ namespace WindowsGame1
             MotionState.Flip();
             SpriteState.Flip();
 
-            Core.DelayCommand(() =>
-            {
-                Core.Object.Unload();
-            }, 30);
-
             Display.AddScore<Goomba>();
             SoundManager.StompSoundPlay();
         }

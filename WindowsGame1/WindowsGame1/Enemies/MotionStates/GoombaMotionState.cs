@@ -97,6 +97,7 @@ namespace WindowsGame1
         {
             MotionStatus = MotionEnum.Flip;
             FindMotion<BounceUpMotion>().Toggle(true);
+            ObtainGravity();
         }
     }
 }
