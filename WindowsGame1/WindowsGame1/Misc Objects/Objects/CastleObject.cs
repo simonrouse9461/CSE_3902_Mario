@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class CastleObject : ObjectKernel<BlockStateController>
+    public class CastleObject : ObjectKernelNew<BlockStateController>
     {
 
         public CastleObject()

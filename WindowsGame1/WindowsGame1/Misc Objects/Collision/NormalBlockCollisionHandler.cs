@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace MarioGame
 {
-    public class NormalBlockCollisionHandler : CollisionHandlerKernel<BlockStateController>
+    public class NormalBlockCollisionHandler : CollisionHandlerKernelNew<BlockStateController>
     {
 
-        public NormalBlockCollisionHandler(ICore core) : base(core) { }
+        public NormalBlockCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()
         {

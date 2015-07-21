@@ -5,17 +5,27 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class NormalBlockSprite : SpriteKernel
+    public class NormalBlockSprite : SpriteKernelNew
     {
         public NormalBlockSprite()
+            : base(NormalBlockSpriteVersion.Overworld)
         {
-            ImageFile.Default = "blocks";
-            Source.Default = new SpriteSource{
-                Coordinates = new Collection<Rectangle>
+
+            AddSource(
+                NormalBlockSpriteVersion.Overworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(16, 16, 16, 16)
+                    {new Rectangle(373, 102, 16, 16), Orientation.Default}
+                });
+
+            AddSource(
+                NormalBlockSpriteVersion.Underworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(393, 102, 16, 16), Orientation.Default}
                 }
-            };
+                );
         }
     }
 }

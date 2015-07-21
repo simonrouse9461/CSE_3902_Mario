@@ -127,6 +127,12 @@
     <Compile Include="Mario\MarioSpriteVersion.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\BlockSpriteVersion.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\FloorBlockSpriteVersion.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\IndestructibleBlockSpriteVersion.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\NormalBlockSpriteVersion.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\QuestionBlockSpriteVersion.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\UsedBlockSpriteVersion.cs" />
     <Compile Include="Motions\UniformMotion.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />

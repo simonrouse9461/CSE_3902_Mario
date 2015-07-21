@@ -5,18 +5,27 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class IndestructibleBlockSprite : SpriteKernel
+    public class IndestructibleBlockSprite : SpriteKernelNew
     {
 
-        public IndestructibleBlockSprite()
+        public IndestructibleBlockSprite() : base(IndestructibleBlockSpriteVersion.Overworld)
         {
-            ImageFile.Default = "blocks";
-            Source.Default = new SpriteSource{
-                Coordinates = new Collection<Rectangle>
+            
+            AddSource(
+                IndestructibleBlockSpriteVersion.Overworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(0 ,17, 16, 16)
+                    {new Rectangle(373, 142, 16, 16), Orientation.Default}
+                });
+
+            AddSource(
+                IndestructibleBlockSpriteVersion.Underworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(393, 142, 16, 16), Orientation.Default}
                 }
-            };
+                );
         }
     }
 }

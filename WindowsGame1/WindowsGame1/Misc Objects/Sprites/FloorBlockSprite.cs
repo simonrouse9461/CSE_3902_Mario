@@ -5,19 +5,28 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class FloorBlockSprite : SpriteKernel
+    public class FloorBlockSprite : SpriteKernelNew
     {
 
         public FloorBlockSprite()
+            : base(FloorBlockSpriteVersion.Overworld)
         {
-            ImageFile.Default = "blocks";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+
+            AddSource(
+                FloorBlockSpriteVersion.Overworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(32, 16, 16, 16)
+                    {new Rectangle(373, 124, 16, 16), Orientation.Default},
+                });
+
+            AddSource(
+                FloorBlockSpriteVersion.Underworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(393, 124, 16, 16), Orientation.Default},
                 }
-            };
+                );
         }
     }
 }
