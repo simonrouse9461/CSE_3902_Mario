@@ -5,17 +5,17 @@ using Microsoft.Xna.Framework.Content;
 
 namespace MarioGame
 {
-    public class JumpingBigMarioSprite : SpriteKernelNew
+    public class StandingSuperMarioSprite : SpriteKernelNew
     {
-        public JumpingBigMarioSprite()
+        public StandingSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;
 
-            var X = 144;
+            var X = 176;
             var Y = 0;
             var W = 16;
-            var H = 31;
+            var H = 32;
 
             AddSource(
                 MarioSpriteVersion.Normal,

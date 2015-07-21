@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LevelLoader;
-using MarioGame.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MarioGame
@@ -231,15 +230,13 @@ namespace MarioGame
             FindObject<MarioObject>().Update();
 
             if (Camera.Adjusted || Modified)
-            {
-                Camera.ClearObject();
                 foreach (var collection in Instance._objectList)
                     for (var i = 0; i < collection.Count; i++)
                     {
-                        var obj = (IObject) collection[i];
-                        if (!Camera.OutOfRange(obj)) Camera.AddObject(obj);
+                        var obj = (IObject)collection[i];
+                        if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                        else Camera.AddObject(obj);
                     }
-            }
 
             Modified = false;
 

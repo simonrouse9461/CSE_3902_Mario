@@ -10,7 +10,9 @@ namespace MarioGame
         Vector2 Velocity { get; }
         bool Status { get; }
         bool Finish { get; }
+        bool ReachMax { get; }
         int VersionCode { get; }
+
         bool SameVersion(IMotion motion);
         void SetInitialVelocity(Vector2 velocity = default(Vector2));
         void SetCurrentVelocity(Vector2 velocity = default(Vector2));

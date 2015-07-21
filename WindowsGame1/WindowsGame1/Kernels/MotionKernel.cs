@@ -22,6 +22,11 @@ namespace MarioGame
             get { return false; }
         }
 
+        public bool ReachMax
+        {
+            get { return Velocity == MaxVelocity; }
+        }
+
         public abstract Vector2 Velocity { get; }
 
         protected MotionKernel(int period = 0)

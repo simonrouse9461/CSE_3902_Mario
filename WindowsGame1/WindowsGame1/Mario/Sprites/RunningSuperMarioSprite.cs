@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class RunningBigMarioSprite : SpriteKernelNew
+    public class RunningSuperMarioSprite : SpriteKernelNew
     {
-        public RunningBigMarioSprite()
+        public RunningSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)
         {
             var D = 48;

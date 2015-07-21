@@ -2,7 +2,7 @@
 
 namespace MarioGame
 {
-    public class NullMotion : MotionKernel
+    public class Static : MotionKernel
     {
         public override bool Finish
         {

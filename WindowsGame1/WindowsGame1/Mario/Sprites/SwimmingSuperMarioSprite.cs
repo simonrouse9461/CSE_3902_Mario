@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace MarioGame
 {
-    public class SwimmingBigMarioSprite: SpriteKernel
+    public class SwimmingSuperMarioSprite: SpriteKernel
     {
-        public SwimmingBigMarioSprite()
+        public SwimmingSuperMarioSprite()
         {
             const int period = 8;
 

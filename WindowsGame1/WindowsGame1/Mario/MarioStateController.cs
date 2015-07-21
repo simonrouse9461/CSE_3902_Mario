@@ -1,5 +1,4 @@
 ﻿using System;
-using MarioGame.CommandExecutorDecorators;
 using Microsoft.Xna.Framework;
 
 namespace MarioGame
@@ -196,6 +195,11 @@ namespace MarioGame
             SoundManager.FireballSoundPlay();
         }
 
+        public void Sprint()
+        {
+            
+        }
+
         public void Grow()
         {
             if (SpriteState.Dead) return;
@@ -205,7 +209,7 @@ namespace MarioGame
             MotionState.Freeze();
             SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
             {
-                SpriteState.TurnBig();
+                SpriteState.TurnSuper();
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
@@ -227,7 +231,6 @@ namespace MarioGame
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
-            Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
 
         public void GetStarPower()
@@ -259,7 +262,6 @@ namespace MarioGame
 
             if (SpriteState.HaveFire)
             {
-                ((IDecorator) Core.CommandExecutor).Restore();
                 SpriteState.LoseFire();
             }
 

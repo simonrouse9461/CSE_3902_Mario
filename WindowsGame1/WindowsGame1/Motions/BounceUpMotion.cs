@@ -15,6 +15,7 @@ namespace MarioGame
             MarioDie,
             MarioBounce,
             FireballBounce,
+            EnemyFlip,
             Coin,
             Star,
             BlockHit
@@ -107,6 +108,22 @@ namespace MarioGame
                     version = Version.FireballBounce,
                     StartVelocity = new Vector2(0, -2.7f),
                     Acceleration = new Vector2(0, 0.2f),
+                    MaxVelocity = GravityMotion.Max,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion EnemyFlip
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.EnemyFlip,
+                    StartVelocity = new Vector2(0, -4),
+                    Acceleration = new Vector2(0, 0.25f),
                     MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true

@@ -35,8 +35,8 @@ namespace MarioGame
         {
             MotionList = new Collection<StatusSwitch<IMotion>>
             {
-                new StatusSwitch<IMotion>(AccelerateMotion.MarioLeft),
-                new StatusSwitch<IMotion>(AccelerateMotion.MarioRight),
+                new StatusSwitch<IMotion>(AcceleratedMotion.MarioLeft),
+                new StatusSwitch<IMotion>(AcceleratedMotion.MarioRight),
                 new StatusSwitch<IMotion>(new DampMotion()),
                 new StatusSwitch<IMotion>(new InertiaMotion()),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioDie),
@@ -53,8 +53,8 @@ namespace MarioGame
         public void SetDefaultHorizontal()
         {
             HorizontalStatus = HorizontalEnum.Default;
-            FindMotion(AccelerateMotion.MarioRight).Toggle(false);
-            FindMotion(AccelerateMotion.MarioLeft).Toggle(false);
+            FindMotion(AcceleratedMotion.MarioRight).Toggle(false);
+            FindMotion(AcceleratedMotion.MarioLeft).Toggle(false);
             FindMotion<DampMotion>().Toggle(false);
             FindMotion<InertiaMotion>().Toggle(false);
         }
@@ -70,7 +70,7 @@ namespace MarioGame
             if (Frozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Left;
-            FindMotion(AccelerateMotion.MarioLeft).Toggle(true);
+            FindMotion(AcceleratedMotion.MarioLeft).Toggle(true);
         }
 
         public void GoRight()
@@ -78,7 +78,7 @@ namespace MarioGame
             if (Frozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Right;
-            FindMotion(AccelerateMotion.MarioRight).Toggle(true);
+            FindMotion(AcceleratedMotion.MarioRight).Toggle(true);
         }
 
         public void Stop()

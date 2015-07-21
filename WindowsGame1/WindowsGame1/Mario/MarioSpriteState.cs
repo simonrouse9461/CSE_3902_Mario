@@ -18,20 +18,20 @@ namespace MarioGame
             Upgrade
         }
 
-        public bool Big { get; private set; }
-        public bool Small { get { return !Big; } }
+        public bool Super { get; private set; }
+        public bool Small { get { return !Super; } }
 
         public MarioSpriteState()
         {
             AddSprite<DeadMarioSprite>();
-            AddSprite<JumpingBigMarioSprite>();
+            AddSprite<JumpingSuperMarioSprite>();
             AddSprite<JumpingSmallMarioSprite>();
-            AddSprite<RunningBigMarioSprite>();
+            AddSprite<RunningSuperMarioSprite>();
             AddSprite<RunningSmallMarioSprite>();
-            AddSprite<StandingBigMarioSprite>();
+            AddSprite<StandingSuperMarioSprite>();
             AddSprite<StandingSmallMarioSprite>();
             AddSprite<CrouchingMarioSprite>();
-            AddSprite<TurningBigMarioSprite>();
+            AddSprite<TurningSuperMarioSprite>();
             AddSprite<TurningSmallMarioSprite>();
             AddSprite<GrowingMarioSprite>();
             AddSprite<ShrinkingMarioSprite>();
@@ -55,12 +55,12 @@ namespace MarioGame
 
         public void TurnSmall()
         {
-            Big = false;
+            Super = false;
         }
 
-        public void TurnBig()
+        public void TurnSuper()
         {
-            Big = true;
+            Super = true;
         }
 
         public void Upgrade()
@@ -164,7 +164,7 @@ namespace MarioGame
 
         public void Run()
         {
-            if (Big) SetSprite<RunningBigMarioSprite>();
+            if (Super) SetSprite<RunningSuperMarioSprite>();
             else SetSprite<RunningSmallMarioSprite>();
         }
 
@@ -172,19 +172,19 @@ namespace MarioGame
         {
             get
             {
-                return IsSprite<RunningBigMarioSprite>() || IsSprite<RunningSmallMarioSprite>();
+                return IsSprite<RunningSuperMarioSprite>() || IsSprite<RunningSmallMarioSprite>();
             }
         }
 
         public void Jump()
         {
-            if (Big) SetSprite<JumpingBigMarioSprite>();
+            if (Super) SetSprite<JumpingSuperMarioSprite>();
             else SetSprite<JumpingSmallMarioSprite>();
         }
 
         public bool Jumping
         {
-            get { return IsSprite<JumpingBigMarioSprite>() || IsSprite<JumpingSmallMarioSprite>(); }
+            get { return IsSprite<JumpingSuperMarioSprite>() || IsSprite<JumpingSmallMarioSprite>(); }
         }
 
         public void Crouch()
@@ -199,24 +199,24 @@ namespace MarioGame
 
         public void Stand()
         {
-            if (Big) SetSprite<StandingBigMarioSprite>();
+            if (Super) SetSprite<StandingSuperMarioSprite>();
             else SetSprite<StandingSmallMarioSprite>();
         }
 
         public bool Standing
         {
-            get { return IsSprite<StandingBigMarioSprite>() || IsSprite<StandingSmallMarioSprite>(); }
+            get { return IsSprite<StandingSuperMarioSprite>() || IsSprite<StandingSmallMarioSprite>(); }
         }
 
         public void Turn()
         {
-            if (Big) SetSprite<TurningBigMarioSprite>();
+            if (Super) SetSprite<TurningSuperMarioSprite>();
             else SetSprite<TurningSmallMarioSprite>();
         }
 
         public bool Turning
         {
-            get { return IsSprite<TurningBigMarioSprite>() || IsSprite<TurningSmallMarioSprite>(); }
+            get { return IsSprite<TurningSuperMarioSprite>() || IsSprite<TurningSmallMarioSprite>(); }
         }
 
         public void Shoot()
