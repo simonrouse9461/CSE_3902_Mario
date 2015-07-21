@@ -43,6 +43,7 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioJump),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioStamp),
                 new StatusSwitch<IMotion>(new GravityMotion()),
+                new StatusSwitch<IMotion>(UniformMotion.MarioSlipDown)
             };
 
             SetDefaultHorizontal();
@@ -64,6 +65,7 @@ namespace MarioGame
             VerticalStatus = VerticalEnum.Default;
             FindMotion(BounceUpMotion.MarioJump).Toggle(false);
             FindMotion(BounceUpMotion.MarioStamp).Toggle(false);
+            FindMotion(UniformMotion.MarioSlipDown).Toggle(false);
         }
 
         public void GoLeft()
@@ -150,6 +152,14 @@ namespace MarioGame
             SetDefaultVertical();
             LoseGravity();
             FindMotion(BounceUpMotion.MarioDie).Toggle(true);
+        }
+
+        public void Slip()
+        {
+            SetDefaultHorizontal();
+            SetDefaultVertical();
+            LoseGravity();
+            FindMotion(UniformMotion.MarioSlipDown).Toggle(true);
         }
 
         public bool DefaultHorizontal

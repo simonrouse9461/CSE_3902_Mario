@@ -1,4 +1,5 @@
 ﻿using System;
+using MarioGame.BarrierHandlerDecorators;
 using Microsoft.Xna.Framework;
 
 namespace MarioGame
@@ -280,12 +281,14 @@ namespace MarioGame
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
-            Core.BarrierHandler.RemoveBarrier<Koopa>();
-            Core.BarrierHandler.RemoveBarrier<Goomba>();
-
             Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
-            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
-            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
+        }
+
+        public void FinishLevel()
+        {
+            Core.SwitchComponent(new FinishLevelBarrierHandler(Core));
+            Core.SwitchComponent(new FinishLevelCommandExecutor(Core));
+            MotionState.Slip();
         }
     }
 }

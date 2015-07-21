@@ -107,7 +107,7 @@ namespace MarioGame
                 return new UniformMotion
                 {
                     version = Version.MarioSlip,
-                    StartVelocity = new Vector2(0, -3)
+                    StartVelocity = new Vector2(0, 2.5f)
                 };
             }
         }
@@ -143,7 +143,7 @@ namespace MarioGame
                 return new UniformMotion
                 {
                     version = Version.ItemLeft,
-                    StartVelocity = new Vector2(-2, 0)
+                    StartVelocity = new Vector2(-1.5f, 0)
                 };
             }
         }
@@ -155,7 +155,7 @@ namespace MarioGame
                 return new UniformMotion
                 {
                     version = Version.ItemRight,
-                    StartVelocity = new Vector2(2, 0)
+                    StartVelocity = new Vector2(1.5f, 0)
                 };
             }
         }
