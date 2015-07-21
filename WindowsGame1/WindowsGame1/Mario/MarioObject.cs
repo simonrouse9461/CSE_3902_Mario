@@ -13,7 +13,7 @@ namespace WindowsGame1
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
             BarrierHandler.RemoveBarrier<Goomba>();
-            SoundManager.changeToOverworldMusic();
+            SoundManager.ChangeToOverworldMusic();
         }
 
         public override bool Solid

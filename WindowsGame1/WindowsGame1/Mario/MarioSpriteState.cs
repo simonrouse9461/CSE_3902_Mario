@@ -34,6 +34,7 @@ namespace WindowsGame1
             AddSprite<TurningBigMarioSprite>();
             AddSprite<TurningSmallMarioSprite>();
             AddSprite<GrowingMarioSprite>();
+            AddSprite<ShrinkingMarioSprite>();
             AddSprite<ShootingMarioSprite>();
             AddSprite<UpgradingMarioSprite>();
 
@@ -118,6 +119,7 @@ namespace WindowsGame1
         public void StartBlink()
         {
             SetColorScheme(ColorScheme.Blink);
+            SetColorFrequency(3);
         }
 
         public void StopBlink()
@@ -150,9 +152,14 @@ namespace WindowsGame1
             get { return IsSprite<GrowingMarioSprite>(); }
         }
 
-        public bool Grown
+        public void Shrink()
         {
-            get { return Growing && FindSprite<GrowingMarioSprite>().Cycle >= 1; }
+            SetSprite<ShrinkingMarioSprite>();
+        }
+
+        public bool Shrinking()
+        {
+            return IsSprite<ShrinkingMarioSprite>();
         }
 
         public void Run()

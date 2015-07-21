@@ -10,7 +10,7 @@ namespace WindowsGame1
             CollisionHandler = new MushroomCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new MushroomBarrierHandler(Core);
-            SoundManager.powerUpAppearSoundPlay();
+            SoundManager.PowerUpAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
 

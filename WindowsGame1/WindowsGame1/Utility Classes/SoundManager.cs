@@ -7,15 +7,16 @@ namespace WindowsGame1
 {
     public static class SoundManager
     {
-        private static SoundEffectInstance currentlyPlayingMusic;
-
+        // Background Musics
         private static SoundEffect overworldMusic;
         private static SoundEffect underworldMusic;
         private static SoundEffect dieMusic;
         private static SoundEffect winMusic;
         private static SoundEffect starMusic;
 
-        private static SoundEffect jumpSound;
+        // Action Sounds
+        private static SoundEffect smallJumpSound;
+        private static SoundEffect superJumpSound;
         private static SoundEffect blockBreakSound;
         private static SoundEffect stompSound;
         private static SoundEffect coinSound;
@@ -24,6 +25,81 @@ namespace WindowsGame1
         private static SoundEffect kickSound;
         private static SoundEffect pipeSound;
 
+        // Music Instance
+        private static SoundEffectInstance currentBackgroundMusic;
+
+        // Sound Instances
+        private static SoundEffectInstance smallJumpInstance;
+        private static SoundEffectInstance superJumpInstance;
+        private static SoundEffectInstance blockBreakInstance;
+        private static SoundEffectInstance stompInstance;
+        private static SoundEffectInstance coinInstance;
+        private static SoundEffectInstance powerUpAppearInstance;
+        private static SoundEffectInstance powerUpInstance;
+        private static SoundEffectInstance kickInstance;
+        private static SoundEffectInstance pipeInstance;
+
+        // Sound Properties
+        private static SoundEffectInstance SmallJumpSound
+        {
+            get { return CreateInstance(smallJumpSound, ref smallJumpInstance); }
+        }
+
+        private static SoundEffectInstance SuperJumpSound
+        {
+            get { return CreateInstance(superJumpSound, ref superJumpInstance); }
+        }
+
+        private static SoundEffectInstance BlockBreakSound
+        {
+            get { return CreateInstance(blockBreakSound, ref blockBreakInstance); }
+        }
+
+        private static SoundEffectInstance StompSound
+        {
+            get { return CreateInstance(stompSound, ref stompInstance); }
+        }
+
+        private static SoundEffectInstance CoinSound
+        {
+            get { return CreateInstance(coinSound, ref coinInstance); }
+        }
+
+        private static SoundEffectInstance PowerUpAppearSound
+        {
+            get { return CreateInstance(powerUpAppearSound, ref powerUpAppearInstance); }
+        }
+
+        private static SoundEffectInstance PowerUpSound
+        {
+            get { return CreateInstance(powerUpSound, ref powerUpInstance); }
+        }
+
+        private static SoundEffectInstance KickSound
+        {
+            get { return CreateInstance(kickSound, ref kickInstance); }
+        }
+
+        private static SoundEffectInstance PipeSound
+        {
+            get { return CreateInstance(pipeSound, ref pipeInstance); }
+        }
+
+        private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance)
+        {
+            if (soundInstance == null || soundInstance.State == SoundState.Stopped)
+            {
+                soundInstance = soundEffect.CreateInstance();
+                soundInstance.IsLooped = false;
+                return soundInstance;
+            }
+            return null;
+        }
+
+        private static void PlaySound(SoundEffectInstance sound)
+        {
+            if (sound != null) sound.Play();
+        }
 
         public static void LoadAllSounds(ContentManager content)
         {
@@ -32,8 +108,8 @@ namespace WindowsGame1
             dieMusic = content.Load<SoundEffect>("Audio/die");
             winMusic = content.Load<SoundEffect>("Audio/win");
             starMusic = content.Load<SoundEffect>("Audio/star");
-
-            jumpSound = content.Load<SoundEffect>("Audio/jump");
+            smallJumpSound = content.Load<SoundEffect>("Audio/jump-small");
+            superJumpSound = content.Load<SoundEffect>("Audio/jump-super");
             blockBreakSound = content.Load<SoundEffect>("Audio/blockBreak");
             stompSound = content.Load<SoundEffect>("Audio/stomp");
             coinSound = content.Load<SoundEffect>("Audio/coin");
@@ -43,105 +119,114 @@ namespace WindowsGame1
             pipeSound = content.Load<SoundEffect>("Audio/pipe");
         }
 
-        public static void stopMusic()
+        public static void StopMusic()
         {
-            currentlyPlayingMusic.Dispose();
+            currentBackgroundMusic.Dispose();
         }
 
-        public static void changeToOverworldMusic()
+        public static void ChangeToOverworldMusic()
         {
-            if (currentlyPlayingMusic != null)
+            if (currentBackgroundMusic != null)
             {
-                currentlyPlayingMusic.Dispose();
+                currentBackgroundMusic.Dispose();
             }
-            currentlyPlayingMusic = overworldMusic.CreateInstance();
-            currentlyPlayingMusic.IsLooped = true;
-            currentlyPlayingMusic.Play();
+            currentBackgroundMusic = overworldMusic.CreateInstance();
+            currentBackgroundMusic.IsLooped = true;
+            currentBackgroundMusic.Play();
         }
 
-        public static void changeToUnderworldMusic()
+        public static void ChangeToUnderworldMusic()
         {
-            if (currentlyPlayingMusic != null)
+            if (currentBackgroundMusic != null)
             {
-                currentlyPlayingMusic.Dispose();
+                currentBackgroundMusic.Dispose();
             }
-            currentlyPlayingMusic.Dispose();
-            currentlyPlayingMusic = underworldMusic.CreateInstance();
-            currentlyPlayingMusic.IsLooped = true;
-            currentlyPlayingMusic.Play();
+            currentBackgroundMusic = underworldMusic.CreateInstance();
+            currentBackgroundMusic.IsLooped = true;
+            currentBackgroundMusic.Play();
         }
 
-        public static void changeToDieMusic()
+        public static void ChangeToDieMusic()
         {
-            if (currentlyPlayingMusic != null)
+            if (currentBackgroundMusic != null)
             {
-                currentlyPlayingMusic.Dispose();
+                currentBackgroundMusic.Dispose();
             }
-            currentlyPlayingMusic = dieMusic.CreateInstance();
-            currentlyPlayingMusic.IsLooped = false;
-            currentlyPlayingMusic.Play();
+            currentBackgroundMusic = dieMusic.CreateInstance();
+            currentBackgroundMusic.IsLooped = false;
+            currentBackgroundMusic.Play();
         }
 
-        public static void changeToWinMusic()
+        public static void ChangeToWinMusic()
         {
-            if (currentlyPlayingMusic != null)
+            if (currentBackgroundMusic != null)
             {
-                currentlyPlayingMusic.Dispose();
+                currentBackgroundMusic.Dispose();
             }
-            currentlyPlayingMusic = winMusic.CreateInstance();
-            currentlyPlayingMusic.IsLooped = false;
-            currentlyPlayingMusic.Play();
+            currentBackgroundMusic = winMusic.CreateInstance();
+            currentBackgroundMusic.IsLooped = false;
+            currentBackgroundMusic.Play();
         }
 
-        public static void changeToStarMusic()
+        public static void ChangeToStarMusic()
         {
-            if (currentlyPlayingMusic != null)
+            if (currentBackgroundMusic != null)
             {
-                currentlyPlayingMusic.Dispose();
+                currentBackgroundMusic.Dispose();
             }
-            currentlyPlayingMusic = starMusic.CreateInstance();
-            currentlyPlayingMusic.IsLooped = true;
-            currentlyPlayingMusic.Play();
+            currentBackgroundMusic = starMusic.CreateInstance();
+            currentBackgroundMusic.IsLooped = true;
+            currentBackgroundMusic.Play();
         }
 
-        public static void jumpSoundPlay()
+        public static void SmallJumpSoundPlay()
         {
-            jumpSound.Play();
+            PlaySound(SmallJumpSound);
         }
 
-        public static void blockBreakSoundPlay()
+        public static void SuperJumpSoundPlay()
         {
-            blockBreakSound.Play();
+            PlaySound(SuperJumpSound);
         }
 
-        public static void stompSoundPlay()
+        public static void BlockBreakSoundPlay()
         {
-            stompSound.Play();
+            PlaySound(BlockBreakSound);
         }
 
-        public static void coinSoundPlay()
+        public static void StompSoundPlay()
         {
-            coinSound.Play();
+            PlaySound(StompSound);
         }
 
-        public static void powerUpAppearSoundPlay()
+        public static void CoinSoundPlay()
         {
-            powerUpAppearSound.Play();
+            PlaySound(CoinSound);
         }
 
-        public static void powerUpSoundPlay()
+        public static void PowerUpAppearSoundPlay()
         {
-            powerUpSound.Play();
+            PlaySound(PowerUpAppearSound);
         }
 
-        public static void kickSoundPlay()
+        public static void PowerUpSoundPlay()
         {
-            kickSound.Play();
+            PlaySound(PowerUpSound);
         }
 
-        public static void pipeSoundPlay()
+        public static void PowerDownSoundPlay()
         {
-            pipeSound.Play();
+            PipeSoundPlay();
+        }
+
+        public static void KickSoundPlay()
+        {
+            PlaySound(KickSound);
+        }
+
+        public static void PipeSoundPlay()
+        {
+            PlaySound(PipeSound);
         }
     }
 }

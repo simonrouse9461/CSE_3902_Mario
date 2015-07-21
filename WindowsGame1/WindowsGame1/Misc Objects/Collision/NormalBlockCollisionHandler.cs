@@ -24,7 +24,7 @@ namespace WindowsGame1
                 else if(!Core.StateController.SpriteState.isUsed)
                 {
                     Core.StateController.NormalBlockDestroyed();
-                    SoundManager.blockBreakSoundPlay();
+                    SoundManager.BlockBreakSoundPlay();
                 }
             }
             else if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
