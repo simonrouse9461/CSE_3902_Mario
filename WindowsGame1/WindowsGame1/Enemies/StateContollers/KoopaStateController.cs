@@ -41,5 +41,11 @@ namespace WindowsGame1
             }
             SpriteState.Turn();
         }
+
+        public void Flip()
+        {
+            SpriteState.Flip();
+            MotionState.Flip();
+        }
     }
 }

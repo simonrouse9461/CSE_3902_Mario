@@ -84,12 +84,14 @@ namespace WindowsGame1
                 new Collection<NormalBlockObject>(),
                 new Collection<BlockKernel>(),
 
-                // then enemies
-                new Collection<Goomba>(),
-                new Collection<Koopa>(),
+                // then scenery
                 new Collection<FloorBlockObject>(),
                 new Collection<CastleObject>(),
                 new Collection<FlagPoleObject>(),
+
+                // then enemies
+                new Collection<Goomba>(),
+                new Collection<Koopa>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioObject>(),

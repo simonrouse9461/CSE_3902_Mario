@@ -12,7 +12,7 @@ namespace WindowsGame1
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
-            BarrierHandler.RemoveBarrier<Goomba>();
+            BarrierHandler.RemoveBarrier<IEnemy>();
             SoundManager.changeToOverworldMusic();
         }
 

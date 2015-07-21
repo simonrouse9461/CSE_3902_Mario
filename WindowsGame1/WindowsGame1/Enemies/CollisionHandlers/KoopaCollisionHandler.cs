@@ -31,7 +31,15 @@ namespace WindowsGame1
             {
                 if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
                 {
-                    Core.StateController.MarioSmash();
+                    Core.StateController.Flip();
+                }
+                else if (Core.CollisionDetector.Detect<IBlock>(block => block.Hit).Bottom.Touch)
+                {
+                    Core.StateController.Flip();
+                }
+                else if (Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
+                {
+                    Core.StateController.Flip();
                 }
                 else if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
                 {

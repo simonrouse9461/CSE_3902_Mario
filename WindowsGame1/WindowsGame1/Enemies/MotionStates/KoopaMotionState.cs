@@ -13,7 +13,7 @@ namespace WindowsGame1
             RightWalk,
             LeftShellKick,
             RightShellKick,
-            Null
+            Flip
         }
 
         private MotionEnum MotionStatus;
@@ -27,7 +27,8 @@ namespace WindowsGame1
                 new StatusSwitch<IMotion>(MoveRightMotion.EnemyVelocity),
                 new StatusSwitch<IMotion>(new MoveLeftFastMotion()),
                 new StatusSwitch<IMotion>(new MoveRightFastMotion()),
-                new StatusSwitch<IMotion>(new GravityMotion())
+                new StatusSwitch<IMotion>(new GravityMotion()),
+                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
 
             LoseGravity();
@@ -90,6 +91,7 @@ namespace WindowsGame1
         {
             Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+            FindMotion<BounceUpMotion>().Toggle(false);
         }
 
         public void Turn(string leftOrRight)
@@ -164,8 +166,14 @@ namespace WindowsGame1
 
         public bool isMoving
         {
-            get { return MotionStatus != MotionEnum.None; }
+            get { return MotionStatus != MotionEnum.None;  }
         }
+
+        public bool isDead()
+        {
+            return MotionStatus == MotionEnum.None || MotionStatus == MotionEnum.Flip;
+        }
+
 
         public void ObtainGravity()
         {
@@ -177,6 +185,13 @@ namespace WindowsGame1
         {
             Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+        }
+
+        public void Flip()
+        {
+            MotionStatus = MotionEnum.Flip;
+            FindMotion<BounceUpMotion>().Toggle(true);
+            ObtainGravity();
         }
     }
 }
