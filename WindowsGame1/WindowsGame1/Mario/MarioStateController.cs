@@ -230,8 +230,10 @@ namespace WindowsGame1
             Core.SwitchComponent(new FireMarioCommandExecutor(Core));
         }
 
-        public void GetStarPower(int slowDownTime, int stopTime)
+        public void GetStarPower()
         {
+            const int slowDownTime = 600;
+            const int stopTime = 810;
             var decorator = new StarMarioCollisionHandler(Core);
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
@@ -245,8 +247,9 @@ namespace WindowsGame1
             }, () => SpriteState.HavePower, stopTime);
         }
 
-        public void TakeDamage(int restoreTime)
+        public void TakeDamage()
         {
+            const int restoreTime = 200;
             WorldManager.FreezeWorld();
             if (SpriteState.Small)
             {

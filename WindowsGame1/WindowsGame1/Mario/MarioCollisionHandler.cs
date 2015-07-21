@@ -30,7 +30,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<Star>().AnyEdge.Touch)
             {
-                Core.StateController.GetStarPower(600, 800);
+                Core.StateController.GetStarPower();
                 SoundManager.PowerUpSoundPlay();
             }
         }
@@ -48,7 +48,7 @@ namespace WindowsGame1
         {
             if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell).AnySide.Touch)
             {
-                Core.StateController.TakeDamage(200);
+                Core.StateController.TakeDamage();
             }
             if (Core.CollisionDetector.Detect<IEnemy>().Bottom.Touch)
             {
