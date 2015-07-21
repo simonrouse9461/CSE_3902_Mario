@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Net;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class CollisionHandlerKernel<TStateController> : ICollisionHandler
         where TStateController : IStateController, new()

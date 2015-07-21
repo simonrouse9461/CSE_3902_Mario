@@ -1,5 +1,5 @@
 ﻿
-namespace WindowsGame1
+namespace MarioGame
 {
     public interface IBlock : IObject
     {

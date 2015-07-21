@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class FireflowerStateController : StateControllerKernel<FireflowerSpriteState, MushroomMotionState>
     {

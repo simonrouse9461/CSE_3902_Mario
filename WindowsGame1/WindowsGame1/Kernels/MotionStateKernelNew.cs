@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class MotionStateKernelNew : IMotionState
     {

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using WindowsGame1.Exceptions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using LevelLoader;
+using MarioGame.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class WorldManager
     {

@@ -1,4 +1,4 @@
-﻿namespace WindowsGame1
+﻿namespace MarioGame
 {
     public class SymmetricPair<T> where T : class
     {

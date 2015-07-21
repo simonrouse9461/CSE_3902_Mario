@@ -1,7 +1,7 @@
 using System;
-using WindowsGame1.CommandExecutorDecorators;
+using MarioGame.CommandExecutorDecorators;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
     {

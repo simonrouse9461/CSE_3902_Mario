@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class SpriteKernel : ISprite
     {
-        private const double SCALE = 1.75;
+        private const double SCALE = 2;
         protected SymmetricPair<SpriteSource> Source { get; set; }
         protected SymmetricPair<PeriodicFunction<int>> Animation { get; set; }
         protected SymmetricPair<string> ImageFile { get; set; }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class KoopaSpriteState : EnemySpriteState
     {

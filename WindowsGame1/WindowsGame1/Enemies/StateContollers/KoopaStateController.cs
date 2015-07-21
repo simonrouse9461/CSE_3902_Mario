@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class KoopaStateController : StateControllerKernel<KoopaSpriteState, KoopaMotionState>
     {

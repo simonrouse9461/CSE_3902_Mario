@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioGame : Microsoft.Xna.Framework.Game
     {

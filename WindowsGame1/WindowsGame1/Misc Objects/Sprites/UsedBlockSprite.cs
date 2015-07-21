@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class UsedBlockSprite : SpriteKernel
     {

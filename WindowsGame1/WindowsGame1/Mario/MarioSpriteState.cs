@@ -3,7 +3,7 @@ using System.Dynamic;
 using System.Web.Management;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioSpriteState : SpriteStateKernelNew<MarioSpriteVersion>
     {

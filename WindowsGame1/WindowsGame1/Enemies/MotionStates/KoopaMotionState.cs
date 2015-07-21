@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class KoopaMotionState : MotionStateKernelNew
     {

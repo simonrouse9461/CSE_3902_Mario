@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public abstract class ObjectKernelNew<TStateController> : IObject
         where TStateController : IStateControllerNew, new()

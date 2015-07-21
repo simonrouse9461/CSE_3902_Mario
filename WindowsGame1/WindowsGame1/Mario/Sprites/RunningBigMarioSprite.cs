@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class RunningBigMarioSprite : SpriteKernelNew
     {

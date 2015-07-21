@@ -1,8 +1,8 @@
 ﻿using System;
-using WindowsGame1.CommandExecutorDecorators;
+using MarioGame.CommandExecutorDecorators;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
     {
@@ -179,7 +179,7 @@ namespace WindowsGame1
             SpriteState.Die();
             MotionState.Die();
             SoundManager.ChangeToDieMusic();
-            MotionState.Freeze(25);
+            MotionState.Freeze(40);
         }
 
         public void Shoot()

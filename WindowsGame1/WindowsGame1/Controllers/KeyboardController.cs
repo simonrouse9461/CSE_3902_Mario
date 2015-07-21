@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class KeyboardController : IController<Keys>
     {

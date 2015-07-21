@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.ObjectModel;
 
-namespace WindowsGame1
+namespace MarioGame
 {
     public class GamepadController : IController<Buttons>
     {

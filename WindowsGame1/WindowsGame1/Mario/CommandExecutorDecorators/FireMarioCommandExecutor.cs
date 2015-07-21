@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace WindowsGame1.CommandExecutorDecorators
+namespace MarioGame.CommandExecutorDecorators
 {
     public class FireMarioCommandExecutor : MarioCommandExecutor, IDecorator
     {
@@ -20,7 +20,7 @@ namespace WindowsGame1.CommandExecutorDecorators
 
         public void DelayRestore(int timeDelay)
         {
-            Core.DelayCommand(Restore, () => Core.CommandExecutor == this, timeDelay);
+            Core.DelayCommand(Restore, () => Core.CommandExecutor is FireMarioCommandExecutor, timeDelay);
         }
     }
 }
