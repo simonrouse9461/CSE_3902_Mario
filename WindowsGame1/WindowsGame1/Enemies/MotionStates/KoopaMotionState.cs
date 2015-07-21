@@ -25,8 +25,8 @@ namespace MarioGame
             {
                 new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
                 new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
-                new StatusSwitch<IMotion>(UniformMotion.KoopaSlipLeft),
-                new StatusSwitch<IMotion>(UniformMotion.KoopaSlipRight),
+                new StatusSwitch<IMotion>(UniformMotion.KoopaShellLeft),
+                new StatusSwitch<IMotion>(UniformMotion.KoopaShellRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
                 new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
@@ -83,8 +83,8 @@ namespace MarioGame
             MotionStatus = MotionEnum.LeftWalk;
             FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
             FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-            FindMotion(UniformMotion.KoopaSlipLeft).Toggle(false);
-            FindMotion(UniformMotion.KoopaSlipRight).Toggle(false);
+            FindMotion(UniformMotion.KoopaShellLeft).Toggle(false);
+            FindMotion(UniformMotion.KoopaShellRight).Toggle(false);
         }
 
         public void SetDefaultVertical()
@@ -106,8 +106,8 @@ namespace MarioGame
                 }
                 else if (MotionStatus == MotionEnum.RightShellKick)
                 {
-                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(false);
-                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(true);
+                    FindMotion(UniformMotion.KoopaShellRight).Toggle(false);
+                    FindMotion(UniformMotion.KoopaShellLeft).Toggle(true);
                     MotionStatus = MotionEnum.LeftShellKick;
                 }
             }
@@ -121,8 +121,8 @@ namespace MarioGame
                 }
                 else if (MotionStatus == MotionEnum.LeftShellKick)
                 {
-                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(true);
-                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(false);
+                    FindMotion(UniformMotion.KoopaShellRight).Toggle(true);
+                    FindMotion(UniformMotion.KoopaShellLeft).Toggle(false);
                     MotionStatus = MotionEnum.RightShellKick;
                 }
             }
@@ -138,8 +138,8 @@ namespace MarioGame
 
             FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
             FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-            FindMotion(UniformMotion.KoopaSlipRight).Toggle(false);
-            FindMotion(UniformMotion.KoopaSlipLeft).Toggle(false);
+            FindMotion(UniformMotion.KoopaShellRight).Toggle(false);
+            FindMotion(UniformMotion.KoopaShellLeft).Toggle(false);
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)
@@ -149,12 +149,12 @@ namespace MarioGame
                 if (leftOrRight.Equals("left"))
                 {
                     MotionStatus = MotionEnum.RightShellKick;
-                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(true);
+                    FindMotion(UniformMotion.KoopaShellRight).Toggle(true);
                 }
                 else if (leftOrRight.Equals("right"))
                 {
                     MotionStatus = MotionEnum.LeftShellKick;
-                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(true);
+                    FindMotion(UniformMotion.KoopaShellLeft).Toggle(true);
                 }
                 else
                 {

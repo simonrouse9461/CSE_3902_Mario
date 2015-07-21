@@ -13,8 +13,11 @@ namespace MarioGame
             KoopaRight,
             MarioLeft,
             MarioRight,
+            MarioSlip,
+            MarioPipe,
             ItemLeft,
             ItemRight,
+            ItemUp,
             FireballLeft,
             FireballRight
         }
@@ -61,7 +64,7 @@ namespace MarioGame
             }
         }
 
-        public static UniformMotion KoopaSlipLeft
+        public static UniformMotion KoopaShellLeft
         {
             get
             {
@@ -73,7 +76,7 @@ namespace MarioGame
             }
         }
 
-        public static UniformMotion KoopaSlipRight
+        public static UniformMotion KoopaShellRight
         {
             get
             {
@@ -93,6 +96,30 @@ namespace MarioGame
                 {
                     version = Version.MarioLeft,
                     StartVelocity = new Vector2(-4.5f, 0)
+                };
+            }
+        }
+
+        public static UniformMotion MarioSlipDown
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.MarioSlip,
+                    StartVelocity = new Vector2(0, -3)
+                };
+            }
+        }
+
+        public static UniformMotion MarioEnterPipe
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.MarioPipe,
+                    StartVelocity = new Vector2(0, -0.5f)
                 };
             }
         }
@@ -129,6 +156,18 @@ namespace MarioGame
                 {
                     version = Version.ItemRight,
                     StartVelocity = new Vector2(2, 0)
+                };
+            }
+        }
+
+        public static UniformMotion ItemRaiseUp
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.ItemUp,
+                    StartVelocity = new Vector2(0, -0.4f)
                 };
             }
         }
