@@ -1,9 +1,16 @@
 Bowen Dai
 7/21/2015
 Sprint 5
-File: 
-File Author: 
-Time: 8 minutes
+File: ObjectKernelNew.cs
+File Author: Chuhan Feng
+Time: 3 minutes
 
 CODE REVIEW:
+	Compare to the old object kernel the new one increased the cohesion
+and decreased the coupling. It make all the prorperties of an object 
+saperate from each other and have an Core concept to access all of these
+properties. This change list out all the possible properties, and split 
+modifications on sprites, barrier and commands in to different functions 
+which make the object kernel more powerful when people want to change any 
+properties in the future.
 		
