@@ -128,6 +128,9 @@
     <Compile Include="Misc Objects\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\CastleStateController.cs" />
     <Compile Include="Misc Objects\FlagStateController.cs" />
+    <Compile Include="Misc Objects\Objects\FlagObject.cs" />
+    <Compile Include="Misc Objects\QuestionBlockStateController.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\BlockDebrisSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\CastleSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\FlagSpriteVersion.cs" />
@@ -328,7 +331,6 @@
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ChuhanCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
-    <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint5.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeQualityReviewS5.txt" />
     <Content Include="Game.ico" />
