@@ -94,15 +94,13 @@ namespace MarioGame
 
         protected override void Draw(GameTime gameTime)
         {
-                GraphicsDevice.Clear(Color.CornflowerBlue);
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, GameSettings.TextureSampling, null, null);
 
-                WorldManager.Draw(spriteBatch);
+                WorldManager.Draw(GraphicsDevice, spriteBatch);
                 Display.Draw(spriteBatch);
 
                 spriteBatch.End();
                 base.Draw(gameTime);
-           
         }
     }
 }
