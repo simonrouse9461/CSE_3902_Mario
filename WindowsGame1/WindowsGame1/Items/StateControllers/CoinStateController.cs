@@ -14,7 +14,7 @@ namespace MarioGame
         {
             if (MotionState.StopMoving)
             {
-                Core.Object.Unload();
+                Core.Obj.Unload();
             }
         }
 

@@ -5,10 +5,10 @@ namespace MarioGame
 {
     public class BlockStateController : StateControllerKernelNew<BlockSpriteState, BlockMotionState>
     {
-        public bool giveCoin;
-        public bool giveItem;
-        public bool giveStar;
-        public bool giveOneUp;
+        public bool giveCoin { get; private set; }
+        public bool giveItem { get; private set; }
+        public bool giveStar { get; private set; }
+        public bool giveOneUp { get; private set; }
          
         private int numberCoinsLeft = 10;
 
@@ -84,37 +84,37 @@ namespace MarioGame
 
         public void QuestionBlockGiveFireflower()
         {
-            Core.Object.Generate<Fireflower>();           
+            Core.Obj.Generate<Fireflower>();           
             SpriteState.QuestionToUsedBlock();
         }
 
         public void QuestionBlockGiveMushroom()
         {
-            Core.Object.Generate<Mushroom>();
+            Core.Obj.Generate<Mushroom>();
             SpriteState.QuestionToUsedBlock();
         }
 
         public void QuestionBlockGiveCoin()
         {
-            Core.Object.Generate<Coin>();   
+            Core.Obj.Generate<Coin>();   
             SpriteState.QuestionToUsedBlock();
         }
 
         public void NormalBlockCoinHit()
         {
-            Core.Object.Generate<Coin>();
+            Core.Obj.Generate<Coin>();
             CoinLeft--;
         }
 
         public void HiddenBlockGive1Up()
         {
-            Core.Object.Generate<OneUp>();
+            Core.Obj.Generate<OneUp>();
             SpriteState.HiddenToUsedBlock();
         }
 
         public void NormalBlockGiveStar()
         {
-            Core.Object.Generate<Star>();
+            Core.Obj.Generate<Star>();
             SpriteState.QuestionToUsedBlock();
         }
 
@@ -122,7 +122,7 @@ namespace MarioGame
         {
             SpriteState.SetSpriteFrequency(20);
             //SpriteState.Destroyed();
-            Core.DelayCommand(() => Core.Object.Unload(), 35);
+            Core.DelayCommand(() => Core.Obj.Unload(), 35);
         }      
 
     }

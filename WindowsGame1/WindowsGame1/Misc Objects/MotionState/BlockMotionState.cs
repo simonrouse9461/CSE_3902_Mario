@@ -14,8 +14,6 @@ namespace MarioGame
             None
         }
 
-        private VerticalEnum VerticalStatus;
-
         public BlockMotionState()
         {
             MotionList = new Collection<StatusSwitch<IMotion>>{
@@ -25,7 +23,6 @@ namespace MarioGame
 
         public void Hit()
         {
-            VerticalStatus = VerticalEnum.Hit;
             FindMotion<BounceUpMotion>().Toggle(true);
         }
 

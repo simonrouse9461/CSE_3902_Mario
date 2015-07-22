@@ -8,15 +8,20 @@ namespace MarioGame
 {
     public abstract class MotionStateKernelNew : IMotionState
     {
-        public ICoreNew Core { protected get; set; }
+        private ICoreNew Core;
         protected Counter Timer { get; set; }
         protected Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
-        public bool Frozen { get; private set; }
+        public bool isFrozen { get; private set; }
 
-        public bool Static
+        public void SetCore(ICoreNew c)
+        {
+            Core = c;
+        }
+
+        public bool isStatic
         {
             get { return MotionList.All(m => !m.Status); }
         }
@@ -41,13 +46,13 @@ namespace MarioGame
 
         public void Freeze(int timer = 0)
         {
-            Frozen = true;
+            isFrozen = true;
             if (timer != 0) Core.DelayCommand(Restore, timer);
         }
 
         public void Restore()
         {
-            Frozen = false;
+            isFrozen = false;
         }
 
         public void Reset()
@@ -77,7 +82,7 @@ namespace MarioGame
 
         public void Update()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             if (MotionList == null) return;
             if (Timer.Update())
             {

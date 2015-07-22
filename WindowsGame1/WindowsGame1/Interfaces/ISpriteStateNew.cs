@@ -6,16 +6,16 @@ namespace MarioGame
 {
     public interface ISpriteStateNew
     {
-        ICoreNew Core { set; }
         ISpriteNew Sprite { get; }
         Color Color { get; }
         Orientation Orientation { get; }
         IConvertible Version { get; }
         bool Left { get; }
         bool Right { get; }
-        bool Default { get; }
+        bool DefaultSprite { get; }
         bool Held { get; }
 
+        void SetCore(ICoreNew c);
         void SetOrientation(Orientation orientation);
         void FaceLeft();
         void FaceRight();

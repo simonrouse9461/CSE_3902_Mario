@@ -28,26 +28,7 @@ namespace MarioGame
 
             if (!Core.StateController.SpriteState.Dead)
             {
-                if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
-                {
-                    Core.StateController.Flip();
-                }
-                else if (Core.CollisionDetector.Detect<IBlock>(block => block.Hit).Bottom.Touch)
-                {
-                    Core.StateController.Flip();
-                }
-                else if (Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
-                {
-                    Core.StateController.Flip();
-                }
-                else if (Core.CollisionDetector.Detect<FireballObject>().AnyEdge.Touch || Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
-                {
-                    Core.StateController.Flip();
-                }
-                else if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
-                {
-                    Core.StateController.MarioSmash();
-                }
+                CheckDamageCollisions();
             }
             else
             {
@@ -60,6 +41,30 @@ namespace MarioGame
                 {
                     Core.StateController.TakeMarioHitFromSide("right");
                 }
+            }
+        }
+
+        public void CheckDamageCollisions()
+        {
+            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.StarPower).AnyEdge.Touch)
+            {
+                Core.StateController.Flip();
+            }
+            else if (Core.CollisionDetector.Detect<IBlock>(block => block.Hit).Bottom.Touch)
+            {
+                Core.StateController.Flip();
+            }
+            else if (Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
+            {
+                Core.StateController.Flip();
+            }
+            else if (Core.CollisionDetector.Detect<FireballObject>().AnyEdge.Touch || Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
+            {
+                Core.StateController.Flip();
+            }
+            else if (Core.CollisionDetector.Detect<MarioObject>(mario => (mario.Alive && mario.GoingDown)).Top.Touch)
+            {
+                Core.StateController.MarioSmash();
             }
         }
     }

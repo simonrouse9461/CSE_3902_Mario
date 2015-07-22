@@ -19,7 +19,7 @@ namespace MarioGame
             if (core is CoreNew<TStateController>)
                 Core = (CoreNew<TStateController>)core;
             else
-                Core = new CoreNew<TStateController>(core.Object)
+                Core = new CoreNew<TStateController>(core.Obj)
                 {
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,
@@ -86,10 +86,10 @@ namespace MarioGame
         }
         public virtual void ResetVelocity()
         {
-            if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVerticalVelocity();
-            if (BarrierCollision.Top.Touch && Core.Object.GoingUp) Core.GeneralMotionState.ResetVerticalVelocity();
-            if (BarrierCollision.Left.Touch && Core.Object.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
-            if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
+            if (BarrierCollision.Bottom.Touch && Core.Obj.GoingDown) Core.GeneralMotionState.ResetVerticalVelocity();
+            if (BarrierCollision.Top.Touch && Core.Obj.GoingUp) Core.GeneralMotionState.ResetVerticalVelocity();
+            if (BarrierCollision.Left.Touch && Core.Obj.GoingLeft) Core.GeneralMotionState.ResetHorizontalVelocity();
+            if (BarrierCollision.Right.Touch && Core.Obj.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
         }
 
         public abstract void HandleCollision();
