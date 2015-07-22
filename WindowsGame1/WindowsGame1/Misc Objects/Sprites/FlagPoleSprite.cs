@@ -8,7 +8,7 @@ namespace MarioGame
     public class FlagPoleSprite : SpriteKernelNew
     {
 
-        public FlagPoleSprite()
+        public FlagPoleSprite() : base(FlagSpriteVersion.Overworld)
         {
 
             AddSource(
