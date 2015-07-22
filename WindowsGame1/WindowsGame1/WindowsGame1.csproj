@@ -126,6 +126,7 @@
     <Compile Include="Mario\MarioSpriteVersion.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
+    <Compile Include="Misc Objects\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\CastleStateController.cs" />
     <Compile Include="Misc Objects\FlagStateController.cs" />
     <Compile Include="Misc Objects\Sprite Versions\BlockSpriteVersion.cs" />
@@ -138,6 +139,9 @@
     <Compile Include="Misc Objects\Sprite Versions\UsedBlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\SpriteState\CastleSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\FlagSpriteState.cs" />
+    <Compile Include="Misc Objects\SpriteState\NormalBlockSpriteState.cs" />
+    <Compile Include="Misc Objects\SpriteState\QuestionBlockSpriteState.cs" />
+    <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Motions\UniformMotion.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />

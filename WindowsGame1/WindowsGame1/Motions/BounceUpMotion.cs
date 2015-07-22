@@ -170,8 +170,8 @@ namespace MarioGame
                 return new BounceUpMotion
                 {
                     version = Version.BlockHit,
-                    StartVelocity = new Vector2(0, -7f),
-                    Acceleration = new Vector2(0, 1.59f),
+                    StartVelocity = new Vector2(0, -7.15f),
+                    Acceleration = new Vector2(0, 1.591f),
                     InvolveGravity = false,
                     MaxVelocity = GravityMotion.Max,
                     FinishWhenMax = true
