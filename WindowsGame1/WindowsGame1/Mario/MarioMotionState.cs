@@ -17,7 +17,8 @@ namespace MarioGame
         {
             Default,
             Jump,
-            Bounce
+            Bounce,
+            Slip
         }
 
         private HorizontalEnum HorizontalStatus { get; set; }
@@ -158,8 +159,8 @@ namespace MarioGame
         {
             SetDefaultHorizontal();
             SetDefaultVertical();
-            LoseGravity();
             FindMotion(UniformMotion.MarioSlipDown).Toggle(true);
+            VerticalStatus = VerticalEnum.Slip;
         }
 
         public bool DefaultHorizontal
@@ -210,6 +211,11 @@ namespace MarioGame
         public bool Bouncing
         {
             get { return VerticalStatus == VerticalEnum.Bounce; }
+        }
+
+        public bool Sliping
+        {
+            get { return VerticalStatus == VerticalEnum.Slip; }
         }
     }
 }

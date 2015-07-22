@@ -52,6 +52,7 @@ namespace MarioGame
                 MotionState.Stop();
                 SpriteState.Run();
             }
+            if (MotionState.Sliping) MotionState.SetDefaultVertical();
             DefaultAction();
         }
 
@@ -286,7 +287,6 @@ namespace MarioGame
 
         public void FinishLevel()
         {
-            Core.SwitchComponent(new FinishLevelBarrierHandler(Core));
             Core.SwitchComponent(new FinishLevelCommandExecutor(Core));
             MotionState.Slip();
         }
