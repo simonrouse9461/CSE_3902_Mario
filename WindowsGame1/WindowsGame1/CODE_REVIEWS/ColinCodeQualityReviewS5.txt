@@ -1,0 +1,12 @@
+﻿Author: Colin Dolan
+Date: 7/21/2015
+Sprint: 5
+File: BlockStateController.cs
+Author of File: Andrew Miller
+
+Code Quality:
+Code has high cohesion and low cyclomatic complexity. Number of lines is on the higher side
+but not excessive. Class does use SpriteState frequently but it is expected for a state
+controller. Because of the granular nature of the methods etc. in this class, changes or 
+additions would be very simple if more block types or items spawning from blocks were added.
+Overall, while not the most complex class, it is well implemented and has high code quality.
