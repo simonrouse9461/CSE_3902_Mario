@@ -33,8 +33,6 @@ namespace MarioGame
             AddSprite<NormalBlockSprite>();
             AddSprite<FloorBlockSprite>();
             AddSprite<IndestructibleBlockSprite>();
-            AddSprite<CastleSprite>();
-            AddSprite<FlagPoleSprite>();
 
             AddColorScheme(ColorList.Transparent,
                 new[] { Color.Transparent });
@@ -154,11 +152,6 @@ namespace MarioGame
         public bool isHidden
         {
             get { return IsColorScheme(ColorList.Transparent); }
-        }
-
-        public void Castle()
-        {
-            SetSprite<CastleSprite>();
         }
     }
 }

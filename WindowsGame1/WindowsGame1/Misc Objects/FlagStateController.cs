@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
 namespace MarioGame
@@ -8,7 +8,9 @@ namespace MarioGame
 
         public void Flag()
         {
-            SpriteState.Flag();
+
+            SpriteState.SetFlag();
         }
+
     }
 }

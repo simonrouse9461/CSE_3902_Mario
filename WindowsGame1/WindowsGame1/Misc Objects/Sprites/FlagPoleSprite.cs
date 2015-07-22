@@ -5,19 +5,20 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class FlagPoleSprite : SpriteKernel
+    public class FlagPoleSprite : SpriteKernelNew
     {
 
         public FlagPoleSprite()
         {
-            ImageFile.Default = "misc";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+
+            AddSource(
+                FlagSpriteVersion.Overworld,
+                "misc",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(261,594,8,152)
-                }
-            };
+                    {new Rectangle(261,594,8,152), Orientation.Default},
+                });
+            
         }    
     }
 }
