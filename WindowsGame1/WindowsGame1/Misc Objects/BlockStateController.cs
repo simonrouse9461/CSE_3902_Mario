@@ -124,14 +124,7 @@ namespace MarioGame
             SpriteState.SetSpriteFrequency(20);
             //SpriteState.Destroyed();
             Core.DelayCommand(() => Core.Object.Unload(), 35);
-        }
-
-        public void Castle()
-        {
-            SpriteState.Castle();
-        }
-
-        
+        }      
 
     }
 }
