@@ -36,7 +36,7 @@ namespace MarioGame
         {
             get
             {
-                return Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch;
+                return Core.CollisionDetector.Detect<MarioObject>().Bottom.Touch;
             }
         }
     }
