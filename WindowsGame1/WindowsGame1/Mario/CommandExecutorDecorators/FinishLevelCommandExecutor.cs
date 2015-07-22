@@ -7,6 +7,7 @@
         {
             DefaultCommandExecutor = (MarioCommandExecutor)core.CommandExecutor;
             ClearCommands();
+            RegisterCommand(typeof(MarioDieCommand), Core.StateController.Die);
         }
 
         public void Restore()

@@ -7,10 +7,21 @@ namespace MarioGame
 {
     public class FlagPoleObject : ObjectKernelNew<FlagStateController>
     {
-
         public FlagPoleObject()
         {
             StateController.Flag();
+        }
+
+        public override Rectangle CollisionRectangle
+        {
+            get
+            {
+                return new Rectangle(
+                    PositionRectangle.X + 3, 
+                    PositionRectangle.Y, 
+                    PositionRectangle.Width - 6,
+                    PositionRectangle.Height);
+            }
         }
     }
 }

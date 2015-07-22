@@ -122,8 +122,12 @@
     <Compile Include="Interfaces\IDecorator.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelBarrierHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FinishLevelCommandExecutor.cs" />
+    <Compile Include="Mario\MarioAutoOperator.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
+    <Compile Include="Mario\Sprites\SlipingSuperMarioSprite.cs" />
+    <Compile Include="Mario\Sprites\SlipingSmallMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
     <Compile Include="Misc Objects\CastleStateController.cs" />

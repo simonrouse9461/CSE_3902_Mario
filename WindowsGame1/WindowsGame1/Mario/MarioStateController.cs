@@ -30,6 +30,8 @@ namespace MarioGame
             }
         }
 
+        public bool SelfControl { get; private set; }
+
         public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
@@ -52,13 +54,14 @@ namespace MarioGame
                 MotionState.Stop();
                 SpriteState.Run();
             }
-            if (MotionState.Sliping) MotionState.SetDefaultVertical();
+            if (MotionState.Sliping) MotionState.StopSlip();
             DefaultAction();
         }
 
         public void Liftoff()
         {
             if (SpriteState.Dead) return;
+            if (MotionState.Sliping) return;
             if (!MotionState.Gravity) MotionState.ObtainGravity();
             if (!MotionState.HaveInertia) MotionState.GetInertia();
             DefaultAction();
@@ -287,8 +290,12 @@ namespace MarioGame
 
         public void FinishLevel()
         {
+            if (SelfControl) return;
+            SelfControl = true;
             Core.SwitchComponent(new FinishLevelCommandExecutor(Core));
+            Core.SwitchComponent(new FinishLevelBarrierHandler(Core));
             MotionState.Slip();
+            SpriteState.Slip();
         }
     }
 }

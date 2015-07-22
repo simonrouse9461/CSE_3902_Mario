@@ -37,6 +37,8 @@ namespace MarioGame
             AddSprite<ShrinkingMarioSprite>();
             AddSprite<ShootingMarioSprite>();
             AddSprite<UpgradingMarioSprite>();
+            AddSprite<SlipingSmallMarioSprite>();
+            AddSprite<SlipingSuperMarioSprite>();
 
             AddColorScheme(ColorScheme.Blink, 
                 new[] {Color.White, Color.Transparent});
@@ -227,6 +229,17 @@ namespace MarioGame
         public bool Shooting
         {
             get { return IsSprite<ShootingMarioSprite>(); }
+        }
+
+        public void Slip()
+        {
+            if (Super) SetSprite<SlipingSuperMarioSprite>();
+            else SetSprite<SlipingSmallMarioSprite>();
+        }
+
+        public bool Sliping
+        {
+            get { return IsSprite<SlipingSmallMarioSprite>() || IsSprite<SlipingSuperMarioSprite>(); }
         }
     }
 }
