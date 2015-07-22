@@ -36,48 +36,6 @@ namespace MarioGame
             SetDefaultHorizontal();
         }
 
-        // this method has been abandoned
-
-//        protected override void RefreshMotionStatus()
-//        {
-//            if (OutgoingMotionStatus != MotionEnum.Null) {
-//                if (OutgoingMotionStatus == MotionEnum.LeftWalk)
-//                {
-//                    FindMotion<MoveLeftMotion>().Toggle(false);
-//                }
-//                else if (OutgoingMotionStatus == MotionEnum.RightWalk)
-//                {
-//                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-//                }
-//
-//                OutgoingMotionStatus = MotionEnum.Null;
-//            }
-//
-//            switch (MotionStatus)
-//            {
-//                case MotionEnum.LeftWalk:
-//                    FindMotion<MoveLeftMotion>().Toggle(true);
-//                    break;
-//                case MotionEnum.RightWalk:
-//                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
-//                    break;
-//                case MotionEnum.LeftShellKick:
-//                    FindMotion(UniformMotion.KoopaSlipLeft).Toggle(true);
-//                    break;
-//                case MotionEnum.RightShellKick:
-//                    FindMotion(UniformMotion.KoopaSlipRight).Toggle(true);
-//                    break;
-//            }
-//
-//            if (Gravity)
-//            {
-//                FindMotion<GravityMotion>().Toggle(true);
-//            }
-//            else
-//            {
-//                FindMotion<GravityMotion>().Toggle(false);
-//            }
-//        }
         public void SetDefaultHorizontal()
         {
             MotionStatus = MotionEnum.LeftWalk;
