@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class BlockStateController : StateControllerKernel<BlockSpriteState, BlockMotionState>
+    public class BlockStateController : StateControllerKernelNew<BlockSpriteState, BlockMotionState>
     {
         
         public bool giveCoin;
@@ -121,20 +121,10 @@ namespace MarioGame
 
         public void NormalBlockDestroyed()
         {
-            SpriteState.ChangeSpriteFrequency(20);
-            SpriteState.Destroyed();
+            SpriteState.SetSpriteFrequency(20);
+            //SpriteState.Destroyed();
             Core.DelayCommand(() => Core.Object.Unload(), 35);
-        }
-
-        public void Castle()
-        {
-            SpriteState.Castle();
-        }
-
-        public void Flag()
-        {
-            SpriteState.Flag();
-        }
+        }      
 
     }
 }

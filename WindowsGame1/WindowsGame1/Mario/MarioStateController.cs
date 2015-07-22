@@ -1,4 +1,5 @@
 ﻿using System;
+using MarioGame.BarrierHandlerDecorators;
 using Microsoft.Xna.Framework;
 
 namespace MarioGame
@@ -51,6 +52,7 @@ namespace MarioGame
                 MotionState.Stop();
                 SpriteState.Run();
             }
+            if (MotionState.Sliping) MotionState.SetDefaultVertical();
             DefaultAction();
         }
 
@@ -183,6 +185,7 @@ namespace MarioGame
 
         public void Shoot()
         {
+            if (!SpriteState.HaveFire) return;
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
@@ -197,7 +200,7 @@ namespace MarioGame
 
         public void Sprint()
         {
-            
+            if (!SpriteState.Super) return;
         }
 
         public void Grow()
@@ -279,12 +282,13 @@ namespace MarioGame
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
-            Core.BarrierHandler.RemoveBarrier<Koopa>();
-            Core.BarrierHandler.RemoveBarrier<Goomba>();
-
             Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
-            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Koopa>(), restoreTime);
-            Core.DelayCommand(() => Core.BarrierHandler.AddBarrier<Goomba>(), restoreTime);
+        }
+
+        public void FinishLevel()
+        {
+            Core.SwitchComponent(new FinishLevelCommandExecutor(Core));
+            MotionState.Slip();
         }
     }
 }

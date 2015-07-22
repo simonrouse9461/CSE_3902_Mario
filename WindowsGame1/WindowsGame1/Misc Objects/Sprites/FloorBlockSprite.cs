@@ -9,11 +9,11 @@ namespace MarioGame
     {
 
         public FloorBlockSprite()
-            : base(BlockSpriteVersion.BlockVersion.Overworld)
+            : base(FloorBlockSpriteVersion.Overworld)
         {
 
             AddSource(
-                BlockSpriteVersion.BlockVersion.Overworld,
+                FloorBlockSpriteVersion.Overworld,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>
                 {
@@ -21,7 +21,7 @@ namespace MarioGame
                 });
 
             AddSource(
-                BlockSpriteVersion.BlockVersion.Underworld,
+                FloorBlockSpriteVersion.Underworld,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>{
                     {new Rectangle(393, 124, 16, 16), Orientation.Default},

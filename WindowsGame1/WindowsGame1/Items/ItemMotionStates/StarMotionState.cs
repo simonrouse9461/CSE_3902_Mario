@@ -14,7 +14,7 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(UniformMotion.ItemMoveLeft),
                 new StatusSwitch<IMotion>(UniformMotion.ItemMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(new RaiseUpMotion()),
+                new StatusSwitch<IMotion>((UniformMotion.ItemRaiseUp)),
                 new StatusSwitch<IMotion>(BounceUpMotion.StarMotion)
             };
             LoseGravity();
@@ -23,18 +23,18 @@ namespace MarioGame
 
         public void SetDefaultHorizontal()
         {
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
+            FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
         }
 
         public void SetDefaultVertical()
         {
-            FindMotion<RaiseUpMotion>().Toggle(false);
+            FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
             FindMotion<BounceUpMotion>().Toggle(false);
         }
 
         public void Generated()
         {
-            FindMotion<RaiseUpMotion>().Toggle(true);
+            FindMotion(UniformMotion.ItemRaiseUp).Toggle(true);
         }
 
         public void ObtainGravity()
@@ -49,8 +49,8 @@ namespace MarioGame
 
         public void Moving()
         {
-            FindMotion<RaiseUpMotion>().Toggle(false);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
+            FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
+            FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
             FindMotion<BounceUpMotion>().Toggle(true);
             FindMotion<GravityMotion>().Toggle(true);
         }
@@ -59,21 +59,21 @@ namespace MarioGame
         {
             get
             {
-                return FindMotion<RaiseUpMotion>().Status;
+                return FindMotion(UniformMotion.ItemRaiseUp).Status;
             }
         }
 
         public void ChangeDirection()
         {
-            if (FindMotion(UniformMotion.EnemyMoveRight).Status)
+            if (FindMotion(UniformMotion.ItemMoveRight).Status)
             {
-                FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
+                FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
+                FindMotion(UniformMotion.ItemMoveLeft).Toggle(true);
             }
             else
             {
-                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-                FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
+                FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
+                FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
             }
         }
 

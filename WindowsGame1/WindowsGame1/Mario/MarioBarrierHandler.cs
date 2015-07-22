@@ -21,7 +21,7 @@ namespace MarioGame
             if (BarrierCollision.Right.Touch && Core.Object.GoingRight) Core.GeneralMotionState.ResetHorizontalVelocity();
         }
 
-        private void CheckCeiling()
+        protected virtual void CheckCeiling()
         {
             if ((BarrierCollision.TopLeft | BarrierCollision.TopRight).Cover)
             {
@@ -30,7 +30,7 @@ namespace MarioGame
             }
         }
 
-        private void CheckFloor()
+        protected virtual void CheckFloor()
         {
             if (BarrierCollision.Bottom.Touch)
             {

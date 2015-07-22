@@ -8,11 +8,11 @@ namespace MarioGame
     public class UsedBlockSprite : SpriteKernelNew
     {
         public UsedBlockSprite()
-            : base(BlockSpriteVersion.BlockVersion.Overworld)
+            : base(UsedBlockSpriteVersion.UsedOver)
         {
 
             AddSource(
-                BlockSpriteVersion.BlockVersion.Overworld,
+                UsedBlockSpriteVersion.UsedOver,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>
                 {
@@ -20,7 +20,7 @@ namespace MarioGame
                 });
 
             AddSource(
-                BlockSpriteVersion.BlockVersion.Underworld,
+                UsedBlockSpriteVersion.UsedUnder,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>{
                     {new Rectangle(394, 84, 16, 16), Orientation.Default},

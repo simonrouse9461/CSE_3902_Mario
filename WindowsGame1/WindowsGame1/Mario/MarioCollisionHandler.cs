@@ -14,6 +14,7 @@ namespace MarioGame
             HandleMushroom();
             HandleStar();
             HandleEnemy();
+            HandleFlagPole();
         }
 
         protected virtual void HandleMushroom()
@@ -38,7 +39,8 @@ namespace MarioGame
         {
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
-                Core.DelayCommand(Core.StateController.GetFire, 5);
+                if (Core.StateController.SpriteState.Small) Core.DelayCommand(Core.StateController.Grow, 5);
+                else Core.DelayCommand(Core.StateController.GetFire, 5);
                 SoundManager.PowerUpSoundPlay();
             }
         }
@@ -52,6 +54,14 @@ namespace MarioGame
             if (Core.CollisionDetector.Detect<IEnemy>().Bottom.Touch)
             {
                 Core.StateController.Bounce();
+            }
+        }
+
+        protected void HandleFlagPole()
+        {
+            if (Core.CollisionDetector.Detect<FlagPoleObject>().AnyEdge.Touch)
+            {
+                Core.StateController.FinishLevel();
             }
         }
     }

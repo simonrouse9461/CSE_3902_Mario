@@ -8,25 +8,51 @@ namespace MarioGame
     public class QuestionBlockSprite : SpriteKernelNew
     {
         public QuestionBlockSprite()
-            : base(BlockSpriteVersion.BlockVersion.Overworld)
+            : base(QuestionBlockSpriteVersion.YellowOver)
         {
 
             AddSource(
-                BlockSpriteVersion.BlockVersion.Overworld,
+                QuestionBlockSpriteVersion.YellowOver,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(372, 160, 16, 16), Orientation.Default},
-                    {new Rectangle(390, 160, 16, 16), Orientation.Default},
+                    {new Rectangle(372, 160, 16, 16), Orientation.Default}   
+                });
+            AddSource(
+                QuestionBlockSpriteVersion.OrangeOver,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
+                {
+                   {new Rectangle(390, 160, 16, 16), Orientation.Default}
+                });
+            AddSource(
+                QuestionBlockSpriteVersion.BrownOver,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
+                {
                     {new Rectangle(409, 160, 16, 16), Orientation.Default}
                 });
 
             AddSource(
-                BlockSpriteVersion.BlockVersion.Underworld,
+                QuestionBlockSpriteVersion.YellowUnder,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>{
-                    {new Rectangle(372, 179, 16, 16), Orientation.Default},
-                    {new Rectangle(390, 179, 16, 16), Orientation.Default},
+                    {new Rectangle(372, 179, 16, 16), Orientation.Default}
+                }
+                );
+
+            AddSource(
+                QuestionBlockSpriteVersion.OrangeUnder,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(390, 179, 16, 16), Orientation.Default}
+                }
+                );
+
+            AddSource(
+                QuestionBlockSpriteVersion.BrownUnder,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>{
                     {new Rectangle(409, 179, 16, 16), Orientation.Default}
                 }
                 );

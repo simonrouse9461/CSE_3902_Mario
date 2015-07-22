@@ -17,7 +17,8 @@ namespace MarioGame
         {
             Default,
             Jump,
-            Bounce
+            Bounce,
+            Slip
         }
 
         private HorizontalEnum HorizontalStatus { get; set; }
@@ -42,7 +43,8 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioDie),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioJump),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioStamp),
-                new StatusSwitch<IMotion>(new GravityMotion())
+                new StatusSwitch<IMotion>(new GravityMotion()),
+                new StatusSwitch<IMotion>(UniformMotion.MarioSlipDown)
             };
 
             SetDefaultHorizontal();
@@ -63,6 +65,8 @@ namespace MarioGame
         {
             VerticalStatus = VerticalEnum.Default;
             FindMotion(BounceUpMotion.MarioJump).Toggle(false);
+            FindMotion(BounceUpMotion.MarioStamp).Toggle(false);
+            FindMotion(UniformMotion.MarioSlipDown).Toggle(false);
         }
 
         public void GoLeft()
@@ -151,6 +155,14 @@ namespace MarioGame
             FindMotion(BounceUpMotion.MarioDie).Toggle(true);
         }
 
+        public void Slip()
+        {
+            SetDefaultHorizontal();
+            SetDefaultVertical();
+            FindMotion(UniformMotion.MarioSlipDown).Toggle(true);
+            VerticalStatus = VerticalEnum.Slip;
+        }
+
         public bool DefaultHorizontal
         {
             get
@@ -199,6 +211,11 @@ namespace MarioGame
         public bool Bouncing
         {
             get { return VerticalStatus == VerticalEnum.Bounce; }
+        }
+
+        public bool Sliping
+        {
+            get { return VerticalStatus == VerticalEnum.Slip; }
         }
     }
 }

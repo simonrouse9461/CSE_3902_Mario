@@ -90,49 +90,55 @@ namespace MarioGame
 
         public void QuestionToUsedBlock()
         {
-            SetVersion(BlockSpriteVersion.Used);
+            SetSprite<UsedBlockSprite>();
+            
         }
 
         public void HiddenToUsedBlock()
         {
-            SetVersion(BlockSpriteVersion.Used);
+            SetSprite<UsedBlockSprite>();
+            
         }
 
         public void FloorBlock()
         {
-            SetVersion(BlockSpriteVersion.Floor);
+            SetSprite<FloorBlockSprite>();
+            
         }
 
         public void HiddenBlock()
         {
-           SetVersion(BlockSpriteVersion.Hidden);
+            SetColorScheme(ColorList.Transparent);
+           
         }
 
         public void Indestructible()
         {
-            SetVersion(BlockSpriteVersion.Indestructible);
+            SetSprite<IndestructibleBlockSprite>();
+            
         }
 
         public void QuestionBlock()
         {
-            SetVersion(BlockSpriteVersion.Question);
+            SetSprite<QuestionBlockSprite>();
         }
 
         public void NormalBlock()
         {
-            SetVersion(BlockSpriteVersion.Normal);
+            SetSprite<NormalBlockSprite>();
         }
 
         public bool isNormal
         {
-            get { return IsVersion(BlockSpriteVersion.Normal); }
+            get { return IsSprite<NormalBlockSprite>(); }
         }
 
         public bool isUsed
         {
-            get { return IsVersion(BlockSpriteVersion.Used); }
+            get { return IsSprite<UsedBlockSprite>(); }
         }
 
+        
         //public void Destroyed()
         //{
         //    Status = StatusEnum.Destroyed;
@@ -140,12 +146,12 @@ namespace MarioGame
 
         public bool isQuestion
         {
-            get { return IsVersion(BlockSpriteVersion.Question); }
+            get { return IsSprite<QuestionBlockSprite>(); }
         }
 
         public bool isHidden
         {
-            get { return IsVersion(BlockSpriteVersion.Hidden); }
+            get { return IsColorScheme(ColorList.Transparent); }
         }
     }
 }

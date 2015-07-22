@@ -11,6 +11,7 @@ Content\characters.xnb
 Content\enemies.xnb
 Content\pipes green.xnb
 Content\mario-luigi.xnb
+Content\misc_sprites.xnb
 Content\LevelData.xnb
 Content\Audio\blockBreak.xnb
 Content\Audio\stomp.xnb
@@ -24,7 +25,6 @@ Content\Audio\powerUpAppear.xnb
 Content\Audio\star.xnb
 Content\Audio\underworld.xnb
 Content\Audio\win.xnb
-Content\misc_sprites.xnb
 Content\Audio\bump.xnb
 Content\Audio\jump-small.xnb
 Content\Audio\jump-super.xnb

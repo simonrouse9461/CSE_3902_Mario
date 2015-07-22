@@ -5,19 +5,20 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class CastleSprite : SpriteKernel
+    public class CastleSprite : SpriteKernelNew
     {
 
         public CastleSprite()
         {
-            ImageFile.Default = "misc";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
+
+            AddSource(
+                CastleSpriteVersion.Overworld,
+                "misc_sprites",
+                new OrderedPairs<Rectangle, Orientation>
                 {
-                    new Rectangle(247, 863, 80, 80)
-                }
-            };
+                    {new Rectangle(247, 863, 80, 80), Orientation.Default},
+                });
+            
         }
     }
 }
