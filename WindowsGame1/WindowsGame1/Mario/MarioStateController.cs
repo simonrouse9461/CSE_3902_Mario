@@ -193,7 +193,7 @@ namespace MarioGame
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            Core.Obj.Generate(
+            Core.Object.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -25),
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
