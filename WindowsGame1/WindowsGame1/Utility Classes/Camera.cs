@@ -9,6 +9,7 @@ namespace MarioGame
         private readonly Vector2 _screenSize;
         private readonly Collection<IObject> _objectList;
         private readonly static Camera Instance = new Camera();
+        private bool _fixed;
 
         private Camera()
         {
@@ -44,21 +45,33 @@ namespace MarioGame
                 (int) (ScreenSize.Y + offset.Y + offset.W));
         }
 
+        public static void Fix()
+        {
+            Instance._fixed = true;
+        }
+
+        public static void Release()
+        {
+            Instance._fixed = false;
+        }
+
         public static void Adjust(Vector2 offset)
         {
+            if (Instance._fixed) return;
             Instance._location += offset;
+            Adjusted = true;
         }
 
         public static void Adjust(float x, float y = 0)
         {
             Adjust(new Vector2(x, y));
-            Adjusted = true;
         }
 
         public static void Reset(Vector2 location = default(Vector2))
         {
             Instance._location = location;
             ClearObject();
+            Release();
             Adjusted = true;
         }
 

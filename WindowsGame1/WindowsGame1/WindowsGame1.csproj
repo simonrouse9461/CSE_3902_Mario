@@ -95,12 +95,8 @@
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
-    <Compile Include="Enemies\GameCommands\CameraLeftCommand.cs" />
-    <Compile Include="Enemies\GameCommands\CameraRightCommand.cs" />
-    <Compile Include="Enemies\GameCommands\CameraDownCommand.cs" />
-    <Compile Include="Enemies\GameCommands\CameraUpCommand.cs" />
-    <Compile Include="Enemies\GameCommands\PauseCommand.cs" />
-    <Compile Include="Enemies\GameCommands\ResetCommand.cs" />
+    <Compile Include="GameCommands\PauseCommand.cs" />
+    <Compile Include="GameCommands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\KoopaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
@@ -121,9 +117,8 @@
     <Compile Include="Interfaces\IDecorator.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
-    <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelBarrierHandler.cs" />
-    <Compile Include="Mario\CommandExecutorDecorators\FinishLevelCommandExecutor.cs" />
-    <Compile Include="Mario\MarioAutoOperator.cs" />
+    <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
+    <Compile Include="Mario\CommandExecutorDecorators\FinishLevelMarioCommandExecutor.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
     <Compile Include="Mario\Sprites\SlipingSuperMarioSprite.cs" />
     <Compile Include="Mario\Sprites\SlipingSmallMarioSprite.cs" />
@@ -296,7 +291,7 @@
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
-    <Compile Include="Enemies\GameCommands\QuitCommand.cs" />
+    <Compile Include="GameCommands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Motions\DampMotion.cs" />

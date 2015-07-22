@@ -7,8 +7,7 @@ namespace MarioGame
 
         public override void Execute()
         {
-            WorldManager.FindObject<MarioObject>().Reset();
+            new MarioDieCommand().Execute();
         }
-
     }
 }

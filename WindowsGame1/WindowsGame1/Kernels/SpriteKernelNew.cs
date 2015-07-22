@@ -61,6 +61,10 @@ namespace MarioGame
 
         public int Cycle { get { return Animation.Cycle; } }
 
+        public int Width { get { return (int)(SourceCoodinates.Width*GameSettings.SpriteScale); } }
+
+        public int Height { get { return (int)(SourceCoodinates.Height*GameSettings.SpriteScale); } }
+
         public IConvertible Version { get; private set; }
 
         public void SetVersion(IConvertible version)

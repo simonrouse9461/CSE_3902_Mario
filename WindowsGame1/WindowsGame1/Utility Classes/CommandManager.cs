@@ -19,11 +19,6 @@ namespace MarioGame
         private ICommand marioLeftCommand;
         private ICommand marioRightCommand;
         private ICommand marioFireballCommand;
-        // Camera Commands
-        private ICommand cameraUpCommand;
-        private ICommand cameraDownCommand;
-        private ICommand cameraLeftCommand;
-        private ICommand cameraRightCommand;
 
         public CommandManager(MarioGame game)
         {
@@ -42,11 +37,6 @@ namespace MarioGame
             resetCommand = new ResetCommand(game);
             quitCommand = new QuitCommand(game);
 
-            cameraUpCommand = new CameraUpCommand(game);
-            cameraDownCommand = new CameraDownCommand(game);
-            cameraLeftCommand = new CameraLeftCommand(game);
-            cameraRightCommand = new CameraRightCommand(game);
-
             keyboardController.RegisterCommand(Keys.P, pauseCommand);
             keyboardController.RegisterCommand(Keys.Q, quitCommand);
             keyboardController.RegisterCommand(Keys.R, resetCommand);
@@ -57,10 +47,6 @@ namespace MarioGame
             keyboardController.RegisterCommand(Keys.Down, marioDownCommand);
             keyboardController.RegisterCommand(Keys.Left, marioLeftCommand);
             keyboardController.RegisterCommand(Keys.Right, marioRightCommand);
-            keyboardController.RegisterCommand(Keys.W, cameraUpCommand);
-            keyboardController.RegisterCommand(Keys.S, cameraDownCommand);
-            keyboardController.RegisterCommand(Keys.A, cameraLeftCommand);
-            keyboardController.RegisterCommand(Keys.D, cameraRightCommand);
             keyboardController.RegisterCommand(Keys.X, marioFireballCommand);
         }
 

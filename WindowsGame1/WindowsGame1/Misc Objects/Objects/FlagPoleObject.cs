@@ -17,9 +17,9 @@ namespace MarioGame
             get
             {
                 return new Rectangle(
-                    PositionRectangle.X + 3, 
+                    PositionRectangle.X + 4, 
                     PositionRectangle.Y, 
-                    PositionRectangle.Width - 6,
+                    PositionRectangle.Width - 8,
                     PositionRectangle.Height);
             }
         }

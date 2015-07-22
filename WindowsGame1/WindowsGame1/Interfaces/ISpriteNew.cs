@@ -10,6 +10,8 @@ namespace MarioGame
     {
         int Cycle { get; }
         IConvertible Version { get; }
+        int Width { get; }
+        int Height { get; }
 
         void SetVersion(IConvertible version);
         void Reset();

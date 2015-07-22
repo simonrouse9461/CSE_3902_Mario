@@ -1,9 +1,9 @@
 ﻿namespace MarioGame.BarrierHandlerDecorators
 {
-    public class FinishLevelCommandExecutor : MarioCommandExecutor, IDecorator
+    public class FinishLevelMarioCommandExecutor : MarioCommandExecutor, IDecorator
     {
         public MarioCommandExecutor DefaultCommandExecutor { get; private set; }
-        public FinishLevelCommandExecutor(ICoreNew core) : base(core)
+        public FinishLevelMarioCommandExecutor(ICoreNew core) : base(core)
         {
             DefaultCommandExecutor = (MarioCommandExecutor)core.CommandExecutor;
             ClearCommands();
@@ -17,7 +17,7 @@
 
         public void DelayRestore(int timeDelay)
         {
-            Core.DelayCommand(Restore, () => Core.CommandExecutor is FinishLevelCommandExecutor, timeDelay);
+            Core.DelayCommand(Restore, () => Core.CommandExecutor is FinishLevelMarioCommandExecutor, timeDelay);
         }
 
     }
