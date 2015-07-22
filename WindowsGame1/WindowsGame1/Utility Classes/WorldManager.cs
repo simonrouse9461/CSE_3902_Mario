@@ -228,7 +228,7 @@ namespace MarioGame
                     var version = string.IsNullOrEmpty(data.Version)
                         ? string.Empty
                         : " with a version name " + data.Version;
-                    throw new InvalidIObjectException("Unable to create instance of an IObject from type " + type + version + "!");
+                    throw new System.ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
                 }
             }
         }

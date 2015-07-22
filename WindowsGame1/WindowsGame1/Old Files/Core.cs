@@ -15,7 +15,7 @@ namespace MarioGame
 
         private Collection<Reservation> Waitlist;
 
-        public IObject Object { get; set; }
+        public IObject Obj { get; set; }
         public CollisionDetector CollisionDetector { get; set; }
         public IBarrierHandler BarrierHandler { get; set; }
         public TStateController StateController { get; set; }
@@ -39,7 +39,7 @@ namespace MarioGame
 
         public Core(IObject obj)
         {
-            Object = obj;
+            Obj = obj;
             Waitlist = new Collection<Reservation>();
             StateController = new TStateController {Core = this};
             CollisionDetector = new CollisionDetector(obj);

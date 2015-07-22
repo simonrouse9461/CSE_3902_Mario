@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class BlockSpriteState : SpriteStateKernelNew<BlockSpriteVersion>
+    public class BlockSpriteState : SpriteStateKernelNew<QuestionBlockSpriteVersion>
     {
         //private enum StatusEnum
         //{
@@ -17,10 +17,15 @@ namespace MarioGame
         //    Castle,
         //    Flag
         //}
-
+        private enum VersionAnimation
+        {
+            Overworld,
+            Underworld
+        }
         private enum ColorList
         {
-            Transparent
+            Transparent,
+            Default
         }
 
         //private StatusEnum Status;
@@ -33,9 +38,23 @@ namespace MarioGame
             AddSprite<NormalBlockSprite>();
             AddSprite<FloorBlockSprite>();
             AddSprite<IndestructibleBlockSprite>();
+            AddSprite<BlockDebrisSprite>();
+
+            AddVersionAnimator(VersionAnimation.Overworld,
+            new[] {QuestionBlockSpriteVersion.OrangeOver, QuestionBlockSpriteVersion.BrownOver,
+            QuestionBlockSpriteVersion.OrangeOver, QuestionBlockSpriteVersion.YellowOver,
+            QuestionBlockSpriteVersion.YellowOver});
+
+            AddVersionAnimator(VersionAnimation.Underworld,
+            new[] {QuestionBlockSpriteVersion.OrangeUnder, QuestionBlockSpriteVersion.BrownUnder,
+            QuestionBlockSpriteVersion.OrangeUnder, QuestionBlockSpriteVersion.YellowUnder,
+            QuestionBlockSpriteVersion.YellowUnder});
 
             AddColorScheme(ColorList.Transparent,
                 new[] { Color.Transparent });
+
+            AddColorScheme(ColorList.Default,
+                new[] { Color.White });
         }
 
         //protected override ISprite RawSprite
@@ -97,6 +116,7 @@ namespace MarioGame
         public void HiddenToUsedBlock()
         {
             SetSprite<UsedBlockSprite>();
+            SetColorScheme(ColorList.Default);
             
         }
 
@@ -121,6 +141,8 @@ namespace MarioGame
         public void QuestionBlock()
         {
             SetSprite<QuestionBlockSprite>();
+            SetVersionAnimator(VersionAnimation.Overworld);
+            SetVersionFrequency(10);
         }
 
         public void NormalBlock()
@@ -138,11 +160,11 @@ namespace MarioGame
             get { return IsSprite<UsedBlockSprite>(); }
         }
 
-        
-        //public void Destroyed()
-        //{
-        //    Status = StatusEnum.Destroyed;
-        //}
+
+        public void Destroyed()
+        {
+            SetSprite<BlockDebrisSprite>();
+        }
 
         public bool isQuestion
         {

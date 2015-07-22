@@ -15,10 +15,12 @@ namespace MarioGame
             MarioDie,
             MarioBounce,
             FireballBounce,
-            EnemyFlip,
+            GoombaFlip,
+            KoopaFlip,
             Coin,
             Star,
-            BlockHit
+            BlockHit,
+            ItemBounce
         }
 
         private Version version = Version.Default;
@@ -99,7 +101,7 @@ namespace MarioGame
             }
         }
 
-        public static BounceUpMotion FireballBounce
+        public static BounceUpMotion EnemyFlip
         {
             get
             {
@@ -115,13 +117,29 @@ namespace MarioGame
             }
         }
 
-        public static BounceUpMotion EnemyFlip
+        public static BounceUpMotion GoombaFlip
         {
             get
             {
                 return new BounceUpMotion
                 {
-                    version = Version.EnemyFlip,
+                    version = Version.GoombaFlip,
+                    StartVelocity = new Vector2(0, -4),
+                    Acceleration = new Vector2(0, 0.25f),
+                    MaxVelocity = GravityMotion.Max,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion KoopaFlip
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.KoopaFlip,
                     StartVelocity = new Vector2(0, -4),
                     Acceleration = new Vector2(0, 0.25f),
                     MaxVelocity = GravityMotion.Max,
@@ -170,11 +188,27 @@ namespace MarioGame
                 return new BounceUpMotion
                 {
                     version = Version.BlockHit,
-                    StartVelocity = new Vector2(0, -7f),
-                    Acceleration = new Vector2(0, 1.59f),
+                    StartVelocity = new Vector2(0, -7.15f),
+                    Acceleration = new Vector2(0, 1.591f),
                     InvolveGravity = false,
                     MaxVelocity = GravityMotion.Max,
                     FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion ItemBounce
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.ItemBounce,
+                    StartVelocity = new Vector2(0, -.05f),
+                    Acceleration = new Vector2(0, 0.3f),
+                    InvolveGravity = true,
+                    MaxVelocity = GravityMotion.Max,
+                    FinishWhenMax = false
                 };
             }
         }

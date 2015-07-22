@@ -1,33 +1,40 @@
-﻿using System.Collections.ObjectModel;
-using System.Dynamic;
-using System.Web.Management;
-using Microsoft.Xna.Framework;
+﻿//using System.Collections.ObjectModel;
+//using System.Dynamic;
+//using System.Web.Management;
+//using Microsoft.Xna.Framework;
 
-namespace MarioGame
-{
-    public class QuestionBlockSpriteState : SpriteStateKernelNew<QuestionBlockSpriteVersion>
-    {
+//namespace MarioGame
+//{
+//    public class QuestionBlockSpriteState : SpriteStateKernelNew<QuestionBlockSpriteVersion>
+//    {
 
-        private enum VersionAnimation
-        {
-            Overworld,
-            Underworld
-        }
+//        private enum VersionAnimation
+//        {
+//            Overworld,
+//            Underworld
+//        }
 
-        public QuestionBlockSpriteState()
-        {
+//        public QuestionBlockSpriteState()
+//        {
 
-            AddSprite<QuestionBlockSprite>();
-            AddVersionAnimator(VersionAnimation.Overworld,
-            new[] {QuestionBlockSpriteVersion.OrangeOver, QuestionBlockSpriteVersion.BrownOver,
-            QuestionBlockSpriteVersion.OrangeOver, QuestionBlockSpriteVersion.YellowOver,
-            QuestionBlockSpriteVersion.YellowOver});
-            AddVersionAnimator(VersionAnimation.Underworld,
-            new[] {QuestionBlockSpriteVersion.OrangeUnder, QuestionBlockSpriteVersion.BrownUnder,
-            QuestionBlockSpriteVersion.OrangeUnder, QuestionBlockSpriteVersion.YellowUnder,
-            QuestionBlockSpriteVersion.YellowUnder});
-            SetVersionFrequency(10);
-            SetVersionAnimator(VersionAnimation.Overworld);
-        }
-    }
-}
+//            AddSprite<QuestionBlockSprite>();
+//            AddVersionAnimator(VersionAnimation.Overworld,
+//            new[] {QuestionBlockSpriteVersion.OrangeOver, QuestionBlockSpriteVersion.BrownOver,
+//            QuestionBlockSpriteVersion.OrangeOver, QuestionBlockSpriteVersion.YellowOver,
+//            QuestionBlockSpriteVersion.YellowOver});
+//            AddVersionAnimator(VersionAnimation.Underworld,
+//            new[] {QuestionBlockSpriteVersion.OrangeUnder, QuestionBlockSpriteVersion.BrownUnder,
+//            QuestionBlockSpriteVersion.OrangeUnder, QuestionBlockSpriteVersion.YellowUnder,
+//            QuestionBlockSpriteVersion.YellowUnder});
+//            SetVersionFrequency(10);
+//            SetVersionAnimator(VersionAnimation.Overworld);
+//        }
+
+//        public void QuestionBlock()
+//        {
+//            SetSprite<QuestionBlockSprite>();
+//            SetVersionAnimator(VersionAnimation.Overworld);
+//            SetVersionFrequency(10);
+//        }
+//    }
+//}

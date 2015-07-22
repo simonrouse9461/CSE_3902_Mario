@@ -95,13 +95,12 @@
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
-    <Compile Include="Exceptions\InvalidIObjectException.cs" />
-    <Compile Include="GameCommands\CameraLeftCommand.cs" />
-    <Compile Include="GameCommands\CameraRightCommand.cs" />
-    <Compile Include="GameCommands\CameraDownCommand.cs" />
-    <Compile Include="GameCommands\CameraUpCommand.cs" />
-    <Compile Include="GameCommands\PauseCommand.cs" />
-    <Compile Include="GameCommands\ResetCommand.cs" />
+    <Compile Include="Enemies\GameCommands\CameraLeftCommand.cs" />
+    <Compile Include="Enemies\GameCommands\CameraRightCommand.cs" />
+    <Compile Include="Enemies\GameCommands\CameraDownCommand.cs" />
+    <Compile Include="Enemies\GameCommands\CameraUpCommand.cs" />
+    <Compile Include="Enemies\GameCommands\PauseCommand.cs" />
+    <Compile Include="Enemies\GameCommands\ResetCommand.cs" />
     <Compile Include="Enemies\CollisionHandlers\KoopaCollisionHandler.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
@@ -130,8 +129,12 @@
     <Compile Include="Mario\Sprites\SlipingSmallMarioSprite.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
+    <Compile Include="Misc Objects\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\CastleStateController.cs" />
     <Compile Include="Misc Objects\FlagStateController.cs" />
+    <Compile Include="Misc Objects\Objects\FlagObject.cs" />
+    <Compile Include="Misc Objects\QuestionBlockStateController.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\BlockDebrisSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\CastleSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\FlagSpriteVersion.cs" />
@@ -142,6 +145,9 @@
     <Compile Include="Misc Objects\Sprite Versions\UsedBlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\SpriteState\CastleSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\FlagSpriteState.cs" />
+    <Compile Include="Misc Objects\SpriteState\NormalBlockSpriteState.cs" />
+    <Compile Include="Misc Objects\SpriteState\QuestionBlockSpriteState.cs" />
+    <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Motions\UniformMotion.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />
@@ -290,7 +296,7 @@
     <Compile Include="Misc Objects\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\QuestionBlockSprite.cs" />
     <Compile Include="Misc Objects\Sprites\UsedBlockSprite.cs" />
-    <Compile Include="GameCommands\QuitCommand.cs" />
+    <Compile Include="Enemies\GameCommands\QuitCommand.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Motions\DampMotion.cs" />
@@ -325,13 +331,13 @@
     <Content Include="bin\x86\Debug\LeveLoader.dll" />
     <Content Include="bin\x86\Debug\WindowsGame1.exe" />
     <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
+    <Content Include="CODE_REVIEWS\ChuhanCodeReview.txt" />
     <Content Include="CODE_REVIEWS\AndrewCodeReview.txt" />
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ChuhanCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
-    <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint5.txt" />
-    <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
+    <Content Include="CODE_REVIEWS\HadenCodeQualityReviewS5.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

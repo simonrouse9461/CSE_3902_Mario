@@ -4,8 +4,28 @@ namespace MarioGame
 {
     public static class GameSettings
     {
-        public static float SpriteScale = 1.75f;
-        public static int MaxTime = 120;
-        public static SamplerState TextureSampling = SamplerState.PointClamp;
+        public static float SpriteScale
+        {
+            get
+            {
+                return 1.75f;
+            }
+        }
+
+        public static int MaxTime
+        {
+            get
+            {
+                return 120;
+            }
+        }
+
+        public static SamplerState TextureSampling
+        {
+            get
+            {
+                return SamplerState.PointClamp;
+            }
+        }
     }
 }

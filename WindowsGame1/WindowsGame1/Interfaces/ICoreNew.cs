@@ -4,7 +4,7 @@ namespace MarioGame
 {
     public interface ICoreNew
     {
-        IObject Object { get; set; }
+        IObject Obj { get; set; }
         IStateControllerNew GeneralStateController { get; }
         ISpriteStateNew GeneralSpriteState { get; }
         IMotionState GeneralMotionState { get; }

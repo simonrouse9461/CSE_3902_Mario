@@ -1,16 +1,24 @@
 ﻿Andrew Miller
-7/16/2015
+7/21/2015
 Sprint 5
 
-File: GoombaMotionState.cs
-File Author: Haden Kersting
+File: MarioSpriteState.cs
+File Author: Chuhan Feng
 Time: 10 minutes
 
-This class is designed to detail how the Goombas move throughout the world and how to react when they
-are presented with certain obstacles such as blocks, pipes, and Mario, as well as how to react when they
-walk off a ledge or a cliff. Each of the methods are descriptive and easily detail what action is being
-performed. There also seems to be more depth to the "motions", as there are modifiers like EnemyVelocity
-that may change the way the motion behaves depending on the type of object. There are not many, if any, 
-improvements to be made in this class since all the methods handle each of the movements and the cases
-that the Goomba will encounter while the game is running. The class is also fairly short, and nesting
-is minimal; the only nesting done is to perform specific checks to then decide what to do next.
+This class is designed to change the sprites and animations of Mario depending on his interactions
+in the game world. The constructor adds all the sprites and animations, and all the following
+methods are what change the sprites. Most methods are descriptively named, so it is easy to understand
+what each of the methods do, however there are a few that are slightly confusing to figure out what
+they do only by looking at the names. For example, the Upgrading() method's name is slightly ambiguous,
+but when the contents of the method is looked at, the purpose of the method is fairly clear. When this
+method is called, Mario will "upgrade" himself, so it is possibly called when Mario interacts with a 
+Mushroom or Fireflower. The rest of the methods are clear in their names and uses, and nesting is
+kept to a minimum. If there are multiple cases, they are split up into different methods altogether and
+tested separately.
+
+This is not much that can be done to improve this class, since most of the methods are at most a few lines
+each, so it is not possible to cut down the size further. Nesting is avoided by breaking down methods into
+more methods, so it is easier to maintain the code in the long run. Only one or two methods could be 
+renamed to give them slightly clearer meaning, but the contents of these methods make the purpose of them
+clear as well.
