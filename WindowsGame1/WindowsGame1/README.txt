@@ -7,9 +7,9 @@ NOTE: We suppressed some issues in the Global Suppresions file. We hope this wil
 
 CODE ANALYSIS ISSUES:
 	CA1502 - The branching makes the CollisionDetector very flexible. We didn't make time to simplify.
+	CA1044 - Our design makes it important that things such as CollisionDetector have access to Core.
 	CA2225 - ???
 	CA1004 - ???
 	CA2237 - ???
-	CA1044 - Our design makes it important that things such as CollisionDetector have access to Core.
 	CA1006 - ???
 	CA2227 - ???
