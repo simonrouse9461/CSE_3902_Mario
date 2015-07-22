@@ -163,6 +163,11 @@ namespace MarioGame
             VerticalStatus = VerticalEnum.Slip;
         }
 
+        public void StopSlip()
+        {
+            SetDefaultVertical();
+        }
+
         public bool DefaultHorizontal
         {
             get

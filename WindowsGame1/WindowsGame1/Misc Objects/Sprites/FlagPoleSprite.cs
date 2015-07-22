@@ -7,7 +7,6 @@ namespace MarioGame
 {
     public class FlagPoleSprite : SpriteKernelNew
     {
-
         public FlagPoleSprite() : base(FlagSpriteVersion.Overworld)
         {
 

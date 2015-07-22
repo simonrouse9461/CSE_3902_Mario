@@ -84,37 +84,37 @@ namespace MarioGame
 
         public void QuestionBlockGiveFireflower()
         {
-            Core.Obj.Generate<Fireflower>();           
+            Core.Object.Generate<Fireflower>();           
             SpriteState.QuestionToUsedBlock();
         }
 
         public void QuestionBlockGiveMushroom()
         {
-            Core.Obj.Generate<Mushroom>();
+            Core.Object.Generate<Mushroom>();
             SpriteState.QuestionToUsedBlock();
         }
 
         public void QuestionBlockGiveCoin()
         {
-            Core.Obj.Generate<Coin>();   
+            Core.Object.Generate<Coin>();   
             SpriteState.QuestionToUsedBlock();
         }
 
         public void NormalBlockCoinHit()
         {
-            Core.Obj.Generate<Coin>();
+            Core.Object.Generate<Coin>();
             CoinLeft--;
         }
 
         public void HiddenBlockGive1Up()
         {
-            Core.Obj.Generate<OneUp>();
+            Core.Object.Generate<OneUp>();
             SpriteState.HiddenToUsedBlock();
         }
 
         public void NormalBlockGiveStar()
         {
-            Core.Obj.Generate<Star>();
+            Core.Object.Generate<Star>();
             SpriteState.QuestionToUsedBlock();
         }
 
@@ -122,7 +122,7 @@ namespace MarioGame
         {
             SpriteState.SetSpriteFrequency(20);
             //SpriteState.Destroyed();
-            Core.DelayCommand(() => Core.Obj.Unload(), 35);
+            Core.DelayCommand(() => Core.Object.Unload(), 35);
         }      
 
     }

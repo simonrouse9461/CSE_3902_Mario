@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -33,6 +33,7 @@ namespace MarioGame
                 }
             }
         }
+        private int bonus = 1;
 
         private int StartTime { get; set; }
         private int GameTime { get; set; }
@@ -76,6 +77,16 @@ namespace MarioGame
         {
             Font = content.Load<SpriteFont>("SegoeUIMono");
             Font.LineSpacing = 20;
+        }
+        
+        public static void upbonus()
+        {
+            Instance.bonus += 1;
+        }
+
+        public static void resetbonus()
+        {
+            Instance.bonus = 1;
         }
 
         public static void AddScore<T>(T obj = null) where T : class, IObject

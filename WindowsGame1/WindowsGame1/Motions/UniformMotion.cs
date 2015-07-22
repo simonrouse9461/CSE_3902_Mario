@@ -107,7 +107,7 @@ namespace MarioGame
                 return new UniformMotion
                 {
                     version = Version.MarioSlip,
-                    StartVelocity = new Vector2(0, 3) - GravityMotion.Max
+                    StartVelocity = new Vector2(0, 2.5f) - GravityMotion.Max
                 };
             }
         }

@@ -197,7 +197,7 @@ namespace MarioGame
             if (CurrentSection == LevelSection.Default)
             {
                 Instance.LevelData = content.Load<ObjectData[]>("LevelData");
-                CreateObject<MarioObject>(new Vector2(75, 398));
+                CreateObject<MarioObject>(new Vector2(6000, 398));
             }
             else if (CurrentSection == LevelSection.Underground)
             {

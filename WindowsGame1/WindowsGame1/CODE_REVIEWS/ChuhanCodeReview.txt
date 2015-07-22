@@ -1,0 +1,19 @@
+﻿Chuhan Feng
+7/21/2015
+Sprint 5
+
+File: BlockStateController.cs
+File Author: Andrew Miller
+Time: 5 minutes
+
+This class is used to handle all state changes for all kinds of block objects.
+So, the cohesion of the class is very high. However, since many kinds of 
+block object are all sharing one StateController, the coupling of the class
+can be considered high. In this way, the state of all kinds of blocks need 
+to have the same contract in order to make them all work with this state 
+controller. Once a single block need some special feature to make it's contract
+slightly different from other blocks, contract of every block need to be changed
+to keep all blocks work.
+
+I recommend to seperate this state controller for individual blocks, so coupling
+will be lower.

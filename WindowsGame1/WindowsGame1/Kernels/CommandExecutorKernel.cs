@@ -34,7 +34,7 @@ namespace MarioGame
             if (core is CoreNew<TStateController>)
                 Core = (CoreNew<TStateController>)core;
             else
-                Core = new CoreNew<TStateController>(core.Obj)
+                Core = new CoreNew<TStateController>(core.Object)
                 {
                     StateController = (TStateController)core.GeneralStateController,
                     CollisionHandler = core.CollisionHandler,
