@@ -5,20 +5,19 @@ namespace MarioGame
 {
     public class BlockStateController : StateControllerKernelNew<BlockSpriteState, BlockMotionState>
     {
-        
-        public bool giveCoin;
-        public bool giveItem;
-        public bool giveStar;
-        public bool giveOneUp;
+        public bool giveCoin { get; private set; }
+        public bool giveItem { get; private set; }
+        public bool giveStar { get; private set; }
+        public bool giveOneUp { get; private set; }
          
-        private int _coinLeft = 10;
+        private int numberCoinsLeft = 10;
 
         private int CoinLeft
         {
-            get { return _coinLeft; }
+            get { return numberCoinsLeft; }
             set
             {
-                _coinLeft = value;
+                numberCoinsLeft = value;
                 if (value <= 0)
                 {
                     SpriteState.QuestionToUsedBlock();

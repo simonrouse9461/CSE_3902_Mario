@@ -25,6 +25,8 @@ namespace MarioGame
 
         private ContentManager Content { get; set; }
 
+        private Color BackgroundColor { get; set; }
+
         private static WorldManager Instance
         {
             get
@@ -58,6 +60,11 @@ namespace MarioGame
         {
             CurrentSection = LevelSection.Warp;
             Reload();
+        }
+
+        public static void SetBackgroundColor(Color color)
+        {
+            Instance.BackgroundColor = color;
         }
 
         private WorldManager()
@@ -184,12 +191,13 @@ namespace MarioGame
 
         public static void LoadLevel(ContentManager content)
         {
+            SetBackgroundColor(Color.CornflowerBlue);
             Instance.Content = content;
             //CurrentSection = LevelSection.Default;
             if (CurrentSection == LevelSection.Default)
             {
                 Instance.LevelData = content.Load<ObjectData[]>("LevelData");
-                CreateObject<MarioObject>(new Vector2(75, 398));
+                CreateObject<MarioObject>(new Vector2(6000, 398));
             }
             else if (CurrentSection == LevelSection.Underground)
             {
@@ -220,7 +228,7 @@ namespace MarioGame
                     var version = string.IsNullOrEmpty(data.Version)
                         ? string.Empty
                         : " with a version name " + data.Version;
-                    throw new InvalidIObjectException("Unable to create instance of an IObject from type " + type + version + "!");
+                    throw new System.ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
                 }
             }
         }
@@ -278,9 +286,9 @@ namespace MarioGame
             }
         }
 
-        public static void Draw(SpriteBatch spriteBatch)
+        public static void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch)
         {
-            
+            graphicsDevice.Clear(Instance.BackgroundColor);
             foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
                     if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);

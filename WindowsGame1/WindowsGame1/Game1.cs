@@ -13,10 +13,10 @@ namespace MarioGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private int pauseCountdown = 5;
-        public int MarioLives = 3;
-        public bool SplashScreen = true;
+        //private int MarioLives = 3;
+        //private bool SplashScreen = true;
         private CommandManager Controller;
-        public bool paused = false;
+        private bool paused = false;
 
         public MarioGame()
         {
@@ -65,6 +65,7 @@ namespace MarioGame
                 if (pauseCountdown == 5)
                 {
                     paused = true;
+                    SoundManager.CoinSoundPlay();
                     SoundManager.StopMusic();
                 }
             }
@@ -94,15 +95,13 @@ namespace MarioGame
 
         protected override void Draw(GameTime gameTime)
         {
-                GraphicsDevice.Clear(Color.CornflowerBlue);
                 spriteBatch.Begin(SpriteSortMode.Immediate, null, GameSettings.TextureSampling, null, null);
 
-                WorldManager.Draw(spriteBatch);
+                WorldManager.Draw(GraphicsDevice, spriteBatch);
                 Display.Draw(spriteBatch);
 
                 spriteBatch.End();
                 base.Draw(gameTime);
-           
         }
     }
 }

@@ -12,8 +12,6 @@ namespace MarioGame
             Default
         }
 
-        private Version version;
-
         public FloorBlockObject() 
         {
             StateController.FloorBlock();
@@ -25,7 +23,6 @@ namespace MarioGame
             {
                 return new FloorBlockObject
                 {
-                    version = Version.Invisible
                 };
             }
         }

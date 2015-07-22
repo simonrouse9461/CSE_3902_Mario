@@ -92,6 +92,8 @@ namespace MarioGame
                 if (!reservation.Dependency())
                 {
                     Waitlist.Remove(reservation);
+                    i--;
+                    continue;
                 }
                 if (reservation.Timer.Update())
                 {

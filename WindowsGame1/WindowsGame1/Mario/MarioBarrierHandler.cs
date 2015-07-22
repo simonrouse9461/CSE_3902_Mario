@@ -34,8 +34,7 @@ namespace MarioGame
         {
             if (BarrierCollision.Bottom.Touch)
             {
-                if (!Core.Object.GoingUp) 
-                    Core.StateController.KeepOnLand();
+                if (!Core.Object.GoingUp) Core.StateController.KeepOnLand();
             }
             else Core.StateController.Liftoff();
         }

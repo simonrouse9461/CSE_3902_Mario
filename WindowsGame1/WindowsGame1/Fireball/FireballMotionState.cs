@@ -23,7 +23,7 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(UniformMotion.FireballMoveLeft),
                 new StatusSwitch<IMotion>(UniformMotion.FireballMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
+                new StatusSwitch<IMotion>(BounceUpMotion.EnemyFlip)
             };
 
             SetDefaultHorizontal();

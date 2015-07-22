@@ -22,11 +22,13 @@ namespace MarioGame
 
         public void TakeMarioHitFromSide(string leftOrRight)
         {
+            SoundManager.KickSoundPlay();
             MotionState.TakeMarioHitFromSide(leftOrRight);
         }
 
         public void Turn(String leftOrRight)
         {
+            SoundManager.KickSoundPlay();
             if (leftOrRight.Equals("left"))
             {
                 MotionState.Turn(leftOrRight);
@@ -44,6 +46,7 @@ namespace MarioGame
 
         public void Flip()
         {
+            SoundManager.KickSoundPlay();
             SpriteState.Flip();
             MotionState.Flip();
         }

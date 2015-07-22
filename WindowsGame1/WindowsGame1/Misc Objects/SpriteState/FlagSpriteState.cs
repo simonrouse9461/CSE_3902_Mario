@@ -6,7 +6,7 @@ namespace MarioGame
     public class FlagSpriteState : SpriteStateKernelNew<FlagSpriteVersion>
     {
 
-        FlagSpriteState()
+        public FlagSpriteState()
         {
             AddSprite<FlagPoleSprite>();
         }

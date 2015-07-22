@@ -1,0 +1,18 @@
+﻿Haden Kersting
+7/21/2015
+Sprint 5
+
+File: BlockStateController.cs & QuestionBlock.cs
+File Author: Andrew Miller
+Time: 8 minutes
+
+CODE REVIEW:
+		I think the BlockStateController is fairly readable. I am a bit confused by it though. I am confused that there are both hasItem methods
+	and giveItem methods which can be chosen. What I mean is, at first glance, it seems that one could call hasStar() which would make the block
+	have a star than immediately call NormalBlockCoinHit(). This is not very cohesive.
+		In QuestionBlockObject I am also confused that there are various methods that all return a new instance of 'this'. I wouldn't think that 
+	a new QuestionBlockObject should be constructed to return a different item. I would think that the state controller could just be changed.
+		Other than that I think code quality is good. Coupling is pretty low. Code is fairly short and simple.
+
+HYPOTHETICAL CHANGE:
+		If several new block types were added the BlockStateController could get fairly long.

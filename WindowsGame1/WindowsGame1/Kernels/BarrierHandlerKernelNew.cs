@@ -84,6 +84,7 @@ namespace MarioGame
         {
             BarrierCollision = DetectBarrier(1);
         }
+
         public virtual void ResetVelocity()
         {
             if (BarrierCollision.Bottom.Touch && Core.Object.GoingDown) Core.GeneralMotionState.ResetVerticalVelocity();

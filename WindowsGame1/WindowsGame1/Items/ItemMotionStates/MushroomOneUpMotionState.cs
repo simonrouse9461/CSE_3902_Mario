@@ -14,7 +14,8 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(UniformMotion.ItemMoveLeft),
                 new StatusSwitch<IMotion>(UniformMotion.ItemMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(UniformMotion.ItemRaiseUp)
+                new StatusSwitch<IMotion>(UniformMotion.ItemRaiseUp),
+                new StatusSwitch<IMotion>(BounceUpMotion.ItemBounce)
             };
             LoseGravity();
             SetDefaultHorizontal();
@@ -30,6 +31,7 @@ namespace MarioGame
         public void SetDefaultVertical()
         {
             FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
+            FindMotion(BounceUpMotion.ItemBounce).Toggle(false);
         }
 
         public void Generated()
@@ -69,11 +71,13 @@ namespace MarioGame
             {
                 FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
                 FindMotion(UniformMotion.ItemMoveLeft).Toggle(true);
+                FindMotion(BounceUpMotion.ItemBounce).Toggle(true);
             }
             else
             {
                 FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
                 FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
+                FindMotion(BounceUpMotion.ItemBounce).Toggle(true);
             }
         }
     }

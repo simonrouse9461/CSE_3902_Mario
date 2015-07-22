@@ -17,7 +17,8 @@ namespace MarioGame
         {
             Default,
             Jump,
-            Bounce
+            Bounce,
+            Slip
         }
 
         private HorizontalEnum HorizontalStatus { get; set; }
@@ -70,7 +71,7 @@ namespace MarioGame
 
         public void GoLeft()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Left;
             FindMotion(AcceleratedMotion.MarioLeft).Toggle(true);
@@ -78,7 +79,7 @@ namespace MarioGame
 
         public void GoRight()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Right;
             FindMotion(AcceleratedMotion.MarioRight).Toggle(true);
@@ -86,7 +87,7 @@ namespace MarioGame
 
         public void Stop()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Stop;
             FindMotion<DampMotion>().Toggle(true);
@@ -94,7 +95,7 @@ namespace MarioGame
 
         public void GetInertia()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Inertia;
             FindMotion<InertiaMotion>().Toggle(true);
@@ -112,7 +113,7 @@ namespace MarioGame
 
         public void Jump()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultVertical();
             VerticalStatus = VerticalEnum.Jump;
             FindMotion(BounceUpMotion.MarioJump).Toggle(true);
@@ -120,14 +121,14 @@ namespace MarioGame
 
         public void Fall()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultVertical();
             FindMotion<GravityMotion>().Content.Reset();
         }
 
         public void Bounce()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             SetDefaultVertical();
             VerticalStatus = VerticalEnum.Bounce;
             FindMotion(BounceUpMotion.MarioStamp).Toggle(true);
@@ -135,13 +136,13 @@ namespace MarioGame
 
         public void ObtainGravity()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             Gravity = true;
         }
 
         public void LoseGravity()
         {
-            if (Frozen) return;
+            if (isFrozen) return;
             Gravity = false;
         }
 
@@ -158,8 +159,13 @@ namespace MarioGame
         {
             SetDefaultHorizontal();
             SetDefaultVertical();
-            LoseGravity();
             FindMotion(UniformMotion.MarioSlipDown).Toggle(true);
+            VerticalStatus = VerticalEnum.Slip;
+        }
+
+        public void StopSlip()
+        {
+            SetDefaultVertical();
         }
 
         public bool DefaultHorizontal
@@ -210,6 +216,11 @@ namespace MarioGame
         public bool Bouncing
         {
             get { return VerticalStatus == VerticalEnum.Bounce; }
+        }
+
+        public bool Sliping
+        {
+            get { return VerticalStatus == VerticalEnum.Slip; }
         }
     }
 }

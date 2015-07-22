@@ -24,7 +24,7 @@ namespace MarioGame
         {
             if (Core.CollisionDetector.Detect<MarioObject>().AnySide.Touch)
             {
-                Core.Object.Unload();
+                Core.Obj.Unload();
                 Display.AddScore<OneUp>();
             }
         }
