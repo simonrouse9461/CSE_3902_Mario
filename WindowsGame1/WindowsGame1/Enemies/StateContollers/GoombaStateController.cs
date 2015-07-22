@@ -31,7 +31,7 @@ namespace MarioGame
             SpriteState.Flip();
 
             Display.AddScore<Goomba>();
-            SoundManager.StompSoundPlay();
+            SoundManager.KickSoundPlay();
         }
 
         public void TakeMarioHitFromSide(string leftOrRight)

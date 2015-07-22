@@ -9,8 +9,6 @@ namespace MarioGame
             CollisionHandler = new GoombaCollisionHandler(Core);
             BarrierHandler = new GoombaBarrierHandler(Core);
             BarrierHandler.AddBarrier<IBlock>();
-            //Core.BarrierHandler.AddBarrier<IBlock>();
-            //Core.BarrierHandler.AddBarrier<IEnemy>();
         }
 
         public override bool Solid
