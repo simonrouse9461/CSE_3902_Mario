@@ -30,7 +30,7 @@ namespace MarioGame
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(409, 160, 16, 16), Orientation.Default}
+                    {new Rectangle(408, 160, 16, 16), Orientation.Default}
                 });
 
             AddSource(
@@ -53,7 +53,7 @@ namespace MarioGame
                 QuestionBlockSpriteVersion.BrownUnder,
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>{
-                    {new Rectangle(409, 179, 16, 16), Orientation.Default}
+                    {new Rectangle(408, 179, 16, 16), Orientation.Default}
                 }
                 );
         }        

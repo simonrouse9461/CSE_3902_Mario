@@ -121,7 +121,7 @@ namespace MarioGame
         public void NormalBlockDestroyed()
         {
             SpriteState.SetSpriteFrequency(20);
-            //SpriteState.Destroyed();
+            SpriteState.Destroyed();
             Core.DelayCommand(() => Core.Object.Unload(), 35);
         }      
 

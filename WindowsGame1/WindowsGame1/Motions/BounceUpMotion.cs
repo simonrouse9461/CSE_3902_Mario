@@ -18,7 +18,8 @@ namespace MarioGame
             EnemyFlip,
             Coin,
             Star,
-            BlockHit
+            BlockHit,
+            ItemBounce
         }
 
         private Version version = Version.Default;
@@ -175,6 +176,22 @@ namespace MarioGame
                     InvolveGravity = false,
                     MaxVelocity = GravityMotion.Max,
                     FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion ItemBounce
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.ItemBounce,
+                    StartVelocity = new Vector2(0, -.05f),
+                    Acceleration = new Vector2(0, 0.3f),
+                    InvolveGravity = true,
+                    MaxVelocity = GravityMotion.Max,
+                    FinishWhenMax = false
                 };
             }
         }

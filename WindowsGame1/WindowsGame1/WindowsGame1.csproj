@@ -129,6 +129,9 @@
     <Compile Include="Misc Objects\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\CastleStateController.cs" />
     <Compile Include="Misc Objects\FlagStateController.cs" />
+    <Compile Include="Misc Objects\Objects\FlagObject.cs" />
+    <Compile Include="Misc Objects\QuestionBlockStateController.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\BlockDebrisSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\BlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\CastleSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\FlagSpriteVersion.cs" />
