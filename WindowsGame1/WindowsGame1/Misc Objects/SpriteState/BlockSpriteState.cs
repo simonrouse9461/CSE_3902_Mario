@@ -140,10 +140,7 @@ namespace MarioGame
             get { return IsSprite<UsedBlockSprite>(); }
         }
 
-        public void Flag()
-        {
-            SetSprite<FlagPoleSprite>();
-        }
+        
         //public void Destroyed()
         //{
         //    Status = StatusEnum.Destroyed;

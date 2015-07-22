@@ -126,6 +126,9 @@
     <Compile Include="Mario\MotionStateDecorators\FinishLevelMotionState.cs" />
     <Compile Include="Mario\Sprites\ShrinkingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
+    <Compile Include="Misc Objects\CastleStateController.cs" />
+    <Compile Include="Misc Objects\FlagStateController.cs" />
+    <Compile Include="Misc Objects\SpriteState\FlagSpriteState.cs" />
     <Compile Include="Motions\UniformMotion.cs" />
     <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />

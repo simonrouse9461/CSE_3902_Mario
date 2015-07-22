@@ -131,10 +131,7 @@ namespace MarioGame
             SpriteState.Castle();
         }
 
-        public void Flag()
-        {
-            SpriteState.Flag();
-        }
+        
 
     }
 }
