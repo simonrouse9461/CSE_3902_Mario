@@ -331,7 +331,7 @@
     <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewS4.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint5.txt" />
-    <Content Include="CODE_REVIEWS\HadenCodeReview.txt" />
+    <Content Include="CODE_REVIEWS\HadenCodeQualityReviewS5.txt" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
