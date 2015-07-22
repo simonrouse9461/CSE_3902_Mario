@@ -58,6 +58,7 @@ namespace MarioGame
 
         private SpriteHoldDependency HoldDependency { get; set; }
         public bool Held { get; private set; }
+        public bool Frozen { get; private set; }
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
         private Action FinishAction { get; set; }
@@ -234,6 +235,17 @@ namespace MarioGame
             CycleWhenFinish = 0;
         }
 
+        public void Freeze(int timer = 0)
+        {
+            Frozen = true;
+            if (timer != 0) Core.DelayCommand(Resume, timer);
+        }
+
+        public void Resume()
+        {
+            Frozen = false;
+        }
+
         public void Load(ContentManager content)
         {
             foreach (var sprite in SpriteList)
@@ -274,7 +286,7 @@ namespace MarioGame
         public virtual void Update()
         {
             if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
-            if (SpriteTimer.Update()) Sprite.Update();
+            if (SpriteTimer.Update() && !Frozen) Sprite.Update();
             if (ColorTimer.Update())
             {
                 foreach (var colorScheme in ColorSchemeList)

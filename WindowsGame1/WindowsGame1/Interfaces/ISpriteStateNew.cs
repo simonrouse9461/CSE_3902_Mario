@@ -14,6 +14,7 @@ namespace MarioGame
         bool Right { get; }
         bool DefaultSprite { get; }
         bool Held { get; }
+        bool Frozen { get; }
 
         void SetCore(ICoreNew c);
         void SetOrientation(Orientation orientation);
@@ -25,6 +26,8 @@ namespace MarioGame
         void HoldTillFinish(bool holdOrientation, SpriteHoldDependency dependency, Action action = null);
         void HoldTillFinish(bool holdOrientation, int cycle = 1, Action action = null);
         void Release();
+        void Freeze(int timer = 0);
+        void Resume();
         void Load(ContentManager content);
         void SetSpriteFrequency(int frequency);
         void SetColorFrequency(int frequency);
