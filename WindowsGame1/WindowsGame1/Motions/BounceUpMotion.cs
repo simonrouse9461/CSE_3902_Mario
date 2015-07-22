@@ -15,7 +15,8 @@ namespace MarioGame
             MarioDie,
             MarioBounce,
             FireballBounce,
-            EnemyFlip,
+            GoombaFlip,
+            KoopaFlip,
             Coin,
             Star,
             BlockHit
@@ -99,7 +100,7 @@ namespace MarioGame
             }
         }
 
-        public static BounceUpMotion FireballBounce
+        public static BounceUpMotion EnemyFlip
         {
             get
             {
@@ -115,13 +116,29 @@ namespace MarioGame
             }
         }
 
-        public static BounceUpMotion EnemyFlip
+        public static BounceUpMotion GoombaFlip
         {
             get
             {
                 return new BounceUpMotion
                 {
-                    version = Version.EnemyFlip,
+                    version = Version.GoombaFlip,
+                    StartVelocity = new Vector2(0, -4),
+                    Acceleration = new Vector2(0, 0.25f),
+                    MaxVelocity = GravityMotion.Max,
+                    InvolveGravity = true,
+                    FinishWhenMax = true
+                };
+            }
+        }
+
+        public static BounceUpMotion KoopaFlip
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.KoopaFlip,
                     StartVelocity = new Vector2(0, -4),
                     Acceleration = new Vector2(0, 0.25f),
                     MaxVelocity = GravityMotion.Max,
