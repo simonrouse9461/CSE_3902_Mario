@@ -14,7 +14,7 @@ namespace MarioGame
             Flip
         }
 
-        private MotionEnum MotionStatus;
+        private  MotionEnum MotionStatus;
         public bool Gravity { get; private set; }
 
         public GoombaMotionState()
@@ -74,11 +74,6 @@ namespace MarioGame
         public bool isAlive()
         {
             return MotionStatus != MotionEnum.None && MotionStatus != MotionEnum.Flip;
-        }
-
-        public void TakeMarioHitFromSide(string leftOrRight)
-        {
-            
         }
 
         public void ObtainGravity()

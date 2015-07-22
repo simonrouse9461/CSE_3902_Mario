@@ -18,7 +18,7 @@ namespace MarioGame
 
             Core.DelayCommand(() =>
             {
-                Core.Object.Unload();
+                Core.Obj.Unload();
             }, 75);
 
             Display.AddScore<Goomba>();
@@ -32,11 +32,6 @@ namespace MarioGame
 
             Display.AddScore<Goomba>();
             SoundManager.KickSoundPlay();
-        }
-
-        public void TakeMarioHitFromSide(string leftOrRight)
-        {
-            MotionState.TakeMarioHitFromSide(leftOrRight);
         }
 
         public void Turn()

@@ -22,8 +22,8 @@ namespace MarioGame
             set
             {
                 _core = value;
-                SpriteState.Core = value;
-                MotionState.Core = value;
+                SpriteState.SetCore(value);
+                MotionState.SetCore(value);
             }
         }
 

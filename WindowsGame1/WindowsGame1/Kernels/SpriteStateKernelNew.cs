@@ -10,7 +10,7 @@ namespace MarioGame
 {
     public abstract class SpriteStateKernelNew<TVersion> : ISpriteStateNew where TVersion : IConvertible
     {
-        public ICoreNew Core { protected get; set; }
+        protected ICoreNew Core;
         protected Counter ColorTimer { get; set; }
         protected Counter SpriteTimer { get; set; }
         protected Counter VersionTimer { get; set; }
@@ -66,7 +66,7 @@ namespace MarioGame
         public Orientation Orientation { get; private set; }
         public bool Left { get { return Orientation == Orientation.Left; } }
         public bool Right { get { return Orientation == Orientation.Right; } }
-        public bool Default { get { return Orientation == Orientation.Default; } }
+        public bool DefaultSprite { get { return Orientation == Orientation.Default; } }
 
         protected SpriteStateKernelNew()
         {
@@ -78,6 +78,11 @@ namespace MarioGame
             ColorTimer = new Counter();
             VersionTimer = new Counter();
             FaceDefault();
+        }
+
+        public void SetCore(ICoreNew c)
+        {
+            Core = c;
         }
 
         protected void AddSprite<T>() where T : ISpriteNew, new()

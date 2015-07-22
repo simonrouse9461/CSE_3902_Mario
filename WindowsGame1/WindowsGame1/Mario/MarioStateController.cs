@@ -111,7 +111,7 @@ namespace MarioGame
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
-            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            else if (MotionState.isStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
                 GoLeft();
         }
 
@@ -124,7 +124,7 @@ namespace MarioGame
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
-            else if (MotionState.Static || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            else if (MotionState.isStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
                 GoRight();
         }
 
@@ -190,7 +190,7 @@ namespace MarioGame
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            Core.Object.Generate(
+            Core.Obj.Generate(
                 new Vector2(SpriteState.Left ? -10 : 10, -25),
                 SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
