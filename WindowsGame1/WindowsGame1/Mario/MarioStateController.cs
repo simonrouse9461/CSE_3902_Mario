@@ -322,11 +322,19 @@ namespace MarioGame
             Core.SwitchComponent(new FinishLevelMarioCommandExecutor(Core));
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
-            MotionState.Adjust(new Vector2(6, 0));
+            Core.BarrierHandler.RemoveBarrier<CastleObject>();
+            MotionState.Adjust(new Vector2(4, 0));
             MotionState.Slip();
             SpriteState.Slip();
             SpriteState.Hold(false);
             Camera.Fix();
+            SoundManager.FlagpoleSoundPlay();
+            Core.EventTrigger.AddAbsoluteLocationEvent((int)WorldManager.FindObject<CastleObject>().PositionPoint.X, EnterCastle);
+        }
+
+        public void EnterCastle()
+        {
+            SpriteState.Hide();
         }
     }
 }

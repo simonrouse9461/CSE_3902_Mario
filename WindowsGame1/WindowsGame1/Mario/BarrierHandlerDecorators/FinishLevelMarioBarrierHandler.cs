@@ -27,6 +27,7 @@ namespace MarioGame
             {
                 if (Core.StateController.MotionState.Sliping)
                 {
+                    Core.StateController.SpriteState.Reset();
                     Core.StateController.SpriteState.Freeze();
                     Core.DelayCommand(() => Core.StateController.Flip(WorldManager.FindObject<FlagPoleObject>().PositionPoint.X + 0.5f), 50);
                     Core.DelayCommand(() =>
@@ -34,6 +35,7 @@ namespace MarioGame
                         Core.StateController.KeepRight();
                         Core.StateController.SpriteState.Release();
                         Core.StateController.SpriteState.Resume();
+                        SoundManager.ChangeToWinMusic();
                     }, 100);
                 }
                 Core.StateController.KeepOnLand();

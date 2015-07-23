@@ -37,7 +37,7 @@ namespace MarioGame
                     Core.StateController.MotionState.Hit();
                     Display.AddScore<Coin>();
                 }
-                else if(Core.StateController.giveStar && !Core.StateController.SpriteState.isUsed)
+                else if (Core.StateController.giveStar && !Core.StateController.SpriteState.isUsed)
                 {
                  
                     Core.StateController.NormalBlockGiveStar();

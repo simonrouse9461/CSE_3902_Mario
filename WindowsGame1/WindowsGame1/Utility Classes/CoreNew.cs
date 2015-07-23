@@ -21,6 +21,7 @@ namespace MarioGame
         public TStateController StateController { get; set; }
         public ICollisionHandler CollisionHandler { get; set; }
         public ICommandExecutor CommandExecutor { get; set; }
+        public IEventTrigger EventTrigger { get; set; }
 
         public IStateControllerNew GeneralStateController
         {
@@ -43,6 +44,7 @@ namespace MarioGame
             Waitlist = new Collection<Reservation>();
             StateController = new TStateController {Core = this};
             CollisionDetector = new CollisionDetector(obj);
+            EventTrigger = new EventTrigger(this);
         }
 
         public void DelayCommand(Action command, int delay = 1)

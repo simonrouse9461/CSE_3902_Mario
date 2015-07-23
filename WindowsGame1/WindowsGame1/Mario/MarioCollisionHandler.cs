@@ -15,6 +15,7 @@ namespace MarioGame
             HandleStar();
             HandleEnemy();
             HandleFlagPole();
+            HandleOneUp();
         }
 
         protected virtual void HandleMushroom()
@@ -23,6 +24,14 @@ namespace MarioGame
             {
                 Core.DelayCommand(Core.StateController.Grow, 5);
                 SoundManager.PowerUpSoundPlay();
+            }
+        }
+
+        protected virtual void HandleOneUp()
+        {
+            if (Core.CollisionDetector.Detect<OneUp>().AnyEdge.Touch)
+            {
+                SoundManager.OneUpSoundPlay();
             }
         }
 

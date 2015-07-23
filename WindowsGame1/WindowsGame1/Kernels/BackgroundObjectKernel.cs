@@ -66,7 +66,7 @@ namespace MarioGame
             PositionPoint = location;
         }
 
-        public void Unload()
+        public void Unload(bool immediate = false)
         {
             WorldManager.RemoveObject(this);
         }

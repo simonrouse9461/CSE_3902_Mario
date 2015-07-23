@@ -25,7 +25,7 @@ using Microsoft.Xna.Framework;
 
         void Reset();
         void Load(ContentManager content, Vector2 location);
-        void Unload();
+        void Unload(bool immediate = false);
         void Update();
         void Draw(SpriteBatch spriteBatch);
     }

@@ -15,6 +15,7 @@ namespace MarioGame
         bool DefaultSprite { get; }
         bool Held { get; }
         bool Frozen { get; }
+        bool Hidden { get; }
 
         void SetCore(ICoreNew c);
         void SetOrientation(Orientation orientation);
@@ -28,6 +29,8 @@ namespace MarioGame
         void Release();
         void Freeze(int timer = 0);
         void Resume();
+        void Hide();
+        void Show();
         void Load(ContentManager content);
         void SetSpriteFrequency(int frequency);
         void SetColorFrequency(int frequency);

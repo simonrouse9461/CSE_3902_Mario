@@ -26,6 +26,9 @@ namespace MarioGame
         private static SoundEffect kickSound;
         private static SoundEffect pipeSound;
         private static SoundEffect fireballSound;
+        private static SoundEffect oneupSound;
+        private static SoundEffect flagpoleSound;
+        private static SoundEffect superfireSound;
 
         // Music Instance
         private static SoundEffectInstance currentBackgroundMusic;
@@ -42,6 +45,9 @@ namespace MarioGame
         private static SoundEffectInstance kickInstance;
         private static SoundEffectInstance pipeInstance;
         private static SoundEffectInstance fireballInstance;
+        private static SoundEffectInstance oneupInstance;
+        private static SoundEffectInstance flagpoleInstance;
+        private static SoundEffectInstance superfireInstance;
 
         // Sound Properties
         private static SoundEffectInstance SmallJumpSound
@@ -99,6 +105,21 @@ namespace MarioGame
             get { return CreateInstance(fireballSound, ref fireballInstance); }
         }
 
+        private static SoundEffectInstance OneUpSound
+        {
+            get { return CreateInstance(oneupSound, ref oneupInstance); }
+        }
+
+        private static SoundEffectInstance FlagPoleSound
+        {
+            get { return CreateInstance(flagpoleSound, ref flagpoleInstance); }
+        }
+
+        private static SoundEffectInstance SuperFireSound
+        {
+            get { return CreateInstance(superfireSound, ref superfireInstance); }
+        }
+
         private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance)
         {
             if (soundInstance == null || soundInstance.State == SoundState.Stopped)
@@ -133,6 +154,9 @@ namespace MarioGame
             kickSound = content.Load<SoundEffect>("Audio/kick");
             pipeSound = content.Load<SoundEffect>("Audio/pipe");
             fireballSound = content.Load<SoundEffect>("Audio/fireball");
+            oneupSound = content.Load<SoundEffect>("Audio/smb_1-up");
+            flagpoleSound = content.Load<SoundEffect>("Audio/smb_flagpole");
+            superfireSound = content.Load<SoundEffect>("Audio/smb_bowserfire");
         }
 
         public static void StopMusic()
@@ -276,6 +300,26 @@ namespace MarioGame
                 fireballInstance.State == SoundState.Playing) 
                 fireballInstance.Stop();
             PlaySound(FireballSound);
+        }
+
+        public static void OneUpSoundPlay()
+        {
+            PlaySound(OneUpSound);
+        }
+
+        public static void FlagpoleSoundPlay()
+        {
+            PlaySound(FlagPoleSound);
+        }
+
+        public static void SuperFireSoundPlay()
+        {
+            if(superfireInstance != null &&
+                superfireInstance.State == SoundState.Playing)
+            {
+                superfireInstance.Stop();
+            }
+            PlaySound(SuperFireSound);
         }
     }
 }

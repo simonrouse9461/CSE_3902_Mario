@@ -271,6 +271,7 @@ namespace MarioGame
             if (Camera.OutOfRange(FindObject<MarioObject>()))
             {
                 new MarioDieCommand().Execute();
+                Console.WriteLine(FindObject<MarioObject>().CollisionRectangle);
                 FindObject<MarioObject>().Freeze();
             }
             if (SoundManager.DieMusicFinished)

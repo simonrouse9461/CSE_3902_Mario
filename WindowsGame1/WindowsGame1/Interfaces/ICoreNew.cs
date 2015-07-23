@@ -12,6 +12,7 @@ namespace MarioGame
         IBarrierHandler BarrierHandler { get; set; }
         ICollisionHandler CollisionHandler { get; set; }
         ICommandExecutor CommandExecutor { get; set; }
+        IEventTrigger EventTrigger { get; set; }
 
         void DelayCommand(Action command, int delay = 1);
         void DelayCommand(Action command, Func<bool> dependency, int delay = 1);

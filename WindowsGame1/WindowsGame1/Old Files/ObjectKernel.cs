@@ -116,9 +116,10 @@ namespace MarioGame
             GeneralMotionState.Position = location;
         }
 
-        public void Unload()
+        public void Unload(bool immediate = false)
         {
-            Core.DelayCommand(() => WorldManager.RemoveObject(this));
+            if (immediate) WorldManager.RemoveObject(this);
+            else Core.DelayCommand(() => WorldManager.RemoveObject(this));
         }
 
         public void Transform<T>(T obj = null) where T : class, IObject, new()
