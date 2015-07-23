@@ -12,12 +12,12 @@ namespace MarioGame
         public Color Color;
         public int Scale;
 
-        public SpriteTransformation(int index, SpriteEffects effect = SpriteEffects.None, float rotation = 0,
+        public SpriteTransformation(int index, SpriteEffects effect = SpriteEffects.None, double rotation = 0,
             Color? color = null, int scale = 1)
         {
             Index = index;
             Effect = effect;
-            Rotation = rotation;
+            Rotation = (float)rotation;
             Color = color ?? Color.White;
             Scale = scale;
         }

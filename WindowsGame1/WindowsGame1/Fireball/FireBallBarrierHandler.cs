@@ -1,8 +1,8 @@
 ﻿namespace MarioGame
 {
-    public class FireBallBarrierHandler : BarrierHandlerKernel<FireballStateController>
+    public class FireBallBarrierHandler : BarrierHandlerKernelNew<FireballStateController>
     {
-        public FireBallBarrierHandler(ICore core) : base(core) { }
+        public FireBallBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
         {

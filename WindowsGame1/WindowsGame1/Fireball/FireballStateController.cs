@@ -3,14 +3,26 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class FireballStateController : StateControllerKernel<FireballSpriteState, FireballMotionState>
+    public class FireballStateController : StateControllerKernelNew<FireballSpriteState, FireballMotionState>
     {
+        public void ToLeft()
+        {
+            SpriteState.FaceLeft();
+            MotionState.GoLeft();
+        }
+
+        public void ToRight()
+        {
+            SpriteState.FaceRight();
+            MotionState.GoRight();
+        }
+
         public void Explode()
         {
             MotionState.Stop();
-            SpriteState.Exploded();
+            SpriteState.Explode();
+            SpriteState.HoldTillFinish(false, SpriteHoldDependency.SpriteAnimation, () => Core.Object.Unload(true));
             Core.BarrierHandler.RemoveBarrier<IObject>();
-            Core.DelayCommand(() => Core.Obj.Unload(), 6);
         }
 
         public void Bounce()

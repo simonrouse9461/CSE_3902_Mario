@@ -219,8 +219,8 @@
     <Compile Include="Fireball\FireballSpriteState.cs" />
     <Compile Include="BlockDebris\BlockDebrisSprite.cs" />
     <Compile Include="Misc Objects\Sprites\CastleSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\ExplodingFireballSprite.cs" />
-    <Compile Include="Fireball\FireballSprite.cs" />
+    <Compile Include="Fireball\Sprites\ExplodingFireballSprite.cs" />
+    <Compile Include="Fireball\Sprites\RotatingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\FlagPoleSprite.cs" />
     <Compile Include="Misc Objects\Sprites\MediumGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />

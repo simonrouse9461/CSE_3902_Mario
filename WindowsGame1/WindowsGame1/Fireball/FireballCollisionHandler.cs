@@ -5,10 +5,10 @@ using System.Text;
 
 namespace MarioGame
 {
-    public class FireballCollisionHandler : CollisionHandlerKernel<FireballStateController>
+    public class FireballCollisionHandler : CollisionHandlerKernelNew<FireballStateController>
     {
 
-        public FireballCollisionHandler(ICore core) : base(core) {}
+        public FireballCollisionHandler(ICoreNew core) : base(core) {}
 
         public override void Handle()
         {          

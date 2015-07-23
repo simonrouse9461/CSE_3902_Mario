@@ -61,9 +61,9 @@ namespace MarioGame
 
         public int Cycle { get { return Animation.Cycle; } }
 
-        public int Width { get { return (int)(SourceCoodinates.Width*GameSettings.SpriteScale*Scale); } }
+        public float Width { get { return (int)(SourceCoodinates.Width*GameSettings.SpriteScale*Scale); } }
 
-        public int Height { get { return (int)(SourceCoodinates.Height*GameSettings.SpriteScale*Scale); } }
+        public float Height { get { return (int)(SourceCoodinates.Height*GameSettings.SpriteScale*Scale); } }
 
         public IConvertible Version { get; private set; }
 
@@ -150,28 +150,24 @@ namespace MarioGame
 
             if (color == null) color = Color;
             spriteBatch.Draw(Texture, GetScreenLocation(location), SourceCoodinates, color.Value, rotation,
-                default(Vector2), GameSettings.SpriteScale*Scale, mixedEffect.Key, 1);
+                new Vector2((float)SourceCoodinates.Width/2, (float)SourceCoodinates.Height/2), GameSettings.SpriteScale*Scale, mixedEffect.Key, 1);
         }
 
         public Rectangle GetScreenDestination(Vector2 position)
         {
-            var width = SourceCoodinates.Width*Scale*GameSettings.SpriteScale;
-            var height = SourceCoodinates.Height*Scale*GameSettings.SpriteScale;
-            var x = (position.X - width/2);
-            var y = position.Y - height;
+            var x = position.X - Width/2;
+            var y = position.Y - Height;
             return new Rectangle(
                 (int) (x),
                 (int) (y),
-                (int) (width),
-                (int) (height));
+                (int) (Width),
+                (int) (Height));
         }
 
         public Vector2 GetScreenLocation(Vector2 position)
         {
-            var width = SourceCoodinates.Width*Scale*GameSettings.SpriteScale;
-            var height = SourceCoodinates.Height*Scale*GameSettings.SpriteScale;
-            var x = (position.X - width/2);
-            var y = position.Y - height;
+            var x = position.X;
+            var y = position.Y - Height/2;
             return new Vector2(
                 (int) (x),
                 (int) (y));

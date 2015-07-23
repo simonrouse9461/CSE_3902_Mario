@@ -4,91 +4,68 @@ namespace MarioGame
 {
     public class FireballMotionState : MotionStateKernelNew
     {
-        private enum OrientationEnum
-        {
-            Left,
-            Right,
-        }
-
-        private enum ActionEnum
-        {
-            Default,
-            Stop,
-            Bounce
-        }
-
         public FireballMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(UniformMotion.FireballMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.FireballMoveRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.EnemyFlip)
-            };
+            AddMotion(UniformMotion.FireballMoveLeft);
+            AddMotion(UniformMotion.FireballMoveRight);
+            AddMotion<GravityMotion>();
+            AddMotion(BounceUpMotion.FireballBounce);
 
+            TurnOnMotion<GravityMotion>();
             SetDefaultHorizontal();
             SetDefaultVertical();
         }
 
-        private OrientationEnum Orientation;
-        private ActionEnum Action;
-
         public void SetDefaultHorizontal()
         {
-            FindMotion(UniformMotion.FireballMoveRight).Toggle(false);
-            FindMotion(UniformMotion.FireballMoveLeft).Toggle(false);
+            TurnOffMotion(UniformMotion.FireballMoveRight);
+            TurnOffMotion(UniformMotion.FireballMoveLeft);
         }
 
         public void SetDefaultVertical()
         {
-            FindMotion<BounceUpMotion>().Toggle(false);
+            TurnOffMotion<BounceUpMotion>();
         }
 
         public void GoLeft()
         {
             SetDefaultHorizontal();
-            Orientation = OrientationEnum.Left;
-            FindMotion(UniformMotion.FireballMoveLeft).Toggle(true);
-            FindMotion<GravityMotion>().Toggle(true);
+            TurnOnMotion(UniformMotion.FireballMoveLeft);
         }
 
         public void GoRight()
         {
             SetDefaultHorizontal();
-            Orientation = OrientationEnum.Right;
-            FindMotion(UniformMotion.FireballMoveRight).Toggle(true);
-            FindMotion<GravityMotion>().Toggle(true);
+            TurnOnMotion(UniformMotion.FireballMoveRight);
         }
 
         public bool Left
         {
-            get { return Orientation == OrientationEnum.Left; }
+            get { return CheckMotion(UniformMotion.FireballMoveLeft); }
         }
 
         public bool Right
         {
-            get { return Orientation == OrientationEnum.Right; }
+            get { return CheckMotion(UniformMotion.FireballMoveRight); }
         }
 
         public void Stop()
         {
             SetDefaultHorizontal();
             SetDefaultVertical();
-            FindMotion<GravityMotion>().Toggle(false);
-            Action = ActionEnum.Default;
+            TurnOffMotion<GravityMotion>();
         }
 
         public void Bounce()
         {
             SetDefaultVertical();
-            Action = ActionEnum.Bounce;
-            FindMotion<BounceUpMotion>().Content.Reset();
-            FindMotion<BounceUpMotion>().Toggle(true);
+            ResetMotion<BounceUpMotion>();
+            TurnOnMotion<BounceUpMotion>();
         }
 
         public bool Bouncing
         {
-            get { return Action == ActionEnum.Bounce; }
+            get { return CheckMotion<BounceUpMotion>(); }
         }
     }
 }

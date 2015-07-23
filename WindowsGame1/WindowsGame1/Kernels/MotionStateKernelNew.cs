@@ -56,6 +56,16 @@ namespace MarioGame
             FindMotion(motion).Toggle(false);
         }
 
+        protected void ResetMotion<T>(T motion = null) where T : class, IMotion, new()
+        {
+            FindMotion(motion).Content.Reset();
+        }
+
+        protected bool CheckMotion<T>(T motion = null) where T : class, IMotion, new()
+        {
+            return FindMotion(motion).Status;
+        }
+
         public void Adjust(Vector2 offset)
         {
             Position += offset;

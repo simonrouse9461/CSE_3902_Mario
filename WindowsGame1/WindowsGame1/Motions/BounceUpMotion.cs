@@ -103,15 +103,15 @@ namespace MarioGame
             }
         }
 
-        public static BounceUpMotion EnemyFlip
+        public static BounceUpMotion FireballBounce
         {
             get
             {
                 return new BounceUpMotion
                 {
                     version = Version.FireballBounce,
-                    StartVelocity = new Vector2(0, -2.7f),
-                    Acceleration = new Vector2(0, 0.2f),
+                    StartVelocity = new Vector2(0, -4.5f),
+                    Acceleration = new Vector2(0, 0.4f),
                     MaxVelocity = GravityMotion.Max,
                     InvolveGravity = true,
                     FinishWhenMax = true

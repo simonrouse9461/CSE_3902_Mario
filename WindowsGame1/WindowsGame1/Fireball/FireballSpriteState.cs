@@ -3,45 +3,35 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class FireballSpriteState : SpriteStateKernel
+    public class FireballSpriteState : SpriteStateKernelNew<int>
     {
-        private enum Fireball{
-            Fireball,
-            Exploded
-        }
-        private Fireball Status;
-
         public FireballSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new FireballSprite(),
-                new ExplodingFireballSprite()
-            };
-            ChangeSpriteFrequency(7);
+            AddSprite<RotatingFireballSprite>();
+            AddSprite<ExplodingFireballSprite>();
+
+            SetSprite<RotatingFireballSprite>();
+            SetSpriteFrequency(5);
         }
 
-        protected override ISprite RawSprite
+        public void Rotate()
         {
-            get {
-                if (Status == Fireball.Exploded)
-                {
-                    return FindSprite<ExplodingFireballSprite>();
-                }
-                else
-                {
-                    return FindSprite<FireballSprite>();
-                }
-            }
+            SetSprite<RotatingFireballSprite>();
         }
 
-        //public bool Fire
-        //{
-        //    get { return Status == Fireball.Fireball; }
-        //}
+        public void Explode()
+        {
+            SetSprite<ExplodingFireballSprite>();
+        }
 
-        public void Exploded(){
-            Status = Fireball.Exploded;
+        public bool Rotating
+        {
+            get { return IsSprite<RotatingFireballSprite>();}
+        }
+
+        public bool Exploding
+        {
+            get { return IsSprite<ExplodingFireballSprite>(); }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MarioGame
 {
-    public class FireballObject : ObjectKernel<FireballStateController>
+    public class FireballObject : ObjectKernelNew<FireballStateController>
     {
         public FireballObject()
         {
@@ -16,14 +16,12 @@ namespace MarioGame
             BarrierHandler.RemoveBarrier<MarioObject>();
         }
 
-        // Versions
-
         public static FireballObject LeftFireBall
         {
             get
             {
                 var instance = new FireballObject();
-                instance.Core.StateController.MotionState.GoLeft();
+                instance.Core.StateController.ToLeft();
                 return instance;
             }
         }
@@ -33,7 +31,7 @@ namespace MarioGame
             get
             {
                 var instance = new FireballObject();
-                instance.Core.StateController.MotionState.GoRight();
+                instance.Core.StateController.ToRight();
                 return instance;
             }
         }

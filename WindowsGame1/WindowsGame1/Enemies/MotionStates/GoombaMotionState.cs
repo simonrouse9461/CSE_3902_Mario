@@ -24,7 +24,7 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
                 new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.EnemyFlip)
+                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
             };
 
             LoseGravity();
