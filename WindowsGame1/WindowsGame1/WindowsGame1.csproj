@@ -123,6 +123,7 @@
     <Compile Include="Kernels\EventTrigger.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FinishLevelMarioCommandExecutor.cs" />
+    <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
     <Compile Include="Mario\Sprites\SlipingSuperMarioSprite.cs" />
     <Compile Include="Mario\Sprites\SlipingSmallMarioSprite.cs" />
@@ -275,7 +276,6 @@
     <Compile Include="Items\Sprites\StarSprite.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
-    <Compile Include="Mario\MarioMotionState.cs" />
     <Compile Include="Mario\MarioObject.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
     <Compile Include="Mario\Sprites\CrouchingMarioSprite.cs" />

@@ -186,6 +186,7 @@ namespace MarioGame
         {
             if (SpriteState.Dead) return;
             if (SpriteState.Small) return;
+            if (SpriteState.Jumping) return;
             SpriteState.Crouch();
             SpriteState.Hold(false);
             MotionState.Stop();

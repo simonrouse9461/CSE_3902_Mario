@@ -5,7 +5,7 @@ namespace MarioGame
 {
     public class GravityMotion : MotionKernel
     {
-        public static Vector2 Max { get { return new Vector2(0, 5); } }
+        public static Vector2 Max { get { return new Vector2(0, 5.4f); } }
 
         public GravityMotion()
         {

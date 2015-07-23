@@ -34,19 +34,16 @@ namespace MarioGame
 
         public MarioMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
-            {
-                new StatusSwitch<IMotion>(AcceleratedMotion.MarioLeft),
-                new StatusSwitch<IMotion>(AcceleratedMotion.MarioRight),
-                new StatusSwitch<IMotion>(new DampMotion()),
-                new StatusSwitch<IMotion>(new InertiaMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.MarioDie),
-                new StatusSwitch<IMotion>(BounceUpMotion.MarioJump),
-                new StatusSwitch<IMotion>(BounceUpMotion.MarioStamp),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(UniformMotion.MarioSlipDown),
-                new StatusSwitch<IMotion>(UniformMotion.MarioEnterPipe)
-            };
+            AddMotion(AcceleratedMotion.MarioLeft);
+            AddMotion(AcceleratedMotion.MarioRight);
+            AddMotion<DampMotion>();
+            AddMotion<InertiaMotion>();
+            AddMotion(BounceUpMotion.MarioDie);
+            AddMotion(BounceUpMotion.MarioJump);
+            AddMotion(BounceUpMotion.MarioStamp);
+            AddMotion<GravityMotion>();
+            AddMotion(UniformMotion.MarioSlipDown);
+            AddMotion(UniformMotion.MarioEnterPipe);
 
             SetDefaultHorizontal();
             SetDefaultVertical();
@@ -56,18 +53,18 @@ namespace MarioGame
         public void SetDefaultHorizontal()
         {
             HorizontalStatus = HorizontalEnum.Default;
-            FindMotion(AcceleratedMotion.MarioRight).Toggle(false);
-            FindMotion(AcceleratedMotion.MarioLeft).Toggle(false);
-            FindMotion<DampMotion>().Toggle(false);
-            FindMotion<InertiaMotion>().Toggle(false);
+            TurnOffMotion(AcceleratedMotion.MarioRight);
+            TurnOffMotion(AcceleratedMotion.MarioLeft);
+            TurnOffMotion<DampMotion>();
+            TurnOffMotion<InertiaMotion>();
         }
 
         public void SetDefaultVertical()
         {
             VerticalStatus = VerticalEnum.Default;
-            FindMotion(BounceUpMotion.MarioJump).Toggle(false);
-            FindMotion(BounceUpMotion.MarioStamp).Toggle(false);
-            FindMotion(UniformMotion.MarioSlipDown).Toggle(false);
+            TurnOffMotion(BounceUpMotion.MarioJump);
+            TurnOffMotion(BounceUpMotion.MarioStamp);
+            TurnOffMotion(UniformMotion.MarioSlipDown);
         }
 
         public void GoLeft()
@@ -75,7 +72,7 @@ namespace MarioGame
             if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Left;
-            FindMotion(AcceleratedMotion.MarioLeft).Toggle(true);
+            TurnOnMotion(AcceleratedMotion.MarioLeft);
         }
 
         public void GoRight()
@@ -83,7 +80,7 @@ namespace MarioGame
             if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Right;
-            FindMotion(AcceleratedMotion.MarioRight).Toggle(true);
+            TurnOnMotion(AcceleratedMotion.MarioRight);
         }
 
         public void Stop()
@@ -91,7 +88,7 @@ namespace MarioGame
             if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Stop;
-            FindMotion<DampMotion>().Toggle(true);
+            TurnOnMotion<DampMotion>();
         }
 
         public void GetInertia()
@@ -99,7 +96,7 @@ namespace MarioGame
             if (isFrozen) return;
             SetDefaultHorizontal();
             HorizontalStatus = HorizontalEnum.Inertia;
-            FindMotion<InertiaMotion>().Toggle(true);
+            TurnOnMotion<InertiaMotion>();
         }
 
         public void AdjustInertiaLeft()
@@ -117,7 +114,7 @@ namespace MarioGame
             if (isFrozen) return;
             SetDefaultVertical();
             VerticalStatus = VerticalEnum.Jump;
-            FindMotion(BounceUpMotion.MarioJump).Toggle(true);
+            TurnOnMotion(BounceUpMotion.MarioJump);
         }
 
         public void Fall()
@@ -132,7 +129,7 @@ namespace MarioGame
             if (isFrozen) return;
             SetDefaultVertical();
             VerticalStatus = VerticalEnum.Bounce;
-            FindMotion(BounceUpMotion.MarioStamp).Toggle(true);
+            TurnOnMotion(BounceUpMotion.MarioStamp);
         }
 
         public void ObtainGravity()
@@ -153,14 +150,14 @@ namespace MarioGame
             SetDefaultHorizontal();
             SetDefaultVertical();
             LoseGravity();
-            FindMotion(BounceUpMotion.MarioDie).Toggle(true);
+            TurnOnMotion(BounceUpMotion.MarioDie);
         }
 
         public void Slip()
         {
             SetDefaultHorizontal();
             SetDefaultVertical();
-            FindMotion(UniformMotion.MarioSlipDown).Toggle(true);
+            TurnOnMotion(UniformMotion.MarioSlipDown);
             VerticalStatus = VerticalEnum.Slip;
         }
 
