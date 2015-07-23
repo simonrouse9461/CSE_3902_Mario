@@ -235,6 +235,14 @@ namespace MarioGame
             currentBackgroundMusic.Play();
         }
 
+        public static void PauseMusic()
+        {
+            if (currentBackgroundMusic != null)
+            {
+                currentBackgroundMusic.Dispose();
+            }
+        }
+
         public static void SmallJumpSoundPlay()
         {
             PlaySound(SmallJumpSound);

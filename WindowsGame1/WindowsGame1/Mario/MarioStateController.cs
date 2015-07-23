@@ -328,12 +328,16 @@ namespace MarioGame
             SpriteState.Slip();
             SpriteState.Hold(false);
             Camera.Fix();
+            SoundManager.PauseMusic();
             SoundManager.FlagpoleSoundPlay();
             Core.EventTrigger.AddAbsoluteLocationEvent((int)WorldManager.FindObject<CastleObject>().PositionPoint.X, EnterCastle);
         }
 
         public void EnterCastle()
         {
+            SpriteState.Stand();
+            SpriteState.Hold(true);
+            MotionState.Freeze();
             SpriteState.Hide();
         }
     }

@@ -29,14 +29,14 @@ namespace MarioGame
                 {
                     Core.StateController.SpriteState.Reset();
                     Core.StateController.SpriteState.Freeze();
-                    Core.DelayCommand(() => Core.StateController.Flip(WorldManager.FindObject<FlagPoleObject>().PositionPoint.X + 0.5f), 50);
+                    Core.DelayCommand(SoundManager.ChangeToWinMusic, 20);
+                    Core.DelayCommand(() => Core.StateController.Flip(WorldManager.FindObject<FlagPoleObject>().PositionPoint.X + 0.5f), 40);
                     Core.DelayCommand(() =>
                     {
                         Core.StateController.KeepRight();
                         Core.StateController.SpriteState.Release();
                         Core.StateController.SpriteState.Resume();
-                        SoundManager.ChangeToWinMusic();
-                    }, 100);
+                    }, 80);
                 }
                 Core.StateController.KeepOnLand();
             }
