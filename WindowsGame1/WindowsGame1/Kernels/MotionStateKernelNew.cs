@@ -30,6 +30,13 @@ namespace MarioGame
         {
             Timer =  new Counter();
             Velocity = default(Vector2);
+            MotionList = new Collection<StatusSwitch<IMotion>>();
+        }
+
+        protected void AddMotion<T>(T motion = null) where T : class, IMotion, new()
+        {
+            motion = motion ?? new T();
+            MotionList.Add(new StatusSwitch<IMotion>(motion));
         }
 
         public StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
@@ -37,6 +44,16 @@ namespace MarioGame
             return motion == null
                 ? MotionList.First(m => m.Content is T)
                 : MotionList.First(m => motion.SameVersion(m.Content));
+        }
+
+        protected void TurnOnMotion<T>(T motion = null) where T : class, IMotion, new()
+        {
+            FindMotion(motion).Toggle(true);
+        }
+
+        protected void TurnOffMotion<T>(T motion = null) where T : class, IMotion, new()
+        {
+            FindMotion(motion).Toggle(false);
         }
 
         public void Adjust(Vector2 offset)

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class NormalBlockObject : BlockKernel, IBlock
+    public class NormalBlockObject : BlockKernel
     {
 
         public NormalBlockObject()

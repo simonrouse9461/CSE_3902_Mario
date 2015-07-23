@@ -20,7 +20,9 @@ namespace MarioGame
             Coin,
             Star,
             BlockHit,
-            ItemBounce
+            ItemBounce,
+            DebrisLow,
+            DebrisHigh
         }
 
         private Version version = Version.Default;
@@ -208,6 +210,38 @@ namespace MarioGame
                     Acceleration = new Vector2(0, 0.3f),
                     InvolveGravity = true,
                     MaxVelocity = GravityMotion.Max,
+                    FinishWhenMax = false
+                };
+            }
+        }
+
+        public static BounceUpMotion BlockDebrisHigh
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.DebrisHigh,
+                    StartVelocity = new Vector2(0, -8),
+                    Acceleration = new Vector2(0, 0.5f),
+                    InvolveGravity = false,
+                    MaxVelocity = 5 * GravityMotion.Max,
+                    FinishWhenMax = false
+                };
+            }
+        }
+
+        public static BounceUpMotion BlockDebrisLow
+        {
+            get
+            {
+                return new BounceUpMotion
+                {
+                    version = Version.DebrisLow,
+                    StartVelocity = new Vector2(0, -4),
+                    Acceleration = new Vector2(0, 0.5f),
+                    InvolveGravity = false,
+                    MaxVelocity = 5 * GravityMotion.Max,
                     FinishWhenMax = false
                 };
             }

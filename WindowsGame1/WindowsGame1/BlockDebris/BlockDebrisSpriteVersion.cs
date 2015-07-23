@@ -3,6 +3,8 @@ namespace MarioGame
 {
     public enum BlockDebrisSpriteVersion
     {
-        Overworld
+        Brown,
+        Cyan,
+        Grey
     }
 }

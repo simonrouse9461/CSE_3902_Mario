@@ -19,7 +19,9 @@ namespace MarioGame
             ItemRight,
             ItemUp,
             FireballLeft,
-            FireballRight
+            FireballRight,
+            DebrisLeft,
+            DebrisRight
         }
 
         private Version version = Version.Default;
@@ -192,6 +194,30 @@ namespace MarioGame
                 {
                     version = Version.FireballRight,
                     StartVelocity = new Vector2(6, 0)
+                };
+            }
+        }
+
+        public static UniformMotion BlockDebrisLeft
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.DebrisLeft,
+                    StartVelocity = new Vector2(-2, 0)
+                };
+            }
+        }
+
+        public static UniformMotion BlockDebrisRight
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.DebrisRight,
+                    StartVelocity = new Vector2(2, 0)
                 };
             }
         }

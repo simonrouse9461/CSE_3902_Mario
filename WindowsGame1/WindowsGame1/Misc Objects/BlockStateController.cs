@@ -9,7 +9,7 @@ namespace MarioGame
         public bool giveItem { get; private set; }
         public bool giveStar { get; private set; }
         public bool giveOneUp { get; private set; }
-         
+
         private int numberCoinsLeft = 10;
 
         private int CoinLeft
@@ -22,7 +22,7 @@ namespace MarioGame
                 {
                     SpriteState.QuestionToUsedBlock();
                 }
-            }          
+            }
         }
 
         public void hasCoin()
@@ -84,7 +84,7 @@ namespace MarioGame
 
         public void QuestionBlockGiveFireflower()
         {
-            Core.Object.Generate<Fireflower>();           
+            Core.Object.Generate<Fireflower>();
             SpriteState.QuestionToUsedBlock();
         }
 
@@ -96,7 +96,7 @@ namespace MarioGame
 
         public void QuestionBlockGiveCoin()
         {
-            Core.Object.Generate<Coin>();   
+            Core.Object.Generate<Coin>();
             SpriteState.QuestionToUsedBlock();
         }
 
@@ -121,9 +121,18 @@ namespace MarioGame
         public void NormalBlockDestroyed()
         {
             SpriteState.SetSpriteFrequency(20);
-            //SpriteState.Destroyed();
-            Core.DelayCommand(() => Core.Object.Unload(), 35);
-        }      
 
+            Core.Object.Generate(new Vector2(-(float) Core.Object.PositionRectangle.Width/4, 0),
+                BlockDebrisObject.LowerLeft);
+            Core.Object.Generate(new Vector2((float) Core.Object.PositionRectangle.Width/4, 0),
+                BlockDebrisObject.LowerRight);
+            Core.Object.Generate(
+                new Vector2(-(float) Core.Object.PositionRectangle.Width/4,
+                    -(float) Core.Object.PositionRectangle.Height/2), BlockDebrisObject.UpperLeft);
+            Core.Object.Generate(
+                new Vector2((float) Core.Object.PositionRectangle.Width/4,
+                    -(float) Core.Object.PositionRectangle.Height/2), BlockDebrisObject.UpperRight);
+            Core.Object.Unload();
+        }
     }
 }

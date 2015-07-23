@@ -44,7 +44,8 @@ namespace MarioGame
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioJump),
                 new StatusSwitch<IMotion>(BounceUpMotion.MarioStamp),
                 new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(UniformMotion.MarioSlipDown)
+                new StatusSwitch<IMotion>(UniformMotion.MarioSlipDown),
+                new StatusSwitch<IMotion>(UniformMotion.MarioEnterPipe)
             };
 
             SetDefaultHorizontal();

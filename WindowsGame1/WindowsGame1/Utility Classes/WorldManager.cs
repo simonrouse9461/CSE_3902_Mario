@@ -109,7 +109,8 @@ namespace MarioGame
                 new Collection<SecretPipeObject>(),
 
                 // Fireball is on the top of everything
-                new Collection<FireballObject>()
+                new Collection<FireballObject>(),
+                new Collection<BlockDebrisObject>()
             };
         }
 
@@ -197,7 +198,7 @@ namespace MarioGame
             if (CurrentSection == LevelSection.Default)
             {
                 Instance.LevelData = content.Load<ObjectData[]>("LevelData");
-                if (false)
+                if (true)
                 {
                     CreateObject<MarioObject>(new Vector2(75, 398));
                 }
