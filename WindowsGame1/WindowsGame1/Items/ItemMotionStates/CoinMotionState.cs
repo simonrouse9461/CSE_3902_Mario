@@ -2,7 +2,7 @@
 
 namespace MarioGame
 {
-    public class CoinMotionState : MotionStateKernelNew
+    public class CoinMotionState : MotionStateKernel
     {
 
         public CoinMotionState()

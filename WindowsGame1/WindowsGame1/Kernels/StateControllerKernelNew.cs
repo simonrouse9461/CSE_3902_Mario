@@ -4,12 +4,12 @@ namespace MarioGame
 {
     public abstract class StateControllerKernelNew<TSpriteState, TMotionState> : IStateControllerNew
         where TSpriteState : ISpriteStateNew, new()
-        where TMotionState : IMotionState, new()
+        where TMotionState : IMotionStateNew, new()
     {
         public TSpriteState SpriteState { get; set; }
         public TMotionState MotionState { get; set; }
         public ISpriteStateNew GeneralSpriteState { get { return SpriteState; } }
-        public IMotionState GeneralMotionState { get { return MotionState; } }
+        public IMotionStateNew GeneralMotionState { get { return MotionState; } }
 
         private ICoreNew _core;
 

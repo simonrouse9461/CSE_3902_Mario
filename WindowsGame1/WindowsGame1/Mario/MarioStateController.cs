@@ -63,6 +63,7 @@ namespace MarioGame
             if (SpriteState.Dead) return;
             if (SpriteState.Sliping) return;
             if (!MotionState.Gravity) MotionState.ObtainGravity();
+            
             if (!MotionState.HaveInertia) MotionState.GetInertia();
             DefaultAction();
         }
@@ -72,7 +73,7 @@ namespace MarioGame
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
-            if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
+            if (MotionState.Stopping && SpriteState.IsLeft && SpriteState.Turning) return;
 
             if (MotionState.Velocity.X > 0)
             {
@@ -91,7 +92,7 @@ namespace MarioGame
             if (SpriteState.Dead) return;
             if (SpriteState.Crouching) return;
             if (MotionState.HaveInertia) return;
-            if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
+            if (MotionState.Stopping && SpriteState.IsRight && SpriteState.Turning) return;
             
             if (MotionState.Velocity.X < 0)
             {
@@ -115,7 +116,7 @@ namespace MarioGame
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
-            else if (MotionState.isStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
+            else if (MotionState.IsStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.IsLeft))
             {
                 GoLeft();
             }
@@ -131,7 +132,7 @@ namespace MarioGame
 
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
-            else if (MotionState.isStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
+            else if (MotionState.IsStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.IsRight))
             {
                 GoRight();
             }
@@ -162,7 +163,7 @@ namespace MarioGame
         {
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
-            if (SpriteState.Held) return;
+            if (SpriteState.IsHeld) return;
             MotionState.Jump();
             SpriteState.Jump();
             if (SpriteState.Small) SoundManager.SmallJumpSoundPlay();
@@ -214,8 +215,8 @@ namespace MarioGame
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
             Core.Object.Generate(
-                new Vector2(SpriteState.Left ? -10 : 10, -25),
-                SpriteState.Left ? FireballObject.LeftFireBall : FireballObject.RightFireBall
+                new Vector2(SpriteState.IsLeft ? -10 : 10, -25),
+                SpriteState.IsLeft ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
             AmmoLeft--;
             SoundManager.FireballSoundPlay();
@@ -229,7 +230,7 @@ namespace MarioGame
         public void Flip(float? axis = null)
         {
             if (axis == null) axis = MotionState.Position.X;
-            if (SpriteState.Left) SpriteState.FaceRight(); 
+            if (SpriteState.IsLeft) SpriteState.FaceRight(); 
             else SpriteState.FaceLeft();
             MotionState.Adjust(new Vector2((axis.Value - MotionState.Position.X) * 2, 0));
         }

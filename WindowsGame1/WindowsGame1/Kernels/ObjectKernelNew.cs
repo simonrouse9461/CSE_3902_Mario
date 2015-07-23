@@ -23,7 +23,7 @@ namespace MarioGame
             get { return Core.GeneralSpriteState; }
         }
 
-        protected IMotionState GeneralMotionState
+        protected IMotionStateNew GeneralMotionState
         {
             get { return Core.GeneralMotionState; }
         }

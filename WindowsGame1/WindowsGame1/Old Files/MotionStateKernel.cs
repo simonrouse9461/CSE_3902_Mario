@@ -6,27 +6,27 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public abstract class MotionStateKernelNew : IMotionStateNew
+    public abstract class MotionStateKernel : IMotionState
     {
-        private ICoreNew Core { get; set; }
-        private Counter Timer { get; set; }
-        private Collection<StatusSwitch<IMotion>> MotionList { get; set; }
+        private ICoreNew Core;
+        protected Counter Timer { get; set; }
+        protected Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
         public Vector2 Position { get; set; }
         public Vector2 Velocity { get; set; }
-        public bool IsFrozen { get; private set; }
+        public bool isFrozen { get; private set; }
 
         public void SetCore(ICoreNew c)
         {
             Core = c;
         }
 
-        public bool IsStatic
+        public bool isStatic
         {
             get { return MotionList.All(m => !m.Status); }
         }
 
-        protected MotionStateKernelNew()
+        protected MotionStateKernel()
         {
             Timer =  new Counter();
             Velocity = default(Vector2);
@@ -39,7 +39,7 @@ namespace MarioGame
             MotionList.Add(new StatusSwitch<IMotion>(motion));
         }
 
-        protected StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
+        public StatusSwitch<IMotion> FindMotion<T>(T motion = null) where T : class, IMotion, new()
         {
             return motion == null
                 ? MotionList.First(m => m.Content is T)
@@ -73,13 +73,13 @@ namespace MarioGame
 
         public void Freeze(int timer = 0)
         {
-            IsFrozen = true;
+            isFrozen = true;
             if (timer != 0) Core.DelayCommand(Restore, timer);
         }
 
         public void Restore()
         {
-            IsFrozen = false;
+            isFrozen = false;
         }
 
         public void Reset()
@@ -109,7 +109,7 @@ namespace MarioGame
 
         public void Update()
         {
-            if (IsFrozen) return;
+            if (isFrozen) return;
             if (MotionList == null) return;
             if (Timer.Update())
             {

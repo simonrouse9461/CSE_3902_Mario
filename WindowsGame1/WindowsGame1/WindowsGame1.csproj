@@ -118,9 +118,11 @@
     <Compile Include="Interfaces\ICoreNew.cs" />
     <Compile Include="Interfaces\IDecorator.cs" />
     <Compile Include="Interfaces\IEventTrigger.cs" />
+    <Compile Include="Interfaces\IMotionStateNew.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Kernels\EventTrigger.cs" />
+    <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FinishLevelMarioCommandExecutor.cs" />
     <Compile Include="Mario\MarioMotionState.cs" />
@@ -183,7 +185,7 @@
     <Compile Include="Items\ItemMotionStates\MushroomOneUpMotionState.cs" />
     <Compile Include="Old Files\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandKernel.cs" />
-    <Compile Include="Kernels\MotionStateKernelNew.cs" />
+    <Compile Include="Old Files\MotionStateKernel.cs" />
     <Compile Include="Kernels\BackgroundObjectKernel.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
     <Compile Include="Old Files\ObjectKernel.cs" />
@@ -264,7 +266,7 @@
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
     <Compile Include="Enemies\Objects\Koopa.cs" />
     <Compile Include="Enemies\Sprites\RightWalkingKoopaSprite.cs" />
-    <Compile Include="Interfaces\IMotionState.cs" />
+    <Compile Include="Old Files\IMotionState.cs" />
     <Compile Include="Interfaces\IObject.cs" />
     <Compile Include="Items\OneUp.cs" />
     <Compile Include="Items\Fireflower.cs" />
@@ -311,7 +313,6 @@
     <Compile Include="Utility Classes\CollisionDetector.cs" />
     <Compile Include="Utility Classes\Collision.cs" />
     <Compile Include="Utility Classes\CollisionType.cs" />
-    <Compile Include="Old Files\ColorAnimator.cs" />
     <Compile Include="Utility Classes\CommandManager.cs" />
     <Compile Include="Old Files\Core.cs" />
     <Compile Include="Helper Classes and Structs\Counter.cs" />
@@ -322,7 +323,8 @@
     <Compile Include="Utility Classes\SpriteSourceNew.cs" />
     <Compile Include="Old Files\SpriteSource.cs" />
     <Compile Include="Utility Classes\SpriteTransformation.cs" />
-    <Compile Include="Utility Classes\StaticMotionState.cs" />
+    <Compile Include="Utility Classes\StaticMotionStateNew.cs" />
+    <Compile Include="Old Files\StaticMotionState.cs" />
     <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
     <Compile Include="Utility Classes\Display.cs" />

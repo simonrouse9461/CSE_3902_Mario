@@ -7,28 +7,19 @@ namespace MarioGame
 {
     public class BlockMotionState : MotionStateKernelNew
     {
-
-        private enum VerticalEnum
-        {
-            Hit,
-            None
-        }
-
         public BlockMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(BounceUpMotion.BlockHit)
-            };         
+            AddMotion(BounceUpMotion.BlockHit);
         }
 
         public void Hit()
         {
-            FindMotion<BounceUpMotion>().Toggle(true);
+            TurnOnMotion<BounceUpMotion>();
         }
 
         public bool isHit
         {
-            get { return FindMotion<BounceUpMotion>().Status; }
+            get { return CheckMotion<BounceUpMotion>(); }
         }
     }
 }

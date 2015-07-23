@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace MarioGame
 {
-    public class KoopaMotionState : MotionStateKernelNew
+    public class KoopaMotionState : MotionStateKernel
     {
         private enum MotionEnum
         {

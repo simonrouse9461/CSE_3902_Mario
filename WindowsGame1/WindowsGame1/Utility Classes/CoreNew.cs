@@ -33,7 +33,7 @@ namespace MarioGame
             get { return StateController.GeneralSpriteState; }
         }
 
-        public IMotionState GeneralMotionState
+        public IMotionStateNew GeneralMotionState
         {
             get { return StateController.GeneralMotionState; }
         }
@@ -74,7 +74,7 @@ namespace MarioGame
 
         public void SwitchComponent(object component)
         {
-            if (component is ISpriteStateNew || component is IMotionState)
+            if (component is ISpriteStateNew || component is IMotionStateNew)
                 StateController.SwitchComponent(component);
             if (component is ICollisionHandler)
                 CollisionHandler = (ICollisionHandler)component;

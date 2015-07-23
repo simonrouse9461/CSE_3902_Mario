@@ -20,7 +20,7 @@ namespace MarioGame
         public ISpriteNew Sprite
         {
             get { return _sprite; }
-            set { if (!Held) _sprite = value; }
+            set { if (!IsHeld) _sprite = value; }
         }
         private ISpriteNew LastSprite { get; set; }
 
@@ -30,7 +30,7 @@ namespace MarioGame
         {
             get
             {
-                var defaultColor = Hidden ? Color.Transparent : Color.White;
+                var defaultColor = IsHidden ? Color.Transparent : Color.White;
                 return ColorScheme == null ? defaultColor : ColorScheme.Value;
             }
         }
@@ -61,18 +61,18 @@ namespace MarioGame
         }
 
         private SpriteHoldDependency HoldDependency { get; set; }
-        public bool Held { get; private set; }
-        public bool Frozen { get; private set; }
-        public bool Hidden { get; private set; }
+        public bool IsHeld { get; private set; }
+        public bool IsFrozen { get; private set; }
+        public bool IsHidden { get; private set; }
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
         private Action FinishAction { get; set; }
         
 
         public Orientation Orientation { get; private set; }
-        public bool Left { get { return Orientation == Orientation.Left; } }
-        public bool Right { get { return Orientation == Orientation.Right; } }
-        public bool DefaultSprite { get { return Orientation == Orientation.Default; } }
+        public bool IsLeft { get { return Orientation == Orientation.Left; } }
+        public bool IsRight { get { return Orientation == Orientation.Right; } }
+        public bool IsDefaultSprite { get { return Orientation == Orientation.Default; } }
 
         protected SpriteStateKernelNew()
         {
@@ -199,7 +199,7 @@ namespace MarioGame
         {
             HoldOrientation = holdOrientation;
             action = action ?? (() => { });
-            Held = true;
+            IsHeld = true;
             HoldDependency = SpriteHoldDependency.Updates;
             if (timer > 0) Core.DelayCommand(() =>
             {
@@ -216,7 +216,7 @@ namespace MarioGame
                 return;
             }
             HoldOrientation = holdOrientation;
-            Held = true;
+            IsHeld = true;
             HoldDependency = dependency;
             DependencyVersionAnimator = EffectiveVersionAnimator;
             CycleWhenFinish = cycle;
@@ -235,20 +235,20 @@ namespace MarioGame
 
         public void Release()
         {
-            Held = false;
+            IsHeld = false;
             HoldOrientation = false;
             CycleWhenFinish = 0;
         }
 
         public void Freeze(int timer = 0)
         {
-            Frozen = true;
+            IsFrozen = true;
             if (timer != 0) Core.DelayCommand(Resume, timer);
         }
 
         public void Resume()
         {
-            Frozen = false;
+            IsFrozen = false;
         }
 
         public void Load(ContentManager content)
@@ -261,12 +261,12 @@ namespace MarioGame
 
         public void Hide()
         {
-            Hidden = true;
+            IsHidden = true;
         }
 
         public void Show()
         {
-            Hidden = false;
+            IsHidden = false;
         }
 
         public void SetSpriteFrequency(int frequency)
@@ -301,7 +301,7 @@ namespace MarioGame
         public virtual void Update()
         {
             if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
-            if (SpriteTimer.Update() && !Frozen) Sprite.Update();
+            if (SpriteTimer.Update() && !IsFrozen) Sprite.Update();
             if (ColorTimer.Update())
             {
                 foreach (var colorScheme in ColorSchemeList)
@@ -319,7 +319,7 @@ namespace MarioGame
                 }
             }
 
-            if (Held)
+            if (IsHeld)
             {
                 var cycle = -1;
                 switch (HoldDependency)
@@ -334,7 +334,7 @@ namespace MarioGame
                         cycle = DependencyVersionAnimator.Cycle;
                         break;
                 }
-                if (cycle == CycleWhenFinish)
+                if (cycle >= CycleWhenFinish)
                 {
                     Release();
                     FinishAction();

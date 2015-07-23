@@ -6,7 +6,7 @@ namespace MarioGame
     {
         ICoreNew Core { set; }
         ISpriteStateNew GeneralSpriteState { get; }
-        IMotionState GeneralMotionState { get; }
+        IMotionStateNew GeneralMotionState { get; }
 
         void Update();
         void RefreshState();

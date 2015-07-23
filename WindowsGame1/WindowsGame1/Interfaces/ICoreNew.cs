@@ -7,7 +7,7 @@ namespace MarioGame
         IObject Object { get; set; }
         IStateControllerNew GeneralStateController { get; }
         ISpriteStateNew GeneralSpriteState { get; }
-        IMotionState GeneralMotionState { get; }
+        IMotionStateNew GeneralMotionState { get; }
         CollisionDetector CollisionDetector { get; set; }
         IBarrierHandler BarrierHandler { get; set; }
         ICollisionHandler CollisionHandler { get; set; }

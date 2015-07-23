@@ -12,7 +12,6 @@ namespace MarioGame
         protected Counter ColorTimer { get; set; }
 
         protected Collection<ISprite> SpriteList { get; set; }
-        protected Collection<ColorAnimator> ColorSchemeList { get; set; }
 
         protected ISprite FindSprite<T>() where T : ISprite
         {
@@ -29,11 +28,9 @@ namespace MarioGame
         private ISprite FrozenSprite { get; set; }
         
 
-        protected virtual ColorAnimator ColorScheme { get { return null; } }
-
         public Color Color
         {
-            get { return ColorScheme == null ? Color.White : ColorScheme.Color; }
+            get { return Color.White; }
         }
 
         public virtual bool Left { get { return false; } }
@@ -85,23 +82,12 @@ namespace MarioGame
             {
                 sprite.Reset();
             }
-            foreach (var colorAnimator in ColorSchemeList)
-            {
-                colorAnimator.Reset();
-            }
         }
 
         public virtual void Update()
         {
             if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
             if (SpriteTimer.Update()) Sprite.Update();
-            if (ColorTimer.Update() &&ColorSchemeList != null)
-            {
-                foreach (var colorAnimator in ColorSchemeList)
-                {
-                    colorAnimator.Update();
-                }
-            }
             LastSprite = Sprite;
         }
     }

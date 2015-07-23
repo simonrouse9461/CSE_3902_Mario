@@ -10,12 +10,12 @@ namespace MarioGame
         Color Color { get; }
         Orientation Orientation { get; }
         IConvertible Version { get; }
-        bool Left { get; }
-        bool Right { get; }
-        bool DefaultSprite { get; }
-        bool Held { get; }
-        bool Frozen { get; }
-        bool Hidden { get; }
+        bool IsLeft { get; }
+        bool IsRight { get; }
+        bool IsDefaultSprite { get; }
+        bool IsHeld { get; }
+        bool IsFrozen { get; }
+        bool IsHidden { get; }
 
         void SetCore(ICoreNew c);
         void SetOrientation(Orientation orientation);

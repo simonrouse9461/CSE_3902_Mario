@@ -3,14 +3,12 @@ using Microsoft.Xna.Framework;
 
 namespace MarioGame
 {
-    public class FlagStateController : StateControllerKernelNew<FlagSpriteState, StaticMotionState>
+    public class FlagStateController : StateControllerKernelNew<FlagSpriteState, StaticMotionStateNew>
     {
 
         public void Flag()
         {
-
             SpriteState.SetFlag();
         }
-
     }
 }

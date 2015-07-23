@@ -4,32 +4,12 @@ namespace MarioGame
 {
     public class MarioMotionState : MotionStateKernelNew
     {
-        private enum HorizontalEnum
-        {
-            Default,
-            Left,
-            Right,
-            Inertia,
-            Stop
-        }
-
-        private enum VerticalEnum
-        {
-            Default,
-            Jump,
-            Bounce,
-            Slip
-        }
-
-        private HorizontalEnum HorizontalStatus { get; set; }
-        private VerticalEnum VerticalStatus { get; set; }
-
         public bool Dead { get; private set; }
 
         public bool Gravity
         {
-            get { return FindMotion<GravityMotion>().Status; }
-            set { FindMotion<GravityMotion>().Toggle(value); }
+            get { return CheckMotion<GravityMotion>(); }
+            set { }
         }
 
         public MarioMotionState()
@@ -52,7 +32,6 @@ namespace MarioGame
 
         public void SetDefaultHorizontal()
         {
-            HorizontalStatus = HorizontalEnum.Default;
             TurnOffMotion(AcceleratedMotion.MarioRight);
             TurnOffMotion(AcceleratedMotion.MarioLeft);
             TurnOffMotion<DampMotion>();
@@ -61,41 +40,53 @@ namespace MarioGame
 
         public void SetDefaultVertical()
         {
-            VerticalStatus = VerticalEnum.Default;
             TurnOffMotion(BounceUpMotion.MarioJump);
             TurnOffMotion(BounceUpMotion.MarioStamp);
             TurnOffMotion(UniformMotion.MarioSlipDown);
         }
 
+        public bool DefaultHorizontal
+        {
+            get
+            {
+                return !CheckMotion(AcceleratedMotion.MarioLeft)
+                       && !CheckMotion(AcceleratedMotion.MarioRight)
+                       && !CheckMotion<DampMotion>()
+                       && !CheckMotion<InertiaMotion>();
+            }
+        }
+
+        public bool DefaultVertical
+        {
+            get
+            {
+                return !CheckMotion(BounceUpMotion.MarioJump)
+                       && !CheckMotion(BounceUpMotion.MarioStamp)
+                       && !CheckMotion(UniformMotion.MarioSlipDown);
+            }
+        }
+
         public void GoLeft()
         {
-            if (isFrozen) return;
             SetDefaultHorizontal();
-            HorizontalStatus = HorizontalEnum.Left;
             TurnOnMotion(AcceleratedMotion.MarioLeft);
         }
 
         public void GoRight()
         {
-            if (isFrozen) return;
             SetDefaultHorizontal();
-            HorizontalStatus = HorizontalEnum.Right;
             TurnOnMotion(AcceleratedMotion.MarioRight);
         }
 
         public void Stop()
         {
-            if (isFrozen) return;
             SetDefaultHorizontal();
-            HorizontalStatus = HorizontalEnum.Stop;
             TurnOnMotion<DampMotion>();
         }
 
         public void GetInertia()
         {
-            if (isFrozen) return;
             SetDefaultHorizontal();
-            HorizontalStatus = HorizontalEnum.Inertia;
             TurnOnMotion<InertiaMotion>();
         }
 
@@ -111,37 +102,30 @@ namespace MarioGame
 
         public void Jump()
         {
-            if (isFrozen) return;
             SetDefaultVertical();
-            VerticalStatus = VerticalEnum.Jump;
             TurnOnMotion(BounceUpMotion.MarioJump);
         }
 
         public void Fall()
         {
-            if (isFrozen) return;
             SetDefaultVertical();
             FindMotion<GravityMotion>().Content.Reset();
         }
 
         public void Bounce()
         {
-            if (isFrozen) return;
             SetDefaultVertical();
-            VerticalStatus = VerticalEnum.Bounce;
             TurnOnMotion(BounceUpMotion.MarioStamp);
         }
 
         public void ObtainGravity()
         {
-            if (isFrozen) return;
-            Gravity = true;
+            TurnOnMotion<GravityMotion>();
         }
 
         public void LoseGravity()
         {
-            if (isFrozen) return;
-            Gravity = false;
+            TurnOffMotion<GravityMotion>();
         }
 
         public void Die()
@@ -158,7 +142,6 @@ namespace MarioGame
             SetDefaultHorizontal();
             SetDefaultVertical();
             TurnOnMotion(UniformMotion.MarioSlipDown);
-            VerticalStatus = VerticalEnum.Slip;
         }
 
         public void StopSlip()
@@ -166,59 +149,39 @@ namespace MarioGame
             SetDefaultVertical();
         }
 
-        public bool DefaultHorizontal
-        {
-            get
-            {
-                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<DampMotion>().Status)
-                    HorizontalStatus = HorizontalEnum.Default;
-                return HorizontalStatus == HorizontalEnum.Default;
-            }
-        }
-
-        public bool DefaultVertical
-        {
-            get { return VerticalStatus == VerticalEnum.Default; }
-        }
-
         public bool GoingLeft
         {
-            get { return HorizontalStatus == HorizontalEnum.Left; }
+            get { return CheckMotion(AcceleratedMotion.MarioLeft); }
         }
 
         public bool GoingRight
         {
-            get { return HorizontalStatus == HorizontalEnum.Right; }
+            get { return CheckMotion(AcceleratedMotion.MarioRight); }
         }
 
         public bool HaveInertia
         {
-            get { return HorizontalStatus == HorizontalEnum.Inertia; }
+            get { return CheckMotion<InertiaMotion>(); }
         }
 
         public bool Stopping
         {
-            get
-            {
-                if (HorizontalStatus == HorizontalEnum.Stop && !FindMotion<DampMotion>().Status)
-                    HorizontalStatus = HorizontalEnum.Default; 
-                return HorizontalStatus == HorizontalEnum.Stop;
-            }
+            get { return CheckMotion<DampMotion>(); }
         }
 
         public bool Jumping
         {
-            get { return VerticalStatus == VerticalEnum.Jump; }
+            get { return CheckMotion(BounceUpMotion.MarioJump); }
         }
 
         public bool Bouncing
         {
-            get { return VerticalStatus == VerticalEnum.Bounce; }
+            get { return CheckMotion(BounceUpMotion.MarioStamp); }
         }
 
         public bool Sliping
         {
-            get { return VerticalStatus == VerticalEnum.Slip; }
+            get { return CheckMotion(UniformMotion.MarioSlipDown); }
         }
     }
 }
