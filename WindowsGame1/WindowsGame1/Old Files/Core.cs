@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class Core<TStateController> : ICore
         where TStateController : IStateController, new()

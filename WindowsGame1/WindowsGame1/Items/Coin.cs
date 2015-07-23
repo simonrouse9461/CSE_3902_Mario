@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-namespace MarioGame
+namespace SuperMario
 {
     public  class Coin : ObjectKernel<CoinStateController>, IItem
     {

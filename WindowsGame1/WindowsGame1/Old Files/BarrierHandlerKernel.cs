@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 { 
     public abstract class BarrierHandlerKernel<TStateController> : IBarrierHandler
         where TStateController : IStateController, new()

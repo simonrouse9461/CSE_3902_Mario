@@ -6,7 +6,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace MarioGame
+namespace SuperMario
 {
     public abstract class SpriteStateKernelNew<TVersion> : ISpriteStateNew where TVersion : IConvertible
     {

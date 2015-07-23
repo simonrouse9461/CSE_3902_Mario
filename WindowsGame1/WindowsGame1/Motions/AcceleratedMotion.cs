@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class AcceleratedMotion : MotionKernel
     {

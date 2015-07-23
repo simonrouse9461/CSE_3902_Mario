@@ -1,4 +1,4 @@
-﻿namespace MarioGame
+﻿namespace SuperMario
 {
     public class DefaultBarrierHandler<TStateController> : BarrierHandlerKernel<TStateController>
         where TStateController : IStateController, new()

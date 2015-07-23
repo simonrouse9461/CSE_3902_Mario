@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-namespace MarioGame
+namespace SuperMario
 {
     public class GreenPipeSpriteState : SpriteStateKernel
     {

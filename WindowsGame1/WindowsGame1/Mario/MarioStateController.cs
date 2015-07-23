@@ -1,8 +1,8 @@
 ﻿using System;
-using MarioGame.BarrierHandlerDecorators;
 using Microsoft.Xna.Framework;
+using SuperMario.BarrierHandlerDecorators;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
     {

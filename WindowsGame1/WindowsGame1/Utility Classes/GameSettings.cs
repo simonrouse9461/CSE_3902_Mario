@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace MarioGame
+namespace SuperMario
 {
     public static class GameSettings
     {

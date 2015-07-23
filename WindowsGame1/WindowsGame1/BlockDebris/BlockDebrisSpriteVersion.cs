@@ -1,5 +1,5 @@
 ﻿
-namespace MarioGame
+namespace SuperMario
 {
     public enum BlockDebrisSpriteVersion
     {

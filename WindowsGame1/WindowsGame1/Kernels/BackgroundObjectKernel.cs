@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MarioGame
+namespace SuperMario
 {
     public abstract class BackgroundObjectKernel<TSpriteState> : IObject 
         where TSpriteState : ISpriteState, new()

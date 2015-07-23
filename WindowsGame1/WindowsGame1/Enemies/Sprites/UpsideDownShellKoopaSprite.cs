@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
 
-namespace MarioGame
+namespace SuperMario
 {
     public class UpsideDownShellKoopaSprite : SpriteKernel
     {

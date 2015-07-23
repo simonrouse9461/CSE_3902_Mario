@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class OrderedPairs<TKey, TValue> : HashSet<TKey>
     {

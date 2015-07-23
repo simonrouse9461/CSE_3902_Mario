@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 {
     class FireflowerBarrierHandler : BarrierHandlerKernel<FireflowerStateController>
     {

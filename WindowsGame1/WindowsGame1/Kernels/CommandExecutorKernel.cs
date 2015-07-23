@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace MarioGame
+namespace SuperMario
 {
     public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
         where TStateController : IStateControllerNew, new()

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Resources;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class Counter
     {

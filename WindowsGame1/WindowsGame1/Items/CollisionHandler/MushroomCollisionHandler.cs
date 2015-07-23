@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class MushroomCollisionHandler : CollisionHandlerKernel<MushroomStateController>
     {

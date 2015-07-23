@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class JumpingSuperMarioSprite : SpriteKernelNew
     {

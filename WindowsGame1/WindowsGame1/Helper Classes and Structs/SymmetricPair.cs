@@ -1,4 +1,4 @@
-﻿namespace MarioGame
+﻿namespace SuperMario
 {
     public class SymmetricPair<T> where T : class
     {

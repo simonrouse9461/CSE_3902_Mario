@@ -1,6 +1,6 @@
 using System;
 
-namespace MarioGame
+namespace SuperMario
 {
 #if WINDOWS || XBOX
     static class Program
@@ -10,7 +10,7 @@ namespace MarioGame
         /// </summary>
         static void Main(string[] args)
         {
-            using (MarioGame game = new MarioGame())
+            using (MainGame game = new MainGame())
             {                                                                                
                 game.Run();
             }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 {
     public abstract class MotionKernel : IMotion
     {

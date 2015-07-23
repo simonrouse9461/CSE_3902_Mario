@@ -3,7 +3,7 @@ using System.Dynamic;
 using System.Web.Management;
 using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class UsedBlockSpriteState : SpriteStateKernelNew<UsedBlockSpriteVersion>
     {

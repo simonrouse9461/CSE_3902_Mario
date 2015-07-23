@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class MarioCommandExecutor : CommandExecutorKernel<MarioStateController>
     {

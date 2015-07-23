@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class MushroomSpriteState : SpriteStateKernel
     {

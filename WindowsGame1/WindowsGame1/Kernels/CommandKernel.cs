@@ -1,10 +1,10 @@
-﻿namespace MarioGame
+﻿namespace SuperMario
 {
     public abstract class CommandKernel : ICommand
     {
-        protected MarioGame Game { get; set; }
+        protected MainGame Game { get; set; }
 
-        protected CommandKernel(MarioGame game = null)
+        protected CommandKernel(MainGame game = null)
         {
             Game = game;
         }

@@ -1,6 +1,6 @@
-﻿using MarioGame;
+﻿using SuperMario;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class BlockDebrisObject : ObjectKernelNew<BlockDebrisStateController>
     {

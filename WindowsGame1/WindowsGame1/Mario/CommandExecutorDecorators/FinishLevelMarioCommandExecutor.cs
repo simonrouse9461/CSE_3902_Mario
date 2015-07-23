@@ -1,4 +1,4 @@
-﻿namespace MarioGame.BarrierHandlerDecorators
+﻿namespace SuperMario.BarrierHandlerDecorators
 {
     public class FinishLevelMarioCommandExecutor : MarioCommandExecutor, IDecorator
     {

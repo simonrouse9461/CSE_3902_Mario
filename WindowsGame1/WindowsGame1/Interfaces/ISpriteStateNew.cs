@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 
-namespace MarioGame
+namespace SuperMario
 {
     public interface ISpriteStateNew
     {

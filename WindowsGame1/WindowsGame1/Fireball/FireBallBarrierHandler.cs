@@ -1,4 +1,4 @@
-﻿namespace MarioGame
+﻿namespace SuperMario
 {
     public class FireBallBarrierHandler : BarrierHandlerKernelNew<FireballStateController>
     {

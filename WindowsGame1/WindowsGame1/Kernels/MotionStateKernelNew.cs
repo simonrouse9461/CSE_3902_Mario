@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 {
     public abstract class MotionStateKernelNew : IMotionStateNew
     {
@@ -28,7 +28,7 @@ namespace MarioGame
 
         protected MotionStateKernelNew()
         {
-            Timer =  new Counter();
+            Timer = new Counter();
             Velocity = default(Vector2);
             MotionList = new Collection<StatusSwitch<IMotion>>();
         }
@@ -95,7 +95,7 @@ namespace MarioGame
         {
             foreach (var motion in MotionList)
             {
-                if ((int)motion.Content.Velocity.X != 0) motion.Content.ResetX();
+                if ((int) motion.Content.Velocity.X != 0) motion.Content.ResetX();
             }
         }
 
@@ -103,7 +103,7 @@ namespace MarioGame
         {
             foreach (var motion in MotionList)
             {
-                if ((int)motion.Content.Velocity.Y != 0) motion.Content.ResetY();
+                if ((int) motion.Content.Velocity.Y != 0) motion.Content.ResetY();
             }
         }
 
@@ -111,29 +111,28 @@ namespace MarioGame
         {
             if (IsFrozen) return;
             if (MotionList == null) return;
-            if (Timer.Update())
+            if (!Timer.Update()) return;
+
+            Velocity = default(Vector2);
+
+            foreach (var motion in MotionList)
             {
-                Velocity = default(Vector2);
-
-                foreach (var motion in MotionList)
+                if (motion.Content.Finish) motion.Toggle(false);
+                if (motion.Status)
                 {
-                    if (motion.Content.Finish) motion.Toggle(false);
-                    if (motion.Status)
-                    {
-                        motion.Content.Update();
-                        Velocity += motion.Content.Velocity;
-                    }
-                    else motion.Reset(m => m.Reset());
+                    motion.Content.Update();
+                    Velocity += motion.Content.Velocity;
                 }
-
-                foreach (var motion in MotionList)
-                {
-                    motion.Content.SetCurrentVelocity(Velocity);
-                    if (!motion.Status) motion.Reset(m => m.SetInitialVelocity(Velocity));
-                }
-
-                Position += Velocity;
+                else motion.Reset(m => m.Reset());
             }
+
+            foreach (var motion in MotionList)
+            {
+                motion.Content.SetCurrentVelocity(Velocity);
+                if (!motion.Status) motion.Reset(m => m.SetInitialVelocity(Velocity));
+            }
+
+            Position += Velocity;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class BlockDebrisSprite : SpriteKernelNew
     {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class MarioFireCommand : CommandKernel
     {
-        public MarioFireCommand(MarioGame game) : base(game) { }
+        public MarioFireCommand(MainGame game) : base(game) { }
 
         public override void Execute()
         {

@@ -1,8 +1,8 @@
-﻿namespace MarioGame
+﻿namespace SuperMario
 {
     public class QuitCommand : CommandKernel
     {
-        public QuitCommand(MarioGame game) : base(game) { }
+        public QuitCommand(MainGame game) : base(game) { }
 
         public override void Execute()
         {

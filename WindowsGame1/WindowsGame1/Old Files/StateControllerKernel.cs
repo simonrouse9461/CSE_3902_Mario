@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MarioGame
+namespace SuperMario
 {
     public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController
         where TSpriteState : ISpriteState, new()

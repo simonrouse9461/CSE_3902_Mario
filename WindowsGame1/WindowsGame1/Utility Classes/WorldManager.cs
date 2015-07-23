@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using LevelLoader;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class WorldManager
     {

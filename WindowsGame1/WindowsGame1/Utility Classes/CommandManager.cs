@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class CommandManager
     {
@@ -20,7 +20,7 @@ namespace MarioGame
         private ICommand marioRightCommand;
         private ICommand marioFireballCommand;
 
-        public CommandManager(MarioGame game)
+        public CommandManager(MainGame game)
         {
 
             keyboardController = new KeyboardController();

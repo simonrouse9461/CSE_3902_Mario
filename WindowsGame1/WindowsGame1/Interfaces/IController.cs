@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 
-namespace MarioGame
+namespace SuperMario
 {
     public interface IController<T>
     {

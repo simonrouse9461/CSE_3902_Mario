@@ -1,8 +1,8 @@
-﻿namespace MarioGame
+﻿namespace SuperMario
 {
     public class MarioRightCommand : CommandKernel
     {
-        public MarioRightCommand(MarioGame game) : base(game) { }
+        public MarioRightCommand(MainGame game) : base(game) { }
 
         public override void Execute()
         {

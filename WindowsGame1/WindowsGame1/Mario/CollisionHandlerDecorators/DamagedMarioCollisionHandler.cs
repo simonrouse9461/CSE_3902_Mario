@@ -1,6 +1,6 @@
 using System;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class DamagedMarioCollisionHandler : MarioCollisionHandler, IDecorator
     {

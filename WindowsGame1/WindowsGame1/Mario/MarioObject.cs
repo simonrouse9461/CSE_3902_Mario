@@ -1,4 +1,4 @@
-namespace MarioGame
+namespace SuperMario
 {
     public class MarioObject : ObjectKernelNew<MarioStateController>, IMario
     {
