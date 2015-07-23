@@ -8,15 +8,15 @@ namespace MarioGame
     public class CastleSprite : SpriteKernelNew
     {
 
-        public CastleSprite()
+        public CastleSprite() 
         {
 
             AddSource(
-                CastleSpriteVersion.Overworld,
+                
                 "misc_sprites",
                 new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(247, 863, 80, 80), Orientation.Default},
+                    {new Rectangle(272, 218, 80, 80), Orientation.Default},
                 });
             
         }
