@@ -197,7 +197,15 @@ namespace MarioGame
             if (CurrentSection == LevelSection.Default)
             {
                 Instance.LevelData = content.Load<ObjectData[]>("LevelData");
-                CreateObject<MarioObject>(new Vector2(6000, 398));
+                if (false)
+                {
+                    CreateObject<MarioObject>(new Vector2(75, 398));
+                }
+                else
+                {
+                    CreateObject<MarioObject>(new Vector2(5725, 347));
+                    CreateObject<Mushroom>(new Vector2(5725, 347));
+                }
             }
             else if (CurrentSection == LevelSection.Underground)
             {
@@ -263,6 +271,7 @@ namespace MarioGame
             if (Camera.OutOfRange(FindObject<MarioObject>()))
             {
                 new MarioDieCommand().Execute();
+                Console.WriteLine(FindObject<MarioObject>().CollisionRectangle);
                 FindObject<MarioObject>().Freeze();
             }
             if (SoundManager.DieMusicFinished)

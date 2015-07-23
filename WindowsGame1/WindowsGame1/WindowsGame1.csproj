@@ -115,8 +115,10 @@
     <Compile Include="Interfaces\ICollisionHandler.cs" />
     <Compile Include="Interfaces\ICoreNew.cs" />
     <Compile Include="Interfaces\IDecorator.cs" />
+    <Compile Include="Interfaces\IEventTrigger.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Kernels\EventTrigger.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FinishLevelMarioCommandExecutor.cs" />
     <Compile Include="Mario\MarioSpriteVersion.cs" />
@@ -174,7 +176,7 @@
     <Compile Include="Items\StateControllers\OneUpStateController.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomOneUpMotionState.cs" />
-    <Compile Include="Kernels\CollisionHandlerKernel.cs" />
+    <Compile Include="Old Files\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandKernel.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Kernels\BackgroundObjectKernel.cs" />
@@ -219,7 +221,7 @@
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />
     <Compile Include="Motions\InertiaMotion.cs" />
-    <Compile Include="Kernels\BarrierHandlerKernel.cs" />
+    <Compile Include="Old Files\BarrierHandlerKernel.cs" />
     <Compile Include="Old Files\SpriteKernel.cs" />
     <Compile Include="Old Files\SpriteStateKernel.cs" />
     <Compile Include="Mario\Sprites\SwimmingSuperMarioSprite.cs" />

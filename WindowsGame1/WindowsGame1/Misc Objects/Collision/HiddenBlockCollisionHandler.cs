@@ -10,7 +10,7 @@ namespace MarioGame
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
+            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch && !Core.StateController.SpriteState.isUsed)
             {
                 Core.StateController.HiddenBlockGive1Up();
             }

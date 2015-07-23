@@ -28,7 +28,11 @@ namespace MarioGame
         private PeriodicFunction<Color> ColorScheme { get; set; }
         public Color Color
         {
-            get { return ColorScheme == null ? Color.White : ColorScheme.Value; }
+            get
+            {
+                var defaultColor = Hidden ? Color.Transparent : Color.White;
+                return ColorScheme == null ? defaultColor : ColorScheme.Value;
+            }
         }
 
         private Dictionary<IConvertible, PeriodicFunction<TVersion>> VersionAnimatorList { get; set; }
@@ -58,6 +62,8 @@ namespace MarioGame
 
         private SpriteHoldDependency HoldDependency { get; set; }
         public bool Held { get; private set; }
+        public bool Frozen { get; private set; }
+        public bool Hidden { get; private set; }
         private bool HoldOrientation { get; set; }
         private int CycleWhenFinish { get; set; }
         private Action FinishAction { get; set; }
@@ -234,12 +240,33 @@ namespace MarioGame
             CycleWhenFinish = 0;
         }
 
+        public void Freeze(int timer = 0)
+        {
+            Frozen = true;
+            if (timer != 0) Core.DelayCommand(Resume, timer);
+        }
+
+        public void Resume()
+        {
+            Frozen = false;
+        }
+
         public void Load(ContentManager content)
         {
             foreach (var sprite in SpriteList)
             {
                 sprite.Load(content);
             }
+        }
+
+        public void Hide()
+        {
+            Hidden = true;
+        }
+
+        public void Show()
+        {
+            Hidden = false;
         }
 
         public void SetSpriteFrequency(int frequency)
@@ -274,7 +301,7 @@ namespace MarioGame
         public virtual void Update()
         {
             if (LastSprite != null && LastSprite != Sprite) LastSprite.Reset();
-            if (SpriteTimer.Update()) Sprite.Update();
+            if (SpriteTimer.Update() && !Frozen) Sprite.Update();
             if (ColorTimer.Update())
             {
                 foreach (var colorScheme in ColorSchemeList)

@@ -23,6 +23,13 @@ namespace MarioGame
             Map.Add(key, value);
         }
 
+        public new void Remove(TKey key)
+        {
+            base.Remove(key);
+            KeyList.Remove(key);
+            Map.Remove(key);
+        }
+
         public TValue this[TKey key] { get { return Map[key]; } }
 
         public List<TKey> Keys { get { return KeyList; } }

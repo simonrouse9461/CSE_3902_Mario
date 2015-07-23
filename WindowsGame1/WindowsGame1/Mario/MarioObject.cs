@@ -13,6 +13,7 @@ namespace MarioGame
             BarrierHandler.RemoveBarrier<FireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
             BarrierHandler.RemoveBarrier<IEnemy>();
+
             SoundManager.ChangeToOverworldMusic();
         }
 

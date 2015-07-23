@@ -8,11 +8,11 @@ namespace MarioGame
         public MarioCommandExecutor(ICoreNew core) : base(core)
         {
             RegisterCommand(typeof (MarioLeftCommand),
-                Core.StateController.KeepLeft,
+                Core.StateController.AssureLeft,
                 Core.StateController.GoLeft,
                 Core.StateController.StopMove);
             RegisterCommand(typeof (MarioRightCommand),
-                Core.StateController.KeepRight,
+                Core.StateController.AssureRight,
                 Core.StateController.GoRight,
                 Core.StateController.StopMove);
             RegisterCommand(typeof (MarioUpCommand), null,

@@ -30,8 +30,6 @@ namespace MarioGame
             }
         }
 
-        private bool Stopped { get; set; }
-
         public bool SelfControl { get; private set; }
 
         public void ReloadAmmo()
@@ -76,8 +74,6 @@ namespace MarioGame
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Left && SpriteState.Turning) return;
 
-            Stopped = false;
-
             if (MotionState.Velocity.X > 0)
             {
                 MotionState.Stop();
@@ -97,8 +93,6 @@ namespace MarioGame
             if (MotionState.HaveInertia) return;
             if (MotionState.Stopping && SpriteState.Right && SpriteState.Turning) return;
             
-            Stopped = false;
-
             if (MotionState.Velocity.X < 0)
             {
                 MotionState.Stop();
@@ -111,7 +105,7 @@ namespace MarioGame
             }
         }
 
-        public void KeepLeft()
+        public void AssureLeft()
         {
             SpriteState.FaceLeft();
 
@@ -119,18 +113,15 @@ namespace MarioGame
             if (SpriteState.Crouching) return;
             if (SpriteState.Sliping) return;
 
-            Core.DelayCommand(KeepLeft, () => !Stopped);
-
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaLeft();
             else if (MotionState.isStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Left))
             {
-                MotionState.GoLeft();
-                SpriteState.Run();
+                GoLeft();
             }
         }
 
-        public void KeepRight()
+        public void AssureRight()
         {
             SpriteState.FaceRight();
             
@@ -138,15 +129,24 @@ namespace MarioGame
             if (SpriteState.Crouching) return;
             if (SpriteState.Sliping) return;
 
-            Core.DelayCommand(KeepRight, () => !Stopped);
-
             if (MotionState.HaveInertia)
                 MotionState.AdjustInertiaRight();
             else if (MotionState.isStatic || MotionState.DefaultHorizontal || (MotionState.Stopping && SpriteState.Right))
             {
-                MotionState.GoRight();
-                SpriteState.Run();
+                GoRight();
             }
+        }
+
+        public void KeepLeft()
+        {
+            AssureLeft();
+            Core.DelayCommand(KeepLeft);
+        }
+
+        public void KeepRight()
+        {
+            AssureRight();
+            Core.DelayCommand(KeepRight);
         }
 
         public void StopMove()
@@ -154,7 +154,6 @@ namespace MarioGame
             if (SpriteState.Dead) return;
             if (MotionState.HaveInertia) return;
 
-            Stopped = true;
             MotionState.Stop();
             SpriteState.Run();
         }
@@ -226,10 +225,12 @@ namespace MarioGame
             if (!SpriteState.Super) return;
         }
 
-        public void Flip()
+        public void Flip(float? axis = null)
         {
-            SpriteState.FaceLeft(); 
-            MotionState.Adjust(new Vector2(SpriteState.Sprite.Width - 3, 0));
+            if (axis == null) axis = MotionState.Position.X;
+            if (SpriteState.Left) SpriteState.FaceRight(); 
+            else SpriteState.FaceLeft();
+            MotionState.Adjust(new Vector2((axis.Value - MotionState.Position.X) * 2, 0));
         }
 
         public void Grow()
@@ -321,11 +322,23 @@ namespace MarioGame
             Core.SwitchComponent(new FinishLevelMarioCommandExecutor(Core));
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
-            MotionState.Adjust(new Vector2(6, 0));
+            Core.BarrierHandler.RemoveBarrier<CastleObject>();
+            MotionState.Adjust(new Vector2(4, 0));
             MotionState.Slip();
             SpriteState.Slip();
             SpriteState.Hold(false);
             Camera.Fix();
+            SoundManager.PauseMusic();
+            SoundManager.FlagpoleSoundPlay();
+            Core.EventTrigger.AddAbsoluteLocationEvent((int)WorldManager.FindObject<CastleObject>().PositionPoint.X, EnterCastle);
+        }
+
+        public void EnterCastle()
+        {
+            SpriteState.Stand();
+            SpriteState.Hold(true);
+            MotionState.Freeze();
+            SpriteState.Hide();
         }
     }
 }

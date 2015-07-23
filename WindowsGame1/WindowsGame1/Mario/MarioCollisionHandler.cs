@@ -71,7 +71,6 @@ namespace MarioGame
             if (Core.CollisionDetector.Detect<FlagPoleObject>().AnyEdge.Touch)
             {
                 Core.StateController.FinishLevel();
-                SoundManager.FlagpoleSoundPlay();
             }
         }
     }

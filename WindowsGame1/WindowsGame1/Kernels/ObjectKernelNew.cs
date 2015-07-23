@@ -52,6 +52,12 @@ namespace MarioGame
             set { Core.CollisionHandler = value; }
         }
 
+        protected IEventTrigger EventTrigger
+        {
+            get { return Core.EventTrigger; }
+            set { Core.EventTrigger = value; }
+        }
+
         // Public State Properties
         public virtual bool Solid
         {
@@ -110,9 +116,10 @@ namespace MarioGame
             GeneralMotionState.Position = location;
         }
 
-        public void Unload()
+        public void Unload(bool immediate = false)
         {
-            Core.DelayCommand(() => WorldManager.RemoveObject(this));
+            if (immediate) WorldManager.RemoveObject(this);
+            else Core.DelayCommand(() => WorldManager.RemoveObject(this));
         }
 
         public void Transform<T>(T obj = null) where T : class, IObject, new()
@@ -134,6 +141,7 @@ namespace MarioGame
         {
             var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
             Core.Update();
+            EventTrigger.CheckEvent();
             if (CommandExecutor != null) CommandExecutor.Execute();
             if (haveBarrierHandler) BarrierHandler.Update();
             if (haveBarrierHandler) BarrierHandler.ResetVelocity();
