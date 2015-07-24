@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="LevelLoader.ObjectData[]">
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>16 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>16 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>48 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>48 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>80 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>80 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>112 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>112 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>144 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>144 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>176 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>176 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>208 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>208 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>240 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>240 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>272 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>272 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>304 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>304 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>336 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>336 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>368 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>368 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>400 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>400 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>432 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>432 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>464 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>464 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>496 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>496 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>528 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>528 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>560 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>560 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>592 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>592 448</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>624 480</Location>
+    </Item>
+    <Item>
+      <Type>FloorBlockObject</Type>
+      <Version></Version>
+      <Location>624 448</Location>
+    </Item>
+  </Asset>
+</XnaContent>
