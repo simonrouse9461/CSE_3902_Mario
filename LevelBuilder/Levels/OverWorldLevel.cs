@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace LevelBuilder
 {
@@ -28,15 +29,11 @@ namespace LevelBuilder
             });
             AddObjectBatch(new Item("QuestionBlockObject", "CoinQuestionBlock"), new[]
             {
-                Section.Single(16, 5),
-                Section.Single(23, 5),
-                Section.Single(106, 5),
-                Section.Single(109, 5),
-                Section.Single(112, 5),
-                Section.Single(170, 5),
-                Section.Single(22, 9),
-                Section.Single(94, 9),
-                Section.Line(129, 9, 2)
+                SectionBuilder.Level(5,
+                    new[] {16, 23, 106, 109, 112, 170}),
+                SectionBuilder.Level(9,
+                    new[] {22, 94},
+                    new Dictionary<int, int> {{129, 2}})
             });
             AddObjectBatch(new Item("QuestionBlockObject", "ItemQuestionBlock"), new[]
             {
@@ -46,22 +43,12 @@ namespace LevelBuilder
             });
             AddObjectBatch(new Item("NormalBlockObject"), new[]
             {
-                Section.Single(20, 5),
-                Section.Single(22, 5),
-                Section.Single(24, 5),
-                Section.Single(77, 5),
-                Section.Single(79, 5),
-                Section.Single(100, 5),
-                Section.Single(118, 5),
-                Section.Single(129, 5),
-                Section.Single(130, 5),
-                Section.Line(168, 5, 2),
-                Section.Single(171, 5),
-                Section.Line(80, 9, 8),
-                Section.Line(91, 9, 3),
-                Section.Line(121, 9, 3),
-                Section.Single(128, 9),
-                Section.Single(131, 9)
+                SectionBuilder.Level(5,
+                    new[] {20, 22, 24, 77, 79, 100, 118, 129, 130, 171},
+                    new Dictionary<int, int> {{168, 2}}),
+                SectionBuilder.Level(9,
+                    new[] {128, 131},
+                    new Dictionary<int, int> {{80, 8}, {91, 3}, {121, 3}})
             });
             AddObjectBatch(new Item("NormalBlockObject", "CoinNormalBlock"), 94, 5);
             AddObjectBatch(new Item("NormalBlockObject", "StarNormalBlock"), 101, 5);
