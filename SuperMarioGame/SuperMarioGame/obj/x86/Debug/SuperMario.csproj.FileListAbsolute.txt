@@ -102,3 +102,5 @@ C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\obj\x86\Debug\SuperMa
 C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\obj\x86\Debug\WindowsGame1.exe
 C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\SecretLevelData.xnb
+C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\UndergroundLevelData.xnb

@@ -2744,17 +2744,17 @@
     <Item>
       <Type>BlockKernel</Type>
       <Version></Version>
-      <Location>6480 416</Location>
+      <Location>6352 416</Location>
     </Item>
     <Item>
       <Type>FlagPoleObject</Type>
       <Version></Version>
-      <Location>6352 416</Location>
+      <Location>6352 384</Location>
     </Item>
     <Item>
       <Type>CastleObject</Type>
       <Version></Version>
-      <Location>6544 384</Location>
+      <Location>6544 416</Location>
     </Item>
   </Asset>
 </XnaContent>

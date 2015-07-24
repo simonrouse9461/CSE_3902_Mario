@@ -12,6 +12,17 @@ namespace LevelGenerator
 {
     public class LevelGenerator
     {
+        private static int _id;
+
+        private static int Id
+        {
+            get
+            {
+                _id++;
+                return _id-1;
+            }
+        }
+
         public static string OutputFile { get; set; }
 
         public static Dictionary<Item, Section[]> Data { get; set; }
@@ -52,12 +63,16 @@ namespace LevelGenerator
             OutputFile = level.OutputFile;
         }
 
-        public static string GenerateHistoryPath()
+        public static string GenerateUniqueId()
         {
             var time = DateTime.Now;
-            var timeString = string.Format("{0:D4}{1:D2}{2:D2}{3:D2}{4:D2}{5:D2}",
-                time.Year, time.Month, time.Day, time.Hour, time.Minute, time.Second);
-            return @"..\..\History\LevelData" + timeString + ".xml";
+            return string.Format("{0:D4}{1:D2}{2:D2}{3:D2}{4:D2}{5:D2}{6:D2}",
+                time.Year, time.Month, time.Day, time.Hour, time.Minute, time.Second, Id);
+        }
+
+        public static string GenerateHistoryPath()
+        {
+            return @"..\..\History\LevelData" + GenerateUniqueId() + ".xml";
         }
 
         public static string GetOutputPath(string fileName)

@@ -2054,32 +2054,707 @@
     <Item>
       <Type>SmallPipeObject</Type>
       <Version></Version>
-      <Location>1824 352</Location>
+      <Location>928 416</Location>
     </Item>
     <Item>
       <Type>SmallPipeObject</Type>
       <Version></Version>
-      <Location>10464 352</Location>
+      <Location>5248 416</Location>
     </Item>
     <Item>
       <Type>SmallPipeObject</Type>
       <Version></Version>
-      <Location>11488 352</Location>
+      <Location>5760 416</Location>
     </Item>
     <Item>
       <Type>MediumPipeObject</Type>
       <Version></Version>
-      <Location>2464 288</Location>
+      <Location>1248 416</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
       <Version></Version>
-      <Location>2976 224</Location>
+      <Location>1504 416</Location>
     </Item>
     <Item>
       <Type>GreenPipeObject</Type>
       <Version></Version>
-      <Location>3680 224</Location>
+      <Location>1856 416</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>528 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>752 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>3408 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>3504 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>3600 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>5456 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>720 192</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>3024 192</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>4144 192</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>CoinQuestionBlock</Version>
+      <Location>4176 192</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>ItemQuestionBlock</Version>
+      <Location>688 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>ItemQuestionBlock</Version>
+      <Location>2512 320</Location>
+    </Item>
+    <Item>
+      <Type>QuestionBlockObject</Type>
+      <Version>ItemQuestionBlock</Version>
+      <Location>3504 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>656 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>720 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>784 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2480 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2544 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>3216 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>3792 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>4144 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>4176 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>5392 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>5424 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>5488 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2576 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2608 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2640 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2672 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2704 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2736 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2768 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2800 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2928 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2960 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>2992 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>3888 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>3920 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>3952 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>4112 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version></Version>
+      <Location>4208 192</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version>CoinNormalBlock</Version>
+      <Location>3024 320</Location>
+    </Item>
+    <Item>
+      <Type>NormalBlockObject</Type>
+      <Version>StarNormalBlock</Version>
+      <Location>3248 320</Location>
+    </Item>
+    <Item>
+      <Type>HiddenBlockObject</Type>
+      <Version>ExtraLifeHiddenBlock</Version>
+      <Location>2064 288</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4304 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4336 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4368 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4400 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4336 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4368 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4400 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4368 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4400 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4400 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4496 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4496 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4528 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4496 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4528 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4560 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4496 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4528 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4560 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4592 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4752 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4784 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4816 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4848 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4880 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4784 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4816 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4848 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4880 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4816 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4848 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4880 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4848 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4880 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4976 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4976 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5008 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4976 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5008 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5040 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>4976 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5008 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5040 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5072 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5808 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5840 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5872 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5904 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5936 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5968 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 416</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5840 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5872 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5904 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5936 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5968 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 384</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5872 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5904 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5936 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5968 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 352</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5904 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5936 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5968 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 320</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5936 288</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5968 288</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 288</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 288</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 288</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>5968 256</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 256</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 256</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 256</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6000 224</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 224</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 224</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6032 192</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6064 192</Location>
+    </Item>
+    <Item>
+      <Type>BlockKernel</Type>
+      <Version></Version>
+      <Location>6352 416</Location>
+    </Item>
+    <Item>
+      <Type>FlagPoleObject</Type>
+      <Version></Version>
+      <Location>6352 384</Location>
+    </Item>
+    <Item>
+      <Type>CastleObject</Type>
+      <Version></Version>
+      <Location>6544 416</Location>
     </Item>
   </Asset>
 </XnaContent>

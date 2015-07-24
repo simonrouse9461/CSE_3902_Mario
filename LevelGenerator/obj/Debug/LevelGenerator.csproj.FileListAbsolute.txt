@@ -49,3 +49,5 @@ C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Content\Audio\smb_1-up.xnb
 C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Content\Audio\smb_bowserfire.xnb
 C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Content\Audio\smb_flagpole.xnb
 C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Content\LevelData.xnb
+C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Content\SecretLevelData.xnb
+C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Content\UndergroundLevelData.xnb
