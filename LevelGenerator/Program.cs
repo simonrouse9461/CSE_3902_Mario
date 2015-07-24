@@ -50,17 +50,21 @@ namespace LevelGenerator
         {
             InitializeData();
 
-            using (var fout = new StreamWriter(GenerateHistoryPath()))
+            using (StreamWriter fout1 = new StreamWriter(GenerateHistoryPath()),
+                fout2 = new StreamWriter(GetOutputPath("LevelData")))
             {
-                WriteHeader(fout);
+                WriteHeader(fout1);
+                WriteHeader(fout2);
                 foreach (var item in Data)
                 {
                     foreach (var section in item.Value)
                     {
-                        WriteSection(fout, item.Key, section);
+                        WriteSection(fout1, item.Key, section);
+                        WriteSection(fout2, item.Key, section);
                     }
                 }
-                WriteFooter(fout);
+                WriteFooter(fout1);
+                WriteFooter(fout2);
             }
         }
 
@@ -68,7 +72,7 @@ namespace LevelGenerator
         {
             Data = new Dictionary<Item, List<Section>>
             {
-                {new Item("FloorBlock"), new List<Section>
+                {new Item("FloorBlockObject"), new List<Section>
                 {
                     new Section(0, 0, 10, 2)
                 }},
@@ -85,7 +89,7 @@ namespace LevelGenerator
 
         public static string GetOutputPath(string fileName)
         {
-            return @"..\..\..\";
+            return @"..\..\..\WindowsGame1\WindowsGame1Content\" + fileName + ".xml";
         }
 
         public static void WriteHeader(StreamWriter fout)

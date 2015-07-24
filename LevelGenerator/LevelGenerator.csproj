@@ -48,17 +48,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="History\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeveLoader\LevelLoader.csproj">
+      <Project>{19d49598-a8c7-4c61-a8c2-45bce69bd3d1}</Project>
+      <Name>LevelLoader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WindowsGame1\WindowsGame1\SuperMario.csproj">
       <Project>{855ee19e-d53f-4504-9d67-1727126ca26a}</Project>
       <Name>SuperMario</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="LevelData20150724005025.xml" />
-    <Content Include="LevelData20150724005332.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="History\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

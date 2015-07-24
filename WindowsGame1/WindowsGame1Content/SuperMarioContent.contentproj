@@ -74,8 +74,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LevelData.xml">
-      <Name>LevelData</Name>
+    <Compile Include="LevelDataOld.xml">
+      <Name>LevelDataOld</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <SubType>Designer</SubType>
@@ -234,6 +234,13 @@
   <ItemGroup>
     <Compile Include="UndergroundLevel.xml">
       <Name>UndergroundLevel</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelData.xml">
+      <Name>LevelData</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
