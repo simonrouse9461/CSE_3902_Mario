@@ -69,11 +69,11 @@ namespace LevelGenerator
 
         public static void WriteSection(StreamWriter fout, Item item, Section section)
         {
-            for (var column = 0; column < section.Column; column++)
-                for (var row = 0; row < section.Row; row++)
+            for (var column = section.GridX; column < section.GridX + section.Column; column+=item.GridWidth)
+                for (var row = section.GridY; row < section.GridY + section.Row; row+=item.GridHeight)
                 {
-                    var locationX = (int) ((column + 0.5)*GameSettings.GridUnit*GameSettings.SpriteScale*item.GridWidth);
-                    var locationY = (int) (Camera.Height - row*GameSettings.GridUnit*GameSettings.SpriteScale*item.GridHeight);
+                    var locationX = (int) ((column + 0.5*item.GridWidth)*GameSettings.GridUnit*GameSettings.SpriteScale);
+                    var locationY = (int) (Camera.Height - row*GameSettings.GridUnit*GameSettings.SpriteScale);
                     fout.WriteLine("    <Item>");
                     fout.WriteLine("      <Type>" + item.Type + "</Type>");
                     fout.WriteLine("      <Version>" + item.Version + "</Version>");
