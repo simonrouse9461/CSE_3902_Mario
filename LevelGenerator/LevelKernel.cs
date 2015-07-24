@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace LevelGenerator
+namespace LevelBuilder
 {
     public abstract class LevelKernel
     {
@@ -13,20 +14,17 @@ namespace LevelGenerator
             ObjectData = new Dictionary<Item, Section[]>();
         }
 
-        protected void AddObjectBatch(Item item, Section[] sectionList, StairBuilder[] stairList = null)
+        protected void AddObjectBatch(Item item, Section[] sectionList)
         {
-            if (stairList == null)
-            {
-                ObjectData.Add(item, sectionList);
-                return;
-            }
+            ObjectData.Add(item, sectionList);
+        }
+
+        protected void AddObjectBatch(Item item, StairBuilder[] stairList = null)
+        {
             var stairs = (from stair in stairList
-                from section in stair.GetSectionList()
+                from section in stair.GetSectionArray()
                 select section).ToArray();
-            var mergedList = new Section[sectionList.Length + stairs.Length];
-            sectionList.CopyTo(mergedList, 0);
-            stairs.CopyTo(mergedList, sectionList.Length);
-            ObjectData.Add(item, mergedList);
+            AddObjectBatch(item, stairs);
         }
 
         protected void SetOutputFile(string file)

@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LevelKernel.cs" />
-    <Compile Include="LevelGenerator.cs" />
+    <Compile Include="LevelBuilder.cs" />
     <Compile Include="Levels\UndergroundLevel.cs" />
     <Compile Include="Levels\SecretLevel.cs" />
     <Compile Include="Levels\OverWorldLevel.cs" />

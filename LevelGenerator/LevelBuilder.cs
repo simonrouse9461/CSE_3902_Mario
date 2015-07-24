@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SuperMario;
 
-namespace LevelGenerator
+namespace LevelBuilder
 {
-    public class LevelGenerator
+    public class LevelBuilder
     {
         private static int _id;
 

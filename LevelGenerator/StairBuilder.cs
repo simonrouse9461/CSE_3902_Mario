@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace LevelGenerator
+namespace LevelBuilder
 {
-    public struct StairBuilder
+    public class StairBuilder
     {
         public enum Shape
         {
@@ -25,7 +25,7 @@ namespace LevelGenerator
             Height = height == 0 ? length : height;
         }
 
-        public List<Section> GetSectionList()
+        public Section[] GetSectionArray()
         {
             var list = new List<Section>();
             for (var level = 0; level < Height; level++)
@@ -35,7 +35,7 @@ namespace LevelGenerator
                 var length = Length - level;
                 list.Add(new Section(gridX, gridY, length));
             }
-            return list;
+            return list.ToArray();
         }
     }
 }

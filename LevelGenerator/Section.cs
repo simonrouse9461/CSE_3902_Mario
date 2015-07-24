@@ -1,4 +1,4 @@
-﻿namespace LevelGenerator
+﻿namespace LevelBuilder
 {
     public struct Section
     {

@@ -1,4 +1,4 @@
-﻿namespace LevelGenerator
+﻿namespace LevelBuilder
 {
     public class OverWorldLevel : LevelKernel
     {
@@ -18,10 +18,7 @@
                 new Section(163, 2),
                 new Section(179, 2)
             });
-            AddObjectBatch(new Item("MediumPipeObject", null, 2, 3), new[]
-            {
-                new Section(38, 2)
-            });
+            AddObjectBatch(new Item("MediumPipeObject", null, 2, 3), new[] {new Section(38, 2)});
             AddObjectBatch(new Item("GreenPipeObject", null, 2, 4), new[]
             {
                 new Section(46, 2),
@@ -64,39 +61,20 @@
                 new Section(128, 9),
                 new Section(131, 9)
             });
-            AddObjectBatch(new Item("NormalBlockObject", "CoinNormalBlock"), new[]
+            AddObjectBatch(new Item("NormalBlockObject", "CoinNormalBlock"), new[] {new Section(94, 5)});
+            AddObjectBatch(new Item("NormalBlockObject", "StarNormalBlock"), new[] {new Section(101, 5)});
+            AddObjectBatch(new Item("HiddenBlockObject", "ExtraLifeHiddenBlock"), new[] {new Section(64, 6)});
+            AddObjectBatch(new Item("BlockKernel"), new[] {new Section(198, 2)});
+            AddObjectBatch(new Item("BlockKernel"), new[]
             {
-                new Section(94, 5)
+                new StairBuilder(StairBuilder.Shape.Upstairs, 137, 2, 4),
+                new StairBuilder(StairBuilder.Shape.Downstairs, 140, 2, 4),
+                new StairBuilder(StairBuilder.Shape.Upstairs, 152, 2, 5, 4),
+                new StairBuilder(StairBuilder.Shape.Downstairs, 155, 2, 4),
+                new StairBuilder(StairBuilder.Shape.Upstairs, 189, 2, 9, 8),
             });
-            AddObjectBatch(new Item("NormalBlockObject", "StarNormalBlock"), new[]
-            {
-                new Section(101, 5)
-            });
-            AddObjectBatch(new Item("HiddenBlockObject", "ExtraLifeHiddenBlock"), new[]
-            {
-                new Section(64, 6)
-            });
-            AddObjectBatch(new Item("BlockKernel"),
-                new[]
-                {
-                    new Section(198, 2)
-                },
-                new[]
-                {
-                    new StairBuilder(StairBuilder.Shape.Upstairs, 137, 2, 4),
-                    new StairBuilder(StairBuilder.Shape.Downstairs, 140, 2, 4),
-                    new StairBuilder(StairBuilder.Shape.Upstairs, 152, 2, 5, 4),
-                    new StairBuilder(StairBuilder.Shape.Downstairs, 155, 2, 4),
-                    new StairBuilder(StairBuilder.Shape.Upstairs, 189, 2, 9, 8),
-                });
-            AddObjectBatch(new Item("FlagPoleObject"), new[]
-            {
-                new Section(198, 3)
-            });
-            AddObjectBatch(new Item("CastleObject", null, 5), new[]
-            {
-                new Section(202, 2)
-            });
+            AddObjectBatch(new Item("FlagPoleObject"), new[] {new Section(198, 3)});
+            AddObjectBatch(new Item("CastleObject", null, 5), new[] {new Section(202, 2)});
         }
     }
 }

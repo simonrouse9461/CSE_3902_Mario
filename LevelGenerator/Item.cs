@@ -1,6 +1,6 @@
-﻿namespace LevelGenerator
+﻿namespace LevelBuilder
 {
-    public struct Item
+    public class Item
     {
         public string Type;
         public string Version;
