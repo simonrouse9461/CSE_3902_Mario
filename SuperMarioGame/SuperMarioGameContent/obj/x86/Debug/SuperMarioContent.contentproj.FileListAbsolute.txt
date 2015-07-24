@@ -1,0 +1,2 @@
+C:\Users\涵哥\Desktop\Repo\WindowsGame1\WindowsGame1Content\obj\x86\Debug\SuperMarioContent.contentprojResolveAssemblyReference.cache
+C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGameContent\obj\x86\Debug\SuperMarioContent.contentprojResolveAssemblyReference.cache
