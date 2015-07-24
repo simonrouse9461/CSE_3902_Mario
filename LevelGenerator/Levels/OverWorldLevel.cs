@@ -4,6 +4,7 @@
     {
         public OverWorldLevel()
         {
+            SetOutputFile("LevelData");
             AddObjectBatch(new Item("FloorBlockObject"), new []
             {
                 new Section(0, 0, 69, 2),

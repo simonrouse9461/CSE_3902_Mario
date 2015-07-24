@@ -12,14 +12,23 @@ namespace LevelGenerator
 {
     public class LevelGenerator
     {
+        public static string OutputFile { get; set; }
+
         public static Dictionary<Item, Section[]> Data { get; set; }
 
         public static void Main(string[] args)
         {
-            InitializeData();
+            GenerateLevel<OverWorldLevel>();
+            GenerateLevel<SecretLevel>();
+            GenerateLevel<UndergroundLevel>();
+        }
+
+        public static void GenerateLevel<T>() where T : LevelKernel, new()
+        {
+            InitializeData<T>();
 
             using (StreamWriter fout1 = new StreamWriter(GenerateHistoryPath()),
-                fout2 = new StreamWriter(GetOutputPath("LevelData")))
+                fout2 = new StreamWriter(GetOutputPath(OutputFile)))
             {
                 WriteHeader(fout1);
                 WriteHeader(fout2);
@@ -36,9 +45,11 @@ namespace LevelGenerator
             }
         }
 
-        public static void InitializeData()
+        public static void InitializeData<T>() where T : LevelKernel, new()
         {
-            Data = new OverWorldLevel().ObjectData;
+            var level = new T();
+            Data = level.ObjectData;
+            OutputFile = level.OutputFile;
         }
 
         public static string GenerateHistoryPath()

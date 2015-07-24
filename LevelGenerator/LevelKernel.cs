@@ -4,7 +4,8 @@ namespace LevelGenerator
 {
     public abstract class LevelKernel
     {
-        public Dictionary<Item, Section[]> ObjectData { get; set; }
+        public string OutputFile { get; private set; }
+        public Dictionary<Item, Section[]> ObjectData { get; private set; }
 
         protected LevelKernel()
         {
@@ -14,6 +15,11 @@ namespace LevelGenerator
         protected void AddObjectBatch(Item item, Section[] sectionList)
         {
             ObjectData.Add(item, sectionList);
-        } 
+        }
+
+        protected void SetOutputFile(string file)
+        {
+            OutputFile = file;
+        }
     }
 }
