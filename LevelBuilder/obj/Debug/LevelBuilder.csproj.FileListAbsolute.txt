@@ -51,3 +51,6 @@ C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Microsoft.Xna.Framework.xm
 C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Microsoft.Xna.Framework.Game.xml
 C:\Users\涵哥\Desktop\Repo\LevelGenerator\bin\Debug\Microsoft.Xna.Framework.Graphics.xml
 C:\Users\涵哥\Desktop\Repo\LevelGenerator\obj\Debug\LevelBuilder.csprojResolveAssemblyReference.cache
+C:\Users\涵哥\Desktop\Repo\LevelBuilder\bin\Debug\LevelGenerator.exe.config
+C:\Users\涵哥\Desktop\Repo\LevelBuilder\obj\Debug\LevelGenerator.exe
+C:\Users\涵哥\Desktop\Repo\LevelBuilder\obj\Debug\LevelGenerator.pdb
