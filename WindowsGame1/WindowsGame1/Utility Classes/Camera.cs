@@ -24,6 +24,10 @@ namespace SuperMario
 
         public static Vector2 ScreenSize { get { return Instance._screenSize; } }
 
+        public static int Width { get { return (int)ScreenSize.X; } }
+
+        public static int Height { get { return (int)ScreenSize.Y; } }
+
         public static Collection<IObject> ObjectList
         {
             get { return Instance._objectList; }
