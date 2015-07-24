@@ -33,7 +33,7 @@ namespace LevelBuilder
                 var gridY = BaseY + level;
                 var gridX = StairShape == Shape.Downstairs ? CliffX : CliffX + level - Length + 1;
                 var length = Length - level;
-                list.Add(new Section(gridX, gridY, length));
+                list.Add(Section.Line(gridX, gridY, length));
             }
             return list.ToArray();
         }

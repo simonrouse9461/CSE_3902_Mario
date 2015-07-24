@@ -7,10 +7,18 @@
         public int GridWidth;
         public int GridHeight;
 
-        public Item(string type, string version = null, int gridWidth = 1, int gridHeight = 1)
+        public Item(string type, string version, int gridWidth = 1, int gridHeight = 1)
         {
             Type = type;
-            Version = version ?? string.Empty;
+            Version = version;
+            GridWidth = gridWidth;
+            GridHeight = gridHeight;
+        }
+
+        public Item(string type, int gridWidth = 1, int gridHeight = 1)
+        {
+            Type = type;
+            Version = string.Empty;
             GridWidth = gridWidth;
             GridHeight = gridHeight;
         }

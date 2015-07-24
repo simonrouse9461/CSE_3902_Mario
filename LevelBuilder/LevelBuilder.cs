@@ -96,10 +96,14 @@ namespace LevelBuilder
         public static void WriteSection(StreamWriter fout, Item item, Section section)
         {
             for (var column = section.GridX; column < section.GridX + section.Column; column+=item.GridWidth)
-                for (var row = section.GridY; row < section.GridY + section.Row; row+=item.GridHeight)
+                for (var row = section.GridY; row < section.GridY + section.Row; row += item.GridHeight)
                 {
-                    var locationX = (int) ((column + 0.5*item.GridWidth)*GameSettings.GridUnit*GameSettings.SpriteScale);
-                    var locationY = (int) (Camera.Height - row*GameSettings.GridUnit*GameSettings.SpriteScale);
+                    var locationX =
+                        (int)
+                            (((column + 0.5*item.GridWidth)*GameSettings.GridUnit + section.OffsetX)*
+                             GameSettings.SpriteScale);
+                    var locationY =
+                        (int) (Camera.Height - (row*GameSettings.GridUnit + section.OffsetY)*GameSettings.SpriteScale);
                     fout.WriteLine("    <Item>");
                     fout.WriteLine("      <Type>" + item.Type + "</Type>");
                     fout.WriteLine("      <Version>" + item.Version + "</Version>");

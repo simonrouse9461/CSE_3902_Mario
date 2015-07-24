@@ -14,6 +14,11 @@ namespace LevelBuilder
             ObjectData = new Dictionary<Item, Section[]>();
         }
 
+        protected void AddObjectBatch(Item item, int gridX, int gridY, int length = 1)
+        {
+            ObjectData.Add(item, new[] {Section.Line(gridX, gridY, length)});
+        }
+
         protected void AddObjectBatch(Item item, Section[] sectionList)
         {
             ObjectData.Add(item, sectionList);

@@ -5,66 +5,66 @@
         public OverWorldLevel()
         {
             SetOutputFile("LevelData");
-            AddObjectBatch(new Item("FloorBlockObject"), new []
+            AddObjectBatch(new Item("FloorBlockObject"), new[]
             {
                 new Section(0, 0, 69, 2),
                 new Section(71, 0, 15, 2),
                 new Section(89, 0, 64, 2),
                 new Section(155, 0, 57, 2)
             });
-            AddObjectBatch(new Item("SmallPipeObject", null, 2, 2), new []
+            AddObjectBatch(new Item("SmallPipeObject", 2, 2), new[]
             {
-                new Section(28, 2),
-                new Section(163, 2),
-                new Section(179, 2)
+                Section.Single(28, 2),
+                Section.Single(163, 2),
+                Section.Single(179, 2)
             });
-            AddObjectBatch(new Item("MediumPipeObject", null, 2, 3), new[] {new Section(38, 2)});
-            AddObjectBatch(new Item("GreenPipeObject", null, 2, 4), new[]
+            AddObjectBatch(new Item("MediumPipeObject", 2, 3), 38, 2);
+            AddObjectBatch(new Item("GreenPipeObject", 2, 4), new[]
             {
-                new Section(46, 2),
-                new Section(57, 2),
+                Section.Single(46, 2),
+                Section.Single(57, 2),
             });
             AddObjectBatch(new Item("QuestionBlockObject", "CoinQuestionBlock"), new[]
             {
-                new Section(16, 5),
-                new Section(23, 5),
-                new Section(106, 5),
-                new Section(109, 5),
-                new Section(112, 5),
-                new Section(170, 5),
-                new Section(22, 9),
-                new Section(94, 9),
-                new Section(129, 9, 2)
+                Section.Single(16, 5),
+                Section.Single(23, 5),
+                Section.Single(106, 5),
+                Section.Single(109, 5),
+                Section.Single(112, 5),
+                Section.Single(170, 5),
+                Section.Single(22, 9),
+                Section.Single(94, 9),
+                Section.Line(129, 9, 2)
             });
             AddObjectBatch(new Item("QuestionBlockObject", "ItemQuestionBlock"), new[]
             {
-                new Section(21, 5),
-                new Section(78, 5),
-                new Section(109, 9)
+                Section.Single(21, 5),
+                Section.Single(78, 5),
+                Section.Single(109, 9),
             });
             AddObjectBatch(new Item("NormalBlockObject"), new[]
             {
-                new Section(20, 5),
-                new Section(22, 5),
-                new Section(24, 5),
-                new Section(77, 5),
-                new Section(79, 5),
-                new Section(100, 5),
-                new Section(118, 5),
-                new Section(129, 5),
-                new Section(130, 5),
-                new Section(168, 5, 2),
-                new Section(171, 5),
-                new Section(80, 9, 8),
-                new Section(91, 9, 3),
-                new Section(121, 9, 3),
-                new Section(128, 9),
-                new Section(131, 9)
+                Section.Single(20, 5),
+                Section.Single(22, 5),
+                Section.Single(24, 5),
+                Section.Single(77, 5),
+                Section.Single(79, 5),
+                Section.Single(100, 5),
+                Section.Single(118, 5),
+                Section.Single(129, 5),
+                Section.Single(130, 5),
+                Section.Line(168, 5, 2),
+                Section.Single(171, 5),
+                Section.Line(80, 9, 8),
+                Section.Line(91, 9, 3),
+                Section.Line(121, 9, 3),
+                Section.Single(128, 9),
+                Section.Single(131, 9)
             });
-            AddObjectBatch(new Item("NormalBlockObject", "CoinNormalBlock"), new[] {new Section(94, 5)});
-            AddObjectBatch(new Item("NormalBlockObject", "StarNormalBlock"), new[] {new Section(101, 5)});
-            AddObjectBatch(new Item("HiddenBlockObject", "ExtraLifeHiddenBlock"), new[] {new Section(64, 6)});
-            AddObjectBatch(new Item("BlockKernel"), new[] {new Section(198, 2)});
+            AddObjectBatch(new Item("NormalBlockObject", "CoinNormalBlock"), 94, 5);
+            AddObjectBatch(new Item("NormalBlockObject", "StarNormalBlock"), 101, 5);
+            AddObjectBatch(new Item("HiddenBlockObject", "ExtraLifeHiddenBlock"), 64, 6);
+            AddObjectBatch(new Item("BlockKernel"), 198, 2);
             AddObjectBatch(new Item("BlockKernel"), new[]
             {
                 new StairBuilder(StairBuilder.Shape.Upstairs, 137, 2, 4),
@@ -73,8 +73,8 @@
                 new StairBuilder(StairBuilder.Shape.Downstairs, 155, 2, 4),
                 new StairBuilder(StairBuilder.Shape.Upstairs, 189, 2, 9, 8),
             });
-            AddObjectBatch(new Item("FlagPoleObject"), new[] {new Section(198, 3)});
-            AddObjectBatch(new Item("CastleObject", null, 5), new[] {new Section(202, 2)});
+            AddObjectBatch(new Item("FlagPoleObject"), 198, 3);
+            AddObjectBatch(new Item("CastleObject", 5), 202, 2);
         }
     }
 }
