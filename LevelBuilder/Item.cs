@@ -22,5 +22,10 @@
             GridWidth = gridWidth;
             GridHeight = gridHeight;
         }
+
+        public Item Clone
+        {
+            get { return new Item(Type, Version, GridWidth, GridHeight); }
+        }
     }
 }

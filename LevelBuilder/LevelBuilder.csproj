@@ -49,7 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Section.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="StairBuilder.cs" />
+    <Compile Include="SectionBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

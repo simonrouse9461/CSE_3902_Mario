@@ -24,12 +24,12 @@ namespace LevelBuilder
             ObjectData.Add(item, sectionList);
         }
 
-        protected void AddObjectBatch(Item item, StairBuilder[] stairList = null)
+        protected void AddObjectBatch(Item item, Section[][] sectionBuilderList)
         {
-            var stairs = (from stair in stairList
-                from section in stair.GetSectionArray()
-                select section).ToArray();
-            AddObjectBatch(item, stairs);
+            foreach (var sectionList in sectionBuilderList)
+            {
+                AddObjectBatch(item.Clone, sectionList);
+            }
         }
 
         protected void SetOutputFile(string file)

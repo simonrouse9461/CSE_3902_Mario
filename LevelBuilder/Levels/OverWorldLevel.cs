@@ -1,4 +1,6 @@
-﻿namespace LevelBuilder
+﻿using System.Linq;
+
+namespace LevelBuilder
 {
     public class OverWorldLevel : LevelKernel
     {
@@ -40,7 +42,7 @@
             {
                 Section.Single(21, 5),
                 Section.Single(78, 5),
-                Section.Single(109, 9),
+                Section.Single(109, 9)
             });
             AddObjectBatch(new Item("NormalBlockObject"), new[]
             {
@@ -67,11 +69,11 @@
             AddObjectBatch(new Item("BlockKernel"), 198, 2);
             AddObjectBatch(new Item("BlockKernel"), new[]
             {
-                new StairBuilder(StairBuilder.Shape.Upstairs, 137, 2, 4),
-                new StairBuilder(StairBuilder.Shape.Downstairs, 140, 2, 4),
-                new StairBuilder(StairBuilder.Shape.Upstairs, 152, 2, 5, 4),
-                new StairBuilder(StairBuilder.Shape.Downstairs, 155, 2, 4),
-                new StairBuilder(StairBuilder.Shape.Upstairs, 189, 2, 9, 8),
+                SectionBuilder.Stair(SectionBuilder.StairShape.Upstairs, 137, 2, 4),
+                SectionBuilder.Stair(SectionBuilder.StairShape.Downstairs, 140, 2, 4),
+                SectionBuilder.Stair(SectionBuilder.StairShape.Upstairs, 152, 2, 5, 4),
+                SectionBuilder.Stair(SectionBuilder.StairShape.Downstairs, 155, 2, 4),
+                SectionBuilder.Stair(SectionBuilder.StairShape.Upstairs, 189, 2, 9, 8)
             });
             AddObjectBatch(new Item("FlagPoleObject"), 198, 3);
             AddObjectBatch(new Item("CastleObject", 5), 202, 2);
