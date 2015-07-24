@@ -53,12 +53,25 @@
       <Name>SuperMario</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="LevelData20150724005025.xml" />
+    <Content Include="LevelData20150724005332.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="History\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
+    <ItemGroup>
+      <Content Include="*.xml" />
+    </ItemGroup>
   </Target>
   <Target Name="AfterBuild">
+    <ItemGroup>
+      <Content Include="*.xml" />
+    </ItemGroup>
   </Target>
   -->
 </Project>
