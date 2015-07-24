@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace LevelGenerator
 {
@@ -12,9 +13,20 @@ namespace LevelGenerator
             ObjectData = new Dictionary<Item, Section[]>();
         }
 
-        protected void AddObjectBatch(Item item, Section[] sectionList)
+        protected void AddObjectBatch(Item item, Section[] sectionList, StairBuilder[] stairList = null)
         {
-            ObjectData.Add(item, sectionList);
+            if (stairList == null)
+            {
+                ObjectData.Add(item, sectionList);
+                return;
+            }
+            var stairs = (from stair in stairList
+                from section in stair.GetSectionList()
+                select section).ToArray();
+            var mergedList = new Section[sectionList.Length + stairs.Length];
+            sectionList.CopyTo(mergedList, 0);
+            stairs.CopyTo(mergedList, sectionList.Length);
+            ObjectData.Add(item, mergedList);
         }
 
         protected void SetOutputFile(string file)

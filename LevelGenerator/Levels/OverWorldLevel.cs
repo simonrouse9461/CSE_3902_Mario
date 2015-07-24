@@ -76,34 +76,19 @@
             {
                 new Section(64, 6)
             });
-            AddObjectBatch(new Item("BlockKernel"), new[]
-            {
-                new Section(134, 2, 4),
-                new Section(135, 3, 3),
-                new Section(136, 4, 2),
-                new Section(137, 5),
-                new Section(140, 5),
-                new Section(140, 4, 2),
-                new Section(140, 3, 3),
-                new Section(140, 2, 4),
-                new Section(148, 2, 5),
-                new Section(149, 3, 4),
-                new Section(150, 4, 3),
-                new Section(151, 5, 2),
-                new Section(155, 5),
-                new Section(155, 4, 2),
-                new Section(155, 3, 3),
-                new Section(155, 2, 4),
-                new Section(181, 2, 9),
-                new Section(182, 3, 8),
-                new Section(183, 4, 7),
-                new Section(184, 5, 6),
-                new Section(185, 6, 5),
-                new Section(186, 7, 4),
-                new Section(187, 8, 3),
-                new Section(188, 9, 2),
-                new Section(198, 2)
-            });
+            AddObjectBatch(new Item("BlockKernel"),
+                new[]
+                {
+                    new Section(198, 2)
+                },
+                new[]
+                {
+                    new StairBuilder(StairBuilder.Shape.Upstairs, 137, 2, 4),
+                    new StairBuilder(StairBuilder.Shape.Downstairs, 140, 2, 4),
+                    new StairBuilder(StairBuilder.Shape.Upstairs, 152, 2, 5, 4),
+                    new StairBuilder(StairBuilder.Shape.Downstairs, 155, 2, 4),
+                    new StairBuilder(StairBuilder.Shape.Upstairs, 189, 2, 9, 8),
+                });
             AddObjectBatch(new Item("FlagPoleObject"), new[]
             {
                 new Section(198, 3)
