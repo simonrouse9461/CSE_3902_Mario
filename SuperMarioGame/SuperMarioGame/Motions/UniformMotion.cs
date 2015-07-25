@@ -14,7 +14,7 @@ namespace SuperMario
             MarioLeft,
             MarioRight,
             MarioSlip,
-            MarioPipe,
+            MarioSink,
             ItemLeft,
             ItemRight,
             ItemUp,
@@ -114,14 +114,14 @@ namespace SuperMario
             }
         }
 
-        public static UniformMotion MarioEnterPipe
+        public static UniformMotion MarioSinkDown
         {
             get
             {
                 return new UniformMotion
                 {
-                    version = Version.MarioPipe,
-                    StartVelocity = new Vector2(0, -0.5f)
+                    version = Version.MarioSink,
+                    StartVelocity = new Vector2(0, 0.5f)
                 };
             }
         }

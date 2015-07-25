@@ -9,7 +9,6 @@ namespace SuperMario
         public bool Gravity
         {
             get { return CheckMotion<GravityMotion>(); }
-            set { }
         }
 
         public MarioMotionState()
@@ -23,7 +22,8 @@ namespace SuperMario
             AddMotion(BounceUpMotion.MarioStamp);
             AddMotion<GravityMotion>();
             AddMotion(UniformMotion.MarioSlipDown);
-            AddMotion(UniformMotion.MarioEnterPipe);
+            AddMotion(UniformMotion.MarioSinkDown);
+            AddMotion(AcceleratedMotion.GravityDecorator);
 
             SetDefaultHorizontal();
             SetDefaultVertical();
@@ -123,9 +123,31 @@ namespace SuperMario
             TurnOnMotion<GravityMotion>();
         }
 
+        public void SlowDownGravity()
+        {
+            TurnOnMotion(AcceleratedMotion.GravityDecorator);
+        }
+
         public void LoseGravity()
         {
             TurnOffMotion<GravityMotion>();
+            TurnOffMotion(AcceleratedMotion.GravityDecorator);
+        }
+
+        public bool GravitySlowed
+        {
+            get { return CheckMotion(AcceleratedMotion.GravityDecorator);}
+        }
+
+        public bool JumpFinish
+        {
+            get { return CheckMotion(BounceUpMotion.MarioJump) && FindMotion(BounceUpMotion.MarioJump).Content.Finish; }
+        }
+
+        public bool StartFall
+        {
+            get { return ((GravityMotion) FindMotion<GravityMotion>().Content).AboutToFall 
+                || DefaultVertical && Gravity && FindMotion<GravityMotion>().Content.ReachMax; }
         }
 
         public void Die()
@@ -135,6 +157,19 @@ namespace SuperMario
             SetDefaultVertical();
             LoseGravity();
             TurnOnMotion(BounceUpMotion.MarioDie);
+        }
+
+        public void EnterPipe()
+        {
+            SetDefaultHorizontal();
+            SetDefaultVertical();
+            LoseGravity();
+            TurnOnMotion(UniformMotion.MarioSinkDown);
+        }
+
+        public bool Sinking
+        {
+            get { return CheckMotion(UniformMotion.MarioSinkDown);}
         }
 
         public void Slip()

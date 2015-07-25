@@ -10,10 +10,10 @@ namespace LevelBuilder
             SetOutputFile("LevelData");
             BatchAdd(new Item("FloorBlockObject"), new[]
             {
-                Section.Matrix(0, 0, 69, 2),
+                Section.Range(0, 68, 0, 1),
                 Section.Matrix(71, 0, 15, 2),
-                Section.Matrix(89, 0, 64, 2), 
-                Section.Matrix(155, 0, 57, 2), 
+                Section.Range(89, 152, 0, 1), 
+                Section.Range(155, 211, 0, 1)
             });
             BatchAdd(new Item("SmallPipeObject", 2, 2), new[]
             {

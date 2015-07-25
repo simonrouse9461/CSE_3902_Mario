@@ -16,6 +16,7 @@ namespace SuperMario
             HandleEnemy();
             HandleFlagPole();
             HandleOneUp();
+            HandlePipe();
         }
 
         protected virtual void HandleMushroom()
@@ -68,9 +69,21 @@ namespace SuperMario
 
         protected void HandleFlagPole()
         {
-            if (Core.CollisionDetector.Detect<FlagPoleObject>().AnyEdge.Touch)
+            if (Core.CollisionDetector.Detect<FlagPoleObject>().AnySide.Touch)
             {
                 Core.StateController.FinishLevel();
+            }
+        }
+
+        protected void HandlePipe()
+        {
+            if (Core.CollisionDetector.Detect<IPipe>().Bottom.Cover)
+            {
+                Core.StateController.FoundWarpPipe();
+            }
+            else
+            {
+                Core.StateController.LeaveWarpPipe();
             }
         }
     }

@@ -121,7 +121,7 @@
     <Compile Include="Interfaces\IMotionStateNew.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
-    <Compile Include="Kernels\EventTrigger.cs" />
+    <Compile Include="Utility Classes\EventTrigger.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
     <Compile Include="Mario\CommandExecutorDecorators\FinishLevelMarioCommandExecutor.cs" />

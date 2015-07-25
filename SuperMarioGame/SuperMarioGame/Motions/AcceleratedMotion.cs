@@ -10,7 +10,8 @@ namespace SuperMario
         {
             Default,
             MarioLeft,
-            MarioRight
+            MarioRight,
+            Gravity,
         }
 
         private Version version = Version.Default;
@@ -20,12 +21,17 @@ namespace SuperMario
             get { return (int) version; }
         }
 
+        private bool UseInitialVelocity { get; set; }
+
         public override Vector2 Velocity
         {
             get
             {
-                var velocity = Circulator.Phase*Acceleration + InitialVelocity;
-                return Math.Abs(velocity.X) >= Math.Abs(MaxVelocity.X) ? MaxVelocity : velocity;
+                var initial = UseInitialVelocity ? InitialVelocity : StartVelocity;
+                var velocity = Circulator.Phase*Acceleration + initial;
+                var condition = Math.Abs(Acceleration.X) <= 0.001 && (MaxVelocity - velocity).Y/Acceleration.Y <= 0
+                                || Math.Abs(Acceleration.Y) <= 0.001 && (MaxVelocity - velocity).X/Acceleration.X <= 0;
+                return condition ? MaxVelocity : velocity;
             }
         }
 
@@ -38,6 +44,7 @@ namespace SuperMario
                 return new AcceleratedMotion
                 {
                     version = Version.MarioLeft,
+                    UseInitialVelocity = true,
                     Acceleration = new Vector2(-0.1f, 0),
                     MaxVelocity = new Vector2(-3, 0)
                 };
@@ -51,8 +58,24 @@ namespace SuperMario
                 return new AcceleratedMotion
                 {
                     version = Version.MarioRight,
+                    UseInitialVelocity = true,
                     Acceleration = new Vector2(0.1f, 0),
                     MaxVelocity = new Vector2(3, 0)
+                };
+            }
+        }
+
+        public static AcceleratedMotion GravityDecorator
+        {
+            get
+            {
+                return new AcceleratedMotion
+                {
+                    version = Version.Gravity,
+                    UseInitialVelocity = false,
+                    StartVelocity = -GravityMotion.Max,
+                    Acceleration = new Vector2(0, 0.7f),
+                    MaxVelocity = default(Vector2)
                 };
             }
         }

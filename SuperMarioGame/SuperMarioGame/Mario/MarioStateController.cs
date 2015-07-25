@@ -30,7 +30,17 @@ namespace SuperMario
             }
         }
 
+        public override void Update()
+        {
+            if (MotionState.JumpFinish || MotionState.StartFall)
+            {
+                MotionState.SlowDownGravity();
+            }
+        }
+
         public bool SelfControl { get; private set; }
+
+        public bool OnWarpPipe { get; private set; }
 
         public void ReloadAmmo()
         {
@@ -61,6 +71,7 @@ namespace SuperMario
         public void Liftoff()
         {
             if (SpriteState.Dead) return;
+            if (MotionState.Sinking) return;
             if (SpriteState.Sliping) return;
             if (!MotionState.Gravity) MotionState.ObtainGravity();
             
@@ -185,16 +196,24 @@ namespace SuperMario
 
         public void Crouch()
         {
+            var holdOrientation = false;
             if (SpriteState.Dead) return;
             if (SpriteState.Small) return;
             if (SpriteState.Jumping) return;
             SpriteState.Crouch();
-            SpriteState.Hold(false);
+            if (OnWarpPipe)
+            {
+                Core.BarrierHandler.RemoveBarrier<IPipe>();
+                holdOrientation = true;
+                MotionState.EnterPipe();
+            }
+            SpriteState.Hold(holdOrientation);
             MotionState.Stop();
         }
 
         public void StandUp()
         {
+            if (MotionState.Sinking) return;
             SpriteState.Release();
         }
 
@@ -329,6 +348,7 @@ namespace SuperMario
             MotionState.Slip();
             SpriteState.Slip();
             SpriteState.Hold(false);
+            SpriteState.FaceRight();
             Camera.Fix();
             SoundManager.PauseMusic();
             SoundManager.FlagpoleSoundPlay();
@@ -341,6 +361,16 @@ namespace SuperMario
             SpriteState.Hold(true);
             MotionState.Freeze();
             SpriteState.Hide();
+        }
+
+        public void FoundWarpPipe()
+        {
+            OnWarpPipe = true;
+        }
+
+        public void LeaveWarpPipe()
+        {
+            OnWarpPipe = false;
         }
     }
 }
