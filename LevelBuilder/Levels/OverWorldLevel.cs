@@ -64,6 +64,24 @@ namespace LevelBuilder
             });
             BatchAdd(new Item("FlagPoleObject"), 198, 3);
             BatchAdd(new Item("CastleObject", 5), 202, 2);
+            BatchAdd(new Item("Goomba"), new []
+            {
+                Section.Single(21, 2, -6),
+                Section.Single(40, 2, 3),
+                Section.Single(53, 2, -6),
+                Section.Single(54, 2, 2),
+                Section.Single(95, 2, -4),
+                Section.Single(96, 2, 4),
+                Section.Single(124, 2, -10),
+                Section.Single(125, 2, -2),
+                Section.Single(127, 2, -2),
+                Section.Single(128, 2, 6),
+                Section.Single(173, 2, 2),
+                Section.Single(174, 2, 10),
+                Section.Single(79, 7, -4, 8),
+                Section.Single(82, 10, -6),
+            });
+            BatchAdd(new Item("Koopa"), new []{Section.Single(106, 2, -6)});
         }
     }
 }
