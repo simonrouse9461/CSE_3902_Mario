@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class SuperFireballObject : ObjectKernelNew<SuperFireballStateController>
     {
         public SuperFireballObject(){
-             CollisionHandler = new SuperFireballCollisionHandler;
+             CollisionHandler = new SuperFireballCollisionHandler(Core);
 
         }
 

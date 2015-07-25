@@ -21,7 +21,9 @@ namespace SuperMario
             FireballLeft,
             FireballRight,
             DebrisLeft,
-            DebrisRight
+            DebrisRight,
+            SuperFireballLeft,
+            SuperFireballRight
         }
 
         private Version version = Version.Default;
@@ -194,6 +196,30 @@ namespace SuperMario
                 {
                     version = Version.FireballRight,
                     StartVelocity = new Vector2(GravityMotion.Max.Y, 0)
+                };
+            }
+        }
+
+        public static UniformMotion SuperFireballMoveLeft
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.SuperFireballLeft,
+                    StartVelocity = new Vector2(2, 0)
+                };
+            }
+        }
+
+        public static UniformMotion SuperFireballMoveRight
+        {
+            get
+            {
+                return new UniformMotion
+                {
+                    version = Version.SuperFireballRight,
+                    StartVelocity = new Vector2(2, 0)
                 };
             }
         }

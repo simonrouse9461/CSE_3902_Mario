@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class SuperFireballSprite : SpriteKernelNew
     {
@@ -26,6 +26,13 @@ namespace MarioGame
                     {new Rectangle(161, 253, 24, 8), Orientation.Right},
                     {new Rectangle(191, 253, 24, 8), Orientation.Right}
                 });
+
+            SetAnimation(new[]
+                {
+                    new SpriteTransformation(0),
+                    new SpriteTransformation(1)
+                }
+            );
         }
     }
 }

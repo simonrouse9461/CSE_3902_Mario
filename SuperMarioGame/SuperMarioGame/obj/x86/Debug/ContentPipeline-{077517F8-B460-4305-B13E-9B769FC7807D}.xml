@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\SegoeUIMono.xnb</Output>
-      <Time>2015-07-24T01:35:34.2562799-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\SegoeUIMono.xnb</Output>
+      <Time>2015-07-25T15:17:33.7169678-04:00</Time>
     </Item>
     <Item>
       <Source>GeorgiaFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\GeorgiaFont.xnb</Output>
-      <Time>2015-07-24T01:35:34.2562799-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\GeorgiaFont.xnb</Output>
+      <Time>2015-07-25T15:17:33.4867561-04:00</Time>
     </Item>
     <Item>
       <Source>Mario.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Mario.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Mario.xnb</Output>
+      <Time>2015-07-25T15:17:33.8807756-04:00</Time>
     </Item>
     <Item>
       <Source>blocks.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\blocks.xnb</Output>
-      <Time>2015-07-24T01:35:34.2719112-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\blocks.xnb</Output>
+      <Time>2015-07-25T15:17:33.8215725-04:00</Time>
     </Item>
     <Item>
       <Source>overworld.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\overworld.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\overworld.xnb</Output>
+      <Time>2015-07-25T15:17:33.9788116-04:00</Time>
     </Item>
     <Item>
       <Source>items.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\items.xnb</Output>
-      <Time>2015-07-24T01:35:34.2719112-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\items.xnb</Output>
+      <Time>2015-07-25T15:17:33.8648125-04:00</Time>
     </Item>
     <Item>
       <Source>scenery.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\scenery.xnb</Output>
-      <Time>2015-07-24T01:35:26.2442575-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\scenery.xnb</Output>
+      <Time>2015-07-25T15:17:33.6817643-04:00</Time>
     </Item>
     <Item>
       <Source>misc.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\misc.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\misc.xnb</Output>
+      <Time>2015-07-25T15:17:33.9299799-04:00</Time>
     </Item>
     <Item>
       <Source>characters.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\characters.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\characters.xnb</Output>
+      <Time>2015-07-25T15:17:33.8215725-04:00</Time>
     </Item>
     <Item>
       <Source>enemies.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\enemies.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\enemies.xnb</Output>
+      <Time>2015-07-25T15:17:33.8372081-04:00</Time>
     </Item>
     <Item>
       <Source>pipes green.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\pipes green.xnb</Output>
-      <Time>2015-07-24T01:35:26.2755054-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\pipes green.xnb</Output>
+      <Time>2015-07-25T15:17:34.0023756-04:00</Time>
     </Item>
     <Item>
       <Source>mario-luigi.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\mario-luigi.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\mario-luigi.xnb</Output>
+      <Time>2015-07-25T15:17:33.8777738-04:00</Time>
     </Item>
     <Item>
       <Source>misc_sprites.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\misc_sprites.xnb</Output>
-      <Time>2015-07-24T01:35:26.2598789-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\misc_sprites.xnb</Output>
+      <Time>2015-07-25T15:17:33.9455729-04:00</Time>
     </Item>
     <Item>
       <Source>LevelDataOld.xml</Source>
@@ -124,8 +124,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\LevelDataOld.xnb</Output>
-      <Time>2015-07-24T01:35:26.2442575-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\LevelDataOld.xnb</Output>
+      <Time>2015-07-25T15:17:33.6727659-04:00</Time>
     </Item>
     <Item>
       <Source>UndergroundLevel.xml</Source>
@@ -133,8 +133,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\UndergroundLevel.xnb</Output>
-      <Time>2015-07-24T01:35:26.2442575-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\UndergroundLevel.xnb</Output>
+      <Time>2015-07-25T15:17:33.7873655-04:00</Time>
     </Item>
     <Item>
       <Source>LevelData.xml</Source>
@@ -142,179 +142,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\LevelData.xnb</Output>
-      <Time>2015-07-24T21:49:06.7661859-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\blockBreak.wav</Source>
-      <Name>Audio\blockBreak</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\blockBreak.xnb</Output>
-      <Time>2015-07-24T01:35:25.60365-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\stomp.wav</Source>
-      <Name>Audio\stomp</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\stomp.xnb</Output>
-      <Time>2015-07-24T01:35:34.2562799-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\coin.wav</Source>
-      <Name>Audio\coin</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\coin.xnb</Output>
-      <Time>2015-07-24T01:35:40.9671352-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\die.wav</Source>
-      <Name>Audio\die</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\die.xnb</Output>
-      <Time>2015-07-24T01:35:25.7286364-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\kick.wav</Source>
-      <Name>Audio\kick</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\kick.xnb</Output>
-      <Time>2015-07-24T01:35:34.2406657-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\overworld.wav</Source>
-      <Name>Audio\overworld</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\overworld.xnb</Output>
-      <Time>2015-07-24T01:35:26.0099489-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\pipe.wav</Source>
-      <Name>Audio\pipe</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\pipe.xnb</Output>
-      <Time>2015-07-24T01:35:40.9671352-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\powerUp.wav</Source>
-      <Name>Audio\powerUp</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\powerUp.xnb</Output>
-      <Time>2015-07-24T01:35:26.0099489-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\powerUpAppear.wav</Source>
-      <Name>Audio\powerUpAppear</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\powerUpAppear.xnb</Output>
-      <Time>2015-07-24T01:35:26.0255098-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\star.wav</Source>
-      <Name>Audio\star</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\star.xnb</Output>
-      <Time>2015-07-24T01:35:26.1350529-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\underworld.wav</Source>
-      <Name>Audio\underworld</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\underworld.xnb</Output>
-      <Time>2015-07-24T01:35:26.2136368-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\win.wav</Source>
-      <Name>Audio\win</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\win.xnb</Output>
-      <Time>2015-07-24T01:35:26.2288727-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\bump.wav</Source>
-      <Name>Audio\bump</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\bump.xnb</Output>
-      <Time>2015-07-24T01:35:25.6193342-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\jump-small.wav</Source>
-      <Name>Audio\jump-small</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\jump-small.xnb</Output>
-      <Time>2015-07-24T01:35:25.7286364-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\jump-super.wav</Source>
-      <Name>Audio\jump-super</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\jump-super.xnb</Output>
-      <Time>2015-07-24T01:35:25.7445058-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\fireball.wav</Source>
-      <Name>Audio\fireball</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\fireball.xnb</Output>
-      <Time>2015-07-24T01:35:25.7286364-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\smb_1-up.wav</Source>
-      <Name>Audio\smb_1-up</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_1-up.xnb</Output>
-      <Time>2015-07-24T01:35:26.0255098-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\smb_bowserfire.wav</Source>
-      <Name>Audio\smb_bowserfire</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_bowserfire.xnb</Output>
-      <Time>2015-07-24T01:35:26.0255098-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\smb_flagpole.wav</Source>
-      <Name>Audio\smb_flagpole</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_flagpole.xnb</Output>
-      <Time>2015-07-24T01:35:40.9828083-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\LevelData.xnb</Output>
+      <Time>2015-07-25T15:17:33.6277922-04:00</Time>
     </Item>
     <Item>
       <Source>SecretLevelData.xml</Source>
@@ -322,8 +151,8 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\SecretLevelData.xnb</Output>
-      <Time>2015-07-24T21:49:06.7731892-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\SecretLevelData.xnb</Output>
+      <Time>2015-07-25T15:17:33.697306-04:00</Time>
     </Item>
     <Item>
       <Source>UndergroundLevelData.xml</Source>
@@ -331,8 +160,179 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\UndergroundLevelData.xnb</Output>
-      <Time>2015-07-24T21:49:06.7752088-04:00</Time>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\UndergroundLevelData.xnb</Output>
+      <Time>2015-07-25T15:17:33.8029705-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\blockBreak.wav</Source>
+      <Name>Audio\blockBreak</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\blockBreak.xnb</Output>
+      <Time>2015-07-25T15:17:30.1801406-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\stomp.wav</Source>
+      <Name>Audio\stomp</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\stomp.xnb</Output>
+      <Time>2015-07-25T15:17:32.9505065-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\coin.wav</Source>
+      <Name>Audio\coin</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\coin.xnb</Output>
+      <Time>2015-07-25T15:17:30.2263438-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\die.wav</Source>
+      <Name>Audio\die</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\die.xnb</Output>
+      <Time>2015-07-25T15:17:30.6947856-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\kick.wav</Source>
+      <Name>Audio\kick</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\kick.xnb</Output>
+      <Time>2015-07-25T15:17:30.7837806-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\overworld.wav</Source>
+      <Name>Audio\overworld</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\overworld.xnb</Output>
+      <Time>2015-07-25T15:17:32.2321091-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\pipe.wav</Source>
+      <Name>Audio\pipe</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\pipe.xnb</Output>
+      <Time>2015-07-25T15:17:32.2782026-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\powerUp.wav</Source>
+      <Name>Audio\powerUp</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\powerUp.xnb</Output>
+      <Time>2015-07-25T15:17:32.3104667-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\powerUpAppear.wav</Source>
+      <Name>Audio\powerUpAppear</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\powerUpAppear.xnb</Output>
+      <Time>2015-07-25T15:17:32.3487116-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\star.wav</Source>
+      <Name>Audio\star</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\star.xnb</Output>
+      <Time>2015-07-25T15:17:32.9122388-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\underworld.wav</Source>
+      <Name>Audio\underworld</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\underworld.xnb</Output>
+      <Time>2015-07-25T15:17:33.3937469-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\win.wav</Source>
+      <Name>Audio\win</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\win.xnb</Output>
+      <Time>2015-07-25T15:17:33.4711488-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\bump.wav</Source>
+      <Name>Audio\bump</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\bump.xnb</Output>
+      <Time>2015-07-25T15:17:30.2107421-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\jump-small.wav</Source>
+      <Name>Audio\jump-small</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\jump-small.xnb</Output>
+      <Time>2015-07-25T15:17:30.7445761-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\jump-super.wav</Source>
+      <Name>Audio\jump-super</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\jump-super.xnb</Output>
+      <Time>2015-07-25T15:17:30.7621822-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\fireball.wav</Source>
+      <Name>Audio\fireball</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\fireball.xnb</Output>
+      <Time>2015-07-25T15:17:30.7279785-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\smb_1-up.wav</Source>
+      <Name>Audio\smb_1-up</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_1-up.xnb</Output>
+      <Time>2015-07-25T15:17:32.3616722-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\smb_bowserfire.wav</Source>
+      <Name>Audio\smb_bowserfire</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_bowserfire.xnb</Output>
+      <Time>2015-07-25T15:17:32.394869-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\smb_flagpole.wav</Source>
+      <Name>Audio\smb_flagpole</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_flagpole.xnb</Output>
+      <Time>2015-07-25T15:17:32.4104715-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -341,43 +341,43 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-04:00</Value>
+        <Value>2011-09-01T19:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T16:22:30-04:00</Value>
+        <Value>2011-09-01T19:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-04:00</Value>
+        <Value>2011-09-01T19:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-04:00</Value>
+        <Value>2011-09-01T19:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T16:22:30-04:00</Value>
+        <Value>2011-09-01T19:22:30-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T16:22:30-04:00</Value>
+        <Value>2011-09-01T19:22:30-04:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Users\涵哥\Desktop\Repo\LeveLoader\bin\x86\Debug\LeveLoader.dll</Key>
-        <Value>2015-07-24T01:14:31.0141921-04:00</Value>
+        <Key>C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LeveLoader\bin\x86\Debug\LeveLoader.dll</Key>
+        <Value>2015-07-25T15:23:08.3203568-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-07-22T05:56:15.4821481-04:00</Value>
+        <Value>2015-05-15T23:35:12.7410205-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
