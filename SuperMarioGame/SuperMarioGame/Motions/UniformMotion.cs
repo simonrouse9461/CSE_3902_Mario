@@ -181,7 +181,7 @@ namespace SuperMario
                 return new UniformMotion
                 {
                     version = Version.FireballLeft,
-                    StartVelocity = new Vector2(-7, 0)
+                    StartVelocity = new Vector2(-GravityMotion.Max.Y, 0)
                 };
             }
         }
@@ -193,7 +193,7 @@ namespace SuperMario
                 return new UniformMotion
                 {
                     version = Version.FireballRight,
-                    StartVelocity = new Vector2(7, 0)
+                    StartVelocity = new Vector2(GravityMotion.Max.Y, 0)
                 };
             }
         }
