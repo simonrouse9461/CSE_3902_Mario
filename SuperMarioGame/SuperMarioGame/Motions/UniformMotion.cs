@@ -121,7 +121,7 @@ namespace SuperMario
                 return new UniformMotion
                 {
                     version = Version.MarioSink,
-                    StartVelocity = new Vector2(0, 0.5f)
+                    StartVelocity = new Vector2(0, 1.2f)
                 };
             }
         }

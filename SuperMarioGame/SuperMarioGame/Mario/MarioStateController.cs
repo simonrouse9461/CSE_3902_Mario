@@ -32,6 +32,7 @@ namespace SuperMario
 
         public override void Update()
         {
+            if (SpriteState.Dead) return;
             if (MotionState.JumpFinish || MotionState.StartFall)
             {
                 MotionState.SlowDownGravity();
@@ -196,19 +197,24 @@ namespace SuperMario
 
         public void Crouch()
         {
-            var holdOrientation = false;
+            if (OnWarpPipe) EnterPipe();
             if (SpriteState.Dead) return;
             if (SpriteState.Small) return;
             if (SpriteState.Jumping) return;
             SpriteState.Crouch();
-            if (OnWarpPipe)
-            {
-                Core.BarrierHandler.RemoveBarrier<IPipe>();
-                holdOrientation = true;
-                MotionState.EnterPipe();
-            }
-            SpriteState.Hold(holdOrientation);
+            SpriteState.Hold(OnWarpPipe);
             MotionState.Stop();
+        }
+
+        public void EnterPipe()
+        {
+            Core.BarrierHandler.RemoveBarrier<IPipe>();
+            if (SpriteState.Small) SpriteState.Hold(true);
+            MotionState.EnterPipe();
+            MotionState.SetDefaultHorizontal();
+            MotionState.SetDefaultVertical();
+            Core.SwitchComponent(new FinishLevelMarioCommandExecutor(Core));
+            SoundManager.PipeSoundPlay();
         }
 
         public void StandUp()
