@@ -74,7 +74,7 @@ namespace SuperMario
                     version = Version.Gravity,
                     UseInitialVelocity = false,
                     StartVelocity = -GravityMotion.Max,
-                    Acceleration = new Vector2(0, 0.7f),
+                    Acceleration = new Vector2(0, 0.8f),
                     MaxVelocity = default(Vector2)
                 };
             }

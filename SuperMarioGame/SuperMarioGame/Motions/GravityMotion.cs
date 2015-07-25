@@ -5,7 +5,7 @@ namespace SuperMario
 {
     public class GravityMotion : MotionKernel
     {
-        public static Vector2 Max { get { return new Vector2(0, 7f); } }
+        public static Vector2 Max { get { return new Vector2(0, 7.5f); } }
 
         public GravityMotion()
         {
