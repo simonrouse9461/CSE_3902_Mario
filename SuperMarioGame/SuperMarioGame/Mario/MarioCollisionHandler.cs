@@ -57,11 +57,12 @@ namespace SuperMario
 
         protected virtual void HandleEnemy()
         {
-            if (Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell).AnySide.Touch)
+            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell);
+            if (collision.Left.Touch && !Core.Object.GoingRight || collision.Right.Touch && !Core.Object.GoingLeft)
             {
                 Core.StateController.TakeDamage();
             }
-            if (Core.CollisionDetector.Detect<IEnemy>().Bottom.Touch)
+            if (collision.Bottom.Touch)
             {
                 Core.StateController.Bounce();
             }
