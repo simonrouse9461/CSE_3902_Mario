@@ -16,6 +16,8 @@ namespace SuperMario
         bool SameVersion(IMotion motion);
         void SetInitialVelocity(Vector2 velocity = default(Vector2));
         void SetCurrentVelocity(Vector2 velocity = default(Vector2));
+        bool XReach(float speed);
+        bool YReach(float speed);
         void Reset(Vector2 velocity);
         void Reset();
         void ResetX(float speed = 0);

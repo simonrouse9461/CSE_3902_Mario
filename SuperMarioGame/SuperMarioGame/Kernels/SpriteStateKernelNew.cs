@@ -271,6 +271,7 @@ namespace SuperMario
 
         public void SetSpriteFrequency(int frequency)
         {
+            if (SpriteTimer.Frequency == frequency) return;
             SpriteTimer.Reset(frequency);
         }
 

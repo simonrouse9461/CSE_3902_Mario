@@ -50,7 +50,7 @@ namespace SuperMario
                 new[]
                 {MarioSpriteVersion.Red, MarioSpriteVersion.Black, MarioSpriteVersion.Fire, MarioSpriteVersion.Green});
 
-            SetSpriteFrequency(5);
+            SetSpriteFrequency(4);
             SetDefaultVersion(MarioSpriteVersion.Normal);
             Stand();
         }

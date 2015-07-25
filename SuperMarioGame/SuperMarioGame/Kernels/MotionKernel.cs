@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
@@ -25,6 +26,16 @@ namespace SuperMario
         public bool ReachMax
         {
             get { return Velocity == MaxVelocity; }
+        }
+
+        public bool XReach(float speed)
+        {
+            return Velocity.X/speed >= 1;
+        }
+
+        public bool YReach(float speed)
+        {
+            return Velocity.Y/speed >= 1;
         }
 
         public abstract Vector2 Velocity { get; }

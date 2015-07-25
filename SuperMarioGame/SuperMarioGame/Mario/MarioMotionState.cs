@@ -78,6 +78,26 @@ namespace SuperMario
             TurnOnMotion(AcceleratedMotion.MarioRight);
         }
 
+        public bool FullSpeed
+        {
+            get
+            {
+                return FindMotion(AcceleratedMotion.MarioLeft).Content.ReachMax
+                       || FindMotion(AcceleratedMotion.MarioRight).Content.ReachMax;
+            }
+        }
+
+        public bool HalfSpeed
+        {
+            get
+            {
+                return FindMotion(AcceleratedMotion.MarioLeft)
+                    .Content.XReach(AcceleratedMotion.MarioLeft.MaxVelocity.X/2)
+                       || FindMotion(AcceleratedMotion.MarioRight)
+                           .Content.XReach(AcceleratedMotion.MarioRight.MaxVelocity.X/2);
+            }
+        }
+
         public void Stop()
         {
             SetDefaultHorizontal();

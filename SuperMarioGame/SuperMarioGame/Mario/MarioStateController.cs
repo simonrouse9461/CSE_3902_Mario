@@ -37,6 +37,15 @@ namespace SuperMario
             {
                 MotionState.SlowDownGravity();
             }
+            if (MotionState.GoingLeft || MotionState.GoingRight)
+            {
+                if (MotionState.FullSpeed)
+                    SpriteState.SetSpriteFrequency(4);
+                else if (MotionState.HalfSpeed)
+                    SpriteState.SetSpriteFrequency(5);
+                else SpriteState.SetSpriteFrequency(7);
+            }
+            else SpriteState.SetSpriteFrequency(6);
         }
 
         public bool SelfControl { get; private set; }
