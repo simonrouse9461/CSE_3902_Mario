@@ -9,7 +9,7 @@
         public int OffsetX;
         public int OffsetY;
 
-        public Section(int gridX, int gridY, int column, int row, int offsetX = 0, int offsetY = 0)
+        private Section(int gridX, int gridY, int column, int row, int offsetX, int offsetY)
         {
             GridX = gridX;
             GridY = gridY;
@@ -27,6 +27,11 @@
         public static Section Line(int gridX, int gridY, int column, int offsetX = 0, int offsetY = 0)
         {
             return new Section(gridX, gridY, column, 1, offsetX, offsetY);
+        }
+
+        public static Section Matrix(int gridX, int gridY, int column, int row, int offsetX = 0, int offsetY = 0)
+        {
+            return new Section(gridX, gridY, column, row, offsetX, offsetY);
         }
     }
 }
