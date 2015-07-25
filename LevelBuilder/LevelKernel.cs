@@ -14,21 +14,21 @@ namespace LevelBuilder
             ObjectData = new Dictionary<Item, Section[]>();
         }
 
-        protected void AddObjectBatch(Item item, int gridX, int gridY, int length = 1)
+        protected void BatchAdd(Item item, int gridX, int gridY, int length = 1)
         {
             ObjectData.Add(item, new[] {Section.Line(gridX, gridY, length)});
         }
 
-        protected void AddObjectBatch(Item item, Section[] sectionList)
+        protected void BatchAdd(Item item, Section[] sectionList)
         {
             ObjectData.Add(item, sectionList);
         }
 
-        protected void AddObjectBatch(Item item, Section[][] sectionBuilderList)
+        protected void BatchAdd(Item item, Section[][] sectionBuilderList)
         {
             foreach (var sectionList in sectionBuilderList)
             {
-                AddObjectBatch(item.Clone, sectionList);
+                BatchAdd(item.Clone, sectionList);
             }
         }
 

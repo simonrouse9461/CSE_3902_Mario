@@ -33,5 +33,10 @@
         {
             return new Section(gridX, gridY, column, row, offsetX, offsetY);
         }
+
+        public static Section Range(int startX, int endX, int startY, int endY, int offsetX = 0, int offsetY = 0)
+        {
+            return new Section(startX, startY, endX - startX + 1, endY - startY + 1, offsetX, offsetY);
+        }
     }
 }
