@@ -316,6 +316,7 @@ namespace SuperMario
         {
             if (SpriteState.Dead) return;
             if (!SpriteState.Small) return;
+            ReleaseAll();
             SpriteState.Grow();
             WorldManager.FreezeWorld();
             MotionState.Freeze();
@@ -336,6 +337,7 @@ namespace SuperMario
                 GetSuperFire();
                 return;
             }
+            ReleaseAll();
             SpriteState.Run();
             SpriteState.Upgrade();
             SpriteState.GetFire();
@@ -374,6 +376,7 @@ namespace SuperMario
         public void TakeDamage()
         {
             const int restoreTime = 200;
+            ReleaseAll();
             WorldManager.FreezeWorld();
             if (SpriteState.Small)
             {
@@ -407,9 +410,7 @@ namespace SuperMario
         {
             if (SelfControl) return;
             SelfControl = true;
-            SpriteState.Resume();
-            SpriteState.Release();
-            MotionState.Restore();
+            ReleaseAll();
             Core.SwitchComponent(new FinishLevelMarioCommandExecutor(Core));
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
@@ -441,6 +442,13 @@ namespace SuperMario
         public void LeaveWarpPipe()
         {
             OnWarpPipe = false;
+        }
+
+        public void ReleaseAll()
+        {
+            SpriteState.Resume();
+            SpriteState.Release();
+            MotionState.Restore();
         }
     }
 }
