@@ -258,22 +258,27 @@ namespace SuperMario
         {
             if (!SpriteState.HaveFire && !SpriteState.HaveSuperFire) return;
             if (SpriteState.Dead) return;
+            if (SpriteState.Upgrading) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            if (SpriteState.HaveFire) Core.Object.Generate(
-                new Vector2(SpriteState.IsLeft ? -8 : 8, -16)*GameSettings.SpriteScale,
+            if (SpriteState.HaveFire) 
+            {
+                Core.Object.Generate(
+                new Vector2(SpriteState.IsLeft ? -8 : 8, -24)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
+                SoundManager.FireballSoundPlay();
+            }
             if (SpriteState.HaveSuperFire) {
                 Core.Object.Generate(
-                new Vector2(SpriteState.IsLeft ? -12 : 12, -12)*GameSettings.SpriteScale,
+                new Vector2(SpriteState.IsLeft ? -16 : 16, -16)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? SuperFireballObject.LeftSuperFireball : SuperFireballObject.RightSuperFireball
                 );
+                SoundManager.SuperFireSoundPlay();
                 //MotionState.Adjust(new Vector2(SpriteState.IsLeft ? 8 : -8, 0)*GameSettings.SpriteScale);
             }
             AmmoLeft--;
-            SoundManager.FireballSoundPlay();
         }
 
         public void Sprint()
@@ -318,7 +323,7 @@ namespace SuperMario
             SpriteState.GetFire();
             WorldManager.FreezeWorld();
             MotionState.Freeze();
-            SpriteState.HoldTillFinish(true, SpriteHoldDependency.VersionAnimation, 4, () =>
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.VersionAnimation, 3, () =>
             {
                 SpriteState.FinishUpgrade();
                 MotionState.Restore();

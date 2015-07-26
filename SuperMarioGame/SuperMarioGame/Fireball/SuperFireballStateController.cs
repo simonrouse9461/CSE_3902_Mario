@@ -25,6 +25,7 @@ namespace SuperMario
             MotionState.Freeze();
             SpriteState.Explode();
             SpriteState.HoldTillFinish(true, 1, () => Core.Object.Unload(true));
+            SoundManager.FireworkSoundPlay();
         }
     }
 }

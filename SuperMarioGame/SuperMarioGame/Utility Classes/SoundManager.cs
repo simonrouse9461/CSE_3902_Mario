@@ -7,6 +7,13 @@ namespace SuperMario
 {
     public static class SoundManager
     {
+        private enum SoundPlayMode
+        {
+            Default,
+            Eager,
+            Lazy
+        }
+
         // Background Musics
         private static SoundEffect overworldMusic;
         private static SoundEffect underworldMusic;
@@ -29,6 +36,7 @@ namespace SuperMario
         private static SoundEffect oneupSound;
         private static SoundEffect flagpoleSound;
         private static SoundEffect superfireSound;
+        private static SoundEffect fireworkSound;
 
         // Music Instance
         private static SoundEffectInstance currentBackgroundMusic;
@@ -48,81 +56,91 @@ namespace SuperMario
         private static SoundEffectInstance oneupInstance;
         private static SoundEffectInstance flagpoleInstance;
         private static SoundEffectInstance superfireInstance;
+        private static SoundEffectInstance fireworkInstance;
 
         // Sound Properties
         private static SoundEffectInstance SmallJumpSound
         {
-            get { return CreateInstance(smallJumpSound, ref smallJumpInstance); }
+            get { return CreateInstance(smallJumpSound, ref smallJumpInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance SuperJumpSound
         {
-            get { return CreateInstance(superJumpSound, ref superJumpInstance); }
+            get { return CreateInstance(superJumpSound, ref superJumpInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance BumpSound
         {
-            get { return CreateInstance(bumpSound, ref bumpInstance); }
+            get { return CreateInstance(bumpSound, ref bumpInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance BlockBreakSound
         {
-            get { return CreateInstance(blockBreakSound, ref blockBreakInstance); }
+            get { return CreateInstance(blockBreakSound, ref blockBreakInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance StompSound
         {
-            get { return CreateInstance(stompSound, ref stompInstance); }
+            get { return CreateInstance(stompSound, ref stompInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance CoinSound
         {
-            get { return CreateInstance(coinSound, ref coinInstance); }
+            get { return CreateInstance(coinSound, ref coinInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance PowerUpAppearSound
         {
-            get { return CreateInstance(powerUpAppearSound, ref powerUpAppearInstance); }
+            get { return CreateInstance(powerUpAppearSound, ref powerUpAppearInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance PowerUpSound
         {
-            get { return CreateInstance(powerUpSound, ref powerUpInstance); }
+            get { return CreateInstance(powerUpSound, ref powerUpInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance KickSound
         {
-            get { return CreateInstance(kickSound, ref kickInstance); }
+            get { return CreateInstance(kickSound, ref kickInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance PipeSound
         {
-            get { return CreateInstance(pipeSound, ref pipeInstance); }
+            get { return CreateInstance(pipeSound, ref pipeInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance FireballSound
         {
-            get { return CreateInstance(fireballSound, ref fireballInstance); }
+            get { return CreateInstance(fireballSound, ref fireballInstance, SoundPlayMode.Eager); }
         }
 
         private static SoundEffectInstance OneUpSound
         {
-            get { return CreateInstance(oneupSound, ref oneupInstance); }
+            get { return CreateInstance(oneupSound, ref oneupInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance FlagPoleSound
         {
-            get { return CreateInstance(flagpoleSound, ref flagpoleInstance); }
+            get { return CreateInstance(flagpoleSound, ref flagpoleInstance, SoundPlayMode.Lazy); }
         }
 
         private static SoundEffectInstance SuperFireSound
         {
-            get { return CreateInstance(superfireSound, ref superfireInstance); }
+            get { return CreateInstance(superfireSound, ref superfireInstance, SoundPlayMode.Eager); }
         }
 
-        private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance)
+        private static SoundEffectInstance FireWorkSound
         {
-            if (soundInstance == null || soundInstance.State == SoundState.Stopped)
+            get { return CreateInstance(fireworkSound, ref fireworkInstance, SoundPlayMode.Default); }
+        }
+
+        private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance, SoundPlayMode mode)
+        {
+            if (mode == SoundPlayMode.Eager && soundInstance != null && soundInstance.State == SoundState.Playing)
+            {
+                soundInstance.Stop();
+            }
+            if (mode == SoundPlayMode.Default || soundInstance == null || soundInstance.State == SoundState.Stopped)
             {
                 soundInstance = soundEffect.CreateInstance();
                 soundInstance.IsLooped = false;
@@ -157,6 +175,7 @@ namespace SuperMario
             oneupSound = content.Load<SoundEffect>("Audio/smb_1-up");
             flagpoleSound = content.Load<SoundEffect>("Audio/smb_flagpole");
             superfireSound = content.Load<SoundEffect>("Audio/smb_bowserfire");
+            superfireSound = content.Load<SoundEffect>("Audio/firework");
         }
 
         public static void StopMusic()
@@ -304,9 +323,6 @@ namespace SuperMario
 
         public static void FireballSoundPlay()
         {
-            if (fireballInstance != null && 
-                fireballInstance.State == SoundState.Playing) 
-                fireballInstance.Stop();
             PlaySound(FireballSound);
         }
 
@@ -322,12 +338,12 @@ namespace SuperMario
 
         public static void SuperFireSoundPlay()
         {
-            if(superfireInstance != null &&
-                superfireInstance.State == SoundState.Playing)
-            {
-                superfireInstance.Stop();
-            }
             PlaySound(SuperFireSound);
+        }
+
+        public static void FireworkSoundPlay()
+        {
+            PlaySound(FireWorkSound);
         }
     }
 }
