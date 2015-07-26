@@ -25,7 +25,7 @@ namespace SuperMario
                 {
                     Core.StateController.Flip();
                 }
-                else if (Core.CollisionDetector.Detect<FireballObject>().AnyEdge.Touch)
+                else if (Core.CollisionDetector.Detect<IFireball>().AnyEdge.Touch)
                 {
                     Core.StateController.Flip();
                 }

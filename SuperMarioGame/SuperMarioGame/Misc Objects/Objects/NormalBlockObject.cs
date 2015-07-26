@@ -17,7 +17,7 @@ namespace SuperMario
             get
             {
                 var instance = new NormalBlockObject();
-                instance.Core.StateController.hasCoin();
+                instance.Core.StateController.PutCoin();
                 return instance;
             }
         }
@@ -27,7 +27,7 @@ namespace SuperMario
             get
             {
                 var instance = new NormalBlockObject();
-                instance.Core.StateController.hasStar();
+                instance.Core.StateController.PutStar();
                 return instance;
             }
         }

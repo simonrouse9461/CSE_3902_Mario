@@ -12,7 +12,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch && !Core.StateController.SpriteState.isUsed)
             {
-                Core.StateController.HiddenBlockGive1Up();
+                Core.StateController.GiveThings(true);
             }
         }
     }

@@ -33,11 +33,11 @@ namespace SuperMario
             else
             {
                 Collision c = Core.CollisionDetector.Detect<MarioObject>(mario => mario.Alive);
-                if (c.Left.Touch || c.TopLeft.Touch)
+                if (c.Left.Touch || c.TopLeft.Touch && c.TopRight.None || c.TopLeft.Cover)
                 {
                     Core.StateController.TakeMarioHitFromSide("left");
                 }
-                else if (c.Right.Touch || c.TopRight.Touch)
+                else if (c.Right.Touch || c.TopRight.Touch && c.TopLeft.None || c.TopRight.Cover)
                 {
                     Core.StateController.TakeMarioHitFromSide("right");
                 }
@@ -58,7 +58,7 @@ namespace SuperMario
             {
                 Core.StateController.Flip();
             }
-            else if (Core.CollisionDetector.Detect<FireballObject>().AnyEdge.Touch || Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
+            else if (Core.CollisionDetector.Detect<IFireball>().AnyEdge.Touch || Core.CollisionDetector.Detect<Koopa>(koopa => koopa.isMovingShell).AnySide.Touch)
             {
                 Core.StateController.Flip();
             }

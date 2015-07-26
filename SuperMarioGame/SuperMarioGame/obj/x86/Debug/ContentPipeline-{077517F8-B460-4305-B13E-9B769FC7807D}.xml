@@ -334,6 +334,15 @@
       <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\smb_flagpole.xnb</Output>
       <Time>2015-07-24T01:35:40.9828083-04:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\fireworks.wav</Source>
+      <Name>Audio\fireworks</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\fireworks.xnb</Output>
+      <Time>2015-07-26T13:55:12.3448027-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{077517F8-B460-4305-B13E-9B769FC7807D}</ContentProjectGUID>

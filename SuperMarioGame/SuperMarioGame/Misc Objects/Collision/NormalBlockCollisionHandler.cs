@@ -10,43 +10,27 @@ namespace SuperMario
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
+            if (Core.StateController.SpriteState.isUsed) return;
+
+            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch
+                || Core.CollisionDetector.Detect<SuperFireballObject>().AnyEdge.Touch)
             {
-                if (Core.StateController.giveCoin && !Core.StateController.SpriteState.isUsed)
-                {
-                    Core.StateController.NormalBlockCoinHit();
-                    Core.StateController.MotionState.Hit();
-                    Display.AddScore<Coin>();
-                }
-                else if (Core.StateController.giveStar && !Core.StateController.SpriteState.isUsed)
-                {
-                    Core.StateController.NormalBlockGiveStar();
-                    Display.AddScore<Star>();
-                }
-                else if(!Core.StateController.SpriteState.isUsed)
+                if (!Core.StateController.HasStar && !Core.StateController.HasCoin)
                 {
                     Core.StateController.NormalBlockDestroyed();
                     SoundManager.BlockBreakSoundPlay();
                 }
+                else
+                {
+                    Core.StateController.GiveThings(true);
+                }
             }
-            else if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
+            
+            if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
-                if (Core.StateController.giveCoin && !Core.StateController.SpriteState.isUsed)
-                {
-                    Core.StateController.NormalBlockCoinHit();
-                    Core.StateController.MotionState.Hit();
-                    Display.AddScore<Coin>();
-                }
-                else if (Core.StateController.giveStar && !Core.StateController.SpriteState.isUsed)
-                {
-                 
-                    Core.StateController.NormalBlockGiveStar();
-                    Display.AddScore<Star>();
-                }
-                else if (Core.StateController.SpriteState.isNormal)
+                if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal)
                 {
                     Core.StateController.MotionState.Hit();
-                    
                 }
             }
         }

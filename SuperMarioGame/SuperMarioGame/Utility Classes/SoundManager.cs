@@ -136,15 +136,17 @@ namespace SuperMario
 
         private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance, SoundPlayMode mode)
         {
-            if (mode == SoundPlayMode.Eager && soundInstance != null && soundInstance.State == SoundState.Playing)
+            switch (mode)
             {
-                soundInstance.Stop();
-            }
-            if (mode == SoundPlayMode.Default || soundInstance == null || soundInstance.State == SoundState.Stopped)
-            {
-                soundInstance = soundEffect.CreateInstance();
-                soundInstance.IsLooped = false;
-                return soundInstance;
+                case SoundPlayMode.Default:
+                    return soundEffect.CreateInstance();
+                case SoundPlayMode.Eager:
+                    soundInstance = soundEffect.CreateInstance();
+                    return soundInstance;
+                case SoundPlayMode.Lazy:
+                    if (soundInstance != null && soundInstance.State == SoundState.Playing) return null;
+                    soundInstance = soundEffect.CreateInstance();
+                    return soundInstance;
             }
             return null;
         }
@@ -175,7 +177,7 @@ namespace SuperMario
             oneupSound = content.Load<SoundEffect>("Audio/smb_1-up");
             flagpoleSound = content.Load<SoundEffect>("Audio/smb_flagpole");
             superfireSound = content.Load<SoundEffect>("Audio/smb_bowserfire");
-            superfireSound = content.Load<SoundEffect>("Audio/firework");
+            fireworkSound = content.Load<SoundEffect>("Audio/fireworks");
         }
 
         public static void StopMusic()
@@ -343,7 +345,9 @@ namespace SuperMario
 
         public static void FireworkSoundPlay()
         {
-            PlaySound(FireWorkSound);
+            var sound = FireWorkSound;
+            sound.Volume = 1;
+            PlaySound(sound);
         }
     }
 }

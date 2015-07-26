@@ -97,7 +97,7 @@ namespace SuperMario
             SetDefaultVersion();
         }
 
-        public bool HaveFire
+        public bool HaveNormalFire
         {
             get { return IsVersion(MarioSpriteVersion.Fire); }
         }
@@ -105,6 +105,11 @@ namespace SuperMario
         public bool HaveSuperFire
         {
             get { return IsVersion(MarioSpriteVersion.Black); }
+        }
+
+        public bool HaveAnyFire
+        {
+            get { return HaveNormalFire || HaveSuperFire; }
         }
 
         public void GetPower()
@@ -169,9 +174,9 @@ namespace SuperMario
             SetSprite<ShrinkingMarioSprite>();
         }
 
-        public bool Shrinking()
+        public bool Shrinking
         {
-            return IsSprite<ShrinkingMarioSprite>();
+            get { return IsSprite<ShrinkingMarioSprite>(); }
         }
 
         public void Run()

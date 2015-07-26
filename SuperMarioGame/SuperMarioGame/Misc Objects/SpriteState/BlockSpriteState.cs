@@ -107,35 +107,25 @@ namespace SuperMario
         //    }
         //}
 
-        public void QuestionToUsedBlock()
-        {
-            SetSprite<UsedBlockSprite>();
-            
-        }
-
-        public void HiddenToUsedBlock()
+        public void ToUsedBlock()
         {
             SetSprite<UsedBlockSprite>();
             SetColorScheme(ColorList.Default);
-            
         }
 
         public void FloorBlock()
         {
             SetSprite<FloorBlockSprite>();
-            
         }
 
         public void HiddenBlock()
         {
             SetColorScheme(ColorList.Transparent);
-           
         }
 
         public void Indestructible()
         {
             SetSprite<IndestructibleBlockSprite>();
-            
         }
 
         public void QuestionBlock()

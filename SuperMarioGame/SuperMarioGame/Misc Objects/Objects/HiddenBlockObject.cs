@@ -16,7 +16,7 @@ namespace SuperMario
             get
             {
                 var instance = new HiddenBlockObject();
-                instance.Core.StateController.hasOneUp();
+                instance.Core.StateController.PutOneUp();
                 return instance;
             }
         }

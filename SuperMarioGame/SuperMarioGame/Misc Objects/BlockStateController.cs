@@ -5,56 +5,55 @@ namespace SuperMario
 {
     public class BlockStateController : StateControllerKernelNew<BlockSpriteState, BlockMotionState>
     {
-        public bool giveCoin { get; private set; }
-        public bool giveItem { get; private set; }
-        public bool giveStar { get; private set; }
-        public bool giveOneUp { get; private set; }
+        private enum GenerateType
+        {
+            None,
+            Coin,
+            Item,
+            Star,
+            OneUp
+        }
 
-        private int numberCoinsLeft = 10;
+        private GenerateType ContainedItem { get; set; }
 
+        public bool HasNothing { get { return ContainedItem == GenerateType.None; } }
+        public bool HasCoin { get { return ContainedItem == GenerateType.Coin; } }
+        public bool HasItem { get { return ContainedItem == GenerateType.Item; } }
+        public bool HasStar { get { return ContainedItem == GenerateType.Star; } }
+        public bool HasOneUp { get { return ContainedItem == GenerateType.OneUp; } }
+
+        private int _coinLeft = 10;
         private int CoinLeft
         {
-            get { return numberCoinsLeft; }
+            get { return _coinLeft; }
             set
             {
-                numberCoinsLeft = value;
+                _coinLeft = value;
                 if (value <= 0)
                 {
-                    SpriteState.QuestionToUsedBlock();
+                    SpriteState.ToUsedBlock();
                 }
             }
         }
 
-        public void hasCoin()
+        public void PutCoin()
         {
-            giveCoin = true;
-            giveItem = false;
-            giveOneUp = false;
-            giveStar = false;
+            ContainedItem = GenerateType.Coin;
         }
 
-        public void hasItem()
+        public void PutItem()
         {
-            giveCoin = false;
-            giveItem = true;
-            giveOneUp = false;
-            giveStar = false;
+            ContainedItem = GenerateType.Item;
         }
 
-        public void hasStar()
+        public void PutStar()
         {
-            giveItem = false;
-            giveCoin = false;
-            giveOneUp = false;
-            giveStar = true;
+            ContainedItem = GenerateType.Star;
         }
 
-        public void hasOneUp()
+        public void PutOneUp()
         {
-            giveItem = false;
-            giveCoin = false;
-            giveOneUp = true;
-            giveStar = false;
+            ContainedItem = GenerateType.OneUp;
         }
 
         public void QuestionBlock()
@@ -82,40 +81,31 @@ namespace SuperMario
             SpriteState.Indestructible();
         }
 
-        public void QuestionBlockGiveFireflower()
+        public void GiveThings(bool bigMario)
         {
-            Core.Object.Generate<Fireflower>();
-            SpriteState.QuestionToUsedBlock();
-        }
-
-        public void QuestionBlockGiveMushroom()
-        {
-            Core.Object.Generate<Mushroom>();
-            SpriteState.QuestionToUsedBlock();
-        }
-
-        public void QuestionBlockGiveCoin()
-        {
-            Core.Object.Generate<Coin>();
-            SpriteState.QuestionToUsedBlock();
-        }
-
-        public void NormalBlockCoinHit()
-        {
-            Core.Object.Generate<Coin>();
-            CoinLeft--;
-        }
-
-        public void HiddenBlockGive1Up()
-        {
-            Core.Object.Generate<OneUp>();
-            SpriteState.HiddenToUsedBlock();
-        }
-
-        public void NormalBlockGiveStar()
-        {
-            Core.Object.Generate<Star>();
-            SpriteState.QuestionToUsedBlock();
+            switch (ContainedItem)
+            {
+                case GenerateType.None:
+                    return;
+                case GenerateType.Coin:
+                    Core.Object.Generate<Coin>();
+                    Display.AddScore<Coin>();
+                    if (SpriteState.isQuestion) break;
+                    CoinLeft--;
+                    return;
+                case GenerateType.Item:
+                    if (bigMario) Core.Object.Generate<Fireflower>();
+                    else Core.Object.Generate<Mushroom>();
+                    break;
+                case GenerateType.Star:
+                    Core.Object.Generate<Star>();
+                    break;
+                case GenerateType.OneUp:
+                    Core.Object.Generate<OneUp>();
+                    break;
+            }
+            if (SpriteState.isQuestion || SpriteState.isHidden || HasStar)
+                SpriteState.ToUsedBlock();
         }
 
         public void NormalBlockDestroyed()

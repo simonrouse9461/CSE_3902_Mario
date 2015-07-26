@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class FireballObject : ObjectKernelNew<FireballStateController>
+    public class FireballObject : ObjectKernelNew<FireballStateController>, IFireball
     {
         public FireballObject()
         {
@@ -15,6 +15,8 @@ namespace SuperMario
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<MarioObject>();
         }
+
+        public override bool Solid { get { return !StateController.SpriteState.Exploding; } }
 
         public static FireballObject LeftFireBall
         {

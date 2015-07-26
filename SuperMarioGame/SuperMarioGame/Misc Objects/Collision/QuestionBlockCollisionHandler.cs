@@ -10,28 +10,12 @@ namespace SuperMario
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
+            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch 
+                || Core.CollisionDetector.Detect<SuperFireballObject>().AnyEdge.Touch)
             {
-                if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
+                if (Core.StateController.SpriteState.isQuestion)
                 {
-                    Core.StateController.QuestionBlockGiveCoin();
-                    Display.AddScore<Coin>();
-                }
-                else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
-                {
-                    Core.StateController.QuestionBlockGiveFireflower();
-                }
-            }
-            else if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
-            {
-                if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveItem)
-                {
-                    Core.StateController.QuestionBlockGiveMushroom();
-                }
-                else if (Core.StateController.SpriteState.isQuestion && Core.StateController.giveCoin)
-                {
-                    Core.StateController.QuestionBlockGiveCoin();
-                    Display.AddScore<Coin>();
+                    Core.StateController.GiveThings(true);
                 }
             }
         }

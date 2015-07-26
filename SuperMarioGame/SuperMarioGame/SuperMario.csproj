@@ -97,6 +97,7 @@
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
+    <Compile Include="Fireball\IFireball.cs" />
     <Compile Include="Fireball\Sprites\ExplodingSuperFireballSprite.cs" />
     <Compile Include="Fireball\SuperFireballBarrierHandler.cs" />
     <Compile Include="Fireball\SuperFireballMotionState.cs" />

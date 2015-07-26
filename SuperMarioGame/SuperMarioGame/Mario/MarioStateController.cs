@@ -6,7 +6,7 @@ namespace SuperMario
 {
     public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
     {
-        private const int MagazineCapacity = 2;
+        private int MagazineCapacity {get { return SpriteState.HaveSuperFire ? 5 : 2; }}
 
         private int _ammoLeft = 2;
         private int AmmoLeft
@@ -25,7 +25,7 @@ namespace SuperMario
             get { return _reloading; }
             set
             {
-                if (!Reloading && value) Core.DelayCommand(ReloadAmmo, 50);
+                if (!Reloading && value) Core.DelayCommand(ReloadAmmo, SpriteState.HaveSuperFire? 80 : 50);
                 _reloading = value;
             }
         }
@@ -256,13 +256,14 @@ namespace SuperMario
 
         public void Shoot()
         {
-            if (!SpriteState.HaveFire && !SpriteState.HaveSuperFire) return;
+            if (!SpriteState.HaveAnyFire) return;
             if (SpriteState.Dead) return;
             if (SpriteState.Upgrading) return;
+            if (SpriteState.Shrinking) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            if (SpriteState.HaveFire) 
+            if (SpriteState.HaveNormalFire) 
             {
                 Core.Object.Generate(
                 new Vector2(SpriteState.IsLeft ? -8 : 8, -24)*GameSettings.SpriteScale,
@@ -313,7 +314,7 @@ namespace SuperMario
         {
             if (SpriteState.Dead) return;
             if (SpriteState.Upgrading) return;
-            if (SpriteState.HaveFire || SpriteState.HaveSuperFire)
+            if (SpriteState.HaveNormalFire || SpriteState.HaveSuperFire)
             {
                 GetSuperFire();
                 return;
@@ -363,7 +364,7 @@ namespace SuperMario
                 return;
             }
 
-            if (SpriteState.HaveFire)
+            if (SpriteState.HaveNormalFire)
             {
                 SpriteState.LoseFire();
             }

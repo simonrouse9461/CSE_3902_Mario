@@ -12,12 +12,7 @@ namespace SuperMario
 
         public override void HandleCollision()
         {
-            HandleWall();
-        }
-
-        protected virtual void HandleWall()
-        {
-            if (BarrierCollision.AnySide.Touch)
+            if (BarrierCollision.AnyEdge.Touch)
             {
                 Core.StateController.Explode();
             }

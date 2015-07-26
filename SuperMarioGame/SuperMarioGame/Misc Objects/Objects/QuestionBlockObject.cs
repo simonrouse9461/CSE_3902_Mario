@@ -19,7 +19,7 @@ namespace SuperMario
             get
             {
                 var instance = new QuestionBlockObject();
-                instance.Core.StateController.hasItem();
+                instance.Core.StateController.PutItem();
                 return instance;
             }
         }
@@ -29,7 +29,7 @@ namespace SuperMario
             get
             {
                 var instance = new QuestionBlockObject();
-                instance.Core.StateController.hasCoin();
+                instance.Core.StateController.PutCoin();
                 return instance;
             }
         }       

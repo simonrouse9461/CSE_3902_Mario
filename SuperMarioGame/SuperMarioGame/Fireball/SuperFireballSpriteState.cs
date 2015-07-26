@@ -19,5 +19,10 @@ namespace SuperMario
         {
             SetSprite<ExplodingSuperFireballSprite>();
         }
+
+        public bool Exploding
+        {
+            get { return IsSprite<ExplodingSuperFireballSprite>(); }
+        }
     }
 }

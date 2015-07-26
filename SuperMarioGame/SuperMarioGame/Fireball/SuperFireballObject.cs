@@ -5,14 +5,18 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class SuperFireballObject : ObjectKernelNew<SuperFireballStateController>
+    public class SuperFireballObject : ObjectKernelNew<SuperFireballStateController>, IFireball
     {
         public SuperFireballObject()
         {
             BarrierHandler = new SuperFireballBarrierHandler(Core);
-            BarrierHandler.AddBarrier<IBlock>();
-            BarrierHandler.AddBarrier<IPipe>();
+            BarrierHandler.AddBarrier<IObject>();
+            BarrierHandler.RemoveBarrier<IEnemy>();
+            BarrierHandler.RemoveBarrier<IMario>();
+            BarrierHandler.RemoveBarrier<IItem>();
         }
+
+        public override bool Solid { get { return !StateController.SpriteState.Exploding; } }
 
         public static SuperFireballObject LeftSuperFireball
         {
