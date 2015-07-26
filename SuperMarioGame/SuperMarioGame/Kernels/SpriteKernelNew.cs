@@ -67,6 +67,16 @@ namespace SuperMario
 
         public IConvertible Version { get; private set; }
 
+        public ISpriteNew Clone
+        {
+            get
+            {
+                var copy = (SpriteKernelNew)MemberwiseClone();
+                copy.Animation = Utility.DeepClone(Animation);
+                return copy;
+            }
+        }
+
         public void SetVersion(IConvertible version)
         {
             if (RegisteredVersion.Contains(version)) Version = version;

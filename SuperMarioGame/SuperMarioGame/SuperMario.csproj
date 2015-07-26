@@ -112,6 +112,7 @@
     <Compile Include="Enemies\IEnemy.cs" />
     <Compile Include="Helper Classes and Structs\OrderedPairs.cs" />
     <Compile Include="Helper Classes and Structs\Orientation.cs" />
+    <Compile Include="Helper Classes and Structs\Utility.cs" />
     <Compile Include="Interfaces\IBarrierHandler.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
     <Compile Include="Interfaces\ICollisionHandler.cs" />
@@ -121,6 +122,8 @@
     <Compile Include="Interfaces\IMotionStateNew.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
+    <Compile Include="Mario\MarioShadow\MarioShadow.cs" />
+    <Compile Include="Mario\MarioShadow\MarioShadowSpriteState.cs" />
     <Compile Include="Utility Classes\EventTrigger.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />

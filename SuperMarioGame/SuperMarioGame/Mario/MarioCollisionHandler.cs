@@ -69,7 +69,7 @@ namespace SuperMario
             if (Core.CollisionDetector.Detect<FlagPoleObject>().AnySide.Touch)
                 Core.StateController.FinishLevel();
         }
-
+        
         protected void HandlePipe()
         {
             if (Core.CollisionDetector.Detect<IPipe>().Bottom.Cover)

@@ -46,7 +46,15 @@ namespace SuperMario
                 else SpriteState.SetSpriteFrequency(7);
             }
             else SpriteState.SetSpriteFrequency(6);
+            var displacement = MotionState.Position - LastPosition;
+            if (Math.Abs(displacement.X) + Math.Abs(displacement.Y) >= 1)
+            {
+                Core.Object.Generate(new MarioShadow(SpriteState.Sprite.Clone, SpriteState.Orientation));
+                LastPosition = MotionState.Position;
+            }
         }
+
+        private Vector2 LastPosition { get; set; }
 
         public bool SelfControl { get; private set; }
 

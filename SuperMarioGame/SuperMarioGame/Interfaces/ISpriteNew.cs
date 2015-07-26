@@ -12,6 +12,7 @@ namespace SuperMario
         IConvertible Version { get; }
         float Width { get; }
         float Height { get; }
+        ISpriteNew Clone { get; }
 
         void SetVersion(IConvertible version);
         void Reset();
