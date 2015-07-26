@@ -14,6 +14,7 @@ namespace SuperMario
             BarrierHandler.RemoveBarrier<IEnemy>();
             BarrierHandler.RemoveBarrier<IMario>();
             BarrierHandler.RemoveBarrier<IItem>();
+            BarrierHandler.RemoveBarrier<IFireball>();
         }
 
         public override bool Solid { get { return !StateController.SpriteState.Exploding; } }

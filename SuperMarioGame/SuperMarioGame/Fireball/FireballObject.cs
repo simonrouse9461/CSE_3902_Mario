@@ -13,7 +13,8 @@ namespace SuperMario
             BarrierHandler = new FireBallBarrierHandler(Core);
 
             BarrierHandler.AddBarrier<IObject>();
-            BarrierHandler.RemoveBarrier<MarioObject>();
+            BarrierHandler.RemoveBarrier<IMario>();
+            BarrierHandler.RemoveBarrier<IFireball>();
         }
 
         public override bool Solid { get { return !StateController.SpriteState.Exploding; } }
