@@ -1,22 +1,41 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace MarioGame
+namespace SuperMario
 {
     public class SuperFireballMotionState : MotionStateKernelNew
     {
-
-        private enum OrientationEnum
-        {
-            Left,
-            Right,
-        }
-
         public SuperFireballMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(UniformMotion.FireballMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.FireballMoveRight),
-            };       
+            AddMotion(UniformMotion.SuperFireballMoveLeft);
+            AddMotion(UniformMotion.SuperFireballMoveRight);
+            SetDefaultHorizontal();
+        }
+
+        public void SetDefaultHorizontal(){
+            TurnOffMotion(UniformMotion.SuperFireballMoveLeft);
+            TurnOffMotion(UniformMotion.SuperFireballMoveRight);
+        }
+
+        public void GoLeft()
+        {
+            SetDefaultHorizontal();
+            TurnOnMotion(UniformMotion.SuperFireballMoveLeft);
+        }
+
+        public void GoRight()
+        {
+            SetDefaultHorizontal();
+            TurnOnMotion(UniformMotion.SuperFireballMoveRight);
+        }
+
+        public bool Left
+        {
+            get { return CheckMotion(UniformMotion.SuperFireballMoveLeft); }
+        }
+
+        public bool Right
+        {
+            get { return CheckMotion(UniformMotion.SuperFireballMoveRight); }
         }
 
     }

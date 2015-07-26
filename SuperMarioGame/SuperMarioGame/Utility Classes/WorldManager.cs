@@ -111,6 +111,7 @@ namespace SuperMario
 
                 // Fireball is on the top of everything
                 new Collection<FireballObject>(),
+                new Collection<SuperFireballObject>(),
                 new Collection<BlockDebrisObject>()
             };
         }

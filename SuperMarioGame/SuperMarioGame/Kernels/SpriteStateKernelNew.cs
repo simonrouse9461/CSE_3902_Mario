@@ -94,6 +94,7 @@ namespace SuperMario
         public void PassSprite(ISpriteNew sprite)
         {
             _sprite = sprite;
+            SpriteList.Add(sprite);
         }
 
         protected void AddSprite<T>() where T : ISpriteNew, new()

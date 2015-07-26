@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Reflection;
 using System.Runtime.Serialization;
 
@@ -6,9 +7,10 @@ namespace SuperMario
 {
     public static class Utility
     {
-        private static object Clone(object source)
+        public static T DeepClone<T>(T source) where T : class
         {
             var sourceType = source.GetType();
+                //sourceType.GetConstructor(Type.EmptyTypes) == null
             var target = FormatterServices.GetUninitializedObject(sourceType);
             var fieldList = sourceType.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
             foreach (var field in fieldList)
@@ -21,14 +23,9 @@ namespace SuperMario
                                   || fieldType == typeof (string)
                                   || fieldValue == null
                                   || fieldValue == source;
-                field.SetValue(target, passByValue ? fieldValue : Clone(fieldValue));
+                field.SetValue(target, passByValue ? fieldValue : DeepClone(fieldValue));
             }
-            return target;
-        }
-
-        public static T DeepClone<T>(T source) where T : class
-        {
-            return (T) Clone(source);
+            return (T)target;
         }
     }
 }

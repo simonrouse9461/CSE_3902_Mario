@@ -3,28 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MarioGame
+namespace SuperMario
 {
-    public class SuperFireballSpriteState : SpriteStateKernelNew<SuperFireballSpriteVersion>
+    public class SuperFireballSpriteState : SpriteStateKernelNew<int>
     {
-
-        private enum VersionAnimation
-        {
-            Left,
-            Right
-        }
-
         public SuperFireballSpriteState()
         {
             AddSprite<SuperFireballSprite>();
-
-            AddVersionAnimator(VersionAnimation.Left,
-                new[] { SuperFireballSpriteVersion.Left });
-            AddVersionAnimator(VersionAnimation.Right,
-                new[] { SuperFireballSpriteVersion.Right });
+            SetSprite<SuperFireballSprite>();
+            SetSpriteFrequency(5);
         }
-
-        
-
     }
 }
