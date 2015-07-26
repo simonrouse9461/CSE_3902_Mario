@@ -110,6 +110,7 @@ namespace SuperMario
                 new Collection<SecretPipeObject>(),
 
                 // Fireball is on the top of everything
+                new Collection<FireExplosion>(),
                 new Collection<FireballObject>(),
                 new Collection<SuperFireballObject>(),
                 new Collection<BlockDebrisObject>()

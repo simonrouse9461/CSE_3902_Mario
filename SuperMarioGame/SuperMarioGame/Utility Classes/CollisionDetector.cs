@@ -101,7 +101,7 @@ namespace SuperMario
             var touched = default(CollisionType).SetToContact();
             var returnValue = new Collision();
 
-            if (Intersection.Height <= 2 && Intersection.Width <= 2) return default(Collision);
+            if (Intersection.Height <= 2*GameSettings.SpriteScale && Intersection.Width <= 2*GameSettings.SpriteScale) return default(Collision);
 
             if (subjectRectangle.Intersects(objectRectangle))
             {

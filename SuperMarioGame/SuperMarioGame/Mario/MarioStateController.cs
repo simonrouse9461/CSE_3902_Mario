@@ -30,6 +30,8 @@ namespace SuperMario
             }
         }
 
+        private bool HaveExplosive { get; set; }
+
         public override void Update()
         {
             if (SpriteState.Dead) return;
@@ -65,6 +67,16 @@ namespace SuperMario
             }
         }
 
+        public void PutExplosive()
+        {
+            if (HaveExplosive)
+            {
+                Core.Object.Generate(FireExplosion.BothSide);
+                SoundManager.SuperFireSoundPlay();
+            }
+            HaveExplosive = false;
+        }
+
         public void ReloadAmmo()
         {
             AmmoLeft = MagazineCapacity;
@@ -86,6 +98,7 @@ namespace SuperMario
             {
                 MotionState.Stop();
                 SpriteState.Run();
+                PutExplosive();
             }
             if (MotionState.Sliping) MotionState.StopSlip();
             DefaultAction();
@@ -96,9 +109,10 @@ namespace SuperMario
             if (SpriteState.Dead) return;
             if (MotionState.Sinking) return;
             if (SpriteState.Sliping) return;
+
             if (!MotionState.Gravity) MotionState.ObtainGravity();
-            
             if (!MotionState.HaveInertia) MotionState.GetInertia();
+            if (SpriteState.HaveSuperFire) HaveExplosive = true;
             DefaultAction();
         }
 
@@ -207,6 +221,7 @@ namespace SuperMario
         public void Bounce()
         {
             if (SpriteState.Dead) return;
+            if (SpriteState.HaveSuperFire) return;
             MotionState.Bounce();
             SpriteState.Jump();
         }

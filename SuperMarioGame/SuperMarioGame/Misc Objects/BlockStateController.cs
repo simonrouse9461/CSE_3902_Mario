@@ -111,7 +111,7 @@ namespace SuperMario
         public void NormalBlockDestroyed()
         {
             SpriteState.SetSpriteFrequency(20);
-
+            SoundManager.BlockBreakSoundPlay();
             Core.Object.Generate(new Vector2(-(float) Core.Object.PositionRectangle.Width/4, 0),
                 BlockDebrisObject.LowerLeft);
             Core.Object.Generate(new Vector2((float) Core.Object.PositionRectangle.Width/4, 0),

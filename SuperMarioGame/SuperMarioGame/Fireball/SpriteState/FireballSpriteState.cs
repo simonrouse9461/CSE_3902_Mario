@@ -8,7 +8,7 @@ namespace SuperMario
         public FireballSpriteState()
         {
             AddSprite<RotatingFireballSprite>();
-            AddSprite<ExplodingFireballSprite>();
+            AddSprite<ExplodingTinyFireballSprite>();
 
             SetSprite<RotatingFireballSprite>();
             SetSpriteFrequency(5);
@@ -21,7 +21,7 @@ namespace SuperMario
 
         public void Explode()
         {
-            SetSprite<ExplodingFireballSprite>();
+            SetSprite<ExplodingTinyFireballSprite>();
         }
 
         public bool Rotating
@@ -31,7 +31,7 @@ namespace SuperMario
 
         public bool Exploding
         {
-            get { return IsSprite<ExplodingFireballSprite>(); }
+            get { return IsSprite<ExplodingTinyFireballSprite>(); }
         }
     }
 }

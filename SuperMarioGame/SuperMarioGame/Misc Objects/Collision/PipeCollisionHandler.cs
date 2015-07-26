@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WindowsGame1
+namespace SuperMario
 {
-    public class PipeCollisionHandler : CollisionHandlerKernel<BlockStateController>
+    public class PipeCollisionHandler : CollisionHandlerKernelNew<BlockStateController>
     {
-
-        public PipeCollisionHandler(ICore core) : base(core) { }
+        public PipeCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()
         {

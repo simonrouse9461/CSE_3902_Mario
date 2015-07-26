@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public class ExplodingFireballSprite : SpriteKernelNew
+    public class ExplodingTinyFireballSprite : SpriteKernelNew
     {
-        public ExplodingFireballSprite()
+        public ExplodingTinyFireballSprite()
         {
             AddSource("misc_sprites", new OrderedPairs<Rectangle, Orientation>
             {

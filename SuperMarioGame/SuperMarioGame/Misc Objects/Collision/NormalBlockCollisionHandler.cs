@@ -16,22 +16,14 @@ namespace SuperMario
                 || Core.CollisionDetector.Detect<SuperFireballObject>().AnyEdge.Touch)
             {
                 if (!Core.StateController.HasStar && !Core.StateController.HasCoin)
-                {
                     Core.StateController.NormalBlockDestroyed();
-                    SoundManager.BlockBreakSoundPlay();
-                }
-                else
-                {
-                    Core.StateController.GiveThings(true);
-                }
+                else Core.StateController.GiveThings(true);
             }
             
             if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
                 if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal)
-                {
                     Core.StateController.MotionState.Hit();
-                }
             }
         }
     }

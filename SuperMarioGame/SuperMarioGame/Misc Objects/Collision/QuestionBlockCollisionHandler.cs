@@ -5,7 +5,6 @@ namespace SuperMario
 {
     public class QuestionBlockCollisionHandler : CollisionHandlerKernelNew<BlockStateController>
     {
-
         public QuestionBlockCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()

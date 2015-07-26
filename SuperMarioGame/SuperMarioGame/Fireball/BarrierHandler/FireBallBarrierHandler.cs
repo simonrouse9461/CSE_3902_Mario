@@ -1,8 +1,8 @@
 ﻿namespace SuperMario
 {
-    public class FireBallBarrierHandler : BarrierHandlerKernelNew<FireballStateController>
+    public class FireballBarrierHandler : BarrierHandlerKernelNew<FireballStateController>
     {
-        public FireBallBarrierHandler(ICoreNew core) : base(core) { }
+        public FireballBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
         {

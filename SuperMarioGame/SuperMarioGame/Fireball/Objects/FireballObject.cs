@@ -10,7 +10,7 @@ namespace SuperMario
         public FireballObject()
         {
             CollisionHandler = new FireballCollisionHandler(Core);
-            BarrierHandler = new FireBallBarrierHandler(Core);
+            BarrierHandler = new FireballBarrierHandler(Core);
 
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<IMario>();

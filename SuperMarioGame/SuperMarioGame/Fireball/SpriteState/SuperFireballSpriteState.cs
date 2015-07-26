@@ -11,6 +11,7 @@ namespace SuperMario
         {
             AddSprite<FlyingSuperFireballSprite>();
             AddSprite<ExplodingSuperFireballSprite>();
+
             SetSprite<FlyingSuperFireballSprite>();
             SetSpriteFrequency(5);
         }
