@@ -19,6 +19,7 @@ namespace SuperMario
 
         void SetCore(ICoreNew c);
         void SetOrientation(Orientation orientation);
+        void PassSprite(ISpriteNew sprite);
         void FaceLeft();
         void FaceRight();
         void FaceDefault();

@@ -3,22 +3,12 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class CloudSpriteState : SpriteStateKernel
+    public class CloudSpriteState : SpriteStateKernelNew<int>
     {
         public CloudSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new CloudSprite()
-            };
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<CloudSprite>();
-            }
+            AddSprite<CloudSprite>();
+            SetSprite<CloudSprite>();
         }
     }
 }

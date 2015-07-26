@@ -46,11 +46,24 @@ namespace SuperMario
                 else SpriteState.SetSpriteFrequency(7);
             }
             else SpriteState.SetSpriteFrequency(6);
+            if (SpriteState.HaveSuperFire) GenerateShadow();
         }
+
+        private Vector2 LastShadowPosition { get; set; }
 
         public bool SelfControl { get; private set; }
 
         public bool OnWarpPipe { get; private set; }
+
+        public void GenerateShadow()
+        {
+            var displacement = MotionState.Position - LastShadowPosition;
+            if (Math.Abs(displacement.X) + Math.Abs(displacement.Y) >= 1)
+            {
+                Core.Object.Generate(new MarioShadow(SpriteState.Sprite.Clone, SpriteState.Orientation));
+                LastShadowPosition = MotionState.Position;
+            }
+        }
 
         public void ReloadAmmo()
         {
@@ -243,15 +256,22 @@ namespace SuperMario
 
         public void Shoot()
         {
-            if (!SpriteState.HaveFire) return;
+            if (!SpriteState.HaveFire && !SpriteState.HaveSuperFire) return;
             if (SpriteState.Dead) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            Core.Object.Generate(
-                new Vector2(SpriteState.IsLeft ? -10 : 10, -25),
+            if (SpriteState.HaveFire) Core.Object.Generate(
+                new Vector2(SpriteState.IsLeft ? -8 : 8, -16)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
+            if (SpriteState.HaveSuperFire) {
+                Core.Object.Generate(
+                new Vector2(SpriteState.IsLeft ? -12 : 12, -12)*GameSettings.SpriteScale,
+                SpriteState.IsLeft ? SuperFireballObject.LeftSuperFireball : SuperFireballObject.RightSuperFireball
+                );
+                //MotionState.Adjust(new Vector2(SpriteState.IsLeft ? 8 : -8, 0)*GameSettings.SpriteScale);
+            }
             AmmoLeft--;
             SoundManager.FireballSoundPlay();
         }
@@ -287,8 +307,12 @@ namespace SuperMario
         public void GetFire()
         {
             if (SpriteState.Dead) return;
-            if (SpriteState.HaveFire) return;
             if (SpriteState.Upgrading) return;
+            if (SpriteState.HaveFire || SpriteState.HaveSuperFire)
+            {
+                GetSuperFire();
+                return;
+            }
             SpriteState.Run();
             SpriteState.Upgrade();
             SpriteState.GetFire();
@@ -300,6 +324,11 @@ namespace SuperMario
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
+        }
+
+        public void GetSuperFire()
+        {
+            SpriteState.GetSuperFire();
         }
 
         public void GetStarPower()

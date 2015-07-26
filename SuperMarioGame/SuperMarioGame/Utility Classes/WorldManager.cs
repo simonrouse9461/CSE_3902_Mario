@@ -100,6 +100,7 @@ namespace SuperMario
                 new Collection<Koopa>(),
 
                 // Mario should be drawn after items and enemies
+                new Collection<MarioShadow>(),
                 new Collection<MarioObject>(),
 
                 // Put green pipe after Mario to allow Mario goes into pipe
@@ -110,6 +111,7 @@ namespace SuperMario
 
                 // Fireball is on the top of everything
                 new Collection<FireballObject>(),
+                new Collection<SuperFireballObject>(),
                 new Collection<BlockDebrisObject>()
             };
         }

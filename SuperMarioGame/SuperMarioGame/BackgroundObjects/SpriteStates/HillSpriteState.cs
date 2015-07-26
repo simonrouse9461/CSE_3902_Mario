@@ -4,22 +4,12 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HillSpriteState : SpriteStateKernel
+    public class HillSpriteState : SpriteStateKernelNew<int>
     {
         public HillSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new HillSprite()
-            };
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<HillSprite>();
-            }
+            AddSprite<HillSprite>();
+            SetSprite<HillSprite>();
         }
     }
 }

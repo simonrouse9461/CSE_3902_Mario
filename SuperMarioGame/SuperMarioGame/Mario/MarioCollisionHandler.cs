@@ -59,33 +59,22 @@ namespace SuperMario
         {
             var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell);
             if (collision.Left.Touch && !Core.Object.GoingRight || collision.Right.Touch && !Core.Object.GoingLeft)
-            {
                 Core.StateController.TakeDamage();
-            }
             if (collision.Bottom.Touch)
-            {
                 Core.StateController.Bounce();
-            }
         }
 
         protected void HandleFlagPole()
         {
             if (Core.CollisionDetector.Detect<FlagPoleObject>().AnySide.Touch)
-            {
                 Core.StateController.FinishLevel();
-            }
         }
-
+        
         protected void HandlePipe()
         {
             if (Core.CollisionDetector.Detect<IPipe>().Bottom.Cover)
-            {
                 Core.StateController.FoundWarpPipe();
-            }
-            else
-            {
-                Core.StateController.LeaveWarpPipe();
-            }
+            else  Core.StateController.LeaveWarpPipe();
         }
     }
 }

@@ -91,6 +91,12 @@ namespace SuperMario
             Core = c;
         }
 
+        public void PassSprite(ISpriteNew sprite)
+        {
+            _sprite = sprite;
+            SpriteList.Add(sprite);
+        }
+
         protected void AddSprite<T>() where T : ISpriteNew, new()
         {
             if (SpriteList.Any(s => s is T)) return;

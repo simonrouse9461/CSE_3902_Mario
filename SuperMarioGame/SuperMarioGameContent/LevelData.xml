@@ -2,6 +2,16 @@
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
     <Item>
+      <Type>Fireflower</Type>
+      <Version></Version>
+      <Location>160 400</Location>
+    </Item>
+    <Item>
+      <Type>Fireflower</Type>
+      <Version></Version>
+      <Location>260 400</Location>
+    </Item>
+    <Item>
       <Type>FloorBlockObject</Type>
       <Version></Version>
       <Location>16 480</Location>

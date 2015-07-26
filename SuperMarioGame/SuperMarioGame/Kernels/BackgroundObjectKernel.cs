@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace SuperMario
 {
     public abstract class BackgroundObjectKernel<TSpriteState> : IObject 
-        where TSpriteState : ISpriteState, new()
+        where TSpriteState : ISpriteStateNew, new()
     {
         protected BackgroundObjectKernel()
         {
@@ -49,7 +49,7 @@ namespace SuperMario
 
         public Rectangle PositionRectangle
         {
-            get { return SpriteState.Sprite.GetDestination(PositionPoint); }
+            get { return SpriteState.Sprite.GetScreenDestination(PositionPoint, SpriteState.Orientation); }
         }
 
         public Vector2 PositionPoint { get; set; }
@@ -94,12 +94,7 @@ namespace SuperMario
         public void Draw(SpriteBatch spriteBatch)
         {
             var relativePosition = PositionPoint - Camera.Location;
-            if (SpriteState.Left)
-                SpriteState.Sprite.DrawLeft(spriteBatch, relativePosition, SpriteState.Color);
-            else if (SpriteState.Right)
-                SpriteState.Sprite.DrawRight(spriteBatch, relativePosition, SpriteState.Color);
-            else
-                SpriteState.Sprite.DrawDefault(spriteBatch, relativePosition, SpriteState.Color);
+            SpriteState.Sprite.Draw(spriteBatch, relativePosition, SpriteState.Orientation, SpriteState.Version, SpriteState.Color);
         }
 
         public void PassCommand(ICommand command) { }

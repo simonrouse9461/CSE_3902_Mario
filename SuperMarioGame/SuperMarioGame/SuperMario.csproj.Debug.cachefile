@@ -14,6 +14,8 @@ Content\misc_sprites.xnb
 Content\LevelDataOld.xnb
 Content\UndergroundLevel.xnb
 Content\LevelData.xnb
+Content\SecretLevelData.xnb
+Content\UndergroundLevelData.xnb
 Content\Audio\blockBreak.xnb
 Content\Audio\stomp.xnb
 Content\Audio\coin.xnb
@@ -33,5 +35,3 @@ Content\Audio\fireball.xnb
 Content\Audio\smb_1-up.xnb
 Content\Audio\smb_bowserfire.xnb
 Content\Audio\smb_flagpole.xnb
-Content\SecretLevelData.xnb
-Content\UndergroundLevelData.xnb

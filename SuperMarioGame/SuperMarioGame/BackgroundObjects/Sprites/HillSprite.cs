@@ -5,18 +5,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HillSprite : SpriteKernel
+    public class HillSprite : SpriteKernelNew
     {
         public HillSprite()
         {
-            ImageFile.Default = "misc";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(86, 5, 80, 35)
-                }
-            };
+            
         }
     }
 }

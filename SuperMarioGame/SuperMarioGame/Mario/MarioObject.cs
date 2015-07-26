@@ -11,6 +11,7 @@ namespace SuperMario
             StateController.SpriteState.TurnSmall();
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<FireballObject>();
+            BarrierHandler.RemoveBarrier<SuperFireballObject>();
             BarrierHandler.RemoveBarrier<IItem>();
             BarrierHandler.RemoveBarrier<IEnemy>();
 

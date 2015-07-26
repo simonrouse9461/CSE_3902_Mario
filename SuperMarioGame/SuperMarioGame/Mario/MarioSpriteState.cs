@@ -87,6 +87,11 @@ namespace SuperMario
             SetVersion(MarioSpriteVersion.Fire);
         }
 
+        public void GetSuperFire()
+        {
+            SetVersion(MarioSpriteVersion.Black);
+        }
+
         public void LoseFire()
         {
             SetDefaultVersion();
@@ -95,6 +100,11 @@ namespace SuperMario
         public bool HaveFire
         {
             get { return IsVersion(MarioSpriteVersion.Fire); }
+        }
+
+        public bool HaveSuperFire
+        {
+            get { return IsVersion(MarioSpriteVersion.Black); }
         }
 
         public void GetPower()

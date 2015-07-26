@@ -46,6 +46,9 @@
     <Compile Include="Levels\UndergroundLevel.cs" />
     <Compile Include="Levels\SecretLevel.cs" />
     <Compile Include="Levels\OverWorldLevel.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Section.cs" />
     <Compile Include="Item.cs" />
@@ -55,6 +58,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="bin\Debug\LevelGenerator.exe.config" />
+    <None Include="bin\Debug\LevelGenerator.vshost.exe.config" />
+    <None Include="bin\Debug\LevelGenerator.vshost.exe.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="History\" />
@@ -68,6 +74,17 @@
       <Project>{855ee19e-d53f-4504-9d67-1727126ca26a}</Project>
       <Name>SuperMario</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\LevelGenerator.exe" />
+    <Content Include="bin\Debug\LevelGenerator.pdb" />
+    <Content Include="bin\Debug\LeveLoader.dll" />
+    <Content Include="bin\Debug\Microsoft.Xna.Framework.dll" />
+    <Content Include="bin\Debug\Microsoft.Xna.Framework.Game.dll" />
+    <Content Include="bin\Debug\Microsoft.Xna.Framework.Game.xml" />
+    <Content Include="bin\Debug\Microsoft.Xna.Framework.Graphics.dll" />
+    <Content Include="bin\Debug\Microsoft.Xna.Framework.Graphics.xml" />
+    <Content Include="bin\Debug\Microsoft.Xna.Framework.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -93,7 +93,12 @@ namespace SuperMario
 
         public Rectangle PositionRectangle
         {
-            get { return GeneralSpriteState.Sprite.GetScreenDestination(GeneralMotionState.Position); }
+            get
+            {
+                return GeneralSpriteState.Sprite.GetScreenDestination(
+                    GeneralMotionState.Position,
+                    GeneralSpriteState.Orientation);
+            }
         }
 
         public Vector2 PositionPoint
