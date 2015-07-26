@@ -69,6 +69,7 @@ namespace SuperMario
 
         public void PutExplosive()
         {
+            if (SelfControl) return;
             if (HaveExplosive)
             {
                 Core.Object.Generate(FireExplosion.BothSide);
@@ -275,6 +276,7 @@ namespace SuperMario
             if (SpriteState.Dead) return;
             if (SpriteState.Upgrading) return;
             if (SpriteState.Shrinking) return;
+            if (SpriteState.Sliping) return;
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
@@ -405,6 +407,9 @@ namespace SuperMario
         {
             if (SelfControl) return;
             SelfControl = true;
+            SpriteState.Resume();
+            SpriteState.Release();
+            MotionState.Restore();
             Core.SwitchComponent(new FinishLevelMarioCommandExecutor(Core));
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
