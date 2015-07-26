@@ -9,7 +9,9 @@ namespace SuperMario
     {
         public SuperFireballObject()
         {
-            CollisionHandler = new SuperFireballCollisionHandler(Core);
+            BarrierHandler = new SuperFireballBarrierHandler(Core);
+            BarrierHandler.AddBarrier<IBlock>();
+            BarrierHandler.AddBarrier<IPipe>();
         }
 
         public static SuperFireballObject LeftSuperFireball

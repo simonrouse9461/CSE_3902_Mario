@@ -12,12 +12,12 @@ namespace SuperMario
             {
                 {new Rectangle(313, 945, 8, 8), Orientation.Right}
             });
-            SetAnimation(new[]
+            SetAnimation(Orientation.Right, new[]
             {
-                new SpriteTransformation(0),
-                new SpriteTransformation(0, SpriteEffects.None, Math.PI/2), 
-                new SpriteTransformation(0, SpriteEffects.FlipVertically),  
-                new SpriteTransformation(0, SpriteEffects.None, -Math.PI/2), 
+                SpriteTransformation.Right(0),
+                SpriteTransformation.Right(0, SpriteEffects.None, Math.PI/2), 
+                SpriteTransformation.Right(0, SpriteEffects.FlipVertically),  
+                SpriteTransformation.Right(0, SpriteEffects.None, -Math.PI/2), 
             });
         }
     }

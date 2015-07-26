@@ -97,10 +97,11 @@
     <Compile Include="Enemies\BarrierHandlers\GoombaBarrierHandler.cs" />
     <Compile Include="Enemies\MotionStates\KoopaMotionState.cs" />
     <Compile Include="Enemies\Sprites\LeftWalkingKoopaSprite.cs" />
-    <Compile Include="Fireball\SuperFireballCollisionHandler.cs" />
+    <Compile Include="Fireball\Sprites\ExplodingSuperFireballSprite.cs" />
+    <Compile Include="Fireball\SuperFireballBarrierHandler.cs" />
     <Compile Include="Fireball\SuperFireballMotionState.cs" />
     <Compile Include="Fireball\SuperFireballObject.cs" />
-    <Compile Include="Fireball\SuperFireballSprite.cs" />
+    <Compile Include="Fireball\Sprites\FlyingSuperFireballSprite.cs" />
     <Compile Include="Fireball\SuperFireballSpriteState.cs" />
     <Compile Include="Fireball\SuperFireballStateController.cs" />
     <Compile Include="GameCommands\PauseCommand.cs" />
@@ -329,6 +330,7 @@
     <Compile Include="Helper Classes and Structs\PeriodicFunction.cs" />
     <Compile Include="Helper Classes and Structs\RectangleParser.cs" />
     <Compile Include="Utility Classes\SpriteHoldDependency.cs" />
+    <Compile Include="Utility Classes\SpriteOrigin.cs" />
     <Compile Include="Utility Classes\SpriteSourceNew.cs" />
     <Compile Include="Old Files\SpriteSource.cs" />
     <Compile Include="Utility Classes\SpriteTransformation.cs" />

@@ -17,13 +17,11 @@ namespace SuperMario
         //private bool SplashScreen = true;
         private CommandManager Controller;
         private bool paused = false;
-        public static ContentManager ContentManager { get; set; }
 
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            ContentManager = Content;
         }
 
         protected override void Initialize()

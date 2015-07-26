@@ -262,13 +262,16 @@ namespace SuperMario
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
             if (SpriteState.HaveFire) Core.Object.Generate(
-                new Vector2(SpriteState.IsLeft ? -10 : 10, -25),
+                new Vector2(SpriteState.IsLeft ? -8 : 8, -16)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? FireballObject.LeftFireBall : FireballObject.RightFireBall
                 );
-            if (SpriteState.HaveSuperFire) Core.Object.Generate(
-                new Vector2(SpriteState.IsLeft ? -10 : 10, -25),
+            if (SpriteState.HaveSuperFire) {
+                Core.Object.Generate(
+                new Vector2(SpriteState.IsLeft ? -12 : 12, -12)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? SuperFireballObject.LeftSuperFireball : SuperFireballObject.RightSuperFireball
                 );
+                //MotionState.Adjust(new Vector2(SpriteState.IsLeft ? 8 : -8, 0)*GameSettings.SpriteScale);
+            }
             AmmoLeft--;
             SoundManager.FireballSoundPlay();
         }

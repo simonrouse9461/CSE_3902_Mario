@@ -9,9 +9,15 @@ namespace SuperMario
     {
         public SuperFireballSpriteState()
         {
-            AddSprite<SuperFireballSprite>();
-            SetSprite<SuperFireballSprite>();
+            AddSprite<FlyingSuperFireballSprite>();
+            AddSprite<ExplodingSuperFireballSprite>();
+            SetSprite<FlyingSuperFireballSprite>();
             SetSpriteFrequency(5);
+        }
+
+        public void Explode()
+        {
+            SetSprite<ExplodingSuperFireballSprite>();
         }
     }
 }

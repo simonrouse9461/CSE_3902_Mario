@@ -18,5 +18,13 @@ namespace SuperMario
             SpriteState.FaceRight();
             MotionState.GoRight();
         }
+
+        public void Explode()
+        {
+            Core.BarrierHandler.RemoveBarrier<IObject>();
+            MotionState.Freeze();
+            SpriteState.Explode();
+            SpriteState.HoldTillFinish(true, 1, () => Core.Object.Unload(true));
+        }
     }
 }

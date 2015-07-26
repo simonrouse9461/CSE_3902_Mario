@@ -2,12 +2,13 @@
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public class SuperFireballSprite : SpriteKernelNew
+    public class FlyingSuperFireballSprite : SpriteKernelNew
     {
-        public SuperFireballSprite()
+        public FlyingSuperFireballSprite()
         {
             AddSource(
                 "enemies",
@@ -16,10 +17,10 @@ namespace SuperMario
                     {new Rectangle(101, 253, 24, 8), Orientation.Left},
                     {new Rectangle(131, 253, 24, 8), Orientation.Left}
                 });
-            SetAnimation(new[]
+            SetAnimation(Orientation.Right, new[]
                 {
-                    new SpriteTransformation(0),
-                    new SpriteTransformation(1)
+                    SpriteTransformation.Right(0, SpriteEffects.None, 0, null, 1f),
+                    SpriteTransformation.Right(1, SpriteEffects.None, 0, null, 1f)
                 }
             );
         }

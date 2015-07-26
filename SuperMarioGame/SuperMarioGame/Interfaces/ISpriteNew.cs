@@ -19,7 +19,7 @@ namespace SuperMario
         void Load(ContentManager content);
         void Update();
         void Draw(SpriteBatch spriteBatch, Vector2 location, Orientation orientation, IConvertible version, Color? color = null);
-        Rectangle GetScreenDestination(Vector2 position);
-        Vector2 GetScreenLocation(Vector2 position);
+        Rectangle GetScreenDestination(Vector2 position, Orientation orientation);
+        Vector2 GetScreenLocation(Vector2 position, Orientation orientation);
     }
 }

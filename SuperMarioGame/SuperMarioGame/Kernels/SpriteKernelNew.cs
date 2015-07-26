@@ -12,6 +12,7 @@ namespace SuperMario
     {
         protected Dictionary<IConvertible, SpriteSourceNew> SourceList { get; private set; }
         protected PeriodicFunction<SpriteTransformation> Animation { get; private set; }
+        protected Orientation ReferenceOrientation { get; private set; }
         protected Collection<IConvertible> RegisteredVersion { get; private set; }
 
         protected OrderedPairs<Rectangle, Orientation> FrameData
@@ -39,7 +40,7 @@ namespace SuperMario
             get { return Animation.Value.Index; }
         }
 
-        protected int Scale
+        protected float Scale
         {
             get { return Animation.Value.Scale; }
         }
@@ -57,6 +58,11 @@ namespace SuperMario
         protected SpriteEffects Effect
         {
             get { return Animation.Value.Effect; }
+        }
+
+        protected SpriteOrigin Origin
+        {
+            get { return Animation.Value.Origin; }
         }
 
         public int Cycle { get { return Animation.Cycle; } }
@@ -106,9 +112,15 @@ namespace SuperMario
             AddSource(0, file, data);
         }
 
+        protected void SetAnimation(Orientation reference, SpriteTransformation[] transformation)
+        {
+            ReferenceOrientation = reference;
+            Animation = new PeriodicFunction<SpriteTransformation>(stage => transformation[stage], transformation.Length);
+        }
+
         protected void SetAnimation(SpriteTransformation[] transformation)
         {
-            Animation = new PeriodicFunction<SpriteTransformation>(stage => transformation[stage], transformation.Length);
+            SetAnimation(Orientation.Default, transformation);
         }
 
         public void Reset()
@@ -159,14 +171,14 @@ namespace SuperMario
             var rotation = orientation == Orientation.Left ? mixedEffect.Value - Rotation : mixedEffect.Value + Rotation;
 
             if (color == null) color = Color;
-            spriteBatch.Draw(Texture, GetScreenLocation(location), SourceCoodinates, color.Value, rotation,
+            spriteBatch.Draw(Texture, GetScreenLocation(location, orientation), SourceCoodinates, color.Value, rotation,
                 new Vector2((float)SourceCoodinates.Width/2, (float)SourceCoodinates.Height/2), GameSettings.SpriteScale*Scale, mixedEffect.Key, 1);
         }
 
-        public Rectangle GetScreenDestination(Vector2 position)
+        public Rectangle GetScreenDestination(Vector2 position, Orientation orientation)
         {
-            var x = position.X - Width/2;
-            var y = position.Y - Height;
+            var x = position.X - (CheckOrientation(orientation) ? ((int) Origin%3) : (2 - (int) Origin%3))*(Width/2);
+            var y = position.Y - ((int) ((int) Origin/3))*(Height/2);
             return new Rectangle(
                 (int) (x),
                 (int) (y),
@@ -174,13 +186,18 @@ namespace SuperMario
                 (int) (Height));
         }
 
-        public Vector2 GetScreenLocation(Vector2 position)
+        public Vector2 GetScreenLocation(Vector2 position, Orientation orientation)
         {
-            var x = position.X;
-            var y = position.Y - Height/2;
+            var x = position.X - ((int) Origin%3 - 1)*(Width/2)*(CheckOrientation(orientation) ? 1 : -1);
+            var y = position.Y - ((int) ((int) Origin/3) - 1)*(Height/2);
             return new Vector2(
                 (int) (x),
                 (int) (y));
+        }
+
+        private bool CheckOrientation(Orientation orientation)
+        {
+            return ReferenceOrientation == Orientation.Default || ReferenceOrientation == orientation;
         }
     }
 }

@@ -49,7 +49,7 @@ namespace SuperMario
 
         public Rectangle PositionRectangle
         {
-            get { return SpriteState.Sprite.GetScreenDestination(PositionPoint); }
+            get { return SpriteState.Sprite.GetScreenDestination(PositionPoint, SpriteState.Orientation); }
         }
 
         public Vector2 PositionPoint { get; set; }

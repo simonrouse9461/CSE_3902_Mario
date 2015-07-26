@@ -19,9 +19,9 @@ namespace SuperMario
             });
             SetAnimation(new []
             {
-                new SpriteTransformation(0),
-                new SpriteTransformation(1), 
-                new SpriteTransformation(2)
+                SpriteTransformation.Center(0),
+                SpriteTransformation.Center(1), 
+                SpriteTransformation.Center(2)
             });
         }
     }
