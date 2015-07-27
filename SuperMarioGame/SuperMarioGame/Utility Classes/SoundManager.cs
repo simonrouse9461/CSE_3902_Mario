@@ -14,6 +14,14 @@ namespace SuperMario
             Lazy
         }
 
+        private enum CurrentlyPlayingMusic
+        {
+            Overworld,
+            Harp
+        }
+
+        private static CurrentlyPlayingMusic cpm = CurrentlyPlayingMusic.Overworld;
+
         // Background Musics
         private static SoundEffect overworldMusic;
         private static SoundEffect underworldMusic;
@@ -203,13 +211,19 @@ namespace SuperMario
 
         public static void ChangeToUnderworldMusic()
         {
-            if (currentBackgroundMusic != null)
+            if (cpm != CurrentlyPlayingMusic.Overworld)
             {
-                currentBackgroundMusic.Dispose();
+                if (currentBackgroundMusic != null)
+                {
+                    currentBackgroundMusic.Dispose();
+                }
+                currentBackgroundMusic = underworldMusic.CreateInstance();
+                currentBackgroundMusic.IsLooped = true;
+                currentBackgroundMusic.Play();
+
+                cpm = CurrentlyPlayingMusic.Overworld;
             }
-            currentBackgroundMusic = underworldMusic.CreateInstance();
-            currentBackgroundMusic.IsLooped = true;
-            currentBackgroundMusic.Play();
+            
         }
 
         public static void ChangeToDieMusic()
@@ -263,13 +277,17 @@ namespace SuperMario
 
         public static void ChangeToHarpMusic()
         {
-            if (currentBackgroundMusic != null)
-            {
-                currentBackgroundMusic.Dispose();
+            if (cpm != CurrentlyPlayingMusic.Harp) {
+                if (currentBackgroundMusic != null)
+                {
+                    currentBackgroundMusic.Dispose();
+                }
+                currentBackgroundMusic = harpMusic.CreateInstance();
+                currentBackgroundMusic.IsLooped = true;
+                currentBackgroundMusic.Play();
+
+                cpm = CurrentlyPlayingMusic.Harp;
             }
-            currentBackgroundMusic = harpMusic.CreateInstance();
-            currentBackgroundMusic.IsLooped = true;
-            currentBackgroundMusic.Play();
         }
 
 

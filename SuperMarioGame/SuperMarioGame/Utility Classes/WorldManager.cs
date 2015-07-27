@@ -255,7 +255,14 @@ namespace SuperMario
                     for (var i = 0; i < collection.Count; i++)
                     {
                         var obj = (IObject)collection[i];
-                        if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                        if (Camera.OutOfRange(obj))
+                        {
+                            Camera.RemoveObject(obj);
+                            if (obj is Harp)
+                            {
+                                SoundManager.ChangeToOverworldMusic();
+                            }
+                        }
                         else Camera.AddObject(obj);
                     }
 
@@ -305,7 +312,14 @@ namespace SuperMario
             graphicsDevice.Clear(Instance.BackgroundColor);
             foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
-                    if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);
+                    if (!Camera.OutOfRange(obj))
+                    {
+                        obj.Draw(spriteBatch);
+                        if (obj is Harp)
+                        {
+                            SoundManager.ChangeToHarpMusic();
+                        }
+                    }
         }
     }
 }

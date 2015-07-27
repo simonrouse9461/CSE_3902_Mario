@@ -7,7 +7,6 @@ namespace SuperMario
         public Harp()
         {
             CollisionHandler = new HarpCollisionHandler(Core);
-            SoundManager.ChangeToHarpMusic();
         }
 
         public override bool Solid

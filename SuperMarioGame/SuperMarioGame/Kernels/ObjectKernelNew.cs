@@ -121,7 +121,7 @@ namespace SuperMario
             GeneralMotionState.Position = location;
         }
 
-        public void Unload(bool immediate = false)
+        public virtual void Unload(bool immediate = false)
         {
             if (immediate) WorldManager.RemoveObject(this);
             else Core.DelayCommand(() => WorldManager.RemoveObject(this));
