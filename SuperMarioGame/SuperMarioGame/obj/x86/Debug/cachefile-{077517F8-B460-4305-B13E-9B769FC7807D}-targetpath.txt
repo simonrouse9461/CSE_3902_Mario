@@ -36,3 +36,5 @@ Content\Audio\smb_1-up.xnb
 Content\Audio\smb_bowserfire.xnb
 Content\Audio\smb_flagpole.xnb
 Content\Audio\fireworks.xnb
+Content\harp.xnb
+Content\Audio\harp.xnb

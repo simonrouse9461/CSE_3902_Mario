@@ -98,6 +98,7 @@ namespace SuperMario
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
+                new Collection<Harp>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioShadow>(),
