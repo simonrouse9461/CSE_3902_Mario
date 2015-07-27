@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class KoopaMotionState : MotionStateKernelNew
+    public class KoopaMotionState : MotionStateKernelNew, IEnemyMotionState
     {
         public KoopaMotionState()
         {
@@ -102,6 +102,16 @@ namespace SuperMario
         public bool IsMovingShell
         {
             get { return ShellLeft || ShellRight; }
+        }
+
+        public Orientation Orientation
+        {
+            get
+            {
+                if (MovingLeft || ShellLeft) return Orientation.Left;
+                if (MovingRight || ShellRight) return Orientation.Right;
+                return Orientation.Default;
+            }
         }
 
         public void ObtainGravity()

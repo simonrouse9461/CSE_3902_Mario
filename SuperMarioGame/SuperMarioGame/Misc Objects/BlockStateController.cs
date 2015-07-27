@@ -127,15 +127,15 @@ namespace SuperMario
             SpriteState.SetSpriteFrequency(20);
             SoundManager.BlockBreakSoundPlay();
             Core.Object.Generate(new Vector2(-(float) Core.Object.PositionRectangle.Width/4, 0),
-                BlockDebrisObject.LowerLeft);
+                BlockDebris.LowerLeft);
             Core.Object.Generate(new Vector2((float) Core.Object.PositionRectangle.Width/4, 0),
-                BlockDebrisObject.LowerRight);
+                BlockDebris.LowerRight);
             Core.Object.Generate(
                 new Vector2(-(float) Core.Object.PositionRectangle.Width/4,
-                    -(float) Core.Object.PositionRectangle.Height/2), BlockDebrisObject.UpperLeft);
+                    -(float) Core.Object.PositionRectangle.Height/2), BlockDebris.UpperLeft);
             Core.Object.Generate(
                 new Vector2((float) Core.Object.PositionRectangle.Width/4,
-                    -(float) Core.Object.PositionRectangle.Height/2), BlockDebrisObject.UpperRight);
+                    -(float) Core.Object.PositionRectangle.Height/2), BlockDebris.UpperRight);
             Core.Object.Unload();
         }
     }

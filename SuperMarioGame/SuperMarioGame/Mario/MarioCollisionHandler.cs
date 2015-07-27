@@ -56,7 +56,7 @@ namespace SuperMario
 
         protected virtual void HandleEnemy()
         {
-            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell);
+            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.CanKillMario);
             if ((collision.AnySide | collision.Top).Touch)
                 Core.StateController.TakeDamage();
             if (collision.Bottom.Touch)

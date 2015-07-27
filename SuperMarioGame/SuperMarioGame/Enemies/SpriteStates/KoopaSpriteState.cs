@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class KoopaSpriteState : EnemySpriteState
+    public class KoopaSpriteState : SpriteStateKernelNew<int>, IEnemySpriteState
     {
         public KoopaSpriteState()
         {
@@ -16,17 +16,12 @@ namespace SuperMario
             SetSpriteFrequency(12);
         }
 
-        public override void MarioSmash()
+        public void MarioSmash()
         {
             SetSprite<ShellKoopaSprite>();
         }
 
-        public override void Turn()
-        {
-            SetOrientation(Orientation == Orientation.Left ? Orientation.Right : Orientation.Left);
-        }
-        
-        public override bool Dead
+        public bool Dead
         {
             get { return IsSprite<ShellKoopaSprite>() || IsSprite<UpsideDownShellKoopaSprite>(); }
         }

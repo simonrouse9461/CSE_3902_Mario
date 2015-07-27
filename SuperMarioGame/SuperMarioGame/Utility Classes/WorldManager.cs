@@ -114,7 +114,7 @@ namespace SuperMario
                 new Collection<FireExplosion>(),
                 new Collection<FireballObject>(),
                 new Collection<SuperFireballObject>(),
-                new Collection<BlockDebrisObject>()
+                new Collection<BlockDebris>()
             };
         }
 

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaMotionState : MotionStateKernelNew
+    public class GoombaMotionState : MotionStateKernelNew, IEnemyMotionState
     {
         public GoombaMotionState()
         {
@@ -26,8 +26,22 @@ namespace SuperMario
 
         public void SetDefaultVertical()
         {
-            TurnOffMotion<GravityMotion>();
             TurnOffMotion<BounceUpMotion>();
+        }
+
+        public void ObtainGravity()
+        {
+            FindMotion<GravityMotion>().Toggle(true);
+        }
+
+        public void LoseGravity()
+        {
+            FindMotion<GravityMotion>().Toggle(false);
+        }
+
+        public bool Gravity
+        {
+            get { return CheckMotion<GravityMotion>(); }
         }
 
         public void Turn(Orientation orientation)
@@ -69,25 +83,20 @@ namespace SuperMario
             get { return CheckMotion(UniformMotion.EnemyMoveRight); }
         }
 
+        public Orientation Orientation
+        {
+            get
+            {
+                if (GoingLeft) return Orientation.Left;
+                if (GoingRight) return Orientation.Right;
+                return Orientation.Default;
+            }
+        }
+
         public void MarioSmash()
         {
-            TurnOffMotion(UniformMotion.EnemyMoveLeft);
-            TurnOffMotion(UniformMotion.EnemyMoveRight);
-        }
-
-        public void ObtainGravity()
-        {
-            FindMotion<GravityMotion>().Toggle(true);
-        }
-
-        public void LoseGravity()
-        {
-            FindMotion<GravityMotion>().Toggle(false);
-        }
-
-        public bool Gravity
-        {
-            get { return CheckMotion<GravityMotion>(); }
+            LoseGravity();
+            SetDefaultHorizontal();
         }
 
         public void Flip()

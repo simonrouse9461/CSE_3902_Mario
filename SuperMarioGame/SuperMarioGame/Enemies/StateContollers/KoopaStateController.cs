@@ -2,13 +2,9 @@
 
 namespace SuperMario
 {
-    public class KoopaStateController : StateControllerKernelNew<KoopaSpriteState, KoopaMotionState>
+    public class KoopaStateController : EnemyStateControllerKernel<Koopa, KoopaSpriteState, KoopaMotionState>
     {
-        public override void Update()
-        {
-        }
-
-        public void MarioSmash()
+        public override void MarioSmash()
         {
             Core.DelayCommand(() =>
             {
@@ -24,21 +20,6 @@ namespace SuperMario
         {
             SoundManager.KickSoundPlay();
             MotionState.GotHit(orientation);
-        }
-
-        public void Turn()
-        {
-            SoundManager.KickSoundPlay();
-            MotionState.Turn(Orientation.Default);
-            SpriteState.Turn();
-        }
-
-        public void Flip()
-        {
-            if (SpriteState.Dead) return;
-            SoundManager.KickSoundPlay();
-            SpriteState.Flip();
-            MotionState.Flip();
         }
     }
 }

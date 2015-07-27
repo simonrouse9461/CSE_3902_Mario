@@ -8,7 +8,7 @@ namespace SuperMario
         public Koopa()
         {
             CollisionHandler = new KoopaCollisionHandler(Core);
-            BarrierHandler = new KoopaBarrierHandler(Core);
+            BarrierHandler = new EnemyBarrierHandler(Core);
             BarrierHandler.AddBarrier<IBlock>();
         }
 
@@ -22,9 +22,14 @@ namespace SuperMario
             get { return !StateController.SpriteState.Dead; }
         }
 
-        public bool isMovingShell
+        public bool IsMovingShell
         {
             get { return StateController.SpriteState.Dead && StateController.MotionState.IsMovingShell; }
+        }
+
+        public bool CanKillMario
+        {
+            get { return Alive || IsMovingShell; }
         }
     }
 }

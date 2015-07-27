@@ -17,13 +17,14 @@ namespace SuperMario
             {
                 if (!Core.StateController.HasStar && !Core.StateController.HasCoin)
                     Core.StateController.NormalBlockDestroyed();
-                else Core.StateController.GiveThings(true);
             }
             
             if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
-                if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal)
+                if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal && !Core.StateController.HasStar)
                     Core.StateController.GotHit();
+                if (Core.StateController.HasStar || Core.StateController.HasCoin)
+                    Core.StateController.GiveThings(true);
             }
         }
     }

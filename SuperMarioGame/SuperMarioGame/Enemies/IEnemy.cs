@@ -9,6 +9,6 @@ namespace SuperMario
     {
         bool Alive { get; }
 
-        bool isMovingShell { get; }
+        bool CanKillMario { get; }
     }
 }

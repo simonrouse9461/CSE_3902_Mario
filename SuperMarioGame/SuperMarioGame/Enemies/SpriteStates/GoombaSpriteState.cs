@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaSpriteState : EnemySpriteState
+    public class GoombaSpriteState : SpriteStateKernelNew<int>, IEnemySpriteState
     {
         public GoombaSpriteState()
         {
@@ -16,12 +16,7 @@ namespace SuperMario
             SetSpriteFrequency(12);
         }
 
-        public override void Turn()
-        {
-           
-        }
-
-        public override void MarioSmash()
+        public void MarioSmash()
         {
             SetSprite<DeadGoombaSprite>();
         }
@@ -31,7 +26,7 @@ namespace SuperMario
             SetSprite<UpsideDownGoombaSprite>();
         }
 
-        public override bool Dead
+        public bool Dead
         {
             get { return IsSprite<DeadGoombaSprite>() || IsSprite<UpsideDownGoombaSprite>(); }
         }

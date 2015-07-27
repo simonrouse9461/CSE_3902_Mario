@@ -7,10 +7,11 @@ namespace SuperMario
         public Goomba()
         {
             CollisionHandler = new GoombaCollisionHandler(Core);
-            BarrierHandler = new GoombaBarrierHandler(Core);
+            BarrierHandler = new EnemyBarrierHandler(Core);
 
             StateController.Turn(Orientation.Left);
             BarrierHandler.AddBarrier<IBlock>();
+            Core.BarrierHandler.AddBarrier<IPipe>();
         }
 
         public override bool Solid
@@ -23,9 +24,9 @@ namespace SuperMario
             get { return !StateController.SpriteState.Dead; }
         }
 
-        public bool isMovingShell
+        public bool CanKillMario
         {
-            get { return false; }
+            get { return Alive; }
         }
     }
 }
