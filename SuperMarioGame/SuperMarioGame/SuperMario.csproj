@@ -91,7 +91,7 @@
     <Compile Include="Enemies\BarrierHandlers\KoopaBarrierHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\HarpCollisionHandler.cs" />
-    <Compile Include="Enemies\MotionStates\HarpMotionState.cs" />
+    <Compile Include="Enemies\Objects\Harp.cs" />
     <Compile Include="Enemies\SpriteStates\HarpSpriteState.cs" />
     <Compile Include="Enemies\Sprites\HarpSprite.cs" />
     <Compile Include="Enemies\Sprites\UpsideDownShellKoopaSprite.cs" />
@@ -218,7 +218,6 @@
     <Compile Include="Kernels\SpriteStateKernelNew.cs" />
     <Compile Include="Kernels\StateControllerKernelNew.cs" />
     <Compile Include="Old Files\StateControllerKernel.cs" />
-    <Compile Include="Mario\CollisionHandlerDecorators\DamagedMarioCollisionHandler.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Mario\Commands\MarioFireballCommand.cs" />
     <Compile Include="Mario\MarioBarrierHandler.cs" />

@@ -2,20 +2,30 @@
 
 namespace SuperMario
 {
-    public class HarpStateController : StateControllerKernel<HarpSpriteState, HarpMotionState>
+    public class HarpStateController : StateControllerKernelNew<HarpSpriteState, StaticMotionStateNew>
     {
+        private bool _wasInScreen;
+
+        private bool WasInScreen
+        {
+            get { return _wasInScreen; }
+            set
+            {
+                if (WasInScreen && !value) SoundManager.ResumeLastMusic(false);
+                if (!WasInScreen && value) SoundManager.SwitchToHarpMusic();
+                _wasInScreen = value;
+            }
+        }
+
         public override void Update()
         {
+            WasInScreen = !Camera.OutOfRange(Core.Object);
         }
 
         public void Die()
         {
-            Core.DelayCommand(() =>
-            {
-                Core.Obj.Unload();
-            });
-
-            SoundManager.ChangeToOverworldMusic();
+            Core.Object.Unload();
+            SoundManager.SwitchToOverworldMusic();
         }
     }
 }

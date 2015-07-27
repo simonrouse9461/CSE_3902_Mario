@@ -4,22 +4,12 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HarpSpriteState : SpriteStateKernel
+    public class HarpSpriteState : SpriteStateKernelNew<int>
     {
         public HarpSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new HarpSprite()
-            };
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<HarpSprite>();
-            }
+            AddSprite<HarpSprite>();
+            SetSprite<HarpSprite>();
         }
     }
 }

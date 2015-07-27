@@ -264,7 +264,7 @@ namespace SuperMario
             if (SpriteState.Dead) return;
             SpriteState.Die();
             MotionState.Die();
-            SoundManager.ChangeToDieMusic();
+            SoundManager.SwitchToFailMusic();
             MotionState.Freeze(40);
         }
 
@@ -367,18 +367,18 @@ namespace SuperMario
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
             SpriteState.GetPower();
-            SoundManager.ChangeToStarMusic();
+            SoundManager.SwitchToStarPowerMusic();
             Core.DelayCommand(SpriteState.SlowDownPower, () => SpriteState.HavePower, slowDownTime);
             Core.DelayCommand(() =>
             {
                 SpriteState.LosePower();
-                SoundManager.ChangeToOverworldMusic();
+                SoundManager.SwitchToOverworldMusic();
             }, () => SpriteState.HavePower, stopTime);
         }
 
         public void TakeDamage()
         {
-            const int restoreTime = 200;
+            if (SpriteState.Blinking) return;
             ReleaseAll();
             WorldManager.FreezeWorld();
             if (SpriteState.HaveAnyFire) SpriteState.LoseFire();
@@ -388,21 +388,17 @@ namespace SuperMario
                 return;
             }
 
-            var decorator = new DamagedMarioCollisionHandler(Core);
-            Core.SwitchComponent(decorator);
-            decorator.DelayRestore(restoreTime);
-
             SpriteState.StartBlink();
             SpriteState.Shrink();
             MotionState.Freeze();
             SoundManager.PowerDownSoundPlay();
-            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
+            SpriteState.HoldTillFinish(true, () =>
             {
                 SpriteState.TurnSmall();
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
-            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, 200);
         }
 
         public void FinishLevel()
@@ -420,7 +416,7 @@ namespace SuperMario
             SpriteState.Hold(false);
             SpriteState.FaceRight();
             Camera.Fix();
-            SoundManager.PauseMusic();
+            SoundManager.StopMusic();
             SoundManager.FlagpoleSoundPlay();
             Core.EventTrigger.AddAbsoluteLocationEvent((int)WorldManager.FindObject<CastleObject>().PositionPoint.X, EnterCastle);
         }

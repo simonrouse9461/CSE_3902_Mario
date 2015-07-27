@@ -12,11 +12,11 @@
       <Location>260 400</Location>
     </Item>
 
-    <!-->Item>
+    <Item>
       <Type>Harp</Type>
       <Version></Version>
-      <Location>350 200</Location>
-    </-->
+      <Location>1000 200</Location>
+    </Item>
     <Item>
       <Type>FloorBlockObject</Type>
       <Version></Version>

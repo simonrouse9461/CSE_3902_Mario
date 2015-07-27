@@ -121,7 +121,7 @@ namespace SuperMario
             GeneralMotionState.SetPosition(location);
         }
 
-        public void Unload(bool immediate = false)
+        public virtual void Unload(bool immediate = false)
         {
             if (immediate) WorldManager.RemoveObject(this);
             else Core.DelayCommand(() => WorldManager.RemoveObject(this));
@@ -144,7 +144,7 @@ namespace SuperMario
 
         public void Update()
         {
-            var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
+            var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionStateNew) && BarrierHandler != null;
             Core.Update();
             EventTrigger.CheckEvent();
             if (CommandExecutor != null) CommandExecutor.Execute();

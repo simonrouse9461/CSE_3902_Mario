@@ -5,18 +5,14 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HarpSprite : SpriteKernel
+    public class HarpSprite : SpriteKernelNew
     {
         public HarpSprite()
         {
-            ImageFile.Default = "harp";
-            Source.Default = new SpriteSource
+            AddSource("harp", new OrderedPairs<Rectangle, Orientation>
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(4, 1, 51, 73)
-                }
-            };
+                {new Rectangle(4, 1, 51, 73), Orientation.Default}
+            });
         }
     }
 }

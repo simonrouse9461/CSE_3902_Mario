@@ -14,7 +14,7 @@ namespace SuperMario
             BarrierHandler.RemoveBarrier<IItem>();
             BarrierHandler.RemoveBarrier<IEnemy>();
 
-            SoundManager.ChangeToOverworldMusic();
+            SoundManager.SwitchToOverworldMusic();
         }
 
         public override bool Solid

@@ -98,7 +98,7 @@ namespace SuperMario
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
-                //new Collection<Harp>(),
+                new Collection<Harp>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioShadow>(),
@@ -255,7 +255,14 @@ namespace SuperMario
                     for (var i = 0; i < collection.Count; i++)
                     {
                         var obj = (IObject)collection[i];
-                        if (Camera.OutOfRange(obj)) Camera.RemoveObject(obj);
+                        if (Camera.OutOfRange(obj))
+                        {
+                            Camera.RemoveObject(obj);
+                            if (obj is Harp)
+                            {
+                                SoundManager.SwitchToOverworldMusic();
+                            }
+                        }
                         else Camera.AddObject(obj);
                     }
 
@@ -279,7 +286,7 @@ namespace SuperMario
                 Console.WriteLine(FindObject<MarioObject>().CollisionRectangle);
                 FindObject<MarioObject>().Freeze();
             }
-            if (SoundManager.DieMusicFinished)
+            if (SoundManager.FailMusicFinished)
             {
                 Reload();
             }
@@ -305,7 +312,10 @@ namespace SuperMario
             graphicsDevice.Clear(Instance.BackgroundColor);
             foreach (var collection in Instance._objectList)
                 foreach (IObject obj in collection)
-                    if (!Camera.OutOfRange(obj)) obj.Draw(spriteBatch);
+                    if (!Camera.OutOfRange(obj))
+                    {
+                        obj.Draw(spriteBatch);
+                    }
         }
     }
 }
