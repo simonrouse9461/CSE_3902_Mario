@@ -157,7 +157,7 @@ namespace SuperMario
             RegisterSound(content, SoundType.Coin, "coin", SoundPlayMode.Lazy);
             RegisterSound(content, SoundType.ItemAppear, "powerUpAppear", SoundPlayMode.Lazy);
             RegisterSound(content, SoundType.PowerUp, "powerUp", SoundPlayMode.Lazy);
-            RegisterSound(content, SoundType.Kick, "kick", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.Kick, "kick", SoundPlayMode.Default);
             RegisterSound(content, SoundType.Pipe, "pipe", SoundPlayMode.Lazy);
             RegisterSound(content, SoundType.NormalFire, "fireball", SoundPlayMode.Eager);
             RegisterSound(content, SoundType.SuperFire, "smb_bowserfire", SoundPlayMode.Eager);

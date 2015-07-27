@@ -13,11 +13,15 @@ namespace SuperMario
         public Collection<Type> BarrierExceptionList { get; private set; }
 
         protected ICoreNew AbstractCore { get; set; }
-        protected TStateController AbstractStateController { get { return (TStateController)AbstractCore.GeneralStateController; }}
 
-        protected AbstractBarrierHandlerKernel(ICoreNew abstractCore)
+        protected TStateController AbstractStateController
         {
-            AbstractCore = abstractCore;
+            get { return (TStateController) AbstractCore.GeneralStateController; }
+        }
+
+        protected AbstractBarrierHandlerKernel(ICoreNew core)
+        {
+            AbstractCore = core;
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
         }

@@ -22,7 +22,8 @@ namespace SuperMario
 
         private void CheckWall()
         {
-            if (BarrierCollision.AnySide.Touch) AbstractStateController.Turn();
+            if (BarrierCollision.Left.Touch) AbstractCore.DelayCommand(() => AbstractStateController.Turn(Orientation.Right));
+            if (BarrierCollision.Right.Touch) AbstractCore.DelayCommand(() => AbstractStateController.Turn(Orientation.Left));
         }
     }
 }

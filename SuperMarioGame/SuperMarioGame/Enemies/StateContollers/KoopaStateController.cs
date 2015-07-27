@@ -12,14 +12,15 @@ namespace SuperMario
                 SpriteState.MarioSmash();
             });
 
-            Display.AddScore<Koopa>();
+            Core.SwitchComponent(new MovingShellCollisionHandlerDecorator(Core));
+            ((IDecorator)Core.CollisionHandler).DelayRestore(150);
             SoundManager.StompSoundPlay();
         }
 
-        public void TakeMarioHitFromSide(Orientation orientation)
+        public void PushShell(Orientation orientation)
         {
             SoundManager.KickSoundPlay();
-            MotionState.GotHit(orientation);
+            MotionState.Push(orientation);
         }
     }
 }

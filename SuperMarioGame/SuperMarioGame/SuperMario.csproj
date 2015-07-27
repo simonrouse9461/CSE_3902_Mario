@@ -88,9 +88,11 @@
     <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
     <Compile Include="BlockDebris\BlockDebrisMotionState.cs" />
     <Compile Include="BlockDebris\BlockDebrisSpriteState.cs" />
-    <Compile Include="Enemies\CollisionHandlers\GoombaCollisionHandler.cs" />
+    <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />
     <Compile Include="Enemies\CollisionHandlers\HarpCollisionHandler.cs" />
+    <Compile Include="Enemies\MotionStates\EnemyMotionStateKernel.cs" />
     <Compile Include="Enemies\MotionStates\IEnemyMotionState.cs" />
+    <Compile Include="Enemies\Objects\EnemyKernel.cs" />
     <Compile Include="Enemies\Objects\Harp.cs" />
     <Compile Include="Enemies\SpriteStates\HarpSpriteState.cs" />
     <Compile Include="Enemies\SpriteStates\IEnemySpriteState.cs" />
@@ -124,7 +126,7 @@
     <Compile Include="Fireball\StateController\SuperFireballStateController.cs" />
     <Compile Include="GameCommands\PauseCommand.cs" />
     <Compile Include="GameCommands\ResetCommand.cs" />
-    <Compile Include="Enemies\CollisionHandlers\KoopaCollisionHandler.cs" />
+    <Compile Include="Enemies\CollisionHandlers\MovingShellCollisionHandlerDecorator.cs" />
     <Compile Include="Enemies\Objects\Goomba.cs" />
     <Compile Include="Enemies\MotionStates\GoombaMotionState.cs" />
     <Compile Include="Enemies\SpriteStates\GoombaSpriteState.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Interfaces\IMotionStateNew.cs" />
     <Compile Include="Kernels\AbstractBarrierHandlerKernel.cs" />
     <Compile Include="Kernels\BarrierHandlerKernelNew.cs" />
+    <Compile Include="Kernels\AbstractCollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Mario\MarioShadow\MarioShadow.cs" />
     <Compile Include="Mario\MarioShadow\MarioShadowSpriteState.cs" />

@@ -5,16 +5,14 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public abstract class CollisionHandlerKernelNew<TStateController> : ICollisionHandler
+    public abstract class CollisionHandlerKernelNew<TStateController> : AbstractCollisionHandlerKernel<TStateController>
         where TStateController : IStateControllerNew, new()
     {
         public CoreNew<TStateController> Core { get; set; }
 
-        protected CollisionHandlerKernelNew(ICoreNew core)
+        protected CollisionHandlerKernelNew(ICoreNew core) : base(core)
         {
             Core = (CoreNew<TStateController>)core;
         }
-
-        public abstract void Handle();
     }
 }

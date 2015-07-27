@@ -6,16 +6,16 @@
         where TSpriteState : IEnemySpriteState, new()
         where TMotionState : IEnemyMotionState, new()
     {
+        public bool Dead { get { return SpriteState.Dead; } }
+
         public abstract void MarioSmash();
 
         public void Flip()
         {
-            if (SpriteState.Dead) return;
-
+            if (Dead) return;
             SoundManager.KickSoundPlay();
-            MotionState.Flip();
             SpriteState.Flip();
-
+            MotionState.Flip();
             Display.AddScore<TEnemy>();
         }
 

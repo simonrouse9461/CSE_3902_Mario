@@ -4,22 +4,15 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class KoopaMotionState : MotionStateKernelNew, IEnemyMotionState
+    public class KoopaMotionState : EnemyMotionStateKernel
     {
         public KoopaMotionState()
         {
-            AddMotion(UniformMotion.EnemyMoveLeft);
-            AddMotion(UniformMotion.EnemyMoveRight);
             AddMotion(UniformMotion.KoopaShellLeft);
             AddMotion(UniformMotion.KoopaShellRight);
-            AddMotion<GravityMotion>();
-            AddMotion(BounceUpMotion.FireballBounce);
-
-            SetDefaultVertical();
-            SetDefaultHorizontal();
         }
 
-        public void SetDefaultHorizontal()
+        public override void SetDefaultHorizontal()
         {
             TurnOffMotion(UniformMotion.EnemyMoveLeft);
             TurnOffMotion(UniformMotion.EnemyMoveRight);
@@ -27,7 +20,7 @@ namespace SuperMario
             TurnOffMotion(UniformMotion.KoopaShellRight);
         }
 
-        public bool DefaultHotizontal
+        public override bool DefaultHotizontal
         {
             get
             {
@@ -38,101 +31,73 @@ namespace SuperMario
             }
         }
 
-        public void SetDefaultVertical()
-        {
-            TurnOffMotion<BounceUpMotion>();
-        }
-
-        public void Turn(Orientation orientation)
+        public override void Turn(Orientation orientation)
         {
             switch (orientation)
             {
                 case Orientation.Default:
-                    if (ShellLeft || MovingLeft) Turn(Orientation.Right);
-                    if (ShellRight || MovingRight) Turn(Orientation.Right);
+                    if (SlippingLeft || GoingLeft) Turn(Orientation.Right);
+                    if (SlippingRight || GoingRight) Turn(Orientation.Right);
                     break;
                 case Orientation.Left:
                     SetDefaultHorizontal();
-                    if (ShellLeft || ShellRight) TurnOnMotion(UniformMotion.KoopaShellLeft);
-                    else TurnOnMotion(UniformMotion.EnemyMoveLeft);
+                    if (SlippingLeft || SlippingRight) SlipLeft();
+                    else GoLeft();
                     break;
                 case Orientation.Right:
                     SetDefaultHorizontal();
-                    if (ShellLeft || ShellRight) TurnOnMotion(UniformMotion.KoopaShellRight);
-                    else TurnOnMotion(UniformMotion.EnemyMoveRight);
+                    if (SlippingLeft || SlippingRight) SlipRight();
+                    else GoRight();
                     break;
             }
         }
 
-        public void MarioSmash()
-        {
-            SetDefaultHorizontal();
-        }
-
-        public void GotHit(Orientation orientation)
+        public void Push(Orientation orientation)
         {
             if (!DefaultHotizontal) return;
 
+            SetDefaultHorizontal();
             if (orientation == Orientation.Left)
-                TurnOnMotion(UniformMotion.KoopaShellRight);
+                SlipLeft();
             if (orientation == Orientation.Right)
-                TurnOnMotion(UniformMotion.KoopaShellLeft);
+                SlipRight();
         }
 
-        public bool MovingLeft
+        public void SlipLeft()
         {
-            get { return CheckMotion(UniformMotion.EnemyMoveLeft);}
+            SetDefaultHorizontal();
+            TurnOnMotion(UniformMotion.KoopaShellLeft);
         }
 
-        public bool MovingRight
+        public void SlipRight()
         {
-            get { return CheckMotion(UniformMotion.EnemyMoveRight); }
+            SetDefaultHorizontal();
+            TurnOnMotion(UniformMotion.KoopaShellRight);
         }
 
-        public bool ShellLeft
+        public bool SlippingLeft
         {
             get { return CheckMotion(UniformMotion.KoopaShellLeft); }
         }
 
-        public bool ShellRight
+        public bool SlippingRight
         {
             get { return CheckMotion(UniformMotion.KoopaShellRight); }
         }
 
         public bool IsMovingShell
         {
-            get { return ShellLeft || ShellRight; }
+            get { return SlippingLeft || SlippingRight; }
         }
 
-        public Orientation Orientation
+        public override Orientation Orientation
         {
             get
             {
-                if (MovingLeft || ShellLeft) return Orientation.Left;
-                if (MovingRight || ShellRight) return Orientation.Right;
+                if (GoingLeft || SlippingLeft) return Orientation.Left;
+                if (GoingRight || SlippingRight) return Orientation.Right;
                 return Orientation.Default;
             }
-        }
-
-        public void ObtainGravity()
-        {
-            TurnOnMotion<GravityMotion>();
-        }
-
-        public void LoseGravity()
-        {
-            TurnOffMotion<GravityMotion>();
-        }
-
-        public bool Gravity
-        {
-            get { return CheckMotion<GravityMotion>(); }
-        }
-
-        public void Flip()
-        {
-            TurnOnMotion<BounceUpMotion>();
-            ObtainGravity();
         }
     }
 }
