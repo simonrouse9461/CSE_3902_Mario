@@ -12,7 +12,8 @@ namespace SuperMario
         private Counter Timer { get; set; }
         private Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
-        public Vector2 Position { get; set; }
+        public Vector2 Position { get; private set; }
+        public Vector2 LastSetPosition { get; set; }
         public Vector2 Velocity { get; set; }
         public bool IsFrozen { get; private set; }
 
@@ -66,7 +67,13 @@ namespace SuperMario
             return FindMotion(motion).Status;
         }
 
-        public void Adjust(Vector2 offset)
+        public void SetPosition(Vector2 position)
+        {
+            Position = position;
+            LastSetPosition = position;
+        }
+
+        public void AdjustPosition(Vector2 offset)
         {
             Position += offset;
         }

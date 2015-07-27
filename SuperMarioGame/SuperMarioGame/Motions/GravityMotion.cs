@@ -13,19 +13,11 @@ namespace SuperMario
             MaxVelocity = Max;
         }
 
-        public bool AboutToFall
+        public override Vector2 GetVelocity(int phase)
         {
-            get { return Velocity.Y <= 0 && (Velocity + Acceleration).Y >= 0; }
-        }
-
-        public override Vector2 Velocity
-        {
-            get
-            {
-                var velocity = StartVelocity.Y + Circulator.Phase*Acceleration.Y;
-                velocity = velocity < 0 ? velocity : MaxVelocity.Y;
-                return new Vector2(0, velocity);
-            }
+            var velocity = StartVelocity.Y + phase*Acceleration.Y;
+            velocity = velocity < 0 ? velocity : MaxVelocity.Y;
+            return new Vector2(0, velocity);
         }
 
         public override void Reset()

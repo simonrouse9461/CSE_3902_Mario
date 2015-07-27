@@ -16,7 +16,7 @@ namespace SuperMario
         {
             get
             {
-                return StateController.MotionState.isHit;
+                return StateController.MotionState.IsHit;
             }
         }
     }

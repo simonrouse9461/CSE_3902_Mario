@@ -47,32 +47,32 @@ namespace SuperMario
 
             while (DetectBarrier().Bottom.Touch)
             {
-                Core.GeneralMotionState.Adjust(new Vector2(0, -1));
+                Core.GeneralMotionState.AdjustPosition(new Vector2(0, -1));
             }
             for (c = DetectBarrier(); (c.TopLeft | c.TopRight).Cover; c = DetectBarrier())
             {
-                Core.GeneralMotionState.Adjust(new Vector2(0, 1));
+                Core.GeneralMotionState.AdjustPosition(new Vector2(0, 1));
             }
             for (c = DetectBarrier();
                 c.Left.Touch && Core.Object.GoingLeft;
                 c = DetectBarrier())
             {
-                Core.GeneralMotionState.Adjust(new Vector2(1, 0));
+                Core.GeneralMotionState.AdjustPosition(new Vector2(1, 0));
             }
             for (c = DetectBarrier();
                 c.Right.Touch && Core.Object.GoingRight;
                 c = DetectBarrier())
             {
-                Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                Core.GeneralMotionState.AdjustPosition(new Vector2(-1, 0));
             }
             c = DetectBarrier();
             if (c.TopRight.Touch && c.TopLeft.None ||
                 c.Right.Touch && Core.Object.GoingUp)
-                Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                Core.GeneralMotionState.AdjustPosition(new Vector2(-1, 0));
             c = DetectBarrier();
             if (c.TopLeft.Touch && c.TopRight.None ||
                 c.Left.Touch && Core.Object.GoingUp)
-                Core.GeneralMotionState.Adjust(new Vector2(1, 0));
+                Core.GeneralMotionState.AdjustPosition(new Vector2(1, 0));
         }
     }
 }

@@ -98,6 +98,7 @@ namespace SuperMario
                 // then enemies
                 new Collection<Goomba>(),
                 new Collection<Koopa>(),
+                //new Collection<Harp>(),
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioShadow>(),
@@ -240,7 +241,7 @@ namespace SuperMario
                     var version = string.IsNullOrEmpty(data.Version)
                         ? string.Empty
                         : " with a version name " + data.Version;
-                    throw new System.ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
+                    throw new ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
                 }
             }
         }

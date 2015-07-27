@@ -23,16 +23,13 @@ namespace SuperMario
 
         private bool UseInitialVelocity { get; set; }
 
-        public override Vector2 Velocity
+        public override Vector2 GetVelocity(int phase)
         {
-            get
-            {
-                var initial = UseInitialVelocity ? InitialVelocity : StartVelocity;
-                var velocity = Circulator.Phase*Acceleration + initial;
-                var condition = Math.Abs(Acceleration.X) <= 0.001 && (MaxVelocity - velocity).Y/Acceleration.Y <= 0
-                                || Math.Abs(Acceleration.Y) <= 0.001 && (MaxVelocity - velocity).X/Acceleration.X <= 0;
-                return condition ? MaxVelocity : velocity;
-            }
+            var initial = UseInitialVelocity ? InitialVelocity : StartVelocity;
+            var velocity = phase*Acceleration + initial;
+            var condition = Math.Abs(Acceleration.X) <= 0.001 && (MaxVelocity - velocity).Y/Acceleration.Y <= 0
+                            || Math.Abs(Acceleration.Y) <= 0.001 && (MaxVelocity - velocity).X/Acceleration.X <= 0;
+            return condition ? MaxVelocity : velocity;
         }
 
         // Versions

@@ -1,3 +1,4 @@
 C:\Users\涵哥\Desktop\Repo\WindowsGame1\WindowsGame1Content\obj\x86\Debug\SuperMarioContent.contentprojResolveAssemblyReference.cache
 C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGameContent\obj\x86\Debug\SuperMarioContent.contentprojResolveAssemblyReference.cache
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGameContent\obj\x86\Debug\SuperMarioContent.contentprojResolveAssemblyReference.cache
+C:\Users\Haden\Source\Repos\CSE_3902_Mario9\SuperMarioGame\SuperMarioGameContent\obj\x86\Debug\SuperMarioContent.contentprojResolveAssemblyReference.cache

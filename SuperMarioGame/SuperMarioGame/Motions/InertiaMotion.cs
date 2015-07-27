@@ -11,9 +11,9 @@ namespace SuperMario
             MaxVelocity = new Vector2(3, 0);
         }
 
-        public override Vector2 Velocity
+        public override Vector2 GetVelocity(int phase)
         {
-            get { return new Vector2(CurrentVelocity.X, 0); }
+            return new Vector2(CurrentVelocity.X, 0);
         }
 
         public void LeftAdjust()

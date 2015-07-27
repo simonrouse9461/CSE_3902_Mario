@@ -35,11 +35,9 @@ namespace SuperMario
         public override void Update()
         {
             if (SpriteState.Dead) return;
-            if (MotionState.JumpFinish || MotionState.StartFall)
-            {
+            if (MotionState.StartFall || MotionState.JumpFinish) 
                 MotionState.SlowDownGravity();
-            }
-            if (MotionState.GoingLeft || MotionState.GoingRight)
+            if (MotionState.Going)
             {
                 if (MotionState.FullSpeed)
                     SpriteState.SetSpriteFrequency(4);
@@ -309,7 +307,7 @@ namespace SuperMario
             if (axis == null) axis = MotionState.Position.X;
             if (SpriteState.IsLeft) SpriteState.FaceRight(); 
             else SpriteState.FaceLeft();
-            MotionState.Adjust(new Vector2((axis.Value - MotionState.Position.X) * 2, 0));
+            MotionState.AdjustPosition(new Vector2((axis.Value - MotionState.Position.X) * 2, 0));
         }
 
         public void Grow()
@@ -416,7 +414,7 @@ namespace SuperMario
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
             Core.BarrierHandler.RemoveBarrier<CastleObject>();
-            MotionState.Adjust(new Vector2(4, 0));
+            MotionState.AdjustPosition(new Vector2(4, 0));
             MotionState.Slip();
             SpriteState.Slip();
             SpriteState.Hold(false);

@@ -100,13 +100,13 @@ namespace SuperMario
             if (DetectBarrier().AnyEdge.Touch)
             {
                 while (DetectBarrier().Bottom.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(0, -1));
+                    Core.GeneralMotionState.AdjustPosition(new Vector2(0, -1));
                 while (DetectBarrier().Top.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(0, 1));
+                    Core.GeneralMotionState.AdjustPosition(new Vector2(0, 1));
                 while (DetectBarrier().Left.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(1, 0));
+                    Core.GeneralMotionState.AdjustPosition(new Vector2(1, 0));
                 while (DetectBarrier().Right.Touch)
-                    Core.GeneralMotionState.Adjust(new Vector2(-1, 0));
+                    Core.GeneralMotionState.AdjustPosition(new Vector2(-1, 0));
             }
         }
     }

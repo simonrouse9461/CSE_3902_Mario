@@ -17,14 +17,11 @@ namespace SuperMario
             get { return Math.Abs(Velocity.X) < 0.001; }
         }
 
-        public override Vector2 Velocity
+        public override Vector2 GetVelocity(int phase)
         {
-            get
-            {
-                _sign = Math.Sign(InitialVelocity.X);
-                var velocity = InitialVelocity.X - Circulator.Phase*Acceleration.X*_sign;
-                return velocity*_sign <= 0 ? default(Vector2) : new Vector2(velocity, 0);
-            }
+            _sign = Math.Sign(InitialVelocity.X);
+            var velocity = InitialVelocity.X - phase*Acceleration.X*_sign;
+            return velocity*_sign <= 0 ? default(Vector2) : new Vector2(velocity, 0);
         }
     }
 }

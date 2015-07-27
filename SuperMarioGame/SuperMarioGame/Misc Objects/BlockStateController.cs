@@ -81,6 +81,20 @@ namespace SuperMario
             SpriteState.Indestructible();
         }
 
+        public void GotHit()
+        {
+            MotionState.BounceUp();
+        }
+
+        public override void Update()
+        {
+            if (MotionState.IsHit && MotionState.Position.Y + MotionState.Velocity.Y > MotionState.LastSetPosition.Y)
+            {
+                MotionState.StopFall();
+                MotionState.SetPosition(MotionState.LastSetPosition);
+            }
+        }
+
         public void GiveThings(bool bigMario)
         {
             switch (ContainedItem)

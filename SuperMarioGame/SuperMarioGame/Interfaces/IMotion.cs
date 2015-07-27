@@ -8,6 +8,7 @@ namespace SuperMario
         Vector2 MaxVelocity { get; }
         Vector2 Acceleration { get; }
         Vector2 Velocity { get; }
+        Vector2 NextVelocity { get; }
         bool Status { get; }
         bool Finish { get; }
         bool ReachMax { get; }

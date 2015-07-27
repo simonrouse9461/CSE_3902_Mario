@@ -23,7 +23,7 @@ namespace SuperMario
             if(Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
             {
                 if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal)
-                    Core.StateController.MotionState.Hit();
+                    Core.StateController.GotHit();
             }
         }
     }

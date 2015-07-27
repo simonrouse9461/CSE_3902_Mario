@@ -9,9 +9,9 @@ namespace SuperMario
             get { return true; }
         }
 
-        public override Vector2 Velocity
+        public override Vector2 GetVelocity(int phase)
         {
-            get { return default(Vector2); }
+            return default(Vector2);
         }
     }
 }

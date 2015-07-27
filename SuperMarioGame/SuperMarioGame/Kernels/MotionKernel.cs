@@ -38,7 +38,15 @@ namespace SuperMario
             return Velocity.Y/speed >= 1;
         }
 
-        public abstract Vector2 Velocity { get; }
+        public virtual Vector2 Velocity
+        {
+            get { return GetVelocity(Circulator.Phase); }
+        }
+
+        public virtual Vector2 NextVelocity
+        {
+            get { return GetVelocity(Circulator.NextPhase); }
+        }
 
         protected MotionKernel(int period = 0)
         {
@@ -54,6 +62,8 @@ namespace SuperMario
         {
             return motion.GetType() == GetType() && motion.VersionCode == VersionCode;
         }
+
+        public abstract Vector2 GetVelocity(int phase);
 
         public void SetInitialVelocity(Vector2 velocity = default (Vector2))
         {

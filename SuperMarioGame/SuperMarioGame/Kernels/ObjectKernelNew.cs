@@ -118,7 +118,7 @@ namespace SuperMario
         public void Load(ContentManager content, Vector2 location)
         {
             GeneralSpriteState.Load(content);
-            GeneralMotionState.Position = location;
+            GeneralMotionState.SetPosition(location);
         }
 
         public void Unload(bool immediate = false)
