@@ -20,6 +20,7 @@ namespace SuperMario
         private static SoundEffect dieMusic;
         private static SoundEffect winMusic;
         private static SoundEffect starMusic;
+        private static SoundEffect harpMusic;
 
         // Action Sounds
         private static SoundEffect smallJumpSound;
@@ -163,6 +164,8 @@ namespace SuperMario
             dieMusic = content.Load<SoundEffect>("Audio/die");
             winMusic = content.Load<SoundEffect>("Audio/win");
             starMusic = content.Load<SoundEffect>("Audio/star");
+            harpMusic = content.Load<SoundEffect>("Audio/harp");
+
             smallJumpSound = content.Load<SoundEffect>("Audio/jump-small");
             superJumpSound = content.Load<SoundEffect>("Audio/jump-super");
             bumpSound = content.Load<SoundEffect>("Audio/bump");
@@ -178,6 +181,8 @@ namespace SuperMario
             flagpoleSound = content.Load<SoundEffect>("Audio/smb_flagpole");
             superfireSound = content.Load<SoundEffect>("Audio/smb_bowserfire");
             fireworkSound = content.Load<SoundEffect>("Audio/fireworks");
+            harpMusic = content.Load<SoundEffect>("Audio/harp");
+
         }
 
         public static void StopMusic()
@@ -255,6 +260,18 @@ namespace SuperMario
             currentBackgroundMusic.IsLooped = true;
             currentBackgroundMusic.Play();
         }
+
+        public static void ChangeToHarpMusic()
+        {
+            if (currentBackgroundMusic != null)
+            {
+                currentBackgroundMusic.Dispose();
+            }
+            currentBackgroundMusic = harpMusic.CreateInstance();
+            currentBackgroundMusic.IsLooped = true;
+            currentBackgroundMusic.Play();
+        }
+
 
         public static void PauseMusic()
         {
