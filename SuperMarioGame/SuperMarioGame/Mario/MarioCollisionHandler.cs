@@ -49,8 +49,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
-                if (Core.StateController.SpriteState.Small) Core.DelayCommand(Core.StateController.Grow, 5);
-                else Core.DelayCommand(Core.StateController.GetFire, 5);
+                Core.DelayCommand(Core.StateController.GetFire, 5);
                 SoundManager.PowerUpSoundPlay();
             }
         }

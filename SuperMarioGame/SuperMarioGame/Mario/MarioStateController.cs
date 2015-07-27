@@ -280,7 +280,7 @@ namespace SuperMario
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            if (SpriteState.HaveNormalFire) 
+            if (SpriteState.HaveNormalFire)
             {
                 Core.Object.Generate(
                 new Vector2(SpriteState.IsLeft ? -8 : 8, -24)*GameSettings.SpriteScale,
@@ -288,13 +288,13 @@ namespace SuperMario
                 );
                 SoundManager.FireballSoundPlay();
             }
-            if (SpriteState.HaveSuperFire) {
+            if (SpriteState.HaveSuperFire) 
+            {
                 Core.Object.Generate(
                 new Vector2(SpriteState.IsLeft ? -16 : 16, -16)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? SuperFireballObject.LeftSuperFireball : SuperFireballObject.RightSuperFireball
                 );
                 SoundManager.SuperFireSoundPlay();
-                //MotionState.Adjust(new Vector2(SpriteState.IsLeft ? 8 : -8, 0)*GameSettings.SpriteScale);
             }
             AmmoLeft--;
         }
@@ -332,6 +332,11 @@ namespace SuperMario
         {
             if (SpriteState.Dead) return;
             if (SpriteState.Upgrading) return;
+            if (SpriteState.Small)
+            {
+                Grow();
+                return;
+            }
             if (SpriteState.HaveNormalFire || SpriteState.HaveSuperFire)
             {
                 GetSuperFire();
@@ -378,15 +383,11 @@ namespace SuperMario
             const int restoreTime = 200;
             ReleaseAll();
             WorldManager.FreezeWorld();
+            if (SpriteState.HaveAnyFire) SpriteState.LoseFire();
             if (SpriteState.Small)
             {
                 Die();
                 return;
-            }
-
-            if (SpriteState.HaveNormalFire)
-            {
-                SpriteState.LoseFire();
             }
 
             var decorator = new DamagedMarioCollisionHandler(Core);
