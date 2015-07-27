@@ -254,14 +254,10 @@ namespace SuperMario
                 foreach (var collection in Instance._objectList)
                     for (var i = 0; i < collection.Count; i++)
                     {
-                        var obj = (IObject)collection[i];
-                        if (Camera.OutOfRange(obj))
+                        var obj = (IObject) collection[i];
+                        if (Camera.OutOfRange(obj, new Vector4(20, 20, 20, 20)))
                         {
                             Camera.RemoveObject(obj);
-                            if (obj is Harp)
-                            {
-                                SoundManager.SwitchToOverworldMusic();
-                            }
                         }
                         else Camera.AddObject(obj);
                     }

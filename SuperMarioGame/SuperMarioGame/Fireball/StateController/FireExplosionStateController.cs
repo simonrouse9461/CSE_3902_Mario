@@ -12,19 +12,19 @@ namespace SuperMario
             Core.DelayCommand(
                 () =>
                     Core.Object.Generate(new Vector2(-(int) SpriteState.Size, 0)*5*GameSettings.SpriteScale,
-                        FireExplosion.LeftSide((int) SpriteState.Size - 1)), 5);
+                        FireExplosion.LeftSide((ExplosionSize)(int) SpriteState.Size - 1)), 5);
             Core.DelayCommand(
                 () =>
                     Core.Object.Generate(new Vector2((int) SpriteState.Size, 0)*5*GameSettings.SpriteScale,
-                        FireExplosion.RightSide((int) SpriteState.Size - 1)), 5);
+                        FireExplosion.RightSide((ExplosionSize)(int) SpriteState.Size - 1)), 5);
             Core.DelayCommand(
                 () =>
                     Core.Object.Generate(new Vector2(-(int) SpriteState.Size, 0)*GameSettings.SpriteScale,
-                        FireExplosion.LeftSide((int) SpriteState.Size - 1)), 10);
+                        FireExplosion.LeftSide((ExplosionSize)(int)SpriteState.Size - 1)), 10);
             Core.DelayCommand(
                 () =>
                     Core.Object.Generate(new Vector2((int) SpriteState.Size, 0)*GameSettings.SpriteScale,
-                        FireExplosion.RightSide((int) SpriteState.Size - 1)), 10);
+                        FireExplosion.RightSide((ExplosionSize)(int)SpriteState.Size - 1)), 10);
         }
 
         public void ToLeft(ExplosionSize size)
@@ -35,7 +35,7 @@ namespace SuperMario
                 Core.DelayCommand(
                     () =>
                         Core.Object.Generate(new Vector2(-(int) SpriteState.Size, 0)*5*GameSettings.SpriteScale,
-                            FireExplosion.LeftSide((int) SpriteState.Size - 1)), 5);
+                            FireExplosion.LeftSide((ExplosionSize)(int)SpriteState.Size - 1)), 5);
         }
 
         public void ToRight(ExplosionSize size)
@@ -46,7 +46,13 @@ namespace SuperMario
                 Core.DelayCommand(
                     () =>
                         Core.Object.Generate(new Vector2((int) SpriteState.Size, 0)*5*GameSettings.SpriteScale,
-                            FireExplosion.RightSide((int) SpriteState.Size - 1)), 5);
+                            FireExplosion.RightSide((ExplosionSize)(int)SpriteState.Size - 1)), 5);
+        }
+
+        public void Single(ExplosionSize size)
+        {
+            SpriteState.SetSize(size);
+            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () => Core.Object.Unload(true));
         }
     }
 }
