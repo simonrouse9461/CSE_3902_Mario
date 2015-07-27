@@ -6,18 +6,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class UpsideDownShellKoopaSprite : SpriteKernel
+    public class UpsideDownShellKoopaSprite : SpriteKernelNew
     {
         public UpsideDownShellKoopaSprite()
         {
-            ImageFile.Default = "enemies";
-            Source.Default = new SpriteSource
+            AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(352, 221, 18, 15)
-                }
-            };
+                {new Rectangle(352, 221, 18, 15), Orientation.Default}
+            });
         }
     }
 }

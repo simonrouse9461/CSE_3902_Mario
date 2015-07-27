@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaCollisionHandler : CollisionHandlerKernel<GoombaStateController>
+    public class GoombaCollisionHandler : CollisionHandlerKernelNew<GoombaStateController>
     {
-        public GoombaCollisionHandler(ICore core) : base(core){}
+        public GoombaCollisionHandler(ICoreNew core) : base(core){}
 
         public override void Handle()
         {

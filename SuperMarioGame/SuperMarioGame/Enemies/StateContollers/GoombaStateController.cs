@@ -2,12 +2,8 @@
 
 namespace SuperMario
 {
-    public class GoombaStateController : StateControllerKernel<GoombaSpriteState, GoombaMotionState>
+    public class GoombaStateController : StateControllerKernelNew<GoombaSpriteState, GoombaMotionState>
     {
-        public override void Update()
-        {
-        }
-
         public void MarioSmash()
         {
             Core.DelayCommand(() =>
@@ -18,7 +14,7 @@ namespace SuperMario
 
             Core.DelayCommand(() =>
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
             }, 75);
 
             Display.AddScore<Goomba>();
@@ -27,16 +23,18 @@ namespace SuperMario
 
         public void Flip()
         {
+            if (SpriteState.Dead) return;
+
+            SoundManager.KickSoundPlay();
             MotionState.Flip();
             SpriteState.Flip();
 
             Display.AddScore<Goomba>();
-            SoundManager.KickSoundPlay();
         }
 
-        public void Turn()
+        public void Turn(Orientation orientation = Orientation.Default)
         {
-            MotionState.Turn();
+            MotionState.Turn(orientation);
         }
     }
 }

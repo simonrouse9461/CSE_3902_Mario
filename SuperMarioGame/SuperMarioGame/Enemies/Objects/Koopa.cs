@@ -3,9 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public  class Koopa : ObjectKernel<KoopaStateController>, IEnemy
+    public  class Koopa : ObjectKernelNew<KoopaStateController>, IEnemy
     {
-        public Koopa() {
+        public Koopa()
+        {
             CollisionHandler = new KoopaCollisionHandler(Core);
             BarrierHandler = new KoopaBarrierHandler(Core);
             BarrierHandler.AddBarrier<IBlock>();
@@ -18,12 +19,12 @@ namespace SuperMario
 
         public bool Alive
         {
-            get { return !StateController.MotionState.isDead(); }
+            get { return !StateController.SpriteState.Dead; }
         }
 
         public bool isMovingShell
         {
-            get { return StateController.SpriteState.Dead && StateController.MotionState.isMoving; }
+            get { return StateController.SpriteState.Dead && StateController.MotionState.IsMovingShell; }
         }
     }
 }

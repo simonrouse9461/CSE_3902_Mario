@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperMario
 {
-    public abstract class EnemySpriteState : SpriteStateKernel
+    public abstract class EnemySpriteState : SpriteStateKernelNew<int>
     {
         public abstract void MarioSmash();
 

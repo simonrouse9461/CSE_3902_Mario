@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class KoopaStateController : StateControllerKernel<KoopaSpriteState, KoopaMotionState>
+    public class KoopaStateController : StateControllerKernelNew<KoopaSpriteState, KoopaMotionState>
     {
         public override void Update()
         {
@@ -20,32 +20,22 @@ namespace SuperMario
             SoundManager.StompSoundPlay();
         }
 
-        public void TakeMarioHitFromSide(string leftOrRight)
+        public void TakeMarioHitFromSide(Orientation orientation)
         {
             SoundManager.KickSoundPlay();
-            MotionState.TakeMarioHitFromSide(leftOrRight);
+            MotionState.GotHit(orientation);
         }
 
-        public void Turn(String leftOrRight)
+        public void Turn()
         {
             SoundManager.KickSoundPlay();
-            if (leftOrRight.Equals("left"))
-            {
-                MotionState.Turn(leftOrRight);
-            }
-            else if (leftOrRight.Equals("right"))
-            {
-                MotionState.Turn(leftOrRight);
-            }
-            else
-            {
-                throw new System.ArgumentException("Parameter must be \"left\" or \"right\".", "leftOrRight");
-            }
+            MotionState.Turn(Orientation.Default);
             SpriteState.Turn();
         }
 
         public void Flip()
         {
+            if (SpriteState.Dead) return;
             SoundManager.KickSoundPlay();
             SpriteState.Flip();
             MotionState.Flip();

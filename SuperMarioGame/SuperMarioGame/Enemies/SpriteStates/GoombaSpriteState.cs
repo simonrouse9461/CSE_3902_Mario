@@ -6,50 +6,14 @@ namespace SuperMario
 {
     public class GoombaSpriteState : EnemySpriteState
     {
-        private enum StatusEnum
-        {
-            Dead,
-            Walking,
-            Flip
-        }
-
-        private StatusEnum Status;
-
         public GoombaSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new DeadGoombaSprite(),
-                new WalkingGoombaSprite(),
-                new UpsideDownGoombaSprite()
-            };
+            AddSprite<DeadGoombaSprite>();
+            AddSprite<WalkingGoombaSprite>();
+            AddSprite<UpsideDownGoombaSprite>();
 
-            Status = StatusEnum.Walking;
-            ChangeSpriteFrequency(6);
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                if (Status == StatusEnum.Dead)
-                {
-                    return FindSprite<DeadGoombaSprite>();
-                }
-                else if (Status == StatusEnum.Walking)
-                {
-                    return FindSprite<WalkingGoombaSprite>();
-                }
-                else
-                {
-                    return FindSprite<UpsideDownGoombaSprite>();
-                }
-            }
-        }
-
-        public override void MarioSmash()
-        {
-            Status = StatusEnum.Dead;
+            SetSprite<WalkingGoombaSprite>();
+            SetSpriteFrequency(12);
         }
 
         public override void Turn()
@@ -57,14 +21,19 @@ namespace SuperMario
            
         }
 
+        public override void MarioSmash()
+        {
+            SetSprite<DeadGoombaSprite>();
+        }
+
         public void Flip()
         {
-            Status = StatusEnum.Flip;
+            SetSprite<UpsideDownGoombaSprite>();
         }
 
         public override bool Dead
         {
-            get { return Status == StatusEnum.Dead; }
+            get { return IsSprite<DeadGoombaSprite>() || IsSprite<UpsideDownGoombaSprite>(); }
         }
     }
 }

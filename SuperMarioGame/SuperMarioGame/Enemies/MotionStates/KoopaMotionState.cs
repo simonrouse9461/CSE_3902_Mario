@@ -4,151 +4,124 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class KoopaMotionState : MotionStateKernel
+    public class KoopaMotionState : MotionStateKernelNew
     {
-        private enum MotionEnum
-        {
-            None,
-            LeftWalk,
-            RightWalk,
-            LeftShellKick,
-            RightShellKick,
-            Flip
-        }
-
-        private MotionEnum MotionStatus;
-        public bool Gravity { get; private set; }
-
         public KoopaMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
-            {
-                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
-                new StatusSwitch<IMotion>(UniformMotion.KoopaShellLeft),
-                new StatusSwitch<IMotion>(UniformMotion.KoopaShellRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
-            };
+            AddMotion(UniformMotion.EnemyMoveLeft);
+            AddMotion(UniformMotion.EnemyMoveRight);
+            AddMotion(UniformMotion.KoopaShellLeft);
+            AddMotion(UniformMotion.KoopaShellRight);
+            AddMotion<GravityMotion>();
+            AddMotion(BounceUpMotion.FireballBounce);
 
-            LoseGravity();
             SetDefaultVertical();
             SetDefaultHorizontal();
         }
 
         public void SetDefaultHorizontal()
         {
-            MotionStatus = MotionEnum.LeftWalk;
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-            FindMotion(UniformMotion.KoopaShellLeft).Toggle(false);
-            FindMotion(UniformMotion.KoopaShellRight).Toggle(false);
+            TurnOffMotion(UniformMotion.EnemyMoveLeft);
+            TurnOffMotion(UniformMotion.EnemyMoveRight);
+            TurnOffMotion(UniformMotion.KoopaShellLeft);
+            TurnOffMotion(UniformMotion.KoopaShellRight);
+        }
+
+        public bool DefaultHotizontal
+        {
+            get
+            {
+                return !CheckMotion(UniformMotion.EnemyMoveLeft)
+                       && !CheckMotion(UniformMotion.EnemyMoveRight)
+                       && !CheckMotion(UniformMotion.KoopaShellLeft)
+                       && !CheckMotion(UniformMotion.KoopaShellRight);
+            }
         }
 
         public void SetDefaultVertical()
         {
-            Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
-            FindMotion<BounceUpMotion>().Toggle(false);
+            TurnOffMotion<BounceUpMotion>();
         }
 
-        public void Turn(string leftOrRight)
+        public void Turn(Orientation orientation)
         {
-            if (leftOrRight.Equals("left"))
+            switch (orientation)
             {
-                if (MotionStatus == MotionEnum.RightWalk)
-                {
-                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-                    FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
-                    MotionStatus = MotionEnum.LeftWalk;
-                }
-                else if (MotionStatus == MotionEnum.RightShellKick)
-                {
-                    FindMotion(UniformMotion.KoopaShellRight).Toggle(false);
-                    FindMotion(UniformMotion.KoopaShellLeft).Toggle(true);
-                    MotionStatus = MotionEnum.LeftShellKick;
-                }
-            }
-            else if (leftOrRight.Equals("right"))
-            {
-                if (MotionStatus == MotionEnum.LeftWalk)
-                {
-                    FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
-                    FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-                    MotionStatus = MotionEnum.RightWalk;
-                }
-                else if (MotionStatus == MotionEnum.LeftShellKick)
-                {
-                    FindMotion(UniformMotion.KoopaShellRight).Toggle(true);
-                    FindMotion(UniformMotion.KoopaShellLeft).Toggle(false);
-                    MotionStatus = MotionEnum.RightShellKick;
-                }
-            }
-            else
-            {
-                throw new System.ArgumentException("Parameter must be \"left\" or \"right\".", "leftOrRight");
+                case Orientation.Default:
+                    if (ShellLeft || MovingLeft) Turn(Orientation.Right);
+                    if (ShellRight || MovingRight) Turn(Orientation.Right);
+                    break;
+                case Orientation.Left:
+                    SetDefaultHorizontal();
+                    if (ShellLeft || ShellRight) TurnOnMotion(UniformMotion.KoopaShellLeft);
+                    else TurnOnMotion(UniformMotion.EnemyMoveLeft);
+                    break;
+                case Orientation.Right:
+                    SetDefaultHorizontal();
+                    if (ShellLeft || ShellRight) TurnOnMotion(UniformMotion.KoopaShellRight);
+                    else TurnOnMotion(UniformMotion.EnemyMoveRight);
+                    break;
             }
         }
 
         public void MarioSmash()
         {
-            MotionStatus = MotionEnum.None;
-
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-            FindMotion(UniformMotion.KoopaShellRight).Toggle(false);
-            FindMotion(UniformMotion.KoopaShellLeft).Toggle(false);
+            SetDefaultHorizontal();
         }
 
-        public void TakeMarioHitFromSide(string leftOrRight)
+        public void GotHit(Orientation orientation)
         {
-            if (MotionStatus == MotionEnum.None)
-            {
-                if (leftOrRight.Equals("left"))
-                {
-                    MotionStatus = MotionEnum.RightShellKick;
-                    FindMotion(UniformMotion.KoopaShellRight).Toggle(true);
-                }
-                else if (leftOrRight.Equals("right"))
-                {
-                    MotionStatus = MotionEnum.LeftShellKick;
-                    FindMotion(UniformMotion.KoopaShellLeft).Toggle(true);
-                }
-                else
-                {
-                    throw new System.ArgumentException("Parameter must be \"left\" or \"right\".", "leftOrRight");
-                }
-            }
-            
+            if (!DefaultHotizontal) return;
+
+            if (orientation == Orientation.Left)
+                TurnOnMotion(UniformMotion.KoopaShellRight);
+            if (orientation == Orientation.Right)
+                TurnOnMotion(UniformMotion.KoopaShellLeft);
         }
 
-        public bool isMoving
+        public bool MovingLeft
         {
-            get { return MotionStatus != MotionEnum.None;  }
+            get { return CheckMotion(UniformMotion.EnemyMoveLeft);}
         }
 
-        public bool isDead()
+        public bool MovingRight
         {
-            return MotionStatus == MotionEnum.None || MotionStatus == MotionEnum.Flip;
+            get { return CheckMotion(UniformMotion.EnemyMoveRight); }
         }
 
+        public bool ShellLeft
+        {
+            get { return CheckMotion(UniformMotion.KoopaShellLeft); }
+        }
+
+        public bool ShellRight
+        {
+            get { return CheckMotion(UniformMotion.KoopaShellRight); }
+        }
+
+        public bool IsMovingShell
+        {
+            get { return ShellLeft || ShellRight; }
+        }
 
         public void ObtainGravity()
         {
-            Gravity = true;
-            FindMotion<GravityMotion>().Toggle(true);
+            TurnOnMotion<GravityMotion>();
         }
 
         public void LoseGravity()
         {
-            Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
+            TurnOffMotion<GravityMotion>();
+        }
+
+        public bool Gravity
+        {
+            get { return CheckMotion<GravityMotion>(); }
         }
 
         public void Flip()
         {
-            MotionStatus = MotionEnum.Flip;
-            FindMotion<BounceUpMotion>().Toggle(true);
+            TurnOnMotion<BounceUpMotion>();
             ObtainGravity();
         }
     }

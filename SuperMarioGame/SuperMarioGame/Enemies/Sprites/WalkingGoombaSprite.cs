@@ -5,28 +5,20 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class WalkingGoombaSprite : SpriteKernel
+    public class WalkingGoombaSprite : SpriteKernelNew
     {
         public WalkingGoombaSprite()
         {
-            const int period = 20;
-
-            ImageFile.Default = "enemies";
-            Source.Default = new SpriteSource
+            AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(0, 4, 16, 16),
-                    new Rectangle(30, 4, 16, 16)
-                }
-            };
-            Animation.Default = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-                    return frameSequence[phase];
-                },
-                period);
+                {new Rectangle(0, 4, 16, 16), Orientation.Default},
+                {new Rectangle(30, 4, 16, 16), Orientation.Default},
+            });
+            SetAnimation(new []
+            {
+                new SpriteTransformation(0), 
+                new SpriteTransformation(1)
+            });
         }
     }
 }

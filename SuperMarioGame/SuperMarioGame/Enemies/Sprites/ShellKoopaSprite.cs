@@ -6,18 +6,14 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class ShellKoopaSprite : SpriteKernel
+    public class ShellKoopaSprite : SpriteKernelNew
     {
         public ShellKoopaSprite()
         {
-            ImageFile.Default = "enemies";
-            Source.Default = new SpriteSource
+            AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(360, 4, 18, 15)
-                }
-            };
+                {new Rectangle(360, 4, 18, 15), Orientation.Default}
+            });
         }
     }
 }

@@ -6,82 +6,34 @@ namespace SuperMario
 {
     public class KoopaSpriteState : EnemySpriteState
     {
-        private enum StatusEnum
-        {
-            Shell,
-            LeftWalking,
-            RightWalking,
-            Flip
-        }
-
-        private StatusEnum Status;
-
         public KoopaSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new ShellKoopaSprite(),
-                new LeftWalkingKoopaSprite(),
-                new RightWalkingKoopaSprite(),
-                new UpsideDownShellKoopaSprite()
-            };
+            AddSprite<ShellKoopaSprite>();
+            AddSprite<WalkingKoopaSprite>();
+            AddSprite<UpsideDownShellKoopaSprite>();
 
-            Status = StatusEnum.LeftWalking;
-            ChangeSpriteFrequency(25);
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                if (Status == StatusEnum.Shell)
-                {
-                    return FindSprite<ShellKoopaSprite>();
-                }
-                else if (Status == StatusEnum.RightWalking)
-                {
-                    return FindSprite<RightWalkingKoopaSprite>();
-                }
-                else if (Status == StatusEnum.LeftWalking)
-                {
-                    return FindSprite<LeftWalkingKoopaSprite>();
-                }
-                else if (Status == StatusEnum.Flip)
-                {
-                    return FindSprite<UpsideDownShellKoopaSprite>();
-                }
-                else
-                {
-                    return null;
-                }
-            }
+            SetSprite<WalkingKoopaSprite>();
+            SetSpriteFrequency(12);
         }
 
         public override void MarioSmash()
         {
-            Status = StatusEnum.Shell;
+            SetSprite<ShellKoopaSprite>();
         }
 
         public override void Turn()
         {
-            if (Status == StatusEnum.LeftWalking)
-            {
-                Status = StatusEnum.RightWalking;
-            }
-            else if (Status == StatusEnum.RightWalking)
-            {
-                Status = StatusEnum.LeftWalking;
-            }
+            SetOrientation(Orientation == Orientation.Left ? Orientation.Right : Orientation.Left);
         }
         
         public override bool Dead
         {
-            get { return Status == StatusEnum.Shell || Status == StatusEnum.Flip; }
+            get { return IsSprite<ShellKoopaSprite>() || IsSprite<UpsideDownShellKoopaSprite>(); }
         }
 
         public void Flip()
         {
-            Status = StatusEnum.Flip;
+            SetSprite<UpsideDownShellKoopaSprite>();
         }
     }
 }

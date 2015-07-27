@@ -5,18 +5,14 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class UpsideDownGoombaSprite : SpriteKernel
+    public class UpsideDownGoombaSprite : SpriteKernelNew
     {
         public UpsideDownGoombaSprite()
         {
-            ImageFile.Default = "enemies";
-            Source.Default = new SpriteSource
+            AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(330, 217, 16, 16)
-                }
-            };
+                {new Rectangle(330, 217, 16, 16), Orientation.Default}
+            });
         }
     }
 }

@@ -4,28 +4,14 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaMotionState : MotionStateKernel
+    public class GoombaMotionState : MotionStateKernelNew
     {
-        private enum MotionEnum
-        {
-            None,
-            LeftWalk,
-            RightWalk,
-            Flip
-        }
-
-        private  MotionEnum MotionStatus;
-        public bool Gravity { get; private set; }
-
         public GoombaMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
-            {
-                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
-            };
+            AddMotion(UniformMotion.EnemyMoveLeft);
+            AddMotion(UniformMotion.EnemyMoveRight);
+            AddMotion<GravityMotion>();
+            AddMotion(BounceUpMotion.FireballBounce);
 
             LoseGravity();
             SetDefaultVertical();
@@ -34,64 +20,79 @@ namespace SuperMario
 
         public void SetDefaultHorizontal()
         {
-            MotionStatus = MotionEnum.LeftWalk;
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
+            TurnOffMotion(UniformMotion.EnemyMoveLeft);
+            TurnOffMotion(UniformMotion.EnemyMoveRight);
         }
 
         public void SetDefaultVertical()
         {
-            Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
-            FindMotion<BounceUpMotion>().Toggle(false);
+            TurnOffMotion<GravityMotion>();
+            TurnOffMotion<BounceUpMotion>();
         }
 
-        public void Turn()
+        public void Turn(Orientation orientation)
         {
-            if (MotionStatus == MotionEnum.LeftWalk)
+            switch (orientation)
             {
-                FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
-                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-                MotionStatus = MotionEnum.RightWalk;
-            }
-            else if (MotionStatus == MotionEnum.RightWalk)
-            {
-                FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
-                MotionStatus = MotionEnum.LeftWalk;
+                case Orientation.Default:
+                    if (GoingLeft) GoRight();
+                    else GoLeft();
+                    break;
+                case Orientation.Left:
+                    GoLeft();
+                    break;
+                case Orientation.Right:
+                    GoRight();
+                    break;
             }
         }
 
+        public void GoLeft()
+        {
+            SetDefaultHorizontal();
+            TurnOnMotion(UniformMotion.EnemyMoveLeft);
+        }
+
+        public bool GoingLeft
+        {
+            get { return CheckMotion(UniformMotion.EnemyMoveLeft);}
+        }
+
+        public void GoRight()
+        {
+            SetDefaultHorizontal();
+            TurnOnMotion(UniformMotion.EnemyMoveRight);
+        }
+
+        public bool GoingRight
+        {
+            get { return CheckMotion(UniformMotion.EnemyMoveRight); }
+        }
 
         public void MarioSmash()
         {
-            MotionStatus = MotionEnum.None;
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-        }
-
-
-        public bool isAlive()
-        {
-            return MotionStatus != MotionEnum.None && MotionStatus != MotionEnum.Flip;
+            TurnOffMotion(UniformMotion.EnemyMoveLeft);
+            TurnOffMotion(UniformMotion.EnemyMoveRight);
         }
 
         public void ObtainGravity()
         {
-            Gravity = true;
             FindMotion<GravityMotion>().Toggle(true);
         }
 
         public void LoseGravity()
         {
-            Gravity = false;
             FindMotion<GravityMotion>().Toggle(false);
+        }
+
+        public bool Gravity
+        {
+            get { return CheckMotion<GravityMotion>(); }
         }
 
         public void Flip()
         {
-            MotionStatus = MotionEnum.Flip;
-            FindMotion<BounceUpMotion>().Toggle(true);
+            TurnOnMotion<BounceUpMotion>();
             ObtainGravity();
         }
     }

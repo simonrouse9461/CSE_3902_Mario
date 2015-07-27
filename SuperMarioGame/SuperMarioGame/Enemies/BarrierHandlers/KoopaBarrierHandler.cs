@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class KoopaBarrierHandler : BarrierHandlerKernel<KoopaStateController>
+    public class KoopaBarrierHandler : BarrierHandlerKernelNew<KoopaStateController>
     {
-        public KoopaBarrierHandler(ICore core) : base(core) { }
+        public KoopaBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
         {
@@ -21,16 +21,6 @@ namespace SuperMario
             else if (!Core.StateController.MotionState.Gravity && !BarrierCollision.Bottom.Touch)
             {
                 Core.StateController.MotionState.ObtainGravity();
-            }
-        }
-
-        public override void HandleOverlap()
-        {
-            if (BarrierCollision.AllEdge.None) return;
-
-            while (DetectBarrier().Bottom.Touch)
-            {
-                Core.GeneralMotionState.Adjust(new Vector2(0, -1));
             }
         }
 
