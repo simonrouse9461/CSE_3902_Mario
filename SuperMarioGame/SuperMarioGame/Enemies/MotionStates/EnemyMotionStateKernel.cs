@@ -84,6 +84,7 @@ namespace SuperMario
         {
             LoseGravity();
             SetDefaultHorizontal();
+            SetDefaultVertical();
         }
 
         public void Flip()

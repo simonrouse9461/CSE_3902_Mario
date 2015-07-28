@@ -20,6 +20,16 @@ namespace SuperMario
             get { return false; }
         }
 
+        public void TurnUnsolid()
+        {
+            
+        }
+
+        public void TurnSolid()
+        {
+
+        }
+
         public virtual bool Stealth
         {
             get { return true; }

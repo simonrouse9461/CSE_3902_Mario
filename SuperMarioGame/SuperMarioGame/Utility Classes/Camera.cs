@@ -82,7 +82,7 @@ namespace SuperMario
         public static void Update()
         {
             Adjusted = false;
-            var marioPosition = WorldManager.FindObject<MarioObject>().PositionPoint;
+            var marioPosition = WorldManager.FindObject<Mario>().PositionPoint;
             if (marioPosition.X > Location.X + ScreenSize.X/2)
             {
                 Adjust(marioPosition.X - Location.X - ScreenSize.X/2);

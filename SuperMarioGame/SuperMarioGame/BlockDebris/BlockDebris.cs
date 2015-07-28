@@ -6,10 +6,8 @@ namespace SuperMario
     {
         public BlockDebris()
         {
-            
+            TurnUnsolid();
         }
-
-        public override bool Solid { get { return false; } }
 
         public static BlockDebris UpperLeft
         {

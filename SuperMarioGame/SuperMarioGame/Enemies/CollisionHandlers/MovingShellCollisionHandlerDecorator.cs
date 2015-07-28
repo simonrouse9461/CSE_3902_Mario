@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class MovingShellCollisionHandlerDecorator : EnemyCollisionHandler, IDecorator
+    public class MovingShellCollisionHandlerDecorator : CollisionHandlerKernelNew<KoopaStateController>, IDecorator
     {
         public EnemyCollisionHandler DefaultCollisionHandler { get; private set; }
 
@@ -14,22 +14,33 @@ namespace SuperMario
 
         public void Restore()
         {
-            AbstractCore.SwitchComponent(DefaultCollisionHandler);
+            Core.SwitchComponent(DefaultCollisionHandler);
+            Core.StateController.Walk();
         }
 
         public void DelayRestore(int timeDelay)
         {
-            AbstractCore.DelayCommand(Restore, () => AbstractCore.CollisionHandler is MovingShellCollisionHandlerDecorator, timeDelay);
+            Core.DelayCommand(Restore,
+                () => Core.CollisionHandler is MovingShellCollisionHandlerDecorator
+                      && Core.StateController.NotMoving, timeDelay);
         }
 
-        protected override void HandleKoopa()
+        public override void Handle()
         {
-            
+            DefaultCollisionHandler.HandleStarPower();
+            HandleMario();
+            DefaultCollisionHandler.HandleBlock();
+            DefaultCollisionHandler.HandleBlockDebris();
+            DefaultCollisionHandler.HandleFireball();
         }
 
-        protected override void HandleMario()
+        protected void HandleMario()
         {
-            
+            var collision = Core.CollisionDetector.Detect<Mario>();
+            if (collision.Left.Touch || collision.TopLeft.Cover || collision.TopLeft.Touch && collision.TopRight.None)
+                Core.StateController.PushShell(Orientation.Right);
+            if (collision.Right.Touch || collision.TopRight.Cover || collision.TopRight.Touch && collision.TopLeft.None)
+                Core.StateController.PushShell(Orientation.Left);
         }
     }
 }

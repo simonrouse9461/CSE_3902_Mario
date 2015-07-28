@@ -12,8 +12,13 @@ namespace SuperMario
             AddSprite<WalkingKoopaSprite>();
             AddSprite<UpsideDownShellKoopaSprite>();
 
-            SetSprite<WalkingKoopaSprite>();
+            Walk();
             SetSpriteFrequency(12);
+        }
+
+        public void Walk()
+        {
+            SetSprite<WalkingKoopaSprite>();
         }
 
         public void MarioSmash()

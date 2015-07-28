@@ -17,12 +17,12 @@ namespace SuperMario
 
         private void HandleMario()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.Destructive).Bottom.Touch)
+            if (Core.CollisionDetector.Detect<Mario>(mario => mario.Destructive).Bottom.Touch)
             {
                 if (!Core.StateController.HasStar && !Core.StateController.HasCoin)
                     Core.StateController.NormalBlockDestroyed();
             }
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch)
+            if (Core.CollisionDetector.Detect<Mario>(mario => mario.GoingUp).Bottom.Touch)
             {
                 if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal && !Core.StateController.HasStar)
                     Core.StateController.GotHit();

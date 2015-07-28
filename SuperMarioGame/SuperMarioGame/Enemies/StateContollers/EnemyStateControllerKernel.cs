@@ -8,11 +8,15 @@
     {
         public bool Dead { get { return SpriteState.Dead; } }
 
+        public bool NotMoving { get { return MotionState.DefaultHotizontal; } }
+
         public abstract void MarioSmash();
 
         public void Flip()
         {
             if (Dead) return;
+            Core.Object.TurnUnsolid();
+            Core.BarrierHandler.ClearBarrier();
             SoundManager.KickSoundPlay();
             SpriteState.Flip();
             MotionState.Flip();

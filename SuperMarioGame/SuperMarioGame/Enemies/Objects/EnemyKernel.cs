@@ -14,11 +14,6 @@
             Core.BarrierHandler.AddBarrier<IEnemy>();
         }
 
-        public override bool Solid
-        {
-            get { return Alive; }
-        }
-
         public bool Alive
         {
             get { return !StateController.Dead; }

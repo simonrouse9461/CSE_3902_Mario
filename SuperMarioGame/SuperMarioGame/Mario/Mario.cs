@@ -1,8 +1,8 @@
 namespace SuperMario
 {
-    public class MarioObject : ObjectKernelNew<MarioStateController>, IMario
+    public class Mario : ObjectKernelNew<MarioStateController>, IMario
     {
-        public MarioObject()
+        public Mario()
         {
             CommandExecutor = new MarioCommandExecutor(Core);
             CollisionHandler = new MarioCollisionHandler(Core);
@@ -15,11 +15,6 @@ namespace SuperMario
             BarrierHandler.RemoveBarrier<IEnemy>();
 
             SoundManager.SwitchToOverworldMusic();
-        }
-
-        public override bool Solid
-        {
-            get { return Alive; }
         }
 
         public bool Alive

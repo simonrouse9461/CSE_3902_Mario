@@ -262,6 +262,8 @@ namespace SuperMario
         public void Die()
         {
             if (SpriteState.Dead) return;
+            Core.BarrierHandler.ClearBarrier();
+            Core.Object.TurnUnsolid();
             SpriteState.Die();
             MotionState.Die();
             SoundManager.SwitchToFailMusic();

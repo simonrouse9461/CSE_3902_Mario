@@ -308,7 +308,7 @@
     <Compile Include="Items\Sprites\StarSprite.cs" />
     <Compile Include="Controllers\GamepadController.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
-    <Compile Include="Mario\MarioObject.cs" />
+    <Compile Include="Mario\Mario.cs" />
     <Compile Include="Mario\MarioSpriteState.cs" />
     <Compile Include="Mario\Sprites\CrouchingMarioSprite.cs" />
     <Compile Include="Mario\Sprites\DeadMarioSprite.cs" />

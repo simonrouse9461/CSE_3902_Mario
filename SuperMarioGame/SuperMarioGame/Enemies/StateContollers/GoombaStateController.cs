@@ -8,14 +8,11 @@ namespace SuperMario
         {
             if (SpriteState.Dead) return;
 
-            Core.DelayCommand(() =>
-            {
-                MotionState.MarioSmash();
-                SpriteState.MarioSmash();
-            });
-
+            MotionState.MarioSmash();
+            SpriteState.MarioSmash();
             Core.DelayCommand(() => Core.Object.Unload(), 75);
-
+            Core.Object.TurnUnsolid();
+            Core.BarrierHandler.ClearBarrier();
             Display.AddScore<Goomba>();
             SoundManager.StompSoundPlay();
         }

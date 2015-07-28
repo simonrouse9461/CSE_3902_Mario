@@ -4,7 +4,7 @@
     {
         public override void Execute()
         {
-            WorldManager.FindObject<MarioObject>().PassCommand(this);
+            WorldManager.FindObject<Mario>().PassCommand(this);
         } 
     }
 }

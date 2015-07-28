@@ -6,21 +6,25 @@ namespace SuperMario
     {
         public override void MarioSmash()
         {
-            Core.DelayCommand(() =>
-            {
-                MotionState.MarioSmash();
-                SpriteState.MarioSmash();
-            });
+            MotionState.MarioSmash();
+            SpriteState.MarioSmash();
 
             Core.SwitchComponent(new MovingShellCollisionHandlerDecorator(Core));
-            ((IDecorator)Core.CollisionHandler).DelayRestore(150);
+            ((IDecorator) Core.CollisionHandler).DelayRestore(150);
             SoundManager.StompSoundPlay();
         }
 
         public void PushShell(Orientation orientation)
         {
+            if (!NotMoving) return;
             SoundManager.KickSoundPlay();
             MotionState.Push(orientation);
+        }
+
+        public void Walk()
+        {
+            SpriteState.Walk();
+            MotionState.Turn(SpriteState.Orientation);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace SuperMario
         protected ObjectKernelNew()
         {
             Core = new CoreNew<TStateController>(this);
+            TurnSolid();
         } 
 
         // Object core that wraps all internal components of the object
@@ -59,9 +60,16 @@ namespace SuperMario
         }
 
         // Public State Properties
-        public virtual bool Solid
+        public bool Solid { get; private set; }
+
+        public void TurnSolid()
         {
-            get { return true; }
+            Solid = true;
+        }
+
+        public void TurnUnsolid()
+        {
+            Solid = false;
         }
 
         public virtual bool Stealth
@@ -144,7 +152,9 @@ namespace SuperMario
 
         public void Update()
         {
-            var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionStateNew) && BarrierHandler != null;
+            var haveBarrierHandler = !(GeneralMotionState is StaticMotionStateNew)
+                && BarrierHandler != null
+                && BarrierHandler.BarrierList.Count != 0;
             Core.Update();
             EventTrigger.CheckEvent();
             if (CommandExecutor != null) CommandExecutor.Execute();

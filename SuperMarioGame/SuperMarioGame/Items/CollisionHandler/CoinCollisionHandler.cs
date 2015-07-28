@@ -15,7 +15,7 @@ namespace SuperMario
 
         protected virtual void HandleMario()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>().AnySide.Touch)
+            if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
                 Core.Obj.Unload();
                 Display.AddScore<Coin>();

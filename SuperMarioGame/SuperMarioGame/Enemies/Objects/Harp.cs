@@ -8,10 +8,5 @@ namespace SuperMario
         {
             CollisionHandler = new HarpCollisionHandler(Core);
         }
-
-        public override bool Solid
-        {
-            get { return false; }
-        }
     }
 }
