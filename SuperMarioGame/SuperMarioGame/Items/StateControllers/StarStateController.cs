@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class StarStateController : StateControllerKernel<StarSpriteState, StarMotionState>
+    public class StarStateController : StateControllerKernelNew<StarSpriteState, StarMotionState>
     {
 
         public void Generate()

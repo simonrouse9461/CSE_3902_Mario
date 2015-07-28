@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 namespace SuperMario
 {
-    public  class Coin : ObjectKernel<CoinStateController>, IItem
+    public  class Coin : ObjectKernelNew<CoinStateController>, IItem
     {
         public Coin()
         {

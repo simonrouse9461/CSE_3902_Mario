@@ -5,30 +5,28 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class FireflowerSprite : SpriteKernel
+    public class FireflowerSprite : SpriteKernelNew
     {
         public FireflowerSprite()
         {
             const int period = 4;
+            AddSource(
+                "items",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(3, 64, 17, 18), Orientation.Default},
+                    {new Rectangle(33, 64, 17, 18), Orientation.Default},
+                    {new Rectangle(63, 64, 17, 18), Orientation.Default},
+                    {new Rectangle(93, 64, 17, 18), Orientation.Default}
+                });
 
-            ImageFile.Default = "items";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(3, 64, 17, 18),
-                    new Rectangle(33, 64, 17, 18),
-                    new Rectangle(63, 64, 17, 18),
-                    new Rectangle(93, 64, 17, 18)
-                }
-            };
-            Animation.Default = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = { 0, 1, 2, 3 };
-                    return frameSequence[phase];
-                },
-                period);
+
+            SetAnimation(
+                new[] {
+                    new SpriteTransformation(0),
+                    new SpriteTransformation(1),
+                    new SpriteTransformation(2),
+                    new SpriteTransformation(3)
+                });      
         }
     }
 }

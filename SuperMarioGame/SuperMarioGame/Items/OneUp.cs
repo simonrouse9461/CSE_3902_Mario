@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class OneUp : ObjectKernel<OneUpStateController>, IItem
+    public class OneUp : ObjectKernelNew<OneUpStateController>, IItem
     {
         public OneUp()
         {

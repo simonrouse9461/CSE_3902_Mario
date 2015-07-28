@@ -4,22 +4,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class MushroomSpriteState : SpriteStateKernel
+    public class MushroomSpriteState : SpriteStateKernelNew<int>
     {
         public MushroomSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new MushroomSprite(),
-            };
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<MushroomSprite>();
-            }
+            AddSprite<MushroomSprite>();
         }
     }
 

@@ -4,22 +4,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class OneUpSpriteState : SpriteStateKernel
+    public class OneUpSpriteState : SpriteStateKernelNew<int>
     {
         public OneUpSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new OneUpSprite()
-            };
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<OneUpSprite>();
-            }
+            AddSprite<OneUpSprite>();
         }
     }
 }

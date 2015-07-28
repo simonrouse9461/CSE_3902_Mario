@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class FireflowerCollisionHandler : CollisionHandlerKernel<FireflowerStateController>
+    public class FireflowerCollisionHandler : CollisionHandlerKernelNew<FireflowerStateController>
     {
 
-        public FireflowerCollisionHandler(ICore core) : base(core) { }
+        public FireflowerCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()
         {
@@ -25,7 +25,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
                 Display.AddScore<Mushroom>();
             }
         }

@@ -5,18 +5,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class OneUpSprite : SpriteKernel
+    public class OneUpSprite : SpriteKernelNew
     {
         public OneUpSprite()
         {
-            ImageFile.Default = "items";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(214, 34, 16, 16)
-                }
-            };
+
+            AddSource(
+                "items",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(214, 34, 16, 16), Orientation.Default},
+                });
         }
     }
 }
