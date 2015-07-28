@@ -59,7 +59,7 @@ namespace SuperMario
         }
 
         // Public State Properties
-        public virtual bool Solid
+        public virtual bool IsBarrier
         {
             get { return true; }
         }
@@ -153,7 +153,7 @@ namespace SuperMario
 
         public void Update()
         {
-            var haveBarrierHandler = Solid && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
+            var haveBarrierHandler = IsBarrier && !(GeneralMotionState is StaticMotionState) && BarrierHandler != null;
             Core.Update();
             if (CommandExecutor != null) CommandExecutor.Execute();
             if (haveBarrierHandler) BarrierHandler.Update();

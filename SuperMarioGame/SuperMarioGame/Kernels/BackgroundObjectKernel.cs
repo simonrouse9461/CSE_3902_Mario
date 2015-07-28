@@ -15,7 +15,7 @@ namespace SuperMario
 
         protected TSpriteState SpriteState { get; set; }
 
-        public virtual bool Solid
+        public virtual bool IsBarrier
         {
             get { return false; }
         }

@@ -15,8 +15,7 @@ namespace SuperMario
             BarrierHandler.AddBarrier<IObject>();
             BarrierHandler.RemoveBarrier<IMario>();
             BarrierHandler.RemoveBarrier<IFireball>();
-            
-            TurnUnsolid();
+            BarrierHandler.BecomeNonBarrier();
         }
 
         public static FireballObject LeftFireBall

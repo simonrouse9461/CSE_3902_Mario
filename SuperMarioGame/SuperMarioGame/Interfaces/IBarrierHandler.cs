@@ -5,13 +5,14 @@ namespace SuperMario
 {
     public interface IBarrierHandler
     {
-        Collision BarrierCollision { get; }
-        Collection<Type> BarrierList { get; }
-        Collection<Type> BarrierExceptionList { get; }
+        bool IsBarrier { get; }
+        bool NoBarrier { get; }
         Collision DetectBarrier(int offset = 0);
         void AddBarrier<T>(Type type = null) where T : IObject;
         void RemoveBarrier<T>(Type type = null) where T : IObject;
         void ClearBarrier();
+        void BecomeBarrier();
+        void BecomeNonBarrier();
         void Update();
         void ResetVelocity();
         void HandleCollision();

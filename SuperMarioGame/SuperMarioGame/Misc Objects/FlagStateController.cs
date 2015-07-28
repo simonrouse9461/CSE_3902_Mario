@@ -5,7 +5,6 @@ namespace SuperMario
 {
     public class FlagStateController : StateControllerKernelNew<FlagSpriteState, StaticMotionStateNew>
     {
-
         public void Flag()
         {
             SpriteState.SetFlag();

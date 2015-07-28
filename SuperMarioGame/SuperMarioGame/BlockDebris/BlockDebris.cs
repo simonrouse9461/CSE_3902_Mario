@@ -6,8 +6,10 @@ namespace SuperMario
     {
         public BlockDebris()
         {
-            TurnUnsolid();
+            BarrierHandler.BecomeNonBarrier();
         }
+
+        public bool Lethal { get; set; }
 
         public static BlockDebris UpperLeft
         {

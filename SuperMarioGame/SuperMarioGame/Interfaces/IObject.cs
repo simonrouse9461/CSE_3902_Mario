@@ -11,15 +11,13 @@ using Microsoft.Xna.Framework;
         Rectangle PositionRectangle { get; }
         Vector2 PositionPoint { get; }
 
-        bool Solid { get; }
+        bool IsBarrier { get; }
         bool Stealth { get; }
         bool GoingUp { get; }
         bool GoingDown { get; }
         bool GoingLeft { get; }
         bool GoingRight { get; }
 
-        void TurnSolid();
-        void TurnUnsolid();
         void Transform<T>(T obj = null) where T : class, IObject, new();
         void Generate<T>(Vector2 offset = default(Vector2), T obj = null) where T : class, IObject, new();
         void Generate<T>(T obj) where T : class, IObject, new();

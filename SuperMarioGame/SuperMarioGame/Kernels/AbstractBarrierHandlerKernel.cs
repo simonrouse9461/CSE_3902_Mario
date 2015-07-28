@@ -8,9 +8,16 @@ namespace SuperMario
     public abstract class AbstractBarrierHandlerKernel<TStateController> : IBarrierHandler
         where TStateController : IStateControllerNew
     {
-        public Collision BarrierCollision { get; private set; }
-        public Collection<Type> BarrierList { get; private set; }
-        public Collection<Type> BarrierExceptionList { get; private set; }
+        public bool IsBarrier { get; private set; }
+
+        public bool NoBarrier
+        {
+            get { return BarrierList.Count == 0; }
+        }
+
+        protected Collision BarrierCollision { get; private set; }
+        private Collection<Type> BarrierList { get; set; }
+        private Collection<Type> BarrierExceptionList { get; set; }
 
         protected ICoreNew AbstractCore { get; set; }
 
@@ -28,7 +35,7 @@ namespace SuperMario
 
         public Collision DetectBarrier(int offset = 0)
         {
-            return AbstractCore.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, offset);
+            return AbstractCore.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.IsBarrier, offset);
         } 
 
         private static bool RemoveType(IList<Type> typeList, Type type)
@@ -74,6 +81,16 @@ namespace SuperMario
         {
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
+        }
+
+        public void BecomeBarrier()
+        {
+            IsBarrier = true;
+        }
+
+        public void BecomeNonBarrier()
+        {
+            IsBarrier = false;
         }
 
         public void Update()

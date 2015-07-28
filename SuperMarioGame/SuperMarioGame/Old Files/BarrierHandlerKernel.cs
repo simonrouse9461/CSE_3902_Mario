@@ -8,6 +8,10 @@ namespace SuperMario
     public abstract class BarrierHandlerKernel<TStateController> : IBarrierHandler
         where TStateController : IStateController, new()
     {
+        public bool IsBarrier { get { return true; } }
+        public bool NoBarrier { get { return true; } }
+        public void BecomeBarrier() { }
+        public void BecomeNonBarrier() { }
         public Collision BarrierCollision { get; private set; }
         public Collection<Type> BarrierList { get; private set; }
         public Collection<Type> BarrierExceptionList { get; private set; }
@@ -32,7 +36,7 @@ namespace SuperMario
 
         public Collision DetectBarrier(int offset = 0)
         {
-            return Core.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.Solid, offset);
+            return Core.CollisionDetector.Detect(BarrierList, BarrierExceptionList, obj => obj.IsBarrier, offset);
         } 
 
         private static bool RemoveType(IList<Type> typeList, Type type)

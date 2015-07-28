@@ -15,7 +15,7 @@ namespace SuperMario
         }
 
         // make it not solid so that anything can pass through it
-        public override bool Solid
+        public override bool IsBarrier
         {
             get { return true; }
         }

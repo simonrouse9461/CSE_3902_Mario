@@ -12,7 +12,7 @@ namespace SuperMario
         protected ObjectKernelNew()
         {
             Core = new CoreNew<TStateController>(this);
-            TurnSolid();
+            BarrierHandler.BecomeBarrier();
         } 
 
         // Object core that wraps all internal components of the object
@@ -60,17 +60,7 @@ namespace SuperMario
         }
 
         // Public State Properties
-        public bool Solid { get; private set; }
-
-        public void TurnSolid()
-        {
-            Solid = true;
-        }
-
-        public void TurnUnsolid()
-        {
-            Solid = false;
-        }
+        public bool IsBarrier { get { return BarrierHandler.IsBarrier; } }
 
         public virtual bool Stealth
         {
