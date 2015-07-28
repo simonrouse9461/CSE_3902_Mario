@@ -9,14 +9,7 @@ namespace SuperMario
     {
         public LargeGreenPipeSprite()
         {
-            ImageFile.Default = "pipes green";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(229, 68, 32, 64)
-                }
-            };
+            AddSource("pipes green", new Rectangle(229, 68, 32, 64));
         }
     }
 }
