@@ -4,23 +4,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class FireflowerSpriteState : SpriteStateKernel
+    public class FireflowerSpriteState : SpriteStateKernelNew<int>
     {
         public FireflowerSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new FireflowerSprite(),
-            };
-            ChangeSpriteFrequency(10);
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<FireflowerSprite>();
-            }
+            AddSprite<FireflowerSprite>();
         }
     }
 }

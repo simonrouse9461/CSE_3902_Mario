@@ -4,23 +4,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class StarSpriteState : SpriteStateKernel
+    public class StarSpriteState : SpriteStateKernelNew<int>
     {
         public StarSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new StarSprite(),
-            };
-            ChangeSpriteFrequency(10);
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<StarSprite>();
-            }
+            AddSprite<StarSprite>();
         }
     }
 }

@@ -3,25 +3,12 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class FloatingCoinSpriteState : SpriteStateKernel
+    public class FloatingCoinSpriteState : SpriteStateKernelNew<int>
     {
 
         public FloatingCoinSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new FloatingCoinSprite(),
-            };
-            ChangeSpriteFrequency(10);
-        }
-
-        protected override ISprite RawSprite
-        {
-            get
-            {
-                return FindSprite<FloatingCoinSprite>();
-            }
-        }
-        
+            AddSprite<FloatingCoinSprite>();
+        }        
     }
 }
