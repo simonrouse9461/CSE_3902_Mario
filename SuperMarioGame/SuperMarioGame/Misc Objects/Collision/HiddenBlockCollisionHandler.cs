@@ -10,7 +10,7 @@ namespace SuperMario
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingUp).Bottom.Touch && !Core.StateController.SpriteState.isUsed)
+            if (Core.CollisionDetector.Detect<Mario>(mario => mario.GoingUp).Bottom.Touch && !Core.StateController.SpriteState.isUsed)
             {
                 Core.StateController.GiveThings(true);
             }

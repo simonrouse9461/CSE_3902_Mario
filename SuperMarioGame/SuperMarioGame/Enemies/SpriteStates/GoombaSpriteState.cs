@@ -4,67 +4,31 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaSpriteState : EnemySpriteState
+    public class GoombaSpriteState : SpriteStateKernelNew<int>, IEnemySpriteState
     {
-        private enum StatusEnum
-        {
-            Dead,
-            Walking,
-            Flip
-        }
-
-        private StatusEnum Status;
-
         public GoombaSpriteState()
         {
-            SpriteList = new Collection<ISprite>
-            {
-                new DeadGoombaSprite(),
-                new WalkingGoombaSprite(),
-                new UpsideDownGoombaSprite()
-            };
+            AddSprite<DeadGoombaSprite>();
+            AddSprite<WalkingGoombaSprite>();
+            AddSprite<UpsideDownGoombaSprite>();
 
-            Status = StatusEnum.Walking;
-            ChangeSpriteFrequency(6);
+            SetSprite<WalkingGoombaSprite>();
+            SetSpriteFrequency(12);
         }
 
-        protected override ISprite RawSprite
+        public void MarioSmash()
         {
-            get
-            {
-                if (Status == StatusEnum.Dead)
-                {
-                    return FindSprite<DeadGoombaSprite>();
-                }
-                else if (Status == StatusEnum.Walking)
-                {
-                    return FindSprite<WalkingGoombaSprite>();
-                }
-                else
-                {
-                    return FindSprite<UpsideDownGoombaSprite>();
-                }
-            }
-        }
-
-        public override void MarioSmash()
-        {
-            Status = StatusEnum.Dead;
-        }
-
-        public override void Turn()
-        {
-           
+            SetSprite<DeadGoombaSprite>();
         }
 
         public void Flip()
         {
-            Status = StatusEnum.Flip;
+            SetSprite<UpsideDownGoombaSprite>();
         }
 
-        public override bool Dead
+        public bool Dead
         {
-            get { return Status == StatusEnum.Dead; }
+            get { return IsSprite<DeadGoombaSprite>() || IsSprite<UpsideDownGoombaSprite>(); }
         }
     }
 }

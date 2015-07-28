@@ -2,50 +2,48 @@
 
 namespace SuperMario
 {
-    public class BlockDebrisObject : ObjectKernelNew<BlockDebrisStateController>
+    public class BlockDebris : ObjectKernelNew<BlockDebrisStateController>
     {
-        public BlockDebrisObject()
+        public BlockDebris()
         {
-            
+            TurnUnsolid();
         }
 
-        public override bool Solid { get { return false; } }
-
-        public static BlockDebrisObject UpperLeft
+        public static BlockDebris UpperLeft
         {
             get
             {
-                var instance = new BlockDebrisObject();
+                var instance = new BlockDebris();
                 instance.StateController.UpperLeft();
                 return instance;
             }
         }
 
-        public static BlockDebrisObject UpperRight
+        public static BlockDebris UpperRight
         {
             get
             {
-                var instance = new BlockDebrisObject();
+                var instance = new BlockDebris();
                 instance.StateController.UpperRight();
                 return instance;
             }
         }
 
-        public static BlockDebrisObject LowerLeft
+        public static BlockDebris LowerLeft
         {
             get
             {
-                var instance = new BlockDebrisObject();
+                var instance = new BlockDebris();
                 instance.StateController.LowerLeft();
                 return instance;
             }
         }
 
-        public static BlockDebrisObject LowerRight
+        public static BlockDebris LowerRight
         {
             get
             {
-                var instance = new BlockDebrisObject();
+                var instance = new BlockDebris();
                 instance.StateController.LowerRight();
                 return instance;
             }

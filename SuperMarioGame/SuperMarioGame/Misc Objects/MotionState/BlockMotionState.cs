@@ -10,16 +10,23 @@ namespace SuperMario
         public BlockMotionState()
         {
             AddMotion(BounceUpMotion.BlockHit);
+            AddMotion<GravityMotion>();
         }
 
-        public void Hit()
+        public void BounceUp()
         {
             TurnOnMotion<BounceUpMotion>();
+            TurnOnMotion<GravityMotion>();
         }
 
-        public bool isHit
+        public void StopFall()
         {
-            get { return CheckMotion<BounceUpMotion>(); }
+            TurnOffMotion<GravityMotion>();
+        }
+
+        public bool IsHit
+        {
+            get { return CheckMotion<BounceUpMotion>() || CheckMotion<GravityMotion>(); }
         }
     }
 }

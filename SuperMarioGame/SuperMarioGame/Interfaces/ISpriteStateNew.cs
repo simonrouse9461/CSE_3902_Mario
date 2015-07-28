@@ -26,7 +26,8 @@ namespace SuperMario
         void Hold(bool holdOrientation, int timer = 0, Action action = null);
         void HoldTillFinish(bool holdOrientation, SpriteHoldDependency dependency, int cycle, Action action = null);
         void HoldTillFinish(bool holdOrientation, SpriteHoldDependency dependency, Action action = null);
-        void HoldTillFinish(bool holdOrientation, int cycle = 1, Action action = null);
+        void HoldTillFinish(bool holdOrientation, int cycle, Action action = null);
+        void HoldTillFinish(bool holdOrientation, Action action = null);
         void Release();
         void Freeze(int timer = 0);
         void Resume();

@@ -56,7 +56,7 @@ namespace SuperMario
                 if (pauseCountdown == 5)
                 {
                     paused = false;
-                    SoundManager.ChangeToOverworldMusic();
+                    SoundManager.SwitchToOverworldMusic();
                 }
             }
             else

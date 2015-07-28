@@ -49,16 +49,15 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Fireflower>().AnyEdge.Touch)
             {
-                if (Core.StateController.SpriteState.Small) Core.DelayCommand(Core.StateController.Grow, 5);
-                else Core.DelayCommand(Core.StateController.GetFire, 5);
+                Core.DelayCommand(Core.StateController.GetFire, 5);
                 SoundManager.PowerUpSoundPlay();
             }
         }
 
         protected virtual void HandleEnemy()
         {
-            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && !enemy.isMovingShell);
-            if (collision.Left.Touch && !Core.Object.GoingRight || collision.Right.Touch && !Core.Object.GoingLeft)
+            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.CanKillMario);
+            if ((collision.AnySide | collision.Top).Touch)
                 Core.StateController.TakeDamage();
             if (collision.Bottom.Touch)
                 Core.StateController.Bounce();

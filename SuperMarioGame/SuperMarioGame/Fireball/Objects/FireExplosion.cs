@@ -27,17 +27,24 @@ namespace SuperMario
             }
         }
 
-        public static FireExplosion LeftSide(IConvertible size)
+        public static FireExplosion Single(ExplosionSize size)
         {
             var instance = new FireExplosion();
-            instance.Core.StateController.ToLeft((ExplosionSize)size);
+            instance.Core.StateController.Single(size);
             return instance;
         }
 
-        public static FireExplosion RightSide(IConvertible size)
+        public static FireExplosion LeftSide(ExplosionSize size)
         {
             var instance = new FireExplosion();
-            instance.Core.StateController.ToRight((ExplosionSize)size);
+            instance.Core.StateController.ToLeft(size);
+            return instance;
+        }
+
+        public static FireExplosion RightSide(ExplosionSize size)
+        {
+            var instance = new FireExplosion();
+            instance.Core.StateController.ToRight(size);
             return instance;
         }
     }

@@ -4,95 +4,34 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaMotionState : MotionStateKernel
+    public class GoombaMotionState : EnemyMotionStateKernel
     {
-        private enum MotionEnum
-        {
-            None,
-            LeftWalk,
-            RightWalk,
-            Flip
-        }
 
-        private  MotionEnum MotionStatus;
-        public bool Gravity { get; private set; }
-
-        public GoombaMotionState()
+        public override void Turn(Orientation orientation)
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
+            switch (orientation)
             {
-                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.EnemyMoveRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(BounceUpMotion.FireballBounce)
-            };
-
-            LoseGravity();
-            SetDefaultVertical();
-            SetDefaultHorizontal();
-        }
-
-        public void SetDefaultHorizontal()
-        {
-            MotionStatus = MotionEnum.LeftWalk;
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-        }
-
-        public void SetDefaultVertical()
-        {
-            Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
-            FindMotion<BounceUpMotion>().Toggle(false);
-        }
-
-        public void Turn()
-        {
-            if (MotionStatus == MotionEnum.LeftWalk)
-            {
-                FindMotion(UniformMotion.EnemyMoveRight).Toggle(true);
-                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-                MotionStatus = MotionEnum.RightWalk;
-            }
-            else if (MotionStatus == MotionEnum.RightWalk)
-            {
-                FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-                FindMotion(UniformMotion.EnemyMoveLeft).Toggle(true);
-                MotionStatus = MotionEnum.LeftWalk;
+                case Orientation.Default:
+                    if (GoingLeft) GoRight();
+                    else GoLeft();
+                    break;
+                case Orientation.Left:
+                    GoLeft();
+                    break;
+                case Orientation.Right:
+                    GoRight();
+                    break;
             }
         }
 
-
-        public void MarioSmash()
+        public override Orientation Orientation
         {
-            MotionStatus = MotionEnum.None;
-            FindMotion(UniformMotion.EnemyMoveLeft).Toggle(false);
-            FindMotion(UniformMotion.EnemyMoveRight).Toggle(false);
-        }
-
-
-        public bool isAlive()
-        {
-            return MotionStatus != MotionEnum.None && MotionStatus != MotionEnum.Flip;
-        }
-
-        public void ObtainGravity()
-        {
-            Gravity = true;
-            FindMotion<GravityMotion>().Toggle(true);
-        }
-
-        public void LoseGravity()
-        {
-            Gravity = false;
-            FindMotion<GravityMotion>().Toggle(false);
-        }
-
-        public void Flip()
-        {
-            MotionStatus = MotionEnum.Flip;
-            FindMotion<BounceUpMotion>().Toggle(true);
-            ObtainGravity();
+            get
+            {
+                if (GoingLeft) return Orientation.Left;
+                if (GoingRight) return Orientation.Right;
+                return Orientation.Default;
+            }
         }
     }
 }

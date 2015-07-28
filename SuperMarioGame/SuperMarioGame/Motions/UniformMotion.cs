@@ -33,13 +33,10 @@ namespace SuperMario
             get { return (int)version; }
         }
 
-        public override Vector2 Velocity
+        public override Vector2 GetVelocity(int phase)
         {
-            get
-            {
-                var velocity = StartVelocity;
-                return velocity;
-            }
+            var velocity = StartVelocity;
+            return velocity;
         }
 
         // Versions
@@ -75,7 +72,7 @@ namespace SuperMario
                 return new UniformMotion
                 {
                     version = Version.KoopaLeft,
-                    StartVelocity = new Vector2(-4, 0)
+                    StartVelocity = new Vector2(4, 0)
                 };
             }
         }

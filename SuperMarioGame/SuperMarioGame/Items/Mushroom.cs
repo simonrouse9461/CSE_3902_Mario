@@ -10,7 +10,7 @@ namespace SuperMario
             CollisionHandler = new MushroomCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new MushroomBarrierHandler(Core);
-            SoundManager.PowerUpAppearSoundPlay();
+            SoundManager.ItemAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
 

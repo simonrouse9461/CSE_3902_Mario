@@ -10,7 +10,7 @@ namespace SuperMario
             CollisionHandler = new OneUpCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new OneUpBarrierHandler(Core);
-            SoundManager.PowerUpAppearSoundPlay();
+            SoundManager.ItemAppearSoundPlay();
         }
 
         // make it not solid so that anything can pass through it

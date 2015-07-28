@@ -35,11 +35,9 @@ namespace SuperMario
         public override void Update()
         {
             if (SpriteState.Dead) return;
-            if (MotionState.JumpFinish || MotionState.StartFall)
-            {
+            if (MotionState.StartFall || MotionState.JumpFinish) 
                 MotionState.SlowDownGravity();
-            }
-            if (MotionState.GoingLeft || MotionState.GoingRight)
+            if (MotionState.Going)
             {
                 if (MotionState.FullSpeed)
                     SpriteState.SetSpriteFrequency(4);
@@ -264,9 +262,11 @@ namespace SuperMario
         public void Die()
         {
             if (SpriteState.Dead) return;
+            Core.BarrierHandler.ClearBarrier();
+            Core.Object.TurnUnsolid();
             SpriteState.Die();
             MotionState.Die();
-            SoundManager.ChangeToDieMusic();
+            SoundManager.SwitchToFailMusic();
             MotionState.Freeze(40);
         }
 
@@ -280,7 +280,7 @@ namespace SuperMario
             if (AmmoLeft <= 0) return;
             SpriteState.Shoot();
             SpriteState.Hold(true, 7);
-            if (SpriteState.HaveNormalFire) 
+            if (SpriteState.HaveNormalFire)
             {
                 Core.Object.Generate(
                 new Vector2(SpriteState.IsLeft ? -8 : 8, -24)*GameSettings.SpriteScale,
@@ -288,13 +288,13 @@ namespace SuperMario
                 );
                 SoundManager.FireballSoundPlay();
             }
-            if (SpriteState.HaveSuperFire) {
+            if (SpriteState.HaveSuperFire) 
+            {
                 Core.Object.Generate(
                 new Vector2(SpriteState.IsLeft ? -16 : 16, -16)*GameSettings.SpriteScale,
                 SpriteState.IsLeft ? SuperFireballObject.LeftSuperFireball : SuperFireballObject.RightSuperFireball
                 );
                 SoundManager.SuperFireSoundPlay();
-                //MotionState.Adjust(new Vector2(SpriteState.IsLeft ? 8 : -8, 0)*GameSettings.SpriteScale);
             }
             AmmoLeft--;
         }
@@ -309,7 +309,7 @@ namespace SuperMario
             if (axis == null) axis = MotionState.Position.X;
             if (SpriteState.IsLeft) SpriteState.FaceRight(); 
             else SpriteState.FaceLeft();
-            MotionState.Adjust(new Vector2((axis.Value - MotionState.Position.X) * 2, 0));
+            MotionState.AdjustPosition(new Vector2((axis.Value - MotionState.Position.X) * 2, 0));
         }
 
         public void Grow()
@@ -332,6 +332,11 @@ namespace SuperMario
         {
             if (SpriteState.Dead) return;
             if (SpriteState.Upgrading) return;
+            if (SpriteState.Small)
+            {
+                Grow();
+                return;
+            }
             if (SpriteState.HaveNormalFire || SpriteState.HaveSuperFire)
             {
                 GetSuperFire();
@@ -364,46 +369,38 @@ namespace SuperMario
             Core.SwitchComponent(decorator);
             decorator.DelayRestore(stopTime);
             SpriteState.GetPower();
-            SoundManager.ChangeToStarMusic();
+            SoundManager.SwitchToStarPowerMusic();
             Core.DelayCommand(SpriteState.SlowDownPower, () => SpriteState.HavePower, slowDownTime);
             Core.DelayCommand(() =>
             {
                 SpriteState.LosePower();
-                SoundManager.ChangeToOverworldMusic();
+                SoundManager.SwitchToOverworldMusic();
             }, () => SpriteState.HavePower, stopTime);
         }
 
         public void TakeDamage()
         {
-            const int restoreTime = 200;
+            if (SpriteState.Blinking) return;
             ReleaseAll();
             WorldManager.FreezeWorld();
+            if (SpriteState.HaveAnyFire) SpriteState.LoseFire();
             if (SpriteState.Small)
             {
                 Die();
                 return;
             }
 
-            if (SpriteState.HaveNormalFire)
-            {
-                SpriteState.LoseFire();
-            }
-
-            var decorator = new DamagedMarioCollisionHandler(Core);
-            Core.SwitchComponent(decorator);
-            decorator.DelayRestore(restoreTime);
-
             SpriteState.StartBlink();
             SpriteState.Shrink();
             MotionState.Freeze();
             SoundManager.PowerDownSoundPlay();
-            SpriteState.HoldTillFinish(true, SpriteHoldDependency.SpriteAnimation, () =>
+            SpriteState.HoldTillFinish(true, () =>
             {
                 SpriteState.TurnSmall();
                 MotionState.Restore();
                 WorldManager.RestoreWorld();
             });
-            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, restoreTime);
+            Core.DelayCommand(SpriteState.StopBlink, () => SpriteState.Blinking, 200);
         }
 
         public void FinishLevel()
@@ -415,13 +412,13 @@ namespace SuperMario
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
             Core.BarrierHandler.RemoveBarrier<CastleObject>();
-            MotionState.Adjust(new Vector2(4, 0));
+            MotionState.AdjustPosition(new Vector2(4, 0));
             MotionState.Slip();
             SpriteState.Slip();
             SpriteState.Hold(false);
             SpriteState.FaceRight();
             Camera.Fix();
-            SoundManager.PauseMusic();
+            SoundManager.StopMusic();
             SoundManager.FlagpoleSoundPlay();
             Core.EventTrigger.AddAbsoluteLocationEvent((int)WorldManager.FindObject<CastleObject>().PositionPoint.X, EnterCastle);
         }

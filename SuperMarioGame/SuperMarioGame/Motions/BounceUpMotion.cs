@@ -32,17 +32,14 @@ namespace SuperMario
             get { return (int)version; }
         }
 
-        public override Vector2 Velocity
+        public override Vector2 GetVelocity(int phase)
         {
-            get
-            {
-                var velocity = Circulator.Phase*Acceleration + StartVelocity -
-                               GravityMotion.Max*(InvolveGravity ? 1 : 0);
-                velocity = (velocity.Y < (MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0)).Y)
-                    ? velocity
-                    : MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0);
-                return velocity;
-            }
+            var velocity = phase*Acceleration + StartVelocity -
+                           GravityMotion.Max*(InvolveGravity ? 1 : 0);
+            velocity = (velocity.Y < (MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0)).Y)
+                ? velocity
+                : MaxVelocity - GravityMotion.Max*(InvolveGravity ? 1 : 0);
+            return velocity;
         }
 
         public override bool Finish
@@ -190,10 +187,10 @@ namespace SuperMario
                 return new BounceUpMotion
                 {
                     version = Version.BlockHit,
-                    StartVelocity = new Vector2(0, -7.15f),
-                    Acceleration = new Vector2(0, 1.591f),
-                    InvolveGravity = false,
-                    MaxVelocity = GravityMotion.Max,
+                    StartVelocity = new Vector2(0, -2.2f),
+                    Acceleration = new Vector2(0, 0.2f),
+                    InvolveGravity = true,
+                    MaxVelocity = default(Vector2),
                     FinishWhenMax = true
                 };
             }

@@ -2,41 +2,19 @@
 
 namespace SuperMario
 {
-    public class GoombaStateController : StateControllerKernel<GoombaSpriteState, GoombaMotionState>
+    public class GoombaStateController : EnemyStateControllerKernel<Goomba, GoombaSpriteState, GoombaMotionState>
     {
-        public override void Update()
+        public override void MarioSmash()
         {
-        }
+            if (SpriteState.Dead) return;
 
-        public void MarioSmash()
-        {
-            Core.DelayCommand(() =>
-            {
-                MotionState.MarioSmash();
-                SpriteState.MarioSmash();
-            });
-
-            Core.DelayCommand(() =>
-            {
-                Core.Obj.Unload();
-            }, 75);
-
+            MotionState.MarioSmash();
+            SpriteState.MarioSmash();
+            Core.DelayCommand(() => Core.Object.Unload(), 75);
+            Core.Object.TurnUnsolid();
+            Core.BarrierHandler.ClearBarrier();
             Display.AddScore<Goomba>();
             SoundManager.StompSoundPlay();
-        }
-
-        public void Flip()
-        {
-            MotionState.Flip();
-            SpriteState.Flip();
-
-            Display.AddScore<Goomba>();
-            SoundManager.KickSoundPlay();
-        }
-
-        public void Turn()
-        {
-            MotionState.Turn();
         }
     }
 }

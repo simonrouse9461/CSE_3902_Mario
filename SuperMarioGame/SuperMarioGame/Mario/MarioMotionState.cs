@@ -161,13 +161,18 @@ namespace SuperMario
 
         public bool JumpFinish
         {
-            get { return CheckMotion(BounceUpMotion.MarioJump) && FindMotion(BounceUpMotion.MarioJump).Content.Finish; }
+            get { return Jumping && FindMotion(BounceUpMotion.MarioJump).Content.Finish; }
         }
 
         public bool StartFall
         {
-            get { return ((GravityMotion) FindMotion<GravityMotion>().Content).AboutToFall 
-                || DefaultVertical && Gravity && FindMotion<GravityMotion>().Content.ReachMax; }
+            get
+            {
+                return Gravity &&
+                       (FindMotion<GravityMotion>().Content.Velocity.Y < GravityMotion.Max.Y
+                        && FindMotion<GravityMotion>().Content.NextVelocity.Y >= GravityMotion.Max.Y
+                        || DefaultVertical && FindMotion<GravityMotion>().Content.ReachMax);
+            }
         }
 
         public void Die()
@@ -212,6 +217,11 @@ namespace SuperMario
         public bool GoingRight
         {
             get { return CheckMotion(AcceleratedMotion.MarioRight); }
+        }
+
+        public bool Going
+        {
+            get { return GoingLeft || GoingRight; }
         }
 
         public bool HaveInertia

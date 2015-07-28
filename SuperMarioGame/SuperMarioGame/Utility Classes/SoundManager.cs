@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -7,6 +8,8 @@ namespace SuperMario
 {
     public static class SoundManager
     {
+        private const string AudioDirectory = "Audio/";
+
         private enum SoundPlayMode
         {
             Default,
@@ -14,333 +17,247 @@ namespace SuperMario
             Lazy
         }
 
-        private enum CurrentlyPlayingMusic
+        private class SoundData
+        {
+            public SoundEffect Source;
+            public SoundEffectInstance Instance;
+            public SoundPlayMode Mode;
+        }
+
+        private enum SoundType
+        {
+            SmallJump,
+            SuperJump,
+            Bump,
+            BlockBreak,
+            Stomp,
+            Coin,
+            ItemAppear,
+            PowerUp,
+            Kick,
+            Pipe,
+            NormalFire,
+            SuperFire,
+            OneUp,
+            FlagPole,
+            Firework
+        }
+
+        private enum MusicType
         {
             Overworld,
+            Underworld,
+            Fail,
+            Win,
+            StarPower,
             Harp
         }
 
-        private static CurrentlyPlayingMusic cpm = CurrentlyPlayingMusic.Overworld;
+        private static MusicType ActiveMusic { get; set; }
 
-        // Background Musics
-        private static SoundEffect overworldMusic;
-        private static SoundEffect underworldMusic;
-        private static SoundEffect dieMusic;
-        private static SoundEffect winMusic;
-        private static SoundEffect starMusic;
-        private static SoundEffect harpMusic;
+        private static MusicType LastMusic { get; set; }
 
-        // Action Sounds
-        private static SoundEffect smallJumpSound;
-        private static SoundEffect superJumpSound;
-        private static SoundEffect bumpSound;
-        private static SoundEffect blockBreakSound;
-        private static SoundEffect stompSound;
-        private static SoundEffect coinSound;
-        private static SoundEffect powerUpAppearSound;
-        private static SoundEffect powerUpSound;
-        private static SoundEffect kickSound;
-        private static SoundEffect pipeSound;
-        private static SoundEffect fireballSound;
-        private static SoundEffect oneupSound;
-        private static SoundEffect flagpoleSound;
-        private static SoundEffect superfireSound;
-        private static SoundEffect fireworkSound;
+        private static Dictionary<SoundType, SoundData> SoundList { get; set; }
 
-        // Music Instance
-        private static SoundEffectInstance currentBackgroundMusic;
+        private static Dictionary<MusicType, SoundEffectInstance> MusicList { get; set; }
 
-        // Sound Instances
-        private static SoundEffectInstance smallJumpInstance;
-        private static SoundEffectInstance superJumpInstance;
-        private static SoundEffectInstance bumpInstance;
-        private static SoundEffectInstance blockBreakInstance;
-        private static SoundEffectInstance stompInstance;
-        private static SoundEffectInstance coinInstance;
-        private static SoundEffectInstance powerUpAppearInstance;
-        private static SoundEffectInstance powerUpInstance;
-        private static SoundEffectInstance kickInstance;
-        private static SoundEffectInstance pipeInstance;
-        private static SoundEffectInstance fireballInstance;
-        private static SoundEffectInstance oneupInstance;
-        private static SoundEffectInstance flagpoleInstance;
-        private static SoundEffectInstance superfireInstance;
-        private static SoundEffectInstance fireworkInstance;
-
-        // Sound Properties
-        private static SoundEffectInstance SmallJumpSound
+        private static void RegisterSound(ContentManager content, SoundType type, string fileName, SoundPlayMode mode)
         {
-            get { return CreateInstance(smallJumpSound, ref smallJumpInstance, SoundPlayMode.Lazy); }
+            var source = content.Load<SoundEffect>(AudioDirectory + fileName);
+            SoundList.Add(type, new SoundData
+            {
+                Source = source,
+                Instance = source.CreateInstance(),
+                Mode = mode
+            });
         }
 
-        private static SoundEffectInstance SuperJumpSound
+        private static void RegisterMusic(ContentManager content, MusicType type, string fileName, bool loop)
         {
-            get { return CreateInstance(superJumpSound, ref superJumpInstance, SoundPlayMode.Lazy); }
+            var instance = content.Load<SoundEffect>(AudioDirectory + fileName).CreateInstance();
+            instance.IsLooped = loop;
+            MusicList.Add(type, instance);
         }
 
-        private static SoundEffectInstance BumpSound
+        private static void PlaySound(SoundType type)
         {
-            get { return CreateInstance(bumpSound, ref bumpInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance BlockBreakSound
-        {
-            get { return CreateInstance(blockBreakSound, ref blockBreakInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance StompSound
-        {
-            get { return CreateInstance(stompSound, ref stompInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance CoinSound
-        {
-            get { return CreateInstance(coinSound, ref coinInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance PowerUpAppearSound
-        {
-            get { return CreateInstance(powerUpAppearSound, ref powerUpAppearInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance PowerUpSound
-        {
-            get { return CreateInstance(powerUpSound, ref powerUpInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance KickSound
-        {
-            get { return CreateInstance(kickSound, ref kickInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance PipeSound
-        {
-            get { return CreateInstance(pipeSound, ref pipeInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance FireballSound
-        {
-            get { return CreateInstance(fireballSound, ref fireballInstance, SoundPlayMode.Eager); }
-        }
-
-        private static SoundEffectInstance OneUpSound
-        {
-            get { return CreateInstance(oneupSound, ref oneupInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance FlagPoleSound
-        {
-            get { return CreateInstance(flagpoleSound, ref flagpoleInstance, SoundPlayMode.Lazy); }
-        }
-
-        private static SoundEffectInstance SuperFireSound
-        {
-            get { return CreateInstance(superfireSound, ref superfireInstance, SoundPlayMode.Eager); }
-        }
-
-        private static SoundEffectInstance FireWorkSound
-        {
-            get { return CreateInstance(fireworkSound, ref fireworkInstance, SoundPlayMode.Default); }
-        }
-
-        private static SoundEffectInstance CreateInstance(SoundEffect soundEffect, ref SoundEffectInstance soundInstance, SoundPlayMode mode)
-        {
-            switch (mode)
+            var sound = SoundList[type];
+            switch (sound.Mode)
             {
                 case SoundPlayMode.Default:
-                    return soundEffect.CreateInstance();
+                    sound.Source.CreateInstance().Play();
+                    return;
                 case SoundPlayMode.Eager:
-                    soundInstance = soundEffect.CreateInstance();
-                    return soundInstance;
+                    sound.Instance = sound.Source.CreateInstance();
+                    sound.Instance.Play();
+                    return;
                 case SoundPlayMode.Lazy:
-                    if (soundInstance != null && soundInstance.State == SoundState.Playing) return null;
-                    soundInstance = soundEffect.CreateInstance();
-                    return soundInstance;
+                    if (CheckState(type) == SoundState.Playing) return;
+                    sound.Instance = sound.Source.CreateInstance();
+                    sound.Instance.Play();
+                    return;
             }
-            return null;
         }
 
-        private static void PlaySound(SoundEffectInstance sound)
+        private static void StopSound(SoundType type)
         {
-            if (sound != null) sound.Play();
+            SoundList[type].Instance.Stop();
+        }
+
+        private static void PauseSound(SoundType type)
+        {
+            SoundList[type].Instance.Pause();
+        }
+
+        private static SoundState CheckState(SoundType type)
+        {
+            return SoundList[type].Instance.State;
+        }
+
+        private static void PauseAllMusic()
+        {
+            foreach (var music in MusicList)
+            {
+                music.Value.Pause();
+            }
+        }
+
+        private static void PlayMusic(MusicType type, bool restart = true)
+        {
+            if (ActiveMusic == type && CheckState(type) == SoundState.Playing) return;
+            LastMusic = ActiveMusic;
+            ActiveMusic = type;
+            PauseAllMusic();
+            if (restart) MusicList[type].Stop();
+            MusicList[type].Play();
+        }
+
+        private static SoundState CheckState(MusicType type)
+        {
+            return MusicList[type].State;
         }
 
         public static void LoadAllSounds(ContentManager content)
         {
-            overworldMusic = content.Load<SoundEffect>("Audio/overworld");
-            underworldMusic = content.Load<SoundEffect>("Audio/underworld");
-            dieMusic = content.Load<SoundEffect>("Audio/die");
-            winMusic = content.Load<SoundEffect>("Audio/win");
-            starMusic = content.Load<SoundEffect>("Audio/star");
-            harpMusic = content.Load<SoundEffect>("Audio/harp");
+            SoundList = new Dictionary<SoundType, SoundData>();
+            MusicList = new Dictionary<MusicType, SoundEffectInstance>();
 
-            smallJumpSound = content.Load<SoundEffect>("Audio/jump-small");
-            superJumpSound = content.Load<SoundEffect>("Audio/jump-super");
-            bumpSound = content.Load<SoundEffect>("Audio/bump");
-            blockBreakSound = content.Load<SoundEffect>("Audio/blockBreak");
-            stompSound = content.Load<SoundEffect>("Audio/stomp");
-            coinSound = content.Load<SoundEffect>("Audio/coin");
-            powerUpAppearSound = content.Load<SoundEffect>("Audio/powerUpAppear");
-            powerUpSound = content.Load<SoundEffect>("Audio/powerUp");
-            kickSound = content.Load<SoundEffect>("Audio/kick");
-            pipeSound = content.Load<SoundEffect>("Audio/pipe");
-            fireballSound = content.Load<SoundEffect>("Audio/fireball");
-            oneupSound = content.Load<SoundEffect>("Audio/smb_1-up");
-            flagpoleSound = content.Load<SoundEffect>("Audio/smb_flagpole");
-            superfireSound = content.Load<SoundEffect>("Audio/smb_bowserfire");
-            fireworkSound = content.Load<SoundEffect>("Audio/fireworks");
-            harpMusic = content.Load<SoundEffect>("Audio/harp");
-
+            RegisterMusic(content, MusicType.Overworld, "overworld", true);
+            RegisterMusic(content, MusicType.Underworld, "underworld", true);
+            RegisterMusic(content, MusicType.Fail, "die", false);
+            RegisterMusic(content, MusicType.Win, "win", false);
+            RegisterMusic(content, MusicType.StarPower, "star", true);
+            RegisterMusic(content, MusicType.Harp, "harp", true);
+            
+            RegisterSound(content, SoundType.SmallJump, "jump-small", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.SuperJump, "jump-super", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.Bump, "bump", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.BlockBreak, "blockBreak", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.Stomp, "stomp", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.Coin, "coin", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.ItemAppear, "powerUpAppear", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.PowerUp, "powerUp", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.Kick, "kick", SoundPlayMode.Default);
+            RegisterSound(content, SoundType.Pipe, "pipe", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.NormalFire, "fireball", SoundPlayMode.Eager);
+            RegisterSound(content, SoundType.SuperFire, "smb_bowserfire", SoundPlayMode.Eager);
+            RegisterSound(content, SoundType.OneUp, "smb_1-up", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.FlagPole, "smb_flagpole", SoundPlayMode.Lazy);
+            RegisterSound(content, SoundType.Firework, "fireworks", SoundPlayMode.Default);
         }
 
         public static void StopMusic()
         {
-            currentBackgroundMusic.Dispose();
+            MusicList[ActiveMusic].Stop();
         }
 
-        public static void ChangeToOverworldMusic()
+        public static void ResumeLastMusic(bool restart)
         {
-            if (currentBackgroundMusic != null)
-            {
-                currentBackgroundMusic.Dispose();
-            }
-            currentBackgroundMusic = overworldMusic.CreateInstance();
-            currentBackgroundMusic.IsLooped = true;
-            currentBackgroundMusic.Play();
+            PlayMusic(LastMusic, restart);
         }
 
-        public static void ChangeToUnderworldMusic()
+        public static void SwitchToOverworldMusic()
         {
-            if (cpm != CurrentlyPlayingMusic.Overworld)
-            {
-                if (currentBackgroundMusic != null)
-                {
-                    currentBackgroundMusic.Dispose();
-                }
-                currentBackgroundMusic = underworldMusic.CreateInstance();
-                currentBackgroundMusic.IsLooped = true;
-                currentBackgroundMusic.Play();
-
-                cpm = CurrentlyPlayingMusic.Overworld;
-            }
-            
+            PlayMusic(MusicType.Overworld);
         }
 
-        public static void ChangeToDieMusic()
+        public static void SwitchToUnderworldMusic()
         {
-            if (currentBackgroundMusic != null)
-            {
-                currentBackgroundMusic.Dispose();
-            }
-            currentBackgroundMusic = dieMusic.CreateInstance();
-            currentBackgroundMusic.IsLooped = false;
-            currentBackgroundMusic.Play();
-            DieMusicPlaying = true;
+            PlayMusic(MusicType.Underworld);
         }
 
-        public static bool DieMusicPlaying { get; private set; }
-
-        public static bool DieMusicFinished
+        public static void SwitchToFailMusic()
         {
-            get
-            {
-                if (DieMusicPlaying && currentBackgroundMusic.State == SoundState.Stopped)
-                {
-                    DieMusicPlaying = false;
-                    return true;
-                }
-                return false;
-            }
+            PlayMusic(MusicType.Fail);
         }
 
-        public static void ChangeToWinMusic()
+        public static bool FailMusicPlaying
         {
-            if (currentBackgroundMusic != null)
-            {
-                currentBackgroundMusic.Dispose();
-            }
-            currentBackgroundMusic = winMusic.CreateInstance();
-            currentBackgroundMusic.IsLooped = false;
-            currentBackgroundMusic.Play();
+            get { return ActiveMusic == MusicType.Fail && CheckState(MusicType.Fail) == SoundState.Playing; }
         }
 
-        public static void ChangeToStarMusic()
+        public static bool FailMusicFinished
         {
-            if (currentBackgroundMusic != null)
-            {
-                currentBackgroundMusic.Dispose();
-            }
-            currentBackgroundMusic = starMusic.CreateInstance();
-            currentBackgroundMusic.IsLooped = true;
-            currentBackgroundMusic.Play();
+            get { return ActiveMusic == MusicType.Fail && CheckState(MusicType.Fail) != SoundState.Playing; }
         }
 
-        public static void ChangeToHarpMusic()
+        public static void SwitchToWinMusic()
         {
-            if (cpm != CurrentlyPlayingMusic.Harp) {
-                if (currentBackgroundMusic != null)
-                {
-                    currentBackgroundMusic.Dispose();
-                }
-                currentBackgroundMusic = harpMusic.CreateInstance();
-                currentBackgroundMusic.IsLooped = true;
-                currentBackgroundMusic.Play();
-
-                cpm = CurrentlyPlayingMusic.Harp;
-            }
+            PlayMusic(MusicType.Win);
         }
 
-
-        public static void PauseMusic()
+        public static void SwitchToStarPowerMusic()
         {
-            if (currentBackgroundMusic != null)
-            {
-                currentBackgroundMusic.Dispose();
-            }
+            PlayMusic(MusicType.StarPower);
+        }
+
+        public static void SwitchToHarpMusic()
+        {
+            PlayMusic(MusicType.Harp);
         }
 
         public static void SmallJumpSoundPlay()
         {
-            PlaySound(SmallJumpSound);
+            PlaySound(SoundType.SmallJump);
         }
 
         public static void SuperJumpSoundPlay()
         {
-            PlaySound(SuperJumpSound);
+            PlaySound(SoundType.SuperJump);
         }
 
         public static void BumpSoundPlay()
         {
-            if (smallJumpInstance != null && smallJumpInstance.State == SoundState.Playing) 
-                smallJumpInstance.Stop();
-            if (superJumpInstance != null && superJumpInstance.State == SoundState.Playing) 
-                superJumpInstance.Stop();
-            PlaySound(BumpSound);
+            if (CheckState(SoundType.SmallJump) == SoundState.Playing)
+                StopSound(SoundType.SmallJump);
+            if (CheckState(SoundType.SuperJump) == SoundState.Playing)
+                StopSound(SoundType.SuperJump);
+            PlaySound(SoundType.Bump);
         }
 
         public static void BlockBreakSoundPlay()
         {
-            PlaySound(BlockBreakSound);
+            PlaySound(SoundType.BlockBreak);
         }
 
         public static void StompSoundPlay()
         {
-            PlaySound(StompSound);
+            PlaySound(SoundType.Stomp);
         }
 
         public static void CoinSoundPlay()
         {
-            PlaySound(CoinSound);
+            PlaySound(SoundType.Coin);
         }
 
-        public static void PowerUpAppearSoundPlay()
+        public static void ItemAppearSoundPlay()
         {
-            PlaySound(PowerUpAppearSound);
+            PlaySound(SoundType.ItemAppear);
         }
 
         public static void PowerUpSoundPlay()
         {
-            PlaySound(PowerUpSound);
+            PlaySound(SoundType.PowerUp);
         }
 
         public static void PowerDownSoundPlay()
@@ -350,39 +267,37 @@ namespace SuperMario
 
         public static void KickSoundPlay()
         {
-            PlaySound(KickSound);
+            PlaySound(SoundType.Kick);
         }
 
         public static void PipeSoundPlay()
         {
-            PlaySound(PipeSound);
+            PlaySound(SoundType.Pipe);
         }
 
         public static void FireballSoundPlay()
         {
-            PlaySound(FireballSound);
-        }
-
-        public static void OneUpSoundPlay()
-        {
-            PlaySound(OneUpSound);
-        }
-
-        public static void FlagpoleSoundPlay()
-        {
-            PlaySound(FlagPoleSound);
+            PlaySound(SoundType.NormalFire);
         }
 
         public static void SuperFireSoundPlay()
         {
-            PlaySound(SuperFireSound);
+            PlaySound(SoundType.SuperFire);
+        }
+
+        public static void OneUpSoundPlay()
+        {
+            PlaySound(SoundType.OneUp);
+        }
+
+        public static void FlagpoleSoundPlay()
+        {
+            PlaySound(SoundType.FlagPole);
         }
 
         public static void FireworkSoundPlay()
         {
-            var sound = FireWorkSound;
-            sound.Volume = 1;
-            PlaySound(sound);
+            PlaySound(SoundType.Firework);
         }
     }
 }

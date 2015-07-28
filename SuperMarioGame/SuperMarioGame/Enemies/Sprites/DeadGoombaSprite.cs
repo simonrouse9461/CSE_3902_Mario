@@ -5,18 +5,14 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class DeadGoombaSprite : SpriteKernel
+    public class DeadGoombaSprite : SpriteKernelNew
     {
         public DeadGoombaSprite()
         {
-            ImageFile.Default = "enemies";
-            Source.Default = new SpriteSource
+            AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(60, 8, 16, 8)
-                }
-            };
+                {new Rectangle(60, 8, 16, 8), Orientation.Default}
+            });
         }
     }
 }

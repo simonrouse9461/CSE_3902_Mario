@@ -2,53 +2,29 @@
 
 namespace SuperMario
 {
-    public class KoopaStateController : StateControllerKernel<KoopaSpriteState, KoopaMotionState>
+    public class KoopaStateController : EnemyStateControllerKernel<Koopa, KoopaSpriteState, KoopaMotionState>
     {
-        public override void Update()
+        public override void MarioSmash()
         {
-        }
+            MotionState.MarioSmash();
+            SpriteState.MarioSmash();
 
-        public void MarioSmash()
-        {
-            Core.DelayCommand(() =>
-            {
-                MotionState.MarioSmash();
-                SpriteState.MarioSmash();
-            });
-
-            Display.AddScore<Koopa>();
+            Core.SwitchComponent(new MovingShellCollisionHandlerDecorator(Core));
+            ((IDecorator) Core.CollisionHandler).DelayRestore(150);
             SoundManager.StompSoundPlay();
         }
 
-        public void TakeMarioHitFromSide(string leftOrRight)
+        public void PushShell(Orientation orientation)
         {
+            if (!NotMoving) return;
             SoundManager.KickSoundPlay();
-            MotionState.TakeMarioHitFromSide(leftOrRight);
+            MotionState.Push(orientation);
         }
 
-        public void Turn(String leftOrRight)
+        public void Walk()
         {
-            SoundManager.KickSoundPlay();
-            if (leftOrRight.Equals("left"))
-            {
-                MotionState.Turn(leftOrRight);
-            }
-            else if (leftOrRight.Equals("right"))
-            {
-                MotionState.Turn(leftOrRight);
-            }
-            else
-            {
-                throw new System.ArgumentException("Parameter must be \"left\" or \"right\".", "leftOrRight");
-            }
-            SpriteState.Turn();
-        }
-
-        public void Flip()
-        {
-            SoundManager.KickSoundPlay();
-            SpriteState.Flip();
-            MotionState.Flip();
+            SpriteState.Walk();
+            MotionState.Turn(SpriteState.Orientation);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace SuperMario
                 {
                     Core.StateController.SpriteState.Reset();
                     Core.StateController.SpriteState.Freeze();
-                    Core.DelayCommand(SoundManager.ChangeToWinMusic, 20);
+                    Core.DelayCommand(SoundManager.SwitchToWinMusic, 20);
                     Core.DelayCommand(() => Core.StateController.Flip(WorldManager.FindObject<FlagPoleObject>().PositionPoint.X + 0.5f), 40);
                     Core.DelayCommand(() =>
                     {

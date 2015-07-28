@@ -9,7 +9,7 @@ namespace SuperMario
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<MarioObject>(mario => mario.GoingDown).Top.Cover)
+            if (Core.CollisionDetector.Detect<Mario>(mario => mario.GoingDown).Top.Cover)
             {
                 WorldManager.SetWarpSection();
             }

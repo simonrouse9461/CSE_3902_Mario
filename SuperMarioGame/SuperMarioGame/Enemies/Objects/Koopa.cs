@@ -1,29 +1,15 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-
-namespace SuperMario
+﻿namespace SuperMario
 {
-    public  class Koopa : ObjectKernel<KoopaStateController>, IEnemy
+    public  class Koopa : EnemyKernel<KoopaStateController>
     {
-        public Koopa() {
-            CollisionHandler = new KoopaCollisionHandler(Core);
-            BarrierHandler = new KoopaBarrierHandler(Core);
-            BarrierHandler.AddBarrier<IBlock>();
+        public bool IsMovingShell
+        {
+            get { return StateController.SpriteState.Dead && StateController.MotionState.IsMovingShell; }
         }
 
-        public override bool Solid
+        public override bool CanKillMario
         {
-            get { return Alive; }
-        }
-
-        public bool Alive
-        {
-            get { return !StateController.MotionState.isDead(); }
-        }
-
-        public bool isMovingShell
-        {
-            get { return StateController.SpriteState.Dead && StateController.MotionState.isMoving; }
+            get { return Alive || IsMovingShell; }
         }
     }
 }

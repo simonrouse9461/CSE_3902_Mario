@@ -30,6 +30,11 @@ namespace SuperMario
             }
         }
 
+        public int NextPhase
+        {
+            get { return _phase + 1 == Frequency ? 0 : _phase + 1; }
+        }
+
         public Counter(int frequency = 1)
         {
             Reset(frequency);

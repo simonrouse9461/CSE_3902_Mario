@@ -211,7 +211,7 @@ namespace SuperMario
             {
                 Release();
                 action();
-            }, timer);
+            }, () => HoldDependency == SpriteHoldDependency.Updates, timer);
         }
 
         public void HoldTillFinish(bool holdOrientation, SpriteHoldDependency dependency, int cycle, Action action = null)
@@ -234,9 +234,14 @@ namespace SuperMario
             HoldTillFinish(holdOrientation, dependency, 1, action);
         }
 
-        public void HoldTillFinish(bool holdOrientation, int cycle = 1, Action action = null)
+        public void HoldTillFinish(bool holdOrientation, int cycle, Action action = null)
         {
             HoldTillFinish(holdOrientation, SpriteHoldDependency.SpriteAnimation, cycle, action);
+        }
+
+        public void HoldTillFinish(bool holdOrientation, Action action = null)
+        {
+            HoldTillFinish(holdOrientation, SpriteHoldDependency.SpriteAnimation, 1, action);
         }
 
         public void Release()

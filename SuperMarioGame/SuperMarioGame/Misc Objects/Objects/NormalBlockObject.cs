@@ -36,7 +36,7 @@ namespace SuperMario
         {
             get
             {
-                return Core.CollisionDetector.Detect<MarioObject>().Bottom.Touch;
+                return Core.CollisionDetector.Detect<Mario>().Bottom.Touch;
             }
         }
     }

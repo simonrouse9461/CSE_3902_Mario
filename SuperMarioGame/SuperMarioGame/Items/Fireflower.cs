@@ -10,7 +10,7 @@ namespace SuperMario
             CollisionHandler = new FireflowerCollisionHandler(Core);
             Core.StateController.MotionState.Generated();
             BarrierHandler = new FireflowerBarrierHandler(Core);
-            SoundManager.PowerUpAppearSoundPlay();
+            SoundManager.ItemAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
 

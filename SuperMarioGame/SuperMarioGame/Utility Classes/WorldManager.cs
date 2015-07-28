@@ -102,7 +102,7 @@ namespace SuperMario
 
                 // Mario should be drawn after items and enemies
                 new Collection<MarioShadow>(),
-                new Collection<MarioObject>(),
+                new Collection<Mario>(),
 
                 // Put green pipe after Mario to allow Mario goes into pipe
                 new Collection<GreenPipeObject>(),
@@ -114,7 +114,7 @@ namespace SuperMario
                 new Collection<FireExplosion>(),
                 new Collection<FireballObject>(),
                 new Collection<SuperFireballObject>(),
-                new Collection<BlockDebrisObject>()
+                new Collection<BlockDebris>()
             };
         }
 
@@ -152,7 +152,7 @@ namespace SuperMario
 
         public static void RemoveObject(IObject obj)
         {
-            if (obj is MarioObject) return;
+            if (obj is Mario) return;
             if (!ObjectList.Contains(obj)) return;
             foreach (var collection in Instance._objectList)
             {
@@ -204,23 +204,23 @@ namespace SuperMario
                 Instance.LevelData = content.Load<ObjectData[]>("LevelData");
                 if (true)
                 {
-                    CreateObject<MarioObject>(new Vector2(75, 398));
+                    CreateObject<Mario>(new Vector2(75, 398));
                 }
                 else
                 {
-                    CreateObject<MarioObject>(new Vector2(5725, 347));
+                    CreateObject<Mario>(new Vector2(5725, 347));
                     CreateObject<Mushroom>(new Vector2(5725, 347));
                 }
             }
             else if (CurrentSection == LevelSection.Underground)
             {
                 Instance.LevelData = content.Load<ObjectData[]>("UndergroundLevel");
-                CreateObject<MarioObject>(new Vector2(50, 200));
+                CreateObject<Mario>(new Vector2(50, 200));
             }
             else if (CurrentSection == LevelSection.Warp)
             {
                 Instance.LevelData = content.Load<ObjectData[]>("LevelData");
-                CreateObject<MarioObject>(new Vector2(5216, 370));
+                CreateObject<Mario>(new Vector2(5216, 370));
                 Camera.Adjust(new Vector2(5200, 0));
             }
 
@@ -241,27 +241,23 @@ namespace SuperMario
                     var version = string.IsNullOrEmpty(data.Version)
                         ? string.Empty
                         : " with a version name " + data.Version;
-                    throw new System.ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
+                    throw new ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
                 }
             }
         }
 
         public static void Update()
         {
-            FindObject<MarioObject>().Update();
+            FindObject<Mario>().Update();
 
             if (Camera.Adjusted || Modified)
                 foreach (var collection in Instance._objectList)
                     for (var i = 0; i < collection.Count; i++)
                     {
-                        var obj = (IObject)collection[i];
-                        if (Camera.OutOfRange(obj))
+                        var obj = (IObject) collection[i];
+                        if (Camera.OutOfRange(obj, new Vector4(20, 20, 20, 20)))
                         {
                             Camera.RemoveObject(obj);
-                            if (obj is Harp)
-                            {
-                                SoundManager.ChangeToOverworldMusic();
-                            }
                         }
                         else Camera.AddObject(obj);
                     }
@@ -276,17 +272,17 @@ namespace SuperMario
             {
                 for (var i = 0; i < Camera.ObjectList.Count; i++)
                 {
-                    if (Camera.ObjectList[i] is MarioObject) continue;
+                    if (Camera.ObjectList[i] is Mario) continue;
                     Camera.ObjectList[i].Update();
                 }
             }
-            if (Camera.OutOfRange(FindObject<MarioObject>()))
+            if (Camera.OutOfRange(FindObject<Mario>()))
             {
                 new MarioDieCommand().Execute();
-                Console.WriteLine(FindObject<MarioObject>().CollisionRectangle);
-                FindObject<MarioObject>().Freeze();
+                Console.WriteLine(FindObject<Mario>().CollisionRectangle);
+                FindObject<Mario>().Freeze();
             }
-            if (SoundManager.DieMusicFinished)
+            if (SoundManager.FailMusicFinished)
             {
                 Reload();
             }
@@ -315,10 +311,6 @@ namespace SuperMario
                     if (!Camera.OutOfRange(obj))
                     {
                         obj.Draw(spriteBatch);
-                        if (obj is Harp)
-                        {
-                            SoundManager.ChangeToHarpMusic();
-                        }
                     }
         }
     }

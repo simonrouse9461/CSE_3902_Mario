@@ -17,7 +17,7 @@ namespace SuperMario
 
         protected virtual void HandleObject()
         {
-            if (Core.CollisionDetector.Detect<IEnemy>().AnyEdge.Touch)
+            if (Core.CollisionDetector.Detect<IEnemy>(enemy=> enemy.Alive).AnyEdge.Touch)
             {
                 Core.StateController.Explode();
             }

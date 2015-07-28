@@ -2,8 +2,8 @@
 {
     public enum Orientation
     {
-        Default,
-        Left,
-        Right
+        Default = 0,
+        Left = -1,
+        Right = 1
     }
 }
