@@ -15,38 +15,13 @@ namespace SuperMario
         }
 
         private StatusEnum status;
+
         public GreenPipeSpriteState()
         {
-            SpriteList = new Collection<ISprite>{
-                new LargeGreenPipeSprite(),
-                new SmallGreenPipeSprite(),
-                new MediumGreenPipeSprite(),
-                new SecretGreenPipeSprite()
-            };
-        }
-
-        protected override ISprite RawSprite
-        {
-            get {
-
-                switch (status)
-                {
-                    case StatusEnum.Tall:
-                        return FindSprite<LargeGreenPipeSprite>();
-                        
-                    case StatusEnum.Small:
-                        return FindSprite<SmallGreenPipeSprite>();
-                        
-                    case StatusEnum.Medium:
-                        return FindSprite<MediumGreenPipeSprite>();
-                        
-                    case StatusEnum.Secret:
-                        return FindSprite<SecretGreenPipeSprite>();
-                        
-                    default:
-                        return FindSprite<LargeGreenPipeSprite>();
-                }
-            }
+            AddSprite<LargeGreenPipeSprite>();
+            AddSprite<SmallGreenPipeSprite>();
+            AddSprite<MediumGreenPipeSprite>();
+            AddSprite<SecretGreenPipeSprite>();
         }
 
         public void TallPipe(){

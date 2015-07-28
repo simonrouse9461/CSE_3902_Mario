@@ -10,11 +10,5 @@ namespace SuperMario
             Core.StateController.MotionState.Generated();
             BarrierHandler = new StarBarrierHandler(Core);
         }
-
-        // make it not solid so that anything can pass through it
-        public override bool IsBarrier
-        {
-            get { return true; }
-        }
     }
 }

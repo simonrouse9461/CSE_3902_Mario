@@ -13,11 +13,5 @@ namespace SuperMario
             SoundManager.ItemAppearSoundPlay();
             BarrierHandler.RemoveBarrier<IEnemy>();
         }
-
-        // make it not solid so that anything can pass through it
-        public override bool IsBarrier
-        {
-            get { return true; }
-        }
     }
 }
