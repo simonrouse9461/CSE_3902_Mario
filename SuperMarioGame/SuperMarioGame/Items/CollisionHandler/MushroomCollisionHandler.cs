@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class MushroomCollisionHandler : CollisionHandlerKernel<MushroomStateController>
+    public class MushroomCollisionHandler : CollisionHandlerKernelNew<MushroomStateController>
     {
-        public MushroomCollisionHandler(ICore core) : base(core){ }
+        public MushroomCollisionHandler(ICoreNew core) : base(core){ }
 
         public override void Handle()
         {
@@ -25,7 +25,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
                 Display.AddScore<Mushroom>();
             }
         }

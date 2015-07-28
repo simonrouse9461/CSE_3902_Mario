@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class CoinCollisionHandler : CollisionHandlerKernel<CoinStateController>
+    public class CoinCollisionHandler : CollisionHandlerKernelNew<CoinStateController>
     {
 
-        public CoinCollisionHandler(ICore core) : base(core) { }
+        public CoinCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()
         {
@@ -17,7 +17,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
                 Display.AddScore<Coin>();
             }
         }

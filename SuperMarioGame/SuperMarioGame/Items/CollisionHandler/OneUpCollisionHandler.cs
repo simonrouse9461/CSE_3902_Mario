@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class OneUpCollisionHandler : CollisionHandlerKernel<OneUpStateController>
+    public class OneUpCollisionHandler : CollisionHandlerKernelNew<OneUpStateController>
     {
-        public OneUpCollisionHandler(ICore core) : base(core) { }
+        public OneUpCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()
         {
@@ -24,7 +24,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
                 Display.AddScore<OneUp>();
             }
         }

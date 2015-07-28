@@ -5,9 +5,9 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class FloatingCoinCollisionHandler : CollisionHandlerKernel<FloatingCoinStateController>
+    public class FloatingCoinCollisionHandler : CollisionHandlerKernelNew<FloatingCoinStateController>
     {
-        public FloatingCoinCollisionHandler(ICore core) : base(core) { }
+        public FloatingCoinCollisionHandler(ICoreNew core) : base(core) { }
 
 
         public override void Handle()
@@ -19,7 +19,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
                 Display.AddScore<Coin>();
             }
         }

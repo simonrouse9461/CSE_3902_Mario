@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class StarCollisionHandler : CollisionHandlerKernel<StarStateController>
+    public class StarCollisionHandler : CollisionHandlerKernelNew<StarStateController>
     {
 
-        public StarCollisionHandler(ICore core) : base(core) { }
+        public StarCollisionHandler(ICoreNew core) : base(core) { }
 
         public override void Handle()
         {
@@ -25,7 +25,7 @@ namespace SuperMario
         {
             if (Core.CollisionDetector.Detect<Mario>().AnySide.Touch)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
                 Display.AddScore<Star>();
             }
         }
