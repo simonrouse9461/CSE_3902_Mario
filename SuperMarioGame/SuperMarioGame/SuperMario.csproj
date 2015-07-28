@@ -369,8 +369,6 @@
     <Compile Include="Utility Classes\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\x86\Debug\WindowsGame1.exe" />
-    <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="CODE_REVIEWS\ChuhanCodeReview.txt" />
     <Content Include="CODE_REVIEWS\AndrewCodeReview.txt" />
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
@@ -383,12 +381,7 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="obj\x86\Debug\cachefile-{077517F8-B460-4305-B13E-9B769FC7807D}-targetpath.txt" />
     <Content Include="obj\x86\Debug\ContentPipeline-{077517F8-B460-4305-B13E-9B769FC7807D}.xml" />
-    <Content Include="obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt" />
-    <Content Include="obj\x86\Debug\SuperMario.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\x86\Debug\WindowsGame1.exe" />
-    <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -424,17 +417,13 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\x86\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="bin\x86\Debug\WindowsGame1.exe.config" />
     <None Include="Locations.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\x86\Debug\SuperMario.csprojResolveAssemblyReference.cache" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

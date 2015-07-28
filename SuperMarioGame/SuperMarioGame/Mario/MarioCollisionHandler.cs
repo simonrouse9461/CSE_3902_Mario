@@ -56,16 +56,20 @@ namespace SuperMario
 
         protected virtual void HandleEnemy()
         {
-            var aliveEnemyCollision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive);
+            var aliveEnemyRightCollision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && enemy.GoingRight);
+            var aliveEnemyLeftCollision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.Alive && enemy.GoingLeft);
             var koopaShellRightCollision = Core.CollisionDetector.Detect<Koopa>(koopa => koopa.IsMovingShell && koopa.GoingRight);
             var koopaShellLeftCollision = Core.CollisionDetector.Detect<Koopa>(koopa => koopa.IsMovingShell && koopa.GoingLeft);
 
-            if ((aliveEnemyCollision.AnySide | aliveEnemyCollision.Top).Touch
+            if (aliveEnemyLeftCollision.Left.Touch && Core.Object.GoingLeft
+                || aliveEnemyRightCollision.Right.Touch && Core.Object.GoingRight
+                || (aliveEnemyLeftCollision.Right | aliveEnemyRightCollision.Left).Touch
+                ||(aliveEnemyRightCollision + aliveEnemyLeftCollision).Top.Touch
                 || koopaShellLeftCollision.Right.Touch
                 || koopaShellRightCollision.Left.Touch
                 || (koopaShellLeftCollision + koopaShellRightCollision).Top.Touch)
                 Core.StateController.TakeDamage();
-            if ((koopaShellLeftCollision + koopaShellRightCollision + aliveEnemyCollision).Bottom.Touch)
+            if ((koopaShellLeftCollision + koopaShellRightCollision + aliveEnemyLeftCollision + aliveEnemyRightCollision).Bottom.Touch)
                 Core.StateController.Bounce();
         }
 
