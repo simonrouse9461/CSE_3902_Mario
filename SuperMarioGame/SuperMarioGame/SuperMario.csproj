@@ -352,6 +352,8 @@
     <Compile Include="Utility Classes\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\x86\Debug\WindowsGame1.exe" />
+    <Content Include="bin\x86\Debug\WindowsGame1.pdb" />
     <Content Include="CODE_REVIEWS\ChuhanCodeReview.txt" />
     <Content Include="CODE_REVIEWS\AndrewCodeReview.txt" />
     <Content Include="CODE_REVIEWS\BowenCodeReadabilityReviewS4.txt" />
@@ -401,10 +403,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\x86\Release\" />
     <Folder Include="Old Files\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="bin\x86\Debug\WindowsGame1.exe.config" />
     <None Include="Locations.xsd">
       <SubType>Designer</SubType>
     </None>
