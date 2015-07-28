@@ -7,9 +7,7 @@ namespace SuperMario
 
         public CoinMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(BounceUpMotion.CoinMotion)
-            };
+            AddMotion(BounceUpMotion.CoinMotion);
         }
 
         public void Generated()

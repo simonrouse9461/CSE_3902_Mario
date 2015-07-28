@@ -9,14 +9,12 @@ namespace SuperMario
 
         public MushroomOneUpMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
-            {
-                new StatusSwitch<IMotion>(UniformMotion.ItemMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.ItemMoveRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>(UniformMotion.ItemRaiseUp),
-                new StatusSwitch<IMotion>(BounceUpMotion.ItemBounce)
-            };
+            AddMotion(UniformMotion.ItemMoveLeft);
+            AddMotion(UniformMotion.ItemMoveRight);
+            AddMotion(new GravityMotion());
+            AddMotion(UniformMotion.ItemRaiseUp);
+            AddMotion(BounceUpMotion.ItemBounce);
+
             LoseGravity();
             SetDefaultHorizontal();
             SetDefaultVertical();

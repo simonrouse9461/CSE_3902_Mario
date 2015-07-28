@@ -9,14 +9,12 @@ namespace SuperMario
 
         public StarMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
-            {
-                new StatusSwitch<IMotion>(UniformMotion.ItemMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.ItemMoveRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>((UniformMotion.ItemRaiseUp)),
-                new StatusSwitch<IMotion>(BounceUpMotion.StarMotion)
-            };
+            AddMotion(UniformMotion.ItemMoveLeft);
+            AddMotion(UniformMotion.ItemMoveRight);
+            AddMotion(new GravityMotion());
+            AddMotion((UniformMotion.ItemRaiseUp));
+            AddMotion(BounceUpMotion.StarMotion);
+
             LoseGravity();
             SetDefaultHorizontal();
         }
