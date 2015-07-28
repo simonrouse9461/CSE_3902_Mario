@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class PipeStateController : StateControllerKernel<GreenPipeSpriteState, StaticMotionState>
+    public class PipeStateController : StateControllerKernelNew<GreenPipeSpriteState, StaticMotionStateNew>
     {
         public bool Warp;
 

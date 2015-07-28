@@ -62,7 +62,21 @@
     <Compile Include="ObjectData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\x86\Debug\LeveLoader.dll" />
+    <Content Include="bin\x86\Debug\LeveLoader.pdb" />
+    <Content Include="obj\x86\Debug\LevelLoader.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\x86\Debug\LeveLoader.dll" />
+    <Content Include="obj\x86\Debug\LeveLoader.pdb" />
+    <Content Include="obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\x86\Debug\LevelLoader.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\x86\Debug\TempPE\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

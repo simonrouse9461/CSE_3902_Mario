@@ -193,13 +193,9 @@
     <Compile Include="Misc Objects\SpriteState\QuestionBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
     <Compile Include="Motions\UniformMotion.cs" />
-    <Compile Include="Old Files\ISprite.cs" />
     <Compile Include="Interfaces\ISpriteNew.cs" />
     <Compile Include="Interfaces\ISpriteStateNew.cs" />
-    <Compile Include="Old Files\ISpriteState.cs" />
-    <Compile Include="Old Files\ICore.cs" />
     <Compile Include="Interfaces\IStateControllerNew.cs" />
-    <Compile Include="Old Files\IStateController.cs" />
     <Compile Include="Items\BarrierHandlers\FireflowerBarrierHandler.cs" />
     <Compile Include="Items\BarrierHandlers\MushroomBarrierHandler.cs" />
     <Compile Include="Items\BarrierHandlers\OneUpBarrierHandler.cs" />
@@ -223,16 +219,12 @@
     <Compile Include="Items\StateControllers\OneUpStateController.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Items\ItemMotionStates\MushroomOneUpMotionState.cs" />
-    <Compile Include="Old Files\CollisionHandlerKernel.cs" />
     <Compile Include="Kernels\CommandKernel.cs" />
-    <Compile Include="Old Files\MotionStateKernel.cs" />
     <Compile Include="Kernels\BackgroundObjectKernel.cs" />
     <Compile Include="Kernels\ObjectKernelNew.cs" />
-    <Compile Include="Old Files\ObjectKernel.cs" />
     <Compile Include="Kernels\SpriteKernelNew.cs" />
     <Compile Include="Kernels\SpriteStateKernelNew.cs" />
     <Compile Include="Kernels\StateControllerKernelNew.cs" />
-    <Compile Include="Old Files\StateControllerKernel.cs" />
     <Compile Include="Mario\CollisionHandlerDecorators\StarMarioCollisionHandler.cs" />
     <Compile Include="Mario\Commands\MarioFireballCommand.cs" />
     <Compile Include="Mario\MarioBarrierHandler.cs" />
@@ -265,11 +257,6 @@
     <Compile Include="Misc Objects\Sprites\SmallGreenPipeSprite.cs" />
     <Compile Include="Misc Objects\Sprites\SecretGreenPipeSprite.cs" />
     <Compile Include="Motions\InertiaMotion.cs" />
-    <Compile Include="Old Files\BarrierHandlerKernel.cs" />
-    <Compile Include="Old Files\SpriteKernel.cs" />
-    <Compile Include="Old Files\SpriteStateKernel.cs" />
-    <Compile Include="Mario\Sprites\SwimmingSuperMarioSprite.cs" />
-    <Compile Include="Mario\Sprites\SwimmingSmallMarioSprite.cs" />
     <Compile Include="Interfaces\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICommandExecutor.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
@@ -302,7 +289,6 @@
     <Compile Include="Mario\Commands\MarioRightCommand.cs" />
     <Compile Include="Mario\Commands\MarioUpCommand.cs" />
     <Compile Include="Enemies\Objects\Koopa.cs" />
-    <Compile Include="Old Files\IMotionState.cs" />
     <Compile Include="Interfaces\IObject.cs" />
     <Compile Include="Items\OneUp.cs" />
     <Compile Include="Items\Fireflower.cs" />
@@ -350,7 +336,6 @@
     <Compile Include="Utility Classes\Collision.cs" />
     <Compile Include="Utility Classes\CollisionType.cs" />
     <Compile Include="Utility Classes\CommandManager.cs" />
-    <Compile Include="Old Files\Core.cs" />
     <Compile Include="Helper Classes and Structs\Counter.cs" />
     <Compile Include="Utility Classes\DefaultBarrierHandler.cs" />
     <Compile Include="Helper Classes and Structs\PeriodicFunction.cs" />
@@ -358,10 +343,8 @@
     <Compile Include="Utility Classes\SpriteHoldDependency.cs" />
     <Compile Include="Utility Classes\SpriteOrigin.cs" />
     <Compile Include="Utility Classes\SpriteSourceNew.cs" />
-    <Compile Include="Old Files\SpriteSource.cs" />
     <Compile Include="Utility Classes\SpriteTransformation.cs" />
     <Compile Include="Utility Classes\StaticMotionStateNew.cs" />
-    <Compile Include="Old Files\StaticMotionState.cs" />
     <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
     <Compile Include="Utility Classes\Display.cs" />
@@ -383,12 +366,7 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="obj\x86\Debug\cachefile-{077517F8-B460-4305-B13E-9B769FC7807D}-targetpath.txt" />
     <Content Include="obj\x86\Debug\ContentPipeline-{077517F8-B460-4305-B13E-9B769FC7807D}.xml" />
-    <Content Include="obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt" />
-    <Content Include="obj\x86\Debug\SuperMario.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\x86\Debug\WindowsGame1.exe" />
-    <Content Include="obj\x86\Debug\WindowsGame1.pdb" />
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -425,7 +403,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="obj\x86\Debug\TempPE\" />
+    <Folder Include="bin\x86\Release\" />
+    <Folder Include="Old Files\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -434,7 +413,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\x86\Debug\SuperMario.csprojResolveAssemblyReference.cache" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

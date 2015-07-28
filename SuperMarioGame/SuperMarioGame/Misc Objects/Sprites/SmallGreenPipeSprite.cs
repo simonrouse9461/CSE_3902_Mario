@@ -5,18 +5,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class SmallGreenPipeSprite : SpriteKernel
+    public class SmallGreenPipeSprite : SpriteKernelNew
     {
         public SmallGreenPipeSprite()
         {
-            ImageFile.Default = "pipes green";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(308, 100, 32, 32)
-                }
-            };
+            AddSource("pipes green", new Rectangle(308, 100, 32, 32));
         }
     }
 }

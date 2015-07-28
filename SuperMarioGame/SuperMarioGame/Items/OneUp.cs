@@ -12,11 +12,5 @@ namespace SuperMario
             BarrierHandler = new OneUpBarrierHandler(Core);
             SoundManager.ItemAppearSoundPlay();
         }
-
-        // make it not solid so that anything can pass through it
-        public bool IsBarrier
-        {
-            get { return true; }
-        }
     }
 }

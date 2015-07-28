@@ -11,11 +11,5 @@ namespace SuperMario
             SoundManager.CoinSoundPlay();
             
         }
-
-        // make it not solid so that anything can pass through it
-        public bool IsBarrier
-        {
-            get { return false; }
-        }
     }
 }
