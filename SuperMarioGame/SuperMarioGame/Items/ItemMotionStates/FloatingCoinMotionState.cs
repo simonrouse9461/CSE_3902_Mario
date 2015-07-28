@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class FloatingCoinMotionState : MotionStateKernel
+    public class FloatingCoinMotionState : MotionStateKernelNew
     {
         public FloatingCoinMotionState()
         {

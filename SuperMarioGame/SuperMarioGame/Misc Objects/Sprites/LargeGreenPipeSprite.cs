@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class LargeGreenPipeSprite : SpriteKernel
+    public class LargeGreenPipeSprite : SpriteKernelNew
     {
         public LargeGreenPipeSprite()
         {

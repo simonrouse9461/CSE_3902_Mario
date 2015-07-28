@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 namespace SuperMario
 {
-    public class GreenPipeSpriteState : SpriteStateKernel
+    public class GreenPipeSpriteState : SpriteStateKernelNew<int>
     {
 
         private enum StatusEnum

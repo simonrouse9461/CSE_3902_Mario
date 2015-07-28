@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class GreenPipeObject : ObjectKernel<PipeStateController>, IPipe
+    public class GreenPipeObject : ObjectKernelNew<PipeStateController>, IPipe
     {
 
         public GreenPipeObject()
