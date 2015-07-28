@@ -37,5 +37,7 @@ namespace SuperMario
                 return instance;
             }
         }
+
+        public bool Exploded { get { return StateController.SpriteState.Exploding; } }
     }
 }

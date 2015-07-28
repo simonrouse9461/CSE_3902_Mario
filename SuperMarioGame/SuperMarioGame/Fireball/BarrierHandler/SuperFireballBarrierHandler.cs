@@ -13,9 +13,7 @@ namespace SuperMario
         public override void HandleCollision()
         {
             if (BarrierCollision.AnyEdge.Touch)
-            {
-                Core.StateController.Explode();
-            }
+                Core.DelayCommand(Core.StateController.Explode);
         }
     }
 }
