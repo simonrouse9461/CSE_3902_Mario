@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    class FireflowerBarrierHandler : BarrierHandlerKernel<FireflowerStateController>
+    class FireflowerBarrierHandler : BarrierHandlerKernelNew<FireflowerStateController>
     {
-        public FireflowerBarrierHandler(ICore core) : base(core){ }
+        public FireflowerBarrierHandler(ICoreNew core) : base(core){ }
 
         public override void HandleCollision()
         {

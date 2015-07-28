@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class MushroomBarrierHandler : BarrierHandlerKernel<MushroomStateController>
+    public class MushroomBarrierHandler : BarrierHandlerKernelNew<MushroomStateController>
     {
-        public MushroomBarrierHandler(ICore core) : base(core) { }
+        public MushroomBarrierHandler(ICoreNew core) : base(core) { }
         public override void HandleCollision()
         {
             CheckFloor();

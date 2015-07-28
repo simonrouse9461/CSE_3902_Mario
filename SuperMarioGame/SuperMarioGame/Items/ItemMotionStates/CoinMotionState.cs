@@ -2,19 +2,19 @@
 
 namespace SuperMario
 {
-    public class CoinMotionState : MotionStateKernel
+    public class CoinMotionState : MotionStateKernelNew
     {
 
         public CoinMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>{
-                new StatusSwitch<IMotion>(BounceUpMotion.CoinMotion)
-            };
+
+            AddMotion(BounceUpMotion.CoinMotion);
+            
         }
 
         public void Generated()
         {
-            FindMotion<BounceUpMotion>().Toggle(true);
+            TurnOnMotion<BounceUpMotion>();
         }
 
         public bool StopMoving
@@ -27,7 +27,7 @@ namespace SuperMario
 
         public void ResetStatus()
         {
-            FindMotion<BounceUpMotion>().Toggle(false);
+            TurnOffMotion<BounceUpMotion>();
         }
     }
 }

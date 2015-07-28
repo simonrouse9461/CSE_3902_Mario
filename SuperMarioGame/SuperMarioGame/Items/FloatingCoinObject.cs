@@ -10,7 +10,7 @@ namespace SuperMario
             CollisionHandler = new FloatingCoinCollisionHandler(Core);
         }
 
-        public override bool IsBarrier
+        public bool IsBarrier
         {
             get
             {

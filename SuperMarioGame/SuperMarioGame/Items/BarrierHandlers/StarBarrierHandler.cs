@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class StarBarrierHandler : BarrierHandlerKernel<StarStateController>
+    public class StarBarrierHandler : BarrierHandlerKernelNew<StarStateController>
     {
 
-        public StarBarrierHandler(ICore core) : base(core) { }
+        public StarBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision()
         {

@@ -112,7 +112,6 @@ C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bi
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\overworld.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\items.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\scenery.xnb
-C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\misc.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\characters.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\enemies.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\pipes green.xnb
@@ -273,3 +272,7 @@ C:\Users\AC\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\obj\x86\De
 C:\Users\AC\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\obj\x86\Debug\WindowsGame1.exe
 C:\Users\AC\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\obj\x86\Debug\WindowsGame1.pdb
 C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\large-objects.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\harp.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\large-objects.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\fireworks.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\harp.xnb

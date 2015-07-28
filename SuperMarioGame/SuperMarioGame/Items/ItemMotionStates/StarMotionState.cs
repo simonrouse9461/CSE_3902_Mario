@@ -2,39 +2,38 @@
 
 namespace SuperMario
 {
-    public class StarMotionState : MotionStateKernel
+    public class StarMotionState : MotionStateKernelNew
     {
 
         public bool Gravity { get; private set; }
 
         public StarMotionState()
         {
-            MotionList = new Collection<StatusSwitch<IMotion>>
-            {
-                new StatusSwitch<IMotion>(UniformMotion.ItemMoveLeft),
-                new StatusSwitch<IMotion>(UniformMotion.ItemMoveRight),
-                new StatusSwitch<IMotion>(new GravityMotion()),
-                new StatusSwitch<IMotion>((UniformMotion.ItemRaiseUp)),
-                new StatusSwitch<IMotion>(BounceUpMotion.StarMotion)
-            };
+            
+                AddMotion(UniformMotion.ItemMoveLeft);
+                AddMotion(UniformMotion.ItemMoveRight);
+                AddMotion(new GravityMotion());
+                AddMotion(UniformMotion.ItemRaiseUp);
+                AddMotion(BounceUpMotion.StarMotion);
+           
             LoseGravity();
             SetDefaultHorizontal();
         }
 
         public void SetDefaultHorizontal()
         {
-            FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
+           TurnOffMotion(UniformMotion.ItemMoveLeft);
         }
 
         public void SetDefaultVertical()
         {
-            FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
-            FindMotion<BounceUpMotion>().Toggle(false);
+            TurnOffMotion(UniformMotion.ItemRaiseUp);
+            TurnOffMotion<BounceUpMotion>();
         }
 
         public void Generated()
         {
-            FindMotion(UniformMotion.ItemRaiseUp).Toggle(true);
+            TurnOnMotion(UniformMotion.ItemRaiseUp);
         }
 
         public void ObtainGravity()
@@ -49,10 +48,10 @@ namespace SuperMario
 
         public void Moving()
         {
-            FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
-            FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
-            FindMotion<BounceUpMotion>().Toggle(true);
-            FindMotion<GravityMotion>().Toggle(true);
+            TurnOffMotion(UniformMotion.ItemRaiseUp);
+            TurnOnMotion(UniformMotion.ItemMoveRight);
+            TurnOnMotion<BounceUpMotion>();
+            TurnOnMotion<GravityMotion>();
         }
 
         public bool isGenerating
@@ -67,13 +66,13 @@ namespace SuperMario
         {
             if (FindMotion(UniformMotion.ItemMoveRight).Status)
             {
-                FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
-                FindMotion(UniformMotion.ItemMoveLeft).Toggle(true);
+                TurnOffMotion(UniformMotion.ItemMoveRight);
+                TurnOnMotion(UniformMotion.ItemMoveLeft);
             }
             else
             {
-                FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
-                FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
+                TurnOffMotion(UniformMotion.ItemMoveLeft);
+                TurnOnMotion(UniformMotion.ItemMoveRight);
             }
         }
 
@@ -81,7 +80,7 @@ namespace SuperMario
         {
             SetDefaultVertical();
             FindMotion<BounceUpMotion>().Content.Reset();
-            FindMotion<BounceUpMotion>().Toggle(true);
+            TurnOnMotion<BounceUpMotion>();
         }
 
     }
