@@ -56,10 +56,16 @@ namespace SuperMario
 
         protected virtual void HandleEnemy()
         {
-            var collision = Core.CollisionDetector.Detect<IEnemy>(enemy => enemy.CanKillMario);
-            if ((collision.AnySide | collision.Top).Touch)
+            var goombaCollision = Core.CollisionDetector.Detect<Goomba>(goomba => goomba.Alive);
+            var koopaGoRightCollision = Core.CollisionDetector.Detect<Koopa>(koopa => koopa.Alive && koopa.GoingRight);
+            var koopaGoLeftCollision = Core.CollisionDetector.Detect<Koopa>(koopa => koopa.Alive && koopa.GoingLeft);
+
+            if ((goombaCollision.AnySide | goombaCollision.Top).Touch
+                || koopaGoLeftCollision.Right.Touch
+                || koopaGoRightCollision.Left.Touch
+                || (koopaGoLeftCollision + koopaGoRightCollision).Top.Touch)
                 Core.StateController.TakeDamage();
-            if (collision.Bottom.Touch)
+            if ((koopaGoLeftCollision + koopaGoRightCollision + goombaCollision).Bottom.Touch)
                 Core.StateController.Bounce();
         }
 

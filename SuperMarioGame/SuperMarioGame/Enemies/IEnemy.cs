@@ -8,7 +8,5 @@ namespace SuperMario
     public interface IEnemy : IObject
     {
         bool Alive { get; }
-
-        bool CanKillMario { get; }
     }
 }
