@@ -130,14 +130,14 @@
     <Compile Include="Fireball\SpriteState\SuperFireballSpriteState.cs" />
     <Compile Include="Fireball\StateController\FireExplosionStateController.cs" />
     <Compile Include="Fireball\StateController\SuperFireballStateController.cs" />
-    <Compile Include="FlagPole\Flag\FlagObject.cs" />
+    <Compile Include="FlagPole\Flag\Flag.cs" />
     <Compile Include="FlagPole\Flag\FlagSprite.cs" />
     <Compile Include="FlagPole\Flag\FlagSpriteState.cs" />
     <Compile Include="FlagPole\Flag\FlagStateController.cs" />
-    <Compile Include="FlagPole\Pole\FlagPoleObject.cs" />
+    <Compile Include="FlagPole\Knob\Knob.cs" />
+    <Compile Include="FlagPole\Knob\KnobSprite.cs" />
+    <Compile Include="FlagPole\Pole\FlagPole.cs" />
     <Compile Include="FlagPole\Pole\FlagPoleSprite.cs" />
-    <Compile Include="FlagPole\Pole\FlagPoleSpriteState.cs" />
-    <Compile Include="FlagPole\Pole\FlagPoleSpriteVersion.cs" />
     <Compile Include="FlagPole\Pole\FlagPoleStateController.cs" />
     <Compile Include="GameCommands\PauseCommand.cs" />
     <Compile Include="GameCommands\ResetCommand.cs" />
@@ -367,6 +367,7 @@
     <Compile Include="Helper Classes and Structs\StatusSwitch.cs" />
     <Compile Include="Helper Classes and Structs\SymmetricPair.cs" />
     <Compile Include="Utility Classes\Display.cs" />
+    <Compile Include="Utility Classes\StaticSpriteState.cs" />
     <Compile Include="Utility Classes\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

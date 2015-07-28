@@ -5,7 +5,6 @@ Content\blocks.xnb
 Content\overworld.xnb
 Content\items.xnb
 Content\scenery.xnb
-Content\misc.xnb
 Content\characters.xnb
 Content\enemies.xnb
 Content\pipes green.xnb
@@ -38,3 +37,4 @@ Content\Audio\smb_bowserfire.xnb
 Content\Audio\smb_flagpole.xnb
 Content\Audio\fireworks.xnb
 Content\Audio\harp.xnb
+Content\large-objects.xnb

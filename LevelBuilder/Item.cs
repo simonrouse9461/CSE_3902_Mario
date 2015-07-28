@@ -27,5 +27,10 @@
         {
             get { return new Item(Type, Version, GridWidth, GridHeight); }
         }
+
+        public Item SwitchVersion(string version)
+        {
+            return new Item(Type, version, GridWidth, GridHeight);
+        }
     }
 }

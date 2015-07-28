@@ -53,16 +53,18 @@ namespace LevelBuilder
             BatchAdd(new Item("NormalBlockObject", "CoinNormalBlock"), 94, 5);
             BatchAdd(new Item("NormalBlockObject", "StarNormalBlock"), 101, 5);
             BatchAdd(new Item("HiddenBlockObject", "ExtraLifeHiddenBlock"), 64, 6);
-            BatchAdd(new Item("BlockKernel"), 198, 2);
             BatchAdd(new Item("BlockKernel"), new[]
             {
+                Section.Single(198, 2).ToList, 
                 SectionBuilder.Stair(SectionBuilder.StairShape.Upstairs, 137, 2, 4),
                 SectionBuilder.Stair(SectionBuilder.StairShape.Downstairs, 140, 2, 4),
                 SectionBuilder.Stair(SectionBuilder.StairShape.Upstairs, 152, 2, 5, 4),
                 SectionBuilder.Stair(SectionBuilder.StairShape.Downstairs, 155, 2, 4),
                 SectionBuilder.Stair(SectionBuilder.StairShape.Upstairs, 189, 2, 9, 8)
             });
-            BatchAdd(new Item("FlagPoleObject"), 198, 3);
+            BatchAdd(new Item("FlagPole"), Section.Tower(198, 3, 9).ToList);
+            BatchAdd(new Item("Flag"), Section.Single(198, 11, -8).ToList);
+            BatchAdd(new Item("Knob"), 198, 12);
             BatchAdd(new Item("CastleObject", 5), 202, 2);
             BatchAdd(new Item("Goomba"), new []
             {
@@ -82,6 +84,24 @@ namespace LevelBuilder
                 Section.Single(82, 10, -6),
             });
             BatchAdd(new Item("Koopa"), new []{Section.Single(106, 2, -6)});
+            BatchAdd(new Item("Cloud", "Body"), "Head", "Tail", new[]
+            {
+                SectionBuilder.Level(10, 0, 8,
+                    new[] {9, 57, 105, 153, 201},
+                    new Dictionary<int, int> {{28, 3}, {76, 3}, {124, 3}, {172, 3}}),
+                SectionBuilder.Level(11, 0, 8,
+                    new[] {20, 68, 116, 164},
+                    new Dictionary<int, int> {{37, 2}, {85, 2}, {133, 2}, {181, 2}}),
+            });
+            BatchAdd(new Item("Bush", "Body"), "Head", "Tail", SectionBuilder.Level(2,
+                new[] {24, 72, 120, 168},
+                new Dictionary<int, int>
+                {
+                    {12, 3}, {60, 3}, {108, 3}, {156, 3}, {204, 3}, 
+                    {42, 2}, {90, 2}, {138, 2}, {186, 2}
+                }));
+            BatchAdd(new Item("Hill", "Large", 5, 2), SectionBuilder.Level(2, new[] { 0, 48, 96, 144, 192 }));
+            BatchAdd(new Item("Hill", "Small", 3), SectionBuilder.Level(2, new[] { 16, 64, 112, 160, 208 }));
         }
     }
 }

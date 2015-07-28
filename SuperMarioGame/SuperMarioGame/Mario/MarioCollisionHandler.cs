@@ -71,7 +71,7 @@ namespace SuperMario
 
         protected void HandleFlagPole()
         {
-            if (Core.CollisionDetector.Detect<FlagPoleObject>().AnySide.Touch)
+            if (Core.CollisionDetector.Detect<FlagPole>().AnySide.Touch)
                 Core.StateController.FinishLevel();
         }
         

@@ -26,14 +26,29 @@ namespace LevelBuilder
             return list.ToArray();
         }
 
-        public static Section[] Level(int altitude, int[] xPositions, Dictionary<int, int> lines = null)
+        public static Section[] Level(int altitude, int offsetX, int offsetY, int[] xPositions, Dictionary<int, int> lines)
         {
             lines = lines ?? new Dictionary<int, int>();
             var singleList = (from x in xPositions
-                select Section.Single(x, altitude)).ToList();
+                select Section.Single(x, altitude, offsetX, offsetY)).ToList();
             var lineList = (from line in lines
-                select Section.Line(line.Key, altitude, line.Value)).ToList();
+                select Section.Line(line.Key, altitude, line.Value, offsetX, offsetY)).ToList();
             return singleList.Concat(lineList).ToArray();
+        }
+
+        public static Section[] Level(int altitude, int offsetX, int offsetY, int[] xPositions)
+        {
+            return Level(altitude, offsetX, offsetY, xPositions, new Dictionary<int, int>());
+        }
+
+        public static Section[] Level(int altitude, int offsetX, int offsetY, Dictionary<int, int> lines)
+        {
+            return Level(altitude, offsetX, offsetY, new int[0], lines);
+        }
+
+        public static Section[] Level(int altitude, int[] xPositions, Dictionary<int, int> lines = null)
+        {
+            return Level(altitude, 0, 0, xPositions, lines);
         }
     }
 }

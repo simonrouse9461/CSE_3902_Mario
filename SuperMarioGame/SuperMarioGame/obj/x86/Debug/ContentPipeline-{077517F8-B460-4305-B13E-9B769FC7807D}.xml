@@ -65,15 +65,6 @@
       <Time>2015-07-28T00:25:41.6627354-04:00</Time>
     </Item>
     <Item>
-      <Source>misc.png</Source>
-      <Name>misc</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\misc.xnb</Output>
-      <Time>2015-07-28T00:25:41.6938026-04:00</Time>
-    </Item>
-    <Item>
       <Source>characters.png</Source>
       <Name>characters</Name>
       <Importer>TextureImporter</Importer>
@@ -152,7 +143,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\LevelData.xnb</Output>
-      <Time>2015-07-28T00:25:41.6627354-04:00</Time>
+      <Time>2015-07-28T05:12:37.3325324-04:00</Time>
     </Item>
     <Item>
       <Source>SecretLevelData.xml</Source>
@@ -161,7 +152,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\SecretLevelData.xnb</Output>
-      <Time>2015-07-28T00:25:41.6627354-04:00</Time>
+      <Time>2015-07-28T05:12:37.3425339-04:00</Time>
     </Item>
     <Item>
       <Source>UndergroundLevelData.xml</Source>
@@ -170,7 +161,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\UndergroundLevelData.xnb</Output>
-      <Time>2015-07-28T00:25:41.6781644-04:00</Time>
+      <Time>2015-07-28T05:12:37.3445334-04:00</Time>
     </Item>
     <Item>
       <Source>Audio\blockBreak.wav</Source>
@@ -360,6 +351,15 @@
       <Options>None</Options>
       <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\Audio\harp.xnb</Output>
       <Time>2015-07-28T00:25:41.1469657-04:00</Time>
+    </Item>
+    <Item>
+      <Source>large-objects.png</Source>
+      <Name>large-objects</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\涵哥\Desktop\Repo\SuperMarioGame\SuperMarioGame\bin\x86\Debug\Content\large-objects.xnb</Output>
+      <Time>2015-07-28T02:27:03.4606576-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

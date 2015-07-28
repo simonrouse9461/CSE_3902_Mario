@@ -32,6 +32,29 @@ namespace LevelBuilder
             }
         }
 
+        protected void BatchAdd(Item item, string headVersion, string tailVersion, Section[] sectionList)
+        {
+            var headList = new List<Section>();
+            var tailList = new List<Section>();
+            foreach (var section in sectionList)
+            {
+                headList.Add(Section.Single(section.GridX - 1, section.GridY, section.OffsetX, section.OffsetY));
+                tailList.Add(Section.Single(section.GridX + section.Column, section.GridY, section.OffsetX,
+                    section.OffsetY));
+            }
+            ObjectData.Add(item.Clone, sectionList);
+            ObjectData.Add(item.SwitchVersion(headVersion), headList.ToArray());
+            ObjectData.Add(item.SwitchVersion(tailVersion), tailList.ToArray());
+        }
+
+        protected void BatchAdd(Item item, string headVersion, string tailVersion, Section[][] sectionBuilderList)
+        {
+            foreach (var sectionBuilder in sectionBuilderList)
+            {
+                BatchAdd(item, headVersion, tailVersion, sectionBuilder);
+            }
+        }
+
         protected void SetOutputFile(string file)
         {
             OutputFile = file;

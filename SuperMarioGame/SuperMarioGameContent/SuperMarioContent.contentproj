@@ -80,11 +80,6 @@
       <Processor>PassThroughProcessor</Processor>
       <SubType>Designer</SubType>
     </Compile>
-    <Compile Include="misc.png">
-      <Name>misc</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\LeveLoader\LevelLoader.csproj">
@@ -276,6 +271,13 @@
       <Name>harp</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="large-objects.png">
+      <Name>large-objects</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

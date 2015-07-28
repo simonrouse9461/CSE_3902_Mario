@@ -93,8 +93,9 @@ namespace SuperMario
                 // then scenery
                 new Collection<FloorBlockObject>(),
                 new Collection<CastleObject>(),
-                new Collection<FlagPoleObject>(),
-                new Collection<FlagObject>(),
+                new Collection<FlagPole>(),
+                new Collection<Flag>(),
+                new Collection<Knob>(),
 
                 // then enemies
                 new Collection<Goomba>(),
@@ -228,6 +229,10 @@ namespace SuperMario
             var nameSpace = Instance.GetType().Namespace;
             foreach (var data in Instance.LevelData)
             {
+                var typeString = nameSpace + "." + data.Type;
+                    var version = string.IsNullOrEmpty(data.Version)
+                        ? string.Empty
+                        : " with a version name " + data.Version;
                 try
                 {
                     var type = Type.GetType(nameSpace + "." + data.Type);
@@ -236,13 +241,16 @@ namespace SuperMario
                     if (!string.IsNullOrEmpty(data.Version)) obj = type.GetProperty(data.Version).GetValue(null, null);
                     LoadObject(obj, data.Location);
                 }
+                catch (ContentLoadException e)
+                {
+                    throw new ContentLoadException(
+                        "Unable to load IObject of type " + typeString + version + "! " + e.Message);
+                }
                 catch (Exception)
                 {
-                    var type = nameSpace + "." + data.Type;
-                    var version = string.IsNullOrEmpty(data.Version)
-                        ? string.Empty
-                        : " with a version name " + data.Version;
-                    throw new ArgumentException("Unable to create instance of an IObject from type " + type + version + "!");
+                    throw new ArgumentException(
+                        "Unable to create instance of an IObject from type " + typeString + version + "! " 
+                        + "Type or version doesn't exist!");
                 }
             }
         }

@@ -410,9 +410,9 @@ namespace SuperMario
             ReleaseAll();
             Core.SwitchComponent(new FinishLevelMarioCommandExecutor(Core));
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
-            Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
+            Core.BarrierHandler.RemoveBarrier<FlagPole>();
             Core.BarrierHandler.RemoveBarrier<CastleObject>();
-            Core.BarrierHandler.RemoveBarrier<FlagObject>();
+            Core.BarrierHandler.RemoveBarrier<Flag>();
             MotionState.AdjustPosition(new Vector2(4, 0));
             MotionState.Slip();
             SpriteState.Slip();

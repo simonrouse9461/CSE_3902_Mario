@@ -2,22 +2,6 @@
 <XnaContent>
   <Asset Type="LevelLoader.ObjectData[]">
     <Item>
-      <Type>Fireflower</Type>
-      <Version></Version>
-      <Location>160 400</Location>
-    </Item>
-    <Item>
-      <Type>Fireflower</Type>
-      <Version></Version>
-      <Location>260 400</Location>
-    </Item>
-
-    <Item>
-      <Type>Harp</Type>
-      <Version></Version>
-      <Location>1000 200</Location>
-    </Item>
-    <Item>
       <Type>FloorBlockObject</Type>
       <Version></Version>
       <Location>16 480</Location>
@@ -2763,14 +2747,59 @@
       <Location>6064 192</Location>
     </Item>
     <Item>
-      <Type>FlagPoleObject</Type>
+      <Type>FlagPole</Type>
       <Version></Version>
       <Location>6352 384</Location>
     </Item>
     <Item>
-      <Type>FlagObject</Type>
+      <Type>FlagPole</Type>
       <Version></Version>
-      <Location>6333 126</Location>
+      <Location>6352 352</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 320</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 288</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 256</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 224</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 192</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 160</Location>
+    </Item>
+    <Item>
+      <Type>FlagPole</Type>
+      <Version></Version>
+      <Location>6352 128</Location>
+    </Item>
+    <Item>
+      <Type>Flag</Type>
+      <Version></Version>
+      <Location>6336 128</Location>
+    </Item>
+    <Item>
+      <Type>Knob</Type>
+      <Version></Version>
+      <Location>6352 96</Location>
     </Item>
     <Item>
       <Type>CastleObject</Type>
@@ -2851,6 +2880,636 @@
       <Type>Koopa</Type>
       <Version></Version>
       <Location>3396 416</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>304 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>1840 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>3376 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>4912 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>6448 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>912 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>944 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>976 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>2448 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>2480 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>2512 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>3984 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>4016 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>4048 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>5520 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>5552 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>5584 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>272 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>1808 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>3344 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>4880 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>6416 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>880 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>2416 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>3952 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>5488 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>336 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>1872 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>3408 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>4944 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>6480 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>1008 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>2544 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>4080 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>5616 144</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>656 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>2192 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>3728 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>5264 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>1200 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>1232 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>2736 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>2768 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>4272 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>4304 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>5808 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Body</Version>
+      <Location>5840 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>624 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>2160 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>3696 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>5232 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>1168 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>2704 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>4240 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Head</Version>
+      <Location>5776 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>688 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>2224 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>3760 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>5296 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>1264 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>2800 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>4336 112</Location>
+    </Item>
+    <Item>
+      <Type>Cloud</Type>
+      <Version>Tail</Version>
+      <Location>5872 112</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>784 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>2320 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>3856 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>5392 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>400 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>432 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>464 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>1936 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>1968 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>2000 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>3472 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>3504 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>3536 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>5008 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>5040 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>5072 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>6544 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>6576 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>6608 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>1360 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>1392 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>2896 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>2928 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>4432 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>4464 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>5968 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Body</Version>
+      <Location>6000 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>752 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>2288 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>3824 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>5360 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>368 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>1904 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>3440 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>4976 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>6512 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>1328 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>2864 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>4400 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Head</Version>
+      <Location>5936 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>816 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>2352 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>3888 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>5424 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>496 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>2032 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>3568 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>5104 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>6640 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>1424 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>2960 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>4496 416</Location>
+    </Item>
+    <Item>
+      <Type>Bush</Type>
+      <Version>Tail</Version>
+      <Location>6032 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Large</Version>
+      <Location>80 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Large</Version>
+      <Location>1616 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Large</Version>
+      <Location>3152 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Large</Version>
+      <Location>4688 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Large</Version>
+      <Location>6224 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Small</Version>
+      <Location>560 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Small</Version>
+      <Location>2096 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Small</Version>
+      <Location>3632 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Small</Version>
+      <Location>5168 416</Location>
+    </Item>
+    <Item>
+      <Type>Hill</Type>
+      <Version>Small</Version>
+      <Location>6704 416</Location>
     </Item>
   </Asset>
 </XnaContent>

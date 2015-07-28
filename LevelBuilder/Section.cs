@@ -1,4 +1,6 @@
-﻿namespace LevelBuilder
+﻿using System.Runtime.CompilerServices;
+
+namespace LevelBuilder
 {
     public struct Section
     {
@@ -24,9 +26,14 @@
             return new Section(gridX, gridY, 1, 1, offsetX, offsetY);
         }
 
-        public static Section Line(int gridX, int gridY, int column, int offsetX = 0, int offsetY = 0)
+        public static Section Line(int gridX, int gridY, int length, int offsetX = 0, int offsetY = 0)
         {
-            return new Section(gridX, gridY, column, 1, offsetX, offsetY);
+            return new Section(gridX, gridY, length, 1, offsetX, offsetY);
+        }
+
+        public static Section Tower(int gridX, int gridY, int height, int offsetX = 0, int offsetY = 0)
+        {
+            return new Section(gridX, gridY, 1, height, offsetX, offsetY);
         }
 
         public static Section Matrix(int gridX, int gridY, int column, int row, int offsetX = 0, int offsetY = 0)
@@ -37,6 +44,11 @@
         public static Section Range(int startX, int endX, int startY, int endY, int offsetX = 0, int offsetY = 0)
         {
             return new Section(startX, startY, endX - startX + 1, endY - startY + 1, offsetX, offsetY);
+        }
+
+        public Section[] ToList
+        {
+            get { return new[] {this}; }
         }
     }
 }

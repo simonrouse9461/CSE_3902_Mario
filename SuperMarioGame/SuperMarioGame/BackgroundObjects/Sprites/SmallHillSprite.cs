@@ -5,10 +5,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class FlagObject : ObjectKernelNew<FlagStateController>
+    public class SmallHillSprite : SpriteKernelNew
     {
-        public FlagObject()
+        public SmallHillSprite()
         {
+            AddSource("large-objects", new Rectangle(168, 21, 48, 19), Orientation.Default);
         }
     }
 }

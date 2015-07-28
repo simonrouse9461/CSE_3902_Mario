@@ -9,10 +9,7 @@ namespace SuperMario
     {
         public FlagSprite()
         {
-            AddSource("misc_sprites", new OrderedPairs<Rectangle, Orientation>
-            {
-                {new Rectangle(432, 84, 16, 16), Orientation.Default},
-            });
+            AddSource("misc_sprites", new Rectangle(432, 84, 16, 16), Orientation.Default);
         }    
     }
 }
