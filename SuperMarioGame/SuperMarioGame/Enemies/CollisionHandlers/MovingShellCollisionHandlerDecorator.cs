@@ -36,7 +36,7 @@ namespace SuperMario
 
         protected void HandleMario()
         {
-            var collision = Core.CollisionDetector.Detect<Mario>();
+            var collision = Core.CollisionDetector.Detect<Mario>(mario => mario.Alive);
             if (collision.Left.Touch || collision.TopLeft.Cover || collision.TopLeft.Touch && collision.TopRight.None)
                 Core.StateController.PushShell(Orientation.Right);
             if (collision.Right.Touch || collision.TopRight.Cover || collision.TopRight.Touch && collision.TopLeft.None)

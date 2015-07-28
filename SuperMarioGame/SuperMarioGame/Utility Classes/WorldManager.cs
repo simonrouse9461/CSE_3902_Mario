@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -94,6 +94,7 @@ namespace SuperMario
                 new Collection<FloorBlockObject>(),
                 new Collection<CastleObject>(),
                 new Collection<FlagPoleObject>(),
+                new Collection<FlagObject>(),
 
                 // then enemies
                 new Collection<Goomba>(),

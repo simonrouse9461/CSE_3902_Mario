@@ -11,8 +11,8 @@ namespace SuperMario
         {
             AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                {new Rectangle(149, 1, 18, 23), Orientation.Left},
-                {new Rectangle(179, 1, 18, 23), Orientation.Left}
+                {new Rectangle(150, 0, 16, 24), Orientation.Left},
+                {new Rectangle(180, 0, 16, 23), Orientation.Left}
             });
             SetAnimation(new[]
             {

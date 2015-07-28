@@ -54,8 +54,6 @@ namespace SuperMario
 
         public void Push(Orientation orientation)
         {
-            if (!DefaultHotizontal) return;
-
             SetDefaultHorizontal();
             if (orientation == Orientation.Left)
                 SlipLeft();

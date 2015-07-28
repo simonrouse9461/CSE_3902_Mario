@@ -72,7 +72,7 @@ namespace SuperMario
                 return new UniformMotion
                 {
                     version = Version.KoopaLeft,
-                    StartVelocity = new Vector2(4, 0)
+                    StartVelocity = new Vector2(-4, 0)
                 };
             }
         }

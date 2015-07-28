@@ -11,9 +11,20 @@ namespace SuperMario
             AddSprite<ShellKoopaSprite>();
             AddSprite<WalkingKoopaSprite>();
             AddSprite<UpsideDownShellKoopaSprite>();
+            AddSprite<RestoringKoopaSprite>();
 
             Walk();
             SetSpriteFrequency(12);
+        }
+
+        public void Restore()
+        {
+            SetSprite<RestoringKoopaSprite>();
+        }
+
+        public bool Restoring
+        {
+            get { return IsSprite<RestoringKoopaSprite>(); }
         }
 
         public void Walk()
@@ -21,19 +32,26 @@ namespace SuperMario
             SetSprite<WalkingKoopaSprite>();
         }
 
-        public void MarioSmash()
+        public bool Walking
         {
-            SetSprite<ShellKoopaSprite>();
+            get { return IsSprite<WalkingKoopaSprite>(); }
         }
 
-        public bool Dead
+        public void TurnShell()
         {
-            get { return IsSprite<ShellKoopaSprite>() || IsSprite<UpsideDownShellKoopaSprite>(); }
+            SetSprite<ShellKoopaSprite>();
         }
 
         public void Flip()
         {
             SetSprite<UpsideDownShellKoopaSprite>();
+        }
+
+        public bool Dead
+        {
+            get { return IsSprite<ShellKoopaSprite>() 
+                || IsSprite<UpsideDownShellKoopaSprite>()
+                || IsSprite<RestoringKoopaSprite>(); }
         }
     }
 }

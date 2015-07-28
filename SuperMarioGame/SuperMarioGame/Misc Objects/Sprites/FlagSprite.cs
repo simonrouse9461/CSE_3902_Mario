@@ -5,17 +5,17 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class FlagPoleSprite : SpriteKernelNew
+    public class FlagSprite : SpriteKernelNew
     {
-        public FlagPoleSprite() : base(FlagPoleSpriteVersion.Overworld)
+        public FlagSprite() : base(FlagSpriteVersion.Overworld)
         {
 
             AddSource(
-                FlagPoleSpriteVersion.Overworld,
+                FlagSpriteVersion.Overworld,
                 "misc",
                 new OrderedPairs<Rectangle, Orientation>
                 {
-                    {new Rectangle(261,594,8,152), Orientation.Default},
+                    {new Rectangle(279,598,16,16), Orientation.Default},
                 });
             
         }    

@@ -18,10 +18,5 @@
         {
             get { return !StateController.Dead; }
         }
-
-        public virtual bool CanKillMario
-        {
-            get { return Alive; }
-        }
     }
 }
