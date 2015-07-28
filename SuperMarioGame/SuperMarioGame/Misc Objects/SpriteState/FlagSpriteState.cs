@@ -8,12 +8,12 @@ namespace SuperMario
 
         public FlagSpriteState()
         {
-            AddSprite<FlagPoleSprite>();
+            AddSprite<FlagSprite>();
         }
 
         public void SetFlag()
         {
-            SetSprite<FlagPoleSprite>();
+            SetSprite<FlagSprite>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using SuperMario.BarrierHandlerDecorators;
 
@@ -412,6 +412,7 @@ namespace SuperMario
             Core.SwitchComponent(new FinishLevelMarioBarrierHandler(Core));
             Core.BarrierHandler.RemoveBarrier<FlagPoleObject>();
             Core.BarrierHandler.RemoveBarrier<CastleObject>();
+            Core.BarrierHandler.RemoveBarrier<FlagObject>();
             MotionState.AdjustPosition(new Vector2(4, 0));
             MotionState.Slip();
             SpriteState.Slip();

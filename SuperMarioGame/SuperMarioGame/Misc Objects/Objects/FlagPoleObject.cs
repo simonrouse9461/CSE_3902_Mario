@@ -5,11 +5,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class FlagPoleObject : ObjectKernelNew<FlagStateController>
+    public class FlagPoleObject : ObjectKernelNew<FlagPoleStateController>
     {
         public FlagPoleObject()
         {
-            StateController.Flag();
+            StateController.FlagPole();
         }
 
         public override Rectangle CollisionRectangle

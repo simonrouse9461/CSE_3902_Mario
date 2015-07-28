@@ -2768,6 +2768,11 @@
       <Location>6352 384</Location>
     </Item>
     <Item>
+      <Type>FlagObject</Type>
+      <Version></Version>
+      <Location>6333 126</Location>
+    </Item>
+    <Item>
       <Type>CastleObject</Type>
       <Version></Version>
       <Location>6544 416</Location>
