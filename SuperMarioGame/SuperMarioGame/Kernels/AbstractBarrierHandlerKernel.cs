@@ -31,6 +31,7 @@ namespace SuperMario
             AbstractCore = core;
             BarrierList = new Collection<Type>();
             BarrierExceptionList = new Collection<Type>();
+            BecomeBarrier();
         }
 
         public Collision DetectBarrier(int offset = 0)

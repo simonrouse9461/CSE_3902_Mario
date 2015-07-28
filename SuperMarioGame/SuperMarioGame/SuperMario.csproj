@@ -154,7 +154,11 @@
     <Compile Include="Mario\MarioShadow\MarioShadow.cs" />
     <Compile Include="Mario\MarioShadow\MarioShadowSpriteState.cs" />
     <Compile Include="Misc Objects\Collision\PipeCollisionHandler.cs" />
+    <Compile Include="Misc Objects\FlagPoleStateController.cs" />
     <Compile Include="Misc Objects\Objects\FlagPoleObject.cs" />
+    <Compile Include="Misc Objects\Sprite Versions\FlagPoleSpriteVersion.cs" />
+    <Compile Include="Misc Objects\SpriteState\FlagPoleSpriteState.cs" />
+    <Compile Include="Misc Objects\Sprites\FlagSprite.cs" />
     <Compile Include="Utility Classes\EventTrigger.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />

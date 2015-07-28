@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using SuperMario.BarrierHandlerDecorators;
 
@@ -263,7 +263,7 @@ namespace SuperMario
         {
             if (SpriteState.Dead) return;
             Core.BarrierHandler.ClearBarrier();
-            Core.Object.TurnUnsolid();
+            Core.BarrierHandler.BecomeNonBarrier();
             SpriteState.Die();
             MotionState.Die();
             SoundManager.SwitchToFailMusic();

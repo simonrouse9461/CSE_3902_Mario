@@ -1,9 +1,8 @@
 ﻿namespace SuperMario
 {
-    public class DefaultBarrierHandler<TStateController> : BarrierHandlerKernel<TStateController>
-        where TStateController : IStateController, new()
+    public class DefaultBarrierHandler : AbstractBarrierHandlerKernel<IStateControllerNew>
     {
-        public DefaultBarrierHandler(ICore core) : base(core) { }
+        public DefaultBarrierHandler(ICoreNew core) : base(core) { }
 
         public override void HandleCollision() { }
     }

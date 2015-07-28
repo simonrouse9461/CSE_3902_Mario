@@ -15,7 +15,7 @@
         public void Flip()
         {
             if (Dead) return;
-            Core.Object.TurnUnsolid();
+            Core.BarrierHandler.BecomeNonBarrier();
             Core.BarrierHandler.ClearBarrier();
             SoundManager.KickSoundPlay();
             SpriteState.Flip();

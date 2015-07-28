@@ -12,7 +12,7 @@ namespace SuperMario
         protected ObjectKernelNew()
         {
             Core = new CoreNew<TStateController>(this);
-            BarrierHandler.BecomeBarrier();
+            BarrierHandler = new DefaultBarrierHandler(Core);
         } 
 
         // Object core that wraps all internal components of the object
@@ -144,7 +144,7 @@ namespace SuperMario
         {
             var haveBarrierHandler = !(GeneralMotionState is StaticMotionStateNew)
                 && BarrierHandler != null
-                && BarrierHandler.BarrierList.Count != 0;
+                && !BarrierHandler.NoBarrier;
             Core.Update();
             EventTrigger.CheckEvent();
             if (CommandExecutor != null) CommandExecutor.Execute();
