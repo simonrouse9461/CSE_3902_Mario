@@ -9,12 +9,13 @@ namespace SuperMario
 
         public MushroomOneUpMotionState()
         {
-            AddMotion(UniformMotion.ItemMoveLeft);
-            AddMotion(UniformMotion.ItemMoveRight);
-            AddMotion(new GravityMotion());
-            AddMotion(UniformMotion.ItemRaiseUp);
-            AddMotion(BounceUpMotion.ItemBounce);
-
+            
+                AddMotion(UniformMotion.ItemMoveLeft);
+                AddMotion(UniformMotion.ItemMoveRight);
+                AddMotion(new GravityMotion());
+                AddMotion(UniformMotion.ItemRaiseUp);
+                AddMotion(BounceUpMotion.ItemBounce);
+            
             LoseGravity();
             SetDefaultHorizontal();
             SetDefaultVertical();
@@ -22,36 +23,36 @@ namespace SuperMario
 
         public void SetDefaultHorizontal()
         {
-            FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
-            FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
+            TurnOffMotion(UniformMotion.ItemMoveLeft);
+            TurnOffMotion(UniformMotion.ItemMoveRight);
         }
 
         public void SetDefaultVertical()
         {
-            FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
-            FindMotion(BounceUpMotion.ItemBounce).Toggle(false);
+            TurnOffMotion(UniformMotion.ItemRaiseUp);
+            TurnOffMotion(BounceUpMotion.ItemBounce);
         }
 
         public void Generated()
         {
-            FindMotion(UniformMotion.ItemRaiseUp).Toggle(true);
+            TurnOnMotion(UniformMotion.ItemRaiseUp);
         }
 
         public void Moving()
         {
-            FindMotion(UniformMotion.ItemRaiseUp).Toggle(false);
-            FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
+            TurnOffMotion(UniformMotion.ItemRaiseUp);
+            TurnOnMotion(UniformMotion.ItemMoveRight);
         }
 
         public void ObtainGravity()
         {
-            FindMotion<GravityMotion>().Toggle(true);
+            TurnOnMotion<GravityMotion>();
             Gravity = true;
         }
 
         public void LoseGravity()
         {
-            FindMotion<GravityMotion>().Toggle(false);
+            TurnOffMotion<GravityMotion>();
             Gravity = false;
         }
 
@@ -67,15 +68,15 @@ namespace SuperMario
         {
             if (FindMotion(UniformMotion.ItemMoveRight).Status)
             {
-                FindMotion(UniformMotion.ItemMoveRight).Toggle(false);
-                FindMotion(UniformMotion.ItemMoveLeft).Toggle(true);
-                FindMotion(BounceUpMotion.ItemBounce).Toggle(true);
+                TurnOffMotion(UniformMotion.ItemMoveRight);
+                TurnOnMotion(UniformMotion.ItemMoveLeft);
+                TurnOnMotion(BounceUpMotion.ItemBounce);
             }
             else
             {
-                FindMotion(UniformMotion.ItemMoveLeft).Toggle(false);
-                FindMotion(UniformMotion.ItemMoveRight).Toggle(true);
-                FindMotion(BounceUpMotion.ItemBounce).Toggle(true);
+                TurnOffMotion(UniformMotion.ItemMoveLeft);
+                TurnOnMotion(UniformMotion.ItemMoveRight);
+                TurnOnMotion(BounceUpMotion.ItemBounce);
             }
         }
     }

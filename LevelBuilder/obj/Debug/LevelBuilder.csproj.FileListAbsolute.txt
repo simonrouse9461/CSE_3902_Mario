@@ -111,7 +111,6 @@ C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\b
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\overworld.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\items.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\scenery.xnb
-C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\misc.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\characters.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\enemies.xnb
 C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\pipes green.xnb
@@ -160,3 +159,7 @@ C:\Users\涵哥\Desktop\Repo\LevelBuilder\bin\Debug\Content\harp.xnb
 C:\Users\涵哥\Desktop\Repo\LevelBuilder\bin\Debug\Content\Audio\fireworks.xnb
 C:\Users\涵哥\Desktop\Repo\LevelBuilder\bin\Debug\Content\Audio\harp.xnb
 C:\Users\涵哥\Desktop\Repo\LevelBuilder\bin\Debug\Content\large-objects.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\harp.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\large-objects.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\Audio\fireworks.xnb
+C:\Users\amiller956\Source\Repos\CSE_3902_Mario\LevelBuilder\bin\Debug\Content\Audio\harp.xnb
