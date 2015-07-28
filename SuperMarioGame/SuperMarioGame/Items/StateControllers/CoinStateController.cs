@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class CoinStateController : StateControllerKernel<CoinSpriteState, CoinMotionState>
+    public class CoinStateController : StateControllerKernelNew<CoinSpriteState, CoinMotionState>
     {
 
         public void Generated()
@@ -14,7 +14,7 @@ namespace SuperMario
         {
             if (MotionState.StopMoving)
             {
-                Core.Obj.Unload();
+                Core.Object.Unload();
             }
         }
 
