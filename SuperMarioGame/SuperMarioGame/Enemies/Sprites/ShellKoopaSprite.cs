@@ -12,7 +12,7 @@ namespace SuperMario
         {
             AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {
-                {new Rectangle(360, 4, 18, 15), Orientation.Default}
+                {new Rectangle(360, 5, 16, 14), Orientation.Default}
             });
         }
     }

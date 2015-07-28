@@ -10,7 +10,14 @@ namespace SuperMario
             SpriteState.MarioSmash();
 
             Core.SwitchComponent(new MovingShellCollisionHandlerDecorator(Core));
-            ((IDecorator) Core.CollisionHandler).DelayRestore(150);
+            Core.DelayCommand(() =>
+            {
+                SpriteState.Restore();
+                SpriteState.HoldTillFinish(true, () =>
+                {
+                    ((IDecorator)Core.CollisionHandler).Restore();
+                });
+            }, () => NotMoving, 200);
             SoundManager.StompSoundPlay();
         }
 

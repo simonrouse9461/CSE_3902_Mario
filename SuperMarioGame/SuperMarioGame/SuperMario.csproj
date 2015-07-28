@@ -97,6 +97,7 @@
     <Compile Include="Enemies\SpriteStates\HarpSpriteState.cs" />
     <Compile Include="Enemies\SpriteStates\IEnemySpriteState.cs" />
     <Compile Include="Enemies\Sprites\HarpSprite.cs" />
+    <Compile Include="Enemies\Sprites\RestoringKoopaSprite.cs" />
     <Compile Include="Enemies\Sprites\UpsideDownShellKoopaSprite.cs" />
     <Compile Include="Enemies\Sprites\UpsideDownGoombaSprite.cs" />
     <Compile Include="Enemies\StateContollers\EnemyStateControllerKernel.cs" />
