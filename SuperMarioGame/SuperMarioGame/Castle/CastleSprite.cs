@@ -5,12 +5,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class CastleObject : ObjectKernelNew<CastleStateController>
+    public class CastleSprite : SpriteKernelNew
     {
-
-        public CastleObject()
+        public CastleSprite()
         {
-            StateController.Castle();
+            AddSource("misc_sprites", new Rectangle(272, 218, 80, 80), Orientation.Default);
         }
     }
 }

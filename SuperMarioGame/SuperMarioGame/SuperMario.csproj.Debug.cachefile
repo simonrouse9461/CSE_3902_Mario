@@ -11,6 +11,7 @@ Content\pipes green.xnb
 Content\mario-luigi.xnb
 Content\misc_sprites.xnb
 Content\harp.xnb
+Content\large-objects.xnb
 Content\LevelDataOld.xnb
 Content\UndergroundLevel.xnb
 Content\LevelData.xnb
@@ -37,4 +38,3 @@ Content\Audio\smb_bowserfire.xnb
 Content\Audio\smb_flagpole.xnb
 Content\Audio\fireworks.xnb
 Content\Audio\harp.xnb
-Content\large-objects.xnb

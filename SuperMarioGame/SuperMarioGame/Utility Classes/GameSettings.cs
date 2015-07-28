@@ -4,19 +4,13 @@ namespace SuperMario
 {
     public static class GameSettings
     {
-        public static float SpriteScale
-        {
-            get { return 2; }
-        }
+        public const float SpriteScale = 2;
+        public const int GridUnit = 16;
+        public const int MaxTime = 120;
 
-        public static int GridUnit
+        public static int ScaledGridLength
         {
-            get { return 16; }
-        }
-
-        public static int MaxTime
-        {
-            get { return 120; }
+            get { return (int) SpriteScale*GridUnit; }
         }
 
         public static SamplerState TextureSampling

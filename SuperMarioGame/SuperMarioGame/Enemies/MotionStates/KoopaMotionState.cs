@@ -40,12 +40,10 @@ namespace SuperMario
                     if (SlippingRight || GoingRight) Turn(Orientation.Right);
                     break;
                 case Orientation.Left:
-                    SetDefaultHorizontal();
                     if (SlippingLeft || SlippingRight) SlipLeft();
                     else GoLeft();
                     break;
                 case Orientation.Right:
-                    SetDefaultHorizontal();
                     if (SlippingLeft || SlippingRight) SlipRight();
                     else GoRight();
                     break;

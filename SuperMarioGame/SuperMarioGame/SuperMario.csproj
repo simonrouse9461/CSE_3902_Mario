@@ -167,6 +167,7 @@
     <Compile Include="Kernels\CollisionHandlerKernelNew.cs" />
     <Compile Include="Mario\MarioShadow\MarioShadow.cs" />
     <Compile Include="Mario\MarioShadow\MarioShadowSpriteState.cs" />
+    <Compile Include="Utility Classes\BasicBackgroundObject.cs" />
     <Compile Include="Utility Classes\EventTrigger.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
@@ -179,18 +180,15 @@
     <Compile Include="Mario\Sprites\UpgradingMarioSprite.cs" />
     <Compile Include="BlockDebris\BlockDebrisStateController.cs" />
     <Compile Include="Misc Objects\BlockSpriteVersion.cs" />
-    <Compile Include="Misc Objects\CastleStateController.cs" />
     <Compile Include="BlockDebris\BlockDebris.cs" />
     <Compile Include="Misc Objects\QuestionBlockStateController.cs" />
     <Compile Include="BlockDebris\BlockDebrisSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\BlockSpriteVersion.cs" />
-    <Compile Include="Misc Objects\Sprite Versions\CastleSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\FloorBlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\IndestructibleBlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\NormalBlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\QuestionBlockSpriteVersion.cs" />
     <Compile Include="Misc Objects\Sprite Versions\UsedBlockSpriteVersion.cs" />
-    <Compile Include="Misc Objects\SpriteState\CastleSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\NormalBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\QuestionBlockSpriteState.cs" />
     <Compile Include="Misc Objects\SpriteState\UsedBlockSpriteState.cs" />
@@ -252,7 +250,7 @@
     <Compile Include="Fireball\MotionState\FireballMotionState.cs" />
     <Compile Include="Misc Objects\BlockStateController.cs" />
     <Compile Include="Fireball\Objects\FireballObject.cs" />
-    <Compile Include="Misc Objects\Objects\CastleObject.cs" />
+    <Compile Include="Castle\CastleObject.cs" />
     <Compile Include="Items\FloatingCoinObject.cs" />
     <Compile Include="Misc Objects\Objects\MediumPipeObject.cs" />
     <Compile Include="Misc Objects\Objects\SecretPipeObject.cs" />
@@ -260,7 +258,7 @@
     <Compile Include="Misc Objects\PipeStateController.cs" />
     <Compile Include="Fireball\SpriteState\FireballSpriteState.cs" />
     <Compile Include="BlockDebris\BlockDebrisSprite.cs" />
-    <Compile Include="Misc Objects\Sprites\CastleSprite.cs" />
+    <Compile Include="Castle\CastleSprite.cs" />
     <Compile Include="Fireball\Sprites\ExplodingTinyFireballSprite.cs" />
     <Compile Include="Fireball\Sprites\RotatingFireballSprite.cs" />
     <Compile Include="Misc Objects\Sprites\MediumGreenPipeSprite.cs" />

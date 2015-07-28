@@ -55,6 +55,5 @@ namespace SuperMario
                 Phase = phase;
             return Phase == 0;
         }
-
     }
 }
