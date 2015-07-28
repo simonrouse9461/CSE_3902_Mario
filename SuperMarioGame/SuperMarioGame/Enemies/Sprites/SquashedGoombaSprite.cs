@@ -5,9 +5,9 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class DeadGoombaSprite : SpriteKernelNew
+    public class SquashedGoombaSprite : SpriteKernelNew
     {
-        public DeadGoombaSprite()
+        public SquashedGoombaSprite()
         {
             AddSource("enemies", new OrderedPairs<Rectangle, Orientation>
             {

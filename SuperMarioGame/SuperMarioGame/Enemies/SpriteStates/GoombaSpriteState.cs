@@ -8,7 +8,7 @@ namespace SuperMario
     {
         public GoombaSpriteState()
         {
-            AddSprite<DeadGoombaSprite>();
+            AddSprite<SquashedGoombaSprite>();
             AddSprite<WalkingGoombaSprite>();
             AddSprite<UpsideDownGoombaSprite>();
 
@@ -16,9 +16,9 @@ namespace SuperMario
             SetSpriteFrequency(12);
         }
 
-        public void MarioSmash()
+        public void Squash()
         {
-            SetSprite<DeadGoombaSprite>();
+            SetSprite<SquashedGoombaSprite>();
         }
 
         public void Flip()
@@ -28,7 +28,7 @@ namespace SuperMario
 
         public bool Dead
         {
-            get { return IsSprite<DeadGoombaSprite>() || IsSprite<UpsideDownGoombaSprite>(); }
+            get { return IsSprite<SquashedGoombaSprite>() || IsSprite<UpsideDownGoombaSprite>(); }
         }
     }
 }

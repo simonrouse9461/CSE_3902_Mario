@@ -9,7 +9,7 @@ namespace SuperMario
             if (SpriteState.Dead) return;
 
             MotionState.MarioSmash();
-            SpriteState.MarioSmash();
+            SpriteState.Squash();
             Core.DelayCommand(() => Core.Object.Unload(), 75);
             Core.Object.TurnUnsolid();
             Core.BarrierHandler.ClearBarrier();

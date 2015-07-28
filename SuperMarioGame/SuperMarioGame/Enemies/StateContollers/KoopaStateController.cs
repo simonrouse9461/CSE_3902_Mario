@@ -7,7 +7,7 @@ namespace SuperMario
         public override void MarioSmash()
         {
             MotionState.MarioSmash();
-            SpriteState.MarioSmash();
+            SpriteState.TurnShell();
 
             Core.SwitchComponent(new MovingShellCollisionHandlerDecorator(Core));
             Core.DelayCommand(() =>
@@ -25,6 +25,8 @@ namespace SuperMario
         {
             if (!NotMoving) return;
             SoundManager.KickSoundPlay();
+            SpriteState.Release();
+            SpriteState.TurnShell();
             MotionState.Push(orientation);
         }
 

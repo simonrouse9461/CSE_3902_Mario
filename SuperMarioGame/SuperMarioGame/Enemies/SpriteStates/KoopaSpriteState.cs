@@ -37,7 +37,7 @@ namespace SuperMario
             get { return IsSprite<WalkingKoopaSprite>(); }
         }
 
-        public void MarioSmash()
+        public void TurnShell()
         {
             SetSprite<ShellKoopaSprite>();
         }
@@ -49,7 +49,9 @@ namespace SuperMario
 
         public bool Dead
         {
-            get { return IsSprite<ShellKoopaSprite>() || IsSprite<UpsideDownShellKoopaSprite>(); }
+            get { return IsSprite<ShellKoopaSprite>() 
+                || IsSprite<UpsideDownShellKoopaSprite>()
+                || IsSprite<RestoringKoopaSprite>(); }
         }
     }
 }
