@@ -83,9 +83,14 @@
     <Compile Include="BackgroundObjects\SpriteStates\BushSpriteState.cs" />
     <Compile Include="BackgroundObjects\SpriteStates\CloudSpriteState.cs" />
     <Compile Include="BackgroundObjects\SpriteStates\HillSpriteState.cs" />
-    <Compile Include="BackgroundObjects\Sprites\BushSprite.cs" />
-    <Compile Include="BackgroundObjects\Sprites\CloudSprite.cs" />
-    <Compile Include="BackgroundObjects\Sprites\HillSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\BushTailSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\CloudTailSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\BushHeadSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\BushBodySprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\CloudBodySprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\CloudHeadSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\LargeHillSprite.cs" />
+    <Compile Include="BackgroundObjects\Sprites\SmallHillSprite.cs" />
     <Compile Include="BlockDebris\BlockDebrisMotionState.cs" />
     <Compile Include="BlockDebris\BlockDebrisSpriteState.cs" />
     <Compile Include="Enemies\CollisionHandlers\EnemyCollisionHandler.cs" />

@@ -5,11 +5,11 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class BushSprite : SpriteKernelNew
+    public class CloudHeadSprite : SpriteKernelNew
     {
-        public BushSprite()
+        public CloudHeadSprite()
         {
-            
+            AddSource("large-objects", new Rectangle(136, 72, 16, 24), Orientation.Default);
         }
     }
 }

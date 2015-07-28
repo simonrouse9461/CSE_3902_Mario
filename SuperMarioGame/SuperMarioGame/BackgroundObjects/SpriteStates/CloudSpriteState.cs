@@ -7,8 +7,24 @@ namespace SuperMario
     {
         public CloudSpriteState()
         {
-            AddSprite<CloudSprite>();
-            SetSprite<CloudSprite>();
+            AddSprite<CloudHeadSprite>();
+            AddSprite<CloudBodySprite>();
+            AddSprite<CloudTailSprite>();
+        }
+
+        public void Head()
+        {
+            SetSprite<CloudHeadSprite>();
+        }
+
+        public void Body()
+        {
+            SetSprite<CloudBodySprite>();
+        }
+
+        public void Tail()
+        {
+            SetSprite<CloudTailSprite>();
         }
     }
 }

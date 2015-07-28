@@ -8,8 +8,18 @@ namespace SuperMario
     {
         public HillSpriteState()
         {
-            AddSprite<HillSprite>();
-            SetSprite<HillSprite>();
+            AddSprite<SmallHillSprite>();
+            AddSprite<LargeHillSprite>();
+        }
+
+        public void Small()
+        {
+            SetSprite<SmallHillSprite>();
+        }
+
+        public void Large()
+        {
+            SetSprite<LargeHillSprite>();
         }
     }
 }

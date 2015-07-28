@@ -112,6 +112,19 @@ namespace SuperMario
             AddSource(0, file, data);
         }
 
+        protected void AddSource(IConvertible version, string file, Rectangle coodinates, Orientation orientation)
+        {
+            AddSource(version, file, new OrderedPairs<Rectangle, Orientation>
+            {
+                {coodinates, orientation}
+            });
+        }
+
+        protected void AddSource(string file, Rectangle coodinates, Orientation orientation)
+        {
+            AddSource(0, file, coodinates, orientation);
+        }
+
         protected void SetAnimation(Orientation reference, SpriteTransformation[] transformation)
         {
             ReferenceOrientation = reference;

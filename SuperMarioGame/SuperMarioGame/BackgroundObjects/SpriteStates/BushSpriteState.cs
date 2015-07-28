@@ -8,8 +8,24 @@ namespace SuperMario
     {
         public BushSpriteState()
         {
-            AddSprite<BushSprite>();
-            SetSprite<BushSprite>();
+            AddSprite<BushHeadSprite>();
+            AddSprite<BushBodySprite>();
+            AddSprite<BushTailSprite>();
+        }
+
+        public void Head()
+        {
+            SetSprite<BushHeadSprite>();
+        }
+
+        public void Body()
+        {
+            SetSprite<BushBodySprite>();
+        }
+
+        public void Tail()
+        {
+            SetSprite<BushTailSprite>();
         }
     }
 }
