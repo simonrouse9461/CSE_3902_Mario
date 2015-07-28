@@ -5,18 +5,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class MushroomSprite : SpriteKernel
+    public class MushroomSprite : SpriteKernelNew
     {
         public MushroomSprite()
         {
-            ImageFile.Default = "items";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(183, 33, 18, 18)
-                }
-            };
+
+            AddSource(
+                "items",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(183, 33, 18, 18), Orientation.Default},
+                });
         }
     }
 }

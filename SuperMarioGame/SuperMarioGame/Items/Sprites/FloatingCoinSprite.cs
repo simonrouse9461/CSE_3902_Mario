@@ -5,31 +5,29 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class FloatingCoinSprite : SpriteKernel
+    public class FloatingCoinSprite : SpriteKernelNew
     {
 
         public FloatingCoinSprite()
         {
-            const int period = 8;
 
-            ImageFile.Default = "items";
-            Source.Default = new SpriteSource
-            {
-                Coordinates = new Collection<Rectangle>
-                {
-                    new Rectangle(127, 94, 12, 16),
-                    new Rectangle(157, 94, 12, 16),
-                    new Rectangle(187, 94, 12, 16),
-                    new Rectangle(218, 94, 12, 16)
-                }
-            };
-            Animation.Default = new PeriodicFunction<int>(
-                phase =>
-                {
-                    int[] frameSequence = { 0, 0, 1, 1, 2, 2, 3, 3 };
-                    return frameSequence[phase];
-                },
-                period);
+
+            AddSource(
+                "items",
+                new OrderedPairs<Rectangle, Orientation>{
+                    {new Rectangle(127, 94, 12, 16), Orientation.Default},
+                    {new Rectangle(157, 94, 12, 16), Orientation.Default},
+                    {new Rectangle(187, 94, 12, 16), Orientation.Default},
+                    {new Rectangle(218, 94, 12, 16), Orientation.Default}
+                });
+
+            SetAnimation(
+                new[] {
+                    new SpriteTransformation(0),
+                    new SpriteTransformation(1),
+                    new SpriteTransformation(2),
+                    new SpriteTransformation(3)
+                });      
         }
         
 
