@@ -47,5 +47,7 @@ namespace SuperMario
             instance.Core.StateController.ToRight(size);
             return instance;
         }
+
+        public bool Exploded { get { return true; } }
     }
 }

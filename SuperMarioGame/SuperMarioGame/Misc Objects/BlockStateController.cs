@@ -97,6 +97,7 @@ namespace SuperMario
 
         public void GiveThings(bool bigMario)
         {
+            if (SpriteState.isUsed) return;
             switch (ContainedItem)
             {
                 case GenerateType.None:

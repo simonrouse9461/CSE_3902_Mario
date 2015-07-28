@@ -17,12 +17,16 @@ namespace SuperMario
 
         private void HandleMario()
         {
-            if (Core.CollisionDetector.Detect<Mario>(mario => mario.Destructive).Bottom.Touch)
+            var destructiveCollision = Core.CollisionDetector.Detect<Mario>(mario => mario.Destructive);
+            var generalCollision = Core.CollisionDetector.Detect<Mario>(mario => mario.GoingUp);
+            if ((destructiveCollision.BottomLeft | destructiveCollision.BottomRight).Cover
+                || (destructiveCollision.BottomLeft & destructiveCollision.BottomRight).Touch)
             {
                 if (!Core.StateController.HasStar && !Core.StateController.HasCoin)
                     Core.StateController.NormalBlockDestroyed();
             }
-            if (Core.CollisionDetector.Detect<Mario>(mario => mario.GoingUp).Bottom.Touch)
+            if ((generalCollision.BottomLeft | generalCollision.BottomRight).Cover
+                || (generalCollision.BottomLeft & generalCollision.BottomRight).Touch)
             {
                 if (Core.StateController.HasCoin || Core.StateController.SpriteState.isNormal && !Core.StateController.HasStar)
                     Core.StateController.GotHit();
@@ -33,7 +37,7 @@ namespace SuperMario
 
         private void HandleSuperFireball()
         {
-            if (Core.CollisionDetector.Detect<SuperFireballObject>().AnyEdge.Touch)
+            if (Core.CollisionDetector.Detect<SuperFireball>(fireball => !fireball.Exploded).AnyEdge.Touch)
             {
                 if (Core.StateController.HasStar || Core.StateController.HasCoin)
                     Core.StateController.GiveThings(true);

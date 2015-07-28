@@ -5,9 +5,9 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class SuperFireballObject : ObjectKernelNew<SuperFireballStateController>, IFireball
+    public class SuperFireball : ObjectKernelNew<SuperFireballStateController>, IFireball
     {
-        public SuperFireballObject()
+        public SuperFireball()
         {
             BarrierHandler = new SuperFireballBarrierHandler(Core);
             CollisionHandler = new SuperFireballCollisionHandler(Core);
@@ -19,25 +19,26 @@ namespace SuperMario
             BarrierHandler.BecomeNonBarrier();
         }
 
-        public static SuperFireballObject LeftSuperFireball
+        public static SuperFireball LeftSuperFireball
         {
             get
             {
-                var instance = new SuperFireballObject();
+                var instance = new SuperFireball();
                 instance.Core.StateController.ToLeft();
                 return instance;
             }
         }
 
-        public static SuperFireballObject RightSuperFireball
+        public static SuperFireball RightSuperFireball
         {
             get
             {
-                var instance = new SuperFireballObject();
+                var instance = new SuperFireball();
                 instance.Core.StateController.ToRight();
                 return instance;
             }
         }
-       
+
+        public bool Exploded { get { return StateController.SpriteState.Exploding; } }
     }
 }

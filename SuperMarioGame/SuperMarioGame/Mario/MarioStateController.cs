@@ -292,7 +292,7 @@ namespace SuperMario
             {
                 Core.Object.Generate(
                 new Vector2(SpriteState.IsLeft ? -16 : 16, -16)*GameSettings.SpriteScale,
-                SpriteState.IsLeft ? SuperFireballObject.LeftSuperFireball : SuperFireballObject.RightSuperFireball
+                SpriteState.IsLeft ? SuperFireball.LeftSuperFireball : SuperFireball.RightSuperFireball
                 );
                 SoundManager.SuperFireSoundPlay();
             }

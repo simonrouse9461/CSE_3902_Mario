@@ -10,7 +10,10 @@ namespace SuperMario
 
         public override void Handle()
         {
-            if (Core.CollisionDetector.Detect<Mario>(mario => mario.GoingUp).Bottom.Touch && !Core.StateController.SpriteState.isUsed)
+            var collision = Core.CollisionDetector.Detect<Mario>(mario => mario.GoingUp);
+            if ((collision.BottomLeft | collision.BottomRight).Cover 
+                || (collision.BottomLeft & collision.BottomRight).Touch
+                || Core.CollisionDetector.Detect<SuperFireball>(fireball => !fireball.Exploded).AnyEdge.Touch)
             {
                 Core.StateController.GiveThings(true);
             }
