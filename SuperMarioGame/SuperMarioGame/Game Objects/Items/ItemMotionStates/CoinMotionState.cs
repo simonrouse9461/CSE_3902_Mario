@@ -4,12 +4,9 @@ namespace SuperMario
 {
     public class CoinMotionState : MotionStateKernelNew
     {
-
         public CoinMotionState()
         {
-
             AddMotion(BounceUpMotion.CoinMotion);
-            
         }
 
         public void Generated()

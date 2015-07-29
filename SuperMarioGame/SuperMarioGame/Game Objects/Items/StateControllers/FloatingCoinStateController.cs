@@ -2,9 +2,6 @@
 
 namespace SuperMario
 {
-    public class FloatingCoinStateController : StateControllerKernelNew<FloatingCoinSpriteState, FloatingCoinMotionState>
-    {
-
-
-    }
+    public class FloatingCoinStateController
+        : StateControllerKernelNew<StaticSpriteState<FloatingCoinSprite>, StaticMotionStateNew> { }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public class PipeBody : BasicBackgroundObject<PipeBodySprite>, IPipe
+    public class PipeBody : BasicBarrierObject<PipeBodySprite>, IPipe
     {
         public bool IsSecret
         {

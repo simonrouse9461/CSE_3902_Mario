@@ -212,9 +212,7 @@
     <Compile Include="Game Objects\Items\CollisionHandler\OneUpCollisionHandler.cs" />
     <Compile Include="Game Objects\Items\CollisionHandler\StarCollisionHandler.cs" />
     <Compile Include="Game Objects\Items\ItemMotionStates\CoinMotionState.cs" />
-    <Compile Include="Game Objects\Items\ItemMotionStates\FloatingCoinMotionState.cs" />
     <Compile Include="Game Objects\Items\ItemMotionStates\StarMotionState.cs" />
-    <Compile Include="Game Objects\Items\SpriteStates\FloatingCoinSpriteState.cs" />
     <Compile Include="Game Objects\Items\Sprites\FloatingCoinSprite.cs" />
     <Compile Include="Game Objects\Items\StateControllers\CoinStateController.cs" />
     <Compile Include="Game Objects\Items\StateControllers\FloatingCoinStateController.cs" />
@@ -259,11 +257,6 @@
     <Compile Include="Interfaces\ICommandExecutor.cs" />
     <Compile Include="Interfaces\IMotion.cs" />
     <Compile Include="Game Objects\Items\Coin.cs" />
-    <Compile Include="Game Objects\Items\SpriteStates\OneUpSpriteState.cs" />
-    <Compile Include="Game Objects\Items\SpriteStates\CoinSpriteState.cs" />
-    <Compile Include="Game Objects\Items\SpriteStates\FireflowerSpriteState.cs" />
-    <Compile Include="Game Objects\Items\SpriteStates\MushroomSpriteState.cs" />
-    <Compile Include="Game Objects\Items\SpriteStates\StarSpriteState.cs" />
     <Compile Include="Game Objects\Items\Star.cs" />
     <Compile Include="Kernels\CommandExecutorKernel.cs" />
     <Compile Include="Kernels\MotionKernel.cs" />

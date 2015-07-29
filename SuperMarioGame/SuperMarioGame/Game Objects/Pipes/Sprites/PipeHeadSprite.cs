@@ -9,7 +9,7 @@ namespace SuperMario
     {
         public PipeHeadSprite()
         {
-            AddSource("large-object", new Rectangle(304, 416, 32, 16));
+            AddSource("large-objects", new Rectangle(304, 416, 32, 16));
         }
     }
 }

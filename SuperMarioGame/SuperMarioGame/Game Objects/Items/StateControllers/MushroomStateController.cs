@@ -2,7 +2,8 @@
 
 namespace SuperMario
 {
-    public class MushroomStateController : StateControllerKernelNew<MushroomSpriteState, MushroomOneUpMotionState>
+    public class MushroomStateController 
+        : StateControllerKernelNew<StaticSpriteState<MushroomSprite>, MushroomOneUpMotionState>
     {
         public void Generate()
         {
