@@ -3,5 +3,5 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class FlagPoleStateController : StateControllerKernelNew<StaticSpriteState<FlagPoleSprite>, StaticMotionStateNew> { }
+    public class FlagPoleStateController : StateControllerKernel<StaticSpriteState<FlagPoleSprite>, StaticMotionState> { }
 }

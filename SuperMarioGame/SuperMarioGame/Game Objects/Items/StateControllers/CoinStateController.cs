@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class CoinStateController : StateControllerKernelNew<StaticSpriteState<CoinSprite>, CoinMotionState>
+    public class CoinStateController : StateControllerKernel<StaticSpriteState<CoinSprite>, CoinMotionState>
     {
 
         public void Generated()

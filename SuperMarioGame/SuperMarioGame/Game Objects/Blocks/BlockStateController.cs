@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class BlockStateController : StateControllerKernelNew<BlockSpriteState, BlockMotionState>
+    public class BlockStateController : StateControllerKernel<BlockSpriteState, BlockMotionState>
     {
         private enum GenerateType
         {

@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public class BlockDebrisMotionState : MotionStateKernelNew
+    public class BlockDebrisMotionState : MotionStateKernel
     {
         public BlockDebrisMotionState()
         {

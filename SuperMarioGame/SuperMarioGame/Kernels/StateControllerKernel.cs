@@ -2,18 +2,18 @@
 
 namespace SuperMario
 {
-    public abstract class StateControllerKernelNew<TSpriteState, TMotionState> : IStateControllerNew
-        where TSpriteState : ISpriteStateNew, new()
-        where TMotionState : IMotionStateNew, new()
+    public abstract class StateControllerKernel<TSpriteState, TMotionState> : IStateController
+        where TSpriteState : ISpriteState, new()
+        where TMotionState : IMotionState, new()
     {
         public TSpriteState SpriteState { get; set; }
         public TMotionState MotionState { get; set; }
-        public ISpriteStateNew GeneralSpriteState { get { return SpriteState; } }
-        public IMotionStateNew GeneralMotionState { get { return MotionState; } }
+        public ISpriteState GeneralSpriteState { get { return SpriteState; } }
+        public IMotionState GeneralMotionState { get { return MotionState; } }
 
-        private ICoreNew _core;
+        private ICore _core;
 
-        public ICoreNew Core
+        public ICore Core
         {
             protected get
             {
@@ -27,7 +27,7 @@ namespace SuperMario
             }
         }
 
-        protected StateControllerKernelNew()
+        protected StateControllerKernel()
         {
             SpriteState = new TSpriteState();
             MotionState = new TMotionState();

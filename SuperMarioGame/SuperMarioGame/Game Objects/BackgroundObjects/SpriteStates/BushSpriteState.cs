@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class BushSpriteState : SpriteStateKernelNew<int>
+    public class BushSpriteState : SpriteStateKernel<int>
     {
         public BushSpriteState()
         {

@@ -6,13 +6,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public class SpriteSourceNew
+    public class SpriteSource
     {
         public string ImageFile { get; private set; }
         public Texture2D Texture { get; private set; }
         public OrderedPairs<Rectangle, Orientation> FrameData { get; set; }
 
-        public SpriteSourceNew(string source)
+        public SpriteSource(string source)
         {
             ImageFile = source;
         }

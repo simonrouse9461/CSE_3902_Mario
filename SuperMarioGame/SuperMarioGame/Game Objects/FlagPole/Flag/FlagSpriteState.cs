@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class FlagSpriteState : SpriteStateKernelNew<int>
+    public class FlagSpriteState : SpriteStateKernel<int>
     {
         public FlagSpriteState()
         {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 namespace SuperMario
 {
-    public  class Harp : ObjectKernelNew<HarpStateController>
+    public  class Harp : ObjectKernel<HarpStateController>
     {
         public Harp()
         {

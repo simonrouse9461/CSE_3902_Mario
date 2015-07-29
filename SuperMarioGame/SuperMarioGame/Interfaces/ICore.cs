@@ -2,12 +2,12 @@
 
 namespace SuperMario
 {
-    public interface ICoreNew
+    public interface ICore
     {
         IObject Object { get; set; }
-        IStateControllerNew GeneralStateController { get; }
-        ISpriteStateNew GeneralSpriteState { get; }
-        IMotionStateNew GeneralMotionState { get; }
+        IStateController GeneralStateController { get; }
+        ISpriteState GeneralSpriteState { get; }
+        IMotionState GeneralMotionState { get; }
         CollisionDetector CollisionDetector { get; set; }
         IBarrierHandler BarrierHandler { get; set; }
         ICollisionHandler CollisionHandler { get; set; }

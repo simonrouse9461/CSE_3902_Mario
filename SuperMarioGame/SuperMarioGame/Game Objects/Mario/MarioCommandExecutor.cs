@@ -5,7 +5,7 @@ namespace SuperMario
 {
     public class MarioCommandExecutor : CommandExecutorKernel<MarioStateController>
     {
-        public MarioCommandExecutor(ICoreNew core) : base(core)
+        public MarioCommandExecutor(ICore core) : base(core)
         {
             RegisterCommand(typeof (MarioLeftCommand),
                 Core.StateController.AssureLeft,

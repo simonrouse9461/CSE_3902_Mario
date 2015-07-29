@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class MushroomSprite : SpriteKernelNew
+    public class MushroomSprite : SpriteKernel
     {
         public MushroomSprite()
         {

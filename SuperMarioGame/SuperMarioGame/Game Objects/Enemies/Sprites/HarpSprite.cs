@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HarpSprite : SpriteKernelNew
+    public class HarpSprite : SpriteKernel
     {
         public HarpSprite()
         {

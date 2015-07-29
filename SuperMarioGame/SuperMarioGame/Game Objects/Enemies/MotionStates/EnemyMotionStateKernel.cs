@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public abstract class EnemyMotionStateKernel : MotionStateKernelNew, IEnemyMotionState
+    public abstract class EnemyMotionStateKernel : MotionStateKernel, IEnemyMotionState
     {
         protected EnemyMotionStateKernel()
         {

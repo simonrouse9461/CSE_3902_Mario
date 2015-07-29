@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class Fireflower : ObjectKernelNew<FireflowerStateController>, IItem
+    public class Fireflower : ObjectKernel<FireflowerStateController>, IItem
     {
         public Fireflower()
         {

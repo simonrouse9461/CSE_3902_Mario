@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class CloudSpriteState : SpriteStateKernelNew<int>
+    public class CloudSpriteState : SpriteStateKernel<int>
     {
         public CloudSpriteState()
         {

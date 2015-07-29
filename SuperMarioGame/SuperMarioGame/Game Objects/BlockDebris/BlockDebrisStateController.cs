@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class BlockDebrisStateController : StateControllerKernelNew<BlockDebrisSpriteState, BlockDebrisMotionState>
+    public class BlockDebrisStateController : StateControllerKernel<BlockDebrisSpriteState, BlockDebrisMotionState>
     {
         public void UpperLeft()
         {

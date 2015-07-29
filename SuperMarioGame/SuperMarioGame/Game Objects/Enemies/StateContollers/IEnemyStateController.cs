@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public interface IEnemyStateController : IStateControllerNew
+    public interface IEnemyStateController : IStateController
     {
         bool Dead { get; }
         bool NotMoving { get; }

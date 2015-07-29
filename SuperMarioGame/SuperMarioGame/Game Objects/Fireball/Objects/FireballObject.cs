@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class FireballObject : ObjectKernelNew<FireballStateController>, IFireball
+    public class FireballObject : ObjectKernel<FireballStateController>, IFireball
     {
         public FireballObject()
         {

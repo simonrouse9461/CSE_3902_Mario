@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class HiddenBlockCollisionHandler : CollisionHandlerKernelNew<BlockStateController>
+    public class HiddenBlockCollisionHandler : CollisionHandlerKernel<BlockStateController>
     {
 
-        public HiddenBlockCollisionHandler(ICoreNew core) : base(core) { }
+        public HiddenBlockCollisionHandler(ICore core) : base(core) { }
 
         public override void Handle()
         {

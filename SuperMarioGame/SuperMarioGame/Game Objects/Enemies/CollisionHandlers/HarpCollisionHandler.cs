@@ -4,9 +4,9 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HarpCollisionHandler : CollisionHandlerKernelNew<HarpStateController>
+    public class HarpCollisionHandler : CollisionHandlerKernel<HarpStateController>
     {
-        public HarpCollisionHandler(ICoreNew core) : base(core){}
+        public HarpCollisionHandler(ICore core) : base(core){}
 
         public override void Handle()
         {

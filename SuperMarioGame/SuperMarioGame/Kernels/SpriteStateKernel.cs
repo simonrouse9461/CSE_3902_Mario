@@ -8,21 +8,21 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public abstract class SpriteStateKernelNew<TVersion> : ISpriteStateNew where TVersion : IConvertible
+    public abstract class SpriteStateKernel<TVersion> : ISpriteState where TVersion : IConvertible
     {
-        protected ICoreNew Core;
+        protected ICore Core;
         protected Counter ColorTimer { get; set; }
         protected Counter SpriteTimer { get; set; }
         protected Counter VersionTimer { get; set; }
 
-        private Collection<ISpriteNew> SpriteList { get; set; }
-        private ISpriteNew _sprite;
-        public ISpriteNew Sprite
+        private Collection<ISprite> SpriteList { get; set; }
+        private ISprite _sprite;
+        public ISprite Sprite
         {
             get { return _sprite; }
             set { if (!IsHeld) _sprite = value; }
         }
-        private ISpriteNew LastSprite { get; set; }
+        private ISprite LastSprite { get; set; }
 
         private Dictionary<IConvertible, PeriodicFunction<Color>> ColorSchemeList { get; set; }
         private PeriodicFunction<Color> ColorScheme { get; set; }
@@ -74,9 +74,9 @@ namespace SuperMario
         public bool IsRight { get { return Orientation == Orientation.Right; } }
         public bool IsDefaultSprite { get { return Orientation == Orientation.Default; } }
 
-        protected SpriteStateKernelNew()
+        protected SpriteStateKernel()
         {
-            SpriteList = new Collection<ISpriteNew>();
+            SpriteList = new Collection<ISprite>();
             ColorSchemeList = new Dictionary<IConvertible, PeriodicFunction<Color>>();
             VersionAnimatorList = new Dictionary<IConvertible, PeriodicFunction<TVersion>>();
             ActiveVersionAnimatorStack = new LinkedList<PeriodicFunction<TVersion>>();
@@ -86,34 +86,34 @@ namespace SuperMario
             FaceDefault();
         }
 
-        public void SetCore(ICoreNew c)
+        public void SetCore(ICore c)
         {
             Core = c;
         }
 
-        public void PassSprite(ISpriteNew sprite)
+        public void PassSprite(ISprite sprite)
         {
             _sprite = sprite;
             SpriteList.Add(sprite);
         }
 
-        protected void AddSprite<T>() where T : ISpriteNew, new()
+        protected void AddSprite<T>() where T : ISprite, new()
         {
             if (SpriteList.Any(s => s is T)) return;
             SpriteList.Add(new T());
         }
 
-        protected ISpriteNew FindSprite<T>() where T : ISpriteNew
+        protected ISprite FindSprite<T>() where T : ISprite
         {
             return SpriteList.First(sprite => sprite is T);
         }
 
-        protected void SetSprite<T>() where T : ISpriteNew
+        protected void SetSprite<T>() where T : ISprite
         {
             Sprite = FindSprite<T>();
         }
 
-        protected bool IsSprite<T>() where T : ISpriteNew
+        protected bool IsSprite<T>() where T : ISprite
         {
             return Sprite == FindSprite<T>();
         }

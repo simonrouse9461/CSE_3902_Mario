@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class HarpStateController : StateControllerKernelNew<HarpSpriteState, StaticMotionStateNew>
+    public class HarpStateController : StateControllerKernel<HarpSpriteState, StaticMotionState>
     {
         private bool _wasInScreen;
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class OneUpCollisionHandler : CollisionHandlerKernelNew<OneUpStateController>
+    public class OneUpCollisionHandler : CollisionHandlerKernel<OneUpStateController>
     {
-        public OneUpCollisionHandler(ICoreNew core) : base(core) { }
+        public OneUpCollisionHandler(ICore core) : base(core) { }
 
         public override void Handle()
         {

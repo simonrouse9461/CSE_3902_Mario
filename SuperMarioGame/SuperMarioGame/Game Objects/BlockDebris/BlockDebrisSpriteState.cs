@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class BlockDebrisSpriteState : SpriteStateKernelNew<BlockDebrisSpriteVersion>
+    public class BlockDebrisSpriteState : SpriteStateKernel<BlockDebrisSpriteVersion>
     {
         public BlockDebrisSpriteState()
         {

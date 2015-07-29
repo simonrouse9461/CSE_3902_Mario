@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class BlockMotionState : MotionStateKernelNew
+    public class BlockMotionState : MotionStateKernel
     {
         public BlockMotionState()
         {

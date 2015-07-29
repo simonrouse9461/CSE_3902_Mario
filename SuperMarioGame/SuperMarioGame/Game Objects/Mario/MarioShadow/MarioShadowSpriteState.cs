@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class MarioShadowSpriteState : SpriteStateKernelNew<int>
+    public class MarioShadowSpriteState : SpriteStateKernel<int>
     {
         public MarioShadowSpriteState()
         {

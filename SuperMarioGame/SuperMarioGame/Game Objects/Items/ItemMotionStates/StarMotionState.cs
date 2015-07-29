@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class StarMotionState : MotionStateKernelNew
+    public class StarMotionState : MotionStateKernel
     {
 
         public bool Gravity { get; private set; }

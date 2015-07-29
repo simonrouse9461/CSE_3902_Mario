@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class SquashedGoombaSprite : SpriteKernelNew
+    public class SquashedGoombaSprite : SpriteKernel
     {
         public SquashedGoombaSprite()
         {

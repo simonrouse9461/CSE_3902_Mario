@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public interface ISpriteStateNew
+    public interface ISpriteState
     {
-        ISpriteNew Sprite { get; }
+        ISprite Sprite { get; }
         Color Color { get; }
         Orientation Orientation { get; }
         IConvertible Version { get; }
@@ -17,9 +17,9 @@ namespace SuperMario
         bool IsFrozen { get; }
         bool IsHidden { get; }
 
-        void SetCore(ICoreNew c);
+        void SetCore(ICore c);
         void SetOrientation(Orientation orientation);
-        void PassSprite(ISpriteNew sprite);
+        void PassSprite(ISprite sprite);
         void FaceLeft();
         void FaceRight();
         void FaceDefault();

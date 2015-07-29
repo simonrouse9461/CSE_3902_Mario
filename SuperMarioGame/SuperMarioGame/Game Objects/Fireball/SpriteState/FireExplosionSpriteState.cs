@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class FireExplosionSpriteState : SpriteStateKernelNew<int>
+    public class FireExplosionSpriteState : SpriteStateKernel<int>
     {
         public ExplosionSize Size { get; set; }
 

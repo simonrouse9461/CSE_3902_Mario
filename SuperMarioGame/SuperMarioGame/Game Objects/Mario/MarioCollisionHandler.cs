@@ -2,9 +2,9 @@ using System;
 
 namespace SuperMario
 {
-    public class MarioCollisionHandler : CollisionHandlerKernelNew<MarioStateController>
+    public class MarioCollisionHandler : CollisionHandlerKernel<MarioStateController>
     {
-        public MarioCollisionHandler(ICoreNew core) : base(core){}
+        public MarioCollisionHandler(ICore core) : base(core){}
 
         public override void Handle()
         {

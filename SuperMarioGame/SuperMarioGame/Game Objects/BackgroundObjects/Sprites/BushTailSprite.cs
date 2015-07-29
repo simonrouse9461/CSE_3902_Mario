@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class BushTailSprite : SpriteKernelNew
+    public class BushTailSprite : SpriteKernel
     {
         public BushTailSprite()
         {

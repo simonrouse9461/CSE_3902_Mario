@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public abstract class SpriteKernelNew : ISpriteNew
+    public abstract class SpriteKernel : ISprite
     {
-        protected Dictionary<IConvertible, SpriteSourceNew> SourceList { get; private set; }
+        protected Dictionary<IConvertible, SpriteSource> SourceList { get; private set; }
         protected PeriodicFunction<SpriteTransformation> Animation { get; private set; }
         protected Orientation ReferenceOrientation { get; private set; }
         protected Collection<IConvertible> RegisteredVersion { get; private set; }
@@ -73,11 +73,11 @@ namespace SuperMario
 
         public IConvertible Version { get; private set; }
 
-        public ISpriteNew Clone
+        public ISprite Clone
         {
             get
             {
-                var copy = (SpriteKernelNew)MemberwiseClone();
+                var copy = (SpriteKernel)MemberwiseClone();
                 copy.Animation = Utility.DeepClone(Animation);
                 return copy;
             }
@@ -88,19 +88,19 @@ namespace SuperMario
             if (RegisteredVersion.Contains(version)) Version = version;
         }
 
-        protected SpriteKernelNew(IConvertible initialVersion)
+        protected SpriteKernel(IConvertible initialVersion)
         {
-            SourceList = new Dictionary<IConvertible, SpriteSourceNew>();
+            SourceList = new Dictionary<IConvertible, SpriteSource>();
             Animation = new PeriodicFunction<SpriteTransformation>(stage => new SpriteTransformation(0));
             RegisteredVersion = new Collection<IConvertible>();
             Version = initialVersion;
         }
 
-        protected SpriteKernelNew() : this(0) { }
+        protected SpriteKernel() : this(0) { }
 
         protected void AddSource(IConvertible version, string file, OrderedPairs<Rectangle, Orientation> data)
         {
-            SourceList.Add(version, new SpriteSourceNew(file)
+            SourceList.Add(version, new SpriteSource(file)
             {
                 FrameData = data
             });

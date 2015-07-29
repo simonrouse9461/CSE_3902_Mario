@@ -6,16 +6,16 @@ using Microsoft.Xna.Framework;
 namespace SuperMario
 {
     public abstract class AbstractCollisionHandlerKernel<TStateController> : ICollisionHandler
-        where TStateController : IStateControllerNew
+        where TStateController : IStateController
     {
-        protected ICoreNew AbstractCore { get; set; }
+        protected ICore AbstractCore { get; set; }
 
         protected TStateController AbstractStateController
         {
             get { return (TStateController) AbstractCore.GeneralStateController; }
         }
 
-        protected AbstractCollisionHandlerKernel(ICoreNew core)
+        protected AbstractCollisionHandlerKernel(ICore core)
         {
             AbstractCore = core;
         }

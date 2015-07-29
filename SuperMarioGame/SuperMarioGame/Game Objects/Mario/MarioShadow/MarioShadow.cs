@@ -4,7 +4,7 @@
     {
         public MarioShadow() { }
 
-        public MarioShadow(ISpriteNew sprite, Orientation orientation)
+        public MarioShadow(ISprite sprite, Orientation orientation)
         {
             SpriteState.PassSprite(sprite);
             SpriteState.SetOrientation(orientation);

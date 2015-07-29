@@ -1,7 +1,7 @@
 ﻿namespace SuperMario
 {
     public abstract class EnemyStateControllerKernel<TEnemy, TSpriteState, TMotionState> 
-        : StateControllerKernelNew<TSpriteState, TMotionState>, IEnemyStateController
+        : StateControllerKernel<TSpriteState, TMotionState>, IEnemyStateController
         where TEnemy : class, IEnemy
         where TSpriteState : IEnemySpriteState, new()
         where TMotionState : IEnemyMotionState, new()

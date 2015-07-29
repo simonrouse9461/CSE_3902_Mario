@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class SuperFireballCollisionHandler : CollisionHandlerKernelNew<SuperFireballStateController>
+    public class SuperFireballCollisionHandler : CollisionHandlerKernel<SuperFireballStateController>
     {
 
-        public SuperFireballCollisionHandler(ICoreNew core) : base(core) {}
+        public SuperFireballCollisionHandler(ICore core) : base(core) {}
 
         public override void Handle()
         {          

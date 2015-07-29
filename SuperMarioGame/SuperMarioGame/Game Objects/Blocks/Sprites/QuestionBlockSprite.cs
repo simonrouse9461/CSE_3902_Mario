@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class QuestionBlockSprite : SpriteKernelNew
+    public class QuestionBlockSprite : SpriteKernel
     {
         public QuestionBlockSprite()
             : base(QuestionBlockSpriteVersion.YellowOver)

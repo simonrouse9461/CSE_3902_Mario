@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class FireExplosion : ObjectKernelNew<FireExplosionStateController>, IFireball
+    public class FireExplosion : ObjectKernel<FireExplosionStateController>, IFireball
     {
         public FireExplosion()
         {

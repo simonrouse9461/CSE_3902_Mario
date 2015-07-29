@@ -6,9 +6,9 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public abstract class MotionStateKernelNew : IMotionStateNew
+    public abstract class MotionStateKernel : IMotionState
     {
-        private ICoreNew Core { get; set; }
+        private ICore Core { get; set; }
         private Counter Timer { get; set; }
         private Collection<StatusSwitch<IMotion>> MotionList { get; set; }
 
@@ -17,7 +17,7 @@ namespace SuperMario
         public Vector2 Velocity { get; set; }
         public bool IsFrozen { get; private set; }
 
-        public void SetCore(ICoreNew c)
+        public void SetCore(ICore c)
         {
             Core = c;
         }
@@ -27,7 +27,7 @@ namespace SuperMario
             get { return MotionList.All(m => !m.Status); }
         }
 
-        protected MotionStateKernelNew()
+        protected MotionStateKernel()
         {
             Timer = new Counter();
             Velocity = default(Vector2);

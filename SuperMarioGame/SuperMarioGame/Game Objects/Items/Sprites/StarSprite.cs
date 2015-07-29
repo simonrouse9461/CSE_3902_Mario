@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class StarSprite : SpriteKernelNew
+    public class StarSprite : SpriteKernel
     {
         public StarSprite()
         {

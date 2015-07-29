@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class FireflowerStateController : StateControllerKernelNew<StaticSpriteState<FireflowerSprite>, MushroomOneUpMotionState>
+    public class FireflowerStateController : StateControllerKernel<StaticSpriteState<FireflowerSprite>, MushroomOneUpMotionState>
     {
         public void Generate()
         {

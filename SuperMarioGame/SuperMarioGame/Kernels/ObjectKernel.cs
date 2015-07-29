@@ -5,26 +5,26 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public abstract class ObjectKernelNew<TStateController> : IObject
-        where TStateController : IStateControllerNew, new()
+    public abstract class ObjectKernel<TStateController> : IObject
+        where TStateController : IStateController, new()
     {
         // Constructor
-        protected ObjectKernelNew()
+        protected ObjectKernel()
         {
-            Core = new CoreNew<TStateController>(this);
+            Core = new Core<TStateController>(this);
             BarrierHandler = new DefaultBarrierHandler(Core);
         } 
 
         // Object core that wraps all internal components of the object
-        protected CoreNew<TStateController> Core { get; set; }
+        protected Core<TStateController> Core { get; set; }
 
         // Protected Properties
-        protected ISpriteStateNew GeneralSpriteState
+        protected ISpriteState GeneralSpriteState
         {
             get { return Core.GeneralSpriteState; }
         }
 
-        protected IMotionStateNew GeneralMotionState
+        protected IMotionState GeneralMotionState
         {
             get { return Core.GeneralMotionState; }
         }
@@ -142,7 +142,7 @@ namespace SuperMario
 
         public void Update()
         {
-            var haveBarrierHandler = !(GeneralMotionState is StaticMotionStateNew)
+            var haveBarrierHandler = !(GeneralMotionState is StaticMotionState)
                 && BarrierHandler != null
                 && !BarrierHandler.NoBarrier;
             Core.Update();

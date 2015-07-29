@@ -5,7 +5,7 @@ namespace SuperMario
 {
     public class EnemyBarrierHandler : AbstractBarrierHandlerKernel<IEnemyStateController>
     {
-        public EnemyBarrierHandler(ICoreNew core) : base(core) { }
+        public EnemyBarrierHandler(ICore core) : base(core) { }
 
         public override void HandleCollision()
         {

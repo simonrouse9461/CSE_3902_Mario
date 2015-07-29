@@ -6,7 +6,7 @@ namespace SuperMario
     {
         public MarioCollisionHandler DefaultCollisionHandler { get; private set; }
 
-        public StarMarioCollisionHandler(ICoreNew core) : base(core)
+        public StarMarioCollisionHandler(ICore core) : base(core)
         {
             DefaultCollisionHandler = (MarioCollisionHandler)core.CollisionHandler;
         }

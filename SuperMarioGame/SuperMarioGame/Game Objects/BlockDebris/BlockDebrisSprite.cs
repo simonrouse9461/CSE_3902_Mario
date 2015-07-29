@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public class BlockDebrisSprite : SpriteKernelNew
+    public class BlockDebrisSprite : SpriteKernel
     {
         public BlockDebrisSprite()
             : base(BlockDebrisSpriteVersion.Brown)

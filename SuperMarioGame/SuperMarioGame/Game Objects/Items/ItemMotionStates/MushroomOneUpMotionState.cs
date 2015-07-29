@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class MushroomOneUpMotionState : MotionStateKernelNew
+    public class MushroomOneUpMotionState : MotionStateKernel
     {
 
         public bool Gravity { get; private set; }

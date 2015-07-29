@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class OneUpBarrierHandler : BarrierHandlerKernelNew<OneUpStateController>
+    public class OneUpBarrierHandler : BarrierHandlerKernel<OneUpStateController>
     {
 
-        public OneUpBarrierHandler(ICoreNew core) : base(core) { }
+        public OneUpBarrierHandler(ICore core) : base(core) { }
 
         public override void HandleCollision()
         {

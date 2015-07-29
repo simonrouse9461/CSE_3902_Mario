@@ -6,13 +6,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public interface ISpriteNew
+    public interface ISprite
     {
         int Cycle { get; }
         IConvertible Version { get; }
         float Width { get; }
         float Height { get; }
-        ISpriteNew Clone { get; }
+        ISprite Clone { get; }
 
         void SetVersion(IConvertible version);
         void Reset();

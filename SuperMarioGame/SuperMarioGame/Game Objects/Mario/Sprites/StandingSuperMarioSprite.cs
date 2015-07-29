@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class StandingSuperMarioSprite : SpriteKernelNew
+    public class StandingSuperMarioSprite : SpriteKernel
     {
         public StandingSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)

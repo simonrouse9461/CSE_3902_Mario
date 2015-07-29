@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class FireflowerSprite : SpriteKernelNew
+    public class FireflowerSprite : SpriteKernel
     {
         public FireflowerSprite()
         {

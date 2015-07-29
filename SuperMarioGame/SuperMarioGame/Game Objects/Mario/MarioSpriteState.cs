@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class MarioSpriteState : SpriteStateKernelNew<MarioSpriteVersion>
+    public class MarioSpriteState : SpriteStateKernel<MarioSpriteVersion>
     {
         private enum ColorScheme
         {

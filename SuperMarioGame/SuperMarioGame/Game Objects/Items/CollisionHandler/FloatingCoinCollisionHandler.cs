@@ -5,9 +5,9 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class FloatingCoinCollisionHandler : CollisionHandlerKernelNew<FloatingCoinStateController>
+    public class FloatingCoinCollisionHandler : CollisionHandlerKernel<FloatingCoinStateController>
     {
-        public FloatingCoinCollisionHandler(ICoreNew core) : base(core) { }
+        public FloatingCoinCollisionHandler(ICore core) : base(core) { }
 
 
         public override void Handle()

@@ -2,9 +2,9 @@
 
 namespace SuperMario
 {
-    public interface IMotionStateNew
+    public interface IMotionState
     {
-        void  SetCore(ICoreNew c);
+        void  SetCore(ICore c);
         Vector2 Position { get; }
         Vector2 LastSetPosition { get; set; }
         Vector2 Velocity { get; set; }

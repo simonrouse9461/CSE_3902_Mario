@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class MovingShellCollisionHandlerDecorator : CollisionHandlerKernelNew<KoopaStateController>, IDecorator
+    public class MovingShellCollisionHandlerDecorator : CollisionHandlerKernel<KoopaStateController>, IDecorator
     {
         public EnemyCollisionHandler DefaultCollisionHandler { get; private set; }
 
-        public MovingShellCollisionHandlerDecorator(ICoreNew core) : base(core)
+        public MovingShellCollisionHandlerDecorator(ICore core) : base(core)
         {
             DefaultCollisionHandler = (EnemyCollisionHandler)core.CollisionHandler;
         }

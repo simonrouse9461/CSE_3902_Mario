@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class StarCollisionHandler : CollisionHandlerKernelNew<StarStateController>
+    public class StarCollisionHandler : CollisionHandlerKernel<StarStateController>
     {
 
-        public StarCollisionHandler(ICoreNew core) : base(core) { }
+        public StarCollisionHandler(ICore core) : base(core) { }
 
         public override void Handle()
         {

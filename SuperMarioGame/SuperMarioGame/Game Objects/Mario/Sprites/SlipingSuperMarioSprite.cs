@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class SlipingSuperMarioSprite : SpriteKernelNew
+    public class SlipingSuperMarioSprite : SpriteKernel
     {
         public SlipingSuperMarioSprite()
             : base(MarioSpriteVersion.Normal)

@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public interface IEnemySpriteState : ISpriteStateNew
+    public interface IEnemySpriteState : ISpriteState
     {
         bool Dead { get; }
         void Flip();

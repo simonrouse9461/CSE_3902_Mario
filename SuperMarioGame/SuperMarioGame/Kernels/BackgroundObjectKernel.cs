@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace SuperMario
 {
     public abstract class BackgroundObjectKernel<TSpriteState> : IObject 
-        where TSpriteState : ISpriteStateNew, new()
+        where TSpriteState : ISpriteState, new()
     {
         protected BackgroundObjectKernel()
         {

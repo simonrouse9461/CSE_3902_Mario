@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class MushroomCollisionHandler : CollisionHandlerKernelNew<MushroomStateController>
+    public class MushroomCollisionHandler : CollisionHandlerKernel<MushroomStateController>
     {
-        public MushroomCollisionHandler(ICoreNew core) : base(core){ }
+        public MushroomCollisionHandler(ICore core) : base(core){ }
 
         public override void Handle()
         {

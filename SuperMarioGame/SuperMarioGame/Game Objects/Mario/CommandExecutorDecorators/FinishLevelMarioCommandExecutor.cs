@@ -3,7 +3,7 @@
     public class FinishLevelMarioCommandExecutor : MarioCommandExecutor, IDecorator
     {
         public MarioCommandExecutor DefaultCommandExecutor { get; private set; }
-        public FinishLevelMarioCommandExecutor(ICoreNew core) : base(core)
+        public FinishLevelMarioCommandExecutor(ICore core) : base(core)
         {
             DefaultCommandExecutor = (MarioCommandExecutor)core.CommandExecutor;
             ClearCommands();

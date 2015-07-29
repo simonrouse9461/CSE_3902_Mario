@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class BlockDebris : ObjectKernelNew<BlockDebrisStateController>
+    public class BlockDebris : ObjectKernel<BlockDebrisStateController>
     {
         public BlockDebris()
         {

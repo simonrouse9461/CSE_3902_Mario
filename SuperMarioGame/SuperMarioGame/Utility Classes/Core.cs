@@ -3,8 +3,8 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class CoreNew<TStateController> : ICoreNew
-        where TStateController : IStateControllerNew, new()
+    public class Core<TStateController> : ICore
+        where TStateController : IStateController, new()
     {
         private class Reservation
         {
@@ -23,22 +23,22 @@ namespace SuperMario
         public ICommandExecutor CommandExecutor { get; set; }
         public IEventTrigger EventTrigger { get; set; }
 
-        public IStateControllerNew GeneralStateController
+        public IStateController GeneralStateController
         {
             get { return StateController; }
         }
 
-        public ISpriteStateNew GeneralSpriteState
+        public ISpriteState GeneralSpriteState
         {
             get { return StateController.GeneralSpriteState; }
         }
 
-        public IMotionStateNew GeneralMotionState
+        public IMotionState GeneralMotionState
         {
             get { return StateController.GeneralMotionState; }
         }
 
-        public CoreNew(IObject obj)
+        public Core(IObject obj)
         {
             Object = obj;
             Waitlist = new Collection<Reservation>();
@@ -74,7 +74,7 @@ namespace SuperMario
 
         public void SwitchComponent(object component)
         {
-            if (component is ISpriteStateNew || component is IMotionStateNew)
+            if (component is ISpriteState || component is IMotionState)
                 StateController.SwitchComponent(component);
             if (component is ICollisionHandler)
                 CollisionHandler = (ICollisionHandler)component;

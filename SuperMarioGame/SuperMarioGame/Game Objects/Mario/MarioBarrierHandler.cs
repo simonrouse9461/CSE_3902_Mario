@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class MarioBarrierHandler : BarrierHandlerKernelNew<MarioStateController>
+    public class MarioBarrierHandler : BarrierHandlerKernel<MarioStateController>
     {
-        public MarioBarrierHandler(ICoreNew core) : base(core) { }
+        public MarioBarrierHandler(ICore core) : base(core) { }
 
         public override void HandleCollision()
         {

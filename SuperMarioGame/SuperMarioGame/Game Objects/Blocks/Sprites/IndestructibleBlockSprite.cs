@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class IndestructibleBlockSprite : SpriteKernelNew
+    public class IndestructibleBlockSprite : SpriteKernel
     {
 
         public IndestructibleBlockSprite() : base(IndestructibleBlockSpriteVersion.Overworld)

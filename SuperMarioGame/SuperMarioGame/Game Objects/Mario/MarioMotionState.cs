@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class MarioMotionState : MotionStateKernelNew
+    public class MarioMotionState : MotionStateKernel
     {
         public bool Dead { get; private set; }
 

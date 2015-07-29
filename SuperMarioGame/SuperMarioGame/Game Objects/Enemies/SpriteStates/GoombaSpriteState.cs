@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class GoombaSpriteState : SpriteStateKernelNew<int>, IEnemySpriteState
+    public class GoombaSpriteState : SpriteStateKernel<int>, IEnemySpriteState
     {
         public GoombaSpriteState()
         {

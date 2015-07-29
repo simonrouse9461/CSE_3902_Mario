@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class UsedBlockSpriteState : SpriteStateKernelNew<UsedBlockSpriteVersion>
+    public class UsedBlockSpriteState : SpriteStateKernel<UsedBlockSpriteVersion>
     {
 
         private enum VersionAnimator

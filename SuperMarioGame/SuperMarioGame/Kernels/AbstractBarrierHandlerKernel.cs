@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 namespace SuperMario
 {
     public abstract class AbstractBarrierHandlerKernel<TStateController> : IBarrierHandler
-        where TStateController : IStateControllerNew
+        where TStateController : IStateController
     {
         public bool IsBarrier { get; private set; }
 
@@ -19,14 +19,14 @@ namespace SuperMario
         private Collection<Type> BarrierList { get; set; }
         private Collection<Type> BarrierExceptionList { get; set; }
 
-        protected ICoreNew AbstractCore { get; set; }
+        protected ICore AbstractCore { get; set; }
 
         protected TStateController AbstractStateController
         {
             get { return (TStateController) AbstractCore.GeneralStateController; }
         }
 
-        protected AbstractBarrierHandlerKernel(ICoreNew core)
+        protected AbstractBarrierHandlerKernel(ICore core)
         {
             AbstractCore = core;
             BarrierList = new Collection<Type>();

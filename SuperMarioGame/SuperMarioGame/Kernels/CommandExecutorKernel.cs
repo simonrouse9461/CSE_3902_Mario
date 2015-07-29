@@ -6,9 +6,9 @@ using System.Linq;
 namespace SuperMario
 {
     public abstract class CommandExecutorKernel<TStateController> : ICommandExecutor
-        where TStateController : IStateControllerNew, new()
+        where TStateController : IStateController, new()
     {
-        public CoreNew<TStateController> Core { get; set; }
+        public Core<TStateController> Core { get; set; }
         private Collection<Type> RegisteredCommands { get; set; }
         private Collection<StatusSwitch<Type>> CurrentStatus { get; set; }
         private Collection<StatusSwitch<Type>> PreviousStatus { get; set; }
@@ -29,9 +29,9 @@ namespace SuperMario
             PreviousStatus.Add(new StatusSwitch<Type>(type));
         }
 
-        protected CommandExecutorKernel(ICoreNew core)
+        protected CommandExecutorKernel(ICore core)
         {
-            Core = (CoreNew<TStateController>)core;
+            Core = (Core<TStateController>)core;
             
             RegisteredCommands = new Collection<Type>();
             CurrentStatus = new Collection<StatusSwitch<Type>>();

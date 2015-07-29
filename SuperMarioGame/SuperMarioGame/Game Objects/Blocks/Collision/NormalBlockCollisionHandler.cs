@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class NormalBlockCollisionHandler : CollisionHandlerKernelNew<BlockStateController>
+    public class NormalBlockCollisionHandler : CollisionHandlerKernel<BlockStateController>
     {
-        public NormalBlockCollisionHandler(ICoreNew core) : base(core) { }
+        public NormalBlockCollisionHandler(ICore core) : base(core) { }
 
         public override void Handle()
         {

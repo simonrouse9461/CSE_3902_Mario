@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class CoinCollisionHandler : CollisionHandlerKernelNew<CoinStateController>
+    public class CoinCollisionHandler : CollisionHandlerKernel<CoinStateController>
     {
 
-        public CoinCollisionHandler(ICoreNew core) : base(core) { }
+        public CoinCollisionHandler(ICore core) : base(core) { }
 
         public override void Handle()
         {

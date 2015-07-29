@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class SuperFireballStateController : StateControllerKernelNew<SuperFireballSpriteState, SuperFireballMotionState>
+    public class SuperFireballStateController : StateControllerKernel<SuperFireballSpriteState, SuperFireballMotionState>
     {
         public void ToLeft()
         {

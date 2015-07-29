@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public abstract class EnemyKernel<TStateController> : ObjectKernelNew<TStateController>, IEnemy
+    public abstract class EnemyKernel<TStateController> : ObjectKernel<TStateController>, IEnemy
         where TStateController : IEnemyStateController, new()
     {
         protected EnemyKernel()

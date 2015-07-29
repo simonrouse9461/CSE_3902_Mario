@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class RestoringKoopaSprite : SpriteKernelNew
+    public class RestoringKoopaSprite : SpriteKernel
     {
         public RestoringKoopaSprite()
         {

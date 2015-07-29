@@ -4,7 +4,7 @@ using SuperMario.BarrierHandlerDecorators;
 
 namespace SuperMario
 {
-    public class MarioStateController : StateControllerKernelNew<MarioSpriteState, MarioMotionState>
+    public class MarioStateController : StateControllerKernel<MarioSpriteState, MarioMotionState>
     {
         private int MagazineCapacity {get { return SpriteState.HaveSuperFire ? 5 : 2; }}
 

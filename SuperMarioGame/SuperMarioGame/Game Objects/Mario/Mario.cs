@@ -1,6 +1,6 @@
 namespace SuperMario
 {
-    public class Mario : ObjectKernelNew<MarioStateController>, IMario
+    public class Mario : ObjectKernel<MarioStateController>, IMario
     {
         public Mario()
         {

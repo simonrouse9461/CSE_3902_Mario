@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class NormalBlockSprite : SpriteKernelNew
+    public class NormalBlockSprite : SpriteKernel
     {
         public NormalBlockSprite()
             : base(NormalBlockSpriteVersion.Overworld)

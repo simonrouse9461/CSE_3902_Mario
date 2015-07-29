@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class BlockSpriteState : SpriteStateKernelNew<QuestionBlockSpriteVersion>
+    public class BlockSpriteState : SpriteStateKernel<QuestionBlockSpriteVersion>
     {
         //private enum StatusEnum
         //{

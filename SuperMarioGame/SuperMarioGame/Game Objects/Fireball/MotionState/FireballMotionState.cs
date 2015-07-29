@@ -2,7 +2,7 @@
 
 namespace SuperMario
 {
-    public class FireballMotionState : MotionStateKernelNew
+    public class FireballMotionState : MotionStateKernel
     {
         public FireballMotionState()
         {

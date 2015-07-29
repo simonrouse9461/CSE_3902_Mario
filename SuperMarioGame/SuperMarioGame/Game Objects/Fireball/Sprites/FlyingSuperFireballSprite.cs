@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public class FlyingSuperFireballSprite : SpriteKernelNew
+    public class FlyingSuperFireballSprite : SpriteKernel
     {
         public FlyingSuperFireballSprite()
         {

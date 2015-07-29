@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class Flag : ObjectKernelNew<FlagStateController>
+    public class Flag : ObjectKernel<FlagStateController>
     {
         public Flag()
         {

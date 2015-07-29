@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMario
 {
-    public class ExplodingMediumFireballSprite : SpriteKernelNew
+    public class ExplodingMediumFireballSprite : SpriteKernel
     {
         public ExplodingMediumFireballSprite()
         {

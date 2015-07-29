@@ -5,7 +5,7 @@ namespace SuperMario
     public class FinishLevelMarioBarrierHandler : MarioBarrierHandler, IDecorator
     {
         public MarioBarrierHandler DefaultBarrierHandler { get; private set; }
-        public FinishLevelMarioBarrierHandler(ICoreNew core) : base(core)
+        public FinishLevelMarioBarrierHandler(ICore core) : base(core)
         {
             DefaultBarrierHandler = (MarioBarrierHandler)core.BarrierHandler;
             AddBarrier<IObject>();

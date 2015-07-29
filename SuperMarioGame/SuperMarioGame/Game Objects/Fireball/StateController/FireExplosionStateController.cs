@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class FireExplosionStateController : StateControllerKernelNew<FireExplosionSpriteState, StaticMotionStateNew>
+    public class FireExplosionStateController : StateControllerKernel<FireExplosionSpriteState, StaticMotionState>
     {
         public void ToBoth()
         {

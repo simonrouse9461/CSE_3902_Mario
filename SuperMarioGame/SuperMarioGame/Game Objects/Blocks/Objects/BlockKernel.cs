@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SuperMario
 {
-    public class BlockKernel : ObjectKernelNew<BlockStateController>, IBlock
+    public class BlockKernel : ObjectKernel<BlockStateController>, IBlock
     {
         public BlockKernel()
         {

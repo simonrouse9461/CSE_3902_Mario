@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public interface IEnemyMotionState : IMotionStateNew
+    public interface IEnemyMotionState : IMotionState
     {
         void SetDefaultHorizontal();
         bool DefaultHotizontal { get; }

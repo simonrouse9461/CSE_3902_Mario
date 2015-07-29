@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class UpsideDownGoombaSprite : SpriteKernelNew
+    public class UpsideDownGoombaSprite : SpriteKernel
     {
         public UpsideDownGoombaSprite()
         {

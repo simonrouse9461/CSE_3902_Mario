@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class LargeHillSprite : SpriteKernelNew
+    public class LargeHillSprite : SpriteKernel
     {
         public LargeHillSprite()
         {

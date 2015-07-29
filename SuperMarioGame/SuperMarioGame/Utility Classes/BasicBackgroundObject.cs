@@ -1,5 +1,5 @@
 ﻿namespace SuperMario
 {
     public class BasicBackgroundObject<TSprite> : BackgroundObjectKernel<StaticSpriteState<TSprite>>
-        where TSprite : ISpriteNew, new() { }
+        where TSprite : ISprite, new() { }
 }

@@ -1,7 +1,7 @@
 ﻿namespace SuperMario
 {
-    public class StaticSpriteState<TSprite> : SpriteStateKernelNew<int>
-        where TSprite : ISpriteNew, new()
+    public class StaticSpriteState<TSprite> : SpriteStateKernel<int>
+        where TSprite : ISprite, new()
     {
         public StaticSpriteState()
         {

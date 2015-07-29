@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace SuperMario
 {
-    public class FireflowerCollisionHandler : CollisionHandlerKernelNew<FireflowerStateController>
+    public class FireflowerCollisionHandler : CollisionHandlerKernel<FireflowerStateController>
     {
 
-        public FireflowerCollisionHandler(ICoreNew core) : base(core) { }
+        public FireflowerCollisionHandler(ICore core) : base(core) { }
 
         public override void Handle()
         {

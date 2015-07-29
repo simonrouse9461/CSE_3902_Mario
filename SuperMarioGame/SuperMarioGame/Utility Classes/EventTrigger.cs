@@ -6,11 +6,11 @@ namespace SuperMario
 {
     public class EventTrigger : IEventTrigger
     {
-        private ICoreNew Core { get; set; }
+        private ICore Core { get; set; }
 
         private OrderedPairs<Func<bool>, Action> EventList { get; set; }
 
-        public EventTrigger(ICoreNew core)
+        public EventTrigger(ICore core)
         {
             Core = core;
             EventList = new OrderedPairs<Func<bool>, Action>();

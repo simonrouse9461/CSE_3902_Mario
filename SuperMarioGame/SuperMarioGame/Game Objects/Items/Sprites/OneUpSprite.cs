@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class OneUpSprite : SpriteKernelNew
+    public class OneUpSprite : SpriteKernel
     {
         public OneUpSprite()
         {

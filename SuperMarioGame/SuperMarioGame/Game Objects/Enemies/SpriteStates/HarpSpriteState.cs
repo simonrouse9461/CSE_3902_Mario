@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class HarpSpriteState : SpriteStateKernelNew<int>
+    public class HarpSpriteState : SpriteStateKernel<int>
     {
         public HarpSpriteState()
         {

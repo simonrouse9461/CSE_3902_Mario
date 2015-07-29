@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SuperMario
 {
-    public class KoopaSpriteState : SpriteStateKernelNew<int>, IEnemySpriteState
+    public class KoopaSpriteState : SpriteStateKernel<int>, IEnemySpriteState
     {
         public KoopaSpriteState()
         {

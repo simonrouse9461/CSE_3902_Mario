@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class Mushroom : ObjectKernelNew<MushroomStateController>, IItem
+    public class Mushroom : ObjectKernel<MushroomStateController>, IItem
     {
         public Mushroom()
         {

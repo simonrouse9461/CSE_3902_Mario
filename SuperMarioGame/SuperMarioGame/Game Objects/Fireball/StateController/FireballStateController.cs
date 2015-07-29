@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMario
 {
-    public class FireballStateController : StateControllerKernelNew<FireballSpriteState, FireballMotionState>
+    public class FireballStateController : StateControllerKernel<FireballSpriteState, FireballMotionState>
     {
         public void ToLeft()
         {
