@@ -17,8 +17,10 @@
     <XnaProfile>Reach</XnaProfile>
     <XnaCrossPlatformGroupID>0a17a94c-d286-4aed-9c48-789977e9b1b3</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
-    <ApplicationIcon>Game.ico</ApplicationIcon>
-    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <Thumbnail>
+    </Thumbnail>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -149,6 +151,8 @@
     <Compile Include="Game Objects\Enemies\Sprites\SquashedGoombaSprite.cs" />
     <Compile Include="Game Objects\Enemies\Sprites\ShellKoopaSprite.cs" />
     <Compile Include="Game Objects\Enemies\Sprites\WalkingGoombaSprite.cs" />
+    <Compile Include="Game Objects\Pipes\IPipe.cs" />
+    <Compile Include="Game Objects\Pipes\PipeBody.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Game Objects\Enemies\IEnemy.cs" />
     <Compile Include="Helper Classes and Structs\OrderedPairs.cs" />
@@ -168,6 +172,7 @@
     <Compile Include="Game Objects\Mario\MarioShadow\MarioShadow.cs" />
     <Compile Include="Game Objects\Mario\MarioShadow\MarioShadowSpriteState.cs" />
     <Compile Include="Utility Classes\BasicBackgroundObject.cs" />
+    <Compile Include="Utility Classes\BasicBarrierObject.cs" />
     <Compile Include="Utility Classes\EventTrigger.cs" />
     <Compile Include="Kernels\MotionStateKernelNew.cs" />
     <Compile Include="Game Objects\Mario\BarrierHandlerDecorators\FinishLevelMarioBarrierHandler.cs" />
@@ -237,25 +242,18 @@
     <Compile Include="Game Objects\Blocks\Collision\HiddenBlockCollisionHandler.cs" />
     <Compile Include="Game Objects\Blocks\Collision\NormalBlockCollisionHandler.cs" />
     <Compile Include="Game Objects\Blocks\Collision\QuestionBlockCollisionHandler.cs" />
-    <Compile Include="Game Objects\Pipes\IPipe.cs" />
     <Compile Include="Game Objects\Blocks\MotionState\BlockMotionState.cs" />
     <Compile Include="Game Objects\Fireball\MotionState\FireballMotionState.cs" />
     <Compile Include="Game Objects\Blocks\BlockStateController.cs" />
     <Compile Include="Game Objects\Fireball\Objects\FireballObject.cs" />
     <Compile Include="Game Objects\Castle\CastleObject.cs" />
     <Compile Include="Game Objects\Items\FloatingCoinObject.cs" />
-    <Compile Include="Game Objects\Pipes\MediumPipeObject.cs" />
-    <Compile Include="Game Objects\Pipes\SecretPipeObject.cs" />
-    <Compile Include="Game Objects\Pipes\SmallPipeObject.cs" />
-    <Compile Include="Game Objects\Pipes\PipeStateController.cs" />
     <Compile Include="Game Objects\Fireball\SpriteState\FireballSpriteState.cs" />
     <Compile Include="Game Objects\BlockDebris\BlockDebrisSprite.cs" />
     <Compile Include="Game Objects\Castle\CastleSprite.cs" />
     <Compile Include="Game Objects\Fireball\Sprites\ExplodingTinyFireballSprite.cs" />
     <Compile Include="Game Objects\Fireball\Sprites\RotatingFireballSprite.cs" />
-    <Compile Include="Game Objects\Pipes\MediumGreenPipeSprite.cs" />
-    <Compile Include="Game Objects\Pipes\SmallGreenPipeSprite.cs" />
-    <Compile Include="Game Objects\Pipes\SecretGreenPipeSprite.cs" />
+    <Compile Include="Game Objects\Pipes\Sprites\PipeBodySprite.cs" />
     <Compile Include="Motions\InertiaMotion.cs" />
     <Compile Include="Interfaces\ICollisionDetector.cs" />
     <Compile Include="Interfaces\ICommandExecutor.cs" />
@@ -309,14 +307,13 @@
     <Compile Include="Game Objects\Mario\Sprites\RunningSuperMarioSprite.cs" />
     <Compile Include="Game Objects\Mario\Sprites\RunningSmallMarioSprite.cs" />
     <Compile Include="Game Objects\Blocks\Objects\FloorBlockObject.cs" />
-    <Compile Include="Game Objects\Pipes\GreenPipeObject.cs" />
+    <Compile Include="Game Objects\Pipes\PipeHead.cs" />
     <Compile Include="Game Objects\Blocks\Objects\HiddenBlockObject.cs" />
     <Compile Include="Game Objects\Blocks\Objects\BlockKernel.cs" />
     <Compile Include="Game Objects\Blocks\Objects\NormalBlockObject.cs" />
     <Compile Include="Game Objects\Blocks\Objects\QuestionBlockObject.cs" />
-    <Compile Include="Game Objects\Pipes\GreenPipeSpriteState.cs" />
     <Compile Include="Game Objects\Blocks\Sprites\FloorBlockSprite.cs" />
-    <Compile Include="Game Objects\Pipes\LargeGreenPipeSprite.cs" />
+    <Compile Include="Game Objects\Pipes\Sprites\PipeHeadSprite.cs" />
     <Compile Include="Game Objects\Blocks\Sprites\IndestructibleBlockSprite.cs" />
     <Compile Include="Game Objects\Blocks\Sprites\NormalBlockSprite.cs" />
     <Compile Include="Game Objects\Blocks\Sprites\QuestionBlockSprite.cs" />
@@ -327,7 +324,7 @@
     <Compile Include="Motions\DampMotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="MainGame.cs" />
+    <Compile Include="Utility Classes\MainGame.cs" />
     <Compile Include="Utility Classes\CoreNew.cs" />
     <Compile Include="Utility Classes\GameSettings.cs" />
     <Compile Include="Utility Classes\SoundManager.cs" />
@@ -362,10 +359,6 @@
     <Content Include="CODE_REVIEWS\ColinCodeQualityReviewS5.txt" />
     <Content Include="CODE_REVIEWS\ColinReadabilityReviewSprint5.txt" />
     <Content Include="CODE_REVIEWS\HadenCodeQualityReviewS5.txt" />
-    <Content Include="Game.ico" />
-    <Content Include="GameThumbnail.png">
-      <XnaPlatformSpecific>true</XnaPlatformSpecific>
-    </Content>
     <Content Include="obj\x86\Debug\ContentPipeline-{077517F8-B460-4305-B13E-9B769FC7807D}.xml" />
     <Content Include="README.txt" />
   </ItemGroup>
@@ -409,9 +402,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="bin\x86\Debug\WindowsGame1.exe.config" />
-    <None Include="Locations.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

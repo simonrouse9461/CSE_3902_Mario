@@ -107,10 +107,7 @@ namespace SuperMario
                 new Collection<Mario>(),
 
                 // Put green pipe after Mario to allow Mario goes into pipe
-                new Collection<GreenPipeObject>(),
-                new Collection<SmallPipeObject>(),
-                new Collection<MediumPipeObject>(),
-                new Collection<SecretPipeObject>(),
+                new Collection<IPipe>(),
 
                 // Fireball is on the top of everything
                 new Collection<FireExplosion>(),

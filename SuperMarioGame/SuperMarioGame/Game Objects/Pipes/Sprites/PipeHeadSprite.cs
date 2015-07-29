@@ -5,11 +5,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMario
 {
-    public class LargeGreenPipeSprite : SpriteKernelNew
+    public class PipeHeadSprite : SpriteKernelNew
     {
-        public LargeGreenPipeSprite()
+        public PipeHeadSprite()
         {
-            AddSource("pipes green", new Rectangle(229, 68, 32, 64));
+            AddSource("large-object", new Rectangle(304, 416, 32, 16));
         }
     }
 }
