@@ -9,7 +9,6 @@ namespace SuperMario
     {
         public StarSprite()
         {
-
             AddSource(
                 "items",
                 new OrderedPairs<Rectangle, Orientation>{
@@ -18,7 +17,6 @@ namespace SuperMario
                     {new Rectangle(65, 94, 14, 16), Orientation.Default},
                     {new Rectangle(95, 94, 14, 16), Orientation.Default}
                 });
-
             SetAnimation(
                 new[] {
                     new SpriteTransformation(0),

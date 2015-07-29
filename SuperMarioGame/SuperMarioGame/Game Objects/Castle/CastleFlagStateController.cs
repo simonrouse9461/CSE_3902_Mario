@@ -1,6 +1,6 @@
 ﻿namespace SuperMario
 {
-    public class CastleFlagStateController : IStateController
+    public class CastleFlagStateController : StateControllerKernel<StaticSpriteState<CastleFlagSprite>, CastleFlagMotionState>
     {
          
     }

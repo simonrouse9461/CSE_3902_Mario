@@ -11,11 +11,11 @@ namespace SuperMario
         public override void Handle()
         {
             HandleMario();
-            if (Core.StateController.MotionState.isGenerating)
+            if (Core.StateController.MotionState.IsGenerating)
             {
                 HandleGeneration();
             }
-            if (!Core.StateController.MotionState.isGenerating)
+            if (!Core.StateController.MotionState.IsGenerating)
             {
                 HandleObject();
             }

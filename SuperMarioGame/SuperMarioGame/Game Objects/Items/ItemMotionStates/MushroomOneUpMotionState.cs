@@ -9,13 +9,13 @@ namespace SuperMario
 
         public MushroomOneUpMotionState()
         {
-            
-                AddMotion(UniformMotion.ItemMoveLeft);
-                AddMotion(UniformMotion.ItemMoveRight);
-                AddMotion(new GravityMotion());
-                AddMotion(UniformMotion.ItemRaiseUp);
-                AddMotion(BounceUpMotion.ItemBounce);
-            
+
+            AddMotion(UniformMotion.ItemMoveLeft);
+            AddMotion(UniformMotion.ItemMoveRight);
+            AddMotion<GravityMotion>();
+            AddMotion(UniformMotion.ItemRaiseUp);
+            AddMotion(BounceUpMotion.ItemBounce);
+
             LoseGravity();
             SetDefaultHorizontal();
             SetDefaultVertical();
@@ -56,12 +56,9 @@ namespace SuperMario
             Gravity = false;
         }
 
-        public bool isGenerating
+        public bool IsGenerating
         {
-            get
-            {
-                return FindMotion(UniformMotion.ItemRaiseUp).Status;
-            }
+            get { return FindMotion(UniformMotion.ItemRaiseUp).Status; }
         }
 
         public void ChangeDirection()

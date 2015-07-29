@@ -7,11 +7,8 @@ namespace SuperMario
 {
     public class FloatingCoinSprite : SpriteKernel
     {
-
         public FloatingCoinSprite()
         {
-
-
             AddSource(
                 "items",
                 new OrderedPairs<Rectangle, Orientation>{
@@ -20,7 +17,6 @@ namespace SuperMario
                     {new Rectangle(187, 94, 12, 16), Orientation.Default},
                     {new Rectangle(218, 94, 12, 16), Orientation.Default}
                 });
-
             SetAnimation(
                 new[] {
                     new SpriteTransformation(0),
@@ -29,7 +25,5 @@ namespace SuperMario
                     new SpriteTransformation(3)
                 });      
         }
-        
-
     }
 }

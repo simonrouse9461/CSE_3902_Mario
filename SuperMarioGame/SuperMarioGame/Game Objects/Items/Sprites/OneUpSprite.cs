@@ -10,11 +10,7 @@ namespace SuperMario
         public OneUpSprite()
         {
 
-            AddSource(
-                "items",
-                new OrderedPairs<Rectangle, Orientation>{
-                    {new Rectangle(214, 34, 16, 16), Orientation.Default},
-                });
+            AddSource("items", new Rectangle(214, 34, 16, 16), Orientation.Default);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace SuperMario
 
         private void CheckFloor()
         {
-            if (Core.StateController.MotionState.isGenerating) return;
+            if (Core.StateController.MotionState.IsGenerating) return;
             if (BarrierCollision.Bottom.Touch)
             {
                 Core.StateController.MotionState.LoseGravity();
